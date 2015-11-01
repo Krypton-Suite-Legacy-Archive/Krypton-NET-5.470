@@ -3767,6 +3767,39 @@ namespace ComponentFactory.Krypton.Docking
                 return cells.ToArray();
             }
         }
+
+        /// <summary>
+        /// Return the cell the page belongs to, when available (JDH Software add)
+        /// </summary>
+        /// <param name="uniqueName">The uniqueName of the page.</param>
+        /// <returns>The KryptonWorkspaceCell.</returns>
+        public KryptonWorkspaceCell DockingCellForPage(string uniqueName)
+        {
+            //Action depends on current location of the page
+            switch (this.FindPageLocation(uniqueName))
+            {
+                case DockingLocation.Docked:
+                    // Unique name page must be inside a Dockspace instance
+                    KryptonDockingDockspace dockspace = this.FindPageElement(uniqueName) as KryptonDockingDockspace;
+                    // Find the cell containing the unique name page
+                    return dockspace.CellForPage(uniqueName);
+                case DockingLocation.Floating:
+                    // Unique name page must be inside a Dockspace instance
+                    KryptonDockingFloatspace floatspace = this.FindPageElement(uniqueName) as KryptonDockingFloatspace;
+                    // Find the cell containing the unique name page
+                    return floatspace.CellForPage(uniqueName);
+                case DockingLocation.Workspace:
+                    KryptonDockingWorkspace workspace = this.FindPageElement(uniqueName) as KryptonDockingWorkspace;
+                    // Find the cell containing the unique name page
+                    return workspace.CellForPage(uniqueName);
+                case DockingLocation.AutoHidden:
+                case DockingLocation.Navigator:
+                case DockingLocation.Custom:
+                case DockingLocation.None:
+                default:
+                    return null;
+            }
+        }
         #endregion
 
         #region Protected
