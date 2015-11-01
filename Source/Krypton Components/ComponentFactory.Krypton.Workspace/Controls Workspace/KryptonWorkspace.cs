@@ -1737,7 +1737,7 @@ namespace ComponentFactory.Krypton.Workspace
             int visibleCells = 0;
             int numPages = 0;
 
-            if (MaximizedCell != null)
+            if (MaximizedCell != null && MaximizedCell.AllowDroppingPages)
             {
                 // Generate targets for maximized cell only
                 visibleCells = CellVisibleCount;
@@ -1750,7 +1750,7 @@ namespace ComponentFactory.Krypton.Workspace
                 KryptonWorkspaceCell cell = FirstVisibleCell();
                 while (cell != null)
                 {
-                    if (cell.WorkspaceVisible)
+                    if (cell.WorkspaceVisible && cell.AllowDroppingPages)
                     {
                         visibleCells++;
                         numPages += cell.Pages.VisibleCount;
@@ -2236,6 +2236,11 @@ namespace ComponentFactory.Krypton.Workspace
             CommonHelper.TextToXmlAttribute(xmlWriter, "MAXS", CommonHelper.SizeToString(page.MaximumSize), "0, 0");
             CommonHelper.TextToXmlAttribute(xmlWriter, "AHSS", CommonHelper.SizeToString(page.AutoHiddenSlideSize), "150, 150");
             CommonHelper.TextToXmlAttribute(xmlWriter, "F", page.Flags.ToString());
+            
+            //Seb
+            //TODO store object instead of strings
+            CommonHelper.TextToXmlAttribute(xmlWriter, "TAG", page.Tag.ToString());
+            //End Seb
 
             // Write out images as child elements
             CommonHelper.ImageToXmlCData(xmlWriter, "IS", page.ImageSmall);
@@ -2295,6 +2300,10 @@ namespace ComponentFactory.Krypton.Workspace
                 page.MaximumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "MAXS", "0, 0"));
                 page.AutoHiddenSlideSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "AHSS", "150, 150"));
                 page.Flags = int.Parse(CommonHelper.XmlAttributeToText(xmlReader, "F", page.Flags.ToString()));
+
+                //Seb
+                page.Tag = CommonHelper.XmlAttributeToText(xmlReader, "TAG");
+                //End Seb
             }
 
             // Read the next Element

@@ -566,7 +566,7 @@ namespace ComponentFactory.Krypton.Workspace
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void DebugOutput(int indent)
         {
-            Console.WriteLine("{0}Sequence Count:{1} Visible:{2}", new string(' ', indent * 2), Children.Count, Visible);
+            Console.WriteLine("{0}Sequence Count:{1} Visible:{2} Orientation:{3}", new string(' ', indent * 2), Children.Count, Visible, Orientation.ToString());
 
             foreach (object child in Children)
             {
