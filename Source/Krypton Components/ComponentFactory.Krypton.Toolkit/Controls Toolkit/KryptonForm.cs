@@ -566,6 +566,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Tell the content to draw itself on a composition surface
             _drawContent.DrawContentOnComposition = true;
+            _drawContent.Glowing = true;
 
             // Update the fixed header area to that provided
             _headingFixedSize.FixedSize = new Size(compRect.Height, compRect.Height);
@@ -1237,6 +1238,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // The content is definitely not being drawn on a composition
                     _drawContent.DrawContentOnComposition = false;
+                    _drawContent.Glowing = false;
 
                     // A change in window state since last time requires a layout
                     if (_lastWindowState != GetWindowState())

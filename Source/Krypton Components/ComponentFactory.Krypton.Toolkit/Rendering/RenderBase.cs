@@ -259,13 +259,15 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
+        /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Preferred size.</returns>
 		public abstract Size GetContentPreferredSize(ViewLayoutContext context,
 													 IPaletteContent palette,
 													 IContentValues values,
 													 VisualOrientation orientation,
 													 PaletteState state,
-                                                     bool composition);
+                                                     bool composition,
+                                                     bool glowing);
 
 		/// <summary>
 		/// Perform layout calculations on the provided content.
@@ -277,6 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
+        /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Memento with cached information.</returns>
 		public abstract IDisposable LayoutContent(ViewLayoutContext context,
 											      Rectangle availableRect,
@@ -284,7 +287,8 @@ namespace ComponentFactory.Krypton.Toolkit
 											      IContentValues values,
 											      VisualOrientation orientation,
 											      PaletteState state,
-                                                  bool composition);
+                                                  bool composition, 
+                                                  bool glowing);
 
 		/// <summary>
 		/// Perform draw of content using provided memento.
@@ -296,6 +300,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
+        /// <param name="glowing">If compisition, should glowing be drawn.</param>
         /// <param name="allowFocusRect">Allow drawing of focus rectangle.</param>
         public abstract void DrawContent(RenderContext context,
 										 Rectangle displayRect,
@@ -304,6 +309,7 @@ namespace ComponentFactory.Krypton.Toolkit
 										 VisualOrientation orientation,
 										 PaletteState state,
                                          bool composition,
+                                         bool glowing,
                                          bool allowFocusRect);
 
         /// <summary>

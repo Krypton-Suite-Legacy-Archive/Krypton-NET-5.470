@@ -184,7 +184,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     IPaletteTriple paletteTriple = (Enabled ? _calendar.StateNormal.Day : _calendar.StateDisabled.Day);
 
                     _dayMementos[j] = context.Renderer.RenderStandardContent.LayoutContent(context, layoutRectWeek, paletteTriple.PaletteContent,
-                                                                                           this, VisualOrientation.Top, paletteState, false);
+                                                                                           this, VisualOrientation.Top, paletteState, false, false);
                 }
 
                 // Move to next week
@@ -247,7 +247,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (paletteTriple.PaletteContent.GetContentDraw(paletteState) == InheritBool.True)
                     {
                         context.Renderer.RenderStandardContent.DrawContent(context, drawRectWeek, paletteTriple.PaletteContent, _dayMementos[j],
-                                                                           VisualOrientation.Top, paletteState, false, true);
+                                                                           VisualOrientation.Top, paletteState, false,false, true);
                     }
                 }
 

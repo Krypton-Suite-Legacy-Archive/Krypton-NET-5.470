@@ -232,6 +232,11 @@
             Gets and sets if the user can a separator to resize this workspace cell.
             </summary>
         </member>
+        <member name="P:ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.AllowDroppingPages">
+            <summary>
+            Determines if the user can can drop pages in this workspace cell.
+            </summary>
+        </member>
         <member name="P:ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.StarSize">
             <summary>
             Star notation the describes the sizing of the workspace item.

@@ -330,7 +330,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (!skip)
                     {
                         _dayMementos[index] = context.Renderer.RenderStandardContent.LayoutContent(context, layoutRectDay, paletteTriple.PaletteContent,
-                                                                                                   this, VisualOrientation.Top, paletteState, false);
+                                                                                                   this, VisualOrientation.Top, paletteState, false, false);
 
                         // Track the maximum date displayed for this month (exclude disabled days that are shown for
                         // information but cannot actually be selected themselves as part of a multi selection action)
@@ -476,7 +476,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             if (paletteTriple.PaletteContent.GetContentDraw(paletteState) == InheritBool.True)
                             {
                                 context.Renderer.RenderStandardContent.DrawContent(context, drawRectDay, paletteTriple.PaletteContent, _dayMementos[index],
-                                                                                   VisualOrientation.Top, paletteState, false, true);
+                                                                                   VisualOrientation.Top, paletteState, false, false, true);
                             }
                         }
                     }

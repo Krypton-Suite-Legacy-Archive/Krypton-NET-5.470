@@ -235,12 +235,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 _mementoContentShadow1 = context.Renderer.RenderStandardContent.LayoutContent(context, shadowTextRect1,
                                                                                              _contentProvider, this,
                                                                                              VisualOrientation.Top, 
-                                                                                             PaletteState.Normal, false);
+                                                                                             PaletteState.Normal, false,false);
 
                 _mementoContentShadow2 = context.Renderer.RenderStandardContent.LayoutContent(context, shadowTextRect2,
                                                                                              _contentProvider, this,
                                                                                              VisualOrientation.Top,
-                                                                                             PaletteState.Normal, false);
+                                                                                             PaletteState.Normal, false, false);
                 _contentProvider.OverrideTextColor = Color.Empty;
             }
 
@@ -248,7 +248,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _mementoContentText = context.Renderer.RenderStandardContent.LayoutContent(context, _textRect, 
                                                                                        _contentProvider, this, 
                                                                                        VisualOrientation.Top, 
-                                                                                       PaletteState.Normal, false);
+                                                                                       PaletteState.Normal, false, false);
 
             _contentProvider.OverrideTextHint = PaletteTextHint.Inherit;
         }
@@ -282,12 +282,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect1,
                                                                    _contentProvider, _mementoContentShadow1,
                                                                    VisualOrientation.Top,
-                                                                   state, false, true);
+                                                                   state, false,false, true);
 
-                context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect1,
+                context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect2,
                                                                    _contentProvider, _mementoContentShadow2,
                                                                    VisualOrientation.Top,
-                                                                   state, false, true);
+                                                                   state, false, false, true);
 
                 _contentProvider.OverrideTextColor = Color.Empty;
 
@@ -297,7 +297,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     context.Renderer.RenderStandardContent.DrawContent(context, _textRect,
                         _contentProvider, _mementoContentText,
                         VisualOrientation.Top,
-                        state, false, true);
+                        state, false, false, true);
                 }
 
                 _contentProvider.OverrideTextHint = PaletteTextHint.Inherit;
@@ -321,7 +321,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         context.Renderer.RenderStandardContent.DrawContent(context, _textRect,
                             _contentProvider, _mementoContentText,
                             VisualOrientation.Top,
-                            state, DrawOnComposition, true);
+                            state, DrawOnComposition, DrawOnComposition, true);
                     }
                 }
             }

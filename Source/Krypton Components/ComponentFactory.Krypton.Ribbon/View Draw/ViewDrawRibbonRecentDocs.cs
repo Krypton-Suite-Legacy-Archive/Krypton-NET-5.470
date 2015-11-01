@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             return context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _contentProvider, this,
                                                                                   VisualOrientation.Top,
-                                                                                  PaletteState.Normal, false);
+                                                                                  PaletteState.Normal, false, false);
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _memento = context.Renderer.RenderStandardContent.LayoutContent(context, ClientRectangle, 
                                                                             _contentProvider, this,
                                                                             VisualOrientation.Top, 
-                                                                            PaletteState.Normal, false);
+                                                                            PaletteState.Normal, false, false);
         }
         #endregion
 
@@ -123,8 +123,8 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 context.Renderer.RenderStandardContent.DrawContent(context, ClientRectangle,
                     _contentProvider, _memento,
-                    VisualOrientation.Top, 
-                    PaletteState.Normal, false, true);
+                    VisualOrientation.Top,
+                    PaletteState.Normal, false, false, true);
             }
         }
         #endregion

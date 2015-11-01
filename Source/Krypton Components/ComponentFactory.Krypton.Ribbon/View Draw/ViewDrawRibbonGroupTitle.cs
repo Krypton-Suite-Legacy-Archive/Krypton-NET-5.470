@@ -152,7 +152,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _memento = context.Renderer.RenderStandardContent.LayoutContent(context, ClientRectangle,
                                                                                 _contentProvider, this,
                                                                                 VisualOrientation.Top, 
-                                                                                PaletteState.Normal, false);
+                                                                                PaletteState.Normal, false, false);
                 
                 // Cache values that are needed to decide if layout is needed
                 _displayRect = ClientRectangle;
@@ -173,8 +173,8 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 context.Renderer.RenderStandardContent.DrawContent(context, ClientRectangle,
                     _contentProvider, _memento,
-                    VisualOrientation.Top, 
-                    PaletteState.Normal, false, true);
+                    VisualOrientation.Top,
+                    PaletteState.Normal, false, false, true);
             }
         }
         #endregion

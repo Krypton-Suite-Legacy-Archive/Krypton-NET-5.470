@@ -18,9 +18,9 @@ using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide accurate text measuring and drawing capability.
-	/// </summary>
+    /// <summary>
+    /// Provide accurate text measuring and drawing capability.
+    /// </summary>
     public class AccurateText : GlobalId
     {
         #region Static Fields
@@ -43,6 +43,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="prefix">How to process prefix characters.</param>
         /// <param name="hint">Rendering hint.</param>
         /// <param name="composition">Should draw on a composition element.</param>
+        /// <param name="glowing">When on composition draw with glowing.</param>
         /// <param name="disposeFont">Dispose of font when finished with it.</param>
         /// <returns>A memento used to draw the text.</returns>
         public static AccurateTextMemento MeasureString(Graphics g,
@@ -54,6 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                         PaletteTextHotkeyPrefix prefix,
                                                         TextRenderingHint hint,
                                                         bool composition,
+                                                        bool glowing,
                                                         bool disposeFont)
         {
             Debug.Assert(g != null);
@@ -82,7 +84,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Create the format object used when measuring and drawing
-            StringFormat format = new StringFormat {FormatFlags = StringFormatFlags.NoClip};
+            StringFormat format = new StringFormat { FormatFlags = StringFormatFlags.NoClip };
 
             // Ensure that text reflects reversed RTL setting
             if (rtl == RightToLeft.Yes)
@@ -165,12 +167,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     textSize = g.MeasureString(text, font, int.MaxValue, format);
 
-                    if (composition)
+                    if (composition && glowing) //Seb
                     {
                         textSize.Width += GLOW_EXTRA_WIDTH;
                     }
                 }
-                catch {}
+                catch { }
 
                 // Return a memento with drawing details
                 return new AccurateTextMemento(text, font, textSize, format, hint, disposeFont);
@@ -188,6 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="memento">Memento containing text context.</param>
         /// <param name="state">State of the source element.</param>
         /// <param name="composition">Should draw on a composition element.</param>
+        /// <param name="glowing">When on composition draw with glowing.</param>
         /// <returns>True if draw succeeded; False is draw produced an error.</returns>
         public static bool DrawString(Graphics g,
                                       Brush brush,
@@ -195,6 +198,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                       RightToLeft rtl,
                                       VisualOrientation orientation,
                                       bool composition,
+                                      bool glowing,
                                       PaletteState state,
                                       AccurateTextMemento memento)
         {
@@ -268,10 +272,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     try
                     {
-                        if (composition)
+                        if (composition && glowing)
                         {
                             DrawCompositionGlowingText(g, memento.Text, memento.Font, rect, state,
-                                                       SystemColors.ActiveCaptionText, true);
+                                SystemColors.ActiveCaptionText, true);
+                        }
+                        else if (composition)
+                        {
+                            //Check if correct in all cases
+                            SolidBrush tmpBrush = brush as SolidBrush;
+                            Color tmpColor;
+                            if (tmpBrush.Color == null)
+                                tmpColor = SystemColors.ActiveCaptionText;
+                            else
+                                tmpColor = tmpBrush.Color;
+
+                            DrawCompositionText(g, memento.Text, memento.Font, rect, state,
+                              tmpColor, true, memento.Format);
                         }
                         else
                         {
@@ -304,7 +321,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             return ret;
         }
-		#endregion
+        #endregion
 
         #region Implementation
         /// <summary>
@@ -317,14 +334,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State of the source element.</param>
         /// <param name="color">Color of the text.</param>
         /// <param name="copyBackground">Should existing background be copied into the bitmap.</param>
-        public static void DrawCompositionGlowingText(Graphics g, 
-                                                      string text, 
-                                                      Font font, 
-                                                      Rectangle bounds, 
+        public static void DrawCompositionGlowingText(Graphics g,
+                                                      string text,
+                                                      Font font,
+                                                      Rectangle bounds,
                                                       PaletteState state,
                                                       Color color,
                                                       bool copyBackground)
-		{
+        {
             try
             {
                 // Get the hDC for the graphics instance and create a memory DC
@@ -400,9 +417,225 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must remember to release the hDC
                 g.ReleaseHdc(gDC);
             }
-            catch 
+            catch
             {
             }
+        }
+
+        /// <summary>
+        /// Draw text without a glowing background, for use on a composition element.
+        /// </summary>
+        /// <param name="g">Graphics reference.</param>
+        /// <param name="text">Text to be drawn.</param>
+        /// <param name="font">Font to use for text.</param>
+        /// <param name="bounds">Bounding area for the text.</param>
+        /// <param name="state">State of the source element.</param>
+        /// <param name="color">Color of the text.</param>
+        /// <param name="copyBackground">Should existing background be copied into the bitmap.</param>
+        /// <param name="sf">StringFormat of the memento.</param>
+        public static void DrawCompositionText(Graphics g,
+                                                      string text,
+                                                      Font font,
+                                                      Rectangle bounds,
+                                                      PaletteState state,
+                                                      Color color,
+                                                      bool copyBackground,
+                                                      StringFormat sf)
+        {
+            try
+            {
+                // Get the hDC for the graphics instance and create a memory DC
+                IntPtr gDC = g.GetHdc();
+                IntPtr mDC = PI.CreateCompatibleDC(gDC);
+
+                PI.BITMAPINFO bmi = new PI.BITMAPINFO();
+                bmi.biSize = Marshal.SizeOf(bmi);
+                bmi.biWidth = bounds.Width;
+                bmi.biHeight = -(bounds.Height);
+                bmi.biCompression = 0;
+                bmi.biBitCount = 32;
+                bmi.biPlanes = 1;
+
+                // Create a device independant bitmp and select into the memory DC
+                IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
+                PI.SelectObject(mDC, hDIB);
+
+                if (copyBackground)
+                {
+                    // Copy existing background into the bitmap
+                    PI.BitBlt(mDC, 0, 0, bounds.Width, bounds.Height,
+                              gDC, bounds.X, bounds.Y, 0x00CC0020);
+                }
+
+                // Select the font for use when drawing
+                IntPtr hFont = font.ToHfont();
+                PI.SelectObject(mDC, hFont);
+
+                // Get renderer for the correct state
+                VisualStyleRenderer renderer = new VisualStyleRenderer(state == PaletteState.Normal ? VisualStyleElement.Window.Caption.Active :
+                                                                                                      VisualStyleElement.Window.Caption.Inactive);
+
+                // Create structures needed for theme drawing call
+                PI.RECT textBounds = new PI.RECT();
+                textBounds.left = 0;
+                textBounds.top = 0;
+                textBounds.right = (bounds.Right - bounds.Left);
+                textBounds.bottom = (bounds.Bottom - bounds.Top);
+                PI.DTTOPTS dttOpts = new PI.DTTOPTS();
+                dttOpts.dwSize = Marshal.SizeOf(typeof(PI.DTTOPTS));
+                dttOpts.dwFlags = PI.DTT_COMPOSITED | PI.DTT_TEXTCOLOR;
+                dttOpts.crText = ColorTranslator.ToWin32(color);
+
+                // Always draw text centered
+                TextFormatFlags textFormat = TextFormatFlags.SingleLine |
+                                             TextFormatFlags.HorizontalCenter |
+                                             TextFormatFlags.VerticalCenter;
+                ////Seb   |  TextFormatFlags.EndEllipsis;
+
+
+                // Perform actual drawing
+                //PI.DrawThemeTextEx(renderer.Handle,
+                //                   mDC, 0, 0,
+                //                   text, -1, (int)StringFormatToFlags(sf),
+                //                   ref textBounds, ref dttOpts);
+                PI.DrawThemeTextEx(renderer.Handle,
+                                  mDC, 0, 0,
+                                  text, -1, (int)textFormat,
+                                  ref textBounds, ref dttOpts);
+
+                // Copy to foreground
+                PI.BitBlt(gDC,
+                          bounds.Left, bounds.Top,
+                          bounds.Width, bounds.Height,
+                          mDC, 0, 0, 0x00CC0020);
+
+                // Dispose of allocated objects
+                PI.DeleteObject(hFont);
+                PI.DeleteObject(hDIB);
+                PI.DeleteDC(mDC);
+
+                // Must remember to release the hDC
+                g.ReleaseHdc(gDC);
+            }
+            catch
+            {
+            }
+        }
+
+
+        private static StringFormat FlagsToStringFormat(TextFormatFlags flags)
+        {
+            StringFormat sf = new StringFormat();
+
+            // Translation table: http://msdn.microsoft.com/msdnmag/issues/06/03/TextRendering/default.aspx?fig=true#fig4
+
+            // Horizontal Alignment
+            if ((flags & TextFormatFlags.HorizontalCenter) == TextFormatFlags.HorizontalCenter)
+                sf.Alignment = StringAlignment.Center;
+            else if ((flags & TextFormatFlags.Right) == TextFormatFlags.Right)
+                sf.Alignment = StringAlignment.Far;
+            else
+                sf.Alignment = StringAlignment.Near;
+
+            // Vertical Alignment
+            if ((flags & TextFormatFlags.Bottom) == TextFormatFlags.Bottom)
+                sf.LineAlignment = StringAlignment.Far;
+            else if ((flags & TextFormatFlags.VerticalCenter) == TextFormatFlags.VerticalCenter)
+                sf.LineAlignment = StringAlignment.Center;
+            else
+                sf.LineAlignment = StringAlignment.Near;
+
+            // Ellipsis
+            if ((flags & TextFormatFlags.EndEllipsis) == TextFormatFlags.EndEllipsis)
+                sf.Trimming = StringTrimming.EllipsisCharacter;
+            else if ((flags & TextFormatFlags.PathEllipsis) == TextFormatFlags.PathEllipsis)
+                sf.Trimming = StringTrimming.EllipsisPath;
+            else if ((flags & TextFormatFlags.WordEllipsis) == TextFormatFlags.WordEllipsis)
+                sf.Trimming = StringTrimming.EllipsisWord;
+            else
+                sf.Trimming = StringTrimming.Character;
+
+            // Hotkey Prefix
+            if ((flags & TextFormatFlags.NoPrefix) == TextFormatFlags.NoPrefix)
+                sf.HotkeyPrefix = HotkeyPrefix.None;
+            else if ((flags & TextFormatFlags.HidePrefix) == TextFormatFlags.HidePrefix)
+                sf.HotkeyPrefix = HotkeyPrefix.Hide;
+            else
+                sf.HotkeyPrefix = HotkeyPrefix.Show;
+
+            // Text Padding
+            if ((flags & TextFormatFlags.NoPadding) == TextFormatFlags.NoPadding)
+                sf.FormatFlags |= StringFormatFlags.FitBlackBox;
+
+            // Text Wrapping
+            if ((flags & TextFormatFlags.SingleLine) == TextFormatFlags.SingleLine)
+                sf.FormatFlags |= StringFormatFlags.NoWrap;
+            else if ((flags & TextFormatFlags.TextBoxControl) == TextFormatFlags.TextBoxControl)
+                sf.FormatFlags |= StringFormatFlags.LineLimit;
+
+            // Other Flags
+            //if ((flags & TextFormatFlags.RightToLeft) == TextFormatFlags.RightToLeft)
+            //        sf.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+            if ((flags & TextFormatFlags.NoClipping) == TextFormatFlags.NoClipping)
+                sf.FormatFlags |= StringFormatFlags.NoClip;
+
+            return sf;
+        }
+
+        private static TextFormatFlags StringFormatToFlags(StringFormat sf)
+        {
+            TextFormatFlags flags = new TextFormatFlags();
+
+            // Translation table: http://msdn.microsoft.com/msdnmag/issues/06/03/TextRendering/default.aspx?fig=true#fig4
+
+            // Horizontal Alignment
+            if (sf.Alignment == StringAlignment.Center)
+                flags = flags & TextFormatFlags.HorizontalCenter;
+            else if (sf.Alignment == StringAlignment.Far)
+                flags = flags & TextFormatFlags.Right;
+            else
+                flags = flags & TextFormatFlags.Left;
+
+            // Vertical Alignment
+            if (sf.LineAlignment == StringAlignment.Far)
+                flags = flags & TextFormatFlags.Bottom;
+            else if (sf.LineAlignment == StringAlignment.Center)
+                flags = flags & TextFormatFlags.VerticalCenter;
+            else
+                flags = flags & TextFormatFlags.Top;
+
+            // Ellipsis
+            if (sf.Trimming == StringTrimming.EllipsisCharacter)
+                flags = flags & TextFormatFlags.EndEllipsis;
+            else if (sf.Trimming == StringTrimming.EllipsisPath)
+                flags = flags & TextFormatFlags.PathEllipsis;
+            else if (sf.Trimming == StringTrimming.EllipsisWord)
+                flags = flags & TextFormatFlags.WordEllipsis;
+
+            // Hotkey Prefix
+            if (sf.HotkeyPrefix == HotkeyPrefix.None)
+                flags = flags & TextFormatFlags.NoPrefix;
+            else if (sf.HotkeyPrefix == HotkeyPrefix.Hide)
+                flags = flags & TextFormatFlags.HidePrefix;
+
+            // Text Padding
+            if (sf.FormatFlags == StringFormatFlags.FitBlackBox)
+                flags = flags & TextFormatFlags.NoPadding;
+
+            // Text Wrapping
+            if (sf.FormatFlags == StringFormatFlags.NoWrap)
+                flags = flags & TextFormatFlags.SingleLine;
+            else if (sf.FormatFlags == StringFormatFlags.LineLimit)
+                flags = flags & TextFormatFlags.TextBoxControl;
+
+            // Other Flags
+            if (sf.FormatFlags == StringFormatFlags.DirectionRightToLeft)
+                flags = flags & TextFormatFlags.RightToLeft;
+
+            if (sf.FormatFlags == StringFormatFlags.NoClip)
+                flags = flags & TextFormatFlags.NoClipping;
+
+            return flags;
         }
         #endregion
     }

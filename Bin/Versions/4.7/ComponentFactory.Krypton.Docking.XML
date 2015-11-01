@@ -3572,6 +3572,13 @@
             Gets an array of all the cells inside a dockable workspace inside the docking hierarchy.
             </summary>
         </member>
+        <member name="M:ComponentFactory.Krypton.Docking.KryptonDockingManager.DockingCellForPage(System.String)">
+            <summary>
+            Return the cell the page belongs to, when available (JDH Software add)
+            </summary>
+            <param name="uniqueName">The uniqueName of the page.</param>
+            <returns>The KryptonWorkspaceCell.</returns>
+        </member>
         <member name="M:ComponentFactory.Krypton.Docking.KryptonDockingManager.OnAutoHiddenSeparatorResize(ComponentFactory.Krypton.Docking.AutoHiddenSeparatorResizeEventArgs)">
             <summary>
             Raises the AutoHiddenSeparatorResize event.

@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Grab the required size for the content images
             return context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _paletteContent, 
                                                                                   this, VisualOrientation.Top,
-                                                                                  State, false);
+                                                                                  State, false, false);
         }
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _mementoContent = context.Renderer.RenderStandardContent.LayoutContent(context, ClientRectangle, 
                                                                                    _paletteContent, this, 
                                                                                    VisualOrientation.Top,
-                                                                                   State, false);
+                                                                                   State, false, false);
         }
         #endregion
 
@@ -181,7 +181,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     context.Renderer.RenderStandardContent.DrawContent(context, ClientRectangle, _paletteContent, 
                                                                        _mementoContent, VisualOrientation.Top, 
-                                                                       State, false, false);
+                                                                       State, false, false,  false);
                 }
 
                 // Are we allowed to draw border?

@@ -396,6 +396,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (child is ViewDrawContent viewContent)
                 {
                     viewContent.DrawContentOnComposition = DrawCanvasOnComposition;
+                    viewContent.Glowing = viewContent.DrawContentOnComposition;
                 }
             }
 
@@ -474,6 +475,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Update the content accordingly
                     viewContent.DrawContentOnComposition = DrawCanvasOnComposition && !drawBackground;
+                    viewContent.Glowing = viewContent.DrawContentOnComposition;
                 }
             }
 

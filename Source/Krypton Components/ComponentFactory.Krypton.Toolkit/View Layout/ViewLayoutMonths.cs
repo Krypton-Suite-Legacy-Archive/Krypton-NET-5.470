@@ -17,10 +17,10 @@ using System.Globalization;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating/destroying month instances in a grid.
-	/// </summary>
-	public class ViewLayoutMonths : ViewComposite, 
+    /// <summary>
+    /// Extends the ViewComposite by creating/destroying month instances in a grid.
+    /// </summary>
+    public class ViewLayoutMonths : ViewComposite,
                                     IContentValues
     {
         #region Type Definitions
@@ -58,10 +58,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _firstTimeSync;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutMonths class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Provider of context menu information.</param>
         /// <param name="monthCalendar">Reference to owning month calendar entry.</param>
         /// <param name="viewManager">Owning view manager instance.</param>
@@ -132,16 +132,16 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawHeader.Add(_drawToday, ViewDockStyle.Left);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutMonths:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Public
         /// <summary>
@@ -346,7 +346,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewDrawMonth target = ((ViewDrawMonth)this[(ptCol + (ptRow * cols)) + 1]);
             return target.ViewDrawMonthDays.DayNearPoint(pt);
         }
-    
+
         /// <summary>
         /// Gets the button for the day that is under the provided point.
         /// </summary>
@@ -386,7 +386,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Calculate the next set of months shown
             DateTime nextMonth = _displayMonth.AddMonths(move);
-            DateTime lastDate = nextMonth.AddMonths(Calendar.CalendarDimensions.Width * 
+            DateTime lastDate = nextMonth.AddMonths(Calendar.CalendarDimensions.Width *
                                                     Calendar.CalendarDimensions.Height);
 
             DateTime ld = lastDate.AddDays(-1);
@@ -516,8 +516,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="context">Layout context.</param>
 		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        {
+            Debug.Assert(context != null);
 
             SyncData(context);
             SyncMonths();
@@ -546,21 +546,21 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             SyncData(context);
             SyncMonths();
-            
+
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Is there a today header to layout?
             if (_drawHeader.Visible)
@@ -599,7 +599,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
+        #endregion
 
         #region IContentValues
         /// <summary>
@@ -746,7 +746,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Is there a change in the selection range?
-            if ((_oldSelectionStart != Calendar.SelectionStart) || 
+            if ((_oldSelectionStart != Calendar.SelectionStart) ||
                 (_oldSelectionEnd != Calendar.SelectionEnd) ||
                 (_oldFocusDay != FocusDay) ||
                 _firstTimeSync)
@@ -890,13 +890,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _shortText = _dayMeasure;
 
             // Find sizes required for the different 
-            Size normalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
-            Size disabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size trackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size pressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StatePressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedTrackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedPressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedPressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size normalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Normal, false, false);
+            Size disabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
+            Size trackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
+            Size pressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StatePressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
+            Size checkedNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
+            Size checkedTrackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
+            Size checkedPressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedPressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
 
             // Find largest size required
             normalSize.Width = Math.Max(normalSize.Width, Math.Max(disabledSize.Width, Math.Max(trackingSize.Width, Math.Max(pressedSize.Width, Math.Max(checkedNormalSize.Width, Math.Max(checkedTrackingSize.Width, checkedPressedSize.Width))))));
@@ -910,14 +910,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _shortText = "A";
 
             // Find sizes required for the different 
-            Size shortNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
-            Size shortDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size shortNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Normal, false, false);
+            Size shortDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
 
             _shortText = "A" + _dayOfWeekMeasure;
 
             // Find sizes required for the different 
-            Size fullNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top,  PaletteState.Normal, false);
-            Size fullDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size fullNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Normal, false, false);
+            Size fullDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false, false);
 
             // Find largest size required (subtract a fudge factor of 3 pixels as Graphics.MeasureString is always too big)
             fullNormalSize.Width = Math.Max(fullNormalSize.Width - shortNormalSize.Width - 3, fullDisabledSize.Width - shortDisabledSize.Width - 3);
@@ -928,7 +928,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private DateTime FirstDayOfMonth(DateTime dt)
         {
-            dt = dt.AddDays(- (dt.Day - 1));
+            dt = dt.AddDays(-(dt.Day - 1));
             return JustDay(dt);
         }
 

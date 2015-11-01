@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Component = _ribbonTab;
 
             // Create and add the draw content for display inside the tab
-            Add(new ViewDrawContent(_contentProvider, this, VisualOrientation.Top));
+            Add(new ViewDrawContent(_contentProvider, this, VisualOrientation.Top, true, false));
 
             // Create the state specific memento array
             _mementos = new IDisposable[Enum.GetValues(typeof(PaletteState)).Length];

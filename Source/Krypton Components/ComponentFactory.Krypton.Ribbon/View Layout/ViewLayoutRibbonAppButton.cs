@@ -9,6 +9,8 @@
 // *****************************************************************************
 
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -36,7 +38,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonAppButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="bottomHalf">Scroller orientation.</param>
         public ViewLayoutRibbonAppButton(KryptonRibbon ribbon,
@@ -58,16 +60,16 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(new ViewLayoutRibbonSeparator(APPBUTTON_WIDTH, APPBUTTON_GAP, true), ViewDockStyle.Fill);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonAppButton:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region OwnerForm
         /// <summary>

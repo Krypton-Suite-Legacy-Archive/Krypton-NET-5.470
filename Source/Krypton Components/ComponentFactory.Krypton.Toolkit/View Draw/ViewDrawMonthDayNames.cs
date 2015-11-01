@@ -119,7 +119,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 _dayMementos[i] = context.Renderer.RenderStandardContent.LayoutContent(context, layoutRect, _calendar.StateNormal.DayOfWeek.Content, this, 
-                                                                                       VisualOrientation.Top, state, false);
+                                                                                       VisualOrientation.Top, state, false,false);
 
                 // Move across to next day
                 layoutRect.X += _months.SizeDays.Width;
@@ -149,8 +149,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Draw using memento cached from the layout call
                 if (_dayMementos[day % 7] != null)
                 {
-                    context.Renderer.RenderStandardContent.DrawContent(context, drawRect, _calendar.StateNormal.DayOfWeek.Content, _dayMementos[day % 7], 
-                                                                       VisualOrientation.Top, state, false, true);
+                    context.Renderer.RenderStandardContent.DrawContent(context, drawRect,
+                        _calendar.StateNormal.DayOfWeek.Content, _dayMementos[day % 7],
+                        VisualOrientation.Top, state, false, false, true);
                 }
 
                 // Move across to next day

@@ -127,7 +127,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Ask the renderer for the contents preferred size
                 _preferredSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _contentProvider, 
                                                                                                 this, VisualOrientation.Top,
-                                                                                                State, false);
+                                                                                                State, false, false);
 
                 // Subtract the extra space used to ensure it draws
                 _heightExtra = (_ribbon.CalculatedValues.DrawFontHeight - _ribbon.CalculatedValues.RawFontHeight) * 2;
@@ -185,7 +185,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _memento = context.Renderer.RenderStandardContent.LayoutContent(context, drawRect,
                                                                                 _contentProvider, this,
                                                                                 VisualOrientation.Top, 
-                                                                                PaletteState.Normal, false);
+                                                                                PaletteState.Normal, false, false);
 
                 // Cache values that are needed to decide if layout is needed
                 _displayRect = ClientRectangle;
@@ -213,7 +213,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 context.Renderer.RenderStandardContent.DrawContent(context, drawRect,
                     _contentProvider, _memento,
                     VisualOrientation.Top,
-                    State, false, true);
+                    State, false, false, true);
             }
         }
         #endregion
