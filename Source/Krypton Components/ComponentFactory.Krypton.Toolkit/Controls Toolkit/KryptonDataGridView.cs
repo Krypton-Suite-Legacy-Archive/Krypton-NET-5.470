@@ -28,6 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDataGridView), "ToolboxBitmaps.KryptonDataGridView.bmp")]
     [DesignerCategory("code")]
+    [Designer("ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner, ComponentFactory.Krypton.Design, Version=4.4.0.2, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Display rows and columns of data if a grid you can customize.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -165,6 +166,11 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _toolTipText;
         private byte _oldLocation;
         private DataGridViewCell _oldCell;
+
+        //Seb
+        private string _searchString;
+        private List<int> _restrictColumnsSearch;
+
         #endregion
 
         #region Events
@@ -204,6 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        [SecuritySafeCritical]
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -780,6 +787,39 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return _palette;
         }
+
+        /// <summary>
+        /// Gets or Sets the internal KryptonDataGridView CellOver
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Point CellOver
+        {
+            get { return _cellOver; }
+            set { _cellOver = value; }
+        }
+
+        //seb
+        /// <summary>
+        /// Highlight search strings in the DataGridView 
+        /// </summary>
+        /// <param name="s">The string to search.</param>
+        public void HighlightSearch(string s)
+        {
+            HighlightSearch(s, new List<int>());
+        }
+
+        /// <summary>
+        /// Highlight search strings in the DataGridView 
+        /// </summary>
+        /// <param name="s">The string to search.</param>
+        /// <param name="columnsIndex">The columns where highlighting is possible, empty list means all columns.</param>
+        public void HighlightSearch(string s, List<int> columnsIndex)
+        {
+            _searchString = s;
+            _restrictColumnsSearch = columnsIndex;
+            Invalidate();
+        }
         #endregion
 
         #region Protected
@@ -1269,6 +1309,63 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Blit the image onto the screen
                                 e.Graphics.DrawImage(tempBitmap, e.CellBounds.Location);
 
+                                //Seb Search highlight 
+                                //Empty _restrictColumnsSearch means highlight everywhere
+                                if (!string.IsNullOrEmpty(_searchString) && (_restrictColumnsSearch.Count == 0 || (_restrictColumnsSearch.Count != 0  && _restrictColumnsSearch.Contains(e.ColumnIndex))) && e.FormattedValue.GetType().Name != "Bitmap")
+                                {
+                                    string val = (string)e.FormattedValue;
+                                    int sindx = val.ToLower().IndexOf(_searchString.ToLower());
+                                    int sCount = 1;
+                                    while (sindx >= 0)
+                                    {
+                                        Rectangle hl_rect = new Rectangle();
+                                        hl_rect.Y = e.CellBounds.Y + 2;
+                                        hl_rect.Height = e.CellBounds.Height - 5;
+
+                                        string sBefore = val.Substring(0, sindx);
+                                        string sWord = val.Substring(sindx, _searchString.Length);
+                                        Size s1 = TextRenderer.MeasureText(e.Graphics, sBefore, e.CellStyle.Font, e.CellBounds.Size);
+                                        Size s2 = TextRenderer.MeasureText(e.Graphics, sWord, e.CellStyle.Font, e.CellBounds.Size);
+
+                                        if (s1.Width > 5)
+                                        {
+                                            hl_rect.X = e.CellBounds.X + e.CellStyle.Padding.Left + s1.Width-4;
+                                            hl_rect.Width = s2.Width -7;
+                                        }
+                                        else
+                                        {
+                                            hl_rect.X = e.CellBounds.X + 2 + e.CellStyle.Padding.Left;
+                                            hl_rect.Width = s2.Width - 6;
+                                        }
+
+                                        //Original
+                                        //if (s1.Width > 5)
+                                        //{
+                                        //    hl_rect.X = e.CellBounds.X + s1.Width - 5;
+                                        //    hl_rect.Width = s2.Width - 6;
+                                        //}
+                                        //else
+                                        //{
+                                        //    hl_rect.X = e.CellBounds.X + 2;
+                                        //    hl_rect.Width = s2.Width - 6;
+                                        //}
+
+                                        SolidBrush hl_brush;
+                                        if (((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None))
+                                        {
+                                            hl_brush = new SolidBrush(Color.DarkGoldenrod);
+                                        }
+                                        else
+                                        {
+                                            hl_brush = new SolidBrush(Color.Yellow);
+                                        }
+
+                                        e.Graphics.FillRectangle(hl_brush, hl_rect);
+
+                                        hl_brush.Dispose();
+                                        sindx = val.ToLower().IndexOf(_searchString.ToLower(), sCount++);
+                                    }
+                                }
                                 // Let column do the painting
                                 e.Paint(e.ClipBounds, e.PaintParts & (DataGridViewPaintParts.ContentForeground | DataGridViewPaintParts.ContentBackground));
                             }
@@ -1559,6 +1656,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Always turn off the base functionality as we do it instead.
             base.ShowCellToolTips = false;
+
+            //Seb
+            _searchString = string.Empty;
         }
 
         private void SetupSyncCellStyles()
