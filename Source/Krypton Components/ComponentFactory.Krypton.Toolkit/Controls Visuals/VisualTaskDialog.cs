@@ -204,7 +204,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _messageText.Text = _mainInstruction;
             // If the content has more than 20 lines, use the multiline text control
             if (string.IsNullOrEmpty(_content))
+            {
                 _messageContent.Text = string.Empty;
+            }
             else if (_content.Length - _content.Replace("\n", "").Length > 20)
             {
                 _messageContentMultiline.Text = _content;
@@ -595,7 +597,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 var w  = (int)Math.Min(messageContentSize.Width,  dispSize.Width  * 0.6);
                 var sz = new Size(w, h);
                 if (messageContentSize != sz)
+                {
                     messageContentSize  = sz;
+                }
 
                 // Work out DPI adjustment factor
                 float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;

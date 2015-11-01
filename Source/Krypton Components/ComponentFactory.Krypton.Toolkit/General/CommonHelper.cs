@@ -197,12 +197,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Only create the instance when it is first needed
-                if (_nullContentValues == null)
-                {
-                    _nullContentValues = new NullContentValues();
-                }
-
-                return _nullContentValues;
+                return _nullContentValues ?? (_nullContentValues = new NullContentValues());
             }
         }
 
@@ -1726,12 +1721,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             try
             {
-                string ret = xmlReader.GetAttribute(name);
-                
-                if (ret == null)
-                {
-                    ret = def;
-                }
+                string ret = xmlReader.GetAttribute(name) ?? def;
 
                 return ret;
             }

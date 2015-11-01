@@ -264,14 +264,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Image ret = _primary.GetBackImage(Override ? OverrideState : state);
+                Image ret = _primary.GetBackImage(Override ? OverrideState : state) ?? _backup.GetBackImage(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetBackImage(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {

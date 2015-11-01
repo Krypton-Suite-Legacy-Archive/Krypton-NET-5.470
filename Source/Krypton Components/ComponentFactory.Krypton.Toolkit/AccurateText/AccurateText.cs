@@ -281,11 +281,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             //Check if correct in all cases
                             SolidBrush tmpBrush = brush as SolidBrush;
-                            Color tmpColor;
-                            if (tmpBrush.Color == null)
-                                tmpColor = SystemColors.ActiveCaptionText;
-                            else
-                                tmpColor = tmpBrush.Color;
+                            Color tmpColor = tmpBrush?.Color ?? SystemColors.ActiveCaptionText;
 
                             DrawCompositionText(g, memento.Text, memento.Font, rect, state,
                               tmpColor, true, memento.Format);
@@ -531,53 +527,87 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Horizontal Alignment
             if ((flags & TextFormatFlags.HorizontalCenter) == TextFormatFlags.HorizontalCenter)
+            {
                 sf.Alignment = StringAlignment.Center;
+            }
             else if ((flags & TextFormatFlags.Right) == TextFormatFlags.Right)
+            {
                 sf.Alignment = StringAlignment.Far;
+            }
             else
+            {
                 sf.Alignment = StringAlignment.Near;
+            }
 
             // Vertical Alignment
             if ((flags & TextFormatFlags.Bottom) == TextFormatFlags.Bottom)
+            {
                 sf.LineAlignment = StringAlignment.Far;
+            }
             else if ((flags & TextFormatFlags.VerticalCenter) == TextFormatFlags.VerticalCenter)
+            {
                 sf.LineAlignment = StringAlignment.Center;
+            }
             else
+            {
                 sf.LineAlignment = StringAlignment.Near;
+            }
 
             // Ellipsis
             if ((flags & TextFormatFlags.EndEllipsis) == TextFormatFlags.EndEllipsis)
+            {
                 sf.Trimming = StringTrimming.EllipsisCharacter;
+            }
             else if ((flags & TextFormatFlags.PathEllipsis) == TextFormatFlags.PathEllipsis)
+            {
                 sf.Trimming = StringTrimming.EllipsisPath;
+            }
             else if ((flags & TextFormatFlags.WordEllipsis) == TextFormatFlags.WordEllipsis)
+            {
                 sf.Trimming = StringTrimming.EllipsisWord;
+            }
             else
+            {
                 sf.Trimming = StringTrimming.Character;
+            }
 
             // Hotkey Prefix
             if ((flags & TextFormatFlags.NoPrefix) == TextFormatFlags.NoPrefix)
+            {
                 sf.HotkeyPrefix = HotkeyPrefix.None;
+            }
             else if ((flags & TextFormatFlags.HidePrefix) == TextFormatFlags.HidePrefix)
+            {
                 sf.HotkeyPrefix = HotkeyPrefix.Hide;
+            }
             else
+            {
                 sf.HotkeyPrefix = HotkeyPrefix.Show;
+            }
 
             // Text Padding
             if ((flags & TextFormatFlags.NoPadding) == TextFormatFlags.NoPadding)
+            {
                 sf.FormatFlags |= StringFormatFlags.FitBlackBox;
+            }
 
             // Text Wrapping
             if ((flags & TextFormatFlags.SingleLine) == TextFormatFlags.SingleLine)
+            {
                 sf.FormatFlags |= StringFormatFlags.NoWrap;
+            }
             else if ((flags & TextFormatFlags.TextBoxControl) == TextFormatFlags.TextBoxControl)
+            {
                 sf.FormatFlags |= StringFormatFlags.LineLimit;
+            }
 
             // Other Flags
             //if ((flags & TextFormatFlags.RightToLeft) == TextFormatFlags.RightToLeft)
             //        sf.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
             if ((flags & TextFormatFlags.NoClipping) == TextFormatFlags.NoClipping)
+            {
                 sf.FormatFlags |= StringFormatFlags.NoClip;
+            }
 
             return sf;
         }
@@ -590,50 +620,82 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Horizontal Alignment
             if (sf.Alignment == StringAlignment.Center)
+            {
                 flags = flags & TextFormatFlags.HorizontalCenter;
+            }
             else if (sf.Alignment == StringAlignment.Far)
+            {
                 flags = flags & TextFormatFlags.Right;
+            }
             else
+            {
                 flags = flags & TextFormatFlags.Left;
+            }
 
             // Vertical Alignment
             if (sf.LineAlignment == StringAlignment.Far)
+            {
                 flags = flags & TextFormatFlags.Bottom;
+            }
             else if (sf.LineAlignment == StringAlignment.Center)
+            {
                 flags = flags & TextFormatFlags.VerticalCenter;
+            }
             else
+            {
                 flags = flags & TextFormatFlags.Top;
+            }
 
             // Ellipsis
             if (sf.Trimming == StringTrimming.EllipsisCharacter)
+            {
                 flags = flags & TextFormatFlags.EndEllipsis;
+            }
             else if (sf.Trimming == StringTrimming.EllipsisPath)
+            {
                 flags = flags & TextFormatFlags.PathEllipsis;
+            }
             else if (sf.Trimming == StringTrimming.EllipsisWord)
+            {
                 flags = flags & TextFormatFlags.WordEllipsis;
+            }
 
             // Hotkey Prefix
             if (sf.HotkeyPrefix == HotkeyPrefix.None)
+            {
                 flags = flags & TextFormatFlags.NoPrefix;
+            }
             else if (sf.HotkeyPrefix == HotkeyPrefix.Hide)
+            {
                 flags = flags & TextFormatFlags.HidePrefix;
+            }
 
             // Text Padding
             if (sf.FormatFlags == StringFormatFlags.FitBlackBox)
+            {
                 flags = flags & TextFormatFlags.NoPadding;
+            }
 
             // Text Wrapping
             if (sf.FormatFlags == StringFormatFlags.NoWrap)
+            {
                 flags = flags & TextFormatFlags.SingleLine;
+            }
             else if (sf.FormatFlags == StringFormatFlags.LineLimit)
+            {
                 flags = flags & TextFormatFlags.TextBoxControl;
+            }
 
             // Other Flags
             if (sf.FormatFlags == StringFormatFlags.DirectionRightToLeft)
+            {
                 flags = flags & TextFormatFlags.RightToLeft;
+            }
 
             if (sf.FormatFlags == StringFormatFlags.NoClip)
+            {
                 flags = flags & TextFormatFlags.NoClipping;
+            }
 
             return flags;
         }

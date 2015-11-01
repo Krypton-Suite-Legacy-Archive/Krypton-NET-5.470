@@ -33,13 +33,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override ButtonSpec ButtonSpecFromView(ViewBase element)
         {
             // Check base class for page specific button specs
-            ButtonSpec bs = base.ButtonSpecFromView(element);
+            ButtonSpec bs = base.ButtonSpecFromView(element) ?? _headerGroup.ButtonSpecFromView(element);
 
             // Delegate lookup to the viewlet that has the button spec manager
-            if (bs == null)
-            {
-                bs = _headerGroup.ButtonSpecFromView(element);
-            }
 
             return bs;
         }

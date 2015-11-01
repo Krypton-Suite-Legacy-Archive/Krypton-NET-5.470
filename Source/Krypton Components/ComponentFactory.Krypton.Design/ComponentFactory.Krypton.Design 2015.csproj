@@ -120,6 +120,7 @@
     <Compile Include="Ribbon\KryptonRibbonQATButtonCollectionEditor.cs" />
     <Compile Include="Ribbon\KryptonRibbonRecentDocCollectionEditor.cs" />
     <Compile Include="Ribbon\KryptonRibbonTabDesigner.cs" />
+    <Compile Include="Toolkit\KryptonDataGridViewDesigner.cs" />
     <Compile Include="Toolkit\KryptonTreeViewActionList.cs" />
     <Compile Include="Toolkit\KryptonTreeViewDesigner.cs" />
     <Compile Include="Toolkit\KryptonBorderEdgeActionList.cs" />

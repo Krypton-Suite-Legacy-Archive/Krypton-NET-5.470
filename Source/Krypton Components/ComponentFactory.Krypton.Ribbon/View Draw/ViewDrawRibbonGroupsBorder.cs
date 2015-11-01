@@ -25,6 +25,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Static Fields
         private static readonly Padding _borderPadding2007 = new Padding(3, 3, 3, 2);
         private static readonly Padding _borderPadding2010 = new Padding(1, 1, 1, 3);
+        //TODO checkseb
+        private static readonly Padding _borderPadding2013 = new Padding(1, 1, 1, 0);
         #endregion
 
         #region Instance Fields
@@ -104,6 +106,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         return _borderPadding2007;
                     case PaletteRibbonShape.Office2010:
                         return _borderPadding2010;
+                    case PaletteRibbonShape.Office2013 :
+                        return _borderPadding2013;
                 }
             }
         }

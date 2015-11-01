@@ -106,13 +106,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     else
                     {
                         // Try using the next far edge button
-                        newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Far, viewButton);
+                        newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Far, viewButton) ??
+                                  ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
 
                         // Try using the next inherit edge button
-                        if (newView == null)
-                        {
-                            newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
-                        }
 
                         // Rotate around to application button
                         if (newView == null)
@@ -134,13 +131,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (isNear)
                     {
                         // Try using the previous near edge button (next for a near edge is the left hand side!)
-                        newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Near, viewButton);
+                        newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Near, viewButton) ??
+                                  ribbon.GetLastQATView();
 
                         // Get the last qat button
-                        if (newView == null)
-                        {
-                            newView = ribbon.GetLastQATView();
-                        }
 
                         // Rotate around to application button
                         if (newView == null)
@@ -158,13 +152,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     else
                     {
                         // Try getting the previous far edge button
-                        newView = ribbon.TabsArea.ButtonSpecManager.GetPreviousVisibleViewButton(PaletteRelativeEdgeAlign.Far, viewButton);
+                        newView = ribbon.TabsArea.ButtonSpecManager.GetPreviousVisibleViewButton(PaletteRelativeEdgeAlign.Far, viewButton) ??
+                                  ribbon.TabsArea.ButtonSpecManager.GetPreviousVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
 
                         // Try getting the previous inherit edge button
-                        if (newView == null)
-                        {
-                            newView = ribbon.TabsArea.ButtonSpecManager.GetPreviousVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
-                        }
 
                         if (newView == null)
                         {

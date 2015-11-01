@@ -110,12 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetRadioButtonImage(enabled, checkState, tracking, pressed);
-            }
-
-            return retImage;
+            return retImage ?? Target.GetRadioButtonImage(enabled, checkState, tracking, pressed);
         }
         #endregion
     }

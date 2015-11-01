@@ -48,14 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
 
             // Set the initial resolved palette to the appropriate setting
-            if (provider.ProviderPalette != null)
-            {
-                SetPalette(provider.ProviderPalette);
-            }
-            else
-            {
-                SetPalette(KryptonManager.GetPaletteForMode(provider.ProviderPaletteMode));
-            }
+            SetPalette(provider.ProviderPalette ?? KryptonManager.GetPaletteForMode(provider.ProviderPaletteMode));
 
             // Set of context menu columns
             _viewColumns = new ViewLayoutStack(true);
@@ -97,14 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
 
             // Set the initial resolved palette to the appropriate setting
-            if (palette != null)
-            {
-                SetPalette(palette);
-            }
-            else
-            {
-                SetPalette(KryptonManager.GetPaletteForMode(paletteMode));
-            }
+            SetPalette(palette ?? KryptonManager.GetPaletteForMode(paletteMode));
 
             // Set of context menu columns
             _viewColumns = new ViewLayoutStack(true);

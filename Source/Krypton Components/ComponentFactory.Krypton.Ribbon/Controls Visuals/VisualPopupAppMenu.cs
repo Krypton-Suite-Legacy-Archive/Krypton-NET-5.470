@@ -68,14 +68,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
 
             // Set the initial resolved palette to the appropriate setting
-            if (palette != null)
-            {
-                SetPalette(palette);
-            }
-            else
-            {
-                SetPalette(KryptonManager.GetPaletteForMode(paletteMode));
-            }
+            SetPalette(palette ?? KryptonManager.GetPaletteForMode(paletteMode));
 
             // Set of context menu columns
             _viewColumns = new ViewLayoutStack(true);

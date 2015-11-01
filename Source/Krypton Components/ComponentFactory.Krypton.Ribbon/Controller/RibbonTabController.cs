@@ -243,19 +243,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 case Keys.Right:
                     // Get the next visible tab page
-                    newView = _target.ViewLayoutRibbonTabs.GetViewForNextRibbonTab(_target.RibbonTab);
+                    newView = (_target.ViewLayoutRibbonTabs.GetViewForNextRibbonTab(_target.RibbonTab) ?? (ViewBase) _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far)) ??
+                              _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
 
                     // Move across to any far defined buttons
-                    if (newView == null)
-                    {
-                        newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
-                    }
 
                     // Move across to any inherit defined buttons
-                    if (newView == null)
-                    {
-                        newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
-                    }
 
                     // Rotate around to application button
                     if (newView == null)
@@ -272,19 +265,12 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case Keys.Left:
                     // Get the previous visible tab page
-                    newView = _target.ViewLayoutRibbonTabs.GetViewForPreviousRibbonTab(_target.RibbonTab);
+                    newView = (_target.ViewLayoutRibbonTabs.GetViewForPreviousRibbonTab(_target.RibbonTab) ?? (ViewBase) _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near)) ??
+                              _ribbon.GetLastQATView();
 
                     // Move across to any near defined buttons
-                    if (newView == null)
-                    {
-                        newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
-                    }
 
                     // Get the last qat button
-                    if (newView == null)
-                    {
-                        newView = _ribbon.GetLastQATView();
-                    }
 
                     // Rotate around to application button
                     if (newView == null)
@@ -301,13 +287,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case Keys.Tab | Keys.Shift:
                     // Move across to any near defined buttons
-                    newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                    newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near) ??
+                              _ribbon.GetLastQATView();
 
                     // Get the last qat button
-                    if (newView == null)
-                    {
-                        newView = _ribbon.GetLastQATView();
-                    }
 
                     // Rotate around to application button
                     if (newView == null)
@@ -328,19 +311,12 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case Keys.Tab:
                     // Get the first focus item for the currently selected page
-                    newView = _ribbon.GroupsArea.ViewGroups.GetFirstFocusItem();
+                    newView = (_ribbon.GroupsArea.ViewGroups.GetFirstFocusItem() ?? _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near)) ??
+                              _ribbon.GetLastQATView();
 
                     // Move across to any near defined buttons
-                    if (newView == null)
-                    {
-                        newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
-                    }
 
                     // Get the last qat button
-                    if (newView == null)
-                    {
-                        newView = _ribbon.GetLastQATView();
-                    }
 
                     // Rotate around to application button
                     if (newView == null)

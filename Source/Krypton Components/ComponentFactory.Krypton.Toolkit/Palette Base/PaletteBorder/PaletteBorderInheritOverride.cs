@@ -336,14 +336,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Image ret = _primary.GetBorderImage(Override ? OverrideState : state);
+                Image ret = _primary.GetBorderImage(Override ? OverrideState : state) ?? _backup.GetBorderImage(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetBorderImage(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {

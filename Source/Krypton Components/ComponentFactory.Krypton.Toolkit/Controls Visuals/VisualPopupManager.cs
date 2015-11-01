@@ -60,15 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static VisualPopupManager Singleton
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get
-            {
-                if (_singleton == null)
-                {
-                    _singleton = new VisualPopupManager();
-                }
-
-                return _singleton;
-            }
+            get => _singleton ?? (_singleton = new VisualPopupManager());
         }
         #endregion
 

@@ -135,12 +135,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetCheckBoxImage(enabled, checkState, tracking, pressed);
-            }
-
-            return retImage;
+            return retImage ?? Target.GetCheckBoxImage(enabled, checkState, tracking, pressed);
         }
         #endregion
     }

@@ -4026,13 +4026,9 @@ namespace ComponentFactory.Krypton.Workspace
                 do
                 {
                     // Find the next cell in sequence
-                    next = (e.Forward ? NextVisibleCell(next) : PreviousVisibleCell(next));
+                    next = (e.Forward ? NextVisibleCell(next) : PreviousVisibleCell(next)) ?? (e.Forward ? FirstVisibleCell() : LastVisibleCell());
 
                     // Do we need to wrap around?
-                    if (next == null)
-                    {
-                        next = (e.Forward ? FirstVisibleCell() : LastVisibleCell());
-                    }
 
                     // There should always be a valid cell to find, but just in case!
                     if (next == null)
@@ -4101,14 +4097,7 @@ namespace ComponentFactory.Krypton.Workspace
 
         private void OnPageMaximizeRestore(object sender, EventArgs e)
         {
-            if (MaximizedCell != null)
-            {
-                MaximizedCell = null;
-            }
-            else
-            {
-                MaximizedCell = _menuCell;
-            }
+            MaximizedCell = MaximizedCell != null ? null : _menuCell;
         }
 
         private void OnPageRebalance(object sender, EventArgs e)

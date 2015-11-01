@@ -68,12 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
             }
 
-            if (image == null)
-            {
-                image = base.GetImage(state);
-            }
-
-            return image;
+            return image ?? base.GetImage(state);
         }
         #endregion
     }

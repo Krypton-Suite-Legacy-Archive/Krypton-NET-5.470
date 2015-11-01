@@ -10059,18 +10059,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the color table instance.
         /// </summary>
-        public override KryptonColorTable ColorTable
-        {
-            get 
-            {
-                if (_table == null)
-                {
-                    _table = new KryptonColorTableSparkle(_ribbonColors, _sparkleColors, InheritBool.True, this);
-                }
+        public override KryptonColorTable ColorTable => _table ?? (_table =
+                                                            new KryptonColorTableSparkle(_ribbonColors, _sparkleColors, InheritBool.True, this));
 
-                return _table;
-            }
-        }
         #endregion
 
         #region OnUserPreferenceChanged

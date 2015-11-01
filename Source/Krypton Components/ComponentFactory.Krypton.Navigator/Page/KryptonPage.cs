@@ -1092,12 +1092,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // We do not want to return a null
-            if (ret == null)
-            {
-                ret = string.Empty;
-            }
-
-            return ret;
+            return ret ?? (ret = string.Empty);
         }
 
         /// <summary>

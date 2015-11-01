@@ -66,15 +66,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            get 
+            get
             {
                 // Only create the delegate when it is first needed
-                if (_needPaintDelegate == null)
-                {
-                    _needPaintDelegate = OnNeedPaint;
-                }
-
-                return _needPaintDelegate; 
+                return _needPaintDelegate ?? (_needPaintDelegate = OnNeedPaint);
             }
         }
         #endregion

@@ -37,18 +37,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the single instance of the controller.
         /// </summary>
-        public static NullController Singleton
-        {
-            get
-            {
-                if (_singleton == null)
-                {
-                    _singleton = new NullController();
-                }
+        public static NullController Singleton => _singleton ?? (_singleton = new NullController());
 
-                return _singleton;
-            }
-        }
         #endregion
 
         #region Mouse Notifications

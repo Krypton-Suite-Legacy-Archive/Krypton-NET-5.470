@@ -63,13 +63,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetTreeViewImage(bool expanded)
         {
-            Image retImage = expanded ? _plusMinusImages.Minus : _plusMinusImages.Plus;
+            Image retImage = (expanded ? _plusMinusImages.Minus : _plusMinusImages.Plus) ?? Target.GetTreeViewImage(expanded);
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetTreeViewImage(expanded);
-            }
 
             return retImage;
         }
@@ -159,12 +155,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetCheckBoxImage(enabled, checkState, tracking, pressed);
-            }
-
-            return retImage;
+            return retImage ?? Target.GetCheckBoxImage(enabled, checkState, tracking, pressed);
         }
         #endregion
     }

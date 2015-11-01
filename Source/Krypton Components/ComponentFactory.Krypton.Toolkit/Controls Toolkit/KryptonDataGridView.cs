@@ -1734,13 +1734,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 (ColumnHeadersDefaultCellStyle.Font.Equals(_columnFont)))
             {
                 // Get the overriden value from the stat common
-                _columnFont = StateCommon.HeaderColumn.Content.Font;
+                _columnFont = StateCommon.HeaderColumn.Content.Font ?? StateCommon.HeaderColumn.Content.GetContentShortTextFont(state);
 
                 // If not found, get it from the inheritance palette
-                if (_columnFont == null)
-                {
-                    _columnFont = StateCommon.HeaderColumn.Content.GetContentShortTextFont(state);
-                }
 
                 ColumnHeadersDefaultCellStyle.Font = _columnFont;
             }
@@ -1748,11 +1744,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((RowHeadersDefaultCellStyle.Font == null) ||
                 (RowHeadersDefaultCellStyle.Font.Equals(_rowFont)))
             {
-                _rowFont = StateCommon.HeaderRow.Content.Font;
-                if (_rowFont == null)
-                {
-                    _rowFont = StateCommon.HeaderRow.Content.GetContentShortTextFont(state);
-                }
+                _rowFont = StateCommon.HeaderRow.Content.Font ?? StateCommon.HeaderRow.Content.GetContentShortTextFont(state);
 
                 RowHeadersDefaultCellStyle.Font = _rowFont;
             }
@@ -1760,11 +1752,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((DefaultCellStyle.Font == null) ||
                 (DefaultCellStyle.Font.Equals(_dataCellFont)))
             {
-                _dataCellFont = StateCommon.DataCell.Content.Font;
-                if (_dataCellFont == null)
-                {
-                    _dataCellFont = StateCommon.DataCell.Content.GetContentShortTextFont(state);
-                }
+                _dataCellFont = StateCommon.DataCell.Content.Font ?? StateCommon.DataCell.Content.GetContentShortTextFont(state);
 
                 DefaultCellStyle.Font = _dataCellFont;
             }

@@ -72,11 +72,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _imageIndexEnd = Math.Min(_imageIndexEnd, _imageCount - 1);
             _imageIndexCount = Math.Max(0, (_imageIndexEnd - _imageIndexStart) + 1);
 
-            IPalette palette = provider.ProviderPalette;
-            if (palette == null)
-            {
-                palette = KryptonManager.GetPaletteForMode(provider.ProviderPaletteMode);
-            }
+            IPalette palette = provider.ProviderPalette ?? KryptonManager.GetPaletteForMode(provider.ProviderPaletteMode);
 
             // Create triple that can be used by the draw button
             _triple = new PaletteTripleToPalette(palette,

@@ -20590,7 +20590,7 @@
         </member>
         <member name="M:ComponentFactory.Krypton.Ribbon.ViewLayoutRibbonAppTab.ToString">
             <summary>
-            Obtains the String representation of this instance.
+            Obtains t+he String representation of this instance.
             </summary>
             <returns>User readable name of the instance.</returns>
         </member>

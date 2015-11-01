@@ -38,13 +38,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override ButtonSpec ButtonSpecFromView(ViewBase element)
         {
             // Always check base class first
-            ButtonSpec bs = base.ButtonSpecFromView(element);
+            ButtonSpec bs = base.ButtonSpecFromView(element) ?? _headerGroup.ButtonSpecFromView(element);
 
             // Call onto the contained header group implementation
-            if (bs == null)
-            {
-                bs = _headerGroup.ButtonSpecFromView(element);
-            }
 
             return bs;
         }

@@ -181,7 +181,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Title string.</returns>
         public string GetShortText()
         {
-            return _ribbon.RibbonAppButton.AppButtonText;
+            if (_ribbon.RibbonShape ==  PaletteRibbonShape.Office2013)
+            {
+                return _ribbon.RibbonAppButton.AppButtonText.ToUpper();
+            }
+            else
+            {
+                return _ribbon.RibbonAppButton.AppButtonText;
+            }
         }
 
         /// <summary>

@@ -57,7 +57,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Padding _metricPaddingBarTabs = new Padding(0);
         private static readonly Padding _metricPaddingBarOutside = new Padding(0, 0, 0, 3);
         private static readonly Padding _metricPaddingPageButtons = new Padding(1, 3, 1, 3);
-
+        private static readonly Image _treeExpandWhite = Properties.Resources.TreeExpandWhite;
+        private static readonly Image _treeCollapseBlack = Properties.Resources.TreeCollapseBlack;
+        
         private static readonly Image _disabledDropDown = Properties.Resources.DisabledDropDownButton;
         private static readonly Image _buttonSpecClose = Properties.Resources.ProfessionalCloseButton;
         private static readonly Image _buttonSpecContext = Properties.Resources.ProfessionalContextButton;
@@ -79,9 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _buttonSpecRibbonExpand = Properties.Resources.RibbonDown2010;
         private static readonly Image _contextMenuChecked = Properties.Resources.Office2007Checked;
         private static readonly Image _contextMenuIndeterminate = Properties.Resources.Office2007Indeterminate;
-        private static readonly Image _treeExpandWhite = Properties.Resources.TreeExpandWhite;
-        private static readonly Image _treeCollapseBlack = Properties.Resources.TreeCollapseBlack;
-
+        
         private static readonly Color _gridTextColor = Color.Black;
         private static readonly Color _disabledText2 = Color.FromArgb(128, 128, 128);
         private static readonly Color _disabledText = Color.FromArgb(167, 167, 167);
@@ -9976,18 +9976,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the color table instance.
         /// </summary>
-        public override KryptonColorTable ColorTable
-        {
-            get
-            {
-                if (_table == null)
-                {
-                    _table = new KryptonColorTable2010(_ribbonColors, InheritBool.True, this);
-                }
+        public override KryptonColorTable ColorTable => _table ?? (_table = new KryptonColorTable2010(_ribbonColors, InheritBool.True, this));
 
-                return _table;
-            }
-        }
         #endregion
 
         #region OnUserPreferenceChanged

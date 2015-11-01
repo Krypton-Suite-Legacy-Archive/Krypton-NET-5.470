@@ -165,24 +165,16 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Tab | Keys.Shift:
                 case Keys.Left:
                     // Get the previous focus item for the currently selected page
-                    newView = Ribbon.GroupsArea.ViewGroups.GetPreviousFocusItem(Target);
+                    newView = Ribbon.GroupsArea.ViewGroups.GetPreviousFocusItem(Target) ?? Ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(Ribbon.SelectedTab);
 
                     // Got to the actual tab header
-                    if (newView == null)
-                    {
-                        newView = Ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(Ribbon.SelectedTab);
-                    }
                     break;
                 case Keys.Tab:
                 case Keys.Right:
                     // Get the next focus item for the currently selected page
-                    newView = Ribbon.GroupsArea.ViewGroups.GetNextFocusItem(Target);
+                    newView = Ribbon.GroupsArea.ViewGroups.GetNextFocusItem(Target) ?? Ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
 
                     // Move across to any far defined buttons
-                    if (newView == null)
-                    {
-                        newView = Ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
-                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)

@@ -172,13 +172,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewBase GetFirstQATView()
         {
             // Find the first qat button
-            ViewBase view = _borderContents.GetFirstQATView();
+            ViewBase view = _borderContents.GetFirstQATView() ?? _extraButton;
 
             // If defined then use the extra button
-            if (view == null)
-            {
-                view = _extraButton;
-            }
 
             return view;
         }

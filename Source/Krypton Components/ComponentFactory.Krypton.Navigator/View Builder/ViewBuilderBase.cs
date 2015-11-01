@@ -437,13 +437,9 @@ namespace ComponentFactory.Krypton.Navigator
                 // Start searching from after the selected page onwards
                 if (Navigator.SelectedPage != null)
                 {
-                    first = Navigator.NextActionPage(Navigator.SelectedPage);
+                    first = Navigator.NextActionPage(Navigator.SelectedPage) ?? Navigator.FirstActionPage();
 
                     // If at end of collection then get the first page
-                    if (first == null)
-                    {
-                        first = Navigator.FirstActionPage();
-                    }
                 }
                 else
                 {
@@ -476,14 +472,9 @@ namespace ComponentFactory.Krypton.Navigator
                     }
 
                     // Otherwise keep looking for another visible next page
-                    next = Navigator.NextActionPage(next);
+                    next = Navigator.NextActionPage(next) ?? Navigator.FirstActionPage();
 
                     // If we reached the end of the collection then wrap
-                    if (next == null)
-                    {
-                        // Wrap around to the first page
-                        next = Navigator.FirstActionPage();
-                    }
 
                     // If we are back at the first page we examined then we must have
                     // wrapped around collection and still found nothing, time to exit
@@ -724,12 +715,7 @@ namespace ComponentFactory.Krypton.Navigator
             get
             {
                 // Only create the delegate when it is first needed
-                if (_needPaintDelegate == null)
-                {
-                    _needPaintDelegate = OnNeedPaint;
-                }
-
-                return _needPaintDelegate;
+                return _needPaintDelegate ?? (_needPaintDelegate = OnNeedPaint);
             }
         }
 

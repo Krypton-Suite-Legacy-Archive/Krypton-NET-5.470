@@ -280,14 +280,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Font ret = _primary.GetContentShortTextFont(Override ? OverrideState : state);
+                Font ret = _primary.GetContentShortTextFont(Override ? OverrideState : state) ?? _backup.GetContentShortTextFont(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetContentShortTextFont(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {
@@ -304,14 +299,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Font ret = _primary.GetContentShortTextNewFont(Override ? OverrideState : state);
+                Font ret = _primary.GetContentShortTextNewFont(Override ? OverrideState : state) ?? _backup.GetContentShortTextNewFont(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetContentShortTextNewFont(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {
@@ -616,12 +606,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (Apply)
             {
-                Image ret = _primary.GetContentShortTextImage(Override ? OverrideState : state);
-
-                if (ret == null)
-                {
-                    ret = _backup.GetContentShortTextImage(state);
-                }
+                Image ret = _primary.GetContentShortTextImage(Override ? OverrideState : state) ?? _backup.GetContentShortTextImage(state);
 
                 return ret;
             }
@@ -688,14 +673,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Font ret = _primary.GetContentLongTextFont(Override ? OverrideState : state);
+                Font ret = _primary.GetContentLongTextFont(Override ? OverrideState : state) ?? _backup.GetContentLongTextFont(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetContentLongTextFont(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {
@@ -712,14 +692,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			if (Apply)
 			{
-                Font ret = _primary.GetContentLongTextNewFont(Override ? OverrideState : state);
+                Font ret = _primary.GetContentLongTextNewFont(Override ? OverrideState : state) ?? _backup.GetContentLongTextNewFont(state);
 
-				if (ret == null)
-                {
-                    ret = _backup.GetContentLongTextNewFont(state);
-                }
-
-                return ret;
+			    return ret;
 			}
 			else
             {
@@ -1024,12 +999,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (Apply)
             {
-                Image ret = _primary.GetContentLongTextImage(Override ? OverrideState : state);
-
-                if (ret == null)
-                {
-                    ret = _backup.GetContentLongTextImage(state);
-                }
+                Image ret = _primary.GetContentLongTextImage(Override ? OverrideState : state) ?? _backup.GetContentLongTextImage(state);
 
                 return ret;
             }

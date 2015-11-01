@@ -46,13 +46,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetContextMenuCheckedImage()
         {
-            Image retImage = _images.Checked;
+            Image retImage = _images.Checked ?? Target.GetContextMenuCheckedImage();
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetContextMenuCheckedImage();
-            }
 
             return retImage;
         }
@@ -63,13 +59,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetContextMenuIndeterminateImage()
         {
-            Image retImage = _images.Indeterminate;
+            Image retImage = _images.Indeterminate ?? Target.GetContextMenuIndeterminateImage();
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetContextMenuIndeterminateImage();
-            }
 
             return retImage;
         }
@@ -80,13 +72,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetContextMenuSubMenuImage()
         {
-            Image retImage = _images.SubMenu;
+            Image retImage = _images.SubMenu ?? Target.GetContextMenuSubMenuImage();
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetContextMenuSubMenuImage();
-            }
 
             return retImage;
         }

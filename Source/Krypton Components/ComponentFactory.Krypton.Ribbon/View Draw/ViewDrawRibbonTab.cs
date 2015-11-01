@@ -288,6 +288,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         return _preferredBorder2007;
                     case PaletteRibbonShape.Office2010:
                         return _preferredBorder2010;
+                    case PaletteRibbonShape.Office2013:
+                        return _preferredBorder2010;
                 }
             }
         }
@@ -307,6 +309,8 @@ namespace ComponentFactory.Krypton.Ribbon
                     case PaletteRibbonShape.Office2007:
                         return _layoutBorder2007;
                     case PaletteRibbonShape.Office2010:
+                        return _layoutBorder2010;
+                    case PaletteRibbonShape.Office2013:
                         return _layoutBorder2010;
                 }
             }
@@ -409,6 +413,7 @@ namespace ComponentFactory.Krypton.Ribbon
             switch (Ribbon.RibbonShape)
             {
                 default:
+                case PaletteRibbonShape.Office2013:
                 case PaletteRibbonShape.Office2007:
                     if (cts != null)
                     {
@@ -423,7 +428,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         RenderBefore2010ContextTab(context, cts);
                     }
 
-                    _paletteContextCurrent.LightBackground = Ribbon.CaptionArea.DrawCaptionOnComposition;
+                    //_paletteContextCurrent.LightBackground = _ribbon.CaptionArea.DrawCaptionOnComposition;
+                    _paletteContextCurrent.LightBackground = Ribbon.CaptionArea.DrawCaptionOnComposition 
+                                                             && (KryptonManager.CurrentGlobalPalette != KryptonManager.PaletteOffice2010Black);
                     break;
             }
 
@@ -486,7 +493,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // an empty string because it makes the tab useless!
             if ((_ribbonTab != null) && (_ribbonTab.Text.Length > 0))
             {
-                return _ribbonTab.Text;
+                return Ribbon.RibbonShape == PaletteRibbonShape.Office2013 ? _ribbonTab.Text.ToUpper() : _ribbonTab.Text;
             }
 
             return _empty;

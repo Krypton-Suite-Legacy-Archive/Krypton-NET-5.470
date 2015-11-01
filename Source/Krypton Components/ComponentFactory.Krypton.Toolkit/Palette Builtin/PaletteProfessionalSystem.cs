@@ -7354,26 +7354,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 default:
                 case PaletteRibbonGalleryButton.Up:
-                        if (_galleryImageUp == null)
-                    {
-                        _galleryImageUp = CreateGalleryUpImage(SystemColors.ControlText);
-                    }
+                    return _galleryImageUp ?? (_galleryImageUp = CreateGalleryUpImage(SystemColors.ControlText));
 
-                    return _galleryImageUp;
                 case PaletteRibbonGalleryButton.Down:
-                    if (_galleryImageDown == null)
-                    {
-                        _galleryImageDown = CreateGalleryDownImage(SystemColors.ControlText);
-                    }
+                    return _galleryImageDown ?? (_galleryImageDown = CreateGalleryDownImage(SystemColors.ControlText));
 
-                    return _galleryImageDown;
                 case PaletteRibbonGalleryButton.DropDown:
-                    if (_galleryImageDropDown == null)
-                    {
-                        _galleryImageDropDown = CreateGalleryDropDownImage(SystemColors.ControlText);
-                    }
-
-                    return _galleryImageDropDown;
+                    return _galleryImageDropDown ??
+                           (_galleryImageDropDown = CreateGalleryDropDownImage(SystemColors.ControlText));
             }
         }
         #endregion
@@ -9025,13 +9013,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // If the table has not yet been generated
-                if (_table == null)
-                {
-                    // Ask the virtual method to generate the table
-                    _table = GenerateColorTable();
-                }
-
-                return _table;
+                return _table ?? (_table = GenerateColorTable());
             }
         }
 

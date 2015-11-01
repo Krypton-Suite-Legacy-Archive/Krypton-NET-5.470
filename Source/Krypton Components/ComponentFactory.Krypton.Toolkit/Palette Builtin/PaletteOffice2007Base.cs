@@ -10066,15 +10066,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override KryptonColorTable ColorTable
         {
-            get
-            {
-                if (_table == null)
-                {
-                    _table = new KryptonColorTable2007(_ribbonColors, InheritBool.True, this);
-                }
-
-                return _table;
-            }
+            get { return _table ?? (_table = new KryptonColorTable2007(_ribbonColors, InheritBool.True, this)); }
         }
         #endregion
 

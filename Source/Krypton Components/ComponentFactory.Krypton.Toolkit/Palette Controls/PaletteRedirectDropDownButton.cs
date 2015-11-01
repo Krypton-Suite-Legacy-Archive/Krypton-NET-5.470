@@ -80,12 +80,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = Target.GetDropDownButtonImage(state);
-            }
-
-            return retImage;
+            return retImage ?? Target.GetDropDownButtonImage(state);
         }
         #endregion
     }

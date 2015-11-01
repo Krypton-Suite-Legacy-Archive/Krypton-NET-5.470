@@ -1570,13 +1570,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetTreeViewImage(bool expanded)
         {
-            Image retImage = expanded ? Images.TreeView.Minus : Images.TreeView.Plus;
+            Image retImage = (expanded ? Images.TreeView.Minus : Images.TreeView.Plus) ?? _redirector.GetTreeViewImage(expanded);
 
             // Not found, then inherit from target
-            if (retImage == null)
-            {
-                retImage = _redirector.GetTreeViewImage(expanded);
-            }
 
             return retImage;
         }

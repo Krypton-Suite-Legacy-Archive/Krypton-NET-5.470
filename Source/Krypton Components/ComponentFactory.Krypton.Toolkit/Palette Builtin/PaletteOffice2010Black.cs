@@ -112,7 +112,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                       Color.Violet,                     // LinkVisitedOverridePanel
                                                                       Color.FromArgb(255,  90,  90),    // LinkPressedOverridePanel
                                                                       Color.White,                      // TextLabelPanel
-                                                                      Color.FromArgb(226, 226, 226),    // RibbonTabTextNormal
+                                                                      //Color.FromArgb(226, 226, 226),    // RibbonTabTextNormal
+                                                                      Color.White,                      // RibbonTabTextNormal
                                                                       Color.Black,                      // RibbonTabTextChecked
                                                                       Color.FromArgb( 94,  94,  94),    // RibbonTabSelected1
                                                                       Color.FromArgb(201, 201, 201),    // RibbonTabSelected2

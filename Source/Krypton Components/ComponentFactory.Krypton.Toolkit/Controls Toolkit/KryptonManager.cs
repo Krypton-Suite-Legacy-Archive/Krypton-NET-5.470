@@ -52,10 +52,12 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PaletteSparkleBlue _paletteSparkleBlue;
         private static PaletteSparkleOrange _paletteSparkleOrange;
         private static PaletteSparklePurple _paletteSparklePurple;
+        private static PaletteOffice2013White _paletteOffice2013White;
         private static RenderStandard _renderStandard;
         private static RenderProfessional _renderProfessional;
         private static RenderOffice2007 _renderOffice2007;
         private static RenderOffice2010 _renderOffice2010;
+        private static RenderOffice2013 _renderOffice2013;
         private static RenderSparkle _renderSparkle;
         #endregion
 
@@ -431,6 +433,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         return PaletteSparkleOrange;
                     case PaletteModeManager.SparklePurple:
                         return PaletteSparklePurple;
+                    case PaletteModeManager.Office2013White:
+                        return PaletteOffice2013White;
                     case PaletteModeManager.Custom:
                         return InternalGlobalPalette;
                     default:
@@ -471,6 +475,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteSparkleOrange;
                 case PaletteMode.SparklePurple:
                     return PaletteSparklePurple;
+                case PaletteMode.Office2013White:
+                    return PaletteOffice2013White;
                 case PaletteMode.Global:
                     return CurrentGlobalPalette;
                 case PaletteMode.Custom:
@@ -483,178 +489,63 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the single instance of the professional system palette.
         /// </summary>
-        public static PaletteProfessionalSystem PaletteProfessionalSystem
-        {
-            get
-            {
-                if (_paletteProfessionalSystem == null)
-                {
-                    _paletteProfessionalSystem = new PaletteProfessionalSystem();
-                }
-
-                return _paletteProfessionalSystem;
-            }
-        }
+        public static PaletteProfessionalSystem PaletteProfessionalSystem => _paletteProfessionalSystem ?? (_paletteProfessionalSystem = new PaletteProfessionalSystem());
 
         /// <summary>
         /// Gets the single instance of the professional office palette.
         /// </summary>
-        public static PaletteProfessionalOffice2003 PaletteProfessionalOffice2003
-        {
-            get
-            {
-                if (_paletteProfessionalOffice2003 == null)
-                {
-                    _paletteProfessionalOffice2003 = new PaletteProfessionalOffice2003();
-                }
-
-                return _paletteProfessionalOffice2003;
-            }
-        }
+        public static PaletteProfessionalOffice2003 PaletteProfessionalOffice2003 => _paletteProfessionalOffice2003 ??
+                                                                                     (_paletteProfessionalOffice2003 = new PaletteProfessionalOffice2003());
 
         /// <summary>
         /// Gets the single instance of the Blue variant Office 2007 palette.
         /// </summary>
-        public static PaletteOffice2007Blue PaletteOffice2007Blue
-        {
-            get
-            {
-                if (_paletteOffice2007Blue == null)
-                {
-                    _paletteOffice2007Blue = new PaletteOffice2007Blue();
-                }
-
-                return _paletteOffice2007Blue;
-            }
-        }
+        public static PaletteOffice2007Blue PaletteOffice2007Blue => _paletteOffice2007Blue ?? (_paletteOffice2007Blue = new PaletteOffice2007Blue());
 
         /// <summary>
         /// Gets the single instance of the Silver variant Office 2007 palette.
         /// </summary>
-        public static PaletteOffice2007Silver PaletteOffice2007Silver
-        {
-            get
-            {
-                if (_paletteOffice2007Silver == null)
-                {
-                    _paletteOffice2007Silver = new PaletteOffice2007Silver();
-                }
-
-                return _paletteOffice2007Silver;
-            }
-        }
+        public static PaletteOffice2007Silver PaletteOffice2007Silver => _paletteOffice2007Silver ?? (_paletteOffice2007Silver = new PaletteOffice2007Silver());
 
         /// <summary>
         /// Gets the single instance of the Black variant Office 2007 palette.
         /// </summary>
-        public static PaletteOffice2007Black PaletteOffice2007Black
-        {
-            get
-            {
-                if (_paletteOffice2007Black == null)
-                {
-                    _paletteOffice2007Black = new PaletteOffice2007Black();
-                }
-
-                return _paletteOffice2007Black;
-            }
-        }
+        public static PaletteOffice2007Black PaletteOffice2007Black => _paletteOffice2007Black ?? (_paletteOffice2007Black = new PaletteOffice2007Black());
 
         /// <summary>
         /// Gets the single instance of the Blue variant Office 2010 palette.
         /// </summary>
-        public static PaletteOffice2010Blue PaletteOffice2010Blue
-        {
-            get
-            {
-                if (_paletteOffice2010Blue == null)
-                {
-                    _paletteOffice2010Blue = new PaletteOffice2010Blue();
-                }
-
-                return _paletteOffice2010Blue;
-            }
-        }
+        public static PaletteOffice2010Blue PaletteOffice2010Blue => _paletteOffice2010Blue ?? (_paletteOffice2010Blue = new PaletteOffice2010Blue());
 
         /// <summary>
         /// Gets the single instance of the Silver variant Office 2010 palette.
         /// </summary>
-        public static PaletteOffice2010Silver PaletteOffice2010Silver
-        {
-            get
-            {
-                if (_paletteOffice2010Silver == null)
-                {
-                    _paletteOffice2010Silver = new PaletteOffice2010Silver();
-                }
-
-                return _paletteOffice2010Silver;
-            }
-        }
+        public static PaletteOffice2010Silver PaletteOffice2010Silver => _paletteOffice2010Silver ?? (_paletteOffice2010Silver = new PaletteOffice2010Silver());
 
         /// <summary>
         /// Gets the single instance of the Black variant Office 2010 palette.
         /// </summary>
-        public static PaletteOffice2010Black PaletteOffice2010Black
-        {
-            get
-            {
-                if (_paletteOffice2010Black == null)
-                {
-                    _paletteOffice2010Black = new PaletteOffice2010Black();
-                }
-
-                return _paletteOffice2010Black;
-            }
-        }
+        public static PaletteOffice2010Black PaletteOffice2010Black => _paletteOffice2010Black ?? (_paletteOffice2010Black = new PaletteOffice2010Black());
 
         /// <summary>
         /// Gets the single instance of the Blue variant sparkle palette.
         /// </summary>
-        public static PaletteSparkleBlue PaletteSparkleBlue
-        {
-            get
-            {
-                if (_paletteSparkleBlue == null)
-                {
-                    _paletteSparkleBlue = new PaletteSparkleBlue();
-                }
-
-                return _paletteSparkleBlue;
-            }
-        }
+        public static PaletteSparkleBlue PaletteSparkleBlue => _paletteSparkleBlue ?? (_paletteSparkleBlue = new PaletteSparkleBlue());
 
         /// <summary>
         /// Gets the single instance of the Orange variant sparkle palette.
         /// </summary>
-        public static PaletteSparkleOrange PaletteSparkleOrange
-        {
-            get
-            {
-                if (_paletteSparkleOrange == null)
-                {
-                    _paletteSparkleOrange = new PaletteSparkleOrange();
-                }
-
-                return _paletteSparkleOrange;
-            }
-        }
+        public static PaletteSparkleOrange PaletteSparkleOrange => _paletteSparkleOrange ?? (_paletteSparkleOrange = new PaletteSparkleOrange());
 
         /// <summary>
         /// Gets the single instance of the Purple variant sparkle palette.
         /// </summary>
-        public static PaletteSparklePurple PaletteSparklePurple
-        {
-            get
-            {
-                if (_paletteSparklePurple == null)
-                {
-                    _paletteSparklePurple = new PaletteSparklePurple();
-                }
+        public static PaletteSparklePurple PaletteSparklePurple => _paletteSparklePurple ?? (_paletteSparklePurple = new PaletteSparklePurple());
 
-                return _paletteSparklePurple;
-            }
-        }
+        /// <summary>
+        /// Gets the single instance of the Office 2013 palette.
+        /// </summary>
+        public static PaletteOffice2013White PaletteOffice2013White => _paletteOffice2013White ?? (_paletteOffice2013White = new PaletteOffice2013White());
 
         /// <summary>
         /// Gets the implementation for the requested renderer mode.
@@ -727,6 +618,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 return _renderOffice2010;
+            }
+        }
+
+        /// <summary>
+        /// Gets the single instance of the Office 2013 renderer.
+        /// </summary>
+        public static RenderOffice2013 RenderOffice2013
+        {
+            get
+            {
+                if (_renderOffice2013 == null)
+                {
+                    _renderOffice2013 = new RenderOffice2013();
+                }
+
+                return _renderOffice2013;
             }
         }
 
@@ -852,6 +759,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteSparkleOrange?.UserPreferenceChanged();
 
             _paletteSparklePurple?.UserPreferenceChanged();
+
+            if (_paletteOffice2013White != null)
+            {
+                _paletteOffice2013White.UserPreferenceChanged();
+            }
 
             UpdateToolStripManager();
         }

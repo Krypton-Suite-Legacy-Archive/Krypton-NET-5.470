@@ -530,6 +530,92 @@ namespace ComponentFactory.Krypton.Toolkit
     }
     #endregion
 
+    #region MementoRibbonAppTab2013
+    /// <summary>
+    /// Memento used to cache drawing details.
+    /// </summary>
+    public class MementoRibbonAppTab2013 : MementoRectOneColor
+    {
+        /// <summary>For internal use only.</summary>
+        public PathGradientBrush highlightBrush;
+        /// <summary>For internal use only.</summary>
+        public Rectangle highlightRect;
+        /// <summary>For internal use only.</summary>
+        public SolidBrush insideFillBrush;
+
+        /// <summary>For internal use only.</summary>
+        public MementoRibbonAppTab2013(Rectangle r, Color color1)
+            : base(r, color1)
+        {
+        }
+
+        /// <summary>For internal use only.</summary>
+        public void GeneratePaths(Rectangle rect, PaletteState state)
+        {
+            //// Create the border path
+            //borderPath = new GraphicsPath();
+            //borderPath.AddLine(rect.Left, rect.Bottom - 2, rect.Left, rect.Top + 1.75f);
+            ////borderPath.AddLine(rect.Left, rect.Top + 1.75f, rect.Left + 1, rect.Top);
+            //borderPath.AddLine(rect.Left + 1, rect.Top, rect.Right - 2, rect.Top);
+            ////borderPath.AddLine(rect.Right - 2, rect.Top, rect.Right - 1, rect.Top + 1.75f);
+            //borderPath.AddLine(rect.Right - 1, rect.Top + 1.75f, rect.Right - 1, rect.Bottom - 2);
+
+            //// Create border path for filling
+            //borderFillPath = new GraphicsPath();
+            //borderFillPath.AddLine(rect.Left, rect.Bottom - 1, rect.Left, rect.Top + 1.75f);
+            ////borderFillPath.AddLine(rect.Left, rect.Top + 1.75f, rect.Left + 1, rect.Top);
+            //borderFillPath.AddLine(rect.Left + 1, rect.Top, rect.Right - 2, rect.Top);
+            ////borderFillPath.AddLine(rect.Right - 2, rect.Top, rect.Right - 1, rect.Top + 1.75f);
+            //borderFillPath.AddLine(rect.Right - 1, rect.Top + 1.75f, rect.Right - 1, rect.Bottom - 1);
+
+            //// Path for the highlight at bottom center
+            //highlightRect = new Rectangle(rect.Left - (rect.Width / 8), rect.Top + (rect.Height / 2) - 2, rect.Width + (rect.Width / 5), rect.Height + 4);
+            //highlightPath = new GraphicsPath();
+            //highlightPath.AddEllipse(highlightRect);
+            //highlightBrush = new PathGradientBrush(highlightPath);
+            //highlightBrush.CenterPoint = new PointF(highlightRect.Left + (highlightRect.Width / 2), highlightRect.Top + (highlightRect.Height / 2));
+            //highlightBrush.SurroundColors = new Color[] { Color.Transparent };
+
+            // Reduce rectangle to the inside fill area
+            rect.X -= 1;
+            //rect.Y += 2;
+            //rect.Width -= 3;
+            //rect.Height -= 2;
+
+            // Create inside path for filling
+            //insideFillPath = new GraphicsPath();
+            //insideFillPath.AddLine(rect.Left, rect.Bottom - 1, rect.Left, rect.Top + 1f);
+            //insideFillPath.AddLine(rect.Left, rect.Top + 1f, rect.Left + 1, rect.Top);
+            //insideFillPath.AddLine(rect.Left + 1, rect.Top, rect.Right - 2, rect.Top);
+            //insideFillPath.AddLine(rect.Right - 2, rect.Top, rect.Right - 1, rect.Top + 1.75f);
+            //insideFillPath.AddLine(rect.Right - 1, rect.Top + 1.75f, rect.Right - 1, rect.Bottom - 1);
+        }
+
+        /// <summary>For internal use only.</summary>
+        public override void Dispose(bool disposing)
+        {
+            //if (borderPath != null)
+            //{
+            //    borderPath.Dispose();
+            //    borderFillPath.Dispose();
+            //    insideFillPath.Dispose();
+            //    borderPen.Dispose();
+            //    borderBrush.Dispose();
+            //    insideFillBrush.Dispose();
+
+            //    borderPath = null;
+            //    borderFillPath = null;
+            //    insideFillPath = null;
+            //    borderPen = null;
+            //    borderBrush = null;
+            //    insideFillBrush = null;
+            //}
+
+            base.Dispose(disposing);
+        }
+    }
+    #endregion
+
     #region MementoRibbonGroupGradientOne
     /// <summary>
     /// Memento used to cache drawing details.

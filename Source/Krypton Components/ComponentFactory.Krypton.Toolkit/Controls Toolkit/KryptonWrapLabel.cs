@@ -588,11 +588,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Recover font from state common or as last resort the inherited palette
             if (font == null)
             {
-                font = StateCommon.Font;
-                if (font == null)
-                {
-                    font = _redirector.GetContentShortTextFont(_labelContentStyle, ps);
-                }
+                font = StateCommon.Font ?? _redirector.GetContentShortTextFont(_labelContentStyle, ps);
             }
 
             // Recover text color from state common or as last resort the inherited palette

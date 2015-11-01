@@ -47,11 +47,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _paintDelegate = paintDelegate;
 
-            _compBlend = new Blend
-            {
-                Positions = new float[] { 0.0f, 0.4f, 1.0f },
-                Factors = new float[] { 0.0f, 0.87f, 1.0f }
-            };
+            _compBlend = new Blend();
+            //_compBlend.Positions = new float[] { 0.0f, 0.4f, 1.0f };
+            //_compBlend.Factors = new float[] { 0.0f, 0.87f, 1.0f };
+            _compBlend.Positions = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+            _compBlend.Factors = new float[] { 0.0f, 0.10f, 0.25f, 0.50f, 0.70f, 0.80f };
         }
         #endregion
 
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If we are rendering using desktop window composition and using the Office 2010 shape 
             // of ribbon then we need to draw the tabs area as part of the window chromw
-            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013))
             {
                 int tabsHeight = _ribbon.TabsArea.ClientHeight;
 
@@ -74,6 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     base.RenderBefore(context);
                 }
 
+                //context.Graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(ClientLocation.X, ClientLocation.Y, ClientWidth, tabsHeight));
                 PaintRectangle(context.Graphics, new Rectangle(ClientLocation.X, ClientLocation.Y, ClientWidth, tabsHeight), true, null);
             }
             else
@@ -92,8 +93,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void PaintRectangle(Graphics g, Rectangle rect, bool edges, Control sender)
         {
             // If we are rendering using desktop window composition and using the Office 2010 shape 
-            // of ribbon then we need to draw the tabs area as part of the window chromw
-            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+            // of ribbon then we need to draw the tabs area as part of the window chrome
+            // Not for 2013
+            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013))
             {
                 if (edges)
                 {
@@ -112,10 +114,31 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
 
-                using (LinearGradientBrush backBrush = new LinearGradientBrush(new Rectangle(rect.X, rect.Y - 1, rect.Width, rect.Height + 1), Color.Transparent, Color.White, 90f))
+                if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010)
                 {
-                    backBrush.Blend = _compBlend;
-                    g.FillRectangle(backBrush, new Rectangle(rect.X, rect.Y, rect.Width, rect.Height - 1));
+                    //Adjust Color of the gradient
+                    Color gradientColor;
+                    if (KryptonManager.CurrentGlobalPalette == KryptonManager.PaletteOffice2010Black)
+                    {
+                        gradientColor = Color.FromArgb(39, 39, 39);
+                    }
+                    else
+                    {
+                        gradientColor = Color.White;
+                    }
+
+                    using (LinearGradientBrush backBrush = new LinearGradientBrush(new Rectangle(rect.X, rect.Y - 1, rect.Width, rect.Height + 1), Color.Transparent, gradientColor, 90f))
+                    {
+                        backBrush.Blend = _compBlend;
+                        g.FillRectangle(backBrush, new Rectangle(rect.X, rect.Y, rect.Width, rect.Height - 1));
+                    }
+                }
+                else if (_ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+                {
+                    using (SolidBrush backBrush = new SolidBrush(Color.White))
+                    {
+                        g.FillRectangle(backBrush, new Rectangle(rect.X, rect.Y, rect.Width, rect.Height - 1));
+                    }
                 }
             }
         }

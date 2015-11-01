@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
 		/// <summary>
-		/// Obtains the String representation of this instance.
+		/// Obtains t+he String representation of this instance.
 		/// </summary>
 		/// <returns>User readable name of the instance.</returns>
 		public override string ToString()

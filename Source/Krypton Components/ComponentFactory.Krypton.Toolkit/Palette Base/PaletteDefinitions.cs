@@ -2112,6 +2112,11 @@ namespace ComponentFactory.Krypton.Toolkit
         Office2010Black,
 
         /// <summary>
+        /// Specifies the Office 2013 White palette theme.
+        /// </summary>
+        Office2013White,
+
+        /// <summary>
         /// Specifies the Blue color variant on the Sparkle palette theme.
         /// </summary>
         SparkleBlue,
@@ -2177,6 +2182,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the Black color variant of the Office 2010 appearance.
         /// </summary>
         Office2010Black,
+
+        /// <summary>
+        /// Specifies the White color variant of the Office 2013 appearance.
+        /// </summary>
+        Office2013White,
 
         /// <summary>
         /// Specifies the Blue color variant on the Sparkle palette theme.
@@ -5186,6 +5196,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the Office 2010 ribbon shape.
         /// </summary>
         Office2010,
+
+        /// <summary>
+        /// Specifies the Office 2013 ribbon shape.
+        /// </summary>
+        Office2013
     }
     #endregion
 

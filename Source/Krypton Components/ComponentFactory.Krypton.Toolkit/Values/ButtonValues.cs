@@ -287,12 +287,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // If there is no image then use the generic image
-            if (image == null)
-            {
-                image = Image;
-            }
-
-            return image;
+            return image ?? Image;
         }
 
         /// <summary>

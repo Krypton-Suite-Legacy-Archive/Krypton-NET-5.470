@@ -1778,6 +1778,11 @@
             </summary>
             <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         </member>
+        <member name="M:ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner.#ctor">
+            <summary>
+            Initialize a new instance of the KryptonWrapLabelDesigner class.
+            </summary>
+        </member>
         <member name="M:ComponentFactory.Krypton.Toolkit.KryptonTreeViewActionList.#ctor(ComponentFactory.Krypton.Toolkit.KryptonTreeViewDesigner)">
             <summary>
             Initialize a new instance of the KryptonTreeViewActionList class.
