@@ -378,10 +378,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                                       Color color,
                                                       bool copyBackground)
         {
+            // Get the hDC for the graphics instance and create a memory DC
+            IntPtr gDC = g.GetHdc();
             try
             {
-                // Get the hDC for the graphics instance and create a memory DC
-                IntPtr gDC = g.GetHdc();
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
@@ -448,13 +448,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Dispose of allocated objects
                 PI.DeleteObject(hFont);
                 PI.DeleteObject(hDIB);
-                PI.DeleteDC(mDC);
-
-                // Must remember to release the hDC
-                g.ReleaseHdc(gDC);
+                PI.DeleteDC(mDC);              
             }
             catch
             {
+            }
+            finally
+            {
+                // Must remember to release the hDC
+                g.ReleaseHdc(gDC);
             }
         }
 
@@ -478,10 +480,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                                       bool copyBackground,
                                                       StringFormat sf)
         {
+            // Get the hDC for the graphics instance and create a memory DC
+            IntPtr gDC = g.GetHdc();
             try
             {
-                // Get the hDC for the graphics instance and create a memory DC
-                IntPtr gDC = g.GetHdc();
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
@@ -554,11 +556,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 PI.DeleteObject(hDIB);
                 PI.DeleteDC(mDC);
 
+               
+            }
+            catch { }
+            finally
+            {
                 // Must remember to release the hDC
                 g.ReleaseHdc(gDC);
-            }
-            catch
-            {
             }
         }
 
