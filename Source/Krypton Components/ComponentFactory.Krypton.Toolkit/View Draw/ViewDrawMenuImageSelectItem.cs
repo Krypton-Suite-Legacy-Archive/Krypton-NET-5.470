@@ -203,6 +203,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Set new selection index
             _imageSelect.SelectedIndex = _imageIndex;
 
+            //Fire a click item event : seb the right way ?? after selected index
+            _imageSelect.OnClick(e);
+
             // Should we automatically try and close the context menu stack
             if (_imageSelect.AutoClose)
             {
