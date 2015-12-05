@@ -157,11 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2015.csproj">
-      <Project>{DC0DD714-4D19-4F31-A6D0-EA209D4F0EA8}</Project>
+      <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
       <Name>ComponentFactory.Krypton.Navigator 2015</Name>
     </ProjectReference>
     <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2015.csproj">
-      <Project>{96ECAECC-54F8-4AA5-8591-B443C2D9565F}</Project>
+      <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
       <Name>ComponentFactory.Krypton.Toolkit 2015</Name>
     </ProjectReference>
   </ItemGroup>

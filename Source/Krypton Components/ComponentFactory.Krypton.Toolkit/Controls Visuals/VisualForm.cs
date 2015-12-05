@@ -960,10 +960,22 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We do not process the message if on an MDI child, because doing so prevents the 
             // LayoutMdi call on the parent from working and cascading/tiling the children
-            if ((m.Msg == (int)PI.WM_NCCALCSIZE) && _themedApp &&
-                ((MdiParent == null) || ApplyCustomChrome))
+            //if ((m.Msg == (int)PI.WM_NCCALCSIZE) && _themedApp &&
+            //    ((MdiParent == null) || ApplyCustomChrome))
+            if (_themedApp && ((MdiParent == null) || ApplyCustomChrome))
             {
-                processed = OnWM_NCCALCSIZE(ref m);
+                switch (m.Msg)
+                {
+                    case PI.WM_NCCALCSIZE:
+                        processed = OnWM_NCCALCSIZE(ref m);
+                        break;
+                    case PI.WM_GETMINMAXINFO:
+                        OnWM_GETMINMAXINFO(ref m);
+                        /* Setting handled to false enables the application to process it's own Min/Max requirements,
+                * as mentioned by jason.bullard (comment from September 22, 2011) on http://gallery.expression.microsoft.com/ZuneWindowBehavior/ */
+                        processed = false;
+                        break;
+                }
             }
 
             // Do we need to override message processing?
@@ -1076,10 +1088,42 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // If the message has not been handled, let base class process it
-            if (!processed)
+            if (!processed && m.Msg != PI.WM_GETMINMAXINFO)
             {
                 base.WndProc(ref m);
             }
+        }
+
+        /// <summary>
+        /// Creates and populates the MINMAXINFO structure for a maximized window.
+        /// Puts the structure into memory address given by lParam.
+        /// Only used to process a WM_GETMINMAXINFO message.
+        /// </summary>
+        /// <param name="m">A Windows-based message.</param>
+        /// <returns>True if the message was processed; otherwise false.</returns>
+        protected virtual void OnWM_GETMINMAXINFO(ref Message m)
+        {
+
+            PI.MINMAXINFO mmi = (PI.MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(PI.MINMAXINFO));
+
+            // Adjust the maximized size and position to fit the work area of the correct monitor
+            const int MONITOR_DEFAULTTONEAREST = 0x00000002;
+            System.IntPtr monitor = PI.MonitorFromWindow(m.HWnd, MONITOR_DEFAULTTONEAREST);
+
+            if (monitor != System.IntPtr.Zero)
+            {
+
+                PI.MONITORINFO monitorInfo = new PI.MONITORINFO();
+                PI.GetMonitorInfo(monitor, monitorInfo);
+                PI.RECT rcWorkArea = monitorInfo.rcWork;
+                PI.RECT rcMonitorArea = monitorInfo.rcMonitor;
+                mmi.ptMaxPosition.x = Math.Abs(rcWorkArea.left - rcMonitorArea.left);
+                mmi.ptMaxPosition.y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
+                mmi.ptMaxSize.x = Math.Abs(rcWorkArea.right - rcWorkArea.left);
+                mmi.ptMaxSize.y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
+            }
+
+            Marshal.StructureToPtr(mmi, m.LParam, true);
         }
 
         /// <summary>

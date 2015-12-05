@@ -276,14 +276,18 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static PaletteOffice2013White()
         {
-            _checkBoxList = new ImageList();
-            _checkBoxList.ImageSize = new Size(13, 13);
-            _checkBoxList.ColorDepth = ColorDepth.Depth24Bit;
+            _checkBoxList = new ImageList
+            {
+                ImageSize = new Size(13, 13),
+                ColorDepth = ColorDepth.Depth24Bit
+            };
             _checkBoxList.Images.AddStrip(Properties.Resources.CB2010Silver);
-            _galleryButtonList = new ImageList();
-            _galleryButtonList.ImageSize = new Size(13, 7);
-            _galleryButtonList.ColorDepth = ColorDepth.Depth24Bit;
-            _galleryButtonList.TransparentColor = Color.Magenta;
+            _galleryButtonList = new ImageList
+            {
+                ImageSize = new Size(13, 7),
+                ColorDepth = ColorDepth.Depth24Bit,
+                TransparentColor = Color.Magenta
+            };
             _galleryButtonList.Images.AddStrip(Properties.Resources.Gallery2010);
             _radioButtonArray = new Image[]{Properties.Resources.RB2010BlueD,
                                             Properties.Resources.RB2010SilverN,

@@ -351,17 +351,23 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static KryptonOffice2013Renderer()
         {
-            _stripBlend = new Blend();
-            _stripBlend.Positions = new float[] { 0.0f, 0.33f, 0.66f, 1.0f };
-            _stripBlend.Factors = new float[] { 0.0f, 0.5f, 0.8f, 1.0f };
+            _stripBlend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.33f, 0.66f, 1.0f },
+                Factors = new float[] { 0.0f, 0.5f, 0.8f, 1.0f }
+            };
 
-            _separatorDarkBlend = new Blend();
-            _separatorDarkBlend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
-            _separatorDarkBlend.Factors = new float[] { 0.2f, 1f, 0.2f };
+            _separatorDarkBlend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.5f, 1.0f },
+                Factors = new float[] { 0.2f, 1f, 0.2f }
+            };
 
-            _separatorLightBlend = new Blend();
-            _separatorLightBlend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
-            _separatorLightBlend.Factors = new float[] { 0.1f, 0.6f, 0.1f };
+            _separatorLightBlend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.5f, 1.0f },
+                Factors = new float[] { 0.1f, 0.6f, 0.1f }
+            };
         }
 
         /// <summary>

@@ -32,12 +32,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     return false;
                 }
-                else
+                else if (Environment.OSVersion.Version.Major < 10)
                 {
                     // Ask the desktop window manager is composition is currently enabled
                     bool compositionEnabled = false;
                     PI.DwmIsCompositionEnabled(ref compositionEnabled);
                     return compositionEnabled;
+                }
+                else //Win 10
+                {
+                    return UserSystemPreferencesService.IsTransparencyEnabled;
                 }
             }
         }

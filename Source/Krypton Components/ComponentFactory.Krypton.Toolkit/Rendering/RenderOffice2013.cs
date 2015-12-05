@@ -100,10 +100,12 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Use the professional renderer but pull colors from the palette
-            KryptonOffice2013Renderer renderer = new KryptonOffice2013Renderer(colorPalette.ColorTable);
+            KryptonOffice2013Renderer renderer = new KryptonOffice2013Renderer(colorPalette.ColorTable)
+            {
 
-            // Seup the need to use rounded corners
-            renderer.RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False);
+                // Seup the need to use rounded corners
+                RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False)
+            };
 
             return renderer;
         }
