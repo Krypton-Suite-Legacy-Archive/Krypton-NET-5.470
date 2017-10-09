@@ -1,0 +1,19 @@
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\ComponentFactory.Krypton.Docking.XML
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\ComponentFactory.Krypton.Docking.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\ComponentFactory.Krypton.Docking.pdb
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csprojResolveAssemblyReference.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.Properties.Resources.resources
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csproj.GenerateResource.Cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csproj.CoreCompileInputs.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.6.2\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.pdb
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.dll.config
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.XML
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.pdb
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csprojResolveAssemblyReference.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.Properties.Resources.resources
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csproj.GenerateResource.Cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking 2015.csproj.CoreCompileInputs.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton\Source\Versions\4.7\Krypton Components\ComponentFactory.Krypton.Docking\obj\Debug\ComponentFactory.Krypton.Docking.pdb
