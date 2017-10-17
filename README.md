@@ -1,10 +1,12 @@
 # Krypton-NET-4.7
 
-## Initial Commit will be
-* A update to Component factory's krypton toolkit to support the .NET 4.7 framework.
+## The 2017-10-17 Commit is:
+* An update to Component factory's KryptonToolkit to support the .NET 4.7 framework.
+* Add generic c# .gitignore
 * Change the solution to reflect Visual Studio 2017 usage
 * Change Test apps to use .Net 4.7 Target framework
-* Add designer dll to test app to allow visual design and testing
+* Add designer dll to test apps to allow visual design and testing without GAC'ing
+
 
 ## Next (No particular order)
 * Add braces to if statements
