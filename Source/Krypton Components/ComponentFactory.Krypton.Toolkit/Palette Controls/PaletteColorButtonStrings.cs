@@ -8,14 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -25,11 +18,13 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteColorButtonStrings : Storage
     {
         #region Static Fields
-        private static readonly string _defaultMoreColors = "&More Colors...";
-        private static readonly string _defaultNoColor = "&No Color";
-        private static readonly string _defaultRecentColors = "Recent Colors";
-        private static readonly string _defaultStandardColors = "Standard Colors";
-        private static readonly string _defaultThemeColors = "Theme Colors";
+
+        private const string DEFAULT_MORE_COLORS = "&More Colors...";
+        private const string DEFAULT_NO_COLOR = "&No Color";
+        private const string DEFAULT_RECENT_COLORS = "Recent Colors";
+        private const string DEFAULT_STANDARD_COLORS = "Standard Colors";
+        private const string DEFAULT_THEME_COLORS = "Theme Colors";
+
         #endregion
 
         #region Instance Fields
@@ -47,11 +42,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteColorButtonStrings()
 		{
             // Default values
-            _moreColors = _defaultMoreColors;
-            _noColor = _defaultNoColor;
-            _recentColors = _defaultRecentColors;
-            _standardColors = _defaultStandardColors;
-            _themeColors = _defaultThemeColors;
+            _moreColors = DEFAULT_MORE_COLORS;
+            _noColor = DEFAULT_NO_COLOR;
+            _recentColors = DEFAULT_RECENT_COLORS;
+            _standardColors = DEFAULT_STANDARD_COLORS;
+            _themeColors = DEFAULT_THEME_COLORS;
         }
 		#endregion
 
@@ -64,11 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                return (MoreColors.Equals(_defaultMoreColors)) &&
-                       (NoColor.Equals(_defaultNoColor)) &&
-                       (RecentColors.Equals(_defaultRecentColors)) &&
-                       (StandardColors.Equals(_defaultStandardColors)) &&
-                       (ThemeColors.Equals(_defaultThemeColors));
+                return (MoreColors.Equals(DEFAULT_MORE_COLORS)) &&
+                       (NoColor.Equals(DEFAULT_NO_COLOR)) &&
+                       (RecentColors.Equals(DEFAULT_RECENT_COLORS)) &&
+                       (StandardColors.Equals(DEFAULT_STANDARD_COLORS)) &&
+                       (ThemeColors.Equals(DEFAULT_THEME_COLORS));
             }
         }
         #endregion

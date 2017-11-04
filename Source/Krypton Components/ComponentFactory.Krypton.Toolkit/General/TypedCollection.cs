@@ -9,14 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Collections;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -101,7 +95,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Just add each item in the array in turn
             foreach (T item in itemArray)
+            {
                 Add(item);
+            }
         }
         #endregion
 
@@ -210,11 +206,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We do not allow an empty ribbon tab to be added
 			if (item == null)
-				throw new ArgumentNullException("item");
+            {
+                throw new ArgumentNullException("item");
+            }
 
             // Not allow to add the same item more than once
-			if (_list.Contains(item))
-				throw new ArgumentOutOfRangeException("item", "Item already in collection");
+            if (_list.Contains(item))
+            {
+                throw new ArgumentOutOfRangeException("item", "Item already in collection");
+            }
 
             // Generate before insert event
             OnInserting(new TypedCollectionEventArgs<T>(item, index));
@@ -314,11 +314,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We do not allow an empty item to be added
 			if (item == null)
-				throw new ArgumentNullException("item");
+            {
+                throw new ArgumentNullException("item");
+            }
 
             // Not allow to add the same item more than once
-			if (_list.Contains(item))
-				throw new ArgumentOutOfRangeException("item", "Item already in collection");
+            if (_list.Contains(item))
+            {
+                throw new ArgumentOutOfRangeException("item", "Item already in collection");
+            }
 
             // Generate before insert event
             OnInserting(new TypedCollectionEventArgs<T>(item, _list.Count));
@@ -419,12 +423,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Cannot pass a null target array
 			if (array == null)
-				throw new ArgumentNullException("array");
+            {
+                throw new ArgumentNullException("array");
+            }
 
             // Try and copy each item to the destination array
-			foreach (T item in this)
+            foreach (T item in this)
+            {
                 array.SetValue(item, index++);
-		}
+            }
+        }
 
 		/// <summary>
 		/// Gets a value indicating whether access to the collection is synchronized (thread safe).
@@ -470,8 +478,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A KryptonRibbonTabEventArgs instance containing event data.</param>
         protected virtual void OnInserting(TypedCollectionEventArgs<T> e)
         {
-            if (Inserting != null)
-                Inserting(this, e);
+            Inserting?.Invoke(this, e);
         }
 
         /// <summary>
@@ -480,9 +487,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnInserted(TypedCollectionEventArgs<T> e)
 		{
-			if (Inserted != null)
-				Inserted(this, e);
-		}
+            Inserted?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the Removing event.
@@ -490,9 +496,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnRemoving(TypedCollectionEventArgs<T> e)
 		{
-			if (Removing != null)
-				Removing(this, e);
-		}
+            Removing?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the Removed event.
@@ -500,9 +505,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnRemoved(TypedCollectionEventArgs<T> e)
 		{
-			if (Removed != null)
-				Removed(this, e);
-		}
+            Removed?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the Clearing event.
@@ -510,9 +514,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs instance containing event data.</param>
         protected virtual void OnClearing(EventArgs e)
 		{
-			if (Clearing != null)
-				Clearing(this, e);
-		}
+            Clearing?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the Cleared event.
@@ -520,9 +523,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs instance containing event data.</param>
         protected virtual void OnCleared(EventArgs e)
 		{
-			if (Cleared != null)
-				Cleared(this, e);
-		}
+            Cleared?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Raises the Reordered event.
@@ -530,8 +532,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs instance containing event data.</param>
         protected virtual void OnReordered(EventArgs e)
         {
-            if (Reordered != null)
-                Reordered(this, e);
+            Reordered?.Invoke(this, e);
         }
         #endregion
 	}

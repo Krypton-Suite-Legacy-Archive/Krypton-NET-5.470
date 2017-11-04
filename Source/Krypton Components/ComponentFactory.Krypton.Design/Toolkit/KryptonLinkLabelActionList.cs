@@ -10,10 +10,7 @@
 
 using System;
 using System.Drawing;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -41,9 +38,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Decide on the next action to take given the current setting
                 if (_linkLabel.LinkVisited)
+                {
                     _action = "Link has not been visited";
+                }
                 else
+                {
                     _action = "Link has been visited";
+                }
             }
 
             // Cache service used to notify when a property has changed
@@ -224,26 +225,30 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnLinkVisitedClick(object sender, EventArgs e)
         {
             // Cast to the correct type
-            DesignerVerb verb = sender as DesignerVerb;
-            
+
             // Double check the source is the expected type
-            if (verb != null)
+            if (sender is DesignerVerb verb)
             {
                 // Invert the visited setting
                 _linkLabel.LinkVisited = !_linkLabel.LinkVisited;
 
                 // Decide on the next action to take given the new setting
                 if (_linkLabel.LinkVisited)
+                {
                     _action = "Link has not been visited";
+                }
                 else
+                {
                     _action = "Link has been visited";
+                }
 
                 // Get the user interface service associated with actions
-                DesignerActionUIService service = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
 
                 // If we managed to get it then request it update to reflect new action setting
-                if (service != null)
+                if (GetService(typeof(DesignerActionUIService)) is DesignerActionUIService service)
+                {
                     service.Refresh(_linkLabel);
+                }
             }
         }
         #endregion   

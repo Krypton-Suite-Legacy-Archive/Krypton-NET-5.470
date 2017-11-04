@@ -9,16 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using Microsoft.Win32;
@@ -156,8 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 UnattachGlobalEvents();
-                if (ViewManager != null)
-                    ViewManager.Dispose();
+                ViewManager?.Dispose();
 
                 _palette = null;
                 _renderer = null;
@@ -530,7 +523,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewBase ViewFromPoint(Point pt)
         {
             if ((ViewManager != null) && (ViewManager.Root != null))
+            {
                 return ViewManager.Root.ViewFromPoint(pt);
+            }
 
             return null;
         }
@@ -658,10 +653,12 @@ namespace ComponentFactory.Krypton.Toolkit
 			{
 				// Control must be visible and enabled
 				if (!c.Visible || !c.Enabled)
-					return false;
+                {
+                    return false;
+                }
 
-				// Move up one level
-				c = c.Parent;
+                // Move up one level
+                c = c.Parent;
 			}
 
 			// Every control in chain is visible and enabled, so allow mnemonics
@@ -722,7 +719,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
         }
 
         /// <summary>
@@ -740,8 +740,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
-            if (PaletteChanged != null)
-                PaletteChanged(this, e);
+            PaletteChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -766,7 +765,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Never try and redraw or layout when disposed are trying to dispose
             if (!IsDisposed && !Disposing)
@@ -776,7 +778,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If required, layout the control
                 if (e.NeedLayout && !_layoutDirty)
+                {
                     _layoutDirty = true;
+                }
 
                 if (IsHandleCreated && (!_refreshAll || !e.InvalidRect.IsEmpty))
                 {
@@ -787,11 +791,15 @@ namespace ComponentFactory.Krypton.Toolkit
                         Invalidate();
                     }
                     else
+                    {
                         Invalidate(e.InvalidRect);
+                    }
 
                     // Do we need to use an Invoke to force repaint?
                     if (!_refresh && EvalInvokePaint)
+                    {
                         BeginInvoke(_refreshCall);
+                    }
 
                     // A refresh is outstanding
                     _refresh = true;
@@ -928,8 +936,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseMove(e, new Point(e.X, e.Y));
+                ViewManager?.MouseMove(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -946,8 +953,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseDown(e, new Point(e.X, e.Y));
+                ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -964,8 +970,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseUp(e, new Point(e.X, e.Y));
+                ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -982,8 +987,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseLeave(e);
+                ViewManager?.MouseLeave(e);
             }
 
 			// Let base class fire events
@@ -1000,8 +1004,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.DoubleClick(this.PointToClient(Control.MousePosition));
+                ViewManager?.DoubleClick(this.PointToClient(Control.MousePosition));
             }
 
             // Let base class fire events
@@ -1018,8 +1021,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyDown(e);
+                ViewManager?.KeyDown(e);
             }
 
             // Let base class fire events
@@ -1036,8 +1038,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyPress(e);
+                ViewManager?.KeyPress(e);
             }
 
             // Let base class fire events
@@ -1054,8 +1055,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyUp(e);
+                ViewManager?.KeyUp(e);
             }
 
             // Let base class fire events
@@ -1072,8 +1072,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing source messages?
-                if (ViewManager != null)
-                    ViewManager.GotFocus();
+                ViewManager?.GotFocus();
             }
 
 			// Let base class fire standard event
@@ -1090,8 +1089,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 // Do we have a manager for processing source messages?
-                if (ViewManager != null)
-                    ViewManager.LostFocus();
+                ViewManager?.LostFocus();
             }
 
 			// Let base class fire standard event
@@ -1146,8 +1144,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If we have a defined context menu then need to check for matching shortcut
             if (KryptonContextMenu != null)
+            {
                 if (KryptonContextMenu.ProcessShortcut(keyData))
+                {
                     return true;
+                }
+            }
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -1169,7 +1171,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If keyboard activated, the menu position is centered
                     if (((int)((long)m.LParam)) == -1)
+                    {
                         mousePt = new Point(Width / 2, Height / 2);
+                    }
                     else
                     {
                         mousePt = PointToClient(mousePt);

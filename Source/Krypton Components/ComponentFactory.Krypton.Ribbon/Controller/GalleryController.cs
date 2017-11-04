@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -87,12 +84,18 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the root control that owns the provided control
             c = _ribbon.GetControllerControl(c);
 
-            if (c is KryptonRibbon)
-                KeyDownRibbon(c as KryptonRibbon, e);
-            else if (c is VisualPopupGroup)
-                KeyDownPopupGroup(c as VisualPopupGroup, e);
-            else if (c is VisualPopupMinimized)
-                KeyDownPopupMinimized(c as VisualPopupMinimized, e);
+            switch (c)
+            {
+                case KryptonRibbon rib:
+                    KeyDownRibbon(rib, e);
+                    break;
+                case VisualPopupGroup pop:
+                    KeyDownPopupGroup(pop, e);
+                    break;
+                case VisualPopupMinimized min:
+                    KeyDownPopupMinimized(min, e);
+                    break;
+            }
         }
 
         /// <summary>
@@ -149,7 +152,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Got to the actual tab header
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
+                    }
                     break;
                 case Keys.Tab:
                 case Keys.Right:
@@ -158,19 +163,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any far defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
             }
@@ -179,8 +192,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != _target))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
-                if ((newView is ViewDrawRibbonTab) && !ribbon.RealMinimizedMode)
-                    ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 ribbon.FocusView = newView;

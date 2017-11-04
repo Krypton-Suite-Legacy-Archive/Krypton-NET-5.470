@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class TabBorderStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(TabBorderStyle.OneNote,               "OneNote"),
+        private Pair[] _pairs = { new Pair(TabBorderStyle.OneNote,               "OneNote"),
                                              new Pair(TabBorderStyle.SquareEqualSmall,      "Square Equal Small"),
                                              new Pair(TabBorderStyle.SquareEqualMedium,     "Square Equal Medium"),
                                              new Pair(TabBorderStyle.SquareEqualLarge,      "Square Equal Large"),

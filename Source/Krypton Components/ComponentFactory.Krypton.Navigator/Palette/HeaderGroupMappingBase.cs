@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -112,7 +107,9 @@ namespace ComponentFactory.Krypton.Navigator
             // mapping indicates to always use the static image
             if ((_navigator.SelectedPage == null) ||
                 (MapImage == MapKryptonPageImage.None))
+            {
                 return Image;
+            }
 
             // Ask the page to provide the image mapping
             return _navigator.SelectedPage.GetImageMapping(MapImage);
@@ -129,7 +126,9 @@ namespace ComponentFactory.Krypton.Navigator
             // mapping indicates to always use the static text
             if ((_navigator.SelectedPage == null) ||
                 (MapHeading == MapKryptonPageText.None))
+            {
                 return Heading;
+            }
 
             // Ask the page to provide the text mapping
             return _navigator.SelectedPage.GetTextMapping(MapHeading);
@@ -146,7 +145,9 @@ namespace ComponentFactory.Krypton.Navigator
             // mapping indicates to always use the static text
             if ((_navigator.SelectedPage == null) ||
                 (MapDescription == MapKryptonPageText.None))
+            {
                 return Description;
+            }
 
             // Ask the page to provide the text mapping
             return _navigator.SelectedPage.GetTextMapping(MapDescription);

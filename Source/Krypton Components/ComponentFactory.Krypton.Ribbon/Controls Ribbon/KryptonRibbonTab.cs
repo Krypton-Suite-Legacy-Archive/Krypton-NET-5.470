@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -95,7 +91,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Dispose of per-group resources
                 foreach (KryptonRibbonGroup group in Groups)
-                    group.Dispose();
+                {
+                    @group.Dispose();
+                }
             }
 
             base.Dispose(disposing);
@@ -121,7 +119,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // are added before the group is added to the tab, in which case the
                 // reference will not be set as yet)
                 foreach (KryptonRibbonGroup group in _ribbonGroups)
-                    group.Ribbon = value;
+                {
+                    @group.Ribbon = value;
+                }
             }
         }
 
@@ -141,7 +141,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "Tab";
+                }
 
                 if (value != _text)
                 {
@@ -150,7 +152,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Only need to update display if this tab is visible
                     if ((_ribbon != null) && Visible)
+                    {
                         _ribbon.PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -170,7 +174,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set 
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "T";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -192,7 +198,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Always maintain a value reference
                 if (value == null)
+                {
                     value = string.Empty;
+                }
 
                 if (value != _contextName)
                 {
@@ -201,7 +209,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Only need to update display if this tab is visible
                     if ((_ribbon != null) && Visible)
+                    {
                         _ribbon.PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -242,7 +252,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // If selected, find another tab to select
                         if (_ribbon.SelectedTab == this)
+                        {
                             _ribbon.ResetSelectedTab();
+                        }
 
                         _ribbon.PerformNeedPaint(true);
                     }
@@ -329,30 +341,31 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal void OnDesignTimeAddGroup()
         {
-            if (DesignTimeAddGroup != null)
-                DesignTimeAddGroup(this, EventArgs.Empty);
+            DesignTimeAddGroup?.Invoke(this, EventArgs.Empty);
         }
 
         internal bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // Ask the groups to check for command key processing
             foreach (KryptonRibbonGroup group in Groups)
-                if (group.Visible && group.ProcessCmdKey(ref msg, keyData))
+            {
+                if (@group.Visible && @group.ProcessCmdKey(ref msg, keyData))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -373,7 +386,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Only need to update display if this tab is selected
             if ((_ribbon != null) && (_ribbon.SelectedTab == this))
+            {
                 _ribbon.PerformNeedPaint(true);
+            }
         }
 
         private void OnRibbonGroupsInserted(object sender, TypedCollectionEventArgs<KryptonRibbonGroup> e)
@@ -384,7 +399,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Only need to update display if this tab is selected and the group is visible
             if ((_ribbon != null) && (_ribbon.SelectedTab == this) && Visible)
+            {
                 _ribbon.PerformNeedPaint(true);
+            }
         }
 
         private void OnRibbonGroupsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonGroup> e)
@@ -395,7 +412,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Only need to update display if this tab is selected and the group was visible
             if ((_ribbon != null) && (_ribbon.SelectedTab == this) && Visible)
+            {
                 _ribbon.PerformNeedPaint(true);
+            }
         }
         #endregion
     }

@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -80,8 +78,10 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Cache the starting values
 			_paletteBorder = paletteBorder;
 			_paletteBack = paletteBack;
-            _paletteBackDraw = new PaletteBackInheritForced(_paletteBack);
-            _paletteBackDraw.ForceDraw = InheritBool.True;
+            _paletteBackDraw = new PaletteBackInheritForced(_paletteBack)
+            {
+                ForceDraw = InheritBool.True
+            };
             _paletteBackLight = new PaletteBackLightenColors(_paletteBack);
             _paletteMetric = paletteMetric;
             _paletteBorderNormal = paletteBorder;
@@ -171,11 +171,12 @@ namespace ComponentFactory.Krypton.Toolkit
             
             set 
             { 
-                _splitRectangle = value; 
-                
-                ButtonController controller = this.FindMouseController() as ButtonController;
-                if (controller != null)
+                _splitRectangle = value;
+
+                if (this.FindMouseController() is ButtonController controller)
+                {
                     controller.SplitRectangle = value;
+                }
             }
         }
         #endregion
@@ -235,9 +236,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // If not using a forced override decorator, then just store the new border palette
             // otherwise we update the decorator with the palette as the new inheritance to use
             if (_borderForced == null)
+            {
                 _paletteBorder = paletteBorder;
+            }
             else
+            {
                 _borderForced.SetInherit(paletteBorder);
+            }
 
             _paletteMetric = paletteMetric;
 		}
@@ -286,9 +291,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_borderForced == null)
+                {
                     return PaletteDrawBorders.All;
+                }
                 else
+                {
                     return _borderForced.MaxBorderEdges;
+                }
             }
 
             set 
@@ -317,9 +326,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_borderForced == null)
+                {
                     return PaletteGraphicsHint.Inherit;
+                }
                 else
+                {
                     return _borderForced.ForceGraphicsHint;
+                }
             }
 
             set 
@@ -421,26 +434,34 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Ensure any content children have correct composition setting
             foreach (ViewBase child in this)
-                if (child is ViewDrawContent)
+            {
+                if (child is ViewDrawContent viewContent)
                 {
-                    ViewDrawContent viewContent = (ViewDrawContent)child;
                     viewContent.DrawContentOnComposition = DrawCanvasOnComposition;
                 }
-            
+            }
+
             // Let base class find preferred size of the children
-			Size preferredSize = base.GetPreferredSize(context);
+            Size preferredSize = base.GetPreferredSize(context);
 
 			// Apply space the border takes up
             if (DrawTabBorder)
+            {
                 preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State, Orientation, TabBorderStyle));
+            }
             else
+            {
                 preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation));
+            }
 
-			// Do we have a metric source for additional padding?
+            // Do we have a metric source for additional padding?
             if ((_paletteMetric != null) && (_metricPadding != PaletteMetricPadding.None))
 			{
 				// Apply padding needed outside the border of the canvas
@@ -459,10 +480,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
 			// Do we have a metric source for additional padding?
 			if ((_paletteMetric != null) && (_metricPadding != PaletteMetricPadding.None))
@@ -478,27 +502,32 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Calculate how much space the border takes up
             if (DrawTabBorder)
+            {
                 padding = context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State, Orientation, TabBorderStyle);
+            }
             else
+            {
                 padding = context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation);
+            }
 
             // Apply the padding to the client rectangle
             context.DisplayRectangle = CommonHelper.ApplyPadding(Orientation, ClientRectangle, padding);
 
             // Ensure any content children have correct composition setting
             foreach (ViewBase child in this)
-                if (child is ViewDrawContent)
+            {
+                if (child is ViewDrawContent viewContent)
                 {
                     // Do we need to draw the background?
                     bool drawBackground = _drawCanvas && (_paletteBack.GetBackDraw(State) == InheritBool.True);
 
                     // Update the content accordingly
-                    ViewDrawContent viewContent = (ViewDrawContent)child;
                     viewContent.DrawContentOnComposition = DrawCanvasOnComposition && !drawBackground;
                 }
+            }
 
-			// Let child elements layout
-			base.Layout(context);
+            // Let child elements layout
+            base.Layout(context);
 
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
@@ -515,7 +544,10 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             RenderBackground(context, ClientRectangle);
 
@@ -523,7 +555,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we draw the border before the children?
                 if (!DrawBorderLast)
+                {
                     RenderBorder(context, ClientRectangle);
+                }
                 else
                 {
                     // Drawing border afterwards, and so clip children to prevent drawing
@@ -537,9 +571,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Restrict the clipping to the area inside the canvas border
                     if (DrawTabBorder)
+                    {
                         borderPath = context.Renderer.RenderTabBorder.GetTabBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State, TabBorderStyle);
+                    }
                     else
+                    {
                         borderPath = context.Renderer.RenderStandardBorder.GetBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State);
+                    }
 
                     // Create a new region the same as the existing clipping region
                     Region combineRegion = new Region(borderPath);
@@ -562,7 +600,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             if (_drawCanvas && (_paletteBorder != null))
             {
@@ -598,38 +639,54 @@ namespace ComponentFactory.Krypton.Toolkit
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, _nonSplitRectangle))
                             {
                                 if (SplitWithFading)
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBackLight : _paletteBack), _paletteBorder, PaletteState.Tracking);
+                                }
                                 else
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBackDraw : _paletteBack), _paletteBorder, (mouseInSplit ? PaletteState.Normal : PaletteState.Tracking));
+                                }
                             }
 
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, _splitRectangle))
                             {
                                 if (SplitWithFading)
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBack : _paletteBackLight), _paletteBorder, PaletteState.Tracking);
+                                }
                                 else
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBack : _paletteBackDraw), _paletteBorder, (mouseInSplit ? PaletteState.Tracking : PaletteState.Normal));
+                                }
                             }
                             break;
                         case PaletteState.Pressed:
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, _splitRectangle))
                             {
                                 if (SplitWithFading)
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBack : _paletteBackLight),
                                                    _paletteBorder, (mouseInSplit ? PaletteState.Pressed : PaletteState.Tracking));
+                                }
                                 else
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBack : _paletteBackDraw),
                                                    _paletteBorder, (mouseInSplit ? PaletteState.Pressed : PaletteState.Normal));
+                                }
                             }
 
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, _nonSplitRectangle))
                             {
                                 if (SplitWithFading)
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBackLight : _paletteBack),
                                                   _paletteBorder, (mouseInSplit ? PaletteState.Tracking : PaletteState.Pressed));
+                                }
                                 else
+                                {
                                     DrawBackground(context, rect, (mouseInSplit ? _paletteBackDraw : _paletteBack),
                                                    _paletteBorder, (mouseInSplit ? PaletteState.Normal : PaletteState.Pressed));
+                                }
                             }
                             break;
                         default:
@@ -638,7 +695,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
                 else
+                {
                     DrawBackground(context, rect, _paletteBack, _paletteBorder, State);
+                }
             }
         }
 
@@ -661,7 +720,10 @@ namespace ComponentFactory.Krypton.Toolkit
                             DrawBorder(context, rect, _paletteBorder, PaletteState.Tracking);
 
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, (mouseInSplit ? _splitRectangle : _nonSplitRectangle)))
+                            {
                                 DrawBorder(context, rect, _paletteBorder, PaletteState.Pressed);
+                            }
+
                             break;
                         default:
                             DrawBorder(context, rect, _paletteBorder, State);
@@ -669,7 +731,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
                 else
+                {
                     DrawBorder(context, rect, _paletteBorder, State);
+                }
             }
 		}
 
@@ -710,19 +774,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Render the border over the background and children
             if (DrawTabBorder)
+            {
                 context.Renderer.RenderTabBorder.DrawTabBorder(context, rect, _paletteBorder, _orientation, state, TabBorderStyle);
+            }
             else
+            {
                 context.Renderer.RenderStandardBorder.DrawBorder(context, rect, _paletteBorder, _orientation, state);
+            }
         }
 
         private bool MouseInSplit
         {
             get
             {
-                ButtonController controller = this.FindMouseController() as ButtonController;
-                if (controller != null)
+                if (this.FindMouseController() is ButtonController controller)
+                {
                     if (!controller.MousePoint.Equals(CommonHelper.NullPoint))
+                    {
                         return _splitRectangle.Contains(controller.MousePoint);
+                    }
+                }
 
                 return false;
             }

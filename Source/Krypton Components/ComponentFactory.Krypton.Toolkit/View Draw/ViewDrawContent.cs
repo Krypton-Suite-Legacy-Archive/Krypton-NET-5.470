@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
@@ -181,13 +178,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             bool isDisplayed = false;
 
 			// If we have some content to investigate
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
                 isDisplayed = context.Renderer.RenderStandardContent.GetContentImageDisplayed(_memento);
+            }
 
             return isDisplayed;
         }
@@ -203,13 +205,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             Rectangle imageRect = Rectangle.Empty;
 
             // If we have some content to investigate
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
                 imageRect = context.Renderer.RenderStandardContent.GetContentImageRectangle(_memento);
+            }
 
             return imageRect;
         }
@@ -225,13 +232,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             Rectangle textRect = Rectangle.Empty;
 
             // If we have some content to investigate
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
                 textRect = context.Renderer.RenderStandardContent.GetContentShortTextRectangle(_memento);
+            }
 
             return textRect;
         }
@@ -247,13 +259,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             Rectangle textRect = Rectangle.Empty;
 
             // If we have some content to investigate
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
                 textRect = context.Renderer.RenderStandardContent.GetContentLongTextRectangle(_memento);
+            }
 
             return textRect;
         }
@@ -269,10 +286,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // By default we take up no space at all
-			Size preferredSize = Size.Empty;
+            Size preferredSize = Size.Empty;
 
 			// If we have some content to encompass
 			if (_paletteContent.GetContentDraw(State) == InheritBool.True)
@@ -298,10 +318,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
 			// Do we need to draw the content?
 			if (_paletteContent.GetContentDraw(State) == InheritBool.True)
@@ -336,10 +359,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Do we need to draw the content?
-			if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            if (_paletteContent.GetContentDraw(State) == InheritBool.True)
 			{
                 bool allowFocusRect = (_testForFocusCues ? ShowFocusCues(context.Control) : true);
 

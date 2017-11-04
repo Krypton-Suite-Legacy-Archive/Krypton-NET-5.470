@@ -9,15 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -113,10 +108,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                              new PaletteMetricRedirect(Redirector),
                                              this,
                                              Orientation,
-                                             UseMnemonic);
+                                             UseMnemonic)
+            {
 
-            // Only draw a focus rectangle when focus cues are needed in the top level form
-            _drawButton.TestForFocusCues = true;
+                // Only draw a focus rectangle when focus cues are needed in the top level form
+                TestForFocusCues = true
+            };
 
             // Create a button controller to handle button style behaviour
             _buttonController = new ButtonController(_drawButton, NeedPaintDelegate);
@@ -406,17 +403,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
+                    {
                         _wasEnabled = Enabled;
+                    }
 
                     _command = value;
                     OnKryptonCommandChanged(EventArgs.Empty);
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
+                    {
                         Enabled = _wasEnabled;
+                    }
                 }
             }
         }
@@ -446,8 +451,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		public void PerformClick()
 		{
 			if (CanSelect)
-				OnClick(EventArgs.Empty);
-		}
+            {
+                OnClick(EventArgs.Empty);
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
@@ -510,9 +517,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetShortText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.Text;
+            }
             else
+            {
                 return _buttonValues.GetShortText();
+            }
         }
 
         /// <summary>
@@ -522,9 +533,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetLongText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ExtraText;
+            }
             else
+            {
                 return _buttonValues.GetLongText();
+            }
         }
 
         /// <summary>
@@ -535,9 +550,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetImage(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageSmall;
+            }
             else
+            {
                 return _buttonValues.GetImage(state);
+            }
         }
 
         /// <summary>
@@ -548,9 +567,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetImageTransparentColor(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageTransparentColor;
+            }
             else
+            {
                 return _buttonValues.GetImageTransparentColor(state);
+            }
         }
         #endregion
         
@@ -646,8 +669,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			base.OnClick(e);
 
             // If we have an attached command then execute it
-            if (KryptonCommand != null)
-                KryptonCommand.PerformExecute();
+		    KryptonCommand?.PerformExecute();
 		}
 
 		/// <summary>
@@ -710,12 +732,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnKryptonCommandChanged(EventArgs e)
         {
-            if (KryptonCommandChanged != null)
-                KryptonCommandChanged(this, e);
+            KryptonCommandChanged?.Invoke(this, e);
 
             // Use the values from the new command
             if (KryptonCommand != null)
+            {
                 Enabled = KryptonCommand.Enabled;
+            }
 
             // Redraw to update the text/extratext/image properties
             PerformNeedPaint(true);
@@ -770,8 +793,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Take the focus if allowed
 			if (CanFocus)
-				Focus();
-		}
+            {
+                Focus();
+            }
+        }
         #endregion
     }
 }

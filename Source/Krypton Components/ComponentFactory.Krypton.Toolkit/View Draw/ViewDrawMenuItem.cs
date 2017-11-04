@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
@@ -116,8 +113,10 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteTripleJustImage justImage = (ResolveChecked ? _menuItem.StateChecked.ItemImage : menuItemState.ItemImage);
             _fixedImage = new FixedContentValue(null, null, itemColumnImage, itemImageTransparent);
             _imageContent = new ViewDrawContent(justImage.Content, _fixedImage, VisualOrientation.Top);
-            _imageCanvas = new ViewDrawMenuImageCanvas(justImage.Back, justImage.Border, 0, false);
-            _imageCanvas.Add(_imageContent);
+            _imageCanvas = new ViewDrawMenuImageCanvas(justImage.Back, justImage.Border, 0, false)
+            {
+                _imageContent
+            };
             docker.Add(new ViewLayoutCenter(_imageCanvas), ViewDockStyle.Left);
             _imageContent.Enabled = _itemEnabled;
 
@@ -133,7 +132,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 string shortcutString = _menuItem.ShortcutKeyDisplayString;
                 if (string.IsNullOrEmpty(shortcutString))
+                {
                     shortcutString = (_menuItem.ShortcutKeys != Keys.None) ? new KeysConverter().ConvertToString(_menuItem.ShortcutKeys) : string.Empty;
+                }
+
                 if (shortcutString.Length > 0)
                 {
                     _shortcutContent = new ViewDrawMenuItemContent(menuItemState.ItemShortcutText, new FixedContentValue(shortcutString, null, null, Color.Empty), 2);
@@ -263,9 +265,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Enabled;
+                }
                 else
+                {
                     return _menuItem.Enabled;
+                }
             }
         }
         #endregion
@@ -281,12 +287,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_cachedCommand != null)
                 {
                     if (_menuItem.LargeKryptonCommandImage)
+                    {
                         return _cachedCommand.ImageLarge;
+                    }
                     else
+                    {
                         return _cachedCommand.ImageSmall;
+                    }
                 }
                 else
+                {
                     return _menuItem.Image;
+                }
             }
         }
         #endregion
@@ -300,9 +312,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ImageTransparentColor;
+                }
                 else
+                {
                     return _menuItem.ImageTransparentColor;
+                }
             }
         }
         #endregion
@@ -316,9 +332,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Text;
+                }
                 else
+                {
                     return _menuItem.Text;
+                }
             }
         }
         #endregion
@@ -332,9 +352,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ExtraText;
+                }
                 else
+                {
                     return _menuItem.ExtraText;
+                }
             }
         }
         #endregion
@@ -348,9 +372,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Checked;
+                }
                 else
+                {
                     return _menuItem.Checked;
+                }
             }
         }
         #endregion
@@ -364,9 +392,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.CheckState;
+                }
                 else
+                {
                     return _menuItem.CheckState;
+                }
             }
         }
         #endregion
@@ -512,7 +544,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void ClearSubMenu()
         {
             if (_contextMenu != null)
+            {
                 VisualPopupManager.Singleton.EndPopupTracking(_contextMenu);
+            }
         }
         #endregion
 
@@ -568,7 +602,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // If we have image display
             if (_fixedImage != null)
@@ -605,8 +642,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Update palettes based on Checked state
                 PaletteTripleJustImage justImage = (ResolveChecked ? _menuItem.StateChecked.ItemImage : menuItemState.ItemImage);
-                if (_imageCanvas != null)
-                    _imageCanvas.SetPalettes(justImage.Back, justImage.Border);
+                _imageCanvas?.SetPalettes(justImage.Back, justImage.Border);
 
                 // Update the Enabled state
                 _imageContent.SetPalette(justImage.Content);
@@ -615,7 +651,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _splitSeparator.Enabled = _itemEnabled;
                 _subMenuContent.Enabled = _itemEnabled;
                 if (_shortcutContent != null)
+                {
                     _shortcutContent.Enabled = _itemEnabled;
+                }
 
                 // Update the Text/ExtraText
                 _fixedTextExtraText.ShortText = ResolveText;
@@ -627,8 +665,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             }
 
-            if (_splitSeparator != null)
-                _splitSeparator.SetPalettes(splitPalette.Back, splitPalette.Border);
+            _splitSeparator?.SetPalettes(splitPalette.Back, splitPalette.Border);
 
             return base.GetPreferredSize(context);
         }
@@ -666,12 +703,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 case "KryptonCommand":
                     // Unhook from any existing command
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Hook into the new command
                     _cachedCommand = _menuItem.KryptonCommand;
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Update to show new state
                     _provider.ProviderNeedPaintDelegate(this, new NeedLayoutEventArgs(true));

@@ -9,8 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -101,10 +99,14 @@ namespace ComponentFactory.Krypton.Docking
             short retVal = GetKeyState((int)key);
 
             if ((retVal & 0x8000) == 0x8000)
+            {
                 state |= KEY_DOWN;
+            }
 
             if ((retVal & 1) == 1)
+            {
                 state |= KEY_TOGGLED;
+            }
 
             return state;
         }

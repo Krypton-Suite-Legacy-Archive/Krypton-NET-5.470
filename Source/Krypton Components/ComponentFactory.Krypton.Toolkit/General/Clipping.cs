@@ -11,7 +11,6 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -57,9 +56,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _newRegion = _previousRegion.Clone();
              
             if (exclude)
+            {
                 _newRegion.Exclude(path);
+            }
             else
+            {
                 _newRegion.Intersect(path);
+            }
 
             _graphics.Clip = _newRegion;
 		}
@@ -92,9 +95,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _newRegion = _previousRegion.Clone();
 
             if (exclude)
+            {
                 _newRegion.Exclude(region);
+            }
             else
+            {
                 _newRegion.Intersect(region);
+            }
 
             _graphics.Clip = _newRegion;
 		}
@@ -127,9 +134,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _newRegion = _previousRegion.Clone();
 
             if (exclude)
+            {
                 _newRegion.Exclude(rect);
+            }
             else
+            {
                 _newRegion.Intersect(rect);
+            }
 
             _graphics.Clip = _newRegion;
         }

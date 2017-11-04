@@ -9,15 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -45,11 +36,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Check if incoming instance derives from an allowed type
             foreach (Type t in RestrictTypes)
+            {
                 if (t.IsInstanceOfType(value))
                 {
                     valid = true;
                     break;
                 }
+            }
 
             return valid;
         }
@@ -63,7 +56,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We only allow objects that implement a restricted type
             if ((value != null) && !IsTypeAllowed(value))
+            {
                 throw new ArgumentException("Type to be added is not allowed in this collection.");
+            }
 
             return base.Add(value);
         }
@@ -77,8 +72,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We only allow objects that implement IQuickAccessToolbarButton
             if ((value != null) && !IsTypeAllowed(value))
+            {
                 throw new ArgumentException("Type to be added is not allowed in this collection.");
-            
+            }
+
             base.Insert(index, value);
         }
         #endregion
@@ -93,8 +90,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We only allow objects that implement IQuickAccessToolbarButton
             if ((item != null) && !IsTypeAllowed(item))
+            {
                 throw new ArgumentException("Type to be added is not allowed in this collection.");
-            
+            }
+
             base.Insert(index, item);
         }
         #endregion
@@ -108,8 +107,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We only allow objects that implement IQuickAccessToolbarButton
             if ((item != null) && !IsTypeAllowed(item))
+            {
                 throw new ArgumentException("Type to be added is not allowed in this collection.");
-            
+            }
+
             base.Add(item);
         }
         #endregion

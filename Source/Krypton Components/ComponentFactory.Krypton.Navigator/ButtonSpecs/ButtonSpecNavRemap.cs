@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -161,9 +155,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If a map color provided then return is
             if (mapColor != Color.Empty)
+            {
                 return mapColor;
+            }
             else
+            {
                 return base.GetContentImageColorMap(style, state);
+            }
         }
         #endregion
 
@@ -181,9 +179,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If mapping occuring then return the target remap color
             if (mapColor != Color.Empty)
+            {
                 return GetRemapTarget(style, state);
+            }
             else
+            {
                 return base.GetContentImageColorTo(style, state);
+            }
         }
         #endregion
 
@@ -198,9 +200,13 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Do we need to override the text color
             if (OverrideTextColor(state))
+            {
                 return GetRemapTarget(style, state);
+            }
             else
+            {
                 return base.GetContentShortTextColor1(style, state);
+            }
         }
         #endregion
 
@@ -215,9 +221,13 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Do we need to override the text color
             if (OverrideTextColor(state))
+            {
                 return GetRemapTarget(style, state);
+            }
             else
+            {
                 return base.GetContentLongTextColor1(style, state);
+            }
         }
         #endregion
 
@@ -239,7 +249,9 @@ namespace ComponentFactory.Krypton.Navigator
 
                     // If we are checking for button styles of ButtonSpec only, then do so
                     if (buttonStyle == ButtonStyle.ButtonSpec)
+                    {
                         return mapColor;
+                    }
                 }
             }
 
@@ -257,7 +269,9 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // If we are checking for button styles of ButtonSpec only, then do so
                 if (buttonStyle == ButtonStyle.ButtonSpec)
+                {
                     return true;
+                }
             }
 
             return false;

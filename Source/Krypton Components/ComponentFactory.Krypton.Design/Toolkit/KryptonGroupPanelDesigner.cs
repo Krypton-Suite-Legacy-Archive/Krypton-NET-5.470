@@ -9,15 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Windows.Forms.Design.Behavior;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -50,7 +45,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 PropertyDescriptor descriptor = TypeDescriptor.GetProperties(component)["Locked"];
                 if ((descriptor != null) && ((_panel.Parent is KryptonGroup) || (_panel.Parent is KryptonHeaderGroup)))
+                {
                     descriptor.SetValue(component, true);
+                }
             }
 		}
 
@@ -76,9 +73,13 @@ namespace ComponentFactory.Krypton.Toolkit
 				// user changing the size or location of the group panel instance
                 if ((Control.Parent is KryptonGroup) || 
                     (Control.Parent is KryptonHeaderGroup))
-					return (SelectionRules.None | SelectionRules.Locked);
-				else
-					return SelectionRules.None;
+                {
+                    return (SelectionRules.None | SelectionRules.Locked);
+                }
+                else
+                {
+                    return SelectionRules.None;
+                }
 			}
 		}
 
@@ -124,7 +125,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SelectParentControl()
         {
             if ((_panel != null) && (_panel.Parent != null))
+            {
                 _selectionService.SetSelectedComponents(new object[] { _panel.Parent }, SelectionTypes.Primary);
+            }
         }
         #endregion
 
@@ -195,7 +198,9 @@ namespace ComponentFactory.Krypton.Toolkit
 					return (InheritanceAttribute)TypeDescriptor.GetAttributes(_panel.Parent)[typeof(InheritanceAttribute)];
 				}
 				else
-					return base.InheritanceAttribute;
+				{
+				    return base.InheritanceAttribute;
+				}
 			}
 		}
 		#endregion

@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
@@ -42,10 +38,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingFloating(string name, Form ownerForm)
             : base(name)
         {
-            if (ownerForm == null)
-                throw new ArgumentNullException("owner");
-
-            _ownerForm = ownerForm;
+            _ownerForm = ownerForm ?? throw new ArgumentNullException("owner");
         }
         #endregion
 
@@ -99,12 +92,13 @@ namespace ComponentFactory.Krypton.Docking
             foreach (IDockingElement child in this)
             {
                 // Only interested in floating window elements
-                KryptonDockingFloatingWindow floatingWindow = child as KryptonDockingFloatingWindow;
-                if (floatingWindow != null)
+                if (child is KryptonDockingFloatingWindow floatingWindow)
                 {
                     bool? ret = floatingWindow.PropogateBoolState(DockingPropogateBoolState.ContainsStorePage, uniqueName);
                     if (ret.HasValue && ret.Value)
+                    {
                         return floatingWindow;
+                    }
                 }
             }
 
@@ -132,7 +126,9 @@ namespace ComponentFactory.Krypton.Docking
                                                         IDockingElement child)
         {
             if (child != null)
+            {
                 child.LoadElementFromXml(xmlReader, pages);
+            }
             else
             {
                 // Create a new floating window and then reload it

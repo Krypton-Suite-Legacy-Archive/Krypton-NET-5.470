@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -56,8 +55,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (repeatTimer)
             {
-                _repeatTimer = new Timer();
-                _repeatTimer.Interval = 250;
+                _repeatTimer = new Timer
+                {
+                    Interval = 250
+                };
                 _repeatTimer.Tick += new EventHandler(OnRepeatTick);
             }
         }
@@ -74,8 +75,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _pressed = false;
                 _mouseOver = false;
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
-                if (_repeatTimer != null)
-                    _repeatTimer.Stop();
+                _repeatTimer?.Stop();
             }
         }
         #endregion
@@ -118,8 +118,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_target.Enabled)
                 {
                     OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
-                    if (_repeatTimer != null)
-                        _repeatTimer.Start();
+                    _repeatTimer?.Start();
                 }
             }
 
@@ -139,8 +138,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 _pressed = false;
                 UpdateTargetState(pt);
-                if (_repeatTimer != null)
-                    _repeatTimer.Stop();
+                _repeatTimer?.Stop();
             }
 		}
 
@@ -157,8 +155,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _pressed = false;
                 _mouseOver = false;
                 UpdateTargetState(c);
-                if (_repeatTimer != null)
-                    _repeatTimer.Stop();
+                _repeatTimer?.Stop();
             }
 		}
 
@@ -259,20 +256,25 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!_target.Enabled)
             {
                 newState = PaletteState.Disabled;
-                if (_repeatTimer != null)
-                    _repeatTimer.Stop();
+                _repeatTimer?.Stop();
             }
             else
             {
                 if (_mouseOver)
                 {
                     if (_pressed)
+                    {
                         newState = PaletteState.Pressed;
+                    }
                     else
+                    {
                         newState = PaletteState.Tracking;
+                    }
                 }
                 else
+                {
                     newState = PaletteState.Normal;
+                }
             }
 
             // If state has changed or change in (inside split area)
@@ -292,9 +294,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-			if (Click != null)
-				Click(_target, e);
-		}
+            Click?.Invoke(_target, e);
+        }
 
 		/// <summary>
 		/// Raises the NeedPaint event.
@@ -302,18 +303,21 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+        }
 		#endregion
 
         #region Private
         private void OnRepeatTick(object sender, EventArgs e)
         {
             if (_target.Enabled)
+            {
                 OnClick(new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
+            }
             else
+            {
                 _repeatTimer.Stop();
+            }
         }
             
         #endregion

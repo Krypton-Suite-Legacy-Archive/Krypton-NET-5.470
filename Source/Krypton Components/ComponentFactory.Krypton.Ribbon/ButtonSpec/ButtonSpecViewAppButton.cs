@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -59,14 +56,18 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Create a ribbon specific button controller
             ButtonSpecManagerLayoutAppButton managerAppButton = (ButtonSpecManagerLayoutAppButton)Manager;
-            _controller = new ButtonSpecAppButtonController(managerAppButton.ViewManager, viewButton, needPaint);
-            _controller.BecomesFixed = true;
+            _controller = new ButtonSpecAppButtonController(managerAppButton.ViewManager, viewButton, needPaint)
+            {
+                BecomesFixed = true
+            };
             _controller.Click += clickHandler;
 
             // If associated with a tooltip manager then pass mouse messages onto tooltip manager
             IMouseController mouseController = (IMouseController)_controller;
             if (Manager.ToolTipManager != null)
+            {
                 mouseController = new ToolTipController(Manager.ToolTipManager, viewButton, _controller);
+            }
 
             // Return a collection of controllers
             return new ButtonSpecViewControllers(mouseController, _controller, _controller);

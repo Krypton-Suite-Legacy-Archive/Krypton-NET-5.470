@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,16 +29,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Color _glassColorTopDD = Color.FromArgb(128, Color.White);
         private static readonly Color _glassColorBottomDD = Color.FromArgb(48, Color.White);
         private static readonly Blend _glassFadeBlend;
-        private static readonly float _fullGlassLength = 0.45f;
-        private static readonly float _stumpyGlassLength = 0.19f;
+        private const float FULL_GLASS_LENGTH = 0.45f;
+        private const float STUMPY_GLASS_LENGTH = 0.19f;
+
         #endregion
 
         #region Identity
         static RenderGlassHelpers()
         {
-            _glassFadeBlend = new Blend();
-            _glassFadeBlend.Positions = new float[] { 0.0f, 0.33f, 0.66f, 1.0f };
-            _glassFadeBlend.Factors = new float[] { 0.0f, 0.0f, 0.8f, 1.0f };
+            _glassFadeBlend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.33f, 0.66f, 1.0f },
+                Factors = new float[] { 0.0f, 0.0f, 0.8f, 1.0f }
+            };
         }
         #endregion
 
@@ -70,16 +68,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 // Draw the one pixel border around the area
                 cache.first = DrawBackLinearRadial(rect, false,
@@ -96,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 cache.second = DrawBackGlassCenter(rect, backColor1, backColor2,
                                                    _glassColorTopL, _glassColorBottomL,
                                                    2f, 1f, orientation, context.Graphics,
-                                                   _fullGlassLength, cache.second);
+                                                   FULL_GLASS_LENGTH, cache.second);
             }
 
             return memento;
@@ -124,16 +123,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 // Draw the one pixel border around the area
                 cache.first = DrawBackLinear(rect, false,
@@ -149,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 cache.second = DrawBackGlassRadial(rect, backColor1, backColor2,
                                                    _glassColorTopD, _glassColorBottomD,
                                                    3f, 1.1f, orientation, context.Graphics,
-                                                   _fullGlassLength, cache.second);
+                                                   FULL_GLASS_LENGTH, cache.second);
             }
 
             return memento;
@@ -177,16 +177,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 cache.first = DrawBackGlassFade(rect, rect,
                                                 backColor1, backColor2,
@@ -225,7 +226,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassSimplePercent(context, rect, 
                                               backColor1, backColor2, 
                                               orientation, path, 
-                                              _fullGlassLength, memento);
+                                              FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -249,7 +250,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassNormalPercent(context, rect,
                                               backColor1, backColor2,
                                               orientation, path,
-                                              _fullGlassLength, memento);
+                                              FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -273,7 +274,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassTrackingPercent(context, rect, 
                                                 backColor1, backColor2,
                                                 orientation, path,
-                                                _fullGlassLength, memento);
+                                                FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -297,7 +298,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassCheckedPercent(context, rect, 
                                                backColor1, backColor2,
                                                orientation, path, 
-                                               _fullGlassLength, memento);
+                                               FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -321,7 +322,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassCheckedTrackingPercent(context, rect, 
                                                        backColor1, backColor2,
                                                        orientation, path, 
-                                                       _fullGlassLength, memento);
+                                                       FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -345,7 +346,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassPressedPercent(context, rect, 
                                                backColor1, backColor2,
                                                orientation, path, 
-                                               _fullGlassLength, memento);
+                                               FULL_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -369,7 +370,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassNormalPercent(context, rect, 
                                               backColor1, backColor2,
                                               orientation, path, 
-                                              _stumpyGlassLength, memento);
+                                              STUMPY_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -393,7 +394,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassTrackingPercent(context, rect, 
                                                 backColor1, backColor2,
                                                 orientation, path, 
-                                                _stumpyGlassLength, memento);
+                                                STUMPY_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -417,7 +418,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassPressedPercent(context, rect, 
                                                backColor1, backColor2,
                                                orientation, path, 
-                                               _stumpyGlassLength, memento);
+                                               STUMPY_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -441,7 +442,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassCheckedPercent(context, rect, 
                                                backColor1, backColor2,
                                                orientation, path, 
-                                               _stumpyGlassLength, memento);
+                                               STUMPY_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -465,7 +466,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return DrawBackGlassCheckedTrackingPercent(context, rect, 
                                                        backColor1, backColor2,
                                                        orientation, path, 
-                                                       _stumpyGlassLength, memento);
+                                                       STUMPY_GLASS_LENGTH, memento);
         }
 
         /// <summary>
@@ -492,10 +493,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackGlassThreeEdge cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackGlassThreeEdge))
+                if (!(memento is MementoBackGlassThreeEdge))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackGlassThreeEdge(rect, backColor1, backColor2, orientation);
                     memento = cache;
@@ -526,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                   cache.colorA2L, cache.colorA2LL,
                                                   orientation,
                                                   context.Graphics,
-                                                  _fullGlassLength,
+                                                  FULL_GLASS_LENGTH,
                                                   cache.first);
 
                 
@@ -536,7 +536,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    backColor2, cache.colorB2LL,
                                                    orientation,
                                                    context.Graphics,
-                                                   _fullGlassLength,
+                                                   FULL_GLASS_LENGTH,
                                                    cache.second);
 
                 return cache;
@@ -570,7 +570,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            _glassColorBottomL,
                                            orientation,
                                            context.Graphics,
-                                           _fullGlassLength,
+                                           FULL_GLASS_LENGTH,
                                            memento);
             }
         }
@@ -599,7 +599,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return DrawBackGlassRadial(rect, backColor1, backColor2,
                                            _glassColorTopL, _glassColorBottomL,
                                            2f, 1f, orientation, context.Graphics,
-                                           _fullGlassLength, memento);
+                                           FULL_GLASS_LENGTH, memento);
             }
         }
 
@@ -627,7 +627,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return DrawBackGlassRadial(rect, backColor1, backColor2,
                                            _glassColorTopL, _glassColorBottomL,
                                            6f, 1.2f, orientation, context.Graphics,
-                                           _fullGlassLength, memento);
+                                           FULL_GLASS_LENGTH, memento);
             }
         }
 
@@ -655,7 +655,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return DrawBackGlassRadial(rect, backColor1, backColor2,
                                            _glassColorTopD, _glassColorBottomD,
                                            5f, 1.2f, orientation, context.Graphics,
-                                           _fullGlassLength, memento);
+                                           FULL_GLASS_LENGTH, memento);
             }
         }
 
@@ -683,7 +683,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return DrawBackGlassRadial(rect, backColor1, backColor2,
                                            _glassColorTopD, _glassColorBottomD,
                                            3f, 1.1f, orientation, context.Graphics,
-                                           _fullGlassLength, memento);
+                                           FULL_GLASS_LENGTH, memento);
             }
         }
 
@@ -703,16 +703,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 // Get the drawing rectangle for the path
                 RectangleF drawRect = new RectangleF(rect.X, rect.Y, rect.Width, rect.Height);
@@ -760,16 +761,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 // Get the drawing rectangle for the path
                 RectangleF drawRect = new RectangleF(rect.X, rect.Y, rect.Width, rect.Height);
@@ -816,16 +818,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 // Draw the one pixel border around the area
                 cache.first = DrawBackLinearRadial(rect, false,
@@ -861,10 +864,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoTriple cache;
 
-                if ((memento == null) || !(memento is MementoTriple))
+                if (!(memento is MementoTriple))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoTriple();
                     memento = cache;
@@ -914,10 +916,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoTriple cache;
 
-                if ((memento == null) || !(memento is MementoTriple))
+                if (!(memento is MementoTriple))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoTriple();
                     memento = cache;
@@ -969,10 +970,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoTriple cache;
 
-                if ((memento == null) || !(memento is MementoTriple))
+                if (!(memento is MementoTriple))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoTriple();
                     memento = cache;
@@ -1021,10 +1021,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             MementoDouble cache;
 
-            if ((memento == null) || !(memento is MementoDouble))
+            if (!(memento is MementoDouble))
             {
-                if (memento != null)
-                    memento.Dispose();
+                memento?.Dispose();
 
                 cache = new MementoDouble();
                 memento = cache;
@@ -1041,10 +1040,9 @@ namespace ComponentFactory.Krypton.Toolkit
             MementoBackLinearRadial cacheThis;
 
             // Access a cache instance and decide if cache resources need generating
-            if ((cache.second == null) || !(cache.second is MementoBackLinearRadial))
+            if (!(cache.second is MementoBackLinearRadial))
             {
-                if (cache.second != null)
-                    cache.second.Dispose();
+                cache.second?.Dispose();
 
                 cacheThis = new MementoBackLinearRadial(drawRect, color2, color3, orientation);
                 cache.second = cacheThis;
@@ -1065,9 +1063,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Find the 1/3 height used for the ellipse
                 if (VerticalOrientation(orientation))
+                {
                     third = drawRect.Height / 3;
+                }
                 else
+                {
                     third = drawRect.Width / 3;
+                }
 
                 // Find the bottom area rectangle
                 RectangleF ellipseRect;
@@ -1101,15 +1103,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     cacheThis.path = new GraphicsPath();
                     cacheThis.path.AddEllipse(ellipseRect);
-                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path);
-                    cacheThis.bottomBrush.CenterColor = ControlPaint.Light(color3);
-                    cacheThis.bottomBrush.CenterPoint = centerPoint;
-                    cacheThis.bottomBrush.SurroundColors = new Color[] { color2 };
+                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path)
+                    {
+                        CenterColor = ControlPaint.Light(color3),
+                        CenterPoint = centerPoint,
+                        SurroundColors = new Color[] { color2 }
+                    };
                 }
             }
 
             if (cacheThis.bottomBrush != null)
+            {
                 g.FillRectangle(cacheThis.bottomBrush, cacheThis.ellipseRect);
+            }
 
             return memento;
         }
@@ -1128,10 +1134,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             MementoDouble cache;
 
-            if ((memento == null) || !(memento is MementoDouble))
+            if (!(memento is MementoDouble))
             {
-                if (memento != null)
-                    memento.Dispose();
+                memento?.Dispose();
 
                 cache = new MementoDouble();
                 memento = cache;
@@ -1153,10 +1158,9 @@ namespace ComponentFactory.Krypton.Toolkit
             MementoBackGlassRadial cacheThis;
 
             // Access a cache instance and decide if cache resources need generating
-            if ((cache.second == null) || !(cache.second is MementoBackGlassRadial))
+            if (!(cache.second is MementoBackGlassRadial))
             {
-                if (cache.second != null)
-                    cache.second.Dispose();
+                cache.second?.Dispose();
 
                 cacheThis = new MementoBackGlassRadial(drawRect, color1, color2, factorX, factorY, orientation);
                 cache.second = cacheThis;
@@ -1205,9 +1209,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Find orientation specific ellsipe rectangle
                     if (orientation == VisualOrientation.Top)
+                    {
                         mainRectHeightOffset = (mainRectHeight - mainRect.Height) / 2;
+                    }
                     else
-                        mainRectHeightOffset = (mainRectHeight + (mainRectHeight - mainRect.Height) / 2);
+                    {
+                        mainRectHeightOffset = (mainRectHeight + ((mainRectHeight - mainRect.Height) / 2));
+                    }
 
                     doubleRect = new RectangleF(mainRect.X - mainRectWidthOffset,
                                                 mainRect.Y - mainRectHeightOffset,
@@ -1222,9 +1230,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Find orientation specific ellsipe rectangle
                     if (orientation == VisualOrientation.Left)
+                    {
                         mainRectWidthOffset = (mainRectWidth - mainRect.Width) / 2;
+                    }
                     else
-                        mainRectWidthOffset = (mainRectWidth + (mainRectWidth - mainRect.Width) / 2);
+                    {
+                        mainRectWidthOffset = (mainRectWidth + ((mainRectWidth - mainRect.Width) / 2));
+                    }
 
                     doubleRect = new RectangleF(mainRect.X - mainRectWidthOffset,
                                                 mainRect.Y - mainRectHeightOffset,
@@ -1239,16 +1251,20 @@ namespace ComponentFactory.Krypton.Toolkit
                     cacheThis.path.AddEllipse(doubleRect);
 
                     // Create a brush from the path
-                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path);
-                    cacheThis.bottomBrush.CenterColor = color2;
-                    cacheThis.bottomBrush.CenterPoint = new PointF(doubleRect.X + (doubleRect.Width / 2), doubleRect.Y + (doubleRect.Height / 2));
-                    cacheThis.bottomBrush.SurroundColors = new Color[] { color1 };
+                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path)
+                    {
+                        CenterColor = color2,
+                        CenterPoint = new PointF(doubleRect.X + (doubleRect.Width / 2), doubleRect.Y + (doubleRect.Height / 2)),
+                        SurroundColors = new Color[] { color1 }
+                    };
                     cacheThis.mainRect = mainRect;
                 }
             }
 
             if (cacheThis.bottomBrush != null)
+            {
                 g.FillRectangle(cacheThis.bottomBrush, cacheThis.mainRect);
+            }
 
             return memento;
         }
@@ -1270,10 +1286,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
@@ -1295,10 +1310,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackGlassCenter cacheThis;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((cache.second == null) || !(cache.second is MementoBackGlassCenter))
+                if (!(cache.second is MementoBackGlassCenter))
                 {
-                    if (cache.second != null)
-                        cache.second.Dispose();
+                    cache.second?.Dispose();
 
                     cacheThis = new MementoBackGlassCenter(drawRect, color2);
                     cache.second = cacheThis;
@@ -1317,10 +1331,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     cacheThis.path = new GraphicsPath();
                     cacheThis.path.AddEllipse(drawRect);
-                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path);
-                    cacheThis.bottomBrush.CenterColor = color2;
-                    cacheThis.bottomBrush.CenterPoint = new PointF(drawRect.X + (drawRect.Width / 2), drawRect.Y + (drawRect.Height / 2));
-                    cacheThis.bottomBrush.SurroundColors = new Color[] { Color.Transparent };
+                    cacheThis.bottomBrush = new PathGradientBrush(cacheThis.path)
+                    {
+                        CenterColor = color2,
+                        CenterPoint = new PointF(drawRect.X + (drawRect.Width / 2), drawRect.Y + (drawRect.Height / 2)),
+                        SurroundColors = new Color[] { Color.Transparent }
+                    };
                 }
 
                 g.FillRectangle(cacheThis.bottomBrush, drawRect);
@@ -1347,10 +1363,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackGlassFade cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackGlassFade))
+                if (!(memento is MementoBackGlassFade))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackGlassFade(drawRect, outerRect, color1, color2, 
                                                      glassColor1, glassColor2, orientation);
@@ -1377,17 +1392,23 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Draw a gradient from first to second over the length, but use the
                         // first color for the first 33% of distance and fade over the rest
-                        cache.mainBrush = new LinearGradientBrush(gradientRect, color1, color2, AngleFromOrientation(orientation));
-                        cache.mainBrush.Blend = _glassFadeBlend;
+                        cache.mainBrush = new LinearGradientBrush(gradientRect, color1, color2, AngleFromOrientation(orientation))
+                        {
+                            Blend = _glassFadeBlend
+                        };
                     }
 
                     float glassLength;
 
                     // Glass covers 33% of the orienatated length
                     if (VerticalOrientation(orientation))
-                        glassLength = (int)(outerRect.Height * 0.33f) + outerRect.Y - drawRect.Y;
+                    {
+                        glassLength = ((int)(outerRect.Height * 0.33f) + outerRect.Y) - drawRect.Y;
+                    }
                     else
-                        glassLength = (int)(outerRect.Width * 0.33f) + outerRect.X - drawRect.X;
+                    {
+                        glassLength = ((int)(outerRect.Width * 0.33f) + outerRect.X) - drawRect.X;
+                    }
 
                     RectangleF glassRect;
                     RectangleF mainRect;
@@ -1426,10 +1447,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 if (cache.mainBrush != null)
+                {
                     g.FillRectangle(cache.mainBrush, drawRect);
+                }
 
                 if (cache.topBrush != null)
+                {
                     g.FillRectangle(cache.topBrush, cache.glassRect);
+                }
             }
 
             return memento;
@@ -1454,10 +1479,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackGlassLinear cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackGlassLinear))
+                if (!(memento is MementoBackGlassLinear))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackGlassLinear(drawRect, outerRect, color1, color2,
                                                        glassColor1, glassColor2, orientation, glassPercent);
@@ -1482,9 +1506,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Glass covers specified percentage of the orienatated length
                     if (VerticalOrientation(orientation))
-                        glassLength = (int)(outerRect.Height * glassPercent) + outerRect.Y - drawRect.Y;
+                    {
+                        glassLength = ((int)(outerRect.Height * glassPercent) + outerRect.Y) - drawRect.Y;
+                    }
                     else
-                        glassLength = (int)(outerRect.Width * glassPercent) + outerRect.X - drawRect.X;
+                    {
+                        glassLength = ((int)(outerRect.Width * glassPercent) + outerRect.X) - drawRect.X;
+                    }
 
                     // Create rectangles that cover the glass and main area
                     switch (orientation)
@@ -1559,10 +1587,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackGlassBasic cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackGlassBasic))
+                if (!(memento is MementoBackGlassBasic))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackGlassBasic(drawRect, color1, color2,
                                                       glassColor1, glassColor2,
@@ -1591,9 +1618,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     int length;
 
                     if (VerticalOrientation(orientation))
+                    {
                         length = (int)(drawRect.Height * glassPercent);
+                    }
                     else
+                    {
                         length = (int)(drawRect.Width * glassPercent);
+                    }
 
                     RectangleF glassRect;
 
@@ -1653,10 +1684,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackLinear cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackLinear))
+                if (!(memento is MementoBackLinear))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackLinear(drawRect, sigma, color1, color2, orientation);
                     memento = cache;
@@ -1683,12 +1713,16 @@ namespace ComponentFactory.Krypton.Toolkit
                         cache.entireBrush = new LinearGradientBrush(gradientRect, color1, color2, AngleFromOrientation(orientation));
 
                         if (sigma)
+                        {
                             cache.entireBrush.SetSigmaBellShape(0.5f);
+                        }
                     }
                 }
 
                 if (cache.entireBrush != null)
+                {
                     g.FillRectangle(cache.entireBrush, drawRect);
+                }
             }
 
             return memento;
@@ -1708,10 +1742,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackDarkEdge cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackDarkEdge))
+                if (!(memento is MementoBackDarkEdge))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackDarkEdge(drawRect, color1, thickness, orientation);
                     memento = cache;
@@ -1732,12 +1765,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (VerticalOrientation(orientation))
                     {
                         if (drawRect.Height < 30)
+                        {
                             thickness = (int)drawRect.Height / 10;
+                        }
                     }
                     else
                     {
                         if (drawRect.Width < 30)
+                        {
                             thickness = (int)drawRect.Width / 10;
+                        }
                     }
 
                     // If there is something to draw
@@ -1778,7 +1815,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 if (cache.entireBrush != null)
+                {
                     g.FillRectangle(cache.entireBrush, cache.entireRect);
+                }
             }
 
             return memento;

@@ -9,14 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -47,7 +40,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // We do not show if the custom chrome is combined with composition,
             // in which case the form buttons are handled by the composition
             if (KryptonForm.ApplyComposition && KryptonForm.ApplyCustomChrome)
+            {
                 return false;
+            }
 
             // The maximize button is never present on tool windows
             switch (KryptonForm.FormBorderStyle)
@@ -59,11 +54,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Have all buttons been turned off?
             if (!KryptonForm.ControlBox)
+            {
                 return false;
+            }
 
             // Has the minimize/maximize buttons been turned off?
             if (!KryptonForm.MinimizeBox && !KryptonForm.MaximizeBox)
+            {
                 return false;
+            }
 
             return true;
         }
@@ -77,7 +76,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Has the maximize buttons been turned off?
             if (!KryptonForm.MaximizeBox)
+            {
                 return ButtonEnabled.False;
+            }
 
             return ButtonEnabled.True;
         }
@@ -113,9 +114,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Toggle between maximized and restored
                         if (KryptonForm.WindowState == FormWindowState.Maximized)
+                        {
                             KryptonForm.SendSysCommand(PI.SC_RESTORE);
+                        }
                         else
+                        {
                             KryptonForm.SendSysCommand(PI.SC_MAXIMIZE);
+                        }
 
                         // Let base class fire any other attached events
                         base.OnClick(e);

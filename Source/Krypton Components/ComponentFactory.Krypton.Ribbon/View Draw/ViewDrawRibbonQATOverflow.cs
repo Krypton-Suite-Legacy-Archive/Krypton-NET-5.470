@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -26,7 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Static Fields
         private static readonly Padding _borderPadding = new Padding(3);
-        private static readonly int QAT_HEIGHT_FULL = 28;
+        private const int QAT_HEIGHT_FULL = 28;
+
         #endregion
 
         #region Instance Fields

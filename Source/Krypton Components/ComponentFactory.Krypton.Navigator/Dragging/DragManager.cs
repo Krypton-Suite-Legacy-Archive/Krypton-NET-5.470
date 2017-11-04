@@ -10,7 +10,6 @@
 
 using System;
 using System.Drawing;
-using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
 using ComponentFactory.Krypton.Toolkit;
@@ -57,11 +56,15 @@ namespace ComponentFactory.Krypton.Navigator
         static DragManager()
 	    {
             using (MemoryStream ms = new MemoryStream(Properties.Resources.DocumentValid))
+            {
                 _validCursor = new Cursor(ms);
+            }
 
-            using (MemoryStream ms = new MemoryStream(Properties.Resources.DocumentInvalid))
-                _invalidCursor = new Cursor(ms);
-        }
+	        using (MemoryStream ms = new MemoryStream(Properties.Resources.DocumentInvalid))
+	        {
+	            _invalidCursor = new Cursor(ms);
+	        }
+	    }
 
         /// <summary>
         /// Initialize a new instance of the DragManager class.
@@ -178,9 +181,13 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     _localPalette = value;
                     if (_localPalette == null)
+                    {
                         _paletteMode = PaletteMode.Global;
+                    }
                     else
+                    {
                         _paletteMode = PaletteMode.Custom;
+                    }
                 }
             }
         }
@@ -211,9 +218,13 @@ namespace ComponentFactory.Krypton.Navigator
             set 
             {
                 if (IsDragging)
+                {
                     throw new InvalidOperationException("Cannot update DocumentCursor property during dragging operation.");
+                }
                 else
+                {
                     _documentCursor = value;
+                }
             }
         }
 
@@ -226,18 +237,26 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual bool DragStart(Point screenPt, PageDragEndData dragEndData)
         {
             if (IsDisposed)
+            {
                 throw new InvalidOperationException("Cannot DragStart when instance have been disposed.");
+            }
 
             if (IsDragging)
+            {
                 throw new InvalidOperationException("Cannot DragStart when already performing dragging operation.");
+            }
 
             if (dragEndData == null)
+            {
                 throw new ArgumentNullException("Cannot provide an empty DragEndData.");
+            }
 
             // Generate drag targets from the set of target provides
             ClearTargets();
             foreach (IDragTargetProvider provider in DragTargetProviders)
+            {
                 _dragTargets.AddRange(provider, dragEndData);
+            }
 
             // We only drag if we have at least one page and one target
             _dragging = ((_dragTargets.Count > 0) && (dragEndData.Pages.Count > 0));
@@ -257,7 +276,9 @@ namespace ComponentFactory.Krypton.Navigator
                 _dragFeedback.Start(_stateCommon, _dragRenderer, _pageDragEndData, _dragTargets);
             }
             else
+            {
                 ClearTargets();
+            }
 
             return _dragging;
         }
@@ -269,10 +290,14 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual void DragMove(Point screenPt)
         {
             if (IsDisposed)
+            {
                 throw new InvalidOperationException("Cannot DragMove when instance have been disposed.");
+            }
 
             if (!IsDragging)
+            {
                 throw new InvalidOperationException("Cannot DragMove when DragStart has not been called.");
+            }
 
             // Different feedback objects implement visual feeback differently and so only the feedback
             // instance knows the correct target to use for the given screen point and drag data.
@@ -290,10 +315,14 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual bool DragEnd(Point screenPt)
         {
             if (IsDisposed)
+            {
                 throw new InvalidOperationException("Cannot DragEnd when instance have been disposed.");
+            }
 
             if (!IsDragging)
+            {
                 throw new InvalidOperationException("Cannot DragEnd when DragStart has not been called.");
+            }
 
             // Different feedback objects implement visual feeback differently and so only the feedback
             // instance knows the correct target to use for the given screen point and drag data.
@@ -305,7 +334,9 @@ namespace ComponentFactory.Krypton.Navigator
             // Inform target it needs to perform the drop action
             bool ret = false;
             if (_currentTarget != null)
+            {
                 ret = _currentTarget.PerformDrop(screenPt, _pageDragEndData);
+            }
 
             ClearTargets();
             RestoreCursor();
@@ -320,10 +351,14 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual void DragQuit()
         {
             if (IsDisposed)
+            {
                 throw new InvalidOperationException("Cannot DragQuit when instance have been disposed.");
+            }
 
             if (!IsDragging)
+            {
                 throw new InvalidOperationException("Cannot DragQuit when DragStart has not been called.");
+            }
 
             // Remove visual feedback
             _dragFeedback.Quit();
@@ -397,9 +432,13 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_pageDragEndData.Navigator != null)
                 {
                     if (_currentTarget == null)
+                    {
                         _pageDragEndData.Navigator.Cursor = _invalidCursor;
+                    }
                     else
+                    {
                         _pageDragEndData.Navigator.Cursor = _validCursor;
+                    }
                 }
             }
         }
@@ -412,7 +451,9 @@ namespace ComponentFactory.Krypton.Navigator
             if (IsDragging)
             {
                 if (_pageDragEndData.Navigator != null)
+                {
                     _pageDragEndData.Navigator.Cursor = null;
+                }
             }
         }
         #endregion
@@ -450,7 +491,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Should never be 'inherit'
             if (dragFeedback == PaletteDragFeedback.Inherit)
+            {
                 dragFeedback = PaletteDragFeedback.Rounded;
+            }
 
             // Check if the rounded style is possible
             if (dragFeedback == PaletteDragFeedback.Rounded)
@@ -458,7 +501,9 @@ namespace ComponentFactory.Krypton.Navigator
                 // Rounded feedback uses a per-pixel alpha blending and so we need to be on a machine that supports
                 // more than 256 colors and also allows the layered windows feature. If not then revert to sqaures
                 if ((OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) == null) || (CommonHelper.ColorDepth() <= 8))
+                {
                     dragFeedback = PaletteDragFeedback.Square;
+                }
             }
 
             switch (dragFeedback)
@@ -488,7 +533,9 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Dispose the targets to ensure references are removed to prevent memory leaks
                 foreach (DragTarget target in _dragTargets)
+                {
                     target.Dispose();
+                }
 
                 _dragTargets.Clear();
             }

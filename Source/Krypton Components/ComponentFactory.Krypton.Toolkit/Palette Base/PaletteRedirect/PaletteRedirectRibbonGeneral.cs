@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -76,9 +70,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonDisabledDark(state);
+            }
             else
+            {
                 return Target.GetRibbonDisabledDark(state);
+            }
         }
 
         /// <summary>
@@ -91,9 +89,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonDisabledLight(state);
+            }
             else
+            {
                 return Target.GetRibbonDisabledLight(state);
+            }
         }
 
         /// <summary>
@@ -106,9 +108,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonGroupDialogDark(state);
+            }
             else
+            {
                 return Target.GetRibbonGroupDialogDark(state);
+            }
         }
 
         /// <summary>
@@ -121,9 +127,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonGroupDialogLight(state);
+            }
             else
+            {
                 return Target.GetRibbonGroupDialogLight(state);
+            }
         }
 
         /// <summary>
@@ -136,9 +146,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonGroupSeparatorDark(state);
+            }
             else
+            {
                 return Target.GetRibbonGroupSeparatorDark(state);
+            }
         }
 
         /// <summary>
@@ -151,9 +165,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonGroupSeparatorLight(state);
+            }
             else
+            {
                 return Target.GetRibbonGroupSeparatorLight(state);
+            }
         }
 
         /// <summary>
@@ -166,9 +184,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonMinimizeBarDark(state);
+            }
             else
+            {
                 return Target.GetRibbonMinimizeBarDark(state);
+            }
         }
 
         /// <summary>
@@ -181,9 +203,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonMinimizeBarLight(state);
+            }
             else
+            {
                 return Target.GetRibbonMinimizeBarLight(state);
+            }
         }
 
         /// <summary>
@@ -196,9 +222,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonTabSeparatorColor(state);
+            }
             else
+            {
                 return Target.GetRibbonTabSeparatorColor(state);
+            }
         }
 
         /// <summary>
@@ -211,9 +241,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonTabSeparatorContextColor(state);
+            }
             else
+            {
                 return Target.GetRibbonTabSeparatorContextColor(state);
+            }
         }
 
         /// <summary>
@@ -226,9 +260,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonTextFont(state);
+            }
             else
+            {
                 return Target.GetRibbonTextFont(state);
+            }
         }
 
         /// <summary>
@@ -241,9 +279,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonTextHint(state);
+            }
             else
+            {
                 return Target.GetRibbonTextHint(state);
+            }
         }
 
         /// <summary>
@@ -256,9 +298,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonQATButtonDark(state);
+            }
             else
+            {
                 return Target.GetRibbonQATButtonDark(state);
+            }
         }
 
         /// <summary>
@@ -271,9 +317,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonGeneral inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonQATButtonLight(state);
+            }
             else
+            {
                 return Target.GetRibbonQATButtonLight(state);
+            }
         }
         #endregion
 

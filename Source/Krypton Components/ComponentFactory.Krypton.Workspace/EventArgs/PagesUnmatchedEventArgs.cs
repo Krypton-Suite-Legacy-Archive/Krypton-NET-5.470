@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Drawing;
 using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Workspace

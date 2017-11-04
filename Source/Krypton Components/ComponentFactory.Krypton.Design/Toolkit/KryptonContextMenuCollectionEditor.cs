@@ -10,9 +10,7 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Collections.Generic;
@@ -89,28 +87,31 @@ namespace ComponentFactory.Krypton.Toolkit
                 #region Implementation
                 private int ImageIndexFromItem()
                 {
-                    if (_item is KryptonContextMenuCheckBox)
-                        return 6;
-                    else if (_item is KryptonContextMenuCheckButton)
-                        return 7;
-                    else if (_item is KryptonContextMenuColorColumns)
-                        return 0;
-                    else if (_item is KryptonContextMenuHeading)
-                        return 1;
-                    else if (_item is KryptonContextMenuItem)
-                        return 2;
-                    else if (_item is KryptonContextMenuItems)
-                        return 3;
-                    else if (_item is KryptonContextMenuLinkLabel)
-                        return 8;
-                    else if (_item is KryptonContextMenuRadioButton)
-                        return 5;
-                    else if (_item is KryptonContextMenuSeparator)
-                        return 4;
-                    else if (_item is KryptonContextMenuImageSelect)
-                        return 13;
-                    else if (_item is KryptonContextMenuMonthCalendar)
-                        return 14;
+                    switch (_item)
+                    {
+                        case KryptonContextMenuCheckBox _:
+                            return 6;
+                        case KryptonContextMenuCheckButton _:
+                            return 7;
+                        case KryptonContextMenuColorColumns _:
+                            return 0;
+                        case KryptonContextMenuHeading _:
+                            return 1;
+                        case KryptonContextMenuItem _:
+                            return 2;
+                        case KryptonContextMenuItems _:
+                            return 3;
+                        case KryptonContextMenuLinkLabel _:
+                            return 8;
+                        case KryptonContextMenuRadioButton _:
+                            return 5;
+                        case KryptonContextMenuSeparator _:
+                            return 4;
+                        case KryptonContextMenuImageSelect _:
+                            return 13;
+                        case KryptonContextMenuMonthCalendar _:
+                            return 14;
+                    }
 
                     Debug.Assert(false);
                     return -1;
@@ -277,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonOK.TabIndex = 16;
                 this.buttonOK.Text = "OK";
                 this.buttonOK.UseVisualStyleBackColor = true;
-                this.buttonOK.Click += new EventHandler(buttonOK_Click);   
+                this.buttonOK.Click += new EventHandler(buttonOK_Click);
                 // 
                 // treeView
                 // 
@@ -621,14 +622,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Add all the top level clones
                     treeView.Nodes.Clear();
                     foreach (KryptonContextMenuItemBase item in Items)
+                    {
                         AddMenuTreeNode(item, null);
+                    }
 
                     // Expand to show all entries
                     treeView.ExpandAll();
 
                     // Select the first node
                     if (treeView.Nodes.Count > 0)
+                    {
                         treeView.SelectedNode = treeView.Nodes[0];
+                    }
 
                     UpdateButtons();
                     UpdatePropertyGrid();
@@ -648,14 +653,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Create an array with all the root items
                 object[] rootItems = new object[treeView.Nodes.Count];
                 for (int i = 0; i < rootItems.Length; i++)
+                {
                     rootItems[i] = ((MenuTreeNode)treeView.Nodes[i]).Item;
+                }
 
                 // Cache a lookup of all items after changes are made
                 DictItemBase afterItems = CreateItemsDictionary(rootItems);
 
                 // Update collection with new set of items
                 Items = rootItems;
-               
+
                 // Clear down contents of tree as this form can be reused
                 treeView.Nodes.Clear();
 
@@ -688,17 +695,16 @@ namespace ComponentFactory.Krypton.Toolkit
                         TreeNode parentNode = node.Parent;
                         MenuTreeNode treeParentNode = parentNode as MenuTreeNode;
 
-                        if (treeParentNode.Item is KryptonContextMenuItems)
+                        switch (treeParentNode.Item)
                         {
-                            KryptonContextMenuItems items = treeParentNode.Item as KryptonContextMenuItems;
-                            items.Items.Remove(treeNode.Item);
-                            items.Items.Insert(index - 1, treeNode.Item);
-                        }
-                        else if (treeParentNode.Item is KryptonContextMenuItem)
-                        {
-                            KryptonContextMenuItem items = treeParentNode.Item as KryptonContextMenuItem;
-                            items.Items.Remove(treeNode.Item);
-                            items.Items.Insert(index - 1, treeNode.Item);
+                            case KryptonContextMenuItems items1:
+                                items1.Items.Remove(treeNode.Item);
+                                items1.Items.Insert(index - 1, treeNode.Item);
+                                break;
+                            case KryptonContextMenuItem items:
+                                items.Items.Remove(treeNode.Item);
+                                items.Items.Insert(index - 1, treeNode.Item);
+                                break;
                         }
 
                         parentNode.Nodes.Remove(node);
@@ -735,17 +741,16 @@ namespace ComponentFactory.Krypton.Toolkit
                         TreeNode parentNode = node.Parent;
                         MenuTreeNode treeParentNode = parentNode as MenuTreeNode;
 
-                        if (treeParentNode.Item is KryptonContextMenuItems)
+                        switch (treeParentNode.Item)
                         {
-                            KryptonContextMenuItems items = treeParentNode.Item as KryptonContextMenuItems;
-                            items.Items.Remove(treeNode.Item);
-                            items.Items.Insert(index + 1, treeNode.Item);
-                        }
-                        else if (treeParentNode.Item is KryptonContextMenuItem)
-                        {
-                            KryptonContextMenuItem items = treeParentNode.Item as KryptonContextMenuItem;
-                            items.Items.Remove(treeNode.Item);
-                            items.Items.Insert(index + 1, treeNode.Item);
+                            case KryptonContextMenuItems items1:
+                                items1.Items.Remove(treeNode.Item);
+                                items1.Items.Insert(index + 1, treeNode.Item);
+                                break;
+                            case KryptonContextMenuItem items:
+                                items.Items.Remove(treeNode.Item);
+                                items.Items.Insert(index + 1, treeNode.Item);
+                                break;
                         }
 
                         parentNode.Nodes.Remove(node);
@@ -826,21 +831,22 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If at root level then remove from root, otherwise from the parent collection
                     if (node.Parent == null)
+                    {
                         treeView.Nodes.Remove(node);
+                    }
                     else
                     {
                         TreeNode parentNode = node.Parent;
                         MenuTreeNode treeParentNode = parentNode as MenuTreeNode;
 
-                        if (treeParentNode.Item is KryptonContextMenuItems)
+                        switch (treeParentNode.Item)
                         {
-                            KryptonContextMenuItems items = treeParentNode.Item as KryptonContextMenuItems;
-                            items.Items.Remove(treeNode.Item);
-                        }
-                        else if (treeParentNode.Item is KryptonContextMenuItem)
-                        {
-                            KryptonContextMenuItem items = treeParentNode.Item as KryptonContextMenuItem;
-                            items.Items.Remove(treeNode.Item);
+                            case KryptonContextMenuItems items1:
+                                items1.Items.Remove(treeNode.Item);
+                                break;
+                            case KryptonContextMenuItem items:
+                                items.Items.Remove(treeNode.Item);
+                                break;
                         }
 
                         node.Parent.Nodes.Remove(node);
@@ -863,9 +869,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 TreeNode node = treeView.SelectedNode;
                 if (node == null)
+                {
                     propertyGrid1.SelectedObject = null;
+                }
                 else
+                {
                     propertyGrid1.SelectedObject = ((MenuTreeNode)node).PropertyObject;
+                }
             }
 
             private void AddMenuTreeNode(KryptonContextMenuItemBase item, MenuTreeNode parent)
@@ -875,22 +885,29 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Add to either root or parent node
                 if (parent != null)
+                {
                     parent.Nodes.Add(node);
+                }
                 else
+                {
                     treeView.Nodes.Add(node);
+                }
 
                 // Check for items that can contain collections of children
-                if (item is KryptonContextMenuItems)
+                switch (item)
                 {
-                    KryptonContextMenuItems itemsCollection = (KryptonContextMenuItems)item;
-                    foreach (KryptonContextMenuItemBase child in itemsCollection.Items)
-                        AddMenuTreeNode(child, node);
-                }
-                else if (item is KryptonContextMenuItem)
-                {
-                    KryptonContextMenuItem itemsCollection = (KryptonContextMenuItem)item;
-                    foreach (KryptonContextMenuItemBase child in itemsCollection.Items)
-                        AddMenuTreeNode(child, node);
+                    case KryptonContextMenuItems itemsCollection1:
+                        foreach (KryptonContextMenuItemBase child in itemsCollection1.Items)
+                        {
+                            AddMenuTreeNode(child, node);
+                        }
+                        break;
+                    case KryptonContextMenuItem itemsCollection:
+                        foreach (KryptonContextMenuItemBase child in itemsCollection.Items)
+                        {
+                            AddMenuTreeNode(child, node);
+                        }
+                        break;
                 }
             }
 
@@ -901,7 +918,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If there is no selection then append to root
                 if (selectedNode == null)
+                {
                     treeView.Nodes.Add(newNode);
+                }
                 else
                 {
                     // If current selection is at the root
@@ -927,39 +946,38 @@ namespace ComponentFactory.Krypton.Toolkit
                         TreeNode parentNode = selectedNode.Parent;
                         MenuTreeNode treeParentNode = parentNode as MenuTreeNode;
 
-                        if (treeParentNode.Item is KryptonContextMenuItems)
+                        switch (treeParentNode.Item)
                         {
-                            if (ValidInItemCollection(item))
-                            {
-                                KryptonContextMenuItems items = treeParentNode.Item as KryptonContextMenuItems;
-                                items.Items.Insert(index + 1, item);
-                                selectedNode.Parent.Nodes.Insert(index + 1, newNode);
-                            }
-                            else
-                            {
-                                MenuTreeNode treeSelectedNode = selectedNode as MenuTreeNode;
-                                Debug.Assert(treeSelectedNode.Item is KryptonContextMenuItem);
-                                KryptonContextMenuItem items = treeSelectedNode.Item as KryptonContextMenuItem;
-                                items.Items.Add(item);
-                                selectedNode.Nodes.Add(newNode);
-                            }
-                        }
-                        else if (treeParentNode.Item is KryptonContextMenuItem)
-                        {
-                            if (ValidInCollection(item))
-                            {
-                                KryptonContextMenuItem items = treeParentNode.Item as KryptonContextMenuItem;
-                                items.Items.Insert(index + 1, item);
-                                selectedNode.Parent.Nodes.Insert(index + 1, newNode);
-                            }
-                            else
-                            {
-                                MenuTreeNode treeSelectedNode = selectedNode as MenuTreeNode;
-                                Debug.Assert(treeSelectedNode.Item is KryptonContextMenuItems);
-                                KryptonContextMenuItems items = treeSelectedNode.Item as KryptonContextMenuItems;
-                                items.Items.Add(item);
-                                selectedNode.Nodes.Add(newNode);
-                            }
+                            case KryptonContextMenuItems items1:
+                                if (ValidInItemCollection(item))
+                                {
+                                    items1.Items.Insert(index + 1, item);
+                                    selectedNode.Parent.Nodes.Insert(index + 1, newNode);
+                                }
+                                else
+                                {
+                                    MenuTreeNode treeSelectedNode = selectedNode as MenuTreeNode;
+                                    Debug.Assert(treeSelectedNode.Item is KryptonContextMenuItem);
+                                    KryptonContextMenuItem items = treeSelectedNode.Item as KryptonContextMenuItem;
+                                    items.Items.Add(item);
+                                    selectedNode.Nodes.Add(newNode);
+                                }
+                                break;
+                            case KryptonContextMenuItem items2:
+                                if (ValidInCollection(item))
+                                {
+                                    items2.Items.Insert(index + 1, item);
+                                    selectedNode.Parent.Nodes.Insert(index + 1, newNode);
+                                }
+                                else
+                                {
+                                    MenuTreeNode treeSelectedNode = selectedNode as MenuTreeNode;
+                                    Debug.Assert(treeSelectedNode.Item is KryptonContextMenuItems);
+                                    KryptonContextMenuItems items = treeSelectedNode.Item as KryptonContextMenuItems;
+                                    items.Items.Add(item);
+                                    selectedNode.Nodes.Add(newNode);
+                                }
+                                break;
                         }
                     }
                 }
@@ -981,8 +999,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 int parentNodeCount = treeView.Nodes.Count;
                 int nodeIndex = -1;
 
-                MenuTreeNode node = treeView.SelectedNode as MenuTreeNode;
-                if (node != null)
+                if (treeView.SelectedNode is MenuTreeNode node)
                 {
                     item = node.Item;
                     nodeIndex = treeView.Nodes.IndexOf(node);
@@ -992,7 +1009,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         nodeIndex = node.Parent.Nodes.IndexOf(node);
                         node = node.Parent as MenuTreeNode;
                         if (node != null)
+                        {
                             parent = node.Item;
+                        }
                     }
                 }
 
@@ -1018,28 +1037,42 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Special case the you can use add button on an Items collection so it adds an item inside it
                 if ((item is KryptonContextMenuItems) && addType.Equals(typeof(KryptonContextMenuItem)))
+                {
                     return true;
+                }
 
                 if (ItemInsideCollection(item, parent))
                 {
                     KryptonContextMenuCollection temp = new KryptonContextMenuCollection();
                     foreach (Type t in temp.RestrictTypes)
+                    {
                         if (t.Equals(addType))
+                        {
                             return true;
+                        }
+                    }
                 }
                 else
                 {
                     KryptonContextMenuItemCollection temp1 = new KryptonContextMenuItemCollection();
                     foreach (Type t in temp1.RestrictTypes)
+                    {
                         if (t.Equals(addType))
+                        {
                             return true;
+                        }
+                    }
 
                     if ((item != null) && (item is KryptonContextMenuItem))
                     {
                         KryptonContextMenuCollection temp2 = new KryptonContextMenuCollection();
                         foreach (Type t in temp2.RestrictTypes)
+                        {
                             if (t.Equals(addType))
+                            {
                                 return true;
+                            }
+                        }
                     }
                 }
 
@@ -1051,8 +1084,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type addType = item.GetType();
                 KryptonContextMenuCollection temp = new KryptonContextMenuCollection();
                 foreach (Type t in temp.RestrictTypes)
+                {
                     if (t.Equals(addType))
+                    {
                         return true;
+                    }
+                }
 
                 return false;
             }
@@ -1062,8 +1099,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type addType = item.GetType();
                 KryptonContextMenuItemCollection temp = new KryptonContextMenuItemCollection();
                 foreach (Type t in temp.RestrictTypes)
+                {
                     if (t.Equals(addType))
+                    {
                         return true;
+                    }
+                }
 
                 return false;
             }
@@ -1072,13 +1113,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                               KryptonContextMenuItemBase parent)
             {
                 // If it has no parent the it must be inside a collection
-                if (parent == null)
-                    return true;
-                else
-                {
-                    // If inside an items then not inside a collection
-                    return !(parent is KryptonContextMenuItems);
-                }
+                // If inside an items then not inside a collection
+                return !(parent is KryptonContextMenuItems);
             }
 
             private DictItemBase CreateItemsDictionary(object[] items)
@@ -1086,7 +1122,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 DictItemBase dictItems = new DictItemBase();
 
                 foreach (KryptonContextMenuItemBase item in items)
+                {
                     AddItemsToDictionary(dictItems, item);
+                }
 
                 return dictItems;
             }
@@ -1097,19 +1135,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 dictItems.Add(baseItem, baseItem);
 
                 // Add children of an items collection
-                if (baseItem is KryptonContextMenuItems)
+                if (baseItem is KryptonContextMenuItems items)
                 {
-                    KryptonContextMenuItems items = (KryptonContextMenuItems)baseItem;
                     foreach (KryptonContextMenuItemBase childItem in items.Items)
+                    {
                         AddItemsToDictionary(dictItems, childItem);
+                    }
                 }
 
                 // Add children of an item
-                if (baseItem is KryptonContextMenuItem)
+                if (baseItem is KryptonContextMenuItem item)
                 {
-                    KryptonContextMenuItem item = (KryptonContextMenuItem)baseItem;
                     foreach (KryptonContextMenuItemBase childItem in item.Items)
+                    {
                         AddItemsToDictionary(dictItems, childItem);
+                    }
                 }
             }
 
@@ -1119,32 +1159,36 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Add all new components (in the 'after' but not the 'before'
                 foreach (KryptonContextMenuItemBase item in after.Values)
+                {
                     if (!before.ContainsKey(item))
                     {
-                        if (context.Container != null)
-                            context.Container.Add(item as IComponent);
+                        context.Container?.Add(item as IComponent);
                     }
+                }
 
                 // Delete all old components (in the 'before' but not the 'after'
                 foreach (KryptonContextMenuItemBase item in before.Values)
+                {
                     if (!after.ContainsKey(item))
                     {
                         DestroyInstance(item);
 
-                        if (context.Container != null)
-                            context.Container.Remove(item as IComponent);
+                        context.Container?.Remove(item as IComponent);
                     }
+                }
 
                 IComponentChangeService changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
                 if (changeService != null)
                 {
                     // Mark components as changed when not added or removed
                     foreach (KryptonContextMenuItemBase item in after.Values)
+                    {
                         if (before.ContainsKey(item))
                         {
                             changeService.OnComponentChanging(item, null);
                             changeService.OnComponentChanged(item, null, null, null);
                         }
+                    }
                 }
             }
             #endregion
@@ -1157,7 +1201,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public KryptonContextMenuCollectionEditor()
             : base(typeof(KryptonContextMenuCollection))
-		{
+        {
         }
         #endregion
 
@@ -1171,12 +1215,12 @@ namespace ComponentFactory.Krypton.Toolkit
             return new KryptonContextMenuCollectionForm(this);
         }
 
-		/// <summary>
-		/// Gets the data types that this collection editor can contain. 
-		/// </summary>
-		/// <returns>An array of data types that this collection can contain.</returns>
-		protected override Type[] CreateNewItemTypes()
-		{
+        /// <summary>
+        /// Gets the data types that this collection editor can contain. 
+        /// </summary>
+        /// <returns>An array of data types that this collection can contain.</returns>
+        protected override Type[] CreateNewItemTypes()
+        {
             return new Type[] { typeof(KryptonContextMenuItems),
                                 typeof(KryptonContextMenuSeparator),
                                 typeof(KryptonContextMenuHeading),
@@ -1187,7 +1231,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 typeof(KryptonContextMenuColorColumns),
                                 typeof(KryptonContextMenuMonthCalendar),
                                 typeof(KryptonContextMenuImageSelect)};
-		}
+        }
         #endregion
-	}
+    }
 }

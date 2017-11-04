@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
@@ -64,10 +61,12 @@ namespace ComponentFactory.Krypton.Navigator
             // Create the internal panel used for containing content
             ViewDrawCanvas drawGroup = new ViewDrawCanvas(navigator.StateNormal.HeaderGroup.Back,
                                                           navigator.StateNormal.HeaderGroup.Border,
-                                                          VisualOrientation.Top);
+                                                          VisualOrientation.Top)
+            {
 
-            // Add the layout inside the draw group
-            drawGroup.Add(layoutPage);
+                // Add the layout inside the draw group
+                layoutPage
+            };
 
             // Do we need to add a border area around the page group
             if (_navigator.PopupPages.Border > 0)
@@ -77,19 +76,22 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Put the page group inside a layout that has separators 
                 // to pad out the sizing to the border size we need
-                ViewLayoutDocker layoutDocker = new ViewLayoutDocker();
-                layoutDocker.Add(drawGroup, ViewDockStyle.Fill);
-                layoutDocker.Add(new ViewLayoutSeparator(border), ViewDockStyle.Top);
-                layoutDocker.Add(new ViewLayoutSeparator(border), ViewDockStyle.Bottom);
-                layoutDocker.Add(new ViewLayoutSeparator(border), ViewDockStyle.Left);
-                layoutDocker.Add(new ViewLayoutSeparator(border), ViewDockStyle.Right);
+                ViewLayoutDocker layoutDocker = new ViewLayoutDocker
+                {
+                    { drawGroup, ViewDockStyle.Fill },
+                    { new ViewLayoutSeparator(border), ViewDockStyle.Top },
+                    { new ViewLayoutSeparator(border), ViewDockStyle.Bottom },
+                    { new ViewLayoutSeparator(border), ViewDockStyle.Left },
+                    { new ViewLayoutSeparator(border), ViewDockStyle.Right }
+                };
 
                 // Create a new top level group that contains the layout
                 drawGroup = new ViewDrawCanvas(navigator.StateNormal.Back,
                                                navigator.StateNormal.HeaderGroup.Border,
-                                               VisualOrientation.Top);
-
-                drawGroup.Add(layoutDocker);
+                                               VisualOrientation.Top)
+                {
+                    layoutDocker
+                };
             }
 
             ViewManager = new ViewManager(this, drawGroup);
@@ -217,9 +219,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Do we need to kill ourself
             if (!e.Cancel)
+            {
                 Show(e.ScreenRect);
+            }
             else
+            {
                 Dispose();
+            }
         }
         #endregion
 
@@ -264,9 +270,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If nothing has the focus then we cannot perform processing
             if (focus != null)
+            {
                 return TabToNextControl(focus, forward);
+            }
             else
+            {
                 return true;
+            }
         }
         #endregion
 
@@ -275,13 +285,19 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Does the provided control have the focus?
             if (control.Focused)
+            {
                 return control;
+            }
             else
             {
                 // Check each child hierarchy in turn
                 foreach (Control child in control.Controls)
+                {
                     if (child.ContainsFocus)
+                    {
                         return GetControlWithFocus(child);
+                    }
+                }
 
                 return null;
             }
@@ -297,7 +313,9 @@ namespace ComponentFactory.Krypton.Navigator
             // setting to null will force the GetNextControl to get the first
             // child control of the page.
             if (!_page.Contains(next))
+            {
                 next = null;
+            }
 
             // Have we wrapped around the end yet?
             bool wrapped = false;
@@ -312,7 +330,9 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     // If already wrapped around end of list then must be finished
                     if (wrapped)
+                    {
                         return false;
+                    }
 
                     // Keep going from the start
                     wrapped = true;
@@ -344,9 +364,13 @@ namespace ComponentFactory.Krypton.Navigator
                             {
                                 // Select the actual control
                                 if (!_page.ContainsFocus)
+                                {
                                     next.Focus();
+                                }
                                 else
+                                {
                                     next.Select();
+                                }
                                 return true;
                             }
                         }

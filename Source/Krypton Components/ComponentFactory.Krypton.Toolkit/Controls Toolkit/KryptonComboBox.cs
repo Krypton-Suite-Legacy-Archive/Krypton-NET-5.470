@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
@@ -92,9 +87,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case PI.WM_NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
+                        {
                             m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        }
                         else
+                        {
                             base.WndProc(ref m);
+                        }
+
                         break;
                     default:
                         base.WndProc(ref m);
@@ -171,9 +171,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
+                        {
                             OnTrackMouseLeave(EventArgs.Empty);
+                        }
                     }
                 }
             }
@@ -267,9 +271,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case PI.WM_NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
+                        {
                             m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        }
                         else
+                        {
                             base.WndProc(ref m);
+                        }
+
                         break;
                     case PI.WM_MOUSELEAVE:
                         {
@@ -326,9 +335,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to BeginPaint or just take the given HDC?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 hdc = PI.BeginPaint(Handle, ref ps);
+                            }
                             else
+                            {
                                 hdc = m.WParam;
+                            }
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
@@ -339,7 +352,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 // Drawn entire client area in the background color
                                 using (SolidBrush backBrush = new SolidBrush(BackColor))
+                                {
                                     g.FillRectangle(backBrush, new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top));
+                                }
 
                                 // Get the constant used to crack open the display
                                 int dropDownWidth = SystemInformation.VerticalScrollBarWidth;
@@ -380,7 +395,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                         m.WParam = IntPtr.Zero;
                                     }
                                     else
+                                    {
                                         DefWndProc(ref m);
+                                    }
                                 }
                                 else
                                 {
@@ -390,15 +407,21 @@ namespace ComponentFactory.Krypton.Toolkit
                                     g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(_kryptonComboBox.StateDisabled.Item.PaletteContent.GetContentShortTextHint(PaletteState.Disabled));
 
                                     // Define the string formatting requirements
-                                    StringFormat stringFormat = new StringFormat();
-                                    stringFormat.LineAlignment = StringAlignment.Center;
-                                    stringFormat.FormatFlags = StringFormatFlags.NoWrap;
-                                    stringFormat.Trimming = StringTrimming.None;
+                                    StringFormat stringFormat = new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        FormatFlags = StringFormatFlags.NoWrap,
+                                        Trimming = StringTrimming.None
+                                    };
 
                                     if (_kryptonComboBox.RightToLeft == RightToLeft.Yes)
+                                    {
                                         stringFormat.Alignment = StringAlignment.Far;
+                                    }
                                     else
+                                    {
                                         stringFormat.Alignment = StringAlignment.Near;
+                                    }
 
                                     // Use the correct prefix setting
                                     stringFormat.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
@@ -407,16 +430,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                     try
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
+                                        {
                                             g.DrawString(Text, Font, foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                     catch(ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
+                                        {
                                             g.DrawString(Text, _kryptonComboBox.GetComboBoxTripleState().PaletteContent.GetContentShortTextFont(PaletteState.Disabled), foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                 }
 
@@ -429,7 +456,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to match the original BeginPaint?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 PI.EndPaint(Handle, ref ps);
+                            }
                         }
                         break;
                     case PI.WM_CONTEXTMENU:
@@ -441,7 +470,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // If keyboard activated, the menu position is centered
                             if (((int)((long)m.LParam)) == -1)
+                            {
                                 mousePt = PointToScreen(new Point(Width / 2, Height / 2));
+                            }
 
                             // Show the context menu
                             _kryptonComboBox.KryptonContextMenu.Show(_kryptonComboBox, mousePt);
@@ -463,8 +494,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -473,8 +503,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
 
@@ -505,21 +534,33 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_kryptonComboBox.Enabled)
                 {
                     if (Dropped)
+                    {
                         state = PaletteState.Pressed;
+                    }
                     else if (_mouseTracking)
+                    {
                         state = PaletteState.Tracking;
+                    }
                     else if (_kryptonComboBox.IsActive || (_kryptonComboBox.IsFixedActive && (_kryptonComboBox.InputControlStyle == InputControlStyle.Standalone)))
                     {
                         if (_kryptonComboBox.InputControlStyle == InputControlStyle.Standalone)
+                        {
                             state = PaletteState.CheckedNormal;
+                        }
                         else
+                        {
                             state = PaletteState.CheckedTracking;
+                        }
                     }
                     else
+                    {
                         state = PaletteState.Normal;
+                    }
                 }
                 else
+                {
                     state = PaletteState.Disabled;
+                }
 
                 _viewButton.ElementState = state;
 
@@ -535,7 +576,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Fill background with the solid background color
                 using (SolidBrush backBrush = new SolidBrush(BackColor))
+                {
                     g.FillRectangle(backBrush, drawRect);
+                }
 
                 // Ask the element to draw now
                 using (RenderContext renderContext = new RenderContext(_kryptonComboBox, g, drawRect, _kryptonComboBox.Renderer))
@@ -558,7 +601,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     try
                     {
                         if (!_appThemed.HasValue)
+                        {
                             _appThemed = (PI.IsThemeActive() && PI.IsAppThemed());
+                        }
 
                         return _appThemed.Value;
                     }
@@ -623,9 +668,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
+                        {
                             OnTrackMouseLeave(EventArgs.Empty);
+                        }
                     }
                 }
             }
@@ -657,9 +706,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case PI.WM_NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
+                        {
                             m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        }
                         else
+                        {
                             base.WndProc(ref m);
+                        }
+
                         break;
                     case PI.WM_MOUSELEAVE:
                         // Mouse is not over the control
@@ -671,17 +725,19 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Mouse is over the control
                         if (!MouseOver)
                         {
-                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS();
+                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS
+                            {
 
-                            // This structure needs to know its own size in bytes
-                            tme.cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS));
-                            tme.dwHoverTime = 100;
+                                // This structure needs to know its own size in bytes
+                                cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
+                                dwHoverTime = 100,
 
-                            // We need to know then the mouse leaves the client window area
-                            tme.dwFlags = (int)(PI.TME_LEAVE);
+                                // We need to know then the mouse leaves the client window area
+                                dwFlags = (int)(PI.TME_LEAVE),
 
-                            // We want to track our own window
-                            tme.hWnd = Handle;
+                                // We want to track our own window
+                                hWnd = Handle
+                            };
 
                             // Call Win32 API to start tracking
                             PI.TrackMouseEvent(ref tme);
@@ -701,8 +757,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // If keyboard activated, the menu position is centered
                             if (((int)((long)m.LParam)) == -1)
                             {
-                                PI.RECT clientRect;
-                                PI.GetClientRect(Handle, out clientRect);
+                                PI.GetClientRect(Handle, out PI.RECT clientRect);
                                 mousePt = new Point((clientRect.right - clientRect.left) / 2,
                                                     (clientRect.bottom - clientRect.top) / 2);
                             }
@@ -732,8 +787,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -742,8 +796,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
         }
@@ -1062,12 +1115,16 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutFill = new ViewLayoutFill(_comboHolder);
 
             // Create inner view for placing inside the drawing docker
-            _drawDockerInner = new ViewLayoutDocker();
-            _drawDockerInner.Add(_layoutFill, ViewDockStyle.Fill);
+            _drawDockerInner = new ViewLayoutDocker
+            {
+                { _layoutFill, ViewDockStyle.Fill }
+            };
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.ComboBox.Back, _stateNormal.ComboBox.Border);
-            _drawDockerOuter.Add(_drawDockerInner, ViewDockStyle.Fill);
+            _drawDockerOuter = new ViewDrawDocker(_stateNormal.ComboBox.Back, _stateNormal.ComboBox.Border)
+            {
+                { _drawDockerInner, ViewDockStyle.Fill }
+            };
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDockerOuter);
@@ -1496,7 +1553,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_comboBox.DropDownStyle != value)
                 {
                     if (value == ComboBoxStyle.Simple)
+                    {
                         throw new ArgumentOutOfRangeException("KryptonComboBox does not support the DropDownStyle.Simple style.");
+                    }
 
                     _comboBox.DropDownStyle = value;
                     UpdateEditControl();
@@ -2015,11 +2074,15 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive ||
                             ContainsFocus || _mouseOver || _comboBox.MouseOver ||
                            ((_subclassEdit != null) && (_subclassEdit.MouseOver)));
+                }
             }
         }
 
@@ -2040,9 +2103,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public new bool Focus()
         {
             if (ComboBox != null)
+            {
                 return ComboBox.Focus();
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -2050,8 +2117,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public new void Select()
         {
-            if (ComboBox != null)
-                ComboBox.Select();
+            ComboBox?.Select();
         }
 
         /// <summary>
@@ -2068,12 +2134,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -2116,13 +2196,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -2133,7 +2219,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -2169,8 +2257,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnInitialized(EventArgs e)
         {
-            if (Initialized != null)
-                Initialized(this, EventArgs.Empty);
+            Initialized?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -2179,8 +2266,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTextUpdate(EventArgs e)
         {
-            if (TextUpdate != null)
-                TextUpdate(this, e);
+            TextUpdate?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2189,8 +2275,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectionChangeCommitted(EventArgs e)
         {
-            if (SelectionChangeCommitted != null)
-                SelectionChangeCommitted(this, e);
+            SelectionChangeCommitted?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2199,8 +2284,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedIndexChanged(EventArgs e)
         {
-            if (SelectedIndexChanged != null)
-                SelectedIndexChanged(this, e);
+            SelectedIndexChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2209,8 +2293,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDropDownStyleChanged(EventArgs e)
         {
-            if (DropDownStyleChanged != null)
-                DropDownStyleChanged(this, e);
+            DropDownStyleChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2219,8 +2302,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDataSourceChanged(EventArgs e)
         {
-            if (DataSourceChanged != null)
-                DataSourceChanged(this, e);
+            DataSourceChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2229,8 +2311,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDisplayMemberChanged(EventArgs e)
         {
-            if (DisplayMemberChanged != null)
-                DisplayMemberChanged(this, e);
+            DisplayMemberChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2239,8 +2320,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ListControlConvertEventArgs containing the event data.</param>
         protected virtual void OnFormat(ListControlConvertEventArgs e)
         {
-            if (Format != null)
-                Format(this, e);
+            Format?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2249,8 +2329,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatInfoChanged(EventArgs e)
         {
-            if (FormatInfoChanged != null)
-                FormatInfoChanged(this, e);
+            FormatInfoChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2259,8 +2338,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatStringChanged(EventArgs e)
         {
-            if (FormatStringChanged != null)
-                FormatStringChanged(this, e);
+            FormatStringChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2269,8 +2347,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormattingEnabledChanged(EventArgs e)
         {
-            if (FormattingEnabledChanged != null)
-                FormattingEnabledChanged(this, e);
+            FormattingEnabledChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2279,8 +2356,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedValueChanged(EventArgs e)
         {
-            if (SelectedValueChanged != null)
-                SelectedValueChanged(this, e);
+            SelectedValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2289,8 +2365,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueMemberChanged(EventArgs e)
         {
-            if (ValueMemberChanged != null)
-                ValueMemberChanged(this, e);
+            ValueMemberChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2299,8 +2374,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDropDownClosed(EventArgs e)
         {
-            if (DropDownClosed != null)
-                DropDownClosed(this, e);
+            DropDownClosed?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2309,8 +2383,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDropDown(EventArgs e)
         {
-            if (DropDown != null)
-                DropDown(this, e);
+            DropDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2319,8 +2392,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseEnter(EventArgs e)
         {
-            if (TrackMouseEnter != null)
-                TrackMouseEnter(this, e);
+            TrackMouseEnter?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2329,8 +2401,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e)
         {
-            if (TrackMouseLeave != null)
-                TrackMouseLeave(this, e);
+            TrackMouseLeave?.Invoke(this, e);
         }
         #endregion
 
@@ -2396,8 +2467,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            if (BackColorChanged != null)
-                BackColorChanged(this, e);
+            BackColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2406,8 +2476,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2416,8 +2485,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2426,8 +2494,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
-            if (ForeColorChanged != null)
-                ForeColorChanged(this, e);
+            ForeColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2436,8 +2503,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnPaddingChanged(EventArgs e)
         {
-            if (PaddingChanged != null)
-                PaddingChanged(this, e);
+            PaddingChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2474,8 +2540,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             base.OnPaint(e);
-            if (Paint != null)
-                Paint(this, e);
+            Paint?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2602,7 +2667,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First time the height is set, remember it
                 if (_cachedHeight == -1)
+                {
                     _cachedHeight = height;
+                }
 
                 // Override the actual height used
                 height = PreferredHeight;
@@ -2610,7 +2677,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If setting the actual height then cache it for later
             if ((specified & BoundsSpecified.Height) == BoundsSpecified.Height)
+            {
                 _cachedHeight = height;
+            }
 
             base.SetBoundsCore(x, y, width, height, specified);
         }
@@ -2631,9 +2700,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             if (!e.NeedLayout)
+            {
                 _comboBox.Invalidate();
+            }
             else if (!DroppedDown)
+            {
                 ForceControlLayout();
+            }
 
             if (!IsDisposed && !Disposing)
             {
@@ -2680,9 +2753,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PI.WM_NCHITTEST:
                     if (InTransparentDesignMode)
+                    {
                         m.Result = (IntPtr)PI.HTTRANSPARENT;
+                    }
                     else
+                    {
                         base.WndProc(ref m);
+                    }
+
                     break;
                 default:
                     base.WndProc(ref m);
@@ -2741,7 +2819,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Only show the child edit control when we are enabled
             if (_subclassEdit != null)
+            {
                 _subclassEdit.Visible = Enabled;
+            }
         }
 
         private void UpdateStateAndPalettes()
@@ -2756,9 +2836,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the new state of the main view element
             PaletteState state;
             if (IsActive)
+            {
                 state = PaletteState.Tracking;
+            }
             else
+            {
                 state = PaletteState.Normal;
+            }
 
             _drawDockerOuter.ElementState = state;
         }
@@ -2768,12 +2852,18 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive.ComboBox;
+                }
                 else
+                {
                     return _stateNormal.ComboBox;
+                }
             }
             else
+            {
                 return _stateDisabled.ComboBox;
+            }
         }
 
         private int PreferredHeight
@@ -2801,13 +2891,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Find correct text color
                 Color textColor = _comboBox.ForeColor;
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
                     textColor = SystemColors.HighlightText;
+                }
 
                 // Find correct background color
                 Color backColor = _comboBox.BackColor;
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
                     backColor = SystemColors.Highlight;
-                    
+                }
+
                 // Is there an item to draw
                 if (e.Index >= 0)
                 {
@@ -2823,7 +2917,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Do we need to switch drawing direction?
                     if (RightToLeft == RightToLeft.Yes)
+                    {
                         flags |= TextFormatFlags.Right;
+                    }
 
                     // Draw text using font defined by the control
                     TextRenderer.DrawText(e.Graphics,
@@ -2846,12 +2942,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Is this item disabled
                     if ((e.State & DrawItemState.Disabled) == DrawItemState.Disabled)
+                    {
                         buttonState = PaletteState.Disabled;
+                    }
                     else
                     {
                         // If selected then show as a checked item
                         if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                        {
                             buttonState = PaletteState.Tracking;
+                        }
                     }
 
                     // Update the view with the calculated state
@@ -2927,10 +3027,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void UpdateContentFromItemIndex(int index)
         {
-            IContentValues itemValues = Items[index] as IContentValues;
 
             // If the object exposes the rich interface then use is...
-            if (itemValues != null)
+            if (Items[index] is IContentValues itemValues)
             {
                 _contentValues.ShortText = itemValues.GetShortText();
                 _contentValues.LongText = itemValues.GetLongText();
@@ -2950,7 +3049,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // the first item is used to calculate the total height of the drop down. So if the first time
             // had null then the height would be very small for the item and also the drop down.
             if (string.IsNullOrEmpty(_contentValues.ShortText))
+            {
                 _contentValues.ShortText = " ";
+            }
         }
 
         private void OnComboBoxMouseChange(object sender, EventArgs e)
@@ -2965,9 +3066,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Raise appropriate event
                 if (_trackingMouseEnter)
+                {
                     OnTrackMouseEnter(EventArgs.Empty);
+                }
                 else
+                {
                     OnTrackMouseLeave(EventArgs.Empty);
+                }
             }
 
             PerformNeedPaint(false);
@@ -3107,7 +3212,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -3139,8 +3246,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -3162,8 +3268,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)

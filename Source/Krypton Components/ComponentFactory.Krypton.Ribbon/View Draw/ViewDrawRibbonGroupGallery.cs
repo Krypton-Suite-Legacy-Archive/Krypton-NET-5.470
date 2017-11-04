@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -27,7 +25,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                 IRibbonViewGroupContainerView
     {
         #region Static Fields
-        private static readonly int NULL_CONTROL_WIDTH = 50;
+
+        private const int NULL_CONTROL_WIDTH = 50;
         private static readonly Padding _largeImagePadding = new Padding(3, 2, 3, 3);
         #endregion
 
@@ -128,7 +127,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Must unhook to prevent memory leaks
                     if (_ribbonGallery.LastGallery != null)
+                    {
                         _ribbonGallery.LastGallery.Ribbon = null;
+                    }
 
                     _ribbonGallery.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
                     _ribbonGallery.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
@@ -153,14 +154,11 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void KeyTipSelect()
         {
-            if (_ribbonGallery.LastGallery != null)
-            {
-                _ribbonGallery.LastGallery.ShownGalleryDropDown(_ribbonGallery.LastGallery.RectangleToScreen(_ribbonGallery.LastGallery.ClientRectangle),
-                                                                KryptonContextMenuPositionH.Left,
-                                                                KryptonContextMenuPositionV.Top,
-                                                                null,
-                                                                _ribbonGallery.DropButtonItemWidth);
-            }
+            _ribbonGallery.LastGallery?.ShownGalleryDropDown(_ribbonGallery.LastGallery.RectangleToScreen(_ribbonGallery.LastGallery.ClientRectangle),
+                KryptonContextMenuPositionH.Left,
+                KryptonContextMenuPositionV.Top,
+                null,
+                _ribbonGallery.DropButtonItemWidth);
         }
         #endregion
 
@@ -197,14 +195,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_viewLarge.Visible)
             {
                 if (_ribbonGallery.Visible && _ribbonGallery.Enabled)
+                {
                     return _viewLarge;
+                }
             }
             else
             {
                 if ((_ribbonGallery.Visible) &&
                     (_ribbonGallery.LastGallery != null) &&
                     (_ribbonGallery.LastGallery.CanSelect))
+                {
                     return this;
+                }
             }
                 
             return null;
@@ -221,14 +223,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_viewLarge.Visible)
             {
                 if (_ribbonGallery.Visible && _ribbonGallery.Enabled)
+                {
                     return _viewLarge;
+                }
             }
             else
             {
                 if ((_ribbonGallery.Visible) &&
                     (_ribbonGallery.LastGallery != null) &&
                     (_ribbonGallery.LastGallery.CanSelect))
+                {
                     return this;
+                }
             }
 
             return null;
@@ -343,14 +349,18 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Only add if we are the first calculation, as in design mode we
                         // always provide a single possible size which is the largest item
                         if (results.Count == 0)
+                        {
                             results.Add(mediumWidth);
+                        }
                     }
                     else
                     {
                         // Only add the medium size if there is no other entry or we are
                         // smaller than the existing size and so represent a useful shrinkage
                         if ((results.Count == 0) || (results[results.Count - 1].Width > mediumWidth.Width))
+                        {
                             results.Add(mediumWidth);
+                        }
                     }
                 }
 
@@ -369,14 +379,18 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Only add if we are the first calculation, as in design mode we
                         // always provide a single possible size which is the largest item
                         if (results.Count == 0)
+                        {
                             results.Add(smallWidth);
+                        }
                     }
                     else
                     {
                         // Only add the medium size if there is no other entry or we are
                         // smaller than the existing size and so represent a useful shrinkage
                         if ((results.Count == 0) || (results[results.Count - 1].Width > smallWidth.Width))
+                        {
                             results.Add(smallWidth);
+                        }
                     }
                 }
 
@@ -387,7 +401,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 return results.ToArray();
             }
             else
+            {
                 return new ItemSizeWidth[] { new ItemSizeWidth(GroupItemSize.Large, NULL_CONTROL_WIDTH) };
+            }
         }
 
         /// <summary>
@@ -425,7 +441,9 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateParent(context.Control);
 
             if (_currentSize == GroupItemSize.Small)
+            {
                 preferredSize = base.GetPreferredSize(context);
+            }
             else
             {
                 // If there is a gallery associated then ask for its requested size
@@ -440,13 +458,19 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
                 else
+                {
                     preferredSize.Width = NULL_CONTROL_WIDTH;
+                }
             }
 
             if (_currentSize == GroupItemSize.Large)
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
+            }
             else
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
+            }
 
             return preferredSize;
         }
@@ -466,13 +490,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!context.ViewManager.DoNotLayoutControls)
             {
                 // If we have an actual control, position it with a pixel padding all around
-                if (LastGallery != null)
-                {
-                    LastGallery.SetBounds(ClientLocation.X + 1,
-                                          ClientLocation.Y + 1,
-                                          ClientWidth - 2,
-                                          ClientHeight - 2);
-                }
+                LastGallery?.SetBounds(ClientLocation.X + 1,
+                    ClientLocation.Y + 1,
+                    ClientWidth - 2,
+                    ClientHeight - 2);
             }
 
             // Let child elements layout in given space
@@ -532,7 +553,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -544,20 +567,26 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewLarge = new ViewDrawRibbonGroupButtonBackBorder(_ribbon, _ribbonGallery,
                                                                  _ribbon.StateCommon.RibbonGroupButton.PaletteBack,
                                                                  _ribbon.StateCommon.RibbonGroupButton.PaletteBorder,
-                                                                 false, _needPaint);
-            _viewLarge.ButtonType = GroupButtonType.DropDown;
+                                                                 false, _needPaint)
+            {
+                ButtonType = GroupButtonType.DropDown
+            };
             _viewLarge.DropDown += new EventHandler(OnLargeButtonDropDown);
 
             if (_ribbon.InDesignMode)
+            {
                 _viewLarge.ContextClick += new MouseEventHandler(OnContextClick);
+            }
 
             // Create the layout docker for the contents of the button
             ViewLayoutDocker contentLayout = new ViewLayoutDocker();
 
             // Add the large button at the top
             _viewLargeImage = new ViewDrawRibbonGroupGalleryImage(_ribbon, _ribbonGallery);
-            ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding);
-            largeImagePadding.Add(_viewLargeImage);
+            ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
+            {
+                _viewLargeImage
+            };
             contentLayout.Add(largeImagePadding, ViewDockStyle.Top);
 
             // Add the first line of text
@@ -593,14 +622,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnLargeButtonDropDown(object sender, EventArgs e)
         {
-            if (_ribbonGallery.LastGallery != null)
-            {
-                _ribbonGallery.LastGallery.ShownGalleryDropDown(_ribbon.ViewRectangleToScreen(_viewLarge),
-                                                                KryptonContextMenuPositionH.Left,
-                                                                KryptonContextMenuPositionV.Below,
-                                                                _viewLarge.FinishDelegate,
-                                                                _ribbonGallery.DropButtonItemWidth);
-            }
+            _ribbonGallery.LastGallery?.ShownGalleryDropDown(_ribbon.ViewRectangleToScreen(_viewLarge),
+                KryptonContextMenuPositionH.Left,
+                KryptonContextMenuPositionV.Below,
+                _viewLarge.FinishDelegate,
+                _ribbonGallery.DropButtonItemWidth);
         }
 
         private void OnContextClick(object sender, MouseEventArgs e)
@@ -611,7 +637,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnGalleryPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             bool updateLayout = false;
-            bool updatePaint = false;
+            const bool UPDATE_PAINT = false;
 
             switch (e.PropertyName)
             {
@@ -652,7 +678,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
 
-            if (updatePaint)
+            if (UPDATE_PAINT)
+#pragma warning disable 162
             {
                 // If this button is actually defined as visible...
                 if (_ribbonGallery.Visible || _ribbon.InDesignMode)
@@ -666,6 +693,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
             }
+#pragma warning restore 162
         }
 
         private Control LastParentControl
@@ -704,7 +732,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Remove ribbon reference from old last gallery reference
                     if (LastGallery != null)
+                    {
                         LastGallery.Ribbon = null;
+                    }
 
                     // Remember the current control and new parent
                     LastGallery = _ribbonGallery.Gallery;
@@ -712,7 +742,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Add ribbon reference to new gallery reference
                     if (LastGallery != null)
+                    {
                         LastGallery.Ribbon = _ribbon;
+                    }
 
                     // If we have a new gallery and parent
                     if ((LastGallery != null) && (LastParentControl != null))
@@ -788,21 +820,27 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only visible if on the currently selected page
                     if ((_ribbonGallery.RibbonTab == null) ||
                         (_ribbon.SelectedTab != _ribbonGallery.RibbonTab))
+                    {
                         visible = false;
+                    }
                     else
                     {
                         // Check the owning group is visible
                         if ((_ribbonGallery.RibbonGroup != null) &&
                             !_ribbonGallery.RibbonGroup.Visible &&
                             !_ribbon.InDesignMode)
+                        {
                             visible = false;
+                        }
                         else
                         {
                             // Check that the group is not collapsed
                             if ((_ribbonGallery.RibbonGroup.IsCollapsed) &&
                                 ((_ribbon.GetControllerControl(_ribbonGallery.Gallery) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(_ribbonGallery.Gallery) is VisualPopupMinimized)))
+                            {
                                 visible = false;
+                            }
                         }
                     }
                 }
@@ -833,9 +871,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Keep going till we get to the top or find a group
             while (parent != null)
             {
-                if (parent is ViewDrawRibbonGroup)
+                if (parent is ViewDrawRibbonGroup ribGroup)
                 {
-                    _activeGroup = (ViewDrawRibbonGroup)parent;
+                    _activeGroup = ribGroup;
                     break;
                 }
 

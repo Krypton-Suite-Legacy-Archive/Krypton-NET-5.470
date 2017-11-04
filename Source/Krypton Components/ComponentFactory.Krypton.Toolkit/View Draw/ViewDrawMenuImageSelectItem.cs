@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -92,7 +88,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void Track()
         {
             if (_imageSelect.TrackingIndex != _imageIndex)
+            {
                 _imageSelect.TrackingIndex = _imageIndex;
+            }
         }
 
         /// <summary>
@@ -101,7 +99,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void Untrack()
         {
             if (_imageSelect.TrackingIndex == _imageIndex)
+            {
                 _imageSelect.TrackingIndex = -1;
+            }
         }
         #endregion
 
@@ -164,9 +164,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual Image GetImage(PaletteState state)
         {
             if ((_imageList != null) && (_imageIndex >= 0))
+            {
                 return _imageList.Images[_imageIndex];
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>

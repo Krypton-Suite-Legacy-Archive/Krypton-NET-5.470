@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -113,13 +110,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 InheritBool ret = _primary.GetBorderDraw(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetBorderDraw(state);
+                {
+                    ret = _backup.GetBorderDraw(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderDraw(state);
-		}
+            {
+                return _backup.GetBorderDraw(state);
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating which borders to draw.
@@ -133,12 +134,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteDrawBorders ret = _primary.GetBorderDrawBorders(_override ? _state : state);
 
                 if (ret == PaletteDrawBorders.Inherit)
+                {
                     ret = _backup.GetBorderDrawBorders(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetBorderDrawBorders(state);
+            }
         }
 
 		/// <summary>
@@ -153,13 +158,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteGraphicsHint ret = _primary.GetBorderGraphicsHint(_override ? _state : state);
 
 				if (ret == PaletteGraphicsHint.Inherit)
-					ret = _backup.GetBorderGraphicsHint(state);
+                {
+                    ret = _backup.GetBorderGraphicsHint(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderGraphicsHint(state);
-		}
+            {
+                return _backup.GetBorderGraphicsHint(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the first border color.
@@ -173,13 +182,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetBorderColor1(_override ? _state : state);
 
 				if (ret == Color.Empty)
-					ret = _backup.GetBorderColor1(state);
+                {
+                    ret = _backup.GetBorderColor1(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderColor1(state);
-		}
+            {
+                return _backup.GetBorderColor1(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the second border color.
@@ -193,13 +206,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetBorderColor2(_override ? _state : state);
 
 				if (ret == Color.Empty)
-					ret = _backup.GetBorderColor2(state);
+                {
+                    ret = _backup.GetBorderColor2(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderColor2(state);
-		}
+            {
+                return _backup.GetBorderColor2(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color drawing style.
@@ -213,13 +230,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteColorStyle ret = _primary.GetBorderColorStyle(_override ? _state : state);
 
 				if (ret == PaletteColorStyle.Inherit)
-					ret = _backup.GetBorderColorStyle(state);
+                {
+                    ret = _backup.GetBorderColorStyle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderColorStyle(state);
-		}
+            {
+                return _backup.GetBorderColorStyle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color alignment style.
@@ -233,13 +254,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetBorderColorAlign(_override ? _state : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
-					ret = _backup.GetBorderColorAlign(state);
+                {
+                    ret = _backup.GetBorderColorAlign(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderColorAlign(state);
-		}
+            {
+                return _backup.GetBorderColorAlign(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color border angle.
@@ -253,13 +278,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 float ret = _primary.GetBorderColorAngle(_override ? _state : state);
 
 				if (ret == -1f)
-					ret = _backup.GetBorderColorAngle(state);
+                {
+                    ret = _backup.GetBorderColorAngle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderColorAngle(state);
-		}
+            {
+                return _backup.GetBorderColorAngle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the border width.
@@ -273,13 +302,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 int ret = _primary.GetBorderWidth(_override ? _state : state);
 
 				if (ret == -1)
-					ret = _backup.GetBorderWidth(state);
+                {
+                    ret = _backup.GetBorderWidth(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderWidth(state);
-		}
+            {
+                return _backup.GetBorderWidth(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the border rounding.
@@ -293,13 +326,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 int ret = _primary.GetBorderRounding(_override ? _state : state);
 
 				if (ret == -1)
-					ret = _backup.GetBorderRounding(state);
+                {
+                    ret = _backup.GetBorderRounding(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderRounding(state);
-		}
+            {
+                return _backup.GetBorderRounding(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets a border image.
@@ -313,13 +350,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Image ret = _primary.GetBorderImage(_override ? _state : state);
 
 				if (ret == null)
-					ret = _backup.GetBorderImage(state);
+                {
+                    ret = _backup.GetBorderImage(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderImage(state);
-		}
+            {
+                return _backup.GetBorderImage(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the border image style.
@@ -333,13 +374,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteImageStyle ret = _primary.GetBorderImageStyle(_override ? _state : state);
 
 				if (ret == PaletteImageStyle.Inherit)
-					ret = _backup.GetBorderImageStyle(state);
+                {
+                    ret = _backup.GetBorderImageStyle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderImageStyle(state);
-		}
+            {
+                return _backup.GetBorderImageStyle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the image alignment style.
@@ -353,13 +398,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetBorderImageAlign(_override ? _state : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
-					ret = _backup.GetBorderImageAlign(state);
+                {
+                    ret = _backup.GetBorderImageAlign(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBorderImageAlign(state);
-		}
+            {
+                return _backup.GetBorderImageAlign(state);
+            }
+        }
         #endregion
 	}
 }

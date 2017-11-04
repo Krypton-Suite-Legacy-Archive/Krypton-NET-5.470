@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -30,8 +27,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Statis Fields
-        private static readonly int SEP_LENGTH_2007 = 2;
-        private static readonly int SEP_LENGTH_2010 = 0;
+
+        private const int SEP_LENGTH_2007 = 2;
+        private const int SEP_LENGTH_2010 = 0;
+
         #endregion
 
         #region Instance Fields
@@ -92,10 +91,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 Clear();
 
                 foreach (ViewDrawRibbonGroup group in _groupToView.Values)
-                    group.Dispose();
+                {
+                    @group.Dispose();
+                }
 
                 foreach (ViewLayoutRibbonSeparator sep in _groupSepCache)
+                {
                     sep.Dispose();
+                }
 
                 _groupToView.Clear();
                 _groupSepCache.Clear();
@@ -139,14 +142,15 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Ignore hidden elements
                 if (child.Visible)
                 {
-                    ViewDrawRibbonGroup group = child as ViewDrawRibbonGroup;
 
                     // Only interested in group instances (not separators or others)
-                    if (group != null)
+                    if (child is ViewDrawRibbonGroup group)
                     {
                         // Does this group match?
                         if (group.ClientRectangle.Contains(pt))
-                            return group;
+                        {
+                            return @group;
+                        }
                     }
                 }
             }
@@ -166,8 +170,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Ask each visible group to add its own key tips
             foreach (ViewDrawRibbonGroup group in _groupToView.Values)
-                if (group.Visible)
-                    group.GetGroupKeyTips(keyTipList);
+            {
+                if (@group.Visible)
+                {
+                    @group.GetGroupKeyTips(keyTipList);
+                }
+            }
 
             return keyTipList.ToArray();
         }
@@ -187,7 +195,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 view = group.GetFirstFocusItem();
                 if (view != null)
+                {
                     break;
+                }
             }
 
             return view;
@@ -211,7 +221,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 view = groups[i].GetLastFocusItem();
                 if (view != null)
+                {
                     break;
+                }
             }
 
             return view;
@@ -235,12 +247,18 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Already matched means we need the next item we come across,
                 // otherwise we continue with the attempt to find next
                 if (matched)
-                    view = group.GetFirstFocusItem();
+                {
+                    view = @group.GetFirstFocusItem();
+                }
                 else
-                    view = group.GetNextFocusItem(current, ref matched);
+                {
+                    view = @group.GetNextFocusItem(current, ref matched);
+                }
 
                 if (view != null)
+                {
                     break;
+                }
             }
 
             return view;
@@ -267,12 +285,18 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Already matched means we need the next item we come across,
                 // otherwise we continue with the attempt to find previous
                 if (matched)
+                {
                     view = groups[i].GetLastFocusItem();
+                }
                 else
+                {
                     view = groups[i].GetPreviousFocusItem(current, ref matched);
+                }
 
                 if (view != null)
+                {
                     break;
+                }
             }
 
             return view;
@@ -325,9 +349,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // If a group then pull in the cached value
                         if (child is ViewDrawRibbonGroup)
+                        {
                             childSize = new Size(_groupWidths[j++], _ribbon.CalculatedValues.GroupHeight);
+                        }
                         else
+                        {
                             childSize = this[i].GetPreferredSize(context);
+                        }
 
                         // Only interested in items with some width
                         if (childSize.Width > 0)
@@ -393,24 +421,34 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Get the currently cached view for the group
                 if (_groupToView.ContainsKey(group))
-                    view = _groupToView[group];
+                {
+                    view = _groupToView[@group];
+                }
 
                 // If a new group, create a view for it now
                 if (view == null)
-                    view = new ViewDrawRibbonGroup(_ribbon, group, _needPaint);
+                {
+                    view = new ViewDrawRibbonGroup(_ribbon, @group, _needPaint);
+                }
 
                 // Add to the lookup for future reference
                 regenerate.Add(group, view);
             }
 
             if (_groupSepCache.Count < _ribbonTab.Groups.Count)
+            {
                 for (int i = _groupSepCache.Count; i < _ribbonTab.Groups.Count; i++)
+                {
                     _groupSepCache.Add(new ViewLayoutRibbonSeparator(0, true));
+                }
+            }
 
             // Update size of all separators to match ribbon shape
             Size sepSize = SeparatorSize;
             foreach (ViewLayoutRibbonSeparator sep in _groupSepCache)
+            {
                 sep.SeparatorSize = sepSize;
+            }
 
             // We ignore the first separator
             bool ignoreSep = true;
@@ -427,14 +465,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Only add a separator for the second group onwards
                 if (groupVisible && ignoreSep)
+                {
                     ignoreSep = false;
+                }
 
                 Add(_groupSepCache[i]);
                 Add(regenerate[ribbonGroup]);
                 
                 // Remove entries we still are using
                 if (_groupToView.ContainsKey(ribbonGroup))
+                {
                     _groupToView.Remove(ribbonGroup);
+                }
             }
 
             // When in design time help mode
@@ -442,7 +484,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the design time 'Add Group' first time it is needed
                 if (_viewAddGroup == null)
+                {
                     _viewAddGroup = new ViewDrawRibbonDesignGroup(_ribbon, _needPaint);
+                }
 
                 // Always add at end of the list of groups
                 Add(_viewAddGroup);
@@ -450,7 +494,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Dispose of views no longer required
             foreach(ViewDrawRibbonGroup group in _groupToView.Values)
-                group.Dispose();
+            {
+                @group.Dispose();
+            }
 
             // No longer need the old lookup
             _groupToView = regenerate;
@@ -468,11 +514,10 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (child.Visible)
                 {
+                    // Cast child view to correct interface
                     // Only interested in children that are actually groups
-                    if (child is IRibbonViewGroupSize)
+                    if (child is IRibbonViewGroupSize childSize)
                     {
-                        // Cast child view to correct interface
-                        IRibbonViewGroupSize childSize = (IRibbonViewGroupSize)child;
 
                         // Find list of possible sizes for this group
                         GroupSizeWidth[] widths = childSize.GetPossibleSizes(context);

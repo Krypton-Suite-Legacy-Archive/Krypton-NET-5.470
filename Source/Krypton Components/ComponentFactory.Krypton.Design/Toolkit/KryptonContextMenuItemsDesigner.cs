@@ -10,12 +10,8 @@
 
 using System;
 using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,7 +30,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Initialize(IComponent component)
         {
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -59,7 +58,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ArrayList compound = new ArrayList(base.AssociatedComponents);
                 
                 if (_contextMenuItems != null)
+                {
                     compound.AddRange(_contextMenuItems.Items);
+                }
 
                 return compound;
             }

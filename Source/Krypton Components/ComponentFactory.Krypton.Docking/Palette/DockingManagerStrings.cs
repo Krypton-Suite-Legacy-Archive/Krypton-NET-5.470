@@ -8,14 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
@@ -26,14 +19,16 @@ namespace ComponentFactory.Krypton.Docking
     public class DockingManagerStrings : Storage
     {
         #region Static Fields
-        private static readonly string _defaultTextAutoHide = "Auto Hide";
-        private static readonly string _defaultTextClose = "Close";
-        private static readonly string _defaultTextCloseAllButThis = "Close All But This";
-        private static readonly string _defaultTextDock = "Dock";
-        private static readonly string _defaultTextFloat = "Float";
-        private static readonly string _defaultTextHide = "Hide";
-        private static readonly string _defaultTextTabbedDocument = "Tabbed Document";
-        private static readonly string _defaultTextWindowLocation = "Window Position";
+
+        private const string DEFAULT_TEXT_AUTO_HIDE = "Auto Hide";
+        private const string DEFAULT_TEXT_CLOSE = "Close";
+        private const string DEFAULT_TEXT_CLOSE_ALL_BUT_THIS = "Close All But This";
+        private const string DEFAULT_TEXT_DOCK = "Dock";
+        private const string DEFAULT_TEXT_FLOAT = "Float";
+        private const string DEFAULT_TEXT_HIDE = "Hide";
+        private const string DEFAULT_TEXT_TABBED_DOCUMENT = "Tabbed Document";
+        private const string DEFAULT_TEXT_WINDOW_LOCATION = "Window Position";
+
         #endregion
 
         #region Instance Fields
@@ -63,14 +58,14 @@ namespace ComponentFactory.Krypton.Docking
             : base()
 		{
             // Default values
-            _textAutoHide = _defaultTextAutoHide;
-            _textClose = _defaultTextClose;
-            _textCloseAllButThis = _defaultTextCloseAllButThis;
-            _textDock = _defaultTextDock;
-            _textFloat = _defaultTextFloat;
-            _textHide = _defaultTextHide;
-            _textTabbedDocument = _defaultTextTabbedDocument;
-            _textWindowLocation = _defaultTextWindowLocation;
+            _textAutoHide = DEFAULT_TEXT_AUTO_HIDE;
+            _textClose = DEFAULT_TEXT_CLOSE;
+            _textCloseAllButThis = DEFAULT_TEXT_CLOSE_ALL_BUT_THIS;
+            _textDock = DEFAULT_TEXT_DOCK;
+            _textFloat = DEFAULT_TEXT_FLOAT;
+            _textHide = DEFAULT_TEXT_HIDE;
+            _textTabbedDocument = DEFAULT_TEXT_TABBED_DOCUMENT;
+            _textWindowLocation = DEFAULT_TEXT_WINDOW_LOCATION;
         }
 		#endregion
 
@@ -83,13 +78,13 @@ namespace ComponentFactory.Krypton.Docking
         {
             get
             {
-                return (_textAutoHide.Equals(_defaultTextAutoHide) &&
-                        _textClose.Equals(_defaultTextClose) &&
-                        _textDock.Equals(_defaultTextDock) &&
-                        _textFloat.Equals(_defaultTextFloat) &&
-                        _textHide.Equals(_defaultTextHide) &&
-                        _textTabbedDocument.Equals(_defaultTextTabbedDocument) &&
-                        _textWindowLocation.Equals(_defaultTextWindowLocation));
+                return (_textAutoHide.Equals(DEFAULT_TEXT_AUTO_HIDE) &&
+                        _textClose.Equals(DEFAULT_TEXT_CLOSE) &&
+                        _textDock.Equals(DEFAULT_TEXT_DOCK) &&
+                        _textFloat.Equals(DEFAULT_TEXT_FLOAT) &&
+                        _textHide.Equals(DEFAULT_TEXT_HIDE) &&
+                        _textTabbedDocument.Equals(DEFAULT_TEXT_TABBED_DOCUMENT) &&
+                        _textWindowLocation.Equals(DEFAULT_TEXT_WINDOW_LOCATION));
 
             }
         }
@@ -123,7 +118,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextAutoHide()
         {
-            TextAutoHide = _defaultTextAutoHide;
+            TextAutoHide = DEFAULT_TEXT_AUTO_HIDE;
         }
         #endregion
 
@@ -155,7 +150,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextClose()
         {
-            TextClose = _defaultTextClose;
+            TextClose = DEFAULT_TEXT_CLOSE;
         }
         #endregion
 
@@ -187,7 +182,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextCloseAllButThis()
         {
-            TextCloseAllButThis = _defaultTextCloseAllButThis;
+            TextCloseAllButThis = DEFAULT_TEXT_CLOSE_ALL_BUT_THIS;
         }
         #endregion
 
@@ -219,7 +214,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextDock()
         {
-            TextDock = _defaultTextDock;
+            TextDock = DEFAULT_TEXT_DOCK;
         }
         #endregion
 
@@ -251,7 +246,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextFloat()
         {
-            TextFloat = _defaultTextDock;
+            TextFloat = DEFAULT_TEXT_DOCK;
         }
         #endregion
 
@@ -283,7 +278,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextHide()
         {
-            TextHide = _defaultTextDock;
+            TextHide = DEFAULT_TEXT_DOCK;
         }
         #endregion
 
@@ -315,7 +310,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextTabbedDocument()
         {
-            TextTabbedDocument = _defaultTextTabbedDocument;
+            TextTabbedDocument = DEFAULT_TEXT_TABBED_DOCUMENT;
         }
         #endregion
 
@@ -347,7 +342,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public void ResetTextWindowLocation()
         {
-            TextWindowLocation = _defaultTextWindowLocation;
+            TextWindowLocation = DEFAULT_TEXT_WINDOW_LOCATION;
         }
         #endregion
 
@@ -358,8 +353,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="propertyName">Name of the property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

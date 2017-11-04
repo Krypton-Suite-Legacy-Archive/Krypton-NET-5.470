@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -71,9 +65,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If a map color provided then return is
             if ((mapColor != Color.Empty) && (PaletteContent != null))
+            {
                 return mapColor;
+            }
             else
+            {
                 return base.GetContentImageColorMap(style, state);
+            }
         }
         #endregion
 
@@ -96,12 +94,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Honor the button disabled state
                 if (state == PaletteState.Disabled)
+                {
                     getState = PaletteState.Disabled;
+                }
 
                 return PaletteContent.GetContentShortTextColor1(getState);
             }
             else
+            {
                 return base.GetContentImageColorTo(style, state);
+            }
         }
         #endregion
 
@@ -116,9 +118,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Do we need to override the text color
             if (OverrideTextColor(state) && (PaletteContent != null))
+            {
                 return PaletteContent.GetContentShortTextColor1(state);
+            }
             else
+            {
                 return base.GetContentShortTextColor1(style, state);
+            }
         }
         #endregion
 
@@ -133,9 +139,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Do we need to override the text color
             if (OverrideTextColor(state) && (PaletteContent != null))
+            {
                 return PaletteContent.GetContentShortTextColor1(state);
+            }
             else
+            {
                 return base.GetContentLongTextColor1(style, state);
+            }
         }
         #endregion
 
@@ -160,7 +170,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Only for ButtonSpec do we use the palette value
                         if (buttonStyle == ButtonStyle.ButtonSpec)
+                        {
                             return mapColor;
+                        }
                     }
                 }
             }
@@ -178,7 +190,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If we are checking for button styles of ButtonSpec only, then do so
                 if (buttonStyle == ButtonStyle.ButtonSpec)
+                {
                     return true;
+                }
             }
 
             return false;

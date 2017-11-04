@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -84,7 +80,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Only render visible children that are inside the clipping rectangle
             if (_layoutOverlap.Visible && _layoutOverlap.ClientRectangle.IntersectsWith(context.ClipRect))
+            {
                 _layoutOverlap.Render(context);
+            }
 
             _layoutTabs.DrawChecked = false;
         }

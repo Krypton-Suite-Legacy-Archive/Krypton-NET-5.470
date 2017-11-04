@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -57,19 +54,23 @@ namespace ComponentFactory.Krypton.Toolkit
             _stateNormal = new PaletteDouble(_stateCommon, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint));
+            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            {
 
-            // Make sure the panel back style always mimics our back style
-            _panel.PanelBackStyle = PaletteBackStyle.ControlClient;
+                // Make sure the panel back style always mimics our back style
+                PanelBackStyle = PaletteBackStyle.ControlClient
+            };
 
             // Create the element that fills the remainder space and remembers fill rectange
             _layoutFill = new ViewLayoutFill(_panel);
 
             // Create view for the control border and background
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border);
-            _drawDocker.Add(_layoutFill, ViewDockStyle.Fill);
+            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            {
+                { _layoutFill, ViewDockStyle.Fill }
+            };
 
-			// Create the view manager instance
+            // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
 
             // We want to default to shrinking and growing (base class defaults to GrowOnly)
@@ -141,7 +142,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Only perform an immediate layout if
                     // currently performing auto size operations
                     if (AutoSize)
+                    {
                         PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -279,12 +282,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -387,9 +404,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Push correct palettes into the view
 			if (Enabled)
+            {
                 _drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
-			else
+            }
+            else
+            {
                 _drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
+            }
 
             _drawDocker.Enabled = Enabled;
 
@@ -450,7 +471,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _panel.PerformNeedPaint(e.NeedLayout);
             }
             else
+            {
                 ForceControlLayout();
+            }
 
             base.OnNeedPaint(sender, e);
         }
@@ -463,7 +486,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // laying out because a child has changed visibility/size/etc. If we are an
             // AutoSize control then we need to ensure we layout as well to change size.
             if (e.NeedLayout && !_layingOut && AutoSize)
+            {
                 PerformNeedPaint(true);
+            }
         }
         #endregion
     }

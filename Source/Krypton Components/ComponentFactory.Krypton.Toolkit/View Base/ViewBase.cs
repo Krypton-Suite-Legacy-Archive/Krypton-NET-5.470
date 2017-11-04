@@ -13,8 +13,6 @@ using System.Drawing;
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Text;
-using System.Diagnostics;
 using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -137,11 +135,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_owningControl != null)
+                {
                     return _owningControl;
-                else if (Parent != null)
-                    return Parent.OwningControl;
+                }
                 else
-                    return null;
+                {
+                    return Parent?.OwningControl;
+                }
             }
 
             set { _owningControl = value; }
@@ -445,14 +445,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use mouse controller as first preference
             if (MouseController != null)
+            {
                 return MouseController;
+            }
             else
             {
                 // Bubble event up to the parent
-                if (Parent != null)
-                    return Parent.FindMouseController();
-                else
-                    return null;
+                return Parent?.FindMouseController();
             }
         }
 
@@ -463,12 +462,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 MouseController.MouseEnter(OwningControl);
-			else
+            }
+            else
 			{
-				// Bubble event up to the parent
-				if (Parent != null)
-					Parent.MouseEnter();
+			    // Bubble event up to the parent
+			    Parent?.MouseEnter();
 			}
 		}
 
@@ -480,12 +480,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 MouseController.MouseMove(OwningControl, pt);
-			else
+            }
+            else
 			{
-				// Bubble event up to the parent
-				if (Parent != null)
-					Parent.MouseMove(pt);
+			    // Bubble event up to the parent
+			    Parent?.MouseMove(pt);
 			}
 		}
 
@@ -499,15 +500,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 return MouseController.MouseDown(OwningControl, pt, button);
-			else
+            }
+            else
 			{
 				// Bubble event up to the parent
 				if (Parent != null)
-					return Parent.MouseDown(pt, button);
-				else
-					return false;
-			}
+                {
+                    return Parent.MouseDown(pt, button);
+                }
+                else
+                {
+                    return false;
+                }
+            }
 		}
 
 		/// <summary>
@@ -519,12 +526,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 MouseController.MouseUp(OwningControl, pt, button);
-			else
+            }
+            else
 			{
-				// Bubble event up to the parent
-				if (Parent != null)
-					Parent.MouseUp(pt, button);
+			    // Bubble event up to the parent
+			    Parent?.MouseUp(pt, button);
 			}
 		}
 
@@ -536,12 +544,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 MouseController.MouseLeave(OwningControl, next);
-			else
+            }
+            else
 			{
-				// Bubble event up to the parent
-				if (Parent != null)
-                    Parent.MouseLeave(next);
+			    // Bubble event up to the parent
+			    Parent?.MouseLeave(next);
 			}
 		}
 
@@ -553,12 +562,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
 			// Use mouse controller as first preference
 			if (MouseController != null)
+            {
                 MouseController.DoubleClick(pt);
-			else
+            }
+            else
 			{
-				// Bubble event up to the parent
-				if (Parent != null)
-                    Parent.DoubleClick(pt);
+			    // Bubble event up to the parent
+			    Parent?.DoubleClick(pt);
 			}
         }
         #endregion
@@ -572,12 +582,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use key controller as first preference
             if (KeyController != null)
+            {
                 KeyController.KeyDown(OwningControl, e);
+            }
             else
             {
                 // Bubble event up to the parent
-                if (Parent != null)
-                    Parent.KeyDown(e);
+                Parent?.KeyDown(e);
             }
         }
 
@@ -589,12 +600,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use mouse controller as first preference
             if (KeyController != null)
+            {
                 KeyController.KeyPress(OwningControl, e);
+            }
             else
             {
                 // Bubble event up to the parent
-                if (Parent != null)
-                    Parent.KeyPress(e);
+                Parent?.KeyPress(e);
             }
         }
 
@@ -607,14 +619,20 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use mouse controller as first preference
             if (KeyController != null)
+            {
                 return KeyController.KeyUp(OwningControl, e);
+            }
             else
             {
                 // Bubble event up to the parent
                 if (Parent != null)
+                {
                     return Parent.KeyUp(e);
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         #endregion
@@ -628,12 +646,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use source controller as first preference
             if (SourceController != null)
+            {
                 SourceController.GotFocus(c);
+            }
             else
             {
                 // Bubble event up to the parent
-                if (Parent != null)
-                    Parent.GotFocus(c);
+                Parent?.GotFocus(c);
             }
         }
 
@@ -645,12 +664,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Use source controller as first preference
             if (SourceController != null)
+            {
                 SourceController.LostFocus(c);
+            }
             else
             {
                 // Bubble event up to the parent
-                if (Parent != null)
-                    Parent.LostFocus(c);
+                Parent?.LostFocus(c);
             }
         }
         #endregion
@@ -675,7 +695,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If fixed then always return the fixed state
                 if (IsFixed)
+                {
                     return _fixedState;
+                }
                 else
                 {
                     // If enabled state is dependant on another
@@ -683,13 +705,17 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // If dependant view is disabled, then so are we
                         if (!_enableDependantView.Enabled)
+                        {
                             return PaletteState.Disabled;
+                        }
                     }
                     else
                     {
                         // If the view disabled, that overrides any element state
                         if (!Enabled)
+                        {
                             return PaletteState.Disabled;
+                        }
                     }
 
                     // No reason to disable the view, so return requested element state

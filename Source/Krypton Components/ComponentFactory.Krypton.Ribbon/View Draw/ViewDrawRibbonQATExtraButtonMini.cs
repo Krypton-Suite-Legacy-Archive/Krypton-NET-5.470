@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -25,8 +20,10 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonQATExtraButtonMini : ViewDrawRibbonQATExtraButton
     {
         #region Static Fields
-        private static readonly int MINI_BUTTON_HEIGHT = 22;
-        private static readonly int MINI_BUTTON_OFFSET = 24;
+
+        private const int MINI_BUTTON_HEIGHT = 22;
+        private const int MINI_BUTTON_OFFSET = 24;
+
         #endregion
 
         #region Identity

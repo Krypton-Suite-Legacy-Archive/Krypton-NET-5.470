@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -71,9 +69,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_dateTimePicker != null)
+                {
                     return _dateTimePicker.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -85,10 +87,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the bread crumb specific list
-                actionLists.Add(new KryptonDateTimePickerActionList(this));
+                    // Add the bread crumb specific list
+                    new KryptonDateTimePickerActionList(this)
+                };
 
                 return actionLists;
             }
@@ -142,7 +146,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _dateTimePicker.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -150,7 +156,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -158,8 +166,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_dateTimePicker != null)
-                _dateTimePicker.DesignerMouseLeave();
+            _dateTimePicker?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -179,8 +186,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _dateTimePicker.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }

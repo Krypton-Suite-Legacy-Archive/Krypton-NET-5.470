@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -25,9 +22,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IContentValues
     {
         #region Static Fields
-        private static readonly int WEEKS = 6;
-        private static readonly int WEEKDAYS = 7;
-        private static readonly int DAYS = 42;
+
+        private const int WEEKS = 6;
+        private const int WEEKDAYS = 7;
+        private const int DAYS = 42;
         private static readonly TimeSpan TIMESPAN_1DAY = new TimeSpan(1, 0, 0, 0);
         #endregion
 
@@ -76,11 +74,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Dispose of the mementos to prevent memory leak
             for(int i=0; i<_dayMementos.Length; i++)
+            {
                 if (_dayMementos[i] != null)
                 {
                     _dayMementos[i].Dispose();
                     _dayMementos[i] = null;
                 }
+            }
 
             base.Dispose(disposing);
         }
@@ -118,7 +118,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Move backwards until we hit the starting day of the week
                 while(_firstDay.DayOfWeek != _months.DisplayDayOfWeek)
+                {
                     _firstDay -= TIMESPAN_1DAY;
+                }
             }
         }
 
@@ -132,12 +134,16 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Search the list of days for the one containing the requested point
             for (int i = 0; i < DAYS; i++)
+            {
                 if ((_dayMementos[i] != null) && (_dayRects[i].Contains(pt)))
                 {
                     DateTime day = _firstDay.AddDays(i);
                     if (!exact || ((day >= _month) && (day <= _lastDay)))
+                    {
                         return day;
+                    }
                 }
+            }
 
             return null;
         }
@@ -154,26 +160,35 @@ namespace ComponentFactory.Krypton.Toolkit
             // Search for an exact match
             DateTime? day = DayFromPoint(pt, true);
             if (day.HasValue)
+            {
                 retDate = day.Value;
+            }
             else
             {
                 // If the mouse is above area then return first day of the month
                 if (pt.Y > ClientLocation.Y)
                 {
                     if (pt.Y > ClientRectangle.Bottom)
+                    {
                         retDate = _month.AddMonths(1).AddDays(-1);
+                    }
                     else
                     {
                         // Find the row the mouse is within
                         for (int row = 0; row < WEEKS; row++)
+                        {
                             if (pt.Y < _dayRects[row * WEEKDAYS].Bottom)
                             {
                                 DateTime startRowDate = _firstDay.AddDays(row * WEEKDAYS);
 
                                 if (pt.X < ClientLocation.X)
+                                {
                                     retDate = startRowDate;
+                                }
                                 else if (pt.X >= ClientRectangle.Right)
+                                {
                                     retDate = startRowDate.AddDays(WEEKDAYS - 1);
+                                }
                                 else
                                 {
                                     int offsetDays = (pt.X - ClientLocation.X) / _dayRects[row * WEEKDAYS].Width;
@@ -182,15 +197,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 break;
                             }
+                        }
                     }
                 }
             }
 
-            if (retDate > _lastDay)  
+            if (retDate > _lastDay)
+            {
                 return _lastDay;
-            
+            }
+
             if (retDate < _month)
+            {
                 return _month;
+            }
 
             return retDate;
         }
@@ -225,7 +245,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = context.DisplayRectangle;
 
             int layoutXCell = ClientLocation.X;
-            int layoutXDay = ClientLocation.X + (_months.SizeDays.Width - _months.SizeDay.Width) / 2;
+            int layoutXDay = ClientLocation.X + ((_months.SizeDays.Width - _months.SizeDay.Width) / 2);
             Rectangle layoutRectCell = new Rectangle(layoutXCell, ClientLocation.Y, _months.SizeDays.Width, _months.SizeDays.Height);
             Rectangle layoutRectDay = new Rectangle(layoutXDay, ClientLocation.Y, _months.SizeDay.Width, _months.SizeDays.Height);
 
@@ -238,7 +258,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 for (int i = 0; i < WEEKDAYS; i++)
                 {
                     // Memento index
-                    int index = j * WEEKDAYS + i;
+                    int index = (j * WEEKDAYS) + i;
 
                     // Define text to be drawn
                     _drawText = displayDate.Day.ToString();
@@ -255,7 +275,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If the display date is not within the allowed range, do not draw it
                     if ((displayDate < minDate) || (displayDate > maxDate))
+                    {
                         skip = true;
+                    }
                     else
                     {
                         _calendar.SetFocusOverride(false);
@@ -272,7 +294,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 paletteTriple = _calendar.OverrideDisabled;
                             }
                             else
+                            {
                                 skip = true;
+                            }
                         }
                         else
                         {
@@ -311,7 +335,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Track the maximum date displayed for this month (exclude disabled days that are shown for
                         // information but cannot actually be selected themselves as part of a multi selection action)
                         if (paletteState != PaletteState.Disabled)
+                        {
                             _lastDay = displayDate;
+                        }
                     }
 
                     _dayRects[index] = layoutRectCell;
@@ -352,7 +378,7 @@ namespace ComponentFactory.Krypton.Toolkit
             DateTime selectEnd = _calendar.SelectionEnd.Date;
 
             int layoutXCell = ClientLocation.X;
-            int layoutXDay = ClientLocation.X + (_months.SizeDays.Width - _months.SizeDay.Width) / 2;
+            int layoutXDay = ClientLocation.X + ((_months.SizeDays.Width - _months.SizeDay.Width) / 2);
             Rectangle drawRectCell = new Rectangle(layoutXCell, ClientLocation.Y, _months.SizeDays.Width, _months.SizeDays.Height);
             Rectangle drawRectDay = new Rectangle(layoutXDay, ClientLocation.Y, _months.SizeDay.Width, _months.SizeDays.Height);
 
@@ -365,7 +391,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 for (int i = 0; i < WEEKDAYS; i++)
                 {
                     // Memento index
-                    int index = j * WEEKDAYS + i;
+                    int index = (j * WEEKDAYS) + i;
 
                     // Draw using memento cached from the layout call
                     if (_dayMementos[index] != null)
@@ -376,7 +402,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // If the display date is not within the allowed range, do not draw it
                         if ((displayDate < minDate) || (displayDate > maxDate))
+                        {
                             skip = true;
+                        }
                         else
                         {
                             _calendar.SetFocusOverride(false);
@@ -393,7 +421,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     paletteTriple = _calendar.OverrideDisabled;
                                 }
                                 else
+                                {
                                     skip = true;
+                                }
                             }
                             else
                             {
@@ -516,16 +546,24 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Check the month bolded mask
             if ((monthMask & _calendar.MonthlyBoldedDatesMask) != 0)
+            {
                 return true;
+            }
 
             // Check the year bolded mask
             if ((monthMask & _calendar.AnnuallyBoldedDatesMask[date.Month - 1]) != 0)
+            {
                 return true;
+            }
 
             // Check the individual bolded date list
             foreach (DateTime dt in _calendar.BoldedDatesList)
+            {
                 if (dt == date)
+                {
                     return true;
+                }
+            }
 
             return false;
         }

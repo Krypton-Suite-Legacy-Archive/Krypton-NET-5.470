@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -128,7 +124,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "RadioButton";
+                }
 
                 if (value != _textLine1)
                 {
@@ -176,7 +174,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "R";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -262,7 +262,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     OnPropertyChanged("Checked");
 
                     if (_checked)
+                    {
                         AutoUpdateOthers();
+                    }
 
                     // Generate events
                     OnCheckedChanged(EventArgs.Empty);
@@ -287,7 +289,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     _autoCheck = value;
 
                     if (_checked)
+                    {
                         AutoUpdateOthers();
+                    }
                 }
             }
         }
@@ -505,7 +509,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Make sure we become checked
                     if (!Checked)
+                    {
                         Checked = true;
+                    }
 
                     // In showing a popup we fire the delegate before the click so that the
                     // minimized popup is removed out of the way before the event is handled
@@ -513,21 +519,24 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (VisualPopupManager.Singleton.CurrentPopup != null)
                     {
                         // Do we need to fire a delegate stating the click processing has finished?
-                        if (fireDelegate && (finishDelegate != null))
-                            finishDelegate(this, EventArgs.Empty);
+                        if (fireDelegate)
+                        {
+                            finishDelegate?.Invoke(this, EventArgs.Empty);
+                        }
 
                         fireDelegate = false;
                     }
 
                     // Generate actual click event
-                    if (Click != null)
-                        Click(this, EventArgs.Empty);
+                    Click?.Invoke(this, EventArgs.Empty);
                 }
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -536,8 +545,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -546,16 +554,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -616,7 +622,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Process each container inside the group
                     foreach (IRibbonGroupContainer container in RibbonContainer.RibbonGroup.Items)
+                    {
                         AutoUpdateContainer(container);
+                    }
                 }
             }
         }
@@ -627,21 +635,24 @@ namespace ComponentFactory.Krypton.Ribbon
             foreach (Component component in Container.GetChildComponents())
             {
                 // If the component is itself a container...
-                if (component is IRibbonGroupContainer)
-                    AutoUpdateContainer(component as IRibbonGroupContainer);
+                if (component is IRibbonGroupContainer container)
+                {
+                    AutoUpdateContainer(container);
+                }
                 else
                 {
                     // If this is another radio button...
-                    if (component is KryptonRibbonGroupRadioButton)
+                    if (component is KryptonRibbonGroupRadioButton radioButton)
                     {
-                        KryptonRibbonGroupRadioButton radioButton = (KryptonRibbonGroupRadioButton)component;
 
                         // Do not process ourself!
                         if (radioButton != this)
                         {
                             // If the target is checked and allowed to be auto unchecked
                             if (radioButton.AutoCheck && radioButton.Checked)
+                            {
                                 radioButton.Checked = false;
+                            }
                         }
                     }
                 }

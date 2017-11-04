@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -21,7 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class MapKryptonPageImageConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(MapKryptonPageImage.None,             "None (Null image)"),
+        private Pair[] _pairs = { new Pair(MapKryptonPageImage.None,             "None (Null image)"),
                                              new Pair(MapKryptonPageImage.Small,            "Small"),
                                              new Pair(MapKryptonPageImage.SmallMedium,      "Small - Medium"), 
                                              new Pair(MapKryptonPageImage.SmallMediumLarge, "Small - Medium - Large"),

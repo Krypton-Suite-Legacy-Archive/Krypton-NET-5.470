@@ -9,12 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
@@ -47,10 +44,12 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingFloatingWindow(string name, Form owner, KryptonDockingFloatspace floatspace)
             : base(name)
         {
-            if (owner == null)      throw new ArgumentNullException("owner");
-            if (floatspace == null) throw new ArgumentNullException("floatspace");
+            if (owner == null)
+            {
+                throw new ArgumentNullException("owner");
+            }
 
-            _floatspace = floatspace;
+            _floatspace = floatspace ?? throw new ArgumentNullException("floatspace");
             _floatspace.Disposed += new EventHandler(OnDockingFloatspaceDisposed);
 
             // Create the actual window control and hook into events
@@ -60,9 +59,11 @@ namespace ComponentFactory.Krypton.Docking
             _window.Disposed += new EventHandler(OnFloatingWindowDisposed);
 
             // Create and add a control we use to obscure the floating window client area during multi-part operations
-            _obscure = new ObscureControl();
-            _obscure.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom);
-            _obscure.Visible = false;
+            _obscure = new ObscureControl
+            {
+                Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom),
+                Visible = false
+            };
             _window.Controls.Add(_obscure);
 
             // Add the floatspace as the only child of this collection
@@ -155,7 +156,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Can only generate targets for a floating window that is actually visible and not the one being dragged
             if (FloatingWindow.Visible && (floatingWindow != FloatingWindow))
+            {
                 base.PropogateDragTargets(floatingWindow, dragData, targets);
+            }
         }
 
         /// <summary>
@@ -176,12 +179,11 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Find the cell that contains the target named paged
             KryptonWorkspaceCell cell = CellForPage(uniqueName);
-            if (cell != null)
+            // Check that the pages collection contains the named paged
+            KryptonPage page = cell?.Pages[uniqueName];
+            if (page != null)
             {
-                // Check that the pages collection contains the named paged
-                KryptonPage page = cell.Pages[uniqueName];
-                if (page != null)
-                    cell.SelectedPage = page;
+                cell.SelectedPage = page;
             }
         }
 
@@ -200,7 +202,9 @@ namespace ComponentFactory.Krypton.Docking
 
             // Output an element per child
             foreach (IDockingElement child in this)
+            {
                 child.SaveElementToXml(xmlWriter);
+            }
 
             // Terminate the workspace element
             xmlWriter.WriteFullEndElement();
@@ -236,21 +240,33 @@ namespace ComponentFactory.Krypton.Docking
 
             // Limit client size to that which will fit inside the working area
             if (clientSize.Width > (workingArea.Width - hBorders))
+            {
                 clientSize.Width = workingArea.Width - hBorders;
+            }
 
             if (clientSize.Height > (workingArea.Height - vBorders))
+            {
                 clientSize.Height = workingArea.Height - vBorders;
+            }
 
             // Ensure floating window is positioned inside the working area
             if (location.X < workingArea.X)
+            {
                 location.X = workingArea.X;
+            }
             else if ((location.X + clientSize.Width + hBorders) > workingArea.Right)
+            {
                 location.X = workingArea.Right - clientSize.Width - hBorders;
+            }
 
             if (location.Y < workingArea.Y)
+            {
                 location.Y = workingArea.Y;
+            }
             else if ((location.Y + clientSize.Height + vBorders) > workingArea.Bottom)
+            {
                 location.Y = workingArea.Bottom - clientSize.Height - vBorders;
+            }
 
             // Update floating window with loaded size/position
             FloatingWindow.Location = location;
@@ -263,16 +279,14 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.CloseRequest(e.UniqueNames);
+            dockingManager?.CloseRequest(e.UniqueNames);
         }
 
         private void OnFloatingWindowCaptionDragging(object sender, ScreenAndOffsetEventArgs e)
         {
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.DoDragDrop(e.ScreenPoint, e.ElementOffset, null, this);
+            dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, null, this);
         }
 
         private void OnDockingFloatspaceDisposed(object sender, EventArgs e)
@@ -283,7 +297,9 @@ namespace ComponentFactory.Krypton.Docking
 
             // Kill the floatspace window
             if (!FloatingWindow.IsDisposed)
+            {
                 FloatingWindow.Dispose();
+            }
         }
 
         private void OnFloatingWindowDisposed(object sender, EventArgs e)

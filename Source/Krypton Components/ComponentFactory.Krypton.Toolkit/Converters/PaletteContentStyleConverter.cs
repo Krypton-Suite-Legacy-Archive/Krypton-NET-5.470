@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteContentStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteContentStyle.ButtonStandalone,             "Button - Standalone"),
+        private Pair[] _pairs = { new Pair(PaletteContentStyle.ButtonStandalone,             "Button - Standalone"),
                                              new Pair(PaletteContentStyle.ButtonLowProfile,             "Button - Low Profile"),
                                              new Pair(PaletteContentStyle.ButtonButtonSpec,             "Button - ButtonSpec"),
                                              new Pair(PaletteContentStyle.ButtonBreadCrumb,             "Button - BreadCrumb"),

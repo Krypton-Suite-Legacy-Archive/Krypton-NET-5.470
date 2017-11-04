@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -149,23 +145,31 @@ namespace ComponentFactory.Krypton.Toolkit
             // Override the normal values with the focus, when the control has focus
             _overrideNormal = new PaletteContentInheritOverride(_stateFocus, _stateNormal, PaletteState.FocusOverride, false);
 
-			// Our view contains background and border with content inside
-            _drawContent = new ViewDrawContent(_overrideNormal, this, VisualOrientation.Top);
-            _drawContent.UseMnemonic = _useMnemonic;
+            // Our view contains background and border with content inside
+            _drawContent = new ViewDrawContent(_overrideNormal, this, VisualOrientation.Top)
+            {
+                UseMnemonic = _useMnemonic,
 
-            // Only draw a focus rectangle when focus cues are needed in the top level form
-            _drawContent.TestForFocusCues = true;
+                // Only draw a focus rectangle when focus cues are needed in the top level form
+                TestForFocusCues = true
+            };
 
             // Create the check box image drawer and place inside element so it is always centered
-            _drawCheckBox = new ViewDrawCheckBox(_paletteCheckBoxImages);
-            _drawCheckBox.CheckState = _checkState;
-            _layoutCenter = new ViewLayoutCenter();
-            _layoutCenter.Add(_drawCheckBox);
+            _drawCheckBox = new ViewDrawCheckBox(_paletteCheckBoxImages)
+            {
+                CheckState = _checkState
+            };
+            _layoutCenter = new ViewLayoutCenter
+            {
+                _drawCheckBox
+            };
 
             // Place check box on the left and the label in the remainder
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(_layoutCenter, ViewDockStyle.Left);
-            _layoutDocker.Add(_drawContent, ViewDockStyle.Fill);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { _layoutCenter, ViewDockStyle.Left },
+                { _drawContent, ViewDockStyle.Fill }
+            };
 
             // Need a controller for handling mouse input
             _controller = new CheckBoxController(_drawCheckBox, _layoutDocker, NeedPaintDelegate);
@@ -546,7 +550,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Generate events
                     if (checkedChanged)
+                    {
                         OnCheckedChanged(EventArgs.Empty);
+                    }
 
                     OnCheckStateChanged(EventArgs.Empty);
 
@@ -570,7 +576,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
                     {
                         _wasEnabled = Enabled;
@@ -581,7 +589,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     OnKryptonCommandChanged(EventArgs.Empty);
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
                     {
                         Enabled = _wasEnabled;
@@ -623,9 +633,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetShortText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.Text;
+            }
             else
+            {
                 return _labelValues.GetShortText();
+            }
         }
 
         /// <summary>
@@ -635,9 +649,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetLongText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ExtraText;
+            }
             else
+            {
                 return _labelValues.GetLongText();
+            }
         }
 
         /// <summary>
@@ -648,9 +666,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetImage(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageSmall;
+            }
             else
+            {
                 return _labelValues.GetImage(state);
+            }
         }
 
         /// <summary>
@@ -661,9 +683,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetImageTransparentColor(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageTransparentColor;
+            }
             else
+            {
                 return _labelValues.GetImageTransparentColor(state);
+            }
         }
         #endregion
 
@@ -674,8 +700,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected override void OnDoubleClick(EventArgs e)
         {
-            if (DoubleClick != null)
-                DoubleClick(this, e);
+            DoubleClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -684,8 +709,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnMouseDoubleClick(EventArgs e)
         {
-            if (MouseDoubleClick != null)
-                MouseDoubleClick(this, e);
+            MouseDoubleClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -694,8 +718,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnMouseImeModeChanged(EventArgs e)
         {
-            if (ImeModeChanged != null)
-                ImeModeChanged(this, e);
+            ImeModeChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -704,8 +727,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -717,12 +739,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Update the checked state that is drawn
             _drawCheckBox.CheckState = _checkState;
 
-            if (CheckStateChanged != null)
-                CheckStateChanged(this, e);
+            CheckStateChanged?.Invoke(this, e);
 
             // If there is a command associated then update with new state
             if (KryptonCommand != null)
+            {
                 KryptonCommand.CheckState = CheckState;
+            }
         }
 
         /// <summary>
@@ -750,8 +773,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnKryptonCommandChanged(EventArgs e)
         {
-            if (KryptonCommandChanged != null)
-                KryptonCommandChanged(this, e);
+            KryptonCommandChanged?.Invoke(this, e);
 
             // Use the values from the new command
             if (KryptonCommand != null)
@@ -833,8 +855,7 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnClick(e);
 
             // If we have an attached command then execute it
-            if (KryptonCommand != null)
-                KryptonCommand.PerformExecute();
+            KryptonCommand?.PerformExecute();
         }
 
         /// <summary>
@@ -861,7 +882,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // If we don't have the focus, then take it
                     if (!ContainsFocus)
+                    {
                         Focus();
+                    }
 
                     // Generating a click event will automatically transition the state
                     OnClick(EventArgs.Empty);
@@ -881,9 +904,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Push correct palettes into the view
 			if (Enabled)
-				_drawContent.SetPalette(_overrideNormal);
-			else
-				_drawContent.SetPalette(_stateDisabled);
+            {
+                _drawContent.SetPalette(_overrideNormal);
+            }
+            else
+            {
+                _drawContent.SetPalette(_stateDisabled);
+            }
 
             _drawContent.Enabled = Enabled;
             _drawCheckBox.Enabled = Enabled;
@@ -949,15 +976,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         default:
                         case VisualOrientation.Top:
                             if (RightToLeft == RightToLeft.Yes)
+                            {
                                 dockStyle = ViewDockStyle.Right;
+                            }
                             else
+                            {
                                 dockStyle = ViewDockStyle.Left;
+                            }
+
                             break;
                         case VisualOrientation.Bottom:
                             if (RightToLeft == RightToLeft.Yes)
+                            {
                                 dockStyle = ViewDockStyle.Left;
+                            }
                             else
+                            {
                                 dockStyle = ViewDockStyle.Right;
+                            }
+
                             break;
                         case VisualOrientation.Left:
                             dockStyle = ViewDockStyle.Bottom;
@@ -973,15 +1010,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         default:
                         case VisualOrientation.Top:
                             if (RightToLeft == RightToLeft.Yes)
+                            {
                                 dockStyle = ViewDockStyle.Left;
+                            }
                             else
+                            {
                                 dockStyle = ViewDockStyle.Right;
+                            }
+
                             break;
                         case VisualOrientation.Bottom:
                             if (RightToLeft == RightToLeft.Yes)
+                            {
                                 dockStyle = ViewDockStyle.Right;
+                            }
                             else
+                            {
                                 dockStyle = ViewDockStyle.Left;
+                            }
+
                             break;
                         case VisualOrientation.Left:
                             dockStyle = ViewDockStyle.Top;

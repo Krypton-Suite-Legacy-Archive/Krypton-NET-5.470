@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Workspace
@@ -58,7 +53,9 @@ namespace ComponentFactory.Krypton.Workspace
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 _cell = null;
+            }
 
             base.Dispose(disposing);
         }
@@ -79,18 +76,24 @@ namespace ComponentFactory.Krypton.Workspace
                 // Search for any pages that are not from this cell
                 _notDraggedPagesFromCell = 0;
                 foreach (KryptonPage page in dragEndData.Pages)
+                {
                     if (!_cell.Pages.Contains(page))
                     {
                         _notDraggedPagesFromCell = 1;
                         break;
                     }
+                }
             }
 
             // If 1 or more pages are not from this cell then allow transfer into the target
             if (_notDraggedPagesFromCell > 0)
+            {
                 return base.IsMatch(screenPt, dragEndData);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -109,7 +112,9 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Does the cell allow the selection of tabs?
                 if (_cell.AllowTabSelect)
+                {
                     _cell.SelectedPage = page;
+                }
 
                 if (!_cell.IsDisposed)
                 {

@@ -9,20 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -140,11 +130,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Our view contains background and border with crumbs inside
             _layoutCrumbs = new ViewLayoutCrumbs(this, NeedPaintDelegate);
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, null);
-            _drawDocker.Add(_layoutCrumbs, ViewDockStyle.Fill);
+            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, null)
+            {
+                { _layoutCrumbs, ViewDockStyle.Fill }
+            };
 
-			// Create the view manager instance
-			ViewManager = new ViewManager(this, _drawDocker);
+            // Create the view manager instance
+            ViewManager = new ViewManager(this, _drawDocker);
 
             // Create button specification collection manager
             _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, null,
@@ -203,7 +195,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _initializing = false;
 
             if (SelectedItem == null)
+            {
                 SelectedItem = RootItem;
+            }
 
             OnNeedPaint(this, new NeedLayoutEventArgs(true));
 
@@ -440,10 +434,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Check that the item has a chain that ends at our root item or is null
                     KryptonBreadCrumbItem temp = value;
                     while ((temp != null) && (temp != RootItem))
+                    {
                         temp = temp.Parent;
+                    }
 
                     if ((value != null) && (temp == null))
+                    {
                         throw new ArgumentOutOfRangeException("value", "Item must be inside the RootItem hierarchy.");
+                    }
 
                     _selectedItem = value;
                     OnSelectedItemChanged(EventArgs.Empty);
@@ -562,13 +560,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -581,7 +585,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -623,7 +629,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Pass request onto the button spec manager
                 if (_buttonManager.ProcessMnemonic(charCode))
+                {
                     return true;
+                }
             }
 
             // No match found, let base class do standard processing
@@ -638,9 +646,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Push correct palettes into the view
 			if (Enabled)
-				_drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
-			else
-				_drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
+            {
+                _drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
+            }
+            else
+            {
+                _drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
+            }
 
             _drawDocker.Enabled = Enabled;
 
@@ -684,8 +696,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ContextPositionMenuArgs containing the event data.</param>
         internal protected virtual void OnCrumbDropDown(BreadCrumbMenuArgs e)
         {
-            if (CrumbDropDown != null)
-                CrumbDropDown(this, e);
+            CrumbDropDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -694,8 +705,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ContextPositionMenuArgs containing the event data.</param>
         internal protected virtual void OnOverflowDropDown(ContextPositionMenuArgs e)
         {
-            if (OverflowDropDown != null)
-                OverflowDropDown(this, e);
+            OverflowDropDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -704,8 +714,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedItemChanged(EventArgs e)
         {
-            if (SelectedItemChanged != null)
-                SelectedItemChanged(this, e);
+            SelectedItemChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -714,8 +723,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnInitialized(EventArgs e)
         {
-            if (Initialized != null)
-                Initialized(this, EventArgs.Empty);
+            Initialized?.Invoke(this, EventArgs.Empty);
         }
         #endregion
 
@@ -743,12 +751,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Check that the current selected item has a chain that ends at our root
                     KryptonBreadCrumbItem temp = SelectedItem;
                     while ((temp != null) && (temp != RootItem))
+                    {
                         temp = temp.Parent;
+                    }
 
                     // If selected item is no longer valid, then reset back to null
                     if (temp == null)
+                    {
                         SelectedItem = null;
-               }
+                    }
+                }
             }
 
             // Relayout and paint to reflect change in crumb settings
@@ -762,7 +774,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -794,8 +808,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -817,8 +830,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)

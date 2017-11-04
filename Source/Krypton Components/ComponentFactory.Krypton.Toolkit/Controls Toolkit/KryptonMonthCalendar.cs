@@ -9,19 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -225,8 +215,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawMonths = new ViewLayoutMonths(null, null, null, this, Redirector, NeedPaintDelegate);
 
             // Place the months layout view inside a standard docker which provides the control border
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, null);
-            _drawDocker.Add(_drawMonths, ViewDockStyle.Fill);
+            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, null)
+            {
+                { _drawMonths, ViewDockStyle.Fill }
+            };
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
@@ -318,10 +310,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _minDate)
                 {
                     if (value > EffectiveMaxDate(_maxDate))
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum supported date.");
+                    }
 
                     if (value < DateTimePicker.MinimumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum supported date.");
+                    }
 
                     _minDate = value;
 
@@ -376,7 +372,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < 0)
+                {
                     value = 0;
+                }
 
                 _scrollChange = value;
                 PerformNeedPaint(true);
@@ -395,7 +393,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = DateTime.Now.Date;
+                }
 
                 _todayDate = value;
                 PerformNeedPaint(true);
@@ -424,17 +424,23 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
-                
+                }
+
                 _annualDates.Clear();
                 _annualDates.AddRange(value);
 
                 for (int i = 0; i < 12; i++)
+                {
                     _annualDays[i] = 0;
+                }
 
                 // Set bitmap matching the days of month to be bolded
                 foreach (DateTime dt in value)
+                {
                     _annualDays[dt.Month - 1] |= 1 << (dt.Day - 1);
+                }
 
                 PerformNeedPaint(true);
             }
@@ -462,7 +468,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _monthlyDates.Clear();
                 _monthlyDates.AddRange(value);
@@ -470,7 +478,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Set bitmap matching the days of month to be bolded
                 _monthlyDays = 0;
                 foreach (DateTime dt in value)
+                {
                     _monthlyDays |= 1 << (dt.Day - 1);
+                }
 
                 PerformNeedPaint(true);
             }
@@ -498,7 +508,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _dates.Clear();
                 _dates.AddRange(value);
@@ -531,10 +543,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _maxDate)
                 {
                     if (value < EffectiveMinDate(_minDate))
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum supported date.");
+                    }
 
                     if (value > DateTimePicker.MaximumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum supported date.");
+                    }
 
                     _maxDate = value;
 
@@ -568,7 +584,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set 
             {
                 if (value < 1)
+                {
                     throw new ArgumentOutOfRangeException("MaxSelectionCount cannot be less than zero.");
+                }
 
                 if (value != _maxSelectionCount)
                 {
@@ -595,21 +613,29 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _selectionStart)
                 {
                     if (value > _maxDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                    }
 
                     if (value < _minDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                    }
 
                     DateTime endDate = _selectionEnd;
 
                     // End date cannot be before the start date
                     if (endDate < value)
+                    {
                         endDate = value;
+                    }
 
                     // Limit the selection range to the maximum selection count
                     TimeSpan range = endDate - value;
                     if (range.Days >= _maxSelectionCount)
+                    {
                         endDate = value.AddDays(_maxSelectionCount - 1);
+                    }
 
                     // Update selection dates and generate event if required
                     SetSelRange(value, endDate);
@@ -643,21 +669,29 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _selectionEnd)
                 {
                     if (value > _maxDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                    }
 
                     if (value < _minDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                    }
 
                     DateTime startDate = _selectionStart;
 
                     // Start date cannot be after the end date
                     if (startDate > value)
+                    {
                         startDate = value;
+                    }
 
                     // Limit the selection range to the maximum selection count
                     TimeSpan range = value - startDate;
                     if (range.Days >= _maxSelectionCount)
+                    {
                         startDate = value.AddDays(1 - _maxSelectionCount);
+                    }
 
                     // Update selection dates and generate event if required
                     SetSelRange(startDate, value);
@@ -716,11 +750,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!_dimensions.Equals(value))
                 {
                     if (value.Width < 1)
+                    {
                         throw new ArgumentOutOfRangeException("CalendarDimension Width must be greater than 0");
+                    }
 
                     if (value.Height < 1)
+                    {
                         throw new ArgumentOutOfRangeException("CalendarDimension Height must be greater than 0");
-
+                    }
 
                     _dimensions = value;
 
@@ -1212,7 +1249,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _annualDates.Clear();
             for (int i = 0; i < 12; i++)
+            {
                 _annualDays[i] = 0;
+            }
+
             PerformNeedPaint(true);
         }
 
@@ -1373,27 +1413,41 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetSelectionRange(DateTime start, DateTime end)
         {
             if (start.Ticks > _maxDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("Start date provided is greater than the maximum date.");
+            }
 
             if (start.Ticks < _minDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("Start date provided is less than the minimum date.");
+            }
 
             if (end.Ticks > _maxDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("End date provided is greater than the maximum date.");
+            }
 
             if (end.Ticks < _minDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("End date provided is less than the minimum date.");
+            }
 
             if (start > end)
+            {
                 end = start;
+            }
 
             TimeSpan span = end - start;
             if (span.Days >= _maxSelectionCount)
             {
                 if (start.Ticks == _selectionStart.Ticks)
+                {
                     start = end.AddDays(1 - _maxSelectionCount);
+                }
                 else
+                {
                     end = start.AddDays(_maxSelectionCount - 1);
+                }
             }
 
             SetSelRange(start, end);
@@ -1482,13 +1536,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_drawMonths != null) && _drawMonths.ButtonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1501,7 +1561,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -1573,8 +1635,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
+            {
                 if (_drawMonths.ProcessKeyDown(this, e))
+                {
                     return;
+                }
+            }
 
             // Let base class fire events
             base.OnKeyDown(e);
@@ -1586,8 +1652,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnDateChanged(DateRangeEventArgs e)
         {
-            if (DateChanged != null)
-                DateChanged(this, e);
+            DateChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1596,8 +1661,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectionStartChanged(EventArgs e)
         {
-            if (SelectionStartChanged != null)
-                SelectionStartChanged(this, e);
+            SelectionStartChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1606,8 +1670,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectionEndChanged(EventArgs e)
         {
-            if (SelectionEndChanged != null)
-                SelectionEndChanged(this, e);
+            SelectionEndChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1649,8 +1712,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An PaintEventArgs that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (Paint != null)
-                Paint(this, e);
+            Paint?.Invoke(this, e);
 
             base.OnPaint(e);
         }
@@ -1661,8 +1723,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnClick(EventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
 
             base.OnClick(e);
         }
@@ -1673,8 +1734,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnDoubleClick(EventArgs e)
         {
-            if (DoubleClick != null)
-                DoubleClick(this, e);
+            DoubleClick?.Invoke(this, e);
 
             base.OnDoubleClick(e);
         }
@@ -1685,8 +1745,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnTextChanged(EventArgs e)
         {
-            if (TextChanged != null)
-                TextChanged(this, e);
+            TextChanged?.Invoke(this, e);
 
             base.OnTextChanged(e);
         }
@@ -1697,8 +1756,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
-            if (ForeColorChanged != null)
-                ForeColorChanged(this, e);
+            ForeColorChanged?.Invoke(this, e);
 
             base.OnForeColorChanged(e);
         }
@@ -1709,8 +1767,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnFontChanged(EventArgs e)
         {
-            if (FontChanged != null)
-                FontChanged(this, e);
+            FontChanged?.Invoke(this, e);
 
             base.OnFontChanged(e);
         }
@@ -1721,8 +1778,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
 
             base.OnBackgroundImageChanged(e);
         }
@@ -1733,8 +1789,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
 
             base.OnBackgroundImageLayoutChanged(e);
         }
@@ -1745,8 +1800,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            if (BackColorChanged != null)
-                BackColorChanged(this, e);
+            BackColorChanged?.Invoke(this, e);
 
             base.OnBackColorChanged(e);
         }
@@ -1757,8 +1811,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnPaddingChanged(EventArgs e)
         {
-            if (PaddingChanged != null)
-                PaddingChanged(this, e);
+            PaddingChanged?.Invoke(this, e);
 
             base.OnPaddingChanged(e);
         }
@@ -1796,7 +1849,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If the current size is not correct then change now
                 if ((width != Width) || (height != Height))
+                {
                     Size = new Size(width, height);
+                }
             }
 
             // Let base class layout child controls
@@ -1824,18 +1879,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
             if (maxDate > maximumDateTime)
+            {
                 return maximumDateTime;
+            }
             else
+            {
                 return maxDate;
+            }
         }
 
         private DateTime EffectiveMinDate(DateTime minDate)
         {
             DateTime minimumDateTime = DateTimePicker.MinimumDateTime;
             if (minDate < minimumDateTime)
+            {
                 return minimumDateTime;
+            }
             else
+            {
                 return minDate;
+            }
         }
 
         private void AdjustSize(ref int width, ref int height)
@@ -1902,13 +1965,19 @@ namespace ComponentFactory.Krypton.Toolkit
             PerformNeedPaint(true);
 
             if (startChanged)
+            {
                 OnSelectionStartChanged(EventArgs.Empty);
+            }
 
             if (endChanged)
+            {
                 OnSelectionEndChanged(EventArgs.Empty);
+            }
 
             if (startChanged || endChanged)
+            {
                 OnDateChanged(new DateRangeEventArgs(_selectionStart, _selectionEnd));
+            }
 
             SetFocusDay();
         }
@@ -1933,13 +2002,19 @@ namespace ComponentFactory.Krypton.Toolkit
             PerformNeedPaint(true);
 
             if (startChanged)
+            {
                 OnSelectionStartChanged(EventArgs.Empty);
+            }
 
             if (endChanged)
+            {
                 OnSelectionEndChanged(EventArgs.Empty);
+            }
 
             if (startChanged || endChanged)
+            {
                 OnDateChanged(new DateRangeEventArgs(_selectionStart, _selectionEnd));
+            }
 
             SetFocusDay();
         }
@@ -1947,13 +2022,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private void SetFocusDay()
         {
             if (_focusDay == null)
+            {
                 _focusDay = SelectionStart.Date;
+            }
             else
             {
                 if (_focusDay.Value < SelectionStart)
+                {
                     _focusDay = SelectionStart.Date;
+                }
                 else if (_focusDay.Value > SelectionStart)
+                {
                     _focusDay = SelectionEnd.Date;
+                }
             }
         }
 

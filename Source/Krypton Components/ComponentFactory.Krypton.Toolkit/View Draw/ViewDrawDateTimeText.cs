@@ -11,7 +11,6 @@
 using System;
 using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -68,7 +67,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 StringBuilder ret = new StringBuilder();
                 for(int i=0; i<_fragments.Count; i++)
+                {
                     ret.Append(_fragments[i].GetDisplay(_dt));
+                }
+
                 return ret.ToString();
             }
             #endregion
@@ -108,9 +110,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 get
                 {
                     if (!HasActiveFragment)
+                    {
                         return String.Empty;
+                    }
                     else
+                    {
                         return _fragments[_activeFragment].FragFormat;
+                    }
                 }
 
                 set
@@ -160,7 +166,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int i = 0; i < _fragments.Count; i++)
                     {
                         if (_fragments[i].AllowActive)
+                        {
                             _activeFragment = i;
+                        }
                     }
                 }
                 else
@@ -203,7 +211,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int i = 0; i < _fragments.Count; i++)
                     {
                         if (_fragments[i].AllowActive)
+                        {
                             _activeFragment = i;
+                        }
                     }
                 }
             }
@@ -283,7 +293,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Rotate around the end of the fragments
                 if (!HasActiveFragment)
+                {
                     MoveFirst();
+                }
             }
 
             /// <summary>
@@ -295,7 +307,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Rotate around the start of the fragments
                 if (!HasActiveFragment)
+                {
                     MoveLast();
+                }
             }
 
             /// <summary>
@@ -357,9 +371,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Pass request onto the fragment itself
                 if (_activeFragment >= 0)
+                {
                     return _fragments[_activeFragment].Increment(_dt, forward);
+                }
                 else
+                {
                     return _dt;
+                }
             }
 
             /// <summary>
@@ -371,9 +389,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Pass request onto the fragment itself
                 if (_activeFragment >= 0)
+                {
                     return _fragments[_activeFragment].AMPM(_dt, am);
+                }
                 else
+                {
                     return _dt;
+                }
             }
 
             /// <summary>
@@ -392,11 +414,15 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // We clear the cache if the active fragment says no digits are allowed
                 if ((_activeFragment == -1) || (_fragments[_activeFragment].InputDigits == 0))
+                {
                     _inputDigits = null;
+                }
                 else
                 {
                     if (_inputDigits == null)
+                    {
                         _inputDigits = "";
+                    }
 
                     // Append the latest digit
                     _inputDigits += digit;
@@ -409,9 +435,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // If two digits is not valid then use just the last digit
                         if (monthNumber > 12)
+                        {
                             monthNumber -= 10;
+                        }
                         else if (monthNumber == 0)
+                        {
                             monthNumber = 10;
+                        }
 
                         // Set the new date using the month number
                         DateTime dt = _dt.AddMonths(monthNumber - _dt.Month);
@@ -440,9 +470,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                     if (!cea.Cancel)
                                     {
                                         if (_dateTimePicker.ShowCheckBox)
+                                        {
                                             _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking = true;
+                                        }
                                         else
+                                        {
                                             MoveFirst();
+                                        }
                                     }
                                 }
                             }
@@ -482,9 +516,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                     if (!cea.Cancel)
                                     {
                                         if (_dateTimePicker.ShowCheckBox)
+                                        {
                                             _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking = true;
+                                        }
                                         else
+                                        {
                                             MoveFirst();
+                                        }
                                     }
                                 }
                             }
@@ -564,7 +602,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             Color foreColor = textColor;
                             int totalWidth = _fragments[i].TotalWidth;
                             if (totalWidth > rect.Width)
+                            {
                                 totalWidth = rect.Width;
+                            }
 
                             Rectangle drawText = new Rectangle(rect.X + lastTotalWidth, rect.Y, totalWidth - lastTotalWidth, rect.Height);
                             if (drawText.Width > 0)
@@ -584,7 +624,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                         else
                                         {
                                             using (SolidBrush fillBrush = new SolidBrush(foreColor))
+                                            {
                                                 context.Graphics.FillRectangle(fillBrush, drawText);
+                                            }
 
                                             foreColor = backColor;
                                         }
@@ -596,12 +638,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                     !_fragments[_activeFragment].FragFormat.Contains("MMM"))
                                 {
                                     // Draw input digits for this fragment
-                                    TextRenderer.DrawText(context.Graphics, _inputDigits, font, drawText, foreColor, _drawLeftFlags);
+                                    TextRenderer.DrawText(context.Graphics, _inputDigits, font, drawText, foreColor, DRAW_LEFT_FLAGS);
                                 }
                                 else
                                 {
                                     // Draw text for this fragment only
-                                    TextRenderer.DrawText(context.Graphics, _fragments[i].GetDisplay(_dt), font, drawText, foreColor, _drawLeftFlags);
+                                    TextRenderer.DrawText(context.Graphics, _fragments[i].GetDisplay(_dt), font, drawText, foreColor, DRAW_LEFT_FLAGS);
                                 }
 
                                 lastTotalWidth = totalWidth;
@@ -612,7 +654,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Draw input digits for this fragment
-                    TextRenderer.DrawText(context.Graphics, _dateTimePicker.CustomNullText, font, rect, textColor, _drawLeftFlags);
+                    TextRenderer.DrawText(context.Graphics, _dateTimePicker.CustomNullText, font, rect, textColor, DRAW_LEFT_FLAGS);
                 }
             }
             #endregion
@@ -661,7 +703,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Generate the output for each fragment and measure the length of that fragment output
                 for (int i = 0; i < _fragments.Count; i++)
+                {
                     charRanges[i] = new CharacterRange(0, _fragments[i].GenerateOutput(dt).Length);
+                }
 
                 // Update format with details of the ranges to measure
                 StringFormat measureFormat = new StringFormat(StringFormatFlags.FitBlackBox);
@@ -672,7 +716,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Push return values into the individual fragment entries
                 for (int i = 0; i < _fragments.Count; i++)
+                {
                     _fragments[i].TotalWidth = (int)Math.Ceiling((double)charRegion[i].GetBounds(g).Width);
+                }
             }
 
             private FormatFragmentList ParseFormatToFragments(string format)
@@ -737,7 +783,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Add any trailing literal
                 if (literal > 0)
+                {
                     fragList.Add(new FormatFragment(current, format, format.Substring(current - literal, literal)));
+                }
 
                 return fragList;
             }
@@ -752,7 +800,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                         ref int literal, ref int current, ref string format)
             {
                 if (literal > 0)
+                {
                     fragList.Add(new FormatFragment(current, format, format.Substring(current - literal, literal)));
+                }
+
                 int count = CountUptoMaxCharacters(charater, max, ref current, ref format);
                 fragList.Add(new FormatFragmentChar(current, format, charater, count));
                 literal = 0;
@@ -773,7 +824,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         current++;
                     }
                     else
+                    {
                         break;
+                    }
                 }
 
                 return count;
@@ -802,9 +855,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 _fragFormat = literal;
 
                 if (length == 0)
+                {
                     _fragment = string.Empty;
+                }
                 else
+                {
                     _fragment = format.Substring(0, length);
+                }
             }
 
             /// <summary>
@@ -898,9 +955,13 @@ namespace ComponentFactory.Krypton.Toolkit
             public virtual string GetDisplay(DateTime dt)
             {
                 if (FragFormat.Length == 1)
+                {
                     return dt.ToString("\\" + FragFormat);
+                }
                 else
+                {
                     return dt.ToString(FragFormat);
+                }
             }
 
             /// <summary>
@@ -997,7 +1058,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         FragFormat.StartsWith("f") ||
                         FragFormat.StartsWith("F") ||
                         FragFormat.StartsWith("y"))
+                    {
                         return true;
+                    }
 
                     return false; 
                 }
@@ -1046,10 +1109,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         FragFormat.StartsWith("H") ||
                         FragFormat.StartsWith("m") ||
                         FragFormat.StartsWith("s"))
+                    {
                         return 2;
+                    }
 
                     if (FragFormat.StartsWith("y"))
+                    {
                         return 4;
+                    }
 
                     return base.InputDigits;
                 }
@@ -1069,13 +1136,19 @@ namespace ComponentFactory.Krypton.Toolkit
                     case "dd":
                         int dayNumber = int.Parse(digits);
                         if ((dayNumber <= LastDayOfMonth(dt).Day) && (dayNumber > 0))
+                        {
                             dt = dt.AddDays(dayNumber - dt.Day);
+                        }
+
                         break;
                     case "M":
                     case "MM":
                         int monthNumber = int.Parse(digits);
                         if ((monthNumber <= 12) && (monthNumber > 0))
+                        {
                             dt = dt.AddMonths(monthNumber - dt.Month);
+                        }
+
                         break;
                     case "f":
                     case "F":
@@ -1099,19 +1172,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     int hoursNumber = int.Parse(digits);
                     if ((hoursNumber < 24) && (hoursNumber >= 0))
+                    {
                         dt = dt.AddHours(hoursNumber - dt.Hour);
+                    }
                 } 
                 else if (FragFormat.StartsWith("m"))
                 {
                     int minutesNumber = int.Parse(digits);
                     if ((minutesNumber < 60) && (minutesNumber >= 0))
+                    {
                         dt = dt.AddMinutes(minutesNumber - dt.Minute);
+                    }
                 }
                 else if (FragFormat.StartsWith("s"))
                 {
                     int secondsNumber = int.Parse(digits);
                     if ((secondsNumber < 60) && (secondsNumber >= 0))
+                    {
                         dt = dt.AddSeconds(secondsNumber - dt.Second);
+                    }
                 }
                 else if (FragFormat.StartsWith("y"))
                 {
@@ -1124,9 +1203,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Two digits causes the century/millenium to be auto added
                             if (yearNumber >= 30)
+                            {
                                 yearNumber += 1900;
+                            }
                             else
+                            {
                                 yearNumber += 2000;
+                            }
 
                             dt = dt.AddYears(yearNumber - dt.Year);
                         }
@@ -1168,16 +1251,24 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (forward)
                         {
                             if (dt.Day == LastDayOfMonth(dt).Day)
+                            {
                                 dt = dt.AddDays(-(dt.Day - 1));
+                            }
                             else
+                            {
                                 dt = dt.AddDays(1);
+                            }
                         }
                         else
                         {
                             if (dt.Day == 1)
+                            {
                                 dt = dt.AddDays(LastDayOfMonth(dt).Day - 1);
+                            }
                             else
+                            {
                                 dt = dt.AddDays(-1);
+                            }
                         }
                         break;
                     case "M":
@@ -1187,16 +1278,24 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (forward)
                         {
                             if (dt.Month == 12)
+                            {
                                 dt = dt.AddMonths(-(dt.Month - 1));
+                            }
                             else
+                            {
                                 dt = dt.AddMonths(1);
+                            }
                         }
                         else
                         {
                             if (dt.Month == 1)
+                            {
                                 dt = dt.AddMonths(11);
+                            }
                             else
+                            {
                                 dt = dt.AddMonths(-1);
+                            }
                         } 
                         break;
                 }
@@ -1212,7 +1311,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             dt = dt.AddDays(-1);
                         }
                         else
+                        {
                             dt = dt.AddHours(1);
+                        }
                     }
                     else
                     {
@@ -1222,7 +1323,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             dt = dt.AddDays(1);
                         }
                         else
+                        {
                             dt = dt.AddHours(-1);
+                        }
                     }
                 }
 
@@ -1232,16 +1335,24 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (forward)
                     {
                         if (dt.Minute == 59)
+                        {
                             dt = dt.AddMinutes(-dt.Minute);
+                        }
                         else
+                        {
                             dt = dt.AddMinutes(1);
+                        }
                     }
                     else
                     {
                         if (dt.Minute == 0)
+                        {
                             dt = dt.AddMinutes(59 - dt.Minute);
+                        }
                         else
+                        {
                             dt = dt.AddMinutes(-1);
+                        }
                     }
                 }
 
@@ -1251,16 +1362,24 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (forward)
                     {
                         if (dt.Second == 59)
+                        {
                             dt = dt.AddSeconds(-dt.Second);
+                        }
                         else
+                        {
                             dt = dt.AddSeconds(1);
+                        }
                     }
                     else
                     {
                         if (dt.Second == 0)
+                        {
                             dt = dt.AddSeconds(59 - dt.Second);
+                        }
                         else
+                        {
                             dt = dt.AddSeconds(-1);
+                        }
                     }
                 }
 
@@ -1268,18 +1387,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (FragFormat.StartsWith("t"))
                 {
                     if (dt.Hour > 11)
+                    {
                         dt = dt.AddHours(-12);
+                    }
                     else
+                    {
                         dt = dt.AddHours(12);
+                    }
                 }
 
                 // Any number of 'y'
                 if (FragFormat.StartsWith("y"))
                 {
                     if (forward)
+                    {
                         dt = dt.AddYears(1);
+                    }
                     else
+                    {
                         dt = dt.AddYears(-1);
+                    }
                 }
 
                 // Any number of 'f' or 'F'
@@ -1291,12 +1418,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Convert to correct increment size
                     double increment = 1000;
                     for (int i = 0; i < digits; i++)
+                    {
                         increment /= 10;
+                    }
 
                     if (forward)
+                    {
                         dt = dt.AddMilliseconds(increment);
+                    }
                     else
+                    {
                         dt = dt.AddMilliseconds(-increment);
+                    }
                 }
 
                 return dt;
@@ -1313,9 +1446,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (FragFormat.StartsWith("t"))
                 {
                     if ((dt.Hour > 11) && am)
+                    {
                         dt = dt.AddHours(-12);
+                    }
                     else if ((dt.Hour < 12) && !am)
+                    {
                         dt = dt.AddHours(12);
+                    }
                 }
 
                 return dt;
@@ -1337,8 +1474,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Static Fields
         private static readonly RectangleF _measureRect = new RectangleF(0, 0, 1000, 1000);
-        private static readonly TextFormatFlags _measureFlags = TextFormatFlags.TextBoxControl | TextFormatFlags.NoPadding | TextFormatFlags.VerticalCenter;
-        private static readonly TextFormatFlags _drawLeftFlags = TextFormatFlags.TextBoxControl | TextFormatFlags.NoPadding | TextFormatFlags.VerticalCenter;
+        private const TextFormatFlags MEASURE_FLAGS = TextFormatFlags.TextBoxControl | TextFormatFlags.NoPadding | TextFormatFlags.VerticalCenter;
+        private const TextFormatFlags DRAW_LEFT_FLAGS = TextFormatFlags.TextBoxControl | TextFormatFlags.NoPadding | TextFormatFlags.VerticalCenter;
+
         #endregion
 
         #region Instance Fields
@@ -1423,7 +1561,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void ClearActiveFragment()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
 
             _formatHandler.ClearActiveFragment();
         }
@@ -1436,7 +1576,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void EndInputDigits()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
         }
         #endregion
 
@@ -1447,7 +1589,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void MoveFirstFragment()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
 
             _formatHandler.MoveFirst();
         }
@@ -1471,7 +1615,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void MoveNextFragment()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
 
             _formatHandler.MoveNext();
         }
@@ -1484,7 +1630,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void MovePreviousFragment()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
 
             _formatHandler.MovePrevious();
         }
@@ -1497,7 +1645,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void MoveLastFragment()
         {
             if (_formatHandler.IsInputDigits)
+            {
                 _formatHandler.EndInputDigits();
+            }
 
             _formatHandler.MoveLast();
         }
@@ -1529,7 +1679,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Left:
                     if (_formatHandler.IsInputDigits)
+                    {
                         _formatHandler.EndInputDigits();
+                    }
 
                     if (_dateTimePicker.ShowCheckBox && _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking)
                     {
@@ -1547,9 +1699,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (!_formatHandler.HasActiveFragment)
                         {
                             if (_dateTimePicker.ShowCheckBox)
+                            {
                                 _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking = true;
+                            }
                             else
+                            {
                                 _formatHandler.MoveLast();
+                            }
                         }
                     }
 
@@ -1560,7 +1716,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Decimal:
                 case Keys.Right:
                     if (_formatHandler.IsInputDigits)
+                    {
                         _formatHandler.EndInputDigits();
+                    }
 
                     if (_dateTimePicker.ShowCheckBox && _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking)
                     {
@@ -1578,9 +1736,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (!_formatHandler.HasActiveFragment)
                         {
                             if (_dateTimePicker.ShowCheckBox)
+                            {
                                 _dateTimePicker.InternalViewDrawCheckBox.ForcedTracking = true;
+                            }
                             else
+                            {
                                 _formatHandler.MoveFirst();
+                            }
                         }
                     }
 
@@ -1590,10 +1752,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (_dateTimePicker.Checked)
                     {
                         if (_formatHandler.IsInputDigits)
+                        {
                             _formatHandler.EndInputDigits();
+                        }
                         else
+                        {
                             _dateTimePicker.Value = ValidateDate(_formatHandler.Increment(true));
-    
+                        }
+
                         PerformNeedPaint(false);
                     }
                     break;
@@ -1601,10 +1767,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (_dateTimePicker.Checked)
                     {
                         if (_formatHandler.IsInputDigits)
+                        {
                             _formatHandler.EndInputDigits();
+                        }
                         else
+                        {
                             _dateTimePicker.Value = ValidateDate(_formatHandler.Increment(false));
-                        
+                        }
+
                         PerformNeedPaint(false);
                     }
                     break;
@@ -1651,7 +1821,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Font font = GetFont();
 
             // Find the width of the text we are drawing
-            Size retSize = TextRenderer.MeasureText(GetFullDisplayText(), font, Size.Empty, _measureFlags);
+            Size retSize = TextRenderer.MeasureText(GetFullDisplayText(), font, Size.Empty, MEASURE_FLAGS);
 
             // The line height gives better appearance as it includes space for overhanging glyphs
             retSize.Height = Math.Max(font.Height, retSize.Height);
@@ -1691,9 +1861,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Ask the format handler to perform actual rendering of the text
             using (Clipping clipped = new Clipping(context.Graphics, ClientRectangle))
+            {
                 _formatHandler.Render(context, GetFont(), ClientRectangle,
                                       GetTextColor(), GetBackColor(),
                                       _dateTimePicker.Checked);
+            }
         }
         #endregion
 
@@ -1701,11 +1873,17 @@ namespace ComponentFactory.Krypton.Toolkit
         internal DateTime ValidateDate(DateTime dt)
         {
             if (dt < _dateTimePicker.EffectiveMinDate(_dateTimePicker.MinDate))
+            {
                 return _dateTimePicker.EffectiveMinDate(_dateTimePicker.MinDate);
+            }
             else if (dt > _dateTimePicker.EffectiveMaxDate(_dateTimePicker.MaxDate))
+            {
                 return _dateTimePicker.EffectiveMaxDate(_dateTimePicker.MaxDate);
+            }
             else
+            {
                 return dt;
+            }
         }
 
         private void PerformNeedPaint(bool needLayout)
@@ -1716,39 +1894,57 @@ namespace ComponentFactory.Krypton.Toolkit
         private Font GetFont()
         {
             if (!Enabled || _dateTimePicker.InternalDateTimeNull())
+            {
                 return _dateTimePicker.StateDisabled.PaletteContent.GetContentShortTextFont(PaletteState.Disabled);
+            }
             else
             {
                 if (_dateTimePicker.IsActive)
+                {
                     return _dateTimePicker.StateActive.PaletteContent.GetContentShortTextFont(PaletteState.Normal);
+                }
                 else
+                {
                     return _dateTimePicker.StateNormal.PaletteContent.GetContentShortTextFont(PaletteState.Normal);
+                }
             }
         }
 
         private Color GetTextColor()
         {
             if (!Enabled || _dateTimePicker.InternalDateTimeNull())
+            {
                 return _dateTimePicker.StateDisabled.PaletteContent.GetContentShortTextColor1(PaletteState.Disabled);
+            }
             else
             {
                 if (_dateTimePicker.IsActive)
+                {
                     return _dateTimePicker.StateActive.PaletteContent.GetContentShortTextColor1(PaletteState.Normal);
+                }
                 else
+                {
                     return _dateTimePicker.StateNormal.PaletteContent.GetContentShortTextColor1(PaletteState.Normal);
+                }
             }
         }
 
         private Color GetBackColor()
         {
             if (!Enabled || _dateTimePicker.InternalDateTimeNull())
+            {
                 return _dateTimePicker.StateDisabled.PaletteBack.GetBackColor1(PaletteState.Disabled);
+            }
             else
             {
                 if (_dateTimePicker.IsActive)
+                {
                     return _dateTimePicker.StateActive.PaletteBack.GetBackColor1(PaletteState.Normal);
+                }
                 else
+                {
                     return _dateTimePicker.StateNormal.PaletteBack.GetBackColor1(PaletteState.Normal);
+                }
             }
         }
 

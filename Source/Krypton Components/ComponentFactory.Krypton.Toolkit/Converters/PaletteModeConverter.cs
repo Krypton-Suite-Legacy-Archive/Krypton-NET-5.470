@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteModeConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteMode.ProfessionalSystem,    "Professional - System"),
+        private Pair[] _pairs = { new Pair(PaletteMode.ProfessionalSystem,    "Professional - System"),
                                              new Pair(PaletteMode.ProfessionalOffice2003,"Professional - Office 2003"),
                                              new Pair(PaletteMode.Office2007Blue,        "Office 2007 - Blue"),
                                              new Pair(PaletteMode.Office2007Silver,      "Office 2007 - Silver"),

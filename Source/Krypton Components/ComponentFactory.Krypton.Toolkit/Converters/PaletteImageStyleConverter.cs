@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteImageStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteImageStyle.Inherit,        "Inherit"),
+        private Pair[] _pairs = { new Pair(PaletteImageStyle.Inherit,        "Inherit"),
                                              new Pair(PaletteImageStyle.Stretch,        "Stretch"),
                                              new Pair(PaletteImageStyle.Tile,           "Tile"),
                                              new Pair(PaletteImageStyle.TileFlipX,      "TileFlip - X"),

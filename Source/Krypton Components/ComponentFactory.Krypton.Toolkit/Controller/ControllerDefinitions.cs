@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Text;
 
 namespace ComponentFactory.Krypton.Toolkit
 {

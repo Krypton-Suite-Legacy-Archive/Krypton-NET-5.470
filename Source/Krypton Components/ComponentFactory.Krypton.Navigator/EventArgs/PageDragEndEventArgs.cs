@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 
 namespace ComponentFactory.Krypton.Navigator
 {
@@ -36,7 +35,9 @@ namespace ComponentFactory.Krypton.Navigator
             _pages = new KryptonPageCollection();
 
             if (pages != null)
+            {
                 _pages.AddRange(pages);
+            }
 		}
         #endregion
 

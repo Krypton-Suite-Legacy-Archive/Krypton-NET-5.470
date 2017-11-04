@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -111,7 +110,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Cursor depends on enabled state of the view element
                 if (_target.Enabled)
+                {
                     c.Cursor = Cursors.Hand;
+                }
 
                 // Update the visual state
                 UpdateTargetState(c);
@@ -141,7 +142,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Take the focus if allowed
                     if (c.CanFocus)
+                    {
                         c.Focus();
+                    }
                 }
             }
 
@@ -253,8 +256,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Pressing the enter key is the same as clicking the label
             if (e.KeyCode == Keys.Enter)
@@ -405,9 +415,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
 
@@ -422,23 +436,33 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Disabled;
+            }
             else
             {
                 if (_captured)
                 {
                     if (_target.ClientRectangle.Contains(pt))
+                    {
                         newState = PaletteState.Pressed;
+                    }
                     else
+                    {
                         newState = PaletteState.Tracking;
+                    }
                 }
                 else
                 {
                     // Only hot tracking, so show tracking only if mouse over the target 
                     if (_mouseOver)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
             }
 
@@ -500,8 +524,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Cache time of click generation
                 _clickTime = DateTime.Now;
 
-                if (Click != null)
-                    Click(_target, e);
+                Click?.Invoke(_target, e);
             }
 		}
 
@@ -511,9 +534,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
+        }
 		#endregion
 	}
 }

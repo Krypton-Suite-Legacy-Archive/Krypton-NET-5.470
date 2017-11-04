@@ -9,12 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
@@ -28,46 +26,46 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Static Fields
         // Constants
-        private static readonly int _dragArrowWidth = 13;
-        private static readonly int _dragArrowHeight = 7;
-        private static readonly int _dragArrowGap = 4;
-        private static readonly int _spacingTabDockOutsize = 3;
-        private static readonly int _spacingTabOutsizePadding = 1;
-        private static readonly int _spacingTabSquareEqualSmall = -1;
-        private static readonly int _spacingTabSquareEqualMedium = 2;
-        private static readonly int _spacingTabSquareEqualLarge = 5;
-        private static readonly int _spacingTabSquareOutsizeSmall = -5;
-        private static readonly int _spacingTabSquareOutsizeMedium = -3;
-        private static readonly int _spacingTabSquareOutsizeLarge = 2;
-        private static readonly int _spacingTabRoundedEqualSmall = -1;
-        private static readonly int _spacingTabRoundedEqualMedium = 2;
-        private static readonly int _spacingTabRoundedEqualLarge = 5;
-        private static readonly int _spacingTabRoundedOutsizeSmall = -5;
-        private static readonly int _spacingTabRoundedOutsizeMedium = -3;
-        private static readonly int _spacingTabRoundedOutsizeLarge = 2;
-        private static readonly int _spacingTabRoundedCorner = 2;
-        private static readonly int _spacingTabSlantEqual = -7;
-        private static readonly int _spacingTabSlantEqualBoth = -17;
-        private static readonly int _spacingTabSlantOutsize = -11;
-        private static readonly int _spacingTabSlantPadding = 12;
-        private static readonly int _spacingTabOneNote = -14;
-        private static readonly int _spacingTabOneNoteLPI = 12;
-        private static readonly int _spacingTabOneNoteRPI = 19;
-        private static readonly int _spacingTabOneNoteTPI = 5;
-        private static readonly int _spacingTabOneNoteBPI = 0;
-        private static readonly int _spacingTabOneNoteLPS = 4;
-        private static readonly int _spacingTabOneNoteRPS = 24;
-        private static readonly int _spacingTabOneNoteTPS = 3;
-        private static readonly int _spacingTabOneNoteBPS = 2;
-        private static readonly int _spacingTabSmoothE = -6;
-        private static readonly int _spacingTabSmoothO = -14;
-        private static readonly int _spacingTabSmoothLRE = 5;
-        private static readonly int _spacingTabSmoothTE = 3;
-        private static readonly int _spacingTabSmoothLRO = 9;
-        private static readonly int _spacingTabSmoothTO = 7;
-        private static readonly int _groupFrameTitleHeight = 8;
-        private static readonly float _groupGradientTwo = 0.16f;
-        private static readonly float _groupGradientFrame = 0.32f;
+        private const int DRAG_ARROW_WIDTH = 13;
+        private const int DRAG_ARROW_HEIGHT = 7;
+        private const int DRAG_ARROW_GAP = 4;
+        private const int SPACING_TAB_DOCK_OUTSIZE = 3;
+        private const int SPACING_TAB_OUTSIZE_PADDING = 1;
+        private const int SPACING_TAB_SQUARE_EQUAL_SMALL = -1;
+        private const int SPACING_TAB_SQUARE_EQUAL_MEDIUM = 2;
+        private const int SPACING_TAB_SQUARE_EQUAL_LARGE = 5;
+        private const int SPACING_TAB_SQUARE_OUTSIZE_SMALL = -5;
+        private const int SPACING_TAB_SQUARE_OUTSIZE_MEDIUM = -3;
+        private const int SPACING_TAB_SQUARE_OUTSIZE_LARGE = 2;
+        private const int SPACING_TAB_ROUNDED_EQUAL_SMALL = -1;
+        private const int SPACING_TAB_ROUNDED_EQUAL_MEDIUM = 2;
+        private const int SPACING_TAB_ROUNDED_EQUAL_LARGE = 5;
+        private const int SPACING_TAB_ROUNDED_OUTSIZE_SMALL = -5;
+        private const int SPACING_TAB_ROUNDED_OUTSIZE_MEDIUM = -3;
+        private const int SPACING_TAB_ROUNDED_OUTSIZE_LARGE = 2;
+        private const int SPACING_TAB_ROUNDED_CORNER = 2;
+        private const int SPACING_TAB_SLANT_EQUAL = -7;
+        private const int SPACING_TAB_SLANT_EQUAL_BOTH = -17;
+        private const int SPACING_TAB_SLANT_OUTSIZE = -11;
+        private const int SPACING_TAB_SLANT_PADDING = 12;
+        private const int SPACING_TAB_ONE_NOTE = -14;
+        private const int SPACING_TAB_ONE_NOTE_LPI = 12;
+        private const int SPACING_TAB_ONE_NOTE_RPI = 19;
+        private const int SPACING_TAB_ONE_NOTE_TPI = 5;
+        private const int SPACING_TAB_ONE_NOTE_BPI = 0;
+        private const int SPACING_TAB_ONE_NOTE_LPS = 4;
+        private const int SPACING_TAB_ONE_NOTE_RPS = 24;
+        private const int SPACING_TAB_ONE_NOTE_TPS = 3;
+        private const int SPACING_TAB_ONE_NOTE_BPS = 2;
+        private const int SPACING_TAB_SMOOTH_E = -6;
+        private const int SPACING_TAB_SMOOTH_O = -14;
+        private const int SPACING_TAB_SMOOTH_LRE = 5;
+        private const int SPACING_TAB_SMOOTH_TE = 3;
+        private const int SPACING_TAB_SMOOTH_LRO = 9;
+        private const int SPACING_TAB_SMOOTH_TO = 7;
+        private const int GROUP_FRAME_TITLE_HEIGHT = 8;
+        private const float GROUP_GRADIENT_TWO = 0.16f;
+        private const float GROUP_GRADIENT_FRAME = 0.32f;
 
         private static readonly Color _darken5 = Color.FromArgb(5, Color.Black);
         private static readonly Color _darken8 = Color.FromArgb(8, Color.Black);
@@ -134,141 +132,209 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static RenderStandard()
         {
-            _linear25Blend = new Blend();
-            _linear25Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f };
-            _linear25Blend.Positions = new float[] { 0.0f, 0.25f, 0.25f, 1.0f };
+            _linear25Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.25f, 0.25f, 1.0f }
+            };
 
-            _linear33Blend = new Blend();
-            _linear33Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f };
-            _linear33Blend.Positions = new float[] { 0.0f, 0.33f, 0.33f, 1.0f };
+            _linear33Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.33f, 0.33f, 1.0f }
+            };
 
-            _linear40Blend = new Blend();
-            _linear40Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f };
-            _linear40Blend.Positions = new float[] { 0.0f, 0.40f, 0.40f, 1.0f };
+            _linear40Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.40f, 0.40f, 1.0f }
+            };
 
-            _linear50Blend = new Blend();
-            _linear50Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f };
-            _linear50Blend.Positions = new float[] { 0.0f, 0.50f, 0.50f, 1.0f };
+            _linear50Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.50f, 0.50f, 1.0f }
+            };
 
-            _linearShadowBlend = new Blend();
-            _linearShadowBlend.Factors = new float[] { 0.0f, 1.0f, 1.0f };
-            _linearShadowBlend.Positions = new float[] { 0.0f, 0.30f, 1.0f };
+            _linearShadowBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.30f, 1.0f }
+            };
 
-            _switch25Blend = new Blend();
-            _switch25Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f };
-            _switch25Blend.Positions = new float[] { 0.0f, 0.25f, 0.25f, 1.0f };
+            _switch25Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.25f, 0.25f, 1.0f }
+            };
 
-            _switch33Blend = new Blend();
-            _switch33Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f };
-            _switch33Blend.Positions = new float[] { 0.0f, 0.33f, 0.33f, 1.0f };
+            _switch33Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.33f, 0.33f, 1.0f }
+            };
 
-            _switch50Blend = new Blend();
-            _switch50Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f };
-            _switch50Blend.Positions = new float[] { 0.0f, 0.5f, 0.5f, 1.0f };
+            _switch50Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.5f, 0.5f, 1.0f }
+            };
 
-            _switch90Blend = new Blend();
-            _switch90Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f };
-            _switch90Blend.Positions = new float[] { 0.0f, 0.90f, 0.90f, 1.0f };
+            _switch90Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.90f, 0.90f, 1.0f }
+            };
 
-            _halfCutBlend = new Blend();
-            _halfCutBlend.Factors = new float[] { 0.0f, 0.50f, 1.0f, 0.05f };
-            _halfCutBlend.Positions = new float[] { 0.0f, 0.45f, 0.45f, 1.0f };
+            _halfCutBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.50f, 1.0f, 0.05f },
+                Positions = new float[] { 0.0f, 0.45f, 0.45f, 1.0f }
+            };
 
-            _quarterPhaseBlend = new Blend();
-            _quarterPhaseBlend.Factors = new float[] { 0.0f, 0.0f, 0.25f, 0.70f, 1.0f, 1.0f };
-            _quarterPhaseBlend.Positions = new float[] { 0.0f, 0.10f, 0.20f, 0.30f, 0.5f, 1.0f };
+            _quarterPhaseBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.25f, 0.70f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.10f, 0.20f, 0.30f, 0.5f, 1.0f }
+            };
 
-            _oneNoteBlend = new Blend();
-            _oneNoteBlend.Factors = new float[] { 0.15f, 0.75f, 1.0f, 1.0f };
-            _oneNoteBlend.Positions = new float[] { 0.0f, 0.45f, 0.45f, 1.0f };
+            _oneNoteBlend = new Blend
+            {
+                Factors = new float[] { 0.15f, 0.75f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.45f, 0.45f, 1.0f }
+            };
 
-            _rounding2Blend = new Blend();
-            _rounding2Blend.Factors = new float[] { 0.8f, 0.2f, 0f, 0.07f, 1.0f };
-            _rounding2Blend.Positions = new float[] { 0.0f, 0.33f, 0.33f, 0.43f, 1.0f };
+            _rounding2Blend = new Blend
+            {
+                Factors = new float[] { 0.8f, 0.2f, 0f, 0.07f, 1.0f },
+                Positions = new float[] { 0.0f, 0.33f, 0.33f, 0.43f, 1.0f }
+            };
 
-            _rounding3Blend = new Blend();
-            _rounding3Blend.Factors = new float[] { 1.0f, 0.7f, 0.7f, 0f, 0.1f, 0.55f, 1.0f, 1.0f };
-            _rounding3Blend.Positions = new float[] { 0.0f, 0.16f, 0.33f, 0.35f, 0.51f, 0.85f, 0.85f, 1.0f };
+            _rounding3Blend = new Blend
+            {
+                Factors = new float[] { 1.0f, 0.7f, 0.7f, 0f, 0.1f, 0.55f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.16f, 0.33f, 0.35f, 0.51f, 0.85f, 0.85f, 1.0f }
+            };
 
-            _rounding4Blend = new Blend();
-            _rounding4Blend.Factors = new float[] { 1.0f, 0.78f, 0.48f, 1.0f, 1.0f };
-            _rounding4Blend.Positions = new float[] { 0.0f, 0.33f, 0.33f, 0.90f, 1.0f };
+            _rounding4Blend = new Blend
+            {
+                Factors = new float[] { 1.0f, 0.78f, 0.48f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.33f, 0.33f, 0.90f, 1.0f }
+            };
 
-            _rounding5Blend = new Blend();
-            _rounding5Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f };
-            _rounding5Blend.Positions = new float[] { 0.0f, 0.20f, 0.84f, 1.0f };
+            _rounding5Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.20f, 0.84f, 1.0f }
+            };
 
-            _ribbonInBlend = new Blend();
-            _ribbonInBlend.Factors = new float[] { 0.66f, 1.0f, 0.0f };
-            _ribbonInBlend.Positions = new float[] { 0.0f, 0.50f, 1.0f };
+            _ribbonInBlend = new Blend
+            {
+                Factors = new float[] { 0.66f, 1.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.50f, 1.0f }
+            };
 
-            _ribbonOutBlend = new Blend();
-            _ribbonOutBlend.Factors = new float[] { 0.2f, 1.0f, 0.0f };
-            _ribbonOutBlend.Positions = new float[] { 0.0f, 0.50f, 1.0f };
+            _ribbonOutBlend = new Blend
+            {
+                Factors = new float[] { 0.2f, 1.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.50f, 1.0f }
+            };
 
-            _ribbonTopBlend = new Blend();
-            _ribbonTopBlend.Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f };
-            _ribbonTopBlend.Positions = new float[] { 0.0f, 0.2f, 0.8f, 1.0f };
+            _ribbonTopBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.2f, 0.8f, 1.0f }
+            };
 
-            _ribbonGroup1Blend = new Blend();
-            _ribbonGroup1Blend.Factors = new float[] { 0.0f, 0.0f, 0.6f, 1.0f };
-            _ribbonGroup1Blend.Positions = new float[] { 0.0f, 0.18f, 0.75f, 1.0f };
+            _ribbonGroup1Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.6f, 1.0f },
+                Positions = new float[] { 0.0f, 0.18f, 0.75f, 1.0f }
+            };
 
-            _ribbonGroup2Blend = new Blend();
-            _ribbonGroup2Blend.Factors = new float[] { 0.0f, 0.5f, 1.0f, 1.0f };
-            _ribbonGroup2Blend.Positions = new float[] { 0.0f, 0.18f, 0.2f, 1.0f };
+            _ribbonGroup2Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.5f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.18f, 0.2f, 1.0f }
+            };
 
-            _ribbonGroup3Blend = new Blend();
-            _ribbonGroup3Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f, 0.0f, 0.0f };
-            _ribbonGroup3Blend.Positions = new float[] { 0.0f, 0.90f, 0.97f, 0.97f, 1.0f };
+            _ribbonGroup3Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 0.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.90f, 0.97f, 0.97f, 1.0f }
+            };
 
-            _ribbonGroup4Blend = new Blend();
-            _ribbonGroup4Blend.Factors = new float[] { 0.0f, 0.4f, 1.0f, 1.0f, };
-            _ribbonGroup4Blend.Positions = new float[] { 0.0f, 0.045f, 0.33f, 1.0f };
+            _ribbonGroup4Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.4f, 1.0f, 1.0f, },
+                Positions = new float[] { 0.0f, 0.045f, 0.33f, 1.0f }
+            };
 
-            _ribbonGroup5Blend = new Blend();
-            _ribbonGroup5Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f };
-            _ribbonGroup5Blend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
+            _ribbonGroup5Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.5f, 1.0f }
+            };
 
-            _ribbonGroup6Blend = new Blend();
-            _ribbonGroup6Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f };
-            _ribbonGroup6Blend.Positions = new float[] { 0.0f, 0.4f, 1.0f };
+            _ribbonGroup6Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.4f, 1.0f }
+            };
 
-            _ribbonGroup7Blend = new Blend();
-            _ribbonGroup7Blend.Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f };
-            _ribbonGroup7Blend.Positions = new float[] { 0.0f, 0.15f, 0.85f, 1.0f };
+            _ribbonGroup7Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.15f, 0.85f, 1.0f }
+            };
 
-            _ribbonGroup8Blend = new Blend();
-            _ribbonGroup8Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f};
-            _ribbonGroup8Blend.Positions = new float[] { 0.0f, 0.85f, 1.0f };
+            _ribbonGroup8Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.85f, 1.0f }
+            };
 
-            _ribbonGroup9Blend = new Blend();
-            _ribbonGroup9Blend.Factors = new float[] { 0.0f, 0.5f, 0.75f, 0.9f, 1.0f };
-            _ribbonGroup9Blend.Positions = new float[] { 0.0f, 0.25f, 0.50f, 0.75f, 1.0f };
+            _ribbonGroup9Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.5f, 0.75f, 0.9f, 1.0f },
+                Positions = new float[] { 0.0f, 0.25f, 0.50f, 0.75f, 1.0f }
+            };
 
-            _ribbonGroupArea3 = new Blend();
-            _ribbonGroupArea3.Factors = new float[] { 1.0f, 0.0f, 0.0f, 1.0f };
-            _ribbonGroupArea3.Positions = new float[] { 0.0f, 0.1f, 0.85f, 1.0f };
-            
-            _ribbonTabSelected1Blend = new Blend();
-            _ribbonTabSelected1Blend.Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f, 1.0f };
-            _ribbonTabSelected1Blend.Positions = new float[] { 0.0f, 0.50f, 0.50f, 0.9f, 1.0f };
+            _ribbonGroupArea3 = new Blend
+            {
+                Factors = new float[] { 1.0f, 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.1f, 0.85f, 1.0f }
+            };
 
-            _ribbonTabSelected2Blend = new Blend();
-            _ribbonTabSelected2Blend.Factors = new float[] { 0.0f, 1.0f, 1.0f };
-            _ribbonTabSelected2Blend.Positions = new float[] { 0.0f, 0.75f, 1.0f };
+            _ribbonTabSelected1Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.50f, 0.50f, 0.9f, 1.0f }
+            };
 
-            _ribbonTabTopBlend = new Blend();
-            _ribbonTabTopBlend.Factors = new float[] { 0.0f, 1.0f, 1.0f };
-            _ribbonTabTopBlend.Positions = new float[] { 0.0f, 0.2f, 1.0f };
+            _ribbonTabSelected2Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.75f, 1.0f }
+            };
 
-            _ribbonAppButtonBlend = new Blend();
-            _ribbonAppButtonBlend.Factors = new float[] { 0.0f, 0.0f, 0.5f, 1.0f, 1.0f };
-            _ribbonAppButtonBlend.Positions = new float[] { 0.0f, 0.1f, 0.5f, 0.5f, 1.0f };
+            _ribbonTabTopBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.2f, 1.0f }
+            };
 
-            _dragRoundedInsideBlend = new Blend();
-            _dragRoundedInsideBlend.Factors = new float[] { 0.05f, 0.2f, 0.5f, 1.0f };
-            _dragRoundedInsideBlend.Positions = new float[] { 0.0f, 0.5f, 0.5f, 1.0f };
+            _ribbonAppButtonBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.5f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.1f, 0.5f, 0.5f, 1.0f }
+            };
+
+            _dragRoundedInsideBlend = new Blend
+            {
+                Factors = new float[] { 0.05f, 0.2f, 0.5f, 1.0f },
+                Positions = new float[] { 0.0f, 0.5f, 0.5f, 1.0f }
+            };
 
             _paleShadowPen = new Pen(Color.FromArgb(6, Color.Black));
             _lightShadowPen = new Pen(Color.FromArgb(8, Color.Black));
@@ -288,19 +354,25 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonBorder1Brush = new SolidBrush(Color.FromArgb(20, 52, 59, 64));
             _buttonBorder2Brush = new SolidBrush(Color.FromArgb(70, 52, 59, 64));
 
-            _gridSortOrder = new ImageList();
-            _gridSortOrder.TransparentColor = Color.Magenta;
-            _gridSortOrder.ImageSize = new Size(17, 11);
+            _gridSortOrder = new ImageList
+            {
+                TransparentColor = Color.Magenta,
+                ImageSize = new Size(17, 11)
+            };
             _gridSortOrder.Images.AddStrip(Properties.Resources.GridSortOrder);
 
-            _gridRowIndicators = new ImageList();
-            _gridRowIndicators.TransparentColor = Color.Magenta;
-            _gridRowIndicators.ImageSize = new Size(19, 13);
+            _gridRowIndicators = new ImageList
+            {
+                TransparentColor = Color.Magenta,
+                ImageSize = new Size(19, 13)
+            };
             _gridRowIndicators.Images.AddStrip(Properties.Resources.GridRowIndicators);
 
-            _gridErrorIcon = new ImageList();
-            _gridErrorIcon.TransparentColor = Color.Magenta;
-            _gridErrorIcon.ImageSize = new Size(18, 17);
+            _gridErrorIcon = new ImageList
+            {
+                TransparentColor = Color.Magenta,
+                ImageSize = new Size(18, 17)
+            };
             _gridErrorIcon.Images.AddStrip(Properties.Resources.GridErrorIcon);
         }
         #endregion
@@ -315,13 +387,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(colorPalette != null);
 
             // Validate incoming parameter
-            if (colorPalette == null) throw new ArgumentNullException("colorPalette");
+            if (colorPalette == null)
+            {
+                throw new ArgumentNullException("colorPalette");
+            }
 
             // Use the professional renderer but pull colors from the palette
-            KryptonStandardRenderer renderer = new KryptonStandardRenderer(colorPalette.ColorTable);
+            KryptonStandardRenderer renderer = new KryptonStandardRenderer(colorPalette.ColorTable)
+            {
 
-            // Seup the need to use rounded corners
-            renderer.RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False);
+                // Seup the need to use rounded corners
+                RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False)
+            };
 
             return renderer;
         }
@@ -342,7 +419,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter reference
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             PaletteDrawBorders borders = palette.GetBorderDrawBorders(state);
 
@@ -390,7 +470,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
             else
+            {
                 return Padding.Empty;
+            }
         }
 
         /// <summary>
@@ -407,7 +489,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter reference
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             PaletteDrawBorders borders = palette.GetBorderDrawBorders(state);
 
@@ -433,7 +518,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Enforce the width of the border as the minimum to ensure 
                 // it still works as expected for small values of rounding
                 if (roundPadding < borderWidth)
+                {
                     roundPadding = borderWidth;
+                }
 
                 switch (borders)
                 {
@@ -474,8 +561,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
             else
+            {
                 return Padding.Empty;
-		}
+            }
+        }
 
         /// <summary>
         /// Generate a graphics path that is the outside edge of the border.
@@ -496,8 +585,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -530,8 +626,15 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -566,8 +669,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -601,8 +711,15 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -658,13 +775,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                             orientation), borderWidth))
                             {
                                 if (colorStyle == PaletteColorStyle.Dashed)
+                                {
                                     borderPen.DashPattern = new float[] { 2, 2 };
+                                }
 
                                 context.Graphics.DrawPath(borderPen, borderPath0);
 
                                 // Optionally also draw the second path
                                 if (borderPath1 != null)
+                                {
                                     context.Graphics.DrawPath(borderPen, borderPath1);
+                                }
                             }
 
                             Image borderImage = palette.GetBorderImage(state);
@@ -683,15 +804,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Optionally also draw the second path
                                     if (borderPath1 != null)
+                                    {
                                         context.Graphics.DrawPath(borderPen, borderPath1);
+                                    }
                                 }
                             }
 
                             // Remember to dispose of resources
                             borderPath0.Dispose();
 
-                            if (borderPath1 != null)
-                                borderPath1.Dispose();
+                            borderPath1?.Dispose();
                         }
                     }
 				}
@@ -723,8 +845,15 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -878,7 +1007,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Use standard helper routine to create appropriate image brush
                         using (Brush backBrush = CreateImageBrush(imageRect, backImage, backImageStyle))
+                        {
                             context.Graphics.FillPath(backBrush, path);
+                        }
                     }
 				}
 			}
@@ -911,8 +1042,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(values != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -955,7 +1093,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteContentStyle contentStyle = palette.GetContentStyle();
                 if ((contentStyle == PaletteContentStyle.ButtonForm) || 
                     (contentStyle == PaletteContentStyle.ButtonFormClose))
+                {
                     borderPadding = ContentPaddingForButtonForm(borderPadding, context, allocatedHeight);
+                }
 
                 // The preferred size needed depends on the orientation.
                 switch (orientation)
@@ -1002,8 +1142,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(values != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -1076,26 +1223,34 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Excess width to allocate?
             if (allocatedWidth < availableRect.Width)
+            {
                 ApplyExcessSpace(availableRect.Width - allocatedWidth, ref colWidths);
-			
-			// Excess height to allocate?
-            if (allocatedHeight < availableRect.Height)
-                rowHeights[1] += (availableRect.Height - allocatedHeight);
+            }
 
-			// Find x positions and y positions
+            // Excess height to allocate?
+            if (allocatedHeight < availableRect.Height)
+            {
+                rowHeights[1] += (availableRect.Height - allocatedHeight);
+            }
+
+            // Find x positions and y positions
             int col0 = availableRect.Left;
 			int col1 = col0 + colWidths[0];
 
 			// Do we need to add a spacing gap after the first column?
 			if (((colWidths[0] > 0) && (colWidths[1] > 0)) ||
 				((colWidths[0] > 0) && (colWidths[1] == 0) && (colWidths[2] > 0)))
-				col1 += spacingGap;
+            {
+                col1 += spacingGap;
+            }
 
-			int col2 = col1 + colWidths[1];
+            int col2 = col1 + colWidths[1];
 
 			// Do we need to add a spacing gap after the second column?
 			if ((colWidths[1] > 0) && (colWidths[2] > 0))
-				col2 += spacingGap;
+            {
+                col2 += spacingGap;
+            }
 
             int row0 = availableRect.Top;
 			int row1 = row0 + rowHeights[0];
@@ -1103,16 +1258,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Decide on the ordering of the alignment to position
 			PaletteRelativeAlign aAlign = (rtl == RightToLeft.Yes ? PaletteRelativeAlign.Far : PaletteRelativeAlign.Near);
-			PaletteRelativeAlign bAlign = PaletteRelativeAlign.Center;
+			const PaletteRelativeAlign B_ALIGN = PaletteRelativeAlign.Center;
 			PaletteRelativeAlign cAlign = (rtl == RightToLeft.Yes ? PaletteRelativeAlign.Near : PaletteRelativeAlign.Far);
 
 			// Size and position the contents of each aligned cell
             PositionAlignContent(memento, palette, state, rtl, aAlign, PaletteRelativeAlign.Near, col0, row0, colWidths[0], rowHeights[0], spacingGap);
             PositionAlignContent(memento, palette, state, rtl, aAlign, PaletteRelativeAlign.Center, col0, row1, colWidths[0], rowHeights[1], spacingGap);
             PositionAlignContent(memento, palette, state, rtl, aAlign, PaletteRelativeAlign.Far, col0, row2, colWidths[0], rowHeights[2], spacingGap);
-            PositionAlignContent(memento, palette, state, rtl, bAlign, PaletteRelativeAlign.Near, col1, row0, colWidths[1], rowHeights[0], spacingGap);
-            PositionAlignContent(memento, palette, state, rtl, bAlign, PaletteRelativeAlign.Center, col1, row1, colWidths[1], rowHeights[1], spacingGap);
-            PositionAlignContent(memento, palette, state, rtl, bAlign, PaletteRelativeAlign.Far, col1, row2, colWidths[1], rowHeights[2], spacingGap);
+            PositionAlignContent(memento, palette, state, rtl, B_ALIGN, PaletteRelativeAlign.Near, col1, row0, colWidths[1], rowHeights[0], spacingGap);
+            PositionAlignContent(memento, palette, state, rtl, B_ALIGN, PaletteRelativeAlign.Center, col1, row1, colWidths[1], rowHeights[1], spacingGap);
+            PositionAlignContent(memento, palette, state, rtl, B_ALIGN, PaletteRelativeAlign.Far, col1, row2, colWidths[1], rowHeights[2], spacingGap);
             PositionAlignContent(memento, palette, state, rtl, cAlign, PaletteRelativeAlign.Near, col2, row0, colWidths[2], rowHeights[0], spacingGap);
             PositionAlignContent(memento, palette, state, rtl, cAlign, PaletteRelativeAlign.Center, col2, row1, colWidths[2], rowHeights[1], spacingGap);
             PositionAlignContent(memento, palette, state, rtl, cAlign, PaletteRelativeAlign.Far, col2, row2, colWidths[2], rowHeights[2], spacingGap);
@@ -1148,8 +1303,15 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(memento is StandardContentMemento);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -1350,7 +1512,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.DrawImage;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1366,7 +1530,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.ImageRect;
             }
             else
+            {
                 return Rectangle.Empty;
+            }
         }
 
         /// <summary>
@@ -1382,7 +1548,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.DrawShortText;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1398,7 +1566,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.ShortTextRect;
             }
             else
+            {
                 return Rectangle.Empty;
+            }
         }
 
         /// <summary>
@@ -1414,7 +1584,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.DrawLongText;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1430,7 +1602,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return standard.LongTextRect;
             }
             else
+            {
                 return Rectangle.Empty;
+            }
         }
         #endregion
 
@@ -1462,46 +1636,46 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case TabBorderStyle.DockEqual:
                 case TabBorderStyle.SquareEqualSmall:
-                    return _spacingTabSquareEqualSmall;
+                    return SPACING_TAB_SQUARE_EQUAL_SMALL;
                 case TabBorderStyle.SquareEqualMedium:
-                    return _spacingTabSquareEqualMedium;
+                    return SPACING_TAB_SQUARE_EQUAL_MEDIUM;
                 case TabBorderStyle.SquareEqualLarge:
-                    return _spacingTabSquareEqualLarge;
+                    return SPACING_TAB_SQUARE_EQUAL_LARGE;
                 case TabBorderStyle.DockOutsize:
                 case TabBorderStyle.SquareOutsizeSmall:
-                    return _spacingTabSquareOutsizeSmall;
+                    return SPACING_TAB_SQUARE_OUTSIZE_SMALL;
                 case TabBorderStyle.SquareOutsizeMedium:
-                    return _spacingTabSquareOutsizeMedium;
+                    return SPACING_TAB_SQUARE_OUTSIZE_MEDIUM;
                 case TabBorderStyle.SquareOutsizeLarge:
-                    return _spacingTabSquareOutsizeLarge;
+                    return SPACING_TAB_SQUARE_OUTSIZE_LARGE;
                 case TabBorderStyle.RoundedEqualSmall:
-                    return _spacingTabRoundedEqualSmall;
+                    return SPACING_TAB_ROUNDED_EQUAL_SMALL;
                 case TabBorderStyle.RoundedEqualMedium:
-                    return _spacingTabRoundedEqualMedium;
+                    return SPACING_TAB_ROUNDED_EQUAL_MEDIUM;
                 case TabBorderStyle.RoundedEqualLarge:
-                    return _spacingTabRoundedEqualLarge;
+                    return SPACING_TAB_ROUNDED_EQUAL_LARGE;
                 case TabBorderStyle.RoundedOutsizeSmall:
-                    return _spacingTabRoundedOutsizeSmall;
+                    return SPACING_TAB_ROUNDED_OUTSIZE_SMALL;
                 case TabBorderStyle.RoundedOutsizeMedium:
-                    return _spacingTabRoundedOutsizeMedium;
+                    return SPACING_TAB_ROUNDED_OUTSIZE_MEDIUM;
                 case TabBorderStyle.RoundedOutsizeLarge:
-                    return _spacingTabRoundedOutsizeLarge;
+                    return SPACING_TAB_ROUNDED_OUTSIZE_LARGE;
                 case TabBorderStyle.SlantEqualNear:
                 case TabBorderStyle.SlantEqualFar:
-                    return _spacingTabSlantEqual;
+                    return SPACING_TAB_SLANT_EQUAL;
                 case TabBorderStyle.SlantOutsizeNear:
                 case TabBorderStyle.SlantOutsizeFar:
-                    return _spacingTabSlantOutsize;
+                    return SPACING_TAB_SLANT_OUTSIZE;
                 case TabBorderStyle.SlantEqualBoth:
-                    return _spacingTabSlantEqualBoth;
+                    return SPACING_TAB_SLANT_EQUAL_BOTH;
                 case TabBorderStyle.SlantOutsizeBoth:
-                    return _spacingTabSlantOutsize * 2;
+                    return SPACING_TAB_SLANT_OUTSIZE * 2;
                 case TabBorderStyle.OneNote:
-                    return _spacingTabOneNote;
+                    return SPACING_TAB_ONE_NOTE;
                 case TabBorderStyle.SmoothEqual:
-                    return _spacingTabSmoothE;
+                    return SPACING_TAB_SMOOTH_E;
                 case TabBorderStyle.SmoothOutsize:
-                    return _spacingTabSmoothO;
+                    return SPACING_TAB_SMOOTH_O;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
@@ -1527,7 +1701,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter reference
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             // Get the width of the border
             int borderWidth = palette.GetBorderWidth(state);
@@ -1549,7 +1726,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     ret = new Padding(borderWidth, borderWidth, borderWidth, 0);
                     break;
                 case TabBorderStyle.DockOutsize:
-                    ret = new Padding(borderWidth + _spacingTabDockOutsize, borderWidth + _spacingTabSquareOutsizeLarge, borderWidth + _spacingTabDockOutsize, 0);
+                    ret = new Padding(borderWidth + SPACING_TAB_DOCK_OUTSIZE, borderWidth + SPACING_TAB_SQUARE_OUTSIZE_LARGE, borderWidth + SPACING_TAB_DOCK_OUTSIZE, 0);
                     break;
                 case TabBorderStyle.SquareOutsizeMedium:
                 case TabBorderStyle.SquareOutsizeSmall:
@@ -1557,69 +1734,89 @@ namespace ComponentFactory.Krypton.Toolkit
                 case TabBorderStyle.RoundedOutsizeMedium:
                 case TabBorderStyle.RoundedOutsizeSmall:
                 case TabBorderStyle.RoundedOutsizeLarge:
-                    ret = new Padding(borderWidth + _spacingTabOutsizePadding, borderWidth + _spacingTabOutsizePadding, borderWidth + _spacingTabOutsizePadding, 0);
+                    ret = new Padding(borderWidth + SPACING_TAB_OUTSIZE_PADDING, borderWidth + SPACING_TAB_OUTSIZE_PADDING, borderWidth + SPACING_TAB_OUTSIZE_PADDING, 0);
                     break;
                 case TabBorderStyle.SlantEqualNear:
                 case TabBorderStyle.SlantOutsizeNear:
                     // Calculte the extra needed for the outsize variant
-                    int x = (tabBorderStyle == TabBorderStyle.SlantOutsizeNear ? _spacingTabOutsizePadding : 0);
+                    int x = (tabBorderStyle == TabBorderStyle.SlantOutsizeNear ? SPACING_TAB_OUTSIZE_PADDING : 0);
 
                     switch(orientation)
                     {
                         case VisualOrientation.Top:
                             if (rtl)
-                                ret = new Padding(borderWidth + x, borderWidth + x, borderWidth + x + _spacingTabSlantPadding - 1, 0);
+                            {
+                                ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
+                            }
                             else
-                                ret = new Padding(borderWidth + x + _spacingTabSlantPadding - 1, borderWidth + x, borderWidth + x, 0);
+                            {
+                                ret = new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x, borderWidth + x, 0);
+                            }
+
                             break;
                         case VisualOrientation.Left:
-                            ret = new Padding(borderWidth + x + _spacingTabSlantPadding - 1, borderWidth + x, borderWidth + x, 0);
+                            ret = new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x, borderWidth + x, 0);
                             break;
                         case VisualOrientation.Right:
-                            ret = new Padding(borderWidth + x, borderWidth + x, borderWidth + x + _spacingTabSlantPadding - 1, 0);
+                            ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
                             break;
                         case VisualOrientation.Bottom:
                             if (rtl)
-                                ret = new Padding(borderWidth + x + _spacingTabSlantPadding - 1, borderWidth + x, borderWidth + x, 0);
+                            {
+                                ret = new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x, borderWidth + x, 0);
+                            }
                             else
-                                ret = new Padding(borderWidth + x, borderWidth + x, borderWidth + x + _spacingTabSlantPadding - 1, 0);
+                            {
+                                ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
+                            }
+
                             break;
                     }
                     break;
                 case TabBorderStyle.SlantEqualFar:
                 case TabBorderStyle.SlantOutsizeFar:
                     // Calculte the extra needed for the outsize variant
-                    int y = (tabBorderStyle == TabBorderStyle.SlantOutsizeFar ? _spacingTabOutsizePadding : 0);
+                    int y = (tabBorderStyle == TabBorderStyle.SlantOutsizeFar ? SPACING_TAB_OUTSIZE_PADDING : 0);
 
                     switch (orientation)
                     {
                         case VisualOrientation.Top:
                             if (rtl)
-                                ret = new Padding(borderWidth + y + _spacingTabSlantPadding - 1, borderWidth + y, borderWidth + y, 0);
+                            {
+                                ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
+                            }
                             else
-                                ret = new Padding(borderWidth + y, borderWidth + y, borderWidth + y + _spacingTabSlantPadding - 1, 0);
+                            {
+                                ret = new Padding(borderWidth + y, borderWidth + y, (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
+                            }
+
                             break;
                         case VisualOrientation.Left:
-                            ret = new Padding(borderWidth + y, borderWidth + y, borderWidth + y + _spacingTabSlantPadding - 1, 0);
+                            ret = new Padding(borderWidth + y, borderWidth + y, (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
                             break;
                         case VisualOrientation.Right:
-                            ret = new Padding(borderWidth + y + _spacingTabSlantPadding - 1, borderWidth + y, borderWidth + y, 0);
+                            ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
                             break;
                         case VisualOrientation.Bottom:
                             if (rtl)
-                                ret = new Padding(borderWidth + y, borderWidth + y, borderWidth + y + _spacingTabSlantPadding - 1, 0);
+                            {
+                                ret = new Padding(borderWidth + y, borderWidth + y, (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
+                            }
                             else
-                                ret = new Padding(borderWidth + y + _spacingTabSlantPadding - 1, borderWidth + y, borderWidth + y, 0);
+                            {
+                                ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
+                            }
+
                             break;
                     }
                     break;
                 case TabBorderStyle.SlantEqualBoth:
                 case TabBorderStyle.SlantOutsizeBoth:
                     // Calculte the extra needed for the outsize variant
-                    int z = (tabBorderStyle == TabBorderStyle.SlantOutsizeBoth ? _spacingTabOutsizePadding : 0);
+                    int z = (tabBorderStyle == TabBorderStyle.SlantOutsizeBoth ? SPACING_TAB_OUTSIZE_PADDING : 0);
 
-                    ret = new Padding(borderWidth + z + _spacingTabSlantPadding - 1, borderWidth + z,
-                                      borderWidth + z + _spacingTabSlantPadding - 1, 0);
+                    ret = new Padding((borderWidth + z + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + z,
+                                      (borderWidth + z + SPACING_TAB_SLANT_PADDING) - 1, 0);
                     break;
                 case TabBorderStyle.OneNote:
                     // Is the current tab selected?
@@ -1628,18 +1825,23 @@ namespace ComponentFactory.Krypton.Toolkit
                                     (state == PaletteState.CheckedTracking);
 
                     // Find the correct edge padding values to use
-                    int lp = (selected ? _spacingTabOneNoteLPS : _spacingTabOneNoteLPI);
-                    int tp = (selected ? _spacingTabOneNoteTPS : _spacingTabOneNoteTPI);
-                    int bp = (selected ? _spacingTabOneNoteBPS : _spacingTabOneNoteBPI);
-                    int rp = (selected ? _spacingTabOneNoteRPS : _spacingTabOneNoteRPI);
+                    int lp = (selected ? SPACING_TAB_ONE_NOTE_LPS : SPACING_TAB_ONE_NOTE_LPI);
+                    int tp = (selected ? SPACING_TAB_ONE_NOTE_TPS : SPACING_TAB_ONE_NOTE_TPI);
+                    int bp = (selected ? SPACING_TAB_ONE_NOTE_BPS : SPACING_TAB_ONE_NOTE_BPI);
+                    int rp = (selected ? SPACING_TAB_ONE_NOTE_RPS : SPACING_TAB_ONE_NOTE_RPI);
 
                     switch (orientation)
                     {
                         case VisualOrientation.Top:
                             if (rtl)
+                            {
                                 ret = new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
+                            }
                             else
+                            {
                                 ret = new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
+                            }
+
                             break;
                         case VisualOrientation.Left:
                             ret = new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
@@ -1649,17 +1851,22 @@ namespace ComponentFactory.Krypton.Toolkit
                             break;
                         case VisualOrientation.Bottom:
                             if (rtl)
+                            {
                                 ret = new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
+                            }
                             else
+                            {
                                 ret = new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
+                            }
+
                             break;
                     }
                     break;
                 case TabBorderStyle.SmoothEqual:
-                    ret = new Padding(borderWidth + _spacingTabSmoothLRE, borderWidth + _spacingTabSmoothTE, borderWidth + _spacingTabSmoothLRE, 0);
+                    ret = new Padding(borderWidth + SPACING_TAB_SMOOTH_LRE, borderWidth + SPACING_TAB_SMOOTH_TE, borderWidth + SPACING_TAB_SMOOTH_LRE, 0);
                     break;
                 case TabBorderStyle.SmoothOutsize:
-                    ret = new Padding(borderWidth + _spacingTabSmoothLRO, borderWidth + _spacingTabSmoothTO, borderWidth + _spacingTabSmoothLRO, 0);
+                    ret = new Padding(borderWidth + SPACING_TAB_SMOOTH_LRO, borderWidth + SPACING_TAB_SMOOTH_TO, borderWidth + SPACING_TAB_SMOOTH_LRO, 0);
                     break;
                 default:
                     // Should never happen!
@@ -1691,8 +1898,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -1724,8 +1938,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -1756,8 +1977,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -1791,7 +2019,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                        orientation))
                             {
                                 using (Pen borderPen = new Pen(borderBrush, borderWidth))
+                                {
                                     context.Graphics.DrawPath(borderPen, borderPath);
+                                }
                             }
 
                             Image borderImage = palette.GetBorderImage(state);
@@ -1842,7 +2072,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Note is the incoming state is detailed we are drawing inside a popip
             bool showingInPopup = ((state & PaletteState.FocusOverride) == PaletteState.FocusOverride);
             if (showingInPopup)
+            {
                 state = state & ~PaletteState.FocusOverride;
+            }
 
             switch (palette.GetRibbonBackColorStyle(state))
             {
@@ -1851,7 +2083,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteRibbonColorStyle.Solid:
                     using (SolidBrush backBrush = new SolidBrush(palette.GetRibbonBackColor1(state)))
+                    {
                         context.Graphics.FillRectangle(backBrush, rect);
+                    }
+
                     break;
                 case PaletteRibbonColorStyle.Linear:
                     return DrawRibbonLinear(context, rect, state, palette, memento);
@@ -1874,13 +2109,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteRibbonColorStyle.RibbonGroupGradientOne:
                     return DrawRibbonGroupGradientOne(context, rect, state, palette, memento);
                 case PaletteRibbonColorStyle.RibbonGroupGradientTwo:
-                    return DrawRibbonGroupGradientTwo(context, rect, state, palette, _groupGradientTwo, memento);
+                    return DrawRibbonGroupGradientTwo(context, rect, state, palette, GROUP_GRADIENT_TWO, memento);
                 case PaletteRibbonColorStyle.RibbonGroupCollapsedBorder:
                     return DrawRibbonGroupCollapsedBorder(context, rect, state, palette, memento);
                 case PaletteRibbonColorStyle.RibbonGroupCollapsedFrameBorder:
                     return DrawRibbonGroupCollapsedFrameBorder(context, rect, state, palette, memento);
                 case PaletteRibbonColorStyle.RibbonGroupCollapsedFrameBack:
-                    return DrawRibbonGroupGradientTwo(context, rect, state, palette, _groupGradientFrame, memento);
+                    return DrawRibbonGroupGradientTwo(context, rect, state, palette, GROUP_GRADIENT_FRAME, memento);
                 case PaletteRibbonColorStyle.RibbonGroupNormalBorder:
                     return DrawRibbonGroupNormalBorder(context, rect, state, palette, false, false, memento);
                 case PaletteRibbonColorStyle.RibbonGroupNormalBorderSep:
@@ -2018,7 +2253,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Draw inside of the border edge in a lighter version of the border
             using (SolidBrush drawBrush = new SolidBrush(paletteBack.GetBackColor1(state)))
+            {
                 context.Graphics.FillRectangle(drawBrush, displayRect);
+            }
         }
         #endregion
 
@@ -2046,9 +2283,20 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteBorder != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteBack == null) throw new ArgumentNullException("paletteBack");
-            if (paletteBorder == null) throw new ArgumentNullException("paletteBorder");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteBack == null)
+            {
+                throw new ArgumentNullException("paletteBack");
+            }
+
+            if (paletteBorder == null)
+            {
+                throw new ArgumentNullException("paletteBorder");
+            }
 
             Debug.Assert(context.Control != null);
             Debug.Assert(!context.Control.IsDisposed);
@@ -2108,8 +2356,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             // Grab an image appropriate to the state
             Image drawImage = palette.GetCheckBoxImage(enabled, checkState, tracking, pressed);
@@ -2124,7 +2379,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return CheckBoxRenderer.GetGlyphSize(context.Graphics, state);
             }
             else
+            {
                 return drawImage.Size;
+            }
         }
 
         /// <summary>
@@ -2149,8 +2406,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             // Grab an image appropriate to the state
             Image drawImage = palette.GetCheckBoxImage(enabled, checkState, tracking, pressed);
@@ -2205,7 +2469,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return RadioButtonRenderer.GetGlyphSize(context.Graphics, state);
             }
             else
+            {
                 return drawImage.Size;
+            }
         }
 
         /// <summary>
@@ -2230,8 +2496,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             // Grab an image appropriate to the state
             Image drawImage = palette.GetRadioButtonImage(enabled, checkState, tracking, pressed);
@@ -2276,7 +2549,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the image defined size
             Size imageSize = Size.Empty;
             if (drawImage != null)
+            {
                 imageSize = drawImage.Size;
+            }
 
             // Alter size for different orientations
             if ((orientation == VisualOrientation.Left) ||
@@ -2307,15 +2582,24 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(palette != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (palette == null) throw new ArgumentNullException("palette");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (palette == null)
+            {
+                throw new ArgumentNullException("palette");
+            }
 
             // Grab an image appropriate to the state
             Image drawImage = palette.GetDropDownButtonImage(state);
             if (drawImage != null)
+            {
                 DrawImageHelper(context, drawImage, Color.Empty, 
                                 displayRect, orientation, PaletteImageEffect.Normal, 
                                 Color.Empty, Color.Empty);
+            }
         }
 
         /// <summary>
@@ -2334,15 +2618,22 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteContent != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteContent == null) throw new ArgumentNullException("paletteContent");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteContent == null)
+            {
+                throw new ArgumentNullException("paletteContent");
+            }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
             Color c2 = paletteContent.GetContentShortTextColor2(state);
 
             // Find the top left starting position for drawing lines
-            int xStart = cellRect.Left + (cellRect.Right - cellRect.Left - 4) / 2;
-            int yStart = cellRect.Top + (cellRect.Bottom - cellRect.Top - 3) / 2;
+            int xStart = cellRect.Left + ((cellRect.Right - cellRect.Left - 4) / 2);
+            int yStart = cellRect.Top + ((cellRect.Bottom - cellRect.Top - 3) / 2);
 
             using (Pen darkPen = new Pen(c1),
                        lightPen = new Pen(c2))
@@ -2371,15 +2662,22 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteContent != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteContent == null) throw new ArgumentNullException("paletteContent");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteContent == null)
+            {
+                throw new ArgumentNullException("paletteContent");
+            }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
             Color c2 = paletteContent.GetContentShortTextColor2(state);
 
             // Find the top left starting position for drawing lines
-            int xStart = cellRect.Left + (cellRect.Right - cellRect.Left - 4) / 2;
-            int yStart = cellRect.Top + (cellRect.Bottom - cellRect.Top - 3) / 2;
+            int xStart = cellRect.Left + ((cellRect.Right - cellRect.Left - 4) / 2);
+            int yStart = cellRect.Top + ((cellRect.Bottom - cellRect.Top - 3) / 2);
 
             using (Pen darkPen = new Pen(c1),
                        lightPen = new Pen(c2))
@@ -2408,15 +2706,22 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteContent != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteContent == null) throw new ArgumentNullException("paletteContent");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteContent == null)
+            {
+                throw new ArgumentNullException("paletteContent");
+            }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
             Color c2 = paletteContent.GetContentShortTextColor2(state);
 
             // Find the top left starting position for drawing lines
-            int xStart = cellRect.Left + (cellRect.Right - cellRect.Left - 4) / 2;
-            int yStart = cellRect.Top + (cellRect.Bottom - cellRect.Top - 3) / 2;
+            int xStart = cellRect.Left + ((cellRect.Right - cellRect.Left - 4) / 2);
+            int yStart = cellRect.Top + ((cellRect.Bottom - cellRect.Top - 3) / 2);
 
             using (Pen darkPen = new Pen(c1),
                        lightPen = new Pen(c2))
@@ -2447,8 +2752,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteGeneral != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteGeneral == null) throw new ArgumentNullException("paletteGeneral");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteGeneral == null)
+            {
+                throw new ArgumentNullException("paletteGeneral");
+            }
 
             switch (shape)
             {
@@ -2509,8 +2821,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteGeneral != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteGeneral == null) throw new ArgumentNullException("paletteGeneral");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteGeneral == null)
+            {
+                throw new ArgumentNullException("paletteGeneral");
+            }
 
             Color darkColor = (state == PaletteState.Disabled ? paletteGeneral.GetRibbonDisabledDark(state) :
                                                                 paletteGeneral.GetRibbonDropArrowDark(state));
@@ -2562,8 +2881,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteGeneral != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteGeneral == null) throw new ArgumentNullException("paletteGeneral");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteGeneral == null)
+            {
+                throw new ArgumentNullException("paletteGeneral");
+            }
 
             Color c1 = paletteGeneral.GetRibbonQATButtonDark(state);
             Color c2 = paletteGeneral.GetRibbonQATButtonLight(state);
@@ -2615,15 +2941,24 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteGeneral != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteGeneral == null) throw new ArgumentNullException("paletteGeneral");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            if (paletteGeneral == null)
+            {
+                throw new ArgumentNullException("paletteGeneral");
+            }
 
             Color c1 = paletteGeneral.GetRibbonQATButtonDark(state);
             Color c2 = paletteGeneral.GetRibbonQATButtonLight(state);
 
             // Office 2010 uses the same color for both parts
             if (shape == PaletteRibbonShape.Office2010)
+            {
                 c2 = c1;
+            }
 
             // If disabled then convert to black and white
             if (state == PaletteState.Disabled)
@@ -2665,10 +3000,17 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(paletteGeneral != null);
 
             // Validate parameter references
-            if (context == null) throw new ArgumentNullException("context");
-            if (paletteGeneral == null) throw new ArgumentNullException("paletteGeneral");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
-            int x = displayRect.X + (displayRect.Width - 2) / 2;
+            if (paletteGeneral == null)
+            {
+                throw new ArgumentNullException("paletteGeneral");
+            }
+
+            int x = displayRect.X + ((displayRect.Width - 2) / 2);
             Color darkColor = paletteGeneral.GetRibbonGroupSeparatorDark(state);
             Color lightColor = paletteGeneral.GetRibbonGroupSeparatorLight(state);
 
@@ -2727,7 +3069,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((sortImage.Width < cellRect.Width) && (sortImage.Height < cellRect.Height))
             {
                 // Find the drawing location of the image
-                int y = cellRect.Top + (cellRect.Height - sortImage.Height) / 2;
+                int y = cellRect.Top + ((cellRect.Height - sortImage.Height) / 2);
                 int x = (rtl ? cellRect.X : cellRect.Right - sortImage.Width);
 
                 // Grab the foreground color to use for the image
@@ -2736,9 +3078,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Draw the image with remapping the image color to the foreground color
                 using (ImageAttributes attribs = new ImageAttributes())
                 {
-                    ColorMap cm = new ColorMap();
-                    cm.OldColor = Color.Black;
-                    cm.NewColor = CommonHelper.MergeColors(imageColor, 0.75f, Color.Transparent, 0.25f);
+                    ColorMap cm = new ColorMap
+                    {
+                        OldColor = Color.Black,
+                        NewColor = CommonHelper.MergeColors(imageColor, 0.75f, Color.Transparent, 0.25f)
+                    };
                     attribs.SetRemapTable(new ColorMap[] { cm }, ColorAdjustType.Bitmap);
 
                     context.Graphics.DrawImage(sortImage,
@@ -2752,7 +3096,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // With rtl we need to move across to the right
                 if (rtl)
+                {
                     cellRect.X += sortImage.Width;
+                }
             }
 
             return cellRect;
@@ -2803,7 +3149,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 (rowImage.Height < cellRect.Height))
             {
                 // Find the drawing location of the image
-                int y = cellRect.Top + (cellRect.Height - rowImage.Height) / 2;
+                int y = cellRect.Top + ((cellRect.Height - rowImage.Height) / 2);
                 int x = (rtl ? cellRect.Right - rowImage.Width : cellRect.Left);
 
                 // Grab the foreground color to use for the image
@@ -2812,9 +3158,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Draw the image with remapping the image color to the foreground color
                 using (ImageAttributes attribs = new ImageAttributes())
                 {
-                    ColorMap cm = new ColorMap();
-                    cm.OldColor = Color.Black;
-                    cm.NewColor = CommonHelper.MergeColors(imageColor, 0.75f, Color.Transparent, 0.25f);
+                    ColorMap cm = new ColorMap
+                    {
+                        OldColor = Color.Black,
+                        NewColor = CommonHelper.MergeColors(imageColor, 0.75f, Color.Transparent, 0.25f)
+                    };
                     attribs.SetRemapTable(new ColorMap[] { cm }, ColorAdjustType.Bitmap);
 
                     context.Graphics.DrawImage(rowImage,
@@ -2828,7 +3176,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // With NOT rtl we need to move across to the right
                 if (!rtl)
+                {
                     cellRect.X += rowImage.Width;
+                }
             }
 
             return cellRect;
@@ -2856,20 +3206,26 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((errorImage.Width < cellRect.Width) && (errorImage.Height < cellRect.Height))
             {
                 // Find the drawing location of the image
-                int y = cellRect.Top + (cellRect.Height - errorImage.Height) / 2;
+                int y = cellRect.Top + ((cellRect.Height - errorImage.Height) / 2);
                 int x = (rtl ? cellRect.Left : cellRect.Right - errorImage.Width);
 
                 if (state == PaletteState.Disabled)
+                {
                     ControlPaint.DrawImageDisabled(context.Graphics, errorImage, x, y, Color.Empty);
+                }
                 else
+                {
                     context.Graphics.DrawImage(errorImage, x, y);
+                }
 
                 // Reduce the cell rect by that used up
                 cellRect.Width -= errorImage.Width;
 
                 // With rtl we need to move across to the right
                 if (rtl)
+                {
                     cellRect.X += errorImage.Width;
+                }
             }
 
             return cellRect;
@@ -2889,10 +3245,14 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(dragDropPalette != null);
 
             using(SolidBrush backBrush = new SolidBrush(dragDropPalette.GetDragDropSolidBack()))
+            {
                 context.Graphics.FillRectangle(backBrush, drawRect);
+            }
 
             using (Pen borderPen = new Pen(dragDropPalette.GetDragDropSolidBorder()))
+            {
                 context.Graphics.DrawRectangle(borderPen, drawRect);
+            }
         }
 
         /// <summary>
@@ -2909,9 +3269,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(dragDropPalette != null);
 
             if (feedback == PaletteDragFeedback.Rounded)
+            {
                 MeasureDragDockingRounded(dragData, dragDropPalette);
+            }
             else
+            {
                 MeasureDragDockingSquares(dragData, dragDropPalette);
+            }
         }
 
         /// <summary>
@@ -2931,9 +3295,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(dragDropPalette != null);
 
             if (feedback == PaletteDragFeedback.Rounded)
+            {
                 DrawDragDockingRounded(context, dragData, dragDropPalette);
+            }
             else
+            {
                 DrawDragDockingSquares(context, dragData, dragDropPalette);
+            }
         }
         #endregion
 
@@ -2949,12 +3317,16 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If the background is not being painted, then has transparency
             if (paletteBack.GetBackDraw(state) == InheritBool.False)
+            {
                 return true;
+            }
             else
             {
                 // If the first color has alpha channel then has transparency
                 if (paletteBack.GetBackColor1(state).A < 255)
+                {
                     return true;
+                }
                 else
                 {
                     // Does the draw style require use of the second color?
@@ -2962,7 +3334,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // If the second color has alpha channel then has transparency
                         if (paletteBack.GetBackColor2(state).A < 255)
+                        {
                             return true;
+                        }
                     }
                 }
             }
@@ -2989,17 +3363,23 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If the border is not being painted then it must be transparent
                 if (paletteBorder.GetBorderDraw(state) == InheritBool.False)
+                {
                     return true;
+                }
                 else
                 {
                     // If there is rounding causing transparent corners
                     if (paletteBorder.GetBorderRounding(state) > 0)
+                    {
                         return true;
+                    }
                     else
                     {
                         // If the first color has alpha channel then has transparency
                         if (paletteBorder.GetBorderColor1(state).A < 255)
+                        {
                             return true;
+                        }
                         else
                         {
                             // Does the draw style require use of the second color?
@@ -3007,7 +3387,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 // If the second color has alpha channel then has transparency
                                 if (paletteBorder.GetBorderColor2(state).A < 255)
+                                {
                                     return true;
+                                }
                             }
                         }
                     }
@@ -3044,7 +3426,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Never want a frequency less than 1
             if (frequency <= 0)
+            {
                 frequency = 1;
+            }
 
             float range = maximum - minimum;
             using (Pen tickPen = new Pen(elementPalette.GetElementColor1(state)))
@@ -3068,14 +3452,18 @@ namespace ComponentFactory.Krypton.Toolkit
                             top = drawRect.Y + 2;
                             bottom = drawRect.Bottom - 2;
                             if ((i == minimum) || (i == maximum))
+                            {
                                 top -= 1;
+                            }
                         }
                         else
                         {
                             top = drawRect.Y + 1;
                             bottom = drawRect.Bottom - 3;
                             if ((i == minimum) || (i == maximum))
+                            {
                                 bottom += 1;
+                            }
                         }
 
                         context.Graphics.DrawLine(tickPen, offset, top, offset, bottom);
@@ -3100,14 +3488,18 @@ namespace ComponentFactory.Krypton.Toolkit
                             left = drawRect.X + 2;
                             right = drawRect.Right - 2;
                             if ((i == minimum) || (i == maximum))
+                            {
                                 left -= 1;
+                            }
                         }
                         else
                         {
                             left = drawRect.X + 1;
                             right = drawRect.Right - 3;
                             if ((i == minimum) || (i == maximum))
+                            {
                                 right += 1;
+                            }
                         }
 
                         context.Graphics.DrawLine(tickPen, left, offset, right, offset);
@@ -3135,9 +3527,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // The position indicator leavesa gap at the left/right ends for horizontal and top/bottom for vertical
             // so we do not draw that last pixel so that when the indicator is at the end the track does not stick out
             if (orientation == Orientation.Horizontal)
+            {
                 drawRect.Inflate(-1, 0);
+            }
             else
+            {
                 drawRect.Inflate(0, -1);
+            }
 
             using (Pen border1Pen = new Pen(elementPalette.GetElementColor1(state)),
                        border2Pen = new Pen(elementPalette.GetElementColor2(state)))
@@ -3261,7 +3657,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         context.Graphics.DrawPath(outsidePen, outside);
 
                         using(SolidBrush insideBrush = new SolidBrush(elementPalette.GetElementColor3(state)))
+                        {
                             context.Graphics.FillPath(insideBrush, border);
+                        }
 
                         context.Graphics.DrawPath(borderPen, border);
 
@@ -3326,7 +3724,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private GraphicsPath CreatePositionPathsBottom(Rectangle drawRect)
         {
-            float half = (float)drawRect.Width / 2 - 0.5f;
+            float half = ((float)drawRect.Width / 2) - 0.5f;
 
             GraphicsPath path = new GraphicsPath();
             path.AddLines(new PointF[]{ new PointF(drawRect.X + half, drawRect.Y),
@@ -3355,7 +3753,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private GraphicsPath CreatePositionPathsTop(Rectangle drawRect)
         {
-            float half = (float)drawRect.Width / 2 - 0.5f;
+            float half = ((float)drawRect.Width / 2) - 0.5f;
 
             GraphicsPath path = new GraphicsPath();
             path.AddLines(new PointF[]{ new PointF(drawRect.X + 0.75f, drawRect.Y),
@@ -3384,7 +3782,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private GraphicsPath CreatePositionPathsRight(Rectangle drawRect)
         {
-            float half = (float)drawRect.Height / 2 - 0.5f;
+            float half = ((float)drawRect.Height / 2) - 0.5f;
 
             GraphicsPath path = new GraphicsPath();
             path.AddLines(new PointF[]{ new PointF(drawRect.X + 0.75f, drawRect.Y),
@@ -3414,7 +3812,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private GraphicsPath CreatePositionPathsLeft(Rectangle drawRect)
         {
-            float half = (float)drawRect.Height / 2 - 0.5f;
+            float half = ((float)drawRect.Height / 2) - 0.5f;
 
             GraphicsPath path = new GraphicsPath();
             path.AddLines(new PointF[]{ new PointF(drawRect.Right - 1.75f, drawRect.Y),
@@ -3469,10 +3867,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 if (CommonHelper.HasBottomBorder(borders))
+                {
                     rect.Height -= halfBorderWidthTL;
+                }
 
                 if (CommonHelper.HasRightBorder(borders))
+                {
                     rect.Width -= halfBorderWidthTL;
+                }
 
                 // Find the width/height of the arc box
                 int arcLength = rounding * 2;
@@ -3480,7 +3882,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If drawing all the four borders use a single routine
                 if (CommonHelper.HasAllBorders(borders))
+                {
                     CreateAllBorderBackPath(middle, borderPath, rect, borderWidth, rounding, forBorder, arcLength, arcLength1);
+                }
                 else
                 {
                     // Are we calculating just the borders to be drawn?
@@ -3493,7 +3897,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             // If rounding is used we need to use a path so that corner rounding is honored but
                             // because this is going to be used as a region we need to close the path as well.
                             if (rounding > 0)
+                            {
                                 CreateBorderBackPathOnlyClosed(middle, borders, borderPath, rect, arcLength, variant);
+                            }
                             else
                             {
                                 // Without rounding we just provide the entire area
@@ -3506,9 +3912,13 @@ namespace ComponentFactory.Krypton.Toolkit
                             // border from the middle outwards.
 
                             if (rounding > 0)
+                            {
                                 CreateBorderBackPathOnly(middle, borders, borderPath, rect, arcLength, variant);
+                            }
                             else
+                            {
                                 CreateBorderBackPathOnly(borders, borderPath, rect, variant);
+                            }
                         }
                     }
                     else
@@ -3516,7 +3926,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Calculating a complete path for the entire area and not just the specified borders
                         // If there is rounding we need to calculate a path that honors the rounding at corners
                         if (rounding > 0)
+                        {
                             CreateBorderBackPathComplete(middle, borders, borderPath, rect, arcLength);
+                        }
                         else
                         {
                             // Without rounding the complete path is always just the entire area
@@ -3605,15 +4017,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteDrawBorders.TopBottom:
                     if (variant == 0)
+                    {
                         borderPath.AddLine(rect.Left - 1, rect.Top, rect.Right + 1, rect.Top);
+                    }
                     else
+                    {
                         borderPath.AddLine(rect.Left - 1, rect.Bottom, rect.Right + 1, rect.Bottom);
+                    }
+
                     break;
                 case PaletteDrawBorders.LeftRight:
                     if (variant == 0)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top - 1, rect.Left, rect.Bottom + 1);
+                    }
                     else
+                    {
                         borderPath.AddLine(rect.Right, rect.Top - 1, rect.Right, rect.Bottom + 1);
+                    }
+
                     break;
                 case PaletteDrawBorders.TopLeft:
                     borderPath.AddLine(rect.Left, rect.Bottom + 1, rect.Left, rect.Top);
@@ -3697,15 +4119,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteDrawBorders.TopBottom:
                     if (variant == 0)
+                    {
                         borderPath.AddLine(rect.Left - 1, rect.Top, rect.Right + 1, rect.Top);
+                    }
                     else
+                    {
                         borderPath.AddLine(rect.Left - 1, rect.Bottom, rect.Right + 1, rect.Bottom);
+                    }
+
                     break;
                 case PaletteDrawBorders.LeftRight:
                     if (variant == 0)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top - 1, rect.Left, rect.Bottom + 1);
+                    }
                     else
+                    {
                         borderPath.AddLine(rect.Right, rect.Top - 1, rect.Right, rect.Bottom + 1);
+                    }
+
                     break;
                 case PaletteDrawBorders.TopLeft:
                     borderPath.AddLine(rectF.Left, rectF.Bottom + 1, rectF.Left, rectF.Top + arcLength);
@@ -4041,27 +4473,43 @@ namespace ComponentFactory.Krypton.Toolkit
                 case TabBorderStyle.SlantEqualNear:
                 case TabBorderStyle.SlantOutsizeNear:
                     if (tabBorderStyle == TabBorderStyle.SlantOutsizeNear)
+                    {
                         rect = AdjustOutsizeTab(state, rect, orientation);
+                    }
 
                     if (rtl && ((orientation == VisualOrientation.Top) || (orientation == VisualOrientation.Bottom)))
+                    {
                         AddSlantFarPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
+                    {
                         AddSlantNearPath(borderPath, orientation, rect, forBorder);
+                    }
+
                     break;
                 case TabBorderStyle.SlantEqualFar:
                 case TabBorderStyle.SlantOutsizeFar:
                     if (tabBorderStyle == TabBorderStyle.SlantOutsizeFar)
+                    {
                         rect = AdjustOutsizeTab(state, rect, orientation);
+                    }
 
                     if (rtl && ((orientation == VisualOrientation.Top) || (orientation == VisualOrientation.Bottom)))
+                    {
                         AddSlantNearPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
+                    {
                         AddSlantFarPath(borderPath, orientation, rect, forBorder);
+                    }
+
                     break;
                 case TabBorderStyle.SlantEqualBoth:
                 case TabBorderStyle.SlantOutsizeBoth:
                     if (tabBorderStyle == TabBorderStyle.SlantOutsizeBoth)
+                    {
                         rect = AdjustOutsizeTab(state, rect, orientation);
+                    }
 
                     AddSlantBothPath(borderPath, orientation, rect, forBorder);
                     break;
@@ -4072,22 +4520,31 @@ namespace ComponentFactory.Krypton.Toolkit
                                     (state == PaletteState.CheckedTracking);
 
                     // The right padding depends on the selected state
-                    int rp = (selected ? _spacingTabOneNoteRPS : _spacingTabOneNoteRPI);
+                    int rp = (selected ? SPACING_TAB_ONE_NOTE_RPS : SPACING_TAB_ONE_NOTE_RPI);
 
                     // If not selected then need to make the tab shorter
                     if (!selected)
+                    {
                         rect = AdjustOneNoteTab(rect, orientation);
+                    }
 
                     if (rtl && ((orientation == VisualOrientation.Top) || (orientation == VisualOrientation.Bottom)))
+                    {
                         AddOneNoteReversePath(borderPath, orientation, rect, forBorder, rp);
+                    }
                     else
+                    {
                         AddOneNotePath(borderPath, orientation, rect, forBorder, rp);
+                    }
+
                     break;
                 case TabBorderStyle.SmoothEqual:
                 case TabBorderStyle.SmoothOutsize:
                     // Adjust the outsize tab variant
                     if (tabBorderStyle == TabBorderStyle.SmoothOutsize)
+                    {
                         rect = AdjustSmoothTab(state, rect, orientation);
+                    }
 
                     AddSmoothPath(borderPath, orientation, rect, forBorder);
                     break;
@@ -4149,18 +4606,18 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (orientation)
             {
                 case VisualOrientation.Top:
-                    rect.Height -= _spacingTabOneNoteTPI;
-                    rect.Y += _spacingTabOneNoteTPI;
+                    rect.Height -= SPACING_TAB_ONE_NOTE_TPI;
+                    rect.Y += SPACING_TAB_ONE_NOTE_TPI;
                     break;
                 case VisualOrientation.Bottom:
-                    rect.Height -= _spacingTabOneNoteTPI;
+                    rect.Height -= SPACING_TAB_ONE_NOTE_TPI;
                     break;
                 case VisualOrientation.Left:
-                    rect.Width -= _spacingTabOneNoteTPI;
-                    rect.X += _spacingTabOneNoteTPI;
+                    rect.Width -= SPACING_TAB_ONE_NOTE_TPI;
+                    rect.X += SPACING_TAB_ONE_NOTE_TPI;
                     break;
                 case VisualOrientation.Right:
-                    rect.Width -= _spacingTabOneNoteTPI;
+                    rect.Width -= SPACING_TAB_ONE_NOTE_TPI;
                     break;
             }
 
@@ -4220,7 +4677,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top);
                     borderPath.AddLine(rect.Left, rect.Top, rect.Right, rect.Top);
@@ -4228,7 +4687,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom);
@@ -4236,7 +4697,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top);
@@ -4244,7 +4707,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom);
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Right, rect.Top);
@@ -4259,13 +4724,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                            bool forBorder)
         {
             // Cache the distance to make the corner rounded
-            int x = _spacingTabRoundedCorner;
+            int x = SPACING_TAB_ROUNDED_CORNER;
 
             switch (orientation)
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top + x);
                     borderPath.AddLine(rect.Left, rect.Top + x, rect.Left + x, rect.Top);
@@ -4275,7 +4742,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom - x);
                     borderPath.AddLine(rect.Left, rect.Bottom - x, rect.Left + x, rect.Bottom);
@@ -4285,7 +4754,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Left + x, rect.Bottom);
                     borderPath.AddLine(rect.Left + x, rect.Bottom, rect.Left, rect.Bottom - x);
@@ -4295,7 +4766,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right - x, rect.Bottom);
                     borderPath.AddLine(rect.Right - x, rect.Bottom, rect.Right, rect.Bottom - x);
@@ -4312,7 +4785,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              bool forBorder)
         {
             // Cache the distance to use for the slant
-            int x = _spacingTabSlantPadding;
+            int x = SPACING_TAB_SLANT_PADDING;
             int xW = Math.Min(x, rect.Width);
             int xH = Math.Min(x, rect.Height);
 
@@ -4320,7 +4793,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left - 1, rect.Bottom, rect.Left + xW, rect.Top);
                     borderPath.AddLine(rect.Left + xW, rect.Top, rect.Right, rect.Top);
@@ -4328,7 +4803,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left - 1, rect.Top, rect.Left + xW, rect.Bottom);
                     borderPath.AddLine(rect.Left + xW, rect.Bottom, rect.Right, rect.Bottom);
@@ -4336,7 +4813,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom - xH);
                     borderPath.AddLine(rect.Left, rect.Bottom - xH, rect.Left, rect.Top);
@@ -4344,7 +4823,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom - xH);
                     borderPath.AddLine(rect.Right, rect.Bottom - xH, rect.Right, rect.Top);
@@ -4359,7 +4840,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                             bool forBorder)
         {
             // Cache the distance to use for the slant
-            int x = _spacingTabSlantPadding;
+            int x = SPACING_TAB_SLANT_PADDING;
             int xW = Math.Min(x, rect.Width);
             int xH = Math.Min(x, rect.Height);
 
@@ -4367,7 +4848,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top);
                     borderPath.AddLine(rect.Left, rect.Top, rect.Right - xW, rect.Top);
@@ -4375,7 +4858,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right - xW, rect.Bottom);
@@ -4383,7 +4868,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top + xH);
@@ -4391,7 +4878,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom);
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Right, rect.Top + xH);
@@ -4406,7 +4895,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                             bool forBorder)
         {
             // Cache the distance to use for the slant
-            int x = _spacingTabSlantPadding;
+            int x = SPACING_TAB_SLANT_PADDING;
             int xW = Math.Min(x, rect.Width / 2);
             int xH = Math.Min(x, rect.Height / 2);
 
@@ -4414,7 +4903,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left - 1, rect.Bottom, rect.Left + xW, rect.Top);
                     borderPath.AddLine(rect.Left + xW, rect.Top, rect.Right - xW, rect.Top);
@@ -4422,7 +4913,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left - 1, rect.Top, rect.Left + xW, rect.Bottom);
                     borderPath.AddLine(rect.Left + xW, rect.Bottom, rect.Right - xW, rect.Bottom);
@@ -4430,7 +4923,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom - xH);
                     borderPath.AddLine(rect.Left, rect.Bottom - xH, rect.Left, rect.Top + xH);
@@ -4438,7 +4933,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom - xH);
                     borderPath.AddLine(rect.Right, rect.Bottom - xH, rect.Right, rect.Top + xH);
@@ -4461,7 +4958,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Bottom - 1);
                     borderPath.AddArc(rect.Left, rect.Top, x, x, 180f, 90f);
@@ -4469,7 +4968,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Top + 1);
                     borderPath.AddArc(rect.Left, rect.Bottom - x, x, x, 180f, -90f);
@@ -4477,7 +4978,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Right, rect.Bottom, rect.Right, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Top, rect.Right - 1, rect.Top);
                     borderPath.AddArc(rect.Left, rect.Top, x, x, -90f, -90f);
@@ -4485,7 +4988,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Left, rect.Top, rect.Left + 1, rect.Top);
                     borderPath.AddArc(rect.Right - x, rect.Top, x, x, -90f, 90f);
@@ -4507,7 +5012,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Top:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Bottom, rect.Right, rect.Bottom);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Bottom, rect.Right, rect.Bottom - 1);
                     borderPath.AddArc(rect.Right - x, rect.Top, x, x, 0f, -90f);
@@ -4515,7 +5022,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Bottom:
                     if (!forBorder)
+                    {
                         borderPath.AddLine(rect.Left, rect.Top, rect.Right, rect.Top);
+                    }
 
                     borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Top + 1);
                     borderPath.AddArc(rect.Right - x, rect.Bottom - x, x, x, 0f, 90f);
@@ -4532,7 +5041,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // The tension of the lines depends on the width/height
             int minLength = Math.Min(rect.Width, rect.Height);
             int calcLength = Math.Min(minLength, 50);
-            float tension = Math.Max(0.5f - (0.5f / 50 * calcLength), 0.05f);
+            float tension = Math.Max(0.5f - ((0.5f / 50) * calcLength), 0.05f);
             int indentW = Math.Min(5, rect.Width / 10);
             int indentH = Math.Min(5, rect.Height / 10);
 
@@ -4541,11 +5050,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 case VisualOrientation.Top:
                     // If there is not enough room for the rounded style then use the rounded
                     if (rect.Width < 14)
+                    {
                         AddRoundedPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
                     {
                         if (!forBorder)
+                        {
                             borderPath.AddLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom);
+                        }
 
                         // Find way points along the width
                         int x2T = rect.Width / 2;
@@ -4563,11 +5076,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 case VisualOrientation.Bottom:
                     // If there is not enough room for the rounded style then use the rounded
                     if (rect.Width < 14)
+                    {
                         AddRoundedPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
                     {
                         if (!forBorder)
+                        {
                             borderPath.AddLine(rect.Right, rect.Top, rect.Left, rect.Top);
+                        }
 
                         // Find way points along the width
                         int x2B = rect.Width / 2;
@@ -4585,11 +5102,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 case VisualOrientation.Left:
                     // If there is not enough room for the rounded style then use the rounded
                     if (rect.Height < 14)
+                    {
                         AddRoundedPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
                     {
                         if (!forBorder)
+                        {
                             borderPath.AddLine(rect.Right, rect.Top, rect.Right, rect.Bottom);
+                        }
 
                         // Find way points along the width
                         int y2L = rect.Height / 2;
@@ -4607,11 +5128,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 case VisualOrientation.Right:
                     // If there is not enough room for the rounded style then use the rounded
                     if (rect.Height < 14)
+                    {
                         AddRoundedPath(borderPath, orientation, rect, forBorder);
+                    }
                     else
                     {
                         if (!forBorder)
+                        {
                             borderPath.AddLine(rect.Left, rect.Top, rect.Left, rect.Bottom);
+                        }
 
                         // Find way points along the width
                         int y2R = rect.Height / 2;
@@ -4646,7 +5171,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the gradient style is a solid colour
             if (gradientStyle == PaletteColorStyle.Solid)
+            {
                 return new SolidBrush(color1);
+            }
             else
             {
                 // Adjust angle for the orientation
@@ -4665,7 +5192,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // For OneNote we always use white as the first color
                 if (gradientStyle == PaletteColorStyle.OneNote)
+                {
                     color1 = Color.White;
+                }
 
                 // Otherwise we always create a linear brush using provided colors and angle
                 LinearGradientBrush brush = new LinearGradientBrush(rect, color1, color2, angle);
@@ -4745,7 +5274,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteImageStyle.TopMiddle:
                     brush.WrapMode = WrapMode.Clamp;
-                    brush.TranslateTransform(rect.Left + (rect.Width - image.Width) / 2, rect.Top);
+                    brush.TranslateTransform(rect.Left + ((rect.Width - image.Width) / 2), rect.Top);
                     break;
                 case PaletteImageStyle.TopRight:
                     brush.WrapMode = WrapMode.Clamp;
@@ -4753,15 +5282,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteImageStyle.CenterLeft:
                     brush.WrapMode = WrapMode.Clamp;
-                    brush.TranslateTransform(rect.Left, rect.Top + (rect.Height - image.Height) / 2);
+                    brush.TranslateTransform(rect.Left, rect.Top + ((rect.Height - image.Height) / 2));
                     break;
                 case PaletteImageStyle.CenterMiddle:
                     brush.WrapMode = WrapMode.Clamp;
-                    brush.TranslateTransform(rect.Left + (rect.Width - image.Width) / 2, rect.Top + (rect.Height - image.Height) / 2);
+                    brush.TranslateTransform(rect.Left + ((rect.Width - image.Width) / 2), rect.Top + ((rect.Height - image.Height) / 2));
                     break;
                 case PaletteImageStyle.CenterRight:
                     brush.WrapMode = WrapMode.Clamp;
-                    brush.TranslateTransform(rect.Right - image.Width, rect.Top + (rect.Height - image.Height) / 2);
+                    brush.TranslateTransform(rect.Right - image.Width, rect.Top + ((rect.Height - image.Height) / 2));
                     break;
                 case PaletteImageStyle.BottomLeft:
                     brush.WrapMode = WrapMode.Clamp;
@@ -4769,7 +5298,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteImageStyle.BottomMiddle:
                     brush.WrapMode = WrapMode.Clamp;
-                    brush.TranslateTransform(rect.Left + (rect.Width - image.Width) / 2, rect.Bottom - image.Height);
+                    brush.TranslateTransform(rect.Left + ((rect.Width - image.Width) / 2), rect.Bottom - image.Height);
                     break;
                 case PaletteImageStyle.BottomRight:
                     brush.WrapMode = WrapMode.Clamp;
@@ -4833,7 +5362,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     rect = new Rectangle(x, y, width, height);            
                 }
                 else
+                {
                     rect = new Rectangle((int)rectF.X, (int)rectF.Y, (int)rectF.Width, (int)rectF.Height);
+                }
 
                 using (Brush backBrush1 = CreateColorBrush(gradientRect, backColor1, backColor1, PaletteColorStyle.Solid, 0f, VisualOrientation.Top),
                              backBrush2 = CreateColorBrush(gradientRect, backColor2, backColor2, PaletteColorStyle.Solid, 0f, VisualOrientation.Top))
@@ -4920,7 +5451,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Draw entire background in second color
                 using (SolidBrush brushColor2 = new SolidBrush(backColor2))
+                {
                     context.Graphics.FillRectangle(brushColor2, rect);
+                }
 
                 // Reduce area by edge(s) we want to leave alone
                 switch (style)
@@ -4949,7 +5482,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the second color as a solid block
                 using (SolidBrush brushColor2 = new SolidBrush(backColor1))
+                {
                     context.Graphics.FillRectangle(brushColor2, rect);
+                }
             }
         }
 
@@ -5003,7 +5538,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Draw entire background in white
                 using(SolidBrush lightBrush = new SolidBrush(ControlPaint.LightLight(backColor1)))
+                {
                     context.Graphics.FillRectangle(lightBrush, rect);
+                }
 
                 // Offset the drawing rectangle depending on the orientation
                 switch (orientation)
@@ -5155,9 +5692,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 int buttonBorder = (chromeBorders.Top - allocatedHeight - 10) / 2;
 
                 if (buttonBorder > 0)
+                {
                     return new Padding(buttonBorder);
+                }
                 else
+                {
                     return Padding.Empty;
+                }
             }
 
             return original;
@@ -5182,11 +5723,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 if ((font.Height > fontSpace) && (fontSpace > 5))
                 {
                     // Find the point size from the pixel height required
-                    float point = 72 / context.Graphics.DpiY * (fontSpace / 1.333f);
+                    float point = (72 / context.Graphics.DpiY) * (fontSpace / 1.333f);
                     
                     // No point having a font smaller than 3 points
                     if (point > 3)
+                    {
                         font = new Font(font.FontFamily, point, font.Style);
+                    }
                 }
             }
 
@@ -5197,7 +5740,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Climb chain looking for the Krypton Form instance
             while ((c != null) && !(c is KryptonForm))
+            {
                 c = c.Parent;
+            }
 
             return c as KryptonForm;
         }
@@ -5441,17 +5986,25 @@ namespace ComponentFactory.Krypton.Toolkit
             // spacing gap will be required so add it to the total width,
             // unless there is nothing at all allocated
             if ((totalWidth > 0) && (colIndex >= 0) && (colWidths[colIndex] == 0))
+            {
                 totalWidth += spacingGap;
+            }
 
             // Add any required spacing gaps between columns
             if ((colWidths[0] > 0) && (colWidths[1] > 0))
+            {
                 totalWidth += spacingGap;
+            }
 
             if ((colWidths[1] > 0) && (colWidths[2] > 0))
+            {
                 totalWidth += spacingGap;
+            }
 
             if ((colWidths[0] > 0) && (colWidths[1] == 0) && (colWidths[2] > 0))
+            {
                 totalWidth += spacingGap;
+            }
 
             return totalWidth;
         }
@@ -5464,7 +6017,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private static int[] AllocatedColumnWidths(Size[,] allocation, int rowIndex)
         {
-            int[] colWidths = new int[] { 0, 0, 0 };
+            int[] colWidths = { 0, 0, 0 };
 
             for (int col = 0; col < 3; col++)
             {
@@ -5474,14 +6027,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Store the widest cell in each column
                         if (allocation[col, row].Width > colWidths[col])
+                        {
                             colWidths[col] = allocation[col, row].Width;
+                        }
                     }
                 }
                 else
                 {
                     // Store the widest cell in each column
                     if (allocation[col, rowIndex].Width > colWidths[col])
+                    {
                         colWidths[col] = allocation[col, rowIndex].Width;
+                    }
                 }
             }
 
@@ -5490,7 +6047,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private static int[] AllocatedRowHeights(Size[,] allocation)
         {
-            int[] rowHeights = new int[] { 0, 0, 0 };
+            int[] rowHeights = { 0, 0, 0 };
 
             for (int row = 0; row < 3; row++)
             {
@@ -5498,7 +6055,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Store the widest cell in each column
                     if (allocation[col, row].Height > rowHeights[row])
+                    {
                         rowHeights[row] = allocation[col, row].Height;
+                    }
                 }
             }
 
@@ -5550,15 +6109,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Reduce the reported size back to the caller
                         if (applyGap)
+                        {
                             requiredSize.Width = allocateWidth - spacingGap;
+                        }
                         else
+                        {
                             requiredSize.Width = allocateWidth;
+                        }
                     }
                     else
+                    {
                         return false;
+                    }
                 }
                 else
+                {
                     return false;
+                }
             }
 
             // There is enough space for all the content, so add into the cell width
@@ -5682,15 +6249,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Do we need to position the image?
             if (memento.DrawImage && (drawHImage == alignH) && (drawVImage == alignV))
+            {
                 memento.ImageRect.Location = PositionCellContent(rtl, posHImage, drawVImage, memento.ImageRect.Size, spacingGap, ref cellRect);
+            }
 
             // Do we need to position the short text?
             if (memento.DrawShortText && (drawHShort == alignH) && (drawVShort == alignV))
+            {
                 memento.ShortTextRect.Location = PositionCellContent(rtl, posHShort, drawVShort, memento.ShortTextRect.Size, spacingGap, ref cellRect);
+            }
 
             // Do we need to position the long text?
             if (memento.DrawLongText && (drawHLong == alignH) && (drawVLong == alignV))
+            {
                 memento.LongTextRect.Location = PositionCellContent(rtl, posHLong, drawVLong, memento.LongTextRect.Size, spacingGap, ref cellRect);
+            }
         }
 
         private static Point PositionCellContent(RightToLeft rtl,
@@ -5707,9 +6280,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Then invert the near and far positioning
                 if (drawH == PaletteRelativeAlign.Near)
+                {
                     drawH = PaletteRelativeAlign.Far;
+                }
                 else if (drawH == PaletteRelativeAlign.Far)
+                {
                     drawH = PaletteRelativeAlign.Near;
+                }
             }
 
             switch (drawH)
@@ -5758,31 +6335,57 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                 case CheckState.Unchecked:
                     if (!enabled)
+                    {
                         return CheckBoxState.UncheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         return CheckBoxState.UncheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         return CheckBoxState.UncheckedHot;
+                    }
                     else
+                    {
                         return CheckBoxState.UncheckedNormal;
+                    }
+
                 case CheckState.Checked:
                     if (!enabled)
+                    {
                         return CheckBoxState.CheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         return CheckBoxState.CheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         return CheckBoxState.CheckedHot;
+                    }
                     else
+                    {
                         return CheckBoxState.CheckedNormal;
+                    }
+
                 case CheckState.Indeterminate:
                     if (!enabled)
+                    {
                         return CheckBoxState.MixedDisabled;
+                    }
                     else if (pressed)
+                    {
                         return CheckBoxState.MixedPressed;
+                    }
                     else if (tracking)
+                    {
                         return CheckBoxState.MixedHot;
+                    }
                     else
+                    {
                         return CheckBoxState.MixedNormal;
+                    }
             }
         }
 
@@ -5794,24 +6397,40 @@ namespace ComponentFactory.Krypton.Toolkit
             if (checkState)
             {
                 if (!enabled)
+                {
                     return RadioButtonState.CheckedDisabled;
+                }
                 else if (pressed)
+                {
                     return RadioButtonState.CheckedPressed;
+                }
                 else if (tracking)
+                {
                     return RadioButtonState.CheckedHot;
+                }
                 else
+                {
                     return RadioButtonState.CheckedNormal;
+                }
             }
             else
             {
                 if (!enabled)
+                {
                     return RadioButtonState.UncheckedDisabled;
+                }
                 else if (pressed)
+                {
                     return RadioButtonState.UncheckedPressed;
+                }
                 else if (tracking)
+                {
                     return RadioButtonState.UncheckedHot;
+                }
                 else
+                {
                     return RadioButtonState.UncheckedNormal;
+                }
             }
         }
 
@@ -5858,11 +6477,30 @@ namespace ComponentFactory.Krypton.Toolkit
             Color inactive = dragDropPalette.GetDragDropDockInactive();
 
             DrawDragDockingRoundedBackground(context, back, border, dragData);
-            if (dragData.ShowLeft)      DrawDragDockingRoundedLeft(context, back, border, active, inactive, dragData);
-            if (dragData.ShowRight)     DrawDragDockingRoundedRight(context, back, border, active, inactive, dragData);
-            if (dragData.ShowTop)       DrawDragDockingRoundedTop(context, back, border, active, inactive, dragData);
-            if (dragData.ShowBottom)    DrawDragDockingRoundedBottom(context, back, border, active, inactive, dragData);
-            if (dragData.ShowMiddle)    DrawDragDockingRoundedMiddle(context, back, border, active, inactive, dragData);
+            if (dragData.ShowLeft)
+            {
+                DrawDragDockingRoundedLeft(context, back, border, active, inactive, dragData);
+            }
+
+            if (dragData.ShowRight)
+            {
+                DrawDragDockingRoundedRight(context, back, border, active, inactive, dragData);
+            }
+
+            if (dragData.ShowTop)
+            {
+                DrawDragDockingRoundedTop(context, back, border, active, inactive, dragData);
+            }
+
+            if (dragData.ShowBottom)
+            {
+                DrawDragDockingRoundedBottom(context, back, border, active, inactive, dragData);
+            }
+
+            if (dragData.ShowMiddle)
+            {
+                DrawDragDockingRoundedMiddle(context, back, border, active, inactive, dragData);
+            }
         }
 
         private void DrawDragDockingRoundedBackground(RenderContext context,
@@ -5871,7 +6509,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                                       RenderDragDockingData dragData)
         {
             if (dragData.ShowBack)
+            {
                 DrawDragDockingRoundedRect(context, inside, border, new Rectangle(16, 16, 73, 73), 11);
+            }
         }
 
         private void DrawDragDockingRoundedLeft(RenderContext context,
@@ -5930,7 +6570,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Fill the entire border area
                     using (SolidBrush borderBrush = new SolidBrush(Color.FromArgb(196, Color.White)))
+                    {
                         context.Graphics.FillPath(borderBrush, borderPath);
+                    }
 
                     // Fill with gradient the area inside the border
                     RectangleF rectBoundsF = new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2);
@@ -5965,7 +6607,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                   new Point(rect.Right - 2, rect.Bottom - 4),
                                                   new Point(rect.X + tabExtend, rect.Bottom - 4),
                                                   new Point(rect.X + tabExtend, rect.Bottom - 2),
-                                                  new Point(rect.X + tabExtend - 1, rect.Bottom - 1),
+                                                  new Point((rect.X + tabExtend) - 1, rect.Bottom - 1),
                                                   new Point(rect.X + 1, rect.Bottom - 1),
                                                   new Point(rect.X, rect.Bottom - 2)});
         }
@@ -5984,7 +6626,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     insidePath = CreateBorderBackPath(true, true, rectInside, PaletteDrawBorders.All, 1, rounding - 1, true, 0))
                 {
                     using(SolidBrush borderBrush = new SolidBrush(Color.FromArgb(196, Color.White)))
+                    {
                         context.Graphics.FillPath(borderBrush, borderPath);
+                    }
 
                     using (LinearGradientBrush insideBrush = new LinearGradientBrush(rectBoundsF, Color.FromArgb(196, Color.White), inside, 90))
                     {
@@ -5993,7 +6637,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     using (Pen borderPen = new Pen(border))
+                    {
                         context.Graphics.DrawPath(borderPen, borderPath);
+                    }
                 }
             }
         }
@@ -6009,18 +6655,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 switch (orientation)
                 {
                     case VisualOrientation.Left:
-                        rect = new Rectangle(rect.Right - _dragArrowHeight - _dragArrowGap,
-                                             rect.Y + (rect.Height - _dragArrowWidth) / 2,
-                                             _dragArrowHeight, _dragArrowWidth);
+                        rect = new Rectangle(rect.Right - DRAG_ARROW_HEIGHT - DRAG_ARROW_GAP,
+                                             rect.Y + ((rect.Height - DRAG_ARROW_WIDTH) / 2),
+                                             DRAG_ARROW_HEIGHT, DRAG_ARROW_WIDTH);
 
                         innerPath.AddLines(new Point[] { new Point(rect.X + 1, rect.Top + 6),
                                                          new Point(rect.Right - 1, rect.Top + 1), 
                                                          new Point(rect.Right - 1, rect.Bottom - 2)});
                         break;
                     case VisualOrientation.Right:
-                        rect = new Rectangle(rect.Left + _dragArrowGap,
-                                             rect.Y + (rect.Height - _dragArrowWidth) / 2,
-                                             _dragArrowHeight, _dragArrowWidth);
+                        rect = new Rectangle(rect.Left + DRAG_ARROW_GAP,
+                                             rect.Y + ((rect.Height - DRAG_ARROW_WIDTH) / 2),
+                                             DRAG_ARROW_HEIGHT, DRAG_ARROW_WIDTH);
 
                         innerPath.AddLines(new Point[] { new Point(rect.X + 1, rect.Top + 1), 
                                                          new Point(rect.X + 1, rect.Bottom - 2), 
@@ -6028,9 +6674,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         angle = 180f;
                         break;
                     case VisualOrientation.Top:
-                        rect = new Rectangle(rect.X + (rect.Width - _dragArrowWidth) / 2,
-                                             rect.Bottom - _dragArrowHeight - _dragArrowGap - 1,
-                                             _dragArrowWidth, _dragArrowHeight);
+                        rect = new Rectangle(rect.X + ((rect.Width - DRAG_ARROW_WIDTH) / 2),
+                                             rect.Bottom - DRAG_ARROW_HEIGHT - DRAG_ARROW_GAP - 1,
+                                             DRAG_ARROW_WIDTH, DRAG_ARROW_HEIGHT);
 
                         innerPath.AddLines(new Point[] { new Point(rect.X + 1, rect.Bottom), 
                                                          new Point(rect.Right - 1, rect.Bottom), 
@@ -6038,9 +6684,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         angle = 90f;
                         break;
                     case VisualOrientation.Bottom:
-                        rect = new Rectangle(rect.X + (rect.Width - _dragArrowWidth) / 2,
-                                             rect.Top + _dragArrowGap,
-                                             _dragArrowWidth, _dragArrowHeight);
+                        rect = new Rectangle(rect.X + ((rect.Width - DRAG_ARROW_WIDTH) / 2),
+                                             rect.Top + DRAG_ARROW_GAP,
+                                             DRAG_ARROW_WIDTH, DRAG_ARROW_HEIGHT);
 
                         innerPath.AddLines(new Point[] { new Point(rect.X + 2, rect.Top + 1), 
                                                          new Point(rect.Right - 2, rect.Top + 1), 
@@ -6051,11 +6697,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw background in white top highlight the arrow
                 using(AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.FillPath(Brushes.White, innerPath);
+                }
 
                 // Draw the actual arrow itself
-                using(LinearGradientBrush innerBrush = new LinearGradientBrush(rect, ControlPaint.Dark(active), ControlPaint.Light(active), angle))
+                using (LinearGradientBrush innerBrush = new LinearGradientBrush(rect, ControlPaint.Dark(active), ControlPaint.Light(active), angle))
+                {
                     context.Graphics.FillPath(innerBrush, innerPath);
+                }
             }
         }
 
@@ -6069,11 +6719,30 @@ namespace ComponentFactory.Krypton.Toolkit
             Color inactive = dragDropPalette.GetDragDropDockInactive();
 
             DrawDragDockingSquaresBackground(context.Graphics, back, border, dragData);
-            if (dragData.ShowLeft) DrawDragDockingSquaresLeft(context.Graphics, active, inactive, dragData);
-            if (dragData.ShowRight) DrawDragDockingSquaresRight(context.Graphics, active, inactive, dragData);
-            if (dragData.ShowTop) DrawDragDockingSquaresTop(context.Graphics, active, inactive, dragData);
-            if (dragData.ShowBottom) DrawDragDockingSquaresBottom(context.Graphics, active, inactive, dragData);
-            if (dragData.ShowMiddle) DrawDragDockingSquaresMiddle(context.Graphics, active, inactive, dragData);
+            if (dragData.ShowLeft)
+            {
+                DrawDragDockingSquaresLeft(context.Graphics, active, inactive, dragData);
+            }
+
+            if (dragData.ShowRight)
+            {
+                DrawDragDockingSquaresRight(context.Graphics, active, inactive, dragData);
+            }
+
+            if (dragData.ShowTop)
+            {
+                DrawDragDockingSquaresTop(context.Graphics, active, inactive, dragData);
+            }
+
+            if (dragData.ShowBottom)
+            {
+                DrawDragDockingSquaresBottom(context.Graphics, active, inactive, dragData);
+            }
+
+            if (dragData.ShowMiddle)
+            {
+                DrawDragDockingSquaresMiddle(context.Graphics, active, inactive, dragData);
+            }
         }
 
         private void DrawDragDockingSquaresBackground(Graphics g, 
@@ -6098,7 +6767,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (dragData.ShowBack)
                         {
                             // Create points for a polygon
-                            Point[] pts = new Point[]{new Point(0,  29), new Point(23, 29),
+                            Point[] pts = {new Point(0,  29), new Point(23, 29),
 													  new Point(29, 23), new Point(29, 0),
 													  new Point(57, 0),  new Point(57, 23),
 													  new Point(63, 29), new Point(87, 29),
@@ -6125,7 +6794,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         else if (dragData.ShowLeft && dragData.ShowRight)
                         {
                             // Create points for a polygon
-                            Point[] pts = new Point[]{new Point(0,  29), new Point(23, 29),
+                            Point[] pts = {new Point(0,  29), new Point(23, 29),
 													  new Point(29, 23), new Point(57, 23),
 													  new Point(63, 29), new Point(87, 29),
 													  new Point(87, 57), new Point(63, 57),
@@ -6160,7 +6829,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         else if (dragData.ShowTop && dragData.ShowBottom)
                         {
                             // Create points for a polygon
-                            Point[] pts = new Point[]{new Point(23, 29), new Point(29, 23), 
+                            Point[] pts = {new Point(23, 29), new Point(29, 23), 
 													  new Point(29, 0),  new Point(57, 0),  
 													  new Point(57, 23), new Point(63, 29), 
 													  new Point(63, 57), new Point(57, 63), 
@@ -6194,7 +6863,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         else if (dragData.ShowMiddle)
                         {
                             // Only draw the background for the middle square
-                            Point[] pts = new Point[]{new Point(23, 29), new Point(29, 23), 
+                            Point[] pts = {new Point(23, 29), new Point(29, 23), 
 													  new Point(57, 23), new Point(63, 29), 
 													  new Point(63, 57), new Point(57, 63),
 													  new Point(29, 63), new Point(23, 57)};
@@ -6548,16 +7217,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color c5 = palette.GetRibbonBackColor5(state);
 
                 if (fading)
+                {
                     c5 = Color.FromArgb(146, c5);
+                }
 
                 bool generate = true;
                 MementoRibbonGroupAreaBorder cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupAreaBorder))
+                if (!(memento is MementoRibbonGroupAreaBorder))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupAreaBorder(rect, c1, c2, c3, c4, c5);
                     memento = cache;
@@ -6614,10 +7284,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     cache.insidePathN = insidePathN;
                     cache.insidePathL = insidePathL;
-                    cache.fillBrush = new LinearGradientBrush(rect, c3, c4, 90f);
-                    cache.fillBrush.Blend = _ribbonGroup1Blend;
-                    cache.fillTopBrush = new LinearGradientBrush(rect, c5, Color.Transparent, 90f);
-                    cache.fillTopBrush.Blend = _ribbonGroup2Blend;
+                    cache.fillBrush = new LinearGradientBrush(rect, c3, c4, 90f)
+                    {
+                        Blend = _ribbonGroup1Blend
+                    };
+                    cache.fillTopBrush = new LinearGradientBrush(rect, c5, Color.Transparent, 90f)
+                    {
+                        Blend = _ribbonGroup2Blend
+                    };
                     cache.outsidePath = outsidePath;
                     cache.shadowPath = shadowPath;
                     cache.outsidePen = new Pen(c1);
@@ -6628,7 +7302,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Clip drawing to the outside border
                 using(Clipping clip = new Clipping(context.Graphics, cache.outsidePath))
+                {
                     context.Graphics.FillPath(cache.fillTopBrush, cache.outsidePath);
+                }
 
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
                 {
@@ -6673,10 +7349,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupAreaBorder3 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupAreaBorder3))
+                if (!(memento is MementoRibbonGroupAreaBorder3))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupAreaBorder3(rect, c1, c2, c3, c4, c5);
                     memento = cache;
@@ -6703,8 +7378,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     cache.backBrush1 = new LinearGradientBrush(new RectangleF(cache.backRect1.X - 1, cache.backRect1.Y - 1, cache.backRect1.Width + 2, cache.backRect1.Height + 1), c3, c4, 90f);
                     cache.backBrush2 = new LinearGradientBrush(new RectangleF(cache.backRect2.X - 1, cache.backRect2.Y - 1, cache.backRect2.Width + 2, cache.backRect2.Height + 1), c4, c5, 90f);
                     cache.backBrush3 = new SolidBrush(c5);
-                    cache.gradientBorderBrush = new LinearGradientBrush(new RectangleF(cache.backRect1.X - 1, cache.backRect1.Y - 1, cache.backRect1.Width + 2, 3), c1, c2, 0f);
-                    cache.gradientBorderBrush.Blend = _ribbonGroupArea3;
+                    cache.gradientBorderBrush = new LinearGradientBrush(new RectangleF(cache.backRect1.X - 1, cache.backRect1.Y - 1, cache.backRect1.Width + 2, 3), c1, c2, 0f)
+                    {
+                        Blend = _ribbonGroupArea3
+                    };
                     cache.gradientBorderPen = (gradientTop ? new Pen(cache.gradientBorderBrush) :  new Pen(c1));
                     cache.solidBorderPen = new Pen(c2);
                     cache.shadowPen1 = new Pen(CommonHelper.MergeColors(c5, 0.4f, c1, 0.6f));
@@ -6751,10 +7428,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupAreaBorderContext cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupAreaBorderContext))
+                if (!(memento is MementoRibbonGroupAreaBorderContext))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupAreaBorderContext(rect, c1, c2, c3);
                     memento = cache;
@@ -6805,10 +7481,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     LinearGradientBrush shadowBrush = new LinearGradientBrush(rectGradient, _darken8, _darken38, 90f);
                     cache.shadowPen = new Pen(shadowBrush);
 
-                    cache.fillBrush = new LinearGradientBrush(rect, Color.White, _242, 90f);
-                    cache.fillBrush.Blend = _ribbonGroup3Blend;
-                    cache.fillTopBrush = new LinearGradientBrush(rect, Color.FromArgb(75, c3), Color.Transparent, 90f);
-                    cache.fillTopBrush.Blend = _ribbonGroup4Blend;
+                    cache.fillBrush = new LinearGradientBrush(rect, Color.White, _242, 90f)
+                    {
+                        Blend = _ribbonGroup3Blend
+                    };
+                    cache.fillTopBrush = new LinearGradientBrush(rect, Color.FromArgb(75, c3), Color.Transparent, 90f)
+                    {
+                        Blend = _ribbonGroup4Blend
+                    };
                     cache.outsidePath = outsidePath;
                     cache.insidePath = insidePath;
                     cache.shadowPath = shadowPath;
@@ -6820,7 +7500,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Clip drawing to the outside border
                 using (Clipping clip = new Clipping(context.Graphics, cache.outsidePath))
+                {
                     context.Graphics.FillPath(cache.fillTopBrush, cache.outsidePath);
+                }
 
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
                 {
@@ -6862,10 +7544,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabTracking2007 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabTracking2007))
+                if (!(memento is MementoRibbonTabTracking2007))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabTracking2007(rect, c1, c2, orientation);
                     memento = cache;
@@ -6919,7 +7600,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the actual border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.outsidePath);
+                }
 
                 switch (orientation)
                 {
@@ -6950,14 +7633,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                             Color c1, Color c2,
                                                             MementoRibbonTabTracking2007 cache)
         {
-            GraphicsPath outsidePath = new GraphicsPath();
-            GraphicsPath topPath = new GraphicsPath();
-            GraphicsPath ellipsePath = new GraphicsPath();
-            RectangleF half1RectF, vertRectF, horzRectF;
-            int full, half1, half2;
-            Rectangle fullRect;
-
             // Create path for a curved border around the tab
+            GraphicsPath outsidePath = new GraphicsPath();
             outsidePath.AddLine(rect.Left + 1, rect.Bottom - 2, rect.Left + 1, rect.Top + 1.5f);
             outsidePath.AddLine(rect.Left + 1, rect.Top + 1.5f, rect.Left + 3, rect.Top);
             outsidePath.AddLine(rect.Left + 3, rect.Top, rect.Right - 4, rect.Top);
@@ -6965,24 +7642,29 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2, rect.Top + 1.5f, rect.Right - 2, rect.Bottom - 2);
 
             // Create path for the top hightlight line
+            GraphicsPath topPath = new GraphicsPath();
             topPath.AddLine(rect.Left + 3, rect.Top + 2, rect.Left + 4, rect.Top + 1);
             topPath.AddLine(rect.Left + 4, rect.Top + 1, rect.Right - 5, rect.Top + 1);
             topPath.AddLine(rect.Right - 5, rect.Top + 1, rect.Right - 4, rect.Top + 2);
 
             // Create the top and bottom half rectangles
-            full = rect.Height - 3;
-            half1 = full / 2;
-            half2 = full - half1;
+            int full = rect.Height - 3;
+            int half1 = full / 2;
+            int half2 = full - half1;
             cache.half1Rect = new Rectangle(rect.Left + 3, rect.Top + 2, rect.Width - 6, half1);
             cache.half2Rect = new Rectangle(rect.Left + 3, rect.Top + 2 + half1, rect.Width - 6, half2);
-            fullRect = new Rectangle(rect.Left + 3, rect.Top + 2, rect.Width - 6, half1 + half2);
-            half1RectF = new RectangleF(cache.half1Rect.Left - 1, cache.half1Rect.Top - 0.5f, cache.half1Rect.Width + 2, cache.half1Rect.Height + 1);
+            Rectangle fullRect = new Rectangle(rect.Left + 3, rect.Top + 2, rect.Width - 6, half1 + half2);
+            RectangleF half1RectF = new RectangleF(cache.half1Rect.Left - 1, cache.half1Rect.Top - 0.5f, cache.half1Rect.Width + 2, cache.half1Rect.Height + 1);
             cache.half2RectF = new RectangleF(cache.half2Rect.Left - 1, cache.half2Rect.Top - 0.5f, cache.half2Rect.Width + 2, cache.half2Rect.Height + 1);
 
-            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 0f);
-            cache.half1LeftBrush.Blend = _ribbonTabTopBlend;
-            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 180f);
-            cache.half1RightBrush.Blend = _ribbonTabTopBlend;
+            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 0f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
+            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 180f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
             cache.half1LightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(28, Color.White), Color.FromArgb(125, Color.White), 90f);
             cache.half2Brush = new SolidBrush(Color.FromArgb(85, c2));
 
@@ -6990,24 +7672,33 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.ellipseRect = new RectangleF(fullRect.Left - (fullRect.Width / 8), fullRect.Top, fullRect.Width * 1.25f, fullRect.Height);
 
             // Cannot draw a path that contains a zero sized element
+            GraphicsPath ellipsePath = new GraphicsPath();
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = Color.FromArgb(92, Color.White);
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = Color.FromArgb(92, Color.White)
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
             }
 
-            vertRectF = new RectangleF(rect.Left - 1, rect.Top + 2, rect.Width + 2, rect.Height - 2);
-            horzRectF = new RectangleF(rect.Left + 1, rect.Top, rect.Width - 2, rect.Height);
-            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 90f);
-            cache.outsideBrush.Blend = _ribbonOutBlend;
-            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 90f);
-            cache.insideBrush.Blend = _ribbonInBlend;
-            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 0f);
-            cache.topBrush.Blend = _ribbonTopBlend;
+            RectangleF vertRectF = new RectangleF(rect.Left - 1, rect.Top + 2, rect.Width + 2, rect.Height - 2);
+            RectangleF horzRectF = new RectangleF(rect.Left + 1, rect.Top, rect.Width - 2, rect.Height);
+            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 90f)
+            {
+                Blend = _ribbonOutBlend
+            };
+            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 90f)
+            {
+                Blend = _ribbonInBlend
+            };
+            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 0f)
+            {
+                Blend = _ribbonTopBlend
+            };
             cache.topPen = new Pen(cache.topBrush);
 
             cache.outsidePen = new Pen(c1);
@@ -7036,14 +7727,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                          Color c1, Color c2,
                                                          MementoRibbonTabTracking2007 cache)
         {
-            GraphicsPath outsidePath = new GraphicsPath();
-            GraphicsPath topPath = new GraphicsPath();
-            GraphicsPath ellipsePath = new GraphicsPath();
-            RectangleF half1RectF, vertRectF, horzRectF;
-            int full, half1, half2;
-            Rectangle fullRect;
-
             // Create path for a curved border around the tab
+            GraphicsPath outsidePath = new GraphicsPath();
             outsidePath.AddLine(rect.Right - 2, rect.Bottom - 2, rect.Left + 1.5f, rect.Bottom - 2);
             outsidePath.AddLine(rect.Left + 1.5f, rect.Bottom - 2, rect.Left, rect.Bottom - 4);
             outsidePath.AddLine(rect.Left, rect.Bottom - 4, rect.Left, rect.Top + 3);
@@ -7051,49 +7736,63 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Left + 1.5f, rect.Top + 1, rect.Right - 2, rect.Top + 1);
 
             // Create path for the top hightlight line
+            GraphicsPath topPath = new GraphicsPath();
             topPath.AddLine(rect.Left + 2, rect.Bottom - 4, rect.Left + 1, rect.Bottom - 5);
             topPath.AddLine(rect.Left + 1, rect.Bottom - 5, rect.Left + 1, rect.Top + 4);
             topPath.AddLine(rect.Left + 1, rect.Top + 4, rect.Left + 2, rect.Top + 3);
 
             // Create the top and bottom half rectangles
-            full = rect.Width - 3;
-            half1 = full / 2;
-            half2 = full - half1;
+            int full = rect.Width - 3;
+            int half1 = full / 2;
+            int half2 = full - half1;
             cache.half1Rect = new Rectangle(rect.Left + 2, rect.Top + 3, half1, rect.Height - 6);
             cache.half2Rect = new Rectangle(rect.Left + 2 + half1, rect.Top + 3, half2, rect.Height - 6);
-            fullRect = new Rectangle(rect.Left + 2, rect.Top + 3, half1 + half2, rect.Height - 6);
-            half1RectF = new RectangleF(cache.half1Rect.Left - 0.5f, cache.half1Rect.Top - 1f, cache.half1Rect.Width + 1, cache.half1Rect.Height + 2);
+            Rectangle fullRect = new Rectangle(rect.Left + 2, rect.Top + 3, half1 + half2, rect.Height - 6);
+            RectangleF half1RectF = new RectangleF(cache.half1Rect.Left - 0.5f, cache.half1Rect.Top - 1f, cache.half1Rect.Width + 1, cache.half1Rect.Height + 2);
             cache.half2RectF = new RectangleF(cache.half2Rect.Left - 0.5f, cache.half2Rect.Top - 1f, cache.half2Rect.Width + 1, cache.half2Rect.Height + 2);
 
-            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 90f);
-            cache.half1LeftBrush.Blend = _ribbonTabTopBlend;
-            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 270f);
-            cache.half1RightBrush.Blend = _ribbonTabTopBlend;
+            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 90f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
+            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 270f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
             cache.half1LightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(28, Color.White), Color.FromArgb(125, Color.White), 180f);
             cache.half2Brush = new SolidBrush(Color.FromArgb(85, c2));
 
             // Create ellipse information for lightening the bottom hald
             cache.ellipseRect = new RectangleF(fullRect.Left, fullRect.Top - (fullRect.Width / 8), fullRect.Width, fullRect.Height * 1.25f);
 
+            GraphicsPath ellipsePath = new GraphicsPath();
             // Cannot draw a path that contains a zero sized element
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = Color.FromArgb(48, Color.White);
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = Color.FromArgb(48, Color.White)
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
             }
 
-            vertRectF = new RectangleF(rect.Left + 2, rect.Top - 1, rect.Width - 2, rect.Height + 2);
-            horzRectF = new RectangleF(rect.Left, rect.Top + 1, rect.Width, rect.Height - 2);
-            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 180f);
-            cache.outsideBrush.Blend = _ribbonOutBlend;
-            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 180f);
-            cache.insideBrush.Blend = _ribbonInBlend;
-            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 90f);
-            cache.topBrush.Blend = _ribbonTopBlend;
+            RectangleF vertRectF = new RectangleF(rect.Left + 2, rect.Top - 1, rect.Width - 2, rect.Height + 2);
+            RectangleF horzRectF = new RectangleF(rect.Left, rect.Top + 1, rect.Width, rect.Height - 2);
+            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 180f)
+            {
+                Blend = _ribbonOutBlend
+            };
+            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 180f)
+            {
+                Blend = _ribbonInBlend
+            };
+            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 90f)
+            {
+                Blend = _ribbonTopBlend
+            };
             cache.topPen = new Pen(cache.topBrush);
 
             cache.outsidePen = new Pen(c1);
@@ -7122,14 +7821,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                               Color c1, Color c2,
                                                               MementoRibbonTabTracking2007 cache)
         {
-            GraphicsPath outsidePath = new GraphicsPath();
-            GraphicsPath topPath = new GraphicsPath();
-            GraphicsPath ellipsePath = new GraphicsPath();
-            RectangleF half1RectF, vertRectF, horzRectF;
-            int full, half1, half2;
-            Rectangle fullRect;
-
             // Create path for a curved border around the tab
+            GraphicsPath outsidePath = new GraphicsPath();
             outsidePath.AddLine(rect.Left + 1, rect.Bottom - 2, rect.Right - 2.5f, rect.Bottom - 2);
             outsidePath.AddLine(rect.Right - 2.5f, rect.Bottom - 2, rect.Right - 1, rect.Bottom - 4);
             outsidePath.AddLine(rect.Right - 1, rect.Bottom - 4, rect.Right - 1, rect.Top + 3);
@@ -7137,49 +7830,63 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2.5f, rect.Top + 1, rect.Left + 1, rect.Top + 1);
 
             // Create path for the top hightlight line
+            GraphicsPath topPath = new GraphicsPath();
             topPath.AddLine(rect.Right - 3, rect.Bottom - 4, rect.Right - 2, rect.Bottom - 5);
             topPath.AddLine(rect.Right - 2, rect.Bottom - 5, rect.Right - 2, rect.Top + 4);
             topPath.AddLine(rect.Right - 2, rect.Top + 4, rect.Right - 3, rect.Top + 3);
 
             // Create the top and bottom half rectangles
-            full = rect.Width - 3;
-            half1 = full / 2;
-            half2 = full - half1;
+            int full = rect.Width - 3;
+            int half1 = full / 2;
+            int half2 = full - half1;
             cache.half1Rect = new Rectangle(rect.Right - 2 - half1, rect.Top + 3, half1, rect.Height - 6);
             cache.half2Rect = new Rectangle(rect.Right - 2 - half1 - half2, rect.Top + 3, half2, rect.Height - 6);
-            fullRect = new Rectangle(rect.Right - 2 - half1 - half2, rect.Top + 3, half1 + half2, rect.Height - 6);
-            half1RectF = new RectangleF(cache.half1Rect.Left - 0.5f, cache.half1Rect.Top - 1f, cache.half1Rect.Width + 1, cache.half1Rect.Height + 2);
+            Rectangle fullRect = new Rectangle(rect.Right - 2 - half1 - half2, rect.Top + 3, half1 + half2, rect.Height - 6);
+            RectangleF half1RectF = new RectangleF(cache.half1Rect.Left - 0.5f, cache.half1Rect.Top - 1f, cache.half1Rect.Width + 1, cache.half1Rect.Height + 2);
             cache.half2RectF = new RectangleF(cache.half2Rect.Left - 0.5f, cache.half2Rect.Top - 1f, cache.half2Rect.Width + 1, cache.half2Rect.Height + 2);
 
-            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 270f);
-            cache.half1LeftBrush.Blend = _ribbonTabTopBlend;
-            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 90f);
-            cache.half1RightBrush.Blend = _ribbonTabTopBlend;
+            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 270f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
+            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 90f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
             cache.half1LightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(28, Color.White), Color.FromArgb(125, Color.White), 0f);
             cache.half2Brush = new SolidBrush(Color.FromArgb(85, c2));
 
             // Create ellipse information for lightening the bottom hald
             cache.ellipseRect = new RectangleF(fullRect.Left, fullRect.Top - (fullRect.Width / 8), fullRect.Width, fullRect.Height * 1.25f);
 
+            GraphicsPath ellipsePath = new GraphicsPath();
             // Cannot draw a path that contains a zero sized element
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = Color.FromArgb(48, Color.White);
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = Color.FromArgb(48, Color.White)
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
             }
 
-            vertRectF = new RectangleF(rect.Left, rect.Top - 1, rect.Width - 2, rect.Height + 2);
-            horzRectF = new RectangleF(rect.Left, rect.Top + 1, rect.Width, rect.Height - 2);
-            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 0f);
-            cache.outsideBrush.Blend = _ribbonOutBlend;
-            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 0f);
-            cache.insideBrush.Blend = _ribbonInBlend;
-            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 270f);
-            cache.topBrush.Blend = _ribbonTopBlend;
+            RectangleF vertRectF = new RectangleF(rect.Left, rect.Top - 1, rect.Width - 2, rect.Height + 2);
+            RectangleF horzRectF = new RectangleF(rect.Left, rect.Top + 1, rect.Width, rect.Height - 2);
+            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 0f)
+            {
+                Blend = _ribbonOutBlend
+            };
+            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 0f)
+            {
+                Blend = _ribbonInBlend
+            };
+            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 270f)
+            {
+                Blend = _ribbonTopBlend
+            };
             cache.topPen = new Pen(cache.topBrush);
 
             cache.outsidePen = new Pen(c1);
@@ -7208,14 +7915,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                Color c1, Color c2,
                                                                MementoRibbonTabTracking2007 cache)
         {
-            GraphicsPath outsidePath = new GraphicsPath();
-            GraphicsPath topPath = new GraphicsPath();
-            GraphicsPath ellipsePath = new GraphicsPath();
-            RectangleF half1RectF, vertRectF, horzRectF;
-            int full, half1, half2;
-            Rectangle fullRect;
-
             // Create path for a curved border around the tab
+            GraphicsPath outsidePath = new GraphicsPath();
             outsidePath.AddLine(rect.Left + 1, rect.Top + 1, rect.Left + 1, rect.Bottom - 2.5f);
             outsidePath.AddLine(rect.Left + 1, rect.Bottom - 2.5f, rect.Left + 3, rect.Bottom - 1);
             outsidePath.AddLine(rect.Left + 3, rect.Bottom - 1, rect.Right - 4, rect.Bottom - 1);
@@ -7223,49 +7924,63 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2, rect.Bottom - 2.5f, rect.Right - 2, rect.Top + 1);
 
             // Create path for the bottom hightlight line
+            GraphicsPath topPath = new GraphicsPath();
             topPath.AddLine(rect.Left + 3, rect.Bottom - 3, rect.Left + 4, rect.Bottom - 2);
             topPath.AddLine(rect.Left + 4, rect.Bottom - 2, rect.Right - 5, rect.Bottom - 2);
             topPath.AddLine(rect.Right - 5, rect.Bottom - 2, rect.Right - 4, rect.Bottom - 3);
 
             // Create the top and bottom half rectangles
-            full = rect.Height - 3;
-            half1 = full / 2;
-            half2 = full - half1;
+            int full = rect.Height - 3;
+            int half1 = full / 2;
+            int half2 = full - half1;
             cache.half1Rect = new Rectangle(rect.Left + 3, rect.Bottom - 2 - half1, rect.Width - 6, half1);
             cache.half2Rect = new Rectangle(rect.Left + 3, rect.Bottom - 2 - half1 - half2, rect.Width - 6, half2);
-            fullRect = new Rectangle(rect.Left + 3, rect.Bottom - 2 - half1 - half2, rect.Width - 6, half1 + half2);
-            half1RectF = new RectangleF(cache.half1Rect.Left - 1, cache.half1Rect.Top - 0.5f, cache.half1Rect.Width + 2, cache.half1Rect.Height + 1);
+            Rectangle fullRect = new Rectangle(rect.Left + 3, rect.Bottom - 2 - half1 - half2, rect.Width - 6, half1 + half2);
+            RectangleF half1RectF = new RectangleF(cache.half1Rect.Left - 1, cache.half1Rect.Top - 0.5f, cache.half1Rect.Width + 2, cache.half1Rect.Height + 1);
             cache.half2RectF = new RectangleF(cache.half2Rect.Left - 1, cache.half2Rect.Top - 0.5f, cache.half2Rect.Width + 2, cache.half2Rect.Height + 1);
 
-            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 180f);
-            cache.half1LeftBrush.Blend = _ribbonTabTopBlend;
-            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 0f);
-            cache.half1RightBrush.Blend = _ribbonTabTopBlend;
+            cache.half1LeftBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 180f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
+            cache.half1RightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(85, c2), Color.Transparent, 0f)
+            {
+                Blend = _ribbonTabTopBlend
+            };
             cache.half1LightBrush = new LinearGradientBrush(half1RectF, Color.FromArgb(28, Color.White), Color.FromArgb(125, Color.White), 270f);
             cache.half2Brush = new SolidBrush(Color.FromArgb(85, c2));
 
             // Create ellipse information for lightening the bottom hald
             cache.ellipseRect = new RectangleF(fullRect.Left - (fullRect.Width / 8), fullRect.Top, fullRect.Width * 1.25f, fullRect.Height);
 
+            GraphicsPath ellipsePath = new GraphicsPath();
             // Cannot draw a path that contains a zero sized element
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = Color.FromArgb(92, Color.White);
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = Color.FromArgb(92, Color.White)
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Bottom - (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
             }
 
-            vertRectF = new RectangleF(rect.Left - 1, rect.Top, rect.Width + 2, rect.Height - 2);
-            horzRectF = new RectangleF(rect.Left + 1, rect.Top, rect.Width - 2, rect.Height);
-            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 270f);
-            cache.outsideBrush.Blend = _ribbonOutBlend;
-            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 270f);
-            cache.insideBrush.Blend = _ribbonInBlend;
-            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 180f);
-            cache.topBrush.Blend = _ribbonTopBlend;
+            RectangleF vertRectF = new RectangleF(rect.Left - 1, rect.Top, rect.Width + 2, rect.Height - 2);
+            RectangleF horzRectF = new RectangleF(rect.Left + 1, rect.Top, rect.Width - 2, rect.Height);
+            cache.outsideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten128, 270f)
+            {
+                Blend = _ribbonOutBlend
+            };
+            cache.insideBrush = new LinearGradientBrush(vertRectF, Color.Transparent, _whiten200, 270f)
+            {
+                Blend = _ribbonInBlend
+            };
+            cache.topBrush = new LinearGradientBrush(horzRectF, _whiten92, _whiten128, 180f)
+            {
+                Blend = _ribbonTopBlend
+            };
             cache.topPen = new Pen(cache.topBrush);
 
             cache.outsidePen = new Pen(c1);
@@ -7311,10 +8026,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabTracking2010 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabTracking2010))
+                if (!(memento is MementoRibbonTabTracking2010))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabTracking2010(rect, c1, c2, c3, c4, orientation);
                     memento = cache;
@@ -7335,7 +8049,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (c5 != Color.Empty)
                     {
                         if (!standard)
+                        {
                             c5 = CommonHelper.MergeColors(c5, 0.65f, Color.Black, 0.35f);
+                        }
 
                         c1 = c5;
                         c2 = CommonHelper.MergeColors(c2, 0.8f, ControlPaint.Light(c5), 0.2f);
@@ -7367,7 +8083,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.borderPath);
+                }
 
                 // Fill the inside area
                 context.Graphics.FillPath(cache.insideBrush, cache.insidePath);
@@ -7417,8 +8135,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 270f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 270f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7461,8 +8181,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 90f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 90f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7506,8 +8228,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 180f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 180f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7550,8 +8274,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 2, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 0f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 2, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 0f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7577,10 +8303,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabTracking2010 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabTracking2010))
+                if (!(memento is MementoRibbonTabTracking2010))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabTracking2010(rect, c1, c2, c3, c4, orientation);
                     memento = cache;
@@ -7630,8 +8355,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.borderPath);
- 
+                }
+
                 // Fill the inside area
                 context.Graphics.FillPath(cache.insideBrush, cache.insidePath);
             }
@@ -7686,8 +8413,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 270f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 270f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7736,8 +8465,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 90f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 90f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7785,8 +8516,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 180f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 180f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7833,8 +8566,10 @@ namespace ComponentFactory.Krypton.Toolkit
             cache.borderPath = borderPath;
             cache.outsidePath = outsidePath;
             cache.insidePath = insidePath;
-            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 2, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 0f);
-            cache.insideBrush.Blend = _linear50Blend;
+            cache.insideBrush = new LinearGradientBrush(new RectangleF(rect.X - 2, rect.Y - 1, rect.Width + 2, rect.Height + 2), c4, c3, 0f)
+            {
+                Blend = _linear50Blend
+            };
         }
 
         /// <summary>
@@ -7858,10 +8593,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabGlowing cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabGlowing))
+                if (!(memento is MementoRibbonTabGlowing))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabGlowing(rect, c1, c2, insideColor, orientation);
                     memento = cache;
@@ -7912,14 +8646,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the border over the edge of the inside color
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.outsidePath);
+                }
 
                 // Draw the top glass effect
                 context.Graphics.FillPath(cache.topBrush, cache.topPath);
 
                 // Cannot draw a path that contains a zero sized element
                 if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
+                {
                     context.Graphics.FillRectangle(cache.ellipseBrush, cache.fullRect);
+                }
             }
 
             return memento;
@@ -7965,8 +8703,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = c2;
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = c2
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
@@ -8020,8 +8760,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = c2;
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = c2
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
@@ -8075,8 +8817,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = c2;
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = c2
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Top + (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
@@ -8130,8 +8874,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((cache.ellipseRect.Width > 0) && (cache.ellipseRect.Height > 0))
             {
                 ellipsePath.AddEllipse(cache.ellipseRect);
-                cache.ellipseBrush = new PathGradientBrush(ellipsePath);
-                cache.ellipseBrush.CenterColor = c2;
+                cache.ellipseBrush = new PathGradientBrush(ellipsePath)
+                {
+                    CenterColor = c2
+                };
                 PointF centerPoint = new PointF(cache.ellipseRect.Left + (cache.ellipseRect.Width / 2), cache.ellipseRect.Bottom - 1 - (cache.ellipseRect.Height / 2));
                 cache.ellipseBrush.CenterPoint = centerPoint;
                 cache.ellipseBrush.SurroundColors = new Color[] { Color.Transparent };
@@ -8167,10 +8913,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabSelected2007 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabSelected2007))
+                if (!(memento is MementoRibbonTabSelected2007))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabSelected2007(rect, c1, c2, c3, c4, c5, orientation);
                     memento = cache;
@@ -8215,7 +8960,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the actual border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.outsidePath);
+                }
 
                 switch (orientation)
                 {
@@ -8471,10 +9218,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabSelected2010 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabSelected2010))
+                if (!(memento is MementoRibbonTabSelected2010))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabSelected2010(rect, c1, c2, c3, c4, c5, orientation);
                     memento = cache;
@@ -8495,7 +9241,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (c5 != Color.Empty)
                     {
                         if (!standard)
+                        {
                             c5 = CommonHelper.MergeColors(c5, 0.65f, Color.Black, 0.35f);
+                        }
 
                         c1 = Color.FromArgb(196, c5);
                     }
@@ -8523,10 +9271,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 context.Graphics.FillPath(cache.centerBrush, cache.outsidePath);
 
                 if (c5 != Color.Empty)
+                {
                     context.Graphics.FillPath(cache.insideBrush, cache.insidePath);
+                }
 
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.outsidePath);
+                }
 
                 switch (orientation)
                 {
@@ -8568,8 +9320,10 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2, rect.Bottom - 3, rect.Right - 1, rect.Bottom - 2);
 
             RectangleF centerRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 90f);
-            cache.centerBrush.Blend = _ribbonTabSelected1Blend;
+            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 90f)
+            {
+                Blend = _ribbonTabSelected1Blend
+            };
             cache.outsidePath = outsidePath;
 
             // Reduce rectangle to the inside fill area
@@ -8588,8 +9342,10 @@ namespace ComponentFactory.Krypton.Toolkit
             insidePath.AddLine(rect.Right - 2, rect.Bottom - 3, rect.Right - 1, rect.Bottom - 2);
 
             RectangleF insideRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 90f);
-            cache.insideBrush.Blend = _ribbonTabSelected2Blend;
+            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 90f)
+            {
+                Blend = _ribbonTabSelected2Blend
+            };
             cache.insidePath = insidePath;
         }
 
@@ -8632,8 +9388,10 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2, rect.Top + 1, rect.Right - 2, rect.Top);
 
             RectangleF centerRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 0f);
-            cache.centerBrush.Blend = _ribbonTabSelected1Blend;
+            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 0f)
+            {
+                Blend = _ribbonTabSelected1Blend
+            };
             cache.outsidePath = outsidePath;
 
             // Reduce rectangle to the inside fill area
@@ -8652,8 +9410,10 @@ namespace ComponentFactory.Krypton.Toolkit
             insidePath.AddLine(rect.Right - 2, rect.Top + 1, rect.Right - 2, rect.Top);
 
             RectangleF insideRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 0f);
-            cache.insideBrush.Blend = _ribbonTabSelected2Blend;
+            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 0f)
+            {
+                Blend = _ribbonTabSelected2Blend
+            };
             cache.insidePath = insidePath;
         }
 
@@ -8696,8 +9456,10 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Left + 1, rect.Top + 1, rect.Left + 1, rect.Top);
 
             RectangleF centerRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 180f);
-            cache.centerBrush.Blend = _ribbonTabSelected1Blend;
+            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 180f)
+            {
+                Blend = _ribbonTabSelected1Blend
+            };
             cache.outsidePath = outsidePath;
 
             // Reduce rectangle to the inside fill area
@@ -8715,8 +9477,10 @@ namespace ComponentFactory.Krypton.Toolkit
             insidePath.AddLine(rect.Left + 1, rect.Top + 1, rect.Left + 1, rect.Top);
 
             RectangleF insideRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 180f);
-            cache.insideBrush.Blend = _ribbonTabSelected2Blend;
+            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 180f)
+            {
+                Blend = _ribbonTabSelected2Blend
+            };
             cache.insidePath = insidePath;
 
         }
@@ -8760,8 +9524,10 @@ namespace ComponentFactory.Krypton.Toolkit
             outsidePath.AddLine(rect.Right - 2, rect.Top + 1, rect.Right - 1, rect.Top + 1);
 
             RectangleF centerRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 270f);
-            cache.centerBrush.Blend = _ribbonTabSelected1Blend;
+            cache.centerBrush = new LinearGradientBrush(centerRectF, c2, c3, 270f)
+            {
+                Blend = _ribbonTabSelected1Blend
+            };
             cache.outsidePath = outsidePath;
 
             // Reduce rectangle to the inside fill area
@@ -8779,8 +9545,10 @@ namespace ComponentFactory.Krypton.Toolkit
             insidePath.AddLine(rect.Right - 2, rect.Top + 1, rect.Right - 1, rect.Top + 1);
 
             RectangleF insideRectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 270f);
-            cache.insideBrush.Blend = _ribbonTabSelected2Blend;
+            cache.insideBrush = new LinearGradientBrush(insideRectF, Color.FromArgb(32, c5), Color.Transparent, 270f)
+            {
+                Blend = _ribbonTabSelected2Blend
+            };
             cache.insidePath = insidePath;
         }
 
@@ -8823,10 +9591,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabContextSelected cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabContextSelected))
+                if (!(memento is MementoRibbonTabContextSelected))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabContextSelected(rect, c1, c2, orientation);
                     memento = cache;
@@ -8873,7 +9640,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the actual border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.outsidePen, cache.outsidePath);
+                }
 
                 switch (orientation)
                 {
@@ -9139,10 +9908,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabHighlight cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabHighlight))
+                if (!(memento is MementoRibbonTabHighlight))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabHighlight(rect, c1, c2, c3, c4, c5, orientation);
                     memento = cache;
@@ -9417,10 +10185,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabContext cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabContext))
+                if (!(memento is MementoRibbonTabContext))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabContext(rect, c1, c2);
                     memento = cache;
@@ -9440,16 +10207,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     Rectangle borderRect = new Rectangle(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2);
                     cache.fillRect = new Rectangle(rect.X + 1, rect.Y, rect.Width - 2, rect.Height - 1);
 
-                    LinearGradientBrush borderBrush = new LinearGradientBrush(borderRect, c1, Color.Transparent, 270f);
-                    borderBrush.Blend = _ribbonGroup5Blend;
+                    LinearGradientBrush borderBrush = new LinearGradientBrush(borderRect, c1, Color.Transparent, 270f)
+                    {
+                        Blend = _ribbonGroup5Blend
+                    };
                     cache.borderPen = new Pen(borderBrush);
 
-                    LinearGradientBrush underlineBrush = new LinearGradientBrush(borderRect, Color.Transparent, Color.FromArgb(200, c2), 0f);
-                    underlineBrush.Blend = _ribbonGroup7Blend;
+                    LinearGradientBrush underlineBrush = new LinearGradientBrush(borderRect, Color.Transparent, Color.FromArgb(200, c2), 0f)
+                    {
+                        Blend = _ribbonGroup7Blend
+                    };
                     cache.underlinePen = new Pen(underlineBrush);
 
-                    cache.fillBrush = new LinearGradientBrush(borderRect, Color.FromArgb(196, c2), Color.Transparent, 270f);
-                    cache.fillBrush.Blend = _ribbonGroup6Blend;
+                    cache.fillBrush = new LinearGradientBrush(borderRect, Color.FromArgb(196, c2), Color.Transparent, 270f)
+                    {
+                        Blend = _ribbonGroup6Blend
+                    };
                 }
 
                 // Draw the left and right border lines
@@ -9495,10 +10268,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonAppButton cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonAppButton))
+                if (!(memento is MementoRibbonAppButton))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonAppButton(rect, topLight, topMedium,
                                                        topDark, bottomLight, bottomMedium);
@@ -9525,11 +10297,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     cache.borderMain4 = new RectangleF(cache.borderMain2.X, cache.borderMain2.Y + 1, cache.borderMain2.Width, cache.borderMain2.Height - 2);
                     cache.rectBottomGlow = new RectangleF(0, 0, rect.Width * 0.75f, rect.Height * 0.75f);
                     cache.rectLower = new RectangleF(rect.X, rect.Y - 1, rect.Width, rect.Height + 1);
-                    cache.rectUpperGlow = new RectangleF();
-                    cache.rectUpperGlow.Width = rect.Width - 4;
-                    cache.rectUpperGlow.Height = rect.Height / 8;
-                    cache.rectUpperGlow.Y = rect.Y + (rect.Height - cache.rectUpperGlow.Height) / 2;
-                    cache.rectUpperGlow.X = rect.X + (rect.Width - cache.rectUpperGlow.Width) / 2;
+                    cache.rectUpperGlow = new RectangleF
+                    {
+                        Width = rect.Width - 4,
+                        Height = rect.Height / 8
+                    };
+                    cache.rectUpperGlow.Y = rect.Y + ((rect.Height - cache.rectUpperGlow.Height) / 2);
+                    cache.rectUpperGlow.X = rect.X + ((rect.Width - cache.rectUpperGlow.Width) / 2);
 
                     cache.brushUpper1 = new LinearGradientBrush(rect, Color.Transparent, Color.Transparent, LinearGradientMode.Horizontal);
                     cache.brushLower = new LinearGradientBrush(cache.rectLower, Color.Transparent, Color.Transparent, LinearGradientMode.Horizontal);
@@ -9583,12 +10357,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if (!pressed)
             {
-                Color[] colorsUpperHalf = new Color[] { topDark, topMedium, topLight, topLight, topMedium, topDark };
-                float[] posUpperHalf = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                Color[] colorsUpperHalf = { topDark, topMedium, topLight, topLight, topMedium, topDark };
+                float[] posUpperHalf = { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
 
-                ColorBlend blendUpperHalf = new ColorBlend();
-                blendUpperHalf.Colors = colorsUpperHalf;
-                blendUpperHalf.Positions = posUpperHalf;
+                ColorBlend blendUpperHalf = new ColorBlend
+                {
+                    Colors = colorsUpperHalf,
+                    Positions = posUpperHalf
+                };
                 memento.brushUpper1.InterpolationColors = blendUpperHalf;
 
                 g.FillPie(memento.brushUpper1, memento.rect.X, memento.rect.Y, memento.rect.Width, memento.rect.Height, 180, 180);
@@ -9610,7 +10386,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             using (LinearGradientBrush brushUpper2 = new LinearGradientBrush(memento.rect, c1, c2, LinearGradientMode.Vertical))
+            {
                 g.FillPie(brushUpper2, memento.rect.X, memento.rect.Y, memento.rect.Width, memento.rect.Height, 180, 180);
+            }
         }
 
         /// <summary>
@@ -9623,18 +10401,24 @@ namespace ComponentFactory.Krypton.Toolkit
                                                             Color bottomLight,
                                                             Color bottomMedium)
         {
-            Color[] colorsLowerHalf = new Color[] { bottomDark, bottomMedium, bottomLight, bottomLight, bottomMedium, bottomDark };
+            Color[] colorsLowerHalf = { bottomDark, bottomMedium, bottomLight, bottomLight, bottomMedium, bottomDark };
             float[] posLowerHalf;
 
             if (state == PaletteState.Pressed)
+            {
                 posLowerHalf = new float[] { 0.0f, 0.3f, 0.5f, 0.5f, 0.7f, 1.0f };
+            }
             else
+            {
                 posLowerHalf = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+            }
 
-            ColorBlend blendLowerHalf = new ColorBlend();
-            blendLowerHalf.Colors = colorsLowerHalf;
-            blendLowerHalf.Positions = posLowerHalf;
-            
+            ColorBlend blendLowerHalf = new ColorBlend
+            {
+                Colors = colorsLowerHalf,
+                Positions = posLowerHalf
+            };
+
             memento.brushLower.InterpolationColors = blendLowerHalf;
             g.FillPie(memento.brushLower, memento.rectLower.X, memento.rectLower.Y, memento.rectLower.Width, memento.rectLower.Height, 0, 180);
         }
@@ -9651,17 +10435,19 @@ namespace ComponentFactory.Krypton.Toolkit
             using (LinearGradientBrush brushBottomGlow = new LinearGradientBrush(memento.rectBottomGlow, Color.FromArgb(50, Color.White), Color.FromArgb(30, Color.White), LinearGradientMode.Vertical))
             {
                 RectangleF rectBottomGlow = memento.rectBottomGlow;
-                rectBottomGlow.X = memento.rect.X + (memento.rect.Width - rectBottomGlow.Width) / 2;
+                rectBottomGlow.X = memento.rect.X + ((memento.rect.Width - rectBottomGlow.Width) / 2);
                 rectBottomGlow.Y = memento.rect.Y + (memento.rect.Height - rectBottomGlow.Height - 2);
 
                 if (state != PaletteState.Pressed)
+                {
                     g.FillPie(brushBottomGlow, rectBottomGlow.X, rectBottomGlow.Y, rectBottomGlow.Width, rectBottomGlow.Height, 0, 360);
+                }
 
                 if (state == PaletteState.Pressed)
                 {
                     rectBottomGlow.Height = memento.rect.Height * 0.2f;
                     rectBottomGlow.Width = memento.rect.Width * 0.4f;
-                    rectBottomGlow.X = memento.rect.X + (memento.rect.Width - rectBottomGlow.Width) / 2;
+                    rectBottomGlow.X = memento.rect.X + ((memento.rect.Width - rectBottomGlow.Width) / 2);
                     rectBottomGlow.Y = memento.rect.Y + (memento.rect.Height - rectBottomGlow.Height);
 
                     using (GraphicsPath path = new GraphicsPath())
@@ -9691,7 +10477,7 @@ namespace ComponentFactory.Krypton.Toolkit
             int lightTransparency = 50;
             int mediumTransparency = 50;
 
-            if (state == PaletteState.Pressed || state == PaletteState.Tracking)
+            if ((state == PaletteState.Pressed) || (state == PaletteState.Tracking))
             {
                 lightTransparency = 200;
                 mediumTransparency = 200;
@@ -9699,18 +10485,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
             using (LinearGradientBrush brushUpperGlow = new LinearGradientBrush(memento.rectUpperGlow, Color.Transparent, Color.Transparent, LinearGradientMode.Horizontal))
             {
-                Color[] colorsUpperGlow = new Color[] { Color.FromArgb(180, bottomDark), 
+                Color[] colorsUpperGlow = { Color.FromArgb(180, bottomDark), 
                                                         Color.FromArgb(mediumTransparency, bottomMedium), 
                                                         Color.FromArgb(lightTransparency, bottomLight), 
                                                         Color.FromArgb(lightTransparency, bottomLight), 
                                                         Color.FromArgb(mediumTransparency, bottomMedium), 
                                                         Color.FromArgb(180, bottomDark) };
 
-                float[] posUpperGlow = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                float[] posUpperGlow = { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
 
-                ColorBlend blendUpperGlow = new ColorBlend();
-                blendUpperGlow.Colors = colorsUpperGlow;
-                blendUpperGlow.Positions = posUpperGlow;
+                ColorBlend blendUpperGlow = new ColorBlend
+                {
+                    Colors = colorsUpperGlow,
+                    Positions = posUpperGlow
+                };
                 brushUpperGlow.InterpolationColors = blendUpperGlow;
 
                 g.FillPie(brushUpperGlow, memento.rectUpperGlow.X, memento.rectUpperGlow.Y, memento.rectUpperGlow.Width, memento.rectUpperGlow.Height, 180, 180);
@@ -9738,39 +10526,59 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Color borderGlowColor;
             if (pressed)
+            {
                 borderGlowColor = _whiten80;
+            }
             else if (tracking && !pressed)
+            {
                 borderGlowColor = Color.FromArgb(200, bottomLight);
+            }
             else
+            {
                 borderGlowColor = _whiten120;
+            }
 
             using (Pen p = new Pen(borderGlowColor))
+            {
                 g.DrawEllipse(p, memento.borderMain1);
+            }
 
             using (Pen p = new Pen(Color.FromArgb(100, 52, 59, 64)))
+            {
                 g.DrawEllipse(p, memento.rect);
+            }
 
             if (pressed)
             {
                 borderGlowColor = _whiten60;
                 using (Pen p = new Pen(borderGlowColor))
+                {
                     g.DrawEllipse(p, memento.borderMain3);
+                }
             }
 
             borderGlowColor = (pressed ? _whiten50 : _whiten80);
             using (Pen p = new Pen(borderGlowColor))
+            {
                 g.DrawArc(p, memento.borderMain2, 180, 180);
+            }
 
             if (!pressed)
             {
                 borderGlowColor = _whiten30;
                 using (Pen p = new Pen(borderGlowColor))
+                {
                     g.DrawArc(p, memento.borderMain4, 180, 180);
+                }
             }
 
             if (tracking && !pressed)
+            {
                 using (Pen p = new Pen(Color.FromArgb(100, borderGlowColor)))
+                {
                     g.DrawEllipse(p, memento.rect);
+                }
+            }
         }
 
         /// <summary>
@@ -9790,10 +10598,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonAppTab cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonAppTab))
+                if (!(memento is MementoRibbonAppTab))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonAppTab(rect, baseColor1, baseColor2);
                     memento = cache;
@@ -9865,14 +10672,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Draw the outside border
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.borderPen, cache.borderPath);
+                }
 
                 // Fill inside area
                 context.Graphics.FillPath(cache.insideFillBrush, cache.insideFillPath);
 
                 // Draw highlight over bottom half
                 using(Clipping clip = new Clipping(context.Graphics, cache.insideFillPath))
+                {
                     context.Graphics.FillPath(cache.highlightBrush, cache.highlightPath);
+                }
             }
 
             return memento;
@@ -9898,10 +10709,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupNormalBorder cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupNormalBorder))
+                if (!(memento is MementoRibbonGroupNormalBorder))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupNormalBorder(rect, c1, c2);
                     memento = cache;
@@ -9966,7 +10776,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If tracking, lighten the background
                 if (tracking)
+                {
                     context.Graphics.FillRectangle(lightInside ? _whitenLightLBrush : _whitenLightBrush, cache.backRect);
+                }
 
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
                 {
@@ -9983,7 +10795,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 if (lightInside)
+                {
                     context.Graphics.DrawPath(Pens.White, cache.lightPath);
+                }
             }
 
             return memento;
@@ -10014,10 +10828,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupNormalBorderSep cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupNormalBorderSep))
+                if (!(memento is MementoRibbonGroupNormalBorderSep))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupNormalBorderSep(rect, c1, c2, c3, c4, c5, tracking, dark);
                     memento = cache;
@@ -10047,10 +10860,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     GraphicsPath trackingPath = new GraphicsPath();
                     trackingPath.AddEllipse(new Rectangle(rect.X, rect.Y + ( rect.Height / 2), rect.Width - 3, rect.Height));
-                    cache.trackHighlightBrush = new PathGradientBrush(trackingPath);
-                    cache.trackHighlightBrush.SurroundColors = new Color[] { Color.Transparent };
-                    cache.trackHighlightBrush.CenterColor = (dark ? (rect.Width > 50 ? _whiten60 : _whiten45) : _whiten160);
-                    cache.trackHighlightBrush.CenterPoint = new PointF(rect.X + (rect.Width - 3) / 2, rect.Height);
+                    cache.trackHighlightBrush = new PathGradientBrush(trackingPath)
+                    {
+                        SurroundColors = new Color[] { Color.Transparent },
+                        CenterColor = (dark ? (rect.Width > 50 ? _whiten60 : _whiten45) : _whiten160),
+                        CenterPoint = new PointF(rect.X + ((rect.Width - 3) / 2), rect.Height)
+                    };
                     cache.trackFillBrush = new LinearGradientBrush(new RectangleF(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 1), 
                                                                    (dark ? _whiten5 : _whiten10), 
                                                                    (dark ? _whiten5 : _darken5), 90f);
@@ -10119,10 +10934,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupNormalTitle cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupNormalTitle))
+                if (!(memento is MementoRibbonGroupNormalTitle))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupNormalTitle(rect, c1, c2);
                     memento = cache;
@@ -10182,10 +10996,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupCollapsedBorder cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupCollapsedBorder))
+                if (!(memento is MementoRibbonGroupCollapsedBorder))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupCollapsedBorder(rect, c1, c2, c3, c4);
                     memento = cache;
@@ -10266,10 +11079,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupCollapsedFrameBorder cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupCollapsedFrameBorder))
+                if (!(memento is MementoRibbonGroupCollapsedFrameBorder))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupCollapsedFrameBorder(rect, c1, c2);
                     memento = cache;
@@ -10304,11 +11116,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Perform actual drawing using the cache values
-                Rectangle titleRect = new Rectangle(rect.Left + 1, rect.Bottom - _groupFrameTitleHeight, rect.Width - 2, _groupFrameTitleHeight - 1);
+                Rectangle titleRect = new Rectangle(rect.Left + 1, rect.Bottom - GROUP_FRAME_TITLE_HEIGHT, rect.Width - 2, GROUP_FRAME_TITLE_HEIGHT - 1);
                 context.Graphics.FillRectangle(cache.titleBrush, titleRect);
 
                 using (AntiAlias aa = new AntiAlias(context.Graphics))
+                {
                     context.Graphics.DrawPath(cache.solidPen, cache.solidPath);
+                }
             }
 
             return memento;
@@ -10332,10 +11146,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupGradientOne cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupGradientOne))
+                if (!(memento is MementoRibbonGroupGradientOne))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupGradientOne(rect, c1, c2);
                     memento = cache;
@@ -10353,8 +11166,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     cache.Dispose();
 
                     RectangleF rectF = new RectangleF(rect.Left - 1, rect.Top - 1, rect.Width + 2, rect.Height + 2);
-                    cache.brush = new LinearGradientBrush(rectF, c1, c2, 90f);
-                    cache.brush.Blend = _ribbonGroup8Blend;
+                    cache.brush = new LinearGradientBrush(rectF, c1, c2, 90f)
+                    {
+                        Blend = _ribbonGroup8Blend
+                    };
                 }
 
                 // Perform actual drawing using the cache values
@@ -10385,10 +11200,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonGroupGradientTwo cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonGroupGradientTwo))
+                if (!(memento is MementoRibbonGroupGradientTwo))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonGroupGradientTwo(rect, c1, c2, c3, c4);
                     memento = cache;
@@ -10447,10 +11261,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonQATMinibar cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonQATMinibar))
+                if (!(memento is MementoRibbonQATMinibar))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonQATMinibar(rect, c1, c2, c3, c4, c5);
                     memento = cache;
@@ -10476,7 +11289,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     int right = rect.Right - 3;
                     int top = rect.Y + 2;
                     int bottom = rect.Bottom - 3;
-                    int middle = top + (bottom - top) / 2;
+                    int middle = top + ((bottom - top) / 2);
 
                     // Construct closed path for the main border
                     borderPath.AddLine(right - 8, bottom, left + 10.75f, bottom);
@@ -10576,10 +11389,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonQATMinibar cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonQATMinibar))
+                if (!(memento is MementoRibbonQATMinibar))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonQATMinibar(rect, c1, c2, c3, c4, c5);
                     memento = cache;
@@ -10605,7 +11417,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     int right = rect.Right - 3;
                     int top = rect.Y + 2;
                     int bottom = rect.Bottom - 3;
-                    int middle = top + (bottom - top) / 2;
+                    int middle = top + ((bottom - top) / 2);
 
                     // Construct closed path for the main border
                     borderPath.AddLine(right - 8, top + 0.25f, right - 5, top + 1);
@@ -10697,10 +11509,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonLinear cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonLinear))
+                if (!(memento is MementoRibbonLinear))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonLinear(rect, c1, c2);
                     memento = cache;
@@ -10744,10 +11555,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonLinearBorder cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonLinearBorder))
+                if (!(memento is MementoRibbonLinearBorder))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonLinearBorder(rect, c1, c2);
                     memento = cache;
@@ -10805,10 +11615,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonAppButtonInner cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonAppButtonInner))
+                if (!(memento is MementoRibbonAppButtonInner))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonAppButtonInner(rect, c1, c2);
                     memento = cache;
@@ -10857,10 +11666,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonAppButtonOuter cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonAppButtonOuter))
+                if (!(memento is MementoRibbonAppButtonOuter))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonAppButtonOuter(rect, c1, c2, c3);
                     memento = cache;
@@ -10923,10 +11731,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonQATFullbarRound cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonQATFullbarRound))
+                if (!(memento is MementoRibbonQATFullbarRound))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonQATFullbarRound(rect, c1, c2, c3);
                     memento = cache;
@@ -11008,10 +11815,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonQATFullbarSquare cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonQATFullbarSquare))
+                if (!(memento is MementoRibbonQATFullbarSquare))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonQATFullbarSquare(rect, c1, c2, c3);
                     memento = cache;
@@ -11066,10 +11872,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonQATOverflow cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonQATOverflow))
+                if (!(memento is MementoRibbonQATOverflow))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonQATOverflow(rect, c1, c2);
                     memento = cache;
@@ -11219,7 +12024,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawImage)
 						{
 							int x = ImageRect.Y - displayRect.Top;
-							ImageRect.Y = displayRect.Top + displayRect.Width - ImageRect.Width - (ImageRect.X - displayRect.X);
+							ImageRect.Y = (displayRect.Top + displayRect.Width) - ImageRect.Width - (ImageRect.X - displayRect.X);
 							ImageRect.X = x + displayRect.Left;
 						}
 
@@ -11227,7 +12032,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawShortText)
 						{
 							int x = ShortTextRect.Y - displayRect.Top;
-							ShortTextRect.Y = displayRect.Top + displayRect.Width - ShortTextRect.Width - (ShortTextRect.X - displayRect.X);
+							ShortTextRect.Y = (displayRect.Top + displayRect.Width) - ShortTextRect.Width - (ShortTextRect.X - displayRect.X);
 							ShortTextRect.X = x + displayRect.Left;
 							SwapRectangleSizes(ref ShortTextRect);
 						}
@@ -11236,7 +12041,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawLongText)
 						{
 							int x = LongTextRect.Y - displayRect.Top;
-							LongTextRect.Y = displayRect.Top + displayRect.Width - LongTextRect.Width - (LongTextRect.X - displayRect.X);
+							LongTextRect.Y = (displayRect.Top + displayRect.Width) - LongTextRect.Width - (LongTextRect.X - displayRect.X);
 							LongTextRect.X = x + displayRect.Left;
 							SwapRectangleSizes(ref LongTextRect);
 						}
@@ -11248,7 +12053,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawImage)
 						{
 							int y = ImageRect.X - displayRect.Left;
-							ImageRect.X = displayRect.Left + displayRect.Bottom - ImageRect.Bottom;
+							ImageRect.X = (displayRect.Left + displayRect.Bottom) - ImageRect.Bottom;
 							ImageRect.Y = y + displayRect.Top;
 						}
 
@@ -11256,7 +12061,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawShortText)
 						{
 							int y = ShortTextRect.X - displayRect.Left;
-							ShortTextRect.X = displayRect.Left + displayRect.Bottom - ShortTextRect.Bottom;
+							ShortTextRect.X = (displayRect.Left + displayRect.Bottom) - ShortTextRect.Bottom;
 							ShortTextRect.Y = y + displayRect.Top;
 							SwapRectangleSizes(ref ShortTextRect);
 						}
@@ -11265,7 +12070,7 @@ namespace ComponentFactory.Krypton.Toolkit
 						if (DrawLongText)
 						{
 							int y = LongTextRect.X - displayRect.Left;
-							LongTextRect.X = displayRect.Left + displayRect.Bottom - LongTextRect.Bottom;
+							LongTextRect.X = (displayRect.Left + displayRect.Bottom) - LongTextRect.Bottom;
 							LongTextRect.Y = y + displayRect.Top;
 							SwapRectangleSizes(ref LongTextRect);
 						}

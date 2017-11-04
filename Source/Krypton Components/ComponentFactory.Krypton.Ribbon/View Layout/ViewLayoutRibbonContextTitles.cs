@@ -9,15 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -76,7 +70,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 Clear();
 
                 foreach (ViewDrawRibbonContextTitle title in _contextTitlesCache)
+                {
                     title.Dispose();
+                }
 
                 _contextTitlesCache.Clear();
             }
@@ -114,11 +110,13 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewBase filler = null;
 
             foreach (ViewBase child in this)
+            {
                 if (GetDock(child) == ViewDockStyle.Fill)
                 {
                     filler = child;
                     break;
                 }
+            }
 
             int xLeftMost = ClientRectangle.Right;
             int xRightMost = ClientRectangle.Left;
@@ -173,9 +171,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Use the side with the most space
                 if (leftSpace >= rightSpace)
+                {
                     context.DisplayRectangle = new Rectangle(ClientLocation.X, ClientLocation.Y, leftSpace, ClientHeight);
+                }
                 else
+                {
                     context.DisplayRectangle = new Rectangle(xRightMost, ClientLocation.Y, rightSpace, ClientHeight);
+                }
 
                 filler.Layout(context);
             }
@@ -197,7 +199,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Limit drawing to our client area
             using(Clipping clip = new Clipping(context.Graphics, clipRect))
+            {
                 base.Render(context);
+            }
         }
         #endregion
 
@@ -208,24 +212,30 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewBase filler = null;
 
             foreach(ViewBase child in this)
+            {
                 if (GetDock(child) == ViewDockStyle.Fill)
                 {
                     filler = child;
                     break;
                 }
+            }
 
             // Remove all child elements
             Clear();
 
             // Make sure we have enough cached elements
             if (_contextTitlesCache.Count < ViewLayoutRibbonTabs.ContextTabSets.Count)
+            {
                 for (int i = _contextTitlesCache.Count; i < ViewLayoutRibbonTabs.ContextTabSets.Count; i++)
                 {
                     // Create a new view element and an associated button controller
-                    ViewDrawRibbonContextTitle viewContextTitle = new ViewDrawRibbonContextTitle(_ribbon, _ribbon.StateContextCheckedNormal.RibbonTab);
-                    viewContextTitle.MouseController = new ContextTitleController(_ribbon);
+                    ViewDrawRibbonContextTitle viewContextTitle = new ViewDrawRibbonContextTitle(_ribbon, _ribbon.StateContextCheckedNormal.RibbonTab)
+                    {
+                        MouseController = new ContextTitleController(_ribbon)
+                    };
                     _contextTitlesCache.Add(viewContextTitle);
                 }
+            }
 
             // Add a view element per context and update with correct reference
             for (int i = 0; i < ViewLayoutRibbonTabs.ContextTabSets.Count; i++)
@@ -239,26 +249,25 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Put back any filler
             if (filler != null)
-                Add(filler, ViewDockStyle.Fill);            
+            {
+                Add(filler, ViewDockStyle.Fill);
+            }
         }
 
         private Color CheckForContextColor(PaletteState state)
         {
             // We need an associated ribbon tab
-            if (_ribbon.SelectedTab != null)
+            // Does the ribbon tab have a context setting?
+            if (!string.IsNullOrEmpty(_ribbon.SelectedTab?.ContextName))
             {
-                // Does the ribbon tab have a context setting?
-                if (!string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
-                {
-                    // Find the context definition for this context
-                    KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[_ribbon.SelectedTab.ContextName];
+                // Find the context definition for this context
+                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[_ribbon.SelectedTab.ContextName];
 
-                    // Should always work, but you never know!
-                    if (ribbonContext != null)
-                    {
-                        // Return the context specific color
-                        return ribbonContext.ContextColor;
-                    }
+                // Should always work, but you never know!
+                if (ribbonContext != null)
+                {
+                    // Return the context specific color
+                    return ribbonContext.ContextColor;
                 }
             }
 

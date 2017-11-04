@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -154,9 +148,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColorStyle(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColorStyle(style, state);
+            }
         }
         #endregion
 
@@ -172,9 +170,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColor1(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColor1(style, state);
+            }
         }
         #endregion
 
@@ -190,9 +192,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColor2(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColor2(style, state);
+            }
         }
         #endregion
 
@@ -208,9 +214,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColor3(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColor3(style, state);
+            }
         }
         #endregion
 
@@ -226,9 +236,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColor4(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColor4(style, state);
+            }
         }
         #endregion
 
@@ -244,9 +258,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteRibbonBack inherit = GetBackInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetRibbonBackColor5(state);
+            }
             else
+            {
                 return Target.GetRibbonBackColor5(style, state);
+            }
         }
         #endregion
 

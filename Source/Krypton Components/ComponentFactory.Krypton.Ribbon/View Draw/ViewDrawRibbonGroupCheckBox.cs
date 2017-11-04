@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -147,12 +144,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox.Visible && _ribbonCheckBox.Enabled)
             {
                 if (_viewLarge == _ribbonCheckBox.CheckBoxView)
+                {
                     return _viewLarge;
+                }
                 else
+                {
                     return _viewMediumSmall;
+                }
             }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -167,12 +170,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox.Visible && _ribbonCheckBox.Enabled)
             {
                 if (_viewLarge == _ribbonCheckBox.CheckBoxView)
+                {
                     return _viewLarge;
+                }
                 else
+                {
                     return _viewMediumSmall;
+                }
             }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -271,9 +280,13 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = base.GetPreferredSize(context);
 
             if (_currentSize == GroupItemSize.Large)
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
+            }
             else
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
+            }
 
             return preferredSize;
         }
@@ -321,7 +334,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -334,8 +349,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add the large button at the top
             _viewLargeImage = new ViewDrawRibbonGroupCheckBoxImage(_ribbon, _ribbonCheckBox, true);
-            ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding);
-            largeImagePadding.Add(_viewLargeImage);
+            ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
+            {
+                _viewLargeImage
+            };
             _viewLarge.Add(largeImagePadding, ViewDockStyle.Top);
 
             // Add the first line of text
@@ -371,14 +388,18 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewMediumSmallImage = new ViewDrawRibbonGroupCheckBoxImage(_ribbon, _ribbonCheckBox, false);
             _viewMediumSmallText1 = new ViewDrawRibbonGroupCheckBoxText(_ribbon, _ribbonCheckBox, true);
             _viewMediumSmallText2 = new ViewDrawRibbonGroupCheckBoxText(_ribbon, _ribbonCheckBox, false);
-            ViewLayoutRibbonCenterPadding imagePadding = new ViewLayoutRibbonCenterPadding(_smallImagePadding);
-            imagePadding.Add(_viewMediumSmallImage);
+            ViewLayoutRibbonCenterPadding imagePadding = new ViewLayoutRibbonCenterPadding(_smallImagePadding)
+            {
+                _viewMediumSmallImage
+            };
 
             // Layout the content in the center of a row
-            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter();
-            _viewMediumSmallCenter.Add(imagePadding);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText1);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText2);
+            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter
+            {
+                imagePadding,
+                _viewMediumSmallText1,
+                _viewMediumSmallText2
+            };
 
             // Use content as only fill item
             _viewMediumSmall.Add(_viewMediumSmallCenter, ViewDockStyle.Fill);
@@ -413,7 +434,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the correct enabled state from the button definition
             bool buttonEnabled = _ribbonCheckBox.Enabled;
             if (_ribbonCheckBox.KryptonCommand != null)
+            {
                 buttonEnabled = _ribbonCheckBox.KryptonCommand.Enabled;
+            }
 
             // Take into account the ribbon state and mode
             bool enabled = _ribbon.InDesignHelperMode || (buttonEnabled && _ribbon.Enabled);
@@ -435,9 +458,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             CheckState newCheckState = CheckState.Unchecked;
             if (_ribbonCheckBox.KryptonCommand != null)
+            {
                 newCheckState = _ribbonCheckBox.KryptonCommand.CheckState;
+            }
             else
+            {
                 newCheckState = _ribbonCheckBox.CheckState;
+            }
 
             _viewLargeImage.CheckState = newCheckState;
             _viewMediumSmallImage.CheckState = newCheckState;
@@ -482,8 +509,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void ActionFinishedLarge(object sender, EventArgs e)
         {
             // Remove any popups that result from an action occuring
-            if (_ribbon != null)
-                _ribbon.ActionOccured();
+            _ribbon?.ActionOccured();
 
             // Remove the fixed pressed appearance
             _viewLargeController.RemoveFixed();
@@ -492,8 +518,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void ActionFinishedMediumSmall(object sender, EventArgs e)
         {
             // Remove any popups that result from an action occuring
-            if (_ribbon != null)
-                _ribbon.ActionOccured();
+            _ribbon?.ActionOccured();
 
             // Remove the fixed pressed appearance
             _viewMediumSmallController.RemoveFixed();

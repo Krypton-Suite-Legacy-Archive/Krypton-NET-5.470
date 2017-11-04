@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -583,14 +580,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Change in setting means we need to evaluate transparent painting
             _evalTransparent = true;
 
             // If required, layout the control
             if (e.NeedLayout)
+            {
                 _layoutDirty = true;
+            }
 
             if (IsHandleCreated && (!_refreshAll || !e.InvalidRect.IsEmpty))
             {
@@ -601,11 +603,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     Invalidate();
                 }
                 else
+                {
                     Invalidate(e.InvalidRect);
+                }
 
                 // Do we need to use an Invoke to force repaint?
                 if (!_refresh && EvalInvokePaint)
+                {
                     BeginInvoke(_refreshCall);
+                }
 
                 // A refresh is outstanding
                 _refresh = true;
@@ -650,8 +656,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnInitialized(EventArgs e)
         {
-            if (Initialized != null)
-                Initialized(this, EventArgs.Empty);
+            Initialized?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -666,8 +671,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
-            if (PaletteChanged != null)
-                PaletteChanged(this, e);
+            PaletteChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -722,7 +726,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
         }
 
         /// <summary>
@@ -812,7 +819,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // If the layout is dirty, or the size of the control has changed 
                     // without a layout being performed, then perform a layout now
                     if (_layoutDirty && (!Size.Equals(_lastLayoutSize)))
+                    {
                         PerformLayout();
+                    }
 
                     // Draw the background as transparent, by drawing parent
                     PaintTransparentBackground(e);
@@ -837,8 +846,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseMove(e, new Point(e.X, e.Y));
+                ViewManager?.MouseMove(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -855,8 +863,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseDown(e, new Point(e.X, e.Y));
+                ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -873,8 +880,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseUp(e, new Point(e.X, e.Y));
+                ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
 			// Let base class fire events
@@ -891,8 +897,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseLeave(e);
+                ViewManager?.MouseLeave(e);
             }
 
 			// Let base class fire events
@@ -909,8 +914,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.DoubleClick(this.PointToClient(Control.MousePosition));
+                ViewManager?.DoubleClick(this.PointToClient(Control.MousePosition));
             }
 
             // Let base class fire events
@@ -927,8 +931,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyDown(e);
+                ViewManager?.KeyDown(e);
             }
 
             // Let base class fire events
@@ -945,8 +948,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyPress(e);
+                ViewManager?.KeyPress(e);
             }
 
             // Let base class fire events
@@ -963,8 +965,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyUp(e);
+                ViewManager?.KeyUp(e);
             }
 
             // Let base class fire events
@@ -981,8 +982,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing source messages?
-                if (ViewManager != null)
-                    ViewManager.GotFocus();
+                ViewManager?.GotFocus();
             }
 
             // Let base class fire standard event
@@ -999,8 +999,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing source messages?
-                if (ViewManager != null)
-                    ViewManager.LostFocus();
+                ViewManager?.LostFocus();
             }
 
             // Let base class fire standard event

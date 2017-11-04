@@ -9,8 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -31,7 +29,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Desktop composition is only available on Vista upwards
                 if (Environment.OSVersion.Version.Major < 6)
+                {
                     return false;
+                }
                 else
                 {
                     // Ask the desktop window manager is composition is currently enabled
@@ -52,11 +52,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(hWnd != null);
 
             // Cerate structure that contains distances for each edge
-            PI.MARGINS margins = new PI.MARGINS();
-            margins.leftWidth = padding.Left;
-            margins.topHeight = padding.Top;
-            margins.rightWidth = padding.Right;
-            margins.bottomHeight = padding.Bottom;
+            PI.MARGINS margins = new PI.MARGINS
+            {
+                leftWidth = padding.Left,
+                topHeight = padding.Top,
+                rightWidth = padding.Right,
+                bottomHeight = padding.Bottom
+            };
 
             // Request change from the desktop window manager
             PI.DwmExtendFrameIntoClientArea(hWnd, ref margins);

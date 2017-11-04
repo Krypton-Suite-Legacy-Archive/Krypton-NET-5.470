@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -268,14 +265,20 @@ namespace ComponentFactory.Krypton.Toolkit
                             displayRect.Height -= childSize.Height;
 
                             if (minimumSize.Width < childSize.Width)
+                            {
                                 minimumSize.Width = childSize.Width;
+                            }
+
                             break;
                         case ViewDockStyle.Bottom:
                             preferredSize.Height += childSize.Height;
                             displayRect.Height -= childSize.Height;
 
                             if (minimumSize.Width < childSize.Width)
+                            {
                                 minimumSize.Width = childSize.Width;
+                            }
+
                             break;
                         case ViewDockStyle.Left:
                             preferredSize.Width += childSize.Width;
@@ -283,14 +286,20 @@ namespace ComponentFactory.Krypton.Toolkit
                             displayRect.Width -= childSize.Width;
 
                             if (minimumSize.Height < childSize.Height)
+                            {
                                 minimumSize.Height = childSize.Height;
+                            }
+
                             break;
                         case ViewDockStyle.Right:
                             preferredSize.Width += childSize.Width;
                             displayRect.Width -= childSize.Width;
 
                             if (minimumSize.Height < childSize.Height)
+                            {
                                 minimumSize.Height = childSize.Height;
+                            }
+
                             break;
                     }
                 }
@@ -506,7 +515,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected ViewDockStyle CalculateDock(ViewDockStyle ds, Control control)
         {
             if (IgnoreRightToLeftLayout)
+            {
                 return ds;
+            }
             else
             {
                 // Do we need to adjust to reflect right to left layout?
@@ -608,24 +619,29 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case ViewDockStyle.Fill:
                         if (childCanvas != null)
+                        {
                             childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(fillEdges, childCanvas.Orientation);
+                        }
                         else
                         {
-                            ViewLayoutDocker layoutDocker = child as ViewLayoutDocker;
-                            if (layoutDocker != null)
+                            if (child is ViewLayoutDocker layoutDocker)
                             {
                                 foreach (ViewBase layoutChild in layoutDocker)
                                 {
                                     childCanvas = layoutChild as ViewDrawCanvas;
                                     if (childCanvas != null)
+                                    {
                                         childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(fillEdges, childCanvas.Orientation);
+                                    }
                                 }
                             }
                         }
                         break;
                     case ViewDockStyle.Top:
                         if (childCanvas != null)
+                        {
                             childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(topEdges, childCanvas.Orientation);
+                        }
 
                         // Remove top edges from subsequent children
                         leftEdges &= PaletteDrawBorders.BottomLeftRight;
@@ -635,7 +651,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case ViewDockStyle.Bottom:
                         if (childCanvas != null)
+                        {
                             childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(bottomEdges, childCanvas.Orientation);
+                        }
 
                         // Remove bottom edges from subsequent children
                         leftEdges &= PaletteDrawBorders.TopLeftRight;
@@ -645,7 +663,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case ViewDockStyle.Left:
                         if (childCanvas != null)
+                        {
                             childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(leftEdges, childCanvas.Orientation);
+                        }
 
                         // Remove left edges from subsequent children
                         topEdges &= PaletteDrawBorders.TopBottomRight;
@@ -655,7 +675,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case ViewDockStyle.Right:
                         if (childCanvas != null)
+                        {
                             childCanvas.MaxBorderEdges = CommonHelper.ReverseOrientateDrawBorders(rightEdges, childCanvas.Orientation);
+                        }
 
                         // Remove right edges from subsequent children
                         topEdges &= PaletteDrawBorders.TopBottomLeft;

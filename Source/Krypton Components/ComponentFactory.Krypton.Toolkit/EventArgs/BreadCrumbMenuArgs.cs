@@ -8,11 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>

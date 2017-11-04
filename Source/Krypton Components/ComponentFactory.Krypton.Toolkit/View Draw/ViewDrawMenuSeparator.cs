@@ -8,12 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -44,9 +38,13 @@ namespace ComponentFactory.Krypton.Toolkit
             separator.SetPaletteRedirect(palette);
 
             if (separator.Horizontal)
+            {
                 Orientation = VisualOrientation.Top;
+            }
             else
+            {
                 Orientation = VisualOrientation.Left;
+            }
 
             // We need to be big enough to contain 1 pixel square spacer
             Add(new ViewLayoutSeparator(1));
@@ -96,7 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             if (Draw)
+            {
                 base.Render(context);
+            }
         }
         #endregion
     }

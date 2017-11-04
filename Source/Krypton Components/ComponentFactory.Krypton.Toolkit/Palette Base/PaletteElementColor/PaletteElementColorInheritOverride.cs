@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -114,12 +110,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetElementColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetElementColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetElementColor1(state);
+            }
         }
 
         /// <summary>
@@ -134,12 +134,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetElementColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetElementColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetElementColor2(state);
+            }
         }
 
         /// <summary>
@@ -154,12 +158,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetElementColor3(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetElementColor3(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetElementColor3(state);
+            }
         }
 
         /// <summary>
@@ -174,12 +182,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetElementColor4(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetElementColor4(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetElementColor4(state);
+            }
         }
 
         /// <summary>
@@ -194,12 +206,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetElementColor5(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetElementColor5(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetElementColor5(state);
+            }
         }
         #endregion
     }

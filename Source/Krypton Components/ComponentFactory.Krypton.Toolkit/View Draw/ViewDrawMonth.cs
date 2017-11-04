@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Globalization;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -86,8 +82,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawContent = new ViewDrawContent(_calendar.StateNormal.Header.Content, this, VisualOrientation.Top);
             _borderForced = new PaletteBorderInheritForced(_calendar.StateNormal.Header.Border);
             _borderForced.ForceBorderEdges(PaletteDrawBorders.None);
-            _drawHeader = new ViewDrawDocker(_calendar.StateNormal.Header.Back, _borderForced, null);
-            _drawHeader.Add(_drawContent, ViewDockStyle.Fill);
+            _drawHeader = new ViewDrawDocker(_calendar.StateNormal.Header.Back, _borderForced, null)
+            {
+                { _drawContent, ViewDockStyle.Fill }
+            };
             Add(_drawHeader);
 
             // Create the left/right arrows for moving the months
@@ -95,9 +93,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _arrowNext = new ButtonSpecCalendar(this, PaletteButtonSpecStyle.Next, RelativeEdgeAlign.Far);
             _arrowPrev.Click += new EventHandler(OnPrevMonth);
             _arrowNext.Click += new EventHandler(OnNextMonth);
-            _buttonSpecs = new CalendarButtonSpecCollection(this);
-            _buttonSpecs.Add(_arrowPrev);
-            _buttonSpecs.Add(_arrowNext);
+            _buttonSpecs = new CalendarButtonSpecCollection(this)
+            {
+                _arrowPrev,
+                _arrowNext
+            };
 
             // Using a button spec manager to add the buttons to the header
             _buttonManager = new ButtonSpecManagerDraw(_calendar.CalendarControl, redirector, null, _buttonSpecs,
@@ -128,22 +128,26 @@ namespace ComponentFactory.Krypton.Toolkit
             _borderEdge = new PaletteBorderEdge(_borderEdgeRedirect, null);
             _drawBorderEdge = new ViewDrawBorderEdge(_borderEdge, Orientation.Vertical);
             _drawWeekNumbers = new ViewDrawWeekNumbers(_calendar, _months);
-            ViewLayoutDocker borderLeftDock = new ViewLayoutDocker();
-            borderLeftDock.Add(_drawWeekNumbers, ViewDockStyle.Left);
-            borderLeftDock.Add(new ViewLayoutSeparator(0, 4), ViewDockStyle.Top);
-            borderLeftDock.Add(_drawBorderEdge, ViewDockStyle.Fill);
-            borderLeftDock.Add(new ViewLayoutSeparator(0, 4), ViewDockStyle.Bottom);
+            ViewLayoutDocker borderLeftDock = new ViewLayoutDocker
+            {
+                { _drawWeekNumbers, ViewDockStyle.Left },
+                { new ViewLayoutSeparator(0, 4), ViewDockStyle.Top },
+                { _drawBorderEdge, ViewDockStyle.Fill },
+                { new ViewLayoutSeparator(0, 4), ViewDockStyle.Bottom }
+            };
             _numberStack.Add(borderLeftDock);
 
             // Add border between day names and individual days
             PaletteBorderEdgeRedirect borderEdgeRedirect = new PaletteBorderEdgeRedirect(_calendar.StateNormal.Header.Border, null);
             PaletteBorderEdge borderEdge = new PaletteBorderEdge(borderEdgeRedirect, null);
             ViewDrawBorderEdge drawBorderEdge = new ViewDrawBorderEdge(borderEdge, Orientation.Horizontal);
-            ViewLayoutDocker borderTopDock = new ViewLayoutDocker();
-            borderTopDock.Add(new ViewLayoutSeparator(4, 1), ViewDockStyle.Left);
-            borderTopDock.Add(drawBorderEdge, ViewDockStyle.Fill);
-            borderTopDock.Add(new ViewLayoutSeparator(4, 1), ViewDockStyle.Right);
-            borderTopDock.Add(new ViewLayoutSeparator(1, 3), ViewDockStyle.Bottom);
+            ViewLayoutDocker borderTopDock = new ViewLayoutDocker
+            {
+                { new ViewLayoutSeparator(4, 1), ViewDockStyle.Left },
+                { drawBorderEdge, ViewDockStyle.Fill },
+                { new ViewLayoutSeparator(4, 1), ViewDockStyle.Right },
+                { new ViewLayoutSeparator(1, 3), ViewDockStyle.Bottom }
+            };
             daysStack.Add(borderTopDock);
 
             // Add the actual individual days

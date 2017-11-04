@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -279,7 +273,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If the user has defined an actual value to use
                 if (OverlayHeaders != InheritBool.Inherit)
+                {
                     return OverlayHeaders;
+                }
             }
 
             // Pass onto the inheritance
@@ -298,19 +294,31 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteMetricPadding.HeaderGroupPaddingPrimary:
                     if (!PrimaryHeaderPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return PrimaryHeaderPadding;
+                    }
+
                     break;
                 case PaletteMetricPadding.HeaderGroupPaddingSecondary:
                     if (!SecondaryHeaderPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return SecondaryHeaderPadding;
+                    }
+
                     break;
                 case PaletteMetricPadding.HeaderGroupPaddingDockInactive:
                     if (!DockInactiveHeaderPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return DockInactiveHeaderPadding;
+                    }
+
                     break;
                 case PaletteMetricPadding.HeaderGroupPaddingDockActive:
                     if (!DockActiveHeaderPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return DockActiveHeaderPadding;
+                    }
+
                     break;
             }
 

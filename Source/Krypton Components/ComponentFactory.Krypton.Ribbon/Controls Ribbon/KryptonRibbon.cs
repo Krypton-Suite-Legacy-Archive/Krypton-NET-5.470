@@ -9,19 +9,14 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.Collections;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Reflection;
-using System.Security;
 using System.Security.Permissions;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -288,7 +283,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Dispose of per-tab resources
                 foreach (KryptonRibbonTab tab in RibbonTabs)
+                {
                     tab.Dispose();
+                }
 
                 ResumeLayout();
             }
@@ -324,7 +321,9 @@ namespace ComponentFactory.Krypton.Ribbon
             { 
                 // Can only ever set the auto size to true
                 if (value)
-                    base.AutoSize = value; 
+                {
+                    base.AutoSize = value;
+                }
             }
         }
 
@@ -342,7 +341,9 @@ namespace ComponentFactory.Krypton.Ribbon
             { 
                 // Can only ever set to grow and shrink automatically
                 if (value == AutoSizeMode.GrowAndShrink)
-                    base.AutoSizeMode = value; 
+                {
+                    base.AutoSizeMode = value;
+                }
             }
         }
 
@@ -372,7 +373,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Can only ever set the property to dock at the top
                 if (value == DockStyle.Top)
+                {
                     base.Dock = value;
+                }
             }
         }
 
@@ -743,9 +746,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                                 // First time around we show the popup, next time we update
                                 if (_minimizedPopup == null)
+                                {
                                     ShowMinimizedPopup();
+                                }
                                 else
+                                {
                                     UpdateMinimizedPopup();
+                                }
                             }
                         }
                     }
@@ -776,7 +783,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Always maintain a value reference
                 if (value == null)
+                {
                     value = string.Empty;
+                }
 
                 if (_selectedContext != value)
                 {
@@ -939,13 +948,17 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Put the groups view back into the main display
                         if (!_drawMinimizedPanel.Contains(_groupsArea))
+                        {
                             _drawMinimizedPanel.Add(_groupsArea);
+                        }
 
                         // Need to move any child controls out of the client area so they are not shown,
                         // this can have when the QAT is below the ribbon and then the child controls that
                         // contain the per tab details will still be visible in that area.
                         foreach (Control child in Controls)
+                        {
                             child.SetBounds(-child.Width, -child.Height, child.Width, child.Height);
+                        }
 
                         // Update selection to match ribbon settings
                         _minSelectedTab = _selectedTab;
@@ -1185,7 +1198,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Hide caret from appearing in the source window
                 if (_keyboardFocusWindow != IntPtr.Zero)
+                {
                     _keyboardFocusCaret = PI.HideCaret(_keyboardFocusWindow);
+                }
 
                 // Take the focus for ourself
                 PI.SetFocus(this.Handle);
@@ -1210,7 +1225,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // If the caret was showing when we stole focus, then put it back
                         if (_keyboardFocusCaret)
+                        {
                             PI.ShowCaret(_keyboardFocusWindow);
+                        }
                     }
                 }
 
@@ -1282,9 +1299,11 @@ namespace ComponentFactory.Krypton.Ribbon
                             if ((ownerForm != null) && ownerForm.Visible && ownerForm.Enabled && ownerForm.ContainsFocus)
                             {
                                 // Extract the x and y mouse position from message
-                                Point pt = new Point();
-                                pt.X = PI.LOWORD((int)m.LParam);
-                                pt.Y = PI.HIWORD((int)m.LParam);
+                                Point pt = new Point
+                                {
+                                    X = PI.LOWORD((int)m.LParam),
+                                    Y = PI.HIWORD((int)m.LParam)
+                                };
 
                                 // Only interested if over the ribbon control
                                 if (ClientRectangle.Contains(PointToClient(pt)))
@@ -1311,7 +1330,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Get the view the mouse is currently over
             ViewBase mouseView = ViewManager.Root.ViewFromPoint(pt);
@@ -1361,15 +1382,21 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Get the view the mouse is currently over
             ViewBase mouseView = ViewManager.Root.ViewFromPoint(pt);
 
-            if (mouseView is ViewDrawRibbonGroupDateTimePicker)
-                return ((ViewDrawRibbonGroupDateTimePicker)mouseView).Component;
+            if (mouseView is ViewDrawRibbonGroupDateTimePicker picker)
+            {
+                return picker.Component;
+            }
             else
+            {
                 return ViewManager.ComponentFromPoint(pt);
+            }
         }
         #endregion
 
@@ -1382,7 +1409,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If no selected tab is designated at startup then we choose the first visible tab
             if (SelectedTab == null)
+            {
                 ResetSelectedTab();
+            }
 
             // Let base class generate event
             base.OnInitialized(e);
@@ -1420,16 +1449,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                if (TabsArea != null)
-                    TabsArea.AppButtonVisibleChanged();
+                TabsArea?.AppButtonVisibleChanged();
 
-                if (CaptionArea != null)
-                    CaptionArea.AppButtonVisibleChanged();
+                CaptionArea?.AppButtonVisibleChanged();
             }
 
             // If we have a parent form then ask it to check for a change in composition height
-            if (_captionArea.KryptonForm != null)
-                _captionArea.KryptonForm.RecalculateComposition();
+            _captionArea.KryptonForm?.RecalculateComposition();
 
             base.OnLayout(levent);
         }
@@ -1547,7 +1573,9 @@ namespace ComponentFactory.Krypton.Ribbon
             if (keyData == Keys.Escape)
             {
                 if (VisualPopupManager.Singleton.IsShowingCMS)
+                {
                     return false;
+                }
             }
 
             // If the user presses escape when in keyboard mode
@@ -1556,7 +1584,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // If showing a popup menu then let the escape key be processed
                 // by the VisualPopupManager and so used to dismiss the popup
                 if (VisualPopupManager.Singleton.IsTracking)
+                {
                     return false;
+                }
 
                 // If showing key tips...
                 if (_keyboardKeyTips && (KeyTipMode != KeyTipMode.Root))
@@ -1584,11 +1614,15 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Only when the ALT key has been released do we exit keyboard mode
                         if (_keyboardAltUpCount != _altUpCount)
+                        {
                             ToggleKeyboardMode();
+                        }
                     }
                     else
+                    {
                         ToggleKeyboardMode();
-        
+                    }
+
                     return true;
                 }
             }
@@ -1612,8 +1646,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Ask the tabs to check for command key processing
             foreach (KryptonRibbonTab tab in RibbonTabs)
+            {
                 if (tab.Visible && tab.ProcessCmdKey(ref msg, processData))
+                {
                     return true;
+                }
+            }
 
             // Check each quick access toolbar button
             foreach (IQuickAccessToolbarButton qatButton in QATButtons)
@@ -1672,8 +1710,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseDown(e, new Point(e.X, e.Y));
+                ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
             // Do not call base class! Prevent capture of the mouse
@@ -1689,8 +1726,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseUp(e, new Point(e.X, e.Y));
+                ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
             // Do not call base class! Prevent context menu from appearing by default
@@ -1705,17 +1741,25 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewBase newFocus = null;
 
             if (SelectedTab != null)
+            {
                 newFocus = _tabsArea.LayoutTabs.GetViewForRibbonTab(SelectedTab);
+            }
             else if (!RealMinimizedMode)
+            {
                 newFocus = _tabsArea.LayoutTabs.GetViewForFirstRibbonTab();
-            
+            }
+
             // If no tab to select, then use the application button
             if (newFocus == null)
             {
                 if (TabsArea.LayoutAppButton.Visible)
+                {
                     newFocus = TabsArea.LayoutAppButton.AppButton;
+                }
                 else if (TabsArea.LayoutAppTab.Visible)
+                {
                     newFocus = TabsArea.LayoutAppTab.AppTab;
+                }
             }
 
             // Give focus to the target view
@@ -1761,9 +1805,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If we want to intercept key pressed for use with key tips
             if (_keyboardMode && _keyboardKeyTips)
+            {
                 _keyTipControlE.AppendKeyPress(char.ToUpper(e.KeyChar));
+            }
             else
+            {
                 base.OnKeyPress(e);
+            }
         }
 
         /// <summary>
@@ -1774,7 +1822,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If the application is not themed (Windows Classic) then already repaint
             if (_invalidateOnResize || !IsAppThemed)
+            {
                 Invalidate();
+            }
 
             base.OnResize(e);
         }
@@ -1827,7 +1877,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 g.Clip = oldClip;
             }
             else
+            {
                 g.FillRectangle(backBrush, backRect);
+            }
         }
 
         /// <summary>
@@ -1841,11 +1893,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (RealMinimizedMode)
             {
                 // And we have a popup showing...
-                if (_minimizedPopup != null)
-                {
-                    // Then ensure the popup gets painted as well
-                    _minimizedPopup.PerformNeedPaint(e.NeedLayout);
-                }
+                // Then ensure the popup gets painted as well
+                _minimizedPopup?.PerformNeedPaint(e.NeedLayout);
             }
 
             // Let base class perform usual painting
@@ -1871,8 +1920,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Need to recalculate anything relying on the palette
             DirtyPaletteCounter++;
 
-            if (SelectedTabChanged != null)
-                SelectedTabChanged(this, e);
+            SelectedTabChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1881,8 +1929,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnSelectedContextChanged(EventArgs e)
         {
-            if (SelectedContextChanged != null)
-                SelectedContextChanged(this, e);
+            SelectedContextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1891,8 +1938,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A ContextMenuArgs containing event data.</param>
         protected virtual void OnShowRibbonContextMenu(ContextMenuArgs e)
         {
-            if (ShowRibbonContextMenu != null)
-                ShowRibbonContextMenu(this, e);
+            ShowRibbonContextMenu?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1901,8 +1947,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A ContextMenuArgs containing event data.</param>
         protected virtual void OnShowQATCustomizeMenu(ContextMenuArgs e)
         {
-            if (ShowQATCustomizeMenu != null)
-                ShowQATCustomizeMenu(this, e);
+            ShowQATCustomizeMenu?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1911,8 +1956,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A CancelEventArgs containing the event data.</param>
         internal protected virtual void OnAppButtonMenuOpening(CancelEventArgs e)
         {
-            if (AppButtonMenuOpening != null)
-                AppButtonMenuOpening(this, e);
+            AppButtonMenuOpening?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1921,8 +1965,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         internal protected virtual void OnAppButtonMenuOpened(EventArgs e)
         {
-            if (AppButtonMenuOpened != null)
-                AppButtonMenuOpened(this, e);
+            AppButtonMenuOpened?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1931,8 +1974,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A CancelEventArgs containing the event data.</param>
         internal protected virtual void OnAppButtonMenuClosing(CancelEventArgs e)
         {
-            if (AppButtonMenuClosing != null)
-                AppButtonMenuClosing(this, e);
+            AppButtonMenuClosing?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1941,8 +1983,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An ToolStripDropDownClosedEventArgs containing the event data.</param>
         internal protected virtual void OnAppButtonMenuClosed(ToolStripDropDownClosedEventArgs e)
         {
-            if (AppButtonMenuClosed != null)
-                AppButtonMenuClosed(this, e);
+            AppButtonMenuClosed?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1951,16 +1992,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnMinimizedModeChanged(EventArgs e)
         {
-            if (MinimizedModeChanged != null)
-                MinimizedModeChanged(this, e);
+            MinimizedModeChanged?.Invoke(this, e);
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeAddTab()
         {
-            if (DesignTimeAddTab != null)
-                DesignTimeAddTab(this, EventArgs.Empty);
+            DesignTimeAddTab?.Invoke(this, EventArgs.Empty);
         }
 
         internal bool RealMinimizedMode
@@ -2030,23 +2069,26 @@ namespace ComponentFactory.Krypton.Ribbon
             while (c.Parent != null)
             {
                 c = c.Parent;
-                if (c is Form)
+                if (c is Form form)
                 {
-                    f = (Form)c;
+                    f = form;
                     break;
                 }
             }
 
             if (f != null)
             {
-                KryptonForm kryptonForm = f as KryptonForm;
-                if (kryptonForm != null)
+                if (f is KryptonForm kryptonForm)
                 {
                     if (!kryptonForm.WindowActive)
+                    {
                         backStyle = BackInactiveStyle;
+                    }
                 }
                 else if (!f.ContainsFocus)
+                {
                     backStyle = BackInactiveStyle;
+                }
             }
 
             if (_groupsArea.BackStyle != backStyle)
@@ -2163,18 +2205,18 @@ namespace ComponentFactory.Krypton.Ribbon
             while (c != null)
             {
                 // If inside a view control...
-                if (c is ViewLayoutRibbonScrollPort.RibbonViewControl)
+                if (c is ViewLayoutRibbonScrollPort.RibbonViewControl control)
                 {
                     // Use the hide control inside the view control
-                    ((ViewLayoutRibbonScrollPort.RibbonViewControl)c).HideFocus();
+                    control.HideFocus();
                     break;
                 }
 
                 // If inside a popup group, because a collapsed group has been expanded
-                if (c is VisualPopupGroup)
+                if (c is VisualPopupGroup popGroup)
                 {
                     // Use the hide control inside the view control
-                    ((VisualPopupGroup)c).HideFocus();
+                    popGroup.HideFocus();
                     break;
                 }
 
@@ -2184,7 +2226,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Last resort, use the hidden one in the ribbon
             if (c == null)
+            {
                 _hiddenFocusTarget.Focus();
+            }
         }
 
         internal KryptonForm FindKryptonForm()
@@ -2193,16 +2237,22 @@ namespace ComponentFactory.Krypton.Ribbon
             while (c != null)
             {
                 if (c is Form)
+                {
                     break;
+                }
 
                 c = c.Parent;
             }
 
             // Caller is only interested in the KryptonForm parent
             if ((c != null) && (c is KryptonForm))
+            {
                 return c as KryptonForm;
+            }
             else
+            {
                 return null;
+            }
         }
 
         internal ButtonStyle QATButtonStyle
@@ -2228,8 +2278,10 @@ namespace ComponentFactory.Krypton.Ribbon
             ResetCachedKryptonContextMenu();
 
             // Add heading at top of the context menu
-            KryptonContextMenuHeading heading = new KryptonContextMenuHeading();
-            heading.Text = RibbonStrings.CustomizeQuickAccessToolbar;
+            KryptonContextMenuHeading heading = new KryptonContextMenuHeading
+            {
+                Text = RibbonStrings.CustomizeQuickAccessToolbar
+            };
             _kcm.Items.Add(heading);
 
             // Create a container for a set of individual menu items
@@ -2242,9 +2294,11 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Add an entry for each quick access toolbar button
                 foreach (IQuickAccessToolbarButton qatButton in QATButtons)
                 {
-                    KryptonContextMenuItem menuItem = new KryptonContextMenuItem();
-                    menuItem.Text = qatButton.GetText();
-                    menuItem.Checked = qatButton.GetVisible();
+                    KryptonContextMenuItem menuItem = new KryptonContextMenuItem
+                    {
+                        Text = qatButton.GetText(),
+                        Checked = qatButton.GetVisible()
+                    };
                     menuItem.Click += new EventHandler(OnQATCustomizeClick);
                     menuItem.Tag = QATButtons.IndexOf(qatButton);
                     menuItems.Items.Add(menuItem);
@@ -2256,14 +2310,20 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 KryptonContextMenuItem showQAT = new KryptonContextMenuItem();
                 if (QATLocation == QATLocation.Above)
+                {
                     showQAT.Text = RibbonStrings.ShowBelowRibbon;
+                }
                 else
+                {
                     showQAT.Text = RibbonStrings.ShowAboveRibbon;
+                }
                 showQAT.Click += new EventHandler(OnInvertQATLocation);
 
                 // Add into the context menu
                 if (menuItems.Items.Count > 0)
+                {
                     menuItems.Items.Add(new KryptonContextMenuSeparator());
+                }
 
                 menuItems.Items.Add(showQAT);
             }
@@ -2271,14 +2331,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (AllowMinimizedChange)
             {
                 // Allow the ribbon to be minimized
-                KryptonContextMenuItem minimize = new KryptonContextMenuItem();
-                minimize.Text = RibbonStrings.Minimize;
-                minimize.Checked = MinimizedMode;
+                KryptonContextMenuItem minimize = new KryptonContextMenuItem
+                {
+                    Text = RibbonStrings.Minimize,
+                    Checked = MinimizedMode
+                };
                 minimize.Click += new EventHandler(OnInvertMinimizeMode);
 
                 // Add into the context menu
                 if (menuItems.Items.Count > 0)
+                {
                     menuItems.Items.Add(new KryptonContextMenuSeparator());
+                }
 
                 menuItems.Items.Add(minimize);
             }
@@ -2300,8 +2364,7 @@ namespace ComponentFactory.Krypton.Ribbon
             else
             {
                 // if not showing the menu then fire completion delegate right away
-                if (finishDelegate != null)
-                    finishDelegate(this, EventArgs.Empty);
+                finishDelegate?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -2330,9 +2393,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 KryptonContextMenuItem showQAT = new KryptonContextMenuItem();
                 if (QATLocation == QATLocation.Above)
+                {
                     showQAT.Text = RibbonStrings.ShowQATBelowRibbon;
+                }
                 else
+                {
                     showQAT.Text = RibbonStrings.ShowQATAboveRibbon;
+                }
                 showQAT.Click += new EventHandler(OnInvertQATLocation);
 
                 // Add into the context menu
@@ -2342,9 +2409,11 @@ namespace ComponentFactory.Krypton.Ribbon
             if (AllowMinimizedChange)
             {
                 // Allow the ribbon to be minimized
-                KryptonContextMenuItem minimize = new KryptonContextMenuItem();
-                minimize.Text = RibbonStrings.Minimize;
-                minimize.Checked = MinimizedMode;
+                KryptonContextMenuItem minimize = new KryptonContextMenuItem
+                {
+                    Text = RibbonStrings.Minimize,
+                    Checked = MinimizedMode
+                };
                 minimize.Click += new EventHandler(OnInvertMinimizeMode);
 
                 // Add into the context menu
@@ -2415,7 +2484,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Get the first near edge button (the last near button is the leftmost one!)
             if (view == null)
+            {
                 view = TabsArea.ButtonSpecManager.GetLastVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+            }
 
             if (view == null)
             {
@@ -2433,19 +2504,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Move across to any far defined buttons
             if (view == null)
+            {
                 view = TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+            }
 
             // Move across to any inherit defined buttons
             if (view == null)
+            {
                 view = TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+            }
 
             // Move back to the application button/tab
             if (view == null)
             {
                 if (TabsArea.LayoutAppButton.Visible)
+                {
                     view = TabsArea.LayoutAppButton.AppButton;
+                }
                 else if (TabsArea.LayoutAppTab.Visible)
+                {
                     view = TabsArea.LayoutAppTab.AppTab;
+                }
             }
 
             return view;
@@ -2469,9 +2548,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (view == null)
             {
                 if (TabsArea.LayoutAppButton.Visible)
+                {
                     view = TabsArea.LayoutAppButton.AppButton;
+                }
                 else if (TabsArea.LayoutAppTab.Visible)
+                {
                     view = TabsArea.LayoutAppTab.AppTab;
+                }
             }
 
             return view;
@@ -2491,7 +2574,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If in keyboard mode, then exit the mode
             if (_keyboardMode)
+            {
                 ToggleKeyboardMode();
+            }
         }
 
         internal void KillKeyboardKeyTips()
@@ -2541,7 +2626,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // If the caret was showing when we stole focus, then put it back
                 if (_keyboardFocusCaret)
+                {
                     PI.ShowCaret(_keyboardFocusWindow);
+                }
             }
         }
 
@@ -2549,7 +2636,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If showing the popup in minimized mode, then remove it gracefully
             if (_minimizedPopup != null)
+            {
                 KillMinimizedPopup();
+            }
             else
             {
                 // Just remove all popups in the popup stack
@@ -2562,8 +2651,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void UpdateQAT()
         {
-            if (_captionArea != null)
-                _captionArea.UpdateQAT();
+            _captionArea?.UpdateQAT();
         }
 
         internal KeyTipMode KeyTipMode
@@ -2596,11 +2684,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void SetKeyTips(KeyTipInfoList keyTipList, KeyTipMode newMode)
         {
-            if (_keyTipControlE != null)
-                _keyTipControlE.Dispose();
+            _keyTipControlE?.Dispose();
 
-            if (_keyTipControlD != null)
-                _keyTipControlD.Dispose();
+            _keyTipControlD?.Dispose();
 
             _keyTipControlE = new KeyTipControl(this, keyTipList, false);
             _keyTipControlD = new KeyTipControl(this, keyTipList, true);
@@ -2609,8 +2695,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void AppendKeyTipPress(char key)
         {
-            if (InKeyboardMode && InKeyTipsMode && (_keyTipControlE != null))
-                _keyTipControlE.AppendKeyPress(char.ToUpper(key));
+            if (InKeyboardMode && InKeyTipsMode)
+            {
+                _keyTipControlE?.AppendKeyPress(char.ToUpper(key));
+            }
         }
 
         internal KeyTipInfoList GenerateKeyTipsAtTopLevel()
@@ -2623,16 +2711,24 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add the application button/tab
             if (_tabsArea.LayoutAppButton.Visible)
+            {
                 keyTipList.Add(_tabsArea.GetAppButtonKeyTip());
-            
+            }
+
             if (_tabsArea.LayoutAppTab.Visible)
+            {
                 keyTipList.Add(_tabsArea.GetAppTabKeyTip());
+            }
 
             // Add the quick access toolbar buttons
             if (QATLocation == QATLocation.Above)
+            {
                 keyTipList.AddRange(_captionArea.VisibleQAT.GetQATKeyTips());
+            }
             else
+            {
                 keyTipList.AddRange(_qatBelowContents.GetQATKeyTips(null));
+            }
 
             // Add the tab headers
             keyTipList.AddRange(_tabsArea.GetTabKeyTips());
@@ -2650,7 +2746,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // There should be a selected page
             if (SelectedTab != null)
+            {
                 keyTipList.AddRange(GroupsArea.ViewGroups.GetGroupKeyTips(SelectedTab));
+            }
 
             return keyTipList;
         }
@@ -2665,12 +2763,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     // We are only interested in popup groups the popup ribbon itself
                     Control c = VisualPopupManager.Singleton.CurrentPopup;
                     if ((c is VisualPopupGroup) || (c is VisualPopupMinimized))
+                    {
                         return c.RectangleToScreen(c.ClientRectangle);
+                    }
 
                     // Check the stacked popups to see if any of those are of interest
                     foreach (VisualPopup popup in VisualPopupManager.Singleton.StackedPopups)
+                    {
                         if ((popup is VisualPopupGroup) || (popup is VisualPopupMinimized))
+                        {
                             return popup.RectangleToScreen(popup.ClientRectangle);
+                        }
+                    }
                 }
 
                 return RectangleToScreen(ClientRectangle);
@@ -2681,9 +2785,13 @@ namespace ComponentFactory.Krypton.Ribbon
         internal Point ViewPointToScreen(Point pt)
         {
             if (VisualPopupManager.Singleton.CurrentPopup != null)
+            {
                 return VisualPopupManager.Singleton.CurrentPopup.PointToScreen(pt);
+            }
             else
+            {
                 return PointToScreen(pt);
+            }
         }
 
         internal Rectangle ViewRectangleToScreen(ViewBase view)
@@ -2706,14 +2814,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_focusView != value)
                 {
                     // Remove focus from existing view
-                    if (_focusView != null)
-                        _focusView.LostFocus(this);
+                    _focusView?.LostFocus(this);
 
                     _focusView = value;
 
                     // Add focus to the new view
-                    if (_focusView != null)
-                        _focusView.GotFocus(this);
+                    _focusView?.GotFocus(this);
                 }
             }
         }
@@ -2749,7 +2855,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 if ((c is KryptonRibbon) ||
                     (c is VisualPopupGroup) ||
                     (c is VisualPopupMinimized))
+                {
                     return c;
+                }
 
                 // Move up a level
                 c = c.Parent;
@@ -2821,8 +2929,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create a hidden button not inside the visible area, so acts as a target for
             // giving the focus when we do not want the focus showing on a child control
-            _hiddenFocusTarget = new Button();
-            _hiddenFocusTarget.TabStop = false;
+            _hiddenFocusTarget = new Button
+            {
+                TabStop = false
+            };
             _hiddenFocusTarget.Location = new Point(-_hiddenFocusTarget.Width, -_hiddenFocusTarget.Height);
             CommonHelper.AddControlToParent(this, _hiddenFocusTarget);
         }
@@ -2892,8 +3002,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonDocker = new ViewLayoutDocker();
 
             // Create the area used to host the caption of glass window
-            _compositionArea = new ViewDrawRibbonComposition(this, NeedPaintDelegate);
-            _compositionArea.Visible = false;
+            _compositionArea = new ViewDrawRibbonComposition(this, NeedPaintDelegate)
+            {
+                Visible = false
+            };
 
             // Create caption area which is used if custom chrome cannot perform task
             _captionArea = new ViewDrawRibbonCaptionArea(this, Redirector, _compositionArea, NeedPaintDelegate);
@@ -2907,13 +3019,17 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create the quick access toolbar for when below the ribbon
             _qatBelowContents = new ViewLayoutRibbonQATFromRibbon(this, NeedPaintDelegate, true);
-            _qatBelowRibbon = new ViewDrawRibbonQATBorder(this, NeedPaintDelegate, false);
-            _qatBelowRibbon.Visible = false;
+            _qatBelowRibbon = new ViewDrawRibbonQATBorder(this, NeedPaintDelegate, false)
+            {
+                Visible = false
+            };
             _qatBelowRibbon.Add(_qatBelowContents);
 
             // Separator used at bottom of tabs when ribbon is minized
-            _minimizeBar = new ViewDrawRibbonMinimizeBar(StateCommon.RibbonGeneral);
-            _minimizeBar.Visible = false;
+            _minimizeBar = new ViewDrawRibbonMinimizeBar(StateCommon.RibbonGeneral)
+            {
+                Visible = false
+            };
 
             // Connect up the various view elements
             _drawPanel.Add(_ribbonDocker);
@@ -2966,7 +3082,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // If an exception was thrown last time, then always false
                 if (_uxthemeNotAvailable)
+                {
                     return false;
+                }
                 else
                 {
                     try
@@ -2989,7 +3107,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // If the tab is not part of a context, then it is context valid or if 
             // in design mode then all tabs are valid as the context is ignored
             if (string.IsNullOrEmpty(tab.ContextName) || InDesignHelperMode)
+            {
                 return true;
+            }
             else
             {
                 // If there is a selected context to test against...
@@ -3000,8 +3120,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // If the tab context name is one of the selected contexts, then fine
                     foreach (string context in contexts)
+                    {
                         if (context == tab.ContextName)
+                        {
                             return true;
+                        }
+                    }
                 }
 
                 return false;
@@ -3022,6 +3146,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Search for a non-context tab to select
                     foreach (KryptonRibbonTab tab in RibbonTabs)
+                    {
                         if (string.IsNullOrEmpty(tab.ContextName))
                         {
                             // Only interested in visible tabs 
@@ -3032,12 +3157,14 @@ namespace ComponentFactory.Krypton.Ribbon
                                 break;
                             }
                         }
+                    }
 
                     // Still nothing found?
                     if (newSelection == null)
                     {
                         // Search for a context tab
                         foreach (KryptonRibbonTab tab in RibbonTabs)
+                        {
                             if (!string.IsNullOrEmpty(tab.ContextName))
                             {
                                 // Only interested in visible tabs that are part of the context selection
@@ -3048,6 +3175,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     break;
                                 }
                             }
+                        }
                     }
                 }
                 else
@@ -3084,7 +3212,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Walk up the parent chain until we reach the top
                     form = focus;
                     while (form.Parent != null)
+                    {
                         form = form.Parent;
+                    }
                 }
 
                 // Start searching from the current focus control
@@ -3103,7 +3233,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // If already wrapped around end of list then must be finished
                         if (wrapped)
+                        {
                             return false;
+                        }
 
                         // Keep going from the start
                         wrapped = true;
@@ -3152,7 +3284,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Unhook from all the context instances
             foreach(KryptonRibbonContext context in RibbonContexts)
+            {
                 context.PropertyChanged -= new PropertyChangedEventHandler(OnContextPropertyChanged);
+            }
         }
 
         private void OnRibbonContextsCleared(object sender, EventArgs e)
@@ -3234,7 +3368,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Do not remember a tab this is now removed
             if (_minSelectedTab == e.Item)
+            {
                 _minSelectedTab = null;
+            }
 
             // Update selection to match ribbon settings
             ValidateSelectedTab();
@@ -3261,7 +3397,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Stop tracking changes in button properties
             foreach (IQuickAccessToolbarButton qatButton in QATButtons)
+            {
                 qatButton.PropertyChanged -= new PropertyChangedEventHandler(OnQATButtonPropertyChanged);
+            }
         }
 
         private void OnRibbonQATButtonsCleared(object sender, EventArgs e)
@@ -3280,7 +3418,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Setup the back reference from tab to ribbon control
             if (qatButton != null)
+            {
                 qatButton.SetRibbon(this);
+            }
 
             // Track changes in button properties
             qatButton.PropertyChanged += new PropertyChangedEventHandler(OnQATButtonPropertyChanged);
@@ -3302,8 +3442,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remove the backreference
             if (qatButton != null)
+            {
                 qatButton.SetRibbon(null);
-            
+            }
+
             // Display not updated until a layout occurs
             PerformNeedPaint(true);
 
@@ -3317,11 +3459,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (RealMinimizedMode)
             {
                 // And we have a popup showing...
-                if (_minimizedPopup != null)
-                {
-                    // Then pass the paint request to the popup control
-                    _minimizedPopup.PerformNeedPaint(e.NeedLayout);
-                }
+                // Then pass the paint request to the popup control
+                _minimizedPopup?.PerformNeedPaint(e.NeedLayout);
             }
             else
             {
@@ -3349,9 +3488,13 @@ namespace ComponentFactory.Krypton.Ribbon
             KillKeyboardMode();
 
             if (QATLocation == QATLocation.Above)
+            {
                 QATLocation = QATLocation.Below;
+            }
             else
+            {
                 QATLocation = QATLocation.Above;
+            }
         }
 
         private void OnInvertMinimizeMode(object sender, EventArgs e)

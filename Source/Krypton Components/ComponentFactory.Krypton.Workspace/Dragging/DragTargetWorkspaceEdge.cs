@@ -12,7 +12,6 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
@@ -92,7 +91,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // If no pages are transferred then we do nothing and no longer need cell instance
             if (page == null)
+            {
                 cell.Dispose();
+            }
             else
             {
                 // If the root is not the same direction as that needed for the drop then...
@@ -114,23 +115,33 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Switch the direction of the root
                     if (Workspace.Root.Orientation == Orientation.Horizontal)
+                    {
                         Workspace.Root.Orientation = Orientation.Vertical;
+                    }
                     else
+                    {
                         Workspace.Root.Orientation = Orientation.Horizontal;
+                    }
                 }
 
                 // Add to the start or the end of the root sequence?
                 if ((Edge == VisualOrientation.Left) || (Edge == VisualOrientation.Top))
+                {
                     Workspace.Root.Children.Insert(0, cell);
+                }
                 else
+                {
                     Workspace.Root.Children.Add(cell);
+                }
 
                 // Make the last page transfer the newly selected page of the cell
                 if (page != null)
                 {
                     // Does the cell allow the selection of tabs?
                     if (cell.AllowTabSelect)
+                    {
                         cell.SelectedPage = page;
+                    }
 
                     // Need to layout so the new cell has been added as a child control and 
                     // therefore can receive the focus we want to give it immediately afterwards

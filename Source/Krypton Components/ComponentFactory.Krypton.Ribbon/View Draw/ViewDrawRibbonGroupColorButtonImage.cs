@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -102,9 +95,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_large)
+                {
                     return _largeSize;
+                }
                 else
+                {
                     return _smallSize;
+                }
             }
         }
 
@@ -119,16 +116,24 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_ribbonColorButton.KryptonCommand != null)
                 {
                     if (_large)
+                    {
                         newImage = _ribbonColorButton.KryptonCommand.ImageLarge;
+                    }
                     else
+                    {
                         newImage = _ribbonColorButton.KryptonCommand.ImageSmall;
+                    }
                 }
                 else
                 {
                     if (_large)
+                    {
                         newImage = _ribbonColorButton.ImageLarge;
+                    }
                     else
+                    {
                         newImage = _ribbonColorButton.ImageSmall;
+                    }
                 }
 
                 // Do we need to create another composite image?
@@ -149,16 +154,20 @@ namespace ComponentFactory.Krypton.Ribbon
                             // the selected color area, thus indicating the area inside the
                             // block is blank/empty.
                             using (Pen borderPen = new Pen(_emptyBorderColor))
+                            {
                                 g.DrawRectangle(borderPen, new Rectangle(selectedRect.X,
-                                                                         selectedRect.Y,
-                                                                         selectedRect.Width - 1,
-                                                                         selectedRect.Height - 1));
+                                    selectedRect.Y,
+                                    selectedRect.Width - 1,
+                                    selectedRect.Height - 1));
+                            }
                         }
                         else
                         {
                             // We have a valid selected color so draw a solid block of color
                             using (SolidBrush colorBrush = new SolidBrush(_selectedColor))
+                            {
                                 g.FillRectangle(colorBrush, selectedRect);
+                            }
                         }
                     }
 

@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 
@@ -75,17 +71,21 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawButton.Checked = ResolveChecked;
 
             // Place the check box on the left of the available space but inside separators
-            _innerDocker = new ViewLayoutDocker();
-            _innerDocker.Add(_drawButton, ViewDockStyle.Fill);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Right);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Left);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Top);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Bottom);
+            _innerDocker = new ViewLayoutDocker
+            {
+                { _drawButton, ViewDockStyle.Fill },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Right },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Left },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Top },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Bottom }
+            };
 
             // Use outer docker so that any extra space not needed is used by the null
-            _outerDocker = new ViewLayoutDocker();
-            _outerDocker.Add(_innerDocker, ViewDockStyle.Top);
-            _outerDocker.Add(new ViewLayoutNull(), ViewDockStyle.Fill);
+            _outerDocker = new ViewLayoutDocker
+            {
+                { _innerDocker, ViewDockStyle.Top },
+                { new ViewLayoutNull(), ViewDockStyle.Fill }
+            };
 
             // Use context menu specific version of the check box controller
             MenuCheckButtonController mcbc = new MenuCheckButtonController(provider.ProviderViewManager, _innerDocker, this, provider.ProviderNeedPaintDelegate);
@@ -168,9 +168,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Enabled;
+                }
                 else
+                {
                     return _checkButton.Enabled;
+                }
             }
         }
         #endregion
@@ -184,9 +188,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ImageSmall;
+                }
                 else
+                {
                     return _checkButton.Image;
+                }
             }
         }
         #endregion
@@ -200,9 +208,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ImageTransparentColor;
+                }
                 else
+                {
                     return _checkButton.ImageTransparentColor;
+                }
             }
         }
         #endregion
@@ -216,9 +228,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Text;
+                }
                 else
+                {
                     return _checkButton.Text;
+                }
             }
         }
         #endregion
@@ -232,9 +248,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ExtraText;
+                }
                 else
+                {
                     return _checkButton.ExtraText;
+                }
             }
         }
         #endregion
@@ -248,9 +268,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Checked;
+                }
                 else
+                {
                     return _checkButton.Checked;
+                }
             }
         }
         #endregion
@@ -343,7 +367,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
@@ -370,12 +397,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 case "KryptonCommand":
                     // Unhook from any existing command
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Hook into the new command
                     _cachedCommand = _checkButton.KryptonCommand;
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Update to show new state
                     _provider.ProviderNeedPaintDelegate(this, new NeedLayoutEventArgs(true));

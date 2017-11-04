@@ -9,19 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -124,7 +116,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 Close();
+            }
 
             base.Dispose(disposing);
         }        
@@ -543,8 +537,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A CancelEventArgs containing the event data.</param>
         protected virtual void OnOpening(CancelEventArgs e)
         {
-            if (Opening != null)
-                Opening(this, e);
+            Opening?.Invoke(this, e);
         }
 
         /// <summary>
@@ -553,8 +546,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnOpened(EventArgs e)
         {
-            if (Opened != null)
-                Opened(this, e);
+            Opened?.Invoke(this, e);
         }
 
         /// <summary>
@@ -563,8 +555,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A CancelEventArgs containing the event data.</param>
         internal protected virtual void OnClosing(CancelEventArgs e)
         {
-            if (Closing != null)
-                Closing(this, e);
+            Closing?.Invoke(this, e);
         }
 
         /// <summary>
@@ -573,8 +564,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ToolStripDropDownClosedEventArgs containing the event data.</param>
         protected virtual void OnClosed(ToolStripDropDownClosedEventArgs e)
         {
-            if (Closed != null)
-                Closed(this, e);
+            Closed?.Invoke(this, e);
         }
         #endregion
 
@@ -602,11 +592,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Pass request onto the displaying control if we have one
-            if (_contextMenu != null)
-                _contextMenu.PerformNeedPaint(e.NeedLayout);
+            _contextMenu?.PerformNeedPaint(e.NeedLayout);
         }
 
         private void OnContextMenuDisposed(object sender, EventArgs e)
@@ -619,7 +611,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Copy to ourself the close reason
                 if (_contextMenu.CloseReason.HasValue)
+                {
                     CloseReason = _contextMenu.CloseReason.Value;
+                }
 
                 // No longer need to cache reference
                 _contextMenu = null;

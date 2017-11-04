@@ -9,20 +9,12 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security;
 using System.Security.Permissions;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -73,7 +65,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_singleton == null)
+                {
                     _singleton = new VisualPopupManager();
+                }
 
                 return _singleton;
             }
@@ -133,14 +127,22 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Is the current popup matching the type?
                 if (CurrentPopup.GetType() == t)
+                {
                     return CurrentPopup;
+                }
 
                 // Check the stack items in reverse order for a match
                 VisualPopup[] popups = _stack.ToArray();
                 for (int i = popups.Length - 1; i >= 0; i--)
+                {
                     if (!popups[i].IsDisposed)
+                    {
                         if (popups[i].GetType() == t)
+                        {
                             return popups[i];
+                        }
+                    }
+                }
             }
 
             return null;
@@ -239,13 +241,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If possible then kill the current popup
                     if (!_current.IsDisposed)
+                    {
                         _current.Dispose();
+                    }
 
                     _current = null;
 
                     // If anything on stack, then it becomes the current one
                     if (_stack.Count > 0)
+                    {
                         _current = _stack.Pop();
+                    }
                 }
                 while (!found && (_current != null));
 
@@ -270,7 +276,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Kill the popup window
                 if (!_current.IsDisposed)
+                {
                     _current.Dispose();
+                }
 
                 // Is there anything stacked?
                 if (_stack.Count > 0)
@@ -354,12 +362,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Intercept the non-client mouse move to prevent the custom
                 // chrome of the form from providing hot tracking feedback
                 if (m.Msg == PI.WM_NCMOUSEMOVE)
+                {
                     return true;
+                }
 
                 // A mouse move can occur because a context menu is showing with a popup also 
                 // already showing. We suppress the mouse move to prevent tracking of the popup
                 if (m.Msg == PI.WM_MOUSEMOVE)
+                {
                     return ProcessMouseMoveWithCMS(ref m);
+                }
 
                 return false;
             }
@@ -382,7 +394,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // If the current window has become active, ask popup if that is allowed
                         if ((activeWindow == _current.Handle) && _current.AllowBecomeActiveWhenCurrent)
+                        {
                             _activeWindow = _current.Handle;
+                        }
                         else
                         {
                             bool focus = _current.ContainsFocus;
@@ -393,12 +407,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 // For from last to first for any popup that has the focus
                                 for (int i = popups.Length - 1; i >= 0; i--)
+                                {
                                     if (!popups[i].IsDisposed)
+                                    {
                                         if (popups[i].ContainsFocus)
                                         {
                                             focus = true;
                                             break;
                                         }
+                                    }
+                                }
                             }
 
                             // If the change in active window (focus) is not to the current
@@ -415,7 +433,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // We only intercept and handle keyboard and mouse messages
                 if (!IsKeyOrMouseMessage(ref m))
+                {
                     return false;
+                }
 
                 switch (m.Msg)
                 {
@@ -429,11 +449,13 @@ namespace ComponentFactory.Krypton.Toolkit
                             // KeyPress events occur for the current popup.
                             if (!_current.ContainsFocus)
                             {
-                                PI.MSG msg = new PI.MSG();
-                                msg.hwnd = m.HWnd;
-                                msg.message = m.Msg;
-                                msg.lParam = m.LParam;
-                                msg.wParam = m.WParam;
+                                PI.MSG msg = new PI.MSG
+                                {
+                                    hwnd = m.HWnd,
+                                    message = m.Msg,
+                                    lParam = m.LParam,
+                                    wParam = m.WParam
+                                };
                                 PI.TranslateMessage(ref msg);
                             }
                             return ProcessKeyboard(ref m);
@@ -447,7 +469,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_SYSDEADCHAR:
                         // If the popup is telling us to redirect keyboard to itself
                         if (!_current.KeyboardInert)
+                        {
                             return ProcessKeyboard(ref m);
+                        }
+
                         break;
                     case PI.WM_MOUSEMOVE:
                     case PI.WM_NCMOUSEMOVE:
@@ -500,7 +525,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // would like to kill the entire stack because it knows the mouse down should
                 // cancel the showing of popups.
                 if (_current.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
+                {
                     EndAllTracking();
+                }
             }
             else
             {
@@ -508,7 +535,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // that the mouse down is safe because it is within the client area of itself, then
                 // just let the message carry on as normal.
                 if (_current.DoesCurrentMouseDownContinueTracking(m, ScreenPtToClientPt(screenPt)))
+                {
                     return processed;
+                }
                 else
                 {
                     // Mouse is not inside the client area of the current popup, so we are going to end all tracking
@@ -534,7 +563,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         _current.Dispose();
                                         if (_stack.Count > 0)
+                                        {
                                             _current = _stack.Pop();
+                                        }
                                     }
                                 }
 
@@ -558,7 +589,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 {
                                     processed = popup.DoesMouseDownGetEaten(m, screenPt);
                                     if (processed)
+                                    {
                                         break;
+                                    }
                                 }
                             }
                         }
@@ -579,7 +612,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Ask the popup if this message causes the entire stack to be killed
             if (_current.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
+            {
                 EndAllTracking();
+            }
 
             // Do any of the current popups want the mouse down to be eaten?
             bool processed = false;
@@ -598,7 +633,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             processed = popup.DoesMouseDownGetEaten(m, screenPt);
                             if (processed)
+                            {
                                 break;
+                            }
                         }
                     }
                 }
@@ -617,50 +654,72 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Ask the current popup if it allows the mouse move
                 if (_current.AllowMouseMove(m, screenPt))
+                {
                     return false;
+                }
 
                 // Ask each stacked entry if they allow the mouse move
                 VisualPopup[] popups = _stack.ToArray();
 
                 // Search from end towards the front, the last entry is the most recent 'Push'
                 for (int i = popups.Length - 1; i >= 0; i--)
+                {
                     if (!popups[i].IsDisposed)
+                    {
                         if (popups[i].AllowMouseMove(m, screenPt))
+                        {
                             return false;
+                        }
+                    }
+                }
 
                 // No popup allows the mouse move, so suppress it
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
         private bool ProcessMouseMoveWithCMS(ref Message m)
         {
             if (_current == null)
+            {
                 return false;
+            }
 
             // Convert the client position to screen point
             Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(m);
 
             // Convert from a class to a structure
-            PI.POINT screenPIPt = new PI.POINT();
-            screenPIPt.x = screenPt.X;
-            screenPIPt.y = screenPt.Y;
+            PI.POINT screenPIPt = new PI.POINT
+            {
+                x = screenPt.X,
+                y = screenPt.Y
+            };
 
             // Get the window handle of the window under this screen point
             IntPtr hWnd = PI.WindowFromPoint(screenPIPt);
 
             // Is the window handle that of the currently tracking popup
             if (_current.Handle == hWnd)
+            {
                 return true;
+            }
 
             // Search all the stacked popups for any that match the window handle
             VisualPopup[] popups = _stack.ToArray();
             for (int i = 0; i<popups.Length; i++)
+            {
                 if (!popups[i].IsDisposed)
+                {
                     if (popups[i].Handle == hWnd)
+                    {
                         return true;
+                    }
+                }
+            }
 
             // Mouse move is not over a popup, so allow it
             return false;
@@ -673,19 +732,30 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private Point ScreenPtToClientPt(Point pt, IntPtr handle)
         {
-            PI.POINTC clientPt = new PI.POINTC();
-            clientPt.x = pt.X;
-            clientPt.y = pt.Y;
+            PI.POINTC clientPt = new PI.POINTC
+            {
+                x = pt.X,
+                y = pt.Y
+            };
 
             // Negative positions are in the range 32767 -> 65535, 
             // so convert to actual int values for the negative positions
-            if (clientPt.x >= 32767) clientPt.x = (clientPt.x - 65536);
-            if (clientPt.y >= 32767) clientPt.y = (clientPt.y - 65536);
+            if (clientPt.x >= 32767)
+            {
+                clientPt.x = (clientPt.x - 65536);
+            }
+
+            if (clientPt.y >= 32767)
+            {
+                clientPt.y = (clientPt.y - 65536);
+            }
 
             // Convert a 0,0 point from client to screen to find offsetting
-            PI.POINTC zeroPIPt = new PI.POINTC();
-            zeroPIPt.x = 0;
-            zeroPIPt.y = 0;
+            PI.POINTC zeroPIPt = new PI.POINTC
+            {
+                x = 0,
+                y = 0
+            };
             PI.MapWindowPoints(IntPtr.Zero, handle, zeroPIPt, 1);
 
             // Adjust the client coordinate by the offset to get to screen
@@ -699,11 +769,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool IsKeyOrMouseMessage(ref Message m)
         {
             if ((m.Msg >= PI.WM_MOUSEMOVE) && (m.Msg <= PI.WM_MOUSEWHEEL))
+            {
                 return true;
+            }
+
             if ((m.Msg >= PI.WM_NCMOUSEMOVE) && (m.Msg <= PI.WM_NCMBUTTONDBLCLK))
+            {
                 return true;
+            }
+
             if ((m.Msg >= PI.WM_KEYDOWN) && (m.Msg <= PI.WM_KEYLAST))
+            {
                 return true;
+            }
 
             return false;
         }

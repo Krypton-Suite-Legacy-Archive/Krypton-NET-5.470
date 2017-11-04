@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -60,10 +56,12 @@ namespace ComponentFactory.Krypton.Ribbon
             _shortcutText = (index < 10 ? @"&" + index.ToString() : "A");
 
             // Use docker to organize horizontal items
-            ViewLayoutDocker docker = new ViewLayoutDocker();
+            ViewLayoutDocker docker = new ViewLayoutDocker
+            {
 
-            // End of line gap
-            docker.Add(new ViewLayoutSeparator(5), ViewDockStyle.Right);
+                // End of line gap
+                { new ViewLayoutSeparator(5), ViewDockStyle.Right }
+            };
 
             // Add the text/extraText/Image entry
             FixedContentValue entryContent = new FixedContentValue(recentDoc.Text, recentDoc.ExtraText, recentDoc.Image, recentDoc.ImageTransparentColor);
@@ -112,7 +110,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Enforce the maximum width value
             Size preferredSize = base.GetPreferredSize(context);

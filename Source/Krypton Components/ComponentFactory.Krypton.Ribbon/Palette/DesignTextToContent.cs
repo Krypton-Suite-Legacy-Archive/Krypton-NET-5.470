@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -67,9 +62,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentShortTextColor1(PaletteState state)
         {
             if (state == PaletteState.Normal)
+            {
                 return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
+            }
             else
+            {
                 return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -80,9 +79,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentShortTextColor2(PaletteState state)
         {
             if (state == PaletteState.Normal)
+            {
                 return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
+            }
             else
+            {
                 return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -103,9 +106,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentLongTextColor1(PaletteState state)
         {
             if (state == PaletteState.Normal)
+            {
                 return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
+            }
             else
+            {
                 return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -116,9 +123,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentLongTextColor2(PaletteState state)
         {
             if (state == PaletteState.Normal)
+            {
                 return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
+            }
             else
+            {
                 return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
+            }
         }
         #endregion
     }

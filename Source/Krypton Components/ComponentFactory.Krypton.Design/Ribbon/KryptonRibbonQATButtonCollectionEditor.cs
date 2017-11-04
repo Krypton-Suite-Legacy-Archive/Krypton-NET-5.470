@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -47,16 +44,14 @@ namespace ComponentFactory.Krypton.Ribbon
             KryptonRibbon ribbon = (KryptonRibbon)Context.Instance;
 
 			// Suspend changes until collection has been updated
-            if (ribbon != null)
-                ribbon.SuspendLayout();
+		    ribbon?.SuspendLayout();
 
-			// Let base class update the collection
+		    // Let base class update the collection
 			object ret = base.SetItems(editValue, value);
 
-            if (ribbon != null)
-                ribbon.ResumeLayout(true);
+		    ribbon?.ResumeLayout(true);
 
-			return ret;
+		    return ret;
 		}
 	}
 }

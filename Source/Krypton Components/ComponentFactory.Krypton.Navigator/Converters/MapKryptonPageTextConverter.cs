@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -21,7 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class MapKryptonPageTextConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(MapKryptonPageText.None,                          "None (Empty string)"),
+        private Pair[] _pairs = { new Pair(MapKryptonPageText.None,                          "None (Empty string)"),
                                              new Pair(MapKryptonPageText.Text,                          "Text"),
                                              new Pair(MapKryptonPageText.TextTitle,                     "Text - Title"), 
                                              new Pair(MapKryptonPageText.TextTitleDescription,          "Text - Title - Description"),

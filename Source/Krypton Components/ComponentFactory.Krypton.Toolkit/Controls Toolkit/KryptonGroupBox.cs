@@ -9,15 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -79,10 +74,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _stateNormal = new PaletteGroupBox(_stateCommon, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint));
+            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            {
 
-            // Make sure the panel back style always mimics our back style
-            _panel.PanelBackStyle = PaletteBackStyle.ControlGroupBox;
+                // Make sure the panel back style always mimics our back style
+                PanelBackStyle = PaletteBackStyle.ControlGroupBox
+            };
 
             _drawContent = new ViewDrawContent(_stateNormal.Content, _captionValues, VisualOrientation.Top);
 
@@ -204,7 +201,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Only perform an immediate layout if
                     // currently performing auto size operations
                     if (AutoSize)
+                    {
                         PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -390,25 +389,33 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case VisualOrientation.Top:
                             if (_captionOrientation == ButtonOrientation.Auto)
+                            {
                                 _drawContent.Orientation = VisualOrientation.Top;
+                            }
 
-                                _drawDocker.SetDock(_drawContent, ViewDockStyle.Top);
+                            _drawDocker.SetDock(_drawContent, ViewDockStyle.Top);
                             break;
                         case VisualOrientation.Bottom:
                             if (_captionOrientation == ButtonOrientation.Auto)
+                            {
                                 _drawContent.Orientation = VisualOrientation.Top;
+                            }
 
                             _drawDocker.SetDock(_drawContent, ViewDockStyle.Bottom);
                             break;
                         case VisualOrientation.Left:
                             if (_captionOrientation == ButtonOrientation.Auto)
+                            {
                                 _drawContent.Orientation = VisualOrientation.Left;
+                            }
 
                             _drawDocker.SetDock(_drawContent, ViewDockStyle.Left);
                             break;
                         case VisualOrientation.Right:
                             if (_captionOrientation == ButtonOrientation.Auto)
+                            {
                                 _drawContent.Orientation = VisualOrientation.Right;
+                            }
 
                             _drawDocker.SetDock(_drawContent, ViewDockStyle.Right);
                             break;
@@ -569,12 +576,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -758,7 +779,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _panel.PerformNeedPaint(e.NeedLayout);
             }
             else
+            {
                 ForceControlLayout();
+            }
 
             base.OnNeedPaint(sender, e);
         }
@@ -773,11 +796,15 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First time around we need to create the obscurer
                 if (_obscurer == null)
+                {
                     _obscurer = new ScreenObscurer();
+                }
 
                 // Obscure the display area of the control
                 if (!IsDisposed && IsHandleCreated && !DesignMode)
+                {
                     _obscurer.Cover(this);
+                }
 
                 // Just in case the WM_WINDOWPOSCHANGED does not occur we can 
                 // ensure the obscurer is removed using this async delegate call
@@ -787,8 +814,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (m.Msg == PI.WM_WINDOWPOSCHANGED)
             {
                 // Uncover from the covered area
-                if (_obscurer != null)
-                    _obscurer.Uncover();
+                _obscurer?.Uncover();
             }
 
             base.WndProc(ref m);
@@ -800,7 +826,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -817,8 +845,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Implementation
         private void OnRemoveObscurer(object sender, EventArgs e)
         {
-            if (_obscurer != null)
-                _obscurer.Uncover();
+            _obscurer?.Uncover();
         }
 
         private void OnValuesTextChanged(object sender, EventArgs e)
@@ -832,7 +859,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // laying out because a child has changed visibility/size/etc. If we are an
             // AutoSize control then we need to ensure we layout as well to change size.
             if (e.NeedLayout && !_layingOut && AutoSize)
+            {
                 PerformNeedPaint(true);
+            }
         }
 
         private void ReapplyVisible()

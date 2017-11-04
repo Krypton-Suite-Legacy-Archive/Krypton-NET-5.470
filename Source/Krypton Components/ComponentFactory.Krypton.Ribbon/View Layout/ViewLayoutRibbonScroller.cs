@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -25,8 +22,10 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonScroller : ViewComposite
     {
         #region Static Fields
-        private static readonly int SCROLLER_LENGTH = 12;
-        private static readonly int GAP_LENGTH = 2;
+
+        private const int SCROLLER_LENGTH = 12;
+        private const int GAP_LENGTH = 2;
+
         #endregion
 
         #region Instance Fields
@@ -140,7 +139,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case VisualOrientation.Left:
                     if (_insetForTabs)
+                    {
                         ClientRectangle = AdjustRectForTabs(ClientRectangle);
+                    }
 
                     context.DisplayRectangle = new Rectangle(ClientRectangle.Right - GAP_LENGTH, ClientLocation.Y, GAP_LENGTH, ClientHeight);
                     _separator.Layout(context);
@@ -149,8 +150,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case VisualOrientation.Right:
                     if (_insetForTabs)
+                    {
                         ClientRectangle = AdjustRectForTabs(ClientRectangle);
-                    
+                    }
+
                     context.DisplayRectangle = new Rectangle(ClientLocation.X, ClientLocation.Y, GAP_LENGTH, ClientHeight);
                     _separator.Layout(context);
                     context.DisplayRectangle = new Rectangle(ClientLocation.X + GAP_LENGTH, ClientLocation.Y, ClientWidth - GAP_LENGTH, ClientHeight);
@@ -173,8 +176,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnButtonClick(object sender, MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, EventArgs.Empty);
+            Click?.Invoke(this, EventArgs.Empty);
         }
         #endregion
     }

@@ -9,11 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 
@@ -58,31 +53,41 @@ namespace ComponentFactory.Krypton.Toolkit
             _radioButton.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            _drawContent = new ViewDrawContent((_itemEnabled ? (IPaletteContent)_radioButton.OverrideNormal : (IPaletteContent)_radioButton.OverrideDisabled), 
-                                               _contentValues, VisualOrientation.Top);
-            _drawContent.UseMnemonic = true;
-            _drawContent.Enabled = _itemEnabled;
+            _drawContent = new ViewDrawContent((_itemEnabled ? (IPaletteContent)_radioButton.OverrideNormal : (IPaletteContent)_radioButton.OverrideDisabled),
+                                               _contentValues, VisualOrientation.Top)
+            {
+                UseMnemonic = true,
+                Enabled = _itemEnabled
+            };
 
             // Create the radio button image drawer and place inside element so it is always centered
-            _drawRadioButton = new ViewDrawRadioButton(_radioButton.StateRadioButtonImages);
-            _drawRadioButton.CheckState = _radioButton.Checked;
-            _drawRadioButton.Enabled = _itemEnabled;
-            _layoutCenter = new ViewLayoutCenter();
-            _layoutCenter.Add(_drawRadioButton);
+            _drawRadioButton = new ViewDrawRadioButton(_radioButton.StateRadioButtonImages)
+            {
+                CheckState = _radioButton.Checked,
+                Enabled = _itemEnabled
+            };
+            _layoutCenter = new ViewLayoutCenter
+            {
+                _drawRadioButton
+            };
 
             // Place the radio button on the left of the available space but inside separators
-            _innerDocker = new ViewLayoutDocker();
-            _innerDocker.Add(_drawContent, ViewDockStyle.Fill);
-            _innerDocker.Add(_layoutCenter, ViewDockStyle.Left);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Right);
-            _innerDocker.Add(new ViewLayoutSeparator(3), ViewDockStyle.Left);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Top);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Bottom);
+            _innerDocker = new ViewLayoutDocker
+            {
+                { _drawContent, ViewDockStyle.Fill },
+                { _layoutCenter, ViewDockStyle.Left },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Right },
+                { new ViewLayoutSeparator(3), ViewDockStyle.Left },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Top },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Bottom }
+            };
 
             // Use outer docker so that any extra space not needed is used by the null
-            _outerDocker = new ViewLayoutDocker();
-            _outerDocker.Add(_innerDocker, ViewDockStyle.Top);
-            _outerDocker.Add(new ViewLayoutNull(), ViewDockStyle.Fill);
+            _outerDocker = new ViewLayoutDocker
+            {
+                { _innerDocker, ViewDockStyle.Top },
+                { new ViewLayoutNull(), ViewDockStyle.Fill }
+            };
 
             // Use context menu specific version of the radio button controller
             MenuRadioButtonController mrbc = new MenuRadioButtonController(provider.ProviderViewManager, _innerDocker, this, provider.ProviderNeedPaintDelegate);
@@ -213,7 +218,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;

@@ -10,9 +10,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -47,7 +45,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 string stringValue = value.ToString().ToLower();
                 if ((stringValue == "dbnull") || (stringValue == "null") || (stringValue == "nothing"))
+                {
                     return DBNull.Value;
+                }
             }
 
             return base.ConvertFrom(context, culture, value);

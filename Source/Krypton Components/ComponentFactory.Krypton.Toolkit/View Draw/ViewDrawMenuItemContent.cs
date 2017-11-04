@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -68,9 +63,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(context);
 
             if (_overridePreferredWidth != 0)
+            {
                 preferredSize.Width = _overridePreferredWidth;
+            }
             else
+            {
                 _lastPreferredSize = base.GetPreferredSize(context);
+            }
 
             return preferredSize;
         }

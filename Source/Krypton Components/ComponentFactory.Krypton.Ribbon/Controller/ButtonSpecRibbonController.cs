@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -83,19 +80,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Get the first far edge button
                         if (newView == null)
+                        {
                             newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                        }
 
                         // Get the first inherit edge button
                         if (newView == null)
+                        {
                             newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                        }
 
                         // Rotate around to application button
                         if (newView == null)
                         {
                             if (ribbon.TabsArea.LayoutAppButton.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                            }
                             else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                            }
                         }
                     }
                     else
@@ -105,15 +110,21 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Try using the next inherit edge button
                         if (newView == null)
+                        {
                             newView = ribbon.TabsArea.ButtonSpecManager.GetNextVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
+                        }
 
                         // Rotate around to application button
                         if (newView == null)
                         {
                             if (ribbon.TabsArea.LayoutAppButton.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                            }
                             else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                            }
                         }
                     }
                     break;
@@ -127,15 +138,21 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Get the last qat button
                         if (newView == null)
+                        {
                             newView = ribbon.GetLastQATView();
+                        }
 
                         // Rotate around to application button
                         if (newView == null)
                         {
                             if (ribbon.TabsArea.LayoutAppButton.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                            }
                             else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                            }
                         }
                     }
                     else
@@ -145,7 +162,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Try getting the previous inherit edge button
                         if (newView == null)
+                        {
                             newView = ribbon.TabsArea.ButtonSpecManager.GetPreviousVisibleViewButton(PaletteRelativeEdgeAlign.Inherit, viewButton);
+                        }
 
                         if (newView == null)
                         {
@@ -158,9 +177,13 @@ namespace ComponentFactory.Krypton.Ribbon
                                 if (newView == null)
                                 {
                                     if (ribbon.SelectedTab != null)
+                                    {
                                         newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
+                                    }
                                     else
+                                    {
                                         newView = ribbon.TabsArea.LayoutTabs.GetViewForLastRibbonTab();
+                                    }
                                 }
                             }
                             else
@@ -172,19 +195,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Get the last near edge button
                         if (newView == null)
+                        {
                             newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                        }
 
                         // Get the last qat button
                         if (newView == null)
+                        {
                             newView = ribbon.GetLastQATView();
+                        }
 
                         // Rotate around to application button
                         if (newView == null)
                         {
                             if (ribbon.TabsArea.LayoutAppButton.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                            }
                             else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                            {
                                 newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                            }
                         }
                     }
                     break;
@@ -202,8 +233,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != Target))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
-                if ((newView is ViewDrawRibbonTab) && !ribbon.RealMinimizedMode)
-                    ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 ribbon.FocusView = newView;
@@ -276,7 +309,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
             else
+            {
                 base.UpdateTargetState(pt);
+            }
         }
         #endregion
     }

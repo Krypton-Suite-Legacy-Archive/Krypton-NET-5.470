@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -26,8 +22,9 @@ namespace ComponentFactory.Krypton.Toolkit
     public class RenderOffice2007 : RenderProfessional
     {
         #region Static Fields
-        private static readonly float BORDER_PERCENT = 0.6f;
-        private static readonly float WHITE_PERCENT = 0.4f;
+
+        private const float BORDER_PERCENT = 0.6f;
+        private const float WHITE_PERCENT = 0.4f;
         private static readonly Blend _ribbonGroup5Blend;
         private static readonly Blend _ribbonGroup6Blend;
         private static readonly Blend _ribbonGroup7Blend;
@@ -36,17 +33,23 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static RenderOffice2007()
         {
-            _ribbonGroup5Blend = new Blend();
-            _ribbonGroup5Blend.Factors = new float[] { 0.0f, 0.0f, 1.0f };
-            _ribbonGroup5Blend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
+            _ribbonGroup5Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.5f, 1.0f }
+            };
 
-            _ribbonGroup6Blend = new Blend();
-            _ribbonGroup6Blend.Factors = new float[] { 0.0f, 0.0f, 0.75f, 1.0f };
-            _ribbonGroup6Blend.Positions = new float[] { 0.0f, 0.1f, 0.45f, 1.0f };
+            _ribbonGroup6Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 0.75f, 1.0f },
+                Positions = new float[] { 0.0f, 0.1f, 0.45f, 1.0f }
+            };
 
-            _ribbonGroup7Blend = new Blend();
-            _ribbonGroup7Blend.Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f };
-            _ribbonGroup7Blend.Positions = new float[] { 0.0f, 0.15f, 0.85f, 1.0f };
+            _ribbonGroup7Blend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f, 0.0f },
+                Positions = new float[] { 0.0f, 0.15f, 0.85f, 1.0f }
+            };
         }
         #endregion
 
@@ -77,7 +80,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Draw inside of the border edge in a lighter version of the border
             using (SolidBrush drawBrush = new SolidBrush(lightColor))
+            {
                 context.Graphics.FillRectangle(drawBrush, displayRect);
+            }
         }
 
         #endregion
@@ -92,13 +97,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(colorPalette != null);
 
             // Validate incoming parameter
-            if (colorPalette == null) throw new ArgumentNullException("colorPalette");
+            if (colorPalette == null)
+            {
+                throw new ArgumentNullException("colorPalette");
+            }
 
             // Use the professional renderer but pull colors from the palette
-            KryptonOffice2007Renderer renderer = new KryptonOffice2007Renderer(colorPalette.ColorTable);
+            KryptonOffice2007Renderer renderer = new KryptonOffice2007Renderer(colorPalette.ColorTable)
+            {
 
-            // Seup the need to use rounded corners
-            renderer.RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False);
+                // Seup the need to use rounded corners
+                RoundedEdges = (colorPalette.ColorTable.UseRoundedEdges != InheritBool.False)
+            };
 
             return renderer;
         }
@@ -123,10 +133,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabContextOffice cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabContextOffice))
+                if (!(memento is MementoRibbonTabContextOffice))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabContextOffice(rect, c1, c2);
                     memento = cache;
@@ -146,16 +155,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     Rectangle borderRect = new Rectangle(rect.X - 1, rect.Y - 1, rect.Width + 2, rect.Height + 2);
                     cache.fillRect = new Rectangle(rect.X + 1, rect.Y, rect.Width - 2, rect.Height - 1);
 
-                    LinearGradientBrush borderBrush = new LinearGradientBrush(borderRect, c1, Color.Transparent, 270f);
-                    borderBrush.Blend = _ribbonGroup5Blend;
+                    LinearGradientBrush borderBrush = new LinearGradientBrush(borderRect, c1, Color.Transparent, 270f)
+                    {
+                        Blend = _ribbonGroup5Blend
+                    };
                     cache.borderPen = new Pen(borderBrush);
 
-                    LinearGradientBrush underlineBrush = new LinearGradientBrush(borderRect, Color.Transparent, Color.FromArgb(200, c2), 0f);
-                    underlineBrush.Blend = _ribbonGroup7Blend;
+                    LinearGradientBrush underlineBrush = new LinearGradientBrush(borderRect, Color.Transparent, Color.FromArgb(200, c2), 0f)
+                    {
+                        Blend = _ribbonGroup7Blend
+                    };
                     cache.underlinePen = new Pen(underlineBrush);
 
-                    cache.fillBrush = new LinearGradientBrush(borderRect, Color.FromArgb(106, c2), Color.Transparent, 270f);
-                    cache.fillBrush.Blend = _ribbonGroup6Blend;
+                    cache.fillBrush = new LinearGradientBrush(borderRect, Color.FromArgb(106, c2), Color.Transparent, 270f)
+                    {
+                        Blend = _ribbonGroup6Blend
+                    };
                 }
 
                 // Draw the left and right border lines

@@ -9,24 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Reflection;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
 using System.Runtime.InteropServices;
-using System.Media;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -493,16 +479,19 @@ namespace ComponentFactory.Krypton.Toolkit
         public DialogResult ShowDialog(IWin32Window owner)
         {
             // Remove any exising task dialog that is showing
-            if (_taskDialog != null)
-                _taskDialog.Dispose();
+            _taskDialog?.Dispose();
 
             // Create visual form to show our defined task properties
             _taskDialog = new VisualTaskDialog(this);
 
             if (owner == null)
+            {
                 _taskDialog.StartPosition = FormStartPosition.CenterScreen;
+            }
             else
+            {
                 _taskDialog.StartPosition = FormStartPosition.CenterParent;
+            }
 
             // Return result of showing the task dialog
             return _taskDialog.ShowDialog(owner);
@@ -546,8 +535,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFooterHyperlinkClicked(EventArgs e)
         {
-            if (FooterHyperlinkClicked != null)
-                FooterHyperlinkClicked(this, e);
+            FooterHyperlinkClicked?.Invoke(this, e);
         }
 
         /// <summary>
@@ -556,8 +544,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A PropertyChangedEventArgs containing the event data.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
 

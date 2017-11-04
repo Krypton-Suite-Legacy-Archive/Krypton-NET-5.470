@@ -9,16 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -102,7 +97,9 @@ namespace ComponentFactory.Krypton.Workspace
                 if (_children != null)
                 {
                     for (int i = _children.Count - 1; i >= 0; i--)
+                    {
                         _children[i].Dispose();
+                    }
 
                     _children.PropertyChanged -= new PropertyChangedEventHandler(OnChildrenPropertyChanged);
                     _children.Clear();
@@ -242,9 +239,10 @@ namespace ComponentFactory.Krypton.Workspace
                 // Compact each child
                 foreach (Component component in Children)
                 {
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if (item != null)
+                    if (component is IWorkspaceItem item)
+                    {
                         item.Compact(flags);
+                    }
                 }
 
                 CompactRemoveEmptyCells(flags);
@@ -291,8 +289,7 @@ namespace ComponentFactory.Krypton.Workspace
                 foreach (Component component in Children)
                 {
                     // Get can only grab values from the IWorkspaceItem interface
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if ((item != null) && item.WorkspaceVisible)
+                    if ((component is IWorkspaceItem item) && item.WorkspaceVisible)
                     {
                         StarSize itemStar = item.WorkspaceStarSize;
                         bool preferredWidth = (!itemStar.StarWidth.UsingStar && (itemStar.StarWidth.FixedSize < 0));
@@ -304,8 +301,14 @@ namespace ComponentFactory.Krypton.Workspace
                             Size itemPreferred = item.WorkspacePreferredSize;
 
                             // Track the largest values found
-                            if (preferredWidth)     totalSize.Width = Math.Max(totalSize.Width, itemPreferred.Width);
-                            if (preferredHeight)    totalSize.Height = Math.Max(totalSize.Height, itemPreferred.Height);
+                            if (preferredWidth)
+                            {
+                                totalSize.Width = Math.Max(totalSize.Width, itemPreferred.Width);
+                            }
+                            if (preferredHeight)
+                            {
+                                totalSize.Height = Math.Max(totalSize.Height, itemPreferred.Height);
+                            }
                         }
                     }
                 }
@@ -339,8 +342,7 @@ namespace ComponentFactory.Krypton.Workspace
                 foreach (Component component in Children)
                 {
                     // Get can only grab values from the IWorkspaceItem interface
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if ((item != null) && item.WorkspaceVisible)
+                    if ((component is IWorkspaceItem item) && item.WorkspaceVisible)
                     {
                         // Sequence minimum is the largest min value of the children
                         Size itemMin = item.WorkspaceMinSize;
@@ -350,10 +352,14 @@ namespace ComponentFactory.Krypton.Workspace
                         // Sequence minimum should be enough to show fixed size items
                         StarSize itemStar = item.WorkspaceStarSize;
                         if (!itemStar.StarWidth.UsingStar)
+                        {
                             minSize.Width = Math.Max(minSize.Width, itemStar.StarWidth.FixedSize);
+                        }
 
                         if (!itemStar.StarHeight.UsingStar)
+                        {
                             minSize.Height = Math.Max(minSize.Height, itemStar.StarHeight.FixedSize);
+                        }
                     }
                 }
 
@@ -376,16 +382,19 @@ namespace ComponentFactory.Krypton.Workspace
                 foreach (Component component in Children)
                 {
                     // Get can only grab values from the IWorkspaceItem interface
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if ((item != null) && item.WorkspaceVisible)
+                    if ((component is IWorkspaceItem item) && item.WorkspaceVisible)
                     {
                         // Sequence maximum is the smallest min value of the children
                         Size itemMax = item.WorkspaceMaxSize;
                         if (itemMax.Width > 0)
+                        {
                             maxSize.Width = Math.Min(maxSize.Width, itemMax.Width);
+                        }
 
                         if (itemMax.Height > 0)
+                        {
                             maxSize.Height = Math.Min(maxSize.Height, itemMax.Height);
+                        }
                     }
                 }
 
@@ -396,25 +405,32 @@ namespace ComponentFactory.Krypton.Workspace
                 foreach (Component component in Children)
                 {
                     // Get can only grab values from the IWorkspaceItem interface
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if ((item != null) && item.WorkspaceVisible)
+                    if ((component is IWorkspaceItem item) && item.WorkspaceVisible)
                     {
                         // Sequence maximum should be enough to show fixed size items
                         StarSize itemStar = item.WorkspaceStarSize;
                         if (!itemStar.StarWidth.UsingStar)
                         {
                             if (maxSize.Width < int.MaxValue)
+                            {
                                 maxSize.Width = Math.Max(maxSize.Width, itemStar.StarWidth.FixedSize);
+                            }
                             else
+                            {
                                 maxSize.Width = itemStar.StarWidth.FixedSize;
+                            }
                         }
 
                         if (!itemStar.StarHeight.UsingStar)
                         {
                             if (maxSize.Height < int.MaxValue)
+                            {
                                 maxSize.Height = Math.Max(maxSize.Height, itemStar.StarHeight.FixedSize);
+                            }
                             else
+                            {
                                 maxSize.Width = itemStar.StarWidth.FixedSize;
+                            }
                         }
                     }
                 }
@@ -437,9 +453,10 @@ namespace ComponentFactory.Krypton.Workspace
                 // If any child says no resizing then we cannot be resized
                 foreach (Component component in Children)
                 {
-                    IWorkspaceItem item = component as IWorkspaceItem;
-                    if ((item != null) && item.WorkspaceVisible && !item.WorkspaceAllowResizing)
+                    if ((component is IWorkspaceItem item) && item.WorkspaceVisible && !item.WorkspaceAllowResizing)
+                    {
                         return false;
+                    }
                 }
 
                 return true;
@@ -461,9 +478,10 @@ namespace ComponentFactory.Krypton.Workspace
                     // If we have any visible children then we are visible
                     foreach (Component component in Children)
                     {
-                        IWorkspaceItem item = component as IWorkspaceItem;
-                        if ((item != null) && item.WorkspaceVisible)
+                        if ((component is IWorkspaceItem item) && item.WorkspaceVisible)
+                        {
                             return true;
+                        }
                     }
                 }
 
@@ -496,13 +514,15 @@ namespace ComponentFactory.Krypton.Workspace
             // Persist each child sequence/cell in turn
             foreach (object child in Children)
             {
-                KryptonWorkspaceSequence sequence = child as KryptonWorkspaceSequence;
-                if (sequence != null)
+                if (child is KryptonWorkspaceSequence sequence)
+                {
                     sequence.SaveToXml(workspace, xmlWriter);
+                }
 
-                KryptonWorkspaceCell cell = child as KryptonWorkspaceCell;
-                if (cell != null)
+                if (child is KryptonWorkspaceCell cell)
+                {
                     cell.SaveToXml(workspace, xmlWriter);
+                }
             }
 
             // Terminate the workspace element        
@@ -529,27 +549,32 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // Read the next Element
                     if (!xmlReader.Read())
+                    {
                         throw new ArgumentException("An element was expected but could not be read in.");
+                    }
 
                     // Is this the end of the sequence
                     if (xmlReader.NodeType == XmlNodeType.EndElement)
+                    {
                         break;
+                    }
 
                     // Is it another sequence?
-                    if (xmlReader.Name == "WS")
+                    switch (xmlReader.Name)
                     {
-                        KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence();
-                        sequence.LoadFromXml(workspace, xmlReader, existingPages);
-                        Children.Add(sequence);
+                        case "WS":
+                            KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence();
+                            sequence.LoadFromXml(workspace, xmlReader, existingPages);
+                            Children.Add(sequence);
+                            break;
+                        case "WC":
+                            KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
+                            cell.LoadFromXml(workspace, xmlReader, existingPages);
+                            Children.Add(cell);
+                            break;
+                        default:
+                            throw new ArgumentException("Unknown element was encountered.");
                     }
-                    else if (xmlReader.Name == "WC")
-                    {
-                        KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
-                        cell.LoadFromXml(workspace, xmlReader, existingPages);
-                        Children.Add(cell);
-                    }
-                    else
-                        throw new ArgumentException("Unknown element was encountered.");
                 }
                 while (true);
             }
@@ -577,13 +602,15 @@ namespace ComponentFactory.Krypton.Workspace
 
             foreach (object child in Children)
             {
-                KryptonWorkspaceSequence sequence = child as KryptonWorkspaceSequence;
-                if (sequence != null)
+                if (child is KryptonWorkspaceSequence sequence)
+                {
                     sequence.DebugOutput(indent + 1);
+                }
 
-                KryptonWorkspaceCell cell = child as KryptonWorkspaceCell;
-                if (cell != null)
+                if (child is KryptonWorkspaceCell cell)
+                {
                     cell.DebugOutput(indent + 1);
+                }
             }
         }        
         #endregion
@@ -606,8 +633,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event arguments associated with the event.</param>
         protected void OnChildrenMaximizeRestoreClicked(object sender, EventArgs e)
         {
-            if (MaximizeRestoreClicked != null)
-                MaximizeRestoreClicked(sender, e);
+            MaximizeRestoreClicked?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -625,8 +651,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">A PropertyChangedEventArgs containing the event data.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -639,8 +664,7 @@ namespace ComponentFactory.Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a cell and that cell does not have any pages
-                    KryptonWorkspaceCell cell = Children[i] as KryptonWorkspaceCell;
-                    if ((cell != null) && (cell.Pages.Count == 0))
+                    if ((Children[i] is KryptonWorkspaceCell cell) && (cell.Pages.Count == 0))
                     {
                         Children.RemoveAt(i);
 
@@ -648,7 +672,9 @@ namespace ComponentFactory.Krypton.Workspace
                         // because the layout code will never try and dispose on remove from controls collection
                         // as it is not inside the controls collection
                         if ((cell.Parent == null) && (cell.DisposeOnRemove))
+                        {
                             cell.Dispose();
+                        }
                     }
                 }
             }
@@ -662,9 +688,10 @@ namespace ComponentFactory.Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a sequence and that sequence does not have any children
-                    KryptonWorkspaceSequence sequence = Children[i] as KryptonWorkspaceSequence;
-                    if ((sequence != null) && (sequence.Children.Count == 0))
+                    if ((Children[i] is KryptonWorkspaceSequence sequence) && (sequence.Children.Count == 0))
+                    {
                         Children.RemoveAt(i);
+                    }
                 }
             }
         }
@@ -677,19 +704,22 @@ namespace ComponentFactory.Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a sequence and that sequence has just a single child
-                    KryptonWorkspaceSequence sequence = Children[i] as KryptonWorkspaceSequence;
-                    if ((sequence != null) && (sequence.Children.Count == 1))
+                    if ((Children[i] is KryptonWorkspaceSequence sequence) && (sequence.Children.Count == 1))
                     {
                         // Extract the leaf
                         Component leaf = sequence.Children[0];
                         sequence.Children.RemoveAt(0);
 
                         // Use the sequence size in the promoted child so the display remains constant
-                        if (leaf is KryptonWorkspaceCell)
-                            ((KryptonWorkspaceCell)leaf).StarSize = sequence.StarSize;
+                        if (leaf is KryptonWorkspaceCell cell)
+                        {
+                            cell.StarSize = sequence.StarSize;
+                        }
 
-                        if (leaf is KryptonWorkspaceSequence)
-                            ((KryptonWorkspaceSequence)leaf).StarSize = sequence.StarSize;
+                        if (leaf is KryptonWorkspaceSequence workspaceSequence)
+                        {
+                            workspaceSequence.StarSize = sequence.StarSize;
+                        }
 
                         // Replace the sequence with its leaf child
                         Children.RemoveAt(i);

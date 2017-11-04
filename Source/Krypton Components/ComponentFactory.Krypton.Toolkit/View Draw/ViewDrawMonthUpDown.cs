@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -122,7 +119,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Layout the button drawing elements using a reduced size
             Rectangle beforeRect = context.DisplayRectangle;
@@ -177,8 +177,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">Event arguments assocaited with the event.</param>
         protected void OnButtonClick(object sender, MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
 
         /// <summary>
@@ -188,8 +187,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">Event arguments assocaited with the event.</param>
         protected void OnButtonMouseSelect(object sender, MouseEventArgs e)
         {
-            if (MouseSelect != null)
-                MouseSelect(this, e);
+            MouseSelect?.Invoke(this, e);
         }
         #endregion
     }

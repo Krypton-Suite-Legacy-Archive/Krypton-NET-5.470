@@ -9,19 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -37,7 +27,9 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonContextMenuMonthCalendar : KryptonContextMenuItemBase
     {
         #region Static Fields
-        private static readonly string _defaultToday = "Today:";
+
+        private const string DEFAULT_TODAY = "Today:";
+
         #endregion
 
         #region Instance Fields
@@ -131,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _annualDates = new DateTimeList();
             _monthlyDates = new DateTimeList();
             _dates = new DateTimeList();
-            _today = _defaultToday;
+            _today = DEFAULT_TODAY;
             _todayFormat = "d";
 
             // Create the common/override state storage
@@ -314,7 +306,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < 0)
+                {
                     value = 0;
+                }
 
                 _scrollChange = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("ScrollChange"));
@@ -334,7 +328,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = DateTime.Now.Date;
+                }
 
                 _todayDate = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("TodayDate"));
@@ -364,17 +360,23 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _annualDates.Clear();
                 _annualDates.AddRange(value);
 
                 for (int i = 0; i < 12; i++)
+                {
                     _annualDays[i] = 0;
+                }
 
                 // Set bitmap matching the days of month to be bolded
                 foreach (DateTime dt in value)
+                {
                     _annualDays[dt.Month - 1] |= 1 << (dt.Day - 1);
+                }
 
                 OnPropertyChanged(new PropertyChangedEventArgs("AnnuallyBoldedDates"));
             }
@@ -403,7 +405,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _monthlyDates.Clear();
                 _monthlyDates.AddRange(value);
@@ -411,7 +415,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Set bitmap matching the days of month to be bolded
                 _monthlyDays = 0;
                 foreach (DateTime dt in value)
+                {
                     _monthlyDays |= 1 << (dt.Day - 1);
+                }
 
                 OnPropertyChanged(new PropertyChangedEventArgs("MonthlyBoldedDates"));
             }
@@ -440,7 +446,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _dates.Clear();
                 _dates.AddRange(value);
@@ -474,10 +482,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _minDate)
                 {
                     if (value > DateTimePicker.MaximumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum culture supported date.");
+                    }
 
                     if (value < DateTimePicker.MinimumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum culture supported date.");
+                    }
                 }
 
                 _minDate = value;
@@ -512,10 +524,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _maxDate)
                 {
                     if (value > DateTimePicker.MaximumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum culture supported date.");
+                    }
 
                     if (value < DateTimePicker.MinimumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum culture supported date.");
+                    }
                 }
 
                 _maxDate = value;
@@ -549,7 +565,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < 1)
+                {
                     throw new ArgumentOutOfRangeException("MaxSelectionCount cannot be less than zero.");
+                }
 
                 if (value != _maxSelectionCount)
                 {
@@ -577,19 +595,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _selectionStart)
                 {
                     if (value > _maxDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                    }
 
                     if (value < _minDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                    }
 
                     // End date cannot be before the start date
                     if (_selectionEnd < value)
+                    {
                         _selectionEnd = value;
+                    }
 
                     // Limit the selection range to the maximum selection count
                     TimeSpan range = _selectionEnd - value;
                     if (range.Days >= _maxSelectionCount)
+                    {
                         _selectionEnd = value.AddDays(_maxSelectionCount - 1);
+                    }
 
                     // Update selection dates and generate event if required
                     SetSelRange(value, _selectionEnd);
@@ -625,19 +651,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _selectionEnd)
                 {
                     if (value > _maxDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                    }
 
                     if (value < _minDate)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                    }
 
                     // Start date cannot be after the end date
                     if (_selectionStart > value)
+                    {
                         _selectionStart = value;
+                    }
 
                     // Limit the selection range to the maximum selection count
                     TimeSpan range = value - _selectionStart;
                     if (range.Days >= _maxSelectionCount)
+                    {
                         _selectionStart = value.AddDays(1 - _maxSelectionCount);
+                    }
 
                     // Update selection dates and generate event if required
                     SetSelRange(_selectionStart, value);
@@ -719,7 +753,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
-                    value = _defaultToday;
+                {
+                    value = DEFAULT_TODAY;
+                }
 
                 _today = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("TodayText"));
@@ -728,7 +764,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void ResetTodayText()
         {
-            TodayText = _defaultToday;
+            TodayText = DEFAULT_TODAY;
         }
 
         /// <summary>
@@ -748,10 +784,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!_dimensions.Equals(value))
                 {
                     if (value.Width < 1)
+                    {
                         throw new ArgumentOutOfRangeException("CalendarDimension Width must be greater than 0");
+                    }
 
                     if (value.Height < 1)
+                    {
                         throw new ArgumentOutOfRangeException("CalendarDimension Height must be greater than 0");
+                    }
 
                     _dimensions = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("CalendarDimensions"));
@@ -1182,7 +1222,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _annualDates.Clear();
             for (int i = 0; i < 12; i++)
+            {
                 _annualDays[i] = 0;
+            }
+
             OnPropertyChanged(new PropertyChangedEventArgs("AnnuallyBoldedDates"));
         }
 
@@ -1313,27 +1356,41 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetSelectionRange(DateTime start, DateTime end)
         {
             if (start.Ticks > _maxDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("Start date provided is greater than the maximum date.");
+            }
 
             if (start.Ticks < _minDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("Start date provided is less than the minimum date.");
+            }
 
             if (end.Ticks > _maxDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("End date provided is greater than the maximum date.");
+            }
 
             if (end.Ticks < _minDate.Ticks)
+            {
                 throw new ArgumentOutOfRangeException("End date provided is less than the minimum date.");
+            }
 
             if (start > end)
+            {
                 end = start;
+            }
 
             TimeSpan span = end - start;
             if (span.Days >= _maxSelectionCount)
             {
                 if (start.Ticks == _selectionStart.Ticks)
+                {
                     start = end.AddDays(1 - _maxSelectionCount);
+                }
                 else
+                {
                     end = start.AddDays(_maxSelectionCount - 1);
+                }
             }
 
             SetSelRange(start, end);
@@ -1422,8 +1479,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An DateRangeEventArgs that contains the event data.</param>
         protected virtual void OnDateChanged(DateRangeEventArgs e)
         {
-            if (DateChanged != null)
-                DateChanged(this, e);
+            DateChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1432,8 +1488,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectionStartChanged(EventArgs e)
         {
-            if (SelectionStartChanged != null)
-                SelectionStartChanged(this, e);
+            SelectionStartChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1442,8 +1497,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectionEndChanged(EventArgs e)
         {
-            if (SelectionEndChanged != null)
-                SelectionEndChanged(this, e);
+            SelectionEndChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1488,13 +1542,19 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             if (startChanged)
+            {
                 OnSelectionStartChanged(EventArgs.Empty);
+            }
 
             if (endChanged)
+            {
                 OnSelectionEndChanged(EventArgs.Empty);
+            }
 
             if (startChanged || endChanged)
+            {
                 OnDateChanged(new DateRangeEventArgs(_selectionStart, _selectionEnd));
+            }
 
             SetFocusDay();
         }
@@ -1517,13 +1577,19 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             if (startChanged)
+            {
                 OnSelectionStartChanged(EventArgs.Empty);
+            }
 
             if (endChanged)
+            {
                 OnSelectionEndChanged(EventArgs.Empty);
+            }
 
             if (startChanged || endChanged)
+            {
                 OnDateChanged(new DateRangeEventArgs(_selectionStart, _selectionEnd));
+            }
 
             SetFocusDay();
         }
@@ -1531,13 +1597,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private void SetFocusDay()
         {
             if (_focusDay == null)
+            {
                 _focusDay = SelectionStart.Date;
+            }
             else
             {
                 if (_focusDay.Value < SelectionStart)
+                {
                     _focusDay = SelectionStart.Date;
+                }
                 else if (_focusDay.Value > SelectionStart)
+                {
                     _focusDay = SelectionEnd.Date;
+                }
             }
         }
         #endregion

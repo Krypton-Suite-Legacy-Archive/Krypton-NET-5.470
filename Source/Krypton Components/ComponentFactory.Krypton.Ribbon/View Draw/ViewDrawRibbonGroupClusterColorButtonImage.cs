@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -113,10 +106,14 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Image newImage = null;
                 if (_ribbonColorButton.KryptonCommand != null)
+                {
                     newImage = _ribbonColorButton.KryptonCommand.ImageSmall;
+                }
                 else
+                {
                     newImage = _ribbonColorButton.ImageSmall;
-                    
+                }
+
                 // Do we need to create another composite image?
                 if ((newImage != null) && (_compositeImage == null))
                 {
@@ -133,16 +130,20 @@ namespace ComponentFactory.Krypton.Ribbon
                             // the selected color area, thus indicating the area inside the
                             // block is blank/empty.
                             using(Pen borderPen = new Pen(_emptyBorderColor))
+                            {
                                 g.DrawRectangle(borderPen, new Rectangle(_selectedRect.X,
-                                                                         _selectedRect.Y,
-                                                                         _selectedRect.Width - 1,
-                                                                         _selectedRect.Height - 1));
+                                    _selectedRect.Y,
+                                    _selectedRect.Width - 1,
+                                    _selectedRect.Height - 1));
+                            }
                         }
                         else
                         {
                             // We have a valid selected color so draw a solid block of color
                             using (SolidBrush colorBrush = new SolidBrush(_selectedColor))
+                            {
                                 g.FillRectangle(colorBrush, _selectedRect);
+                            }
                         }
                     }
 

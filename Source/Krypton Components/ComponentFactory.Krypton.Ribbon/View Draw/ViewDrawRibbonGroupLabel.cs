@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -226,9 +222,13 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = base.GetPreferredSize(context);
 
             if (_currentSize == GroupItemSize.Large)
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
+            }
             else
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
+            }
 
             return preferredSize;
         }
@@ -275,7 +275,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -296,8 +298,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add the large button at the top
             _viewLargeLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, _ribbonLabel, true);
-            _viewLargeImage = new ViewLayoutRibbonCenterPadding(_largeImagePadding);
-            _viewLargeImage.Add(_viewLargeLabelImage);
+            _viewLargeImage = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
+            {
+                _viewLargeLabelImage
+            };
             _viewLarge.Add(_viewLargeImage, ViewDockStyle.Top);
 
             // Add the first line of text
@@ -333,14 +337,18 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewMediumSmallLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, _ribbonLabel, false);
             _viewMediumSmallText1 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, true);
             _viewMediumSmallText2 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, false);
-            _viewMediumSmallImage = new ViewLayoutRibbonCenterPadding(_smallImagePadding);
-            _viewMediumSmallImage.Add(_viewMediumSmallLabelImage);
+            _viewMediumSmallImage = new ViewLayoutRibbonCenterPadding(_smallImagePadding)
+            {
+                _viewMediumSmallLabelImage
+            };
 
             // Layout the content in the center of a row
-            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter();
-            _viewMediumSmallCenter.Add(_viewMediumSmallImage);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText1);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText2);
+            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter
+            {
+                _viewMediumSmallImage,
+                _viewMediumSmallText1,
+                _viewMediumSmallText2
+            };
 
             // Use content as only fill item
             _viewMediumSmall.Add(_viewMediumSmallCenter, ViewDockStyle.Fill);
@@ -367,7 +375,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the correct enabled state from the button definition
             bool buttonEnabled = _ribbonLabel.Enabled;
             if (_ribbonLabel.KryptonCommand != null)
+            {
                 buttonEnabled = _ribbonLabel.KryptonCommand.Enabled;
+            }
 
             // Take into account the ribbon state and mode
             bool enabled = _ribbon.InDesignHelperMode || (buttonEnabled && _ribbon.Enabled);

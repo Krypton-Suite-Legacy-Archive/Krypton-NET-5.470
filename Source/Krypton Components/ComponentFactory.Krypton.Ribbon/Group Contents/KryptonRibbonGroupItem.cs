@@ -8,15 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -125,7 +119,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If the previous item is a group button cluster then we want 3 pixels
             if (previousItem is KryptonRibbonGroupCluster)
+            {
                 return 3;
+            }
 
             // By default we just want a single pixel gap
             return 1;
@@ -154,7 +150,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (value != _tag)
+                {
                     _tag = value;
+                }
             }
         }
 
@@ -184,7 +182,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // If any parent is not visible, then abort
                     if (!parent.Visible)
+                    {
                         return false;
+                    }
 
                     // Move up a level
                     parent = parent.RibbonContainer;

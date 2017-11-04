@@ -9,19 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -66,8 +57,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An KryptonPageEventArgs containing the event data.</param>
         protected virtual void OnCellPageInserting(KryptonPageEventArgs e)
         {
-            if (CellPageInserting != null)
-                CellPageInserting(this, e);
+            CellPageInserting?.Invoke(this, e);
         }
 
         /// <summary>
@@ -76,8 +66,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An CancelDropDownEventArgs containing the event data.</param>
         protected virtual void OnPageDropDownClicked(CancelDropDownEventArgs e)
         {
-            if (PageDropDownClicked != null)
-                PageDropDownClicked(this, e);
+            PageDropDownClicked?.Invoke(this, e);
         }
         #endregion
 
@@ -92,11 +81,15 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Make sure we have a menu for displaying
             if (e.KryptonContextMenu == null)
+            {
                 e.KryptonContextMenu = new KryptonContextMenu();
+            }
 
             // Use event to allow customization of the context menu
-            CancelDropDownEventArgs args = new CancelDropDownEventArgs(e.KryptonContextMenu, e.Item);
-            args.Cancel = e.Cancel;
+            CancelDropDownEventArgs args = new CancelDropDownEventArgs(e.KryptonContextMenu, e.Item)
+            {
+                Cancel = e.Cancel
+            };
             OnPageDropDownClicked(args);
             e.Cancel = args.Cancel;
         }

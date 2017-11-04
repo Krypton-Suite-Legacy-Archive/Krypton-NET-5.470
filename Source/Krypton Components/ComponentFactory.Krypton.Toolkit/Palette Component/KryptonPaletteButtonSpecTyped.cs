@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -55,8 +50,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _allowInheritText = true;
             _allowInheritExtraText = true;
             _allowInheritToolTipTitle = true;
-            _imageStates = new CheckButtonImageStates();
-            _imageStates.NeedPaint = new NeedPaintHandler(OnImageStateChanged);
+            _imageStates = new CheckButtonImageStates
+            {
+                NeedPaint = new NeedPaintHandler(OnImageStateChanged)
+            };
         }
 		#endregion
 
@@ -76,10 +73,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         (ExtraText == string.Empty) &&
                         (ToolTipTitle == string.Empty) &&
                         (ColorMap == Color.Empty) &&
-                        (AllowInheritImage == true) &&
-                        (AllowInheritText == true) &&
-                        (AllowInheritExtraText == true) &&
-                        (AllowInheritToolTipTitle == true));
+                        AllowInheritImage &&
+                        AllowInheritText &&
+                        AllowInheritExtraText &&
+                        AllowInheritToolTipTitle);
             }
         }
         #endregion
@@ -481,10 +478,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Default to the image if no state specific image is found
             if (image == null)
+            {
                 image = Image;
+            }
 
             if ((image != null) || !AllowInheritImage)
+            {
                 return image;
+            }
 
             return base.GetButtonSpecImage(style, state);
         }
@@ -497,9 +498,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string GetButtonSpecShortText(PaletteButtonSpecStyle style)
         {
             if ((Text.Length > 0) || !AllowInheritText)
+            {
                 return Text;
+            }
             else
+            {
                 return base.GetButtonSpecShortText(style);
+            }
         }
 
         /// <summary>
@@ -510,9 +515,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string GetButtonSpecLongText(PaletteButtonSpecStyle style)
         {
             if ((ExtraText.Length > 0) || !AllowInheritExtraText)
+            {
                 return ExtraText;
+            }
             else
+            {
                 return base.GetButtonSpecLongText(style);
+            }
         }
 
         /// <summary>
@@ -523,9 +532,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string GetButtonSpecToolTipTitle(PaletteButtonSpecStyle style)
         {
             if ((ToolTipTitle.Length > 0) || !AllowInheritToolTipTitle)
+            {
                 return ToolTipTitle;
+            }
             else
+            {
                 return base.GetButtonSpecToolTipTitle(style);
+            }
         }
 
         /// <summary>
@@ -536,9 +549,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)
         {
             if (ColorMap != Color.Empty)
+            {
                 return ColorMap;
+            }
             else
+            {
                 return base.GetButtonSpecColorMap(style);
+            }
         }
         #endregion
 

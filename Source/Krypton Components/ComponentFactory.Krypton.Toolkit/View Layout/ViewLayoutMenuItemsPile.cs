@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -52,19 +50,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create and place an image column inside a docker so it appears on the left side
             _imageColumn = new ViewDrawMenuImageColumn(items, provider.ProviderStateCommon.ItemImageColumn);
-            ViewLayoutDocker imageDocker = new ViewLayoutDocker();
-            imageDocker.Add(_imageColumn, ViewDockStyle.Left);
+            ViewLayoutDocker imageDocker = new ViewLayoutDocker
+            {
+                { _imageColumn, ViewDockStyle.Left }
+            };
 
             // Only show the image column when in a standard collection of items
             imageDocker.Visible = imageColumn;
 
             // Create a vertical stack that contains each individual menu item
-            _itemStack = new ViewLayoutStack(false);
-            _itemStack.FillLastChild = false;
+            _itemStack = new ViewLayoutStack(false)
+            {
+                FillLastChild = false
+            };
 
             // Use a docker with the item stack as the fill
-            ViewLayoutDocker stackDocker = new ViewLayoutDocker();
-            stackDocker.Add(_itemStack, ViewDockStyle.Fill);
+            ViewLayoutDocker stackDocker = new ViewLayoutDocker
+            {
+                { _itemStack, ViewDockStyle.Fill }
+            };
 
             // Grab the padding for around the item stack
             Padding itemsPadding = _paletteItemHighlight.GetMetricPadding(PaletteState.Normal, PaletteMetricPadding.ContextMenuItemsCollection);
@@ -145,15 +149,16 @@ namespace ComponentFactory.Krypton.Toolkit
         private void GatherMenuItemColumns(ViewBase element)
         {
             // Does this element expose the column interface?
-            if (element is IContextMenuItemColumn)
+            if (element is IContextMenuItemColumn column)
             {
-                IContextMenuItemColumn column = (IContextMenuItemColumn)element;
                 int columnIndex = column.ColumnIndex;
                 Size columnPreferredSize = column.LastPreferredSize;
 
                 // If the first entry for this column...
                 if (!_columnToWidth.ContainsKey(columnIndex))
+                {
                     _columnToWidth.Add(columnIndex, columnPreferredSize.Width);
+                }
                 else
                 {
                     // Grab the current preferred size
@@ -169,35 +174,39 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Process child elements
             foreach (ViewBase child in element)
+            {
                 GatherMenuItemColumns(child);
+            }
         }
 
         private void OverrideMenuItemColumns(ViewBase element)
         {
             // Does this element expose the column interface?
-            if (element is IContextMenuItemColumn)
+            if (element is IContextMenuItemColumn column)
             {
-                IContextMenuItemColumn column = (IContextMenuItemColumn)element;
                 column.OverridePreferredWidth = _columnToWidth[column.ColumnIndex];
             }
 
             // Process child elements
             foreach (ViewBase child in element)
+            {
                 OverrideMenuItemColumns(child);
+            }
         }
 
         private void ClearMenuItemColumns(ViewBase element)
         {
             // Does this element expose the column interface?
-            if (element is IContextMenuItemColumn)
+            if (element is IContextMenuItemColumn column)
             {
-                IContextMenuItemColumn column = (IContextMenuItemColumn)element;
                 column.OverridePreferredWidth = 0;
             }
 
             // Process child elements
             foreach (ViewBase child in element)
+            {
                 ClearMenuItemColumns(child);
+            }
         }
 
         private void UpdateImageColumnWidth(IRenderer renderer)

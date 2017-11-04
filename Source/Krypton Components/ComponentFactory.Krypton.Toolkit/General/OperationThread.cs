@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Threading;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -52,7 +51,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Read the state in a thread state way
                 lock (this)
+                {
                     ret = _state;
+                }
 
                 return ret; 
             }
@@ -88,7 +89,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Success
                 lock(this)
+                {
                     _state = 1;
+                }
             }
             catch(Exception ex)
             {
@@ -97,7 +100,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Failed with exception
                 lock(this)
+                {
                     _state = 2;
+                }
             }
         }
         #endregion

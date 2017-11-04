@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
@@ -910,7 +909,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate reference parameter
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             try
             {
@@ -951,7 +953,10 @@ namespace ComponentFactory.Krypton.Toolkit
             lock (_threadLock)
             {
                 // Validate reference parameter
-                if (context == null) throw new ArgumentNullException("context");
+                if (context == null)
+                {
+                    throw new ArgumentNullException("context");
+                }
 
                 // Use image attributes class to modify image drawing for effects
                 ImageAttributes attribs = new ImageAttributes();
@@ -1000,18 +1005,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Create remapping for the transparent color
                     if (remapTransparent != Color.Empty)
                     {
-                        ColorMap remap = new ColorMap();
-                        remap.OldColor = remapTransparent;
-                        remap.NewColor = Color.Transparent;
+                        ColorMap remap = new ColorMap
+                        {
+                            OldColor = remapTransparent,
+                            NewColor = Color.Transparent
+                        };
                         colorMaps.Add(remap);
                     }
 
                     // Create remapping from source to target colors
                     if ((remapColor != Color.Empty) && (remapNew != Color.Empty))
                     {
-                        ColorMap remap = new ColorMap();
-                        remap.OldColor = remapColor;
-                        remap.NewColor = remapNew;
+                        ColorMap remap = new ColorMap
+                        {
+                            OldColor = remapColor,
+                            NewColor = remapNew
+                        };
                         colorMaps.Add(remap);
                     }
 
@@ -1028,8 +1037,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     case VisualOrientation.Bottom:
                         // Translate to opposite side of origin, so the rotate can 
                         // then bring it back to original position but mirror image
-                        translateX = imageRect.X * 2 + imageRect.Width;
-                        translateY = imageRect.Y * 2 + imageRect.Height;
+                        translateX = (imageRect.X * 2) + imageRect.Width;
+                        translateY = (imageRect.Y * 2) + imageRect.Height;
                         rotation = 180f;
                         break;
                     case VisualOrientation.Left:
@@ -1054,10 +1063,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Apply the transforms if we have any to apply
                 if ((translateX != 0) || (translateY != 0))
+                {
                     context.Graphics.TranslateTransform(translateX, translateY);
+                }
 
                 if (rotation != 0f)
+                {
                     context.Graphics.RotateTransform(rotation);
+                }
 
                 try
                 {
@@ -1070,11 +1083,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 finally
                 {
                     if (rotation != 0f)
+                    {
                         context.Graphics.RotateTransform(-rotation);
+                    }
 
                     // Remove the applied transforms
                     if ((translateX != 0) | (translateY != 0))
+                    {
                         context.Graphics.TranslateTransform(-translateX, -translateY);
+                    }
                 }
             }
         }

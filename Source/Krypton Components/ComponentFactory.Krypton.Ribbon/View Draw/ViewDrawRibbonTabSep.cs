@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -25,7 +21,8 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonTabSep : ViewLayoutRibbonSeparator
     {
         #region Static Fields
-        private static readonly int SEP_WIDTH = 4;
+
+        private const int SEP_WIDTH = 4;
         private static readonly Color _lighten1 = Color.FromArgb(128, Color.White);
         private static readonly Blend _fadeBlend;
         #endregion
@@ -38,9 +35,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         static ViewDrawRibbonTabSep()
         {
-            _fadeBlend = new Blend();
-            _fadeBlend.Factors = new float[] { 0.0f, 1.0f, 1.0f };
-            _fadeBlend.Positions = new float[] { 0.0f, 0.33f, 1.0f };
+            _fadeBlend = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.33f, 1.0f }
+            };
         }
 
         /// <summary>
@@ -100,7 +99,9 @@ namespace ComponentFactory.Krypton.Ribbon
                             context.Graphics.FillRectangle(sepBrush, ClientLocation.X + 1, ClientLocation.Y, 1, ClientHeight - 1);
 
                             using (LinearGradientBrush sepLightBrush = new LinearGradientBrush(rectF, Color.Transparent, _lighten1, 90f))
+                            {
                                 context.Graphics.FillRectangle(sepLightBrush, ClientLocation.X + 2, ClientLocation.Y, 1, ClientHeight - 1);
+                            }
                             break;
                     }
                 }

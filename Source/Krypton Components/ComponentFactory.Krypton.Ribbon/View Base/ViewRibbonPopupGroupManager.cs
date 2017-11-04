@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -117,7 +114,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Should the group be active
             bool tracking = _viewGroup.ClientRectangle.Contains(new Point(e.X, e.Y));
@@ -142,7 +142,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Do we need to remove tracking
             if (_viewGroup.Tracking)
@@ -164,8 +167,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void KeyDown(KeyEventArgs e)
         {
             // Tell current view of key event
-            if (FocusView != null)
-                FocusView.KeyDown(e);
+            FocusView?.KeyDown(e);
         }
 
         /// <summary>
@@ -175,8 +177,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void KeyPress(KeyPressEventArgs e)
         {
             // Tell current view of key event
-            if (FocusView != null)
-                FocusView.KeyPress(e);
+            FocusView?.KeyPress(e);
         }
 
         /// <summary>
@@ -187,7 +188,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Tell current view of key event
             if (FocusView != null)
+            {
                 MouseCaptured = FocusView.KeyUp(e);
+            }
         }
         #endregion
 
@@ -205,14 +208,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_focusView != value)
                 {
                     // Remove focus from existing view
-                    if (_focusView != null)
-                        _focusView.LostFocus(Root.OwningControl);
+                    _focusView?.LostFocus(Root.OwningControl);
 
                     _focusView = value;
 
                     // Add focus to the new view
-                    if (_focusView != null)
-                        _focusView.GotFocus(Root.OwningControl);
+                    _focusView?.GotFocus(Root.OwningControl);
                 }
             }
         }
@@ -221,8 +222,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void PerformNeedPaint(bool needLayout, Rectangle invalidRect)
         {
-            if (_needPaintDelegate != null)
-                _needPaintDelegate(this, new NeedLayoutEventArgs(needLayout, invalidRect));
+            _needPaintDelegate?.Invoke(this, new NeedLayoutEventArgs(needLayout, invalidRect));
         }
         #endregion
     }

@@ -8,16 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -40,14 +32,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _silverRestoreA = Properties.Resources.SilverButtonRestoreA;
         private static readonly Image _silverRestoreI = Properties.Resources.SilverButtonRestoreI;
         private static readonly Image _contextMenuSubMenu = Properties.Resources.SilverContextMenuSub;
-        private static readonly Color[] _trackBarColors = new Color[] { Color.FromArgb(130, 130, 130),      // Tick marks
+        private static readonly Color[] _trackBarColors = { Color.FromArgb(130, 130, 130),      // Tick marks
                                                                         Color.FromArgb(156, 160, 165),      // Top track
                                                                         Color.FromArgb(226, 220, 235),      // Bottom track
                                                                         Color.FromArgb(196, 190, 205),      // Fill track
                                                                         Color.FromArgb(64, Color.White),    // Outside position
                                                                         Color.FromArgb(80, 81, 82)          // Border (normal) position
                                                                       };
-        private static readonly Color[] _schemeColors = new Color[] { Color.FromArgb( 56,  63,  70),    // TextLabelControl
+        private static readonly Color[] _schemeColors = { Color.FromArgb( 56,  63,  70),    // TextLabelControl
                                                                       Color.FromArgb( 56,  63,  70),    // TextButtonNormal
                                                                       Color.Black,                      // TextButtonChecked
                                                                       Color.FromArgb(141, 148, 157),    // ButtonNormalBorder1
@@ -266,14 +258,18 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static PaletteOffice2007Silver()
         {
-            _checkBoxList = new ImageList();
-            _checkBoxList.ImageSize = new Size(13, 13);
-            _checkBoxList.ColorDepth = ColorDepth.Depth24Bit;
+            _checkBoxList = new ImageList
+            {
+                ImageSize = new Size(13, 13),
+                ColorDepth = ColorDepth.Depth24Bit
+            };
             _checkBoxList.Images.AddStrip(Properties.Resources.CB2007Silver);
-            _galleryButtonList = new ImageList();
-            _galleryButtonList.ImageSize = new Size(13, 7);
-            _galleryButtonList.ColorDepth = ColorDepth.Depth24Bit;
-            _galleryButtonList.TransparentColor = Color.Magenta;
+            _galleryButtonList = new ImageList
+            {
+                ImageSize = new Size(13, 7),
+                ColorDepth = ColorDepth.Depth24Bit,
+                TransparentColor = Color.Magenta
+            };
             _galleryButtonList.Images.AddStrip(Properties.Resources.GallerySilverBlack);
             _radioButtonArray = new Image[]{Properties.Resources.RB2007BlueD,
                                             Properties.Resources.RB2007SilverN,
@@ -325,9 +321,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Image GetDropDownButtonImage(PaletteState state)
         {
             if (state != PaletteState.Disabled)
+            {
                 return _silverDropDownButton;
+            }
             else
+            {
                 return base.GetDropDownButtonImage(state);
+            }
         }
 
         /// <summary>
@@ -354,24 +354,44 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteButtonSpecStyle.FormClose:
                     if (state == PaletteState.Disabled)
+                    {
                         return _silverCloseI;
+                    }
                     else
+                    {
                         return _silverCloseA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMin:
                     if (state == PaletteState.Disabled)
+                    {
                         return _silverMinI;
+                    }
                     else
+                    {
                         return _silverMinA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMax:
                     if (state == PaletteState.Disabled)
+                    {
                         return _silverMaxI;
+                    }
                     else
+                    {
                         return _silverMaxA;
+                    }
+
                 case PaletteButtonSpecStyle.FormRestore:
                     if (state == PaletteState.Disabled)
+                    {
                         return _silverRestoreI;
+                    }
                     else
+                    {
                         return _silverRestoreA;
+                    }
+
                 default:
                     return base.GetButtonSpecImage(style, state);
             }

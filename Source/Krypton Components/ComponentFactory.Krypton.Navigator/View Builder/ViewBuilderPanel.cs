@@ -9,12 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Windows.Forms;
-using System.Reflection;
-using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -47,10 +42,12 @@ namespace ComponentFactory.Krypton.Navigator
             _oldRoot = ViewManager.Root;
 
             // Create a canvas for the background
-            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back);
+            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back)
+            {
 
-            // Put the exisint root into the canvas
-            _drawPanel.Add(_oldRoot);
+                // Put the exisint root into the canvas
+                _oldRoot
+            };
 
             // Update the child panel to have panel appearance
             Navigator.ChildPanel.PanelBackStyle = Navigator.Panel.PanelBackStyle;
@@ -127,15 +124,21 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Then use the state defined in the navigator itself
                 if (Navigator.Enabled)
+                {
                     back = Navigator.StateNormal.Back;
+                }
                 else
+                {
                     back = Navigator.StateDisabled.Back;
+                }
             }
             else
             {
                 // Use state defined in the selected page
                 if (Navigator.SelectedPage.Enabled)
+                {
                     back = Navigator.SelectedPage.StateNormal.Back;
+                }
                 else
                 {
                     back = Navigator.SelectedPage.StateDisabled.Back;

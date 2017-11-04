@@ -8,10 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Diagnostics;
 using System.ComponentModel;
 
 
@@ -24,15 +20,17 @@ namespace ComponentFactory.Krypton.Toolkit
     public class GlobalStrings : GlobalId
     {
         #region Static Fields
-        private static readonly string DEFAULT_OK = "OK";
-        private static readonly string DEFAULT_CANCEL = "Cancel";
-        private static readonly string DEFAULT_YES = "Yes";
-        private static readonly string DEFAULT_NO = "No";
-        private static readonly string DEFAULT_ABORT = "Abort";
-        private static readonly string DEFAULT_RETRY = "Retry";
-        private static readonly string DEFAULT_IGNORE = "Ignore";
-        private static readonly string DEFAULT_CLOSE = "Close";
-        private static readonly string DEFAULT_TODAY = "Today";
+
+        private const string DEFAULT_OK = "OK";
+        private const string DEFAULT_CANCEL = "Cancel";
+        private const string DEFAULT_YES = "Yes";
+        private const string DEFAULT_NO = "No";
+        private const string DEFAULT_ABORT = "Abort";
+        private const string DEFAULT_RETRY = "Retry";
+        private const string DEFAULT_IGNORE = "Ignore";
+        private const string DEFAULT_CLOSE = "Close";
+        private const string DEFAULT_TODAY = "Today";
+
         #endregion
 
         #region Instance Fields
@@ -63,7 +61,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string ToString()
         {
             if (!IsDefault)
+            {
                 return "Modified";
+            }
 
             return string.Empty;
         }

@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -122,12 +119,16 @@ namespace ComponentFactory.Krypton.Toolkit
         public override PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
         {
             if (_forceBorders)
+            {
                 return _forceBorderEdges;
+            }
             else
             {
                 // If no border edges are allowed then provide none
                 if ((_maxBorderEdges == PaletteDrawBorders.None) || (_borderIgnoreNormal && (state == PaletteState.Normal)))
+                {
                     return PaletteDrawBorders.None;
+                }
                 else
                 {
                     // Get the requested set of edges
@@ -147,9 +148,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
         {
             if (_forceGraphicsHint != PaletteGraphicsHint.Inherit)
+            {
                 return _forceGraphicsHint;
+            }
             else
+            {
                 return _inherit.GetBorderGraphicsHint(state);
+            }
         }
 
 		/// <summary>

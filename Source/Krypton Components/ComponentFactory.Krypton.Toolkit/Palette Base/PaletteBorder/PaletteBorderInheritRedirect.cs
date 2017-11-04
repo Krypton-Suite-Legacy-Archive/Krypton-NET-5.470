@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -104,10 +99,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override InheritBool GetBorderDraw(PaletteState state)
 		{
             if (_overrideBorderToFalse)
+            {
                 return InheritBool.False;
+            }
             else
-			    return _redirect.GetBorderDraw(_style, state);
-		}
+            {
+                return _redirect.GetBorderDraw(_style, state);
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating which borders to draw.

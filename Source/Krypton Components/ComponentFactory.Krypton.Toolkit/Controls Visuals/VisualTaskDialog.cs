@@ -9,24 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
 using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Reflection;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
 using System.Runtime.InteropServices;
-using System.Media;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -93,7 +80,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Static Fields
-        private static readonly int BUTTON_GAP = 10;
+
+        private const int BUTTON_GAP = 10;
+
         #endregion
 
         #region Instance Fields
@@ -150,10 +139,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public VisualTaskDialog(KryptonTaskDialog taskDialog)
         {
             // Must provide a valid reference
-            if (taskDialog == null)
-                throw new ArgumentNullException("taskDialog");
 
-            _taskDialog = taskDialog;
+            _taskDialog = taskDialog ?? throw new ArgumentNullException("taskDialog");
 
             // Initialize with task dialog values
             _windowTitle = taskDialog.WindowTitle;
@@ -187,7 +174,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (disposing)
             {
                 if (_taskDialog != null)
+                {
                     _taskDialog = null;
+                }
             }
 
             base.Dispose(disposing);
@@ -224,7 +213,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Always use the custom icon as the preferred option
             if (_customMainIcon != null)
+            {
                 _messageIcon.Image = _customMainIcon;
+            }
             else
             {
                 switch (_mainIcon)
@@ -268,8 +259,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 foreach (KryptonTaskDialogCommand command in _radioButtons)
                 {
                     // Create and add a new radio button instance
-                    KryptonRadioButton button = new KryptonRadioButton();
-                    button.LabelStyle = LabelStyle.NormalPanel;
+                    KryptonRadioButton button = new KryptonRadioButton
+                    {
+                        LabelStyle = LabelStyle.NormalPanel
+                    };
                     button.Values.Text = command.Text;
                     button.Values.ExtraText = command.ExtraText;
                     button.Values.Image = command.Image;
@@ -278,7 +271,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     button.CheckedChanged += new EventHandler(OnRadioButtonCheckedChanged);
                     button.Tag = command;
                     if (_defaultRadioButton == command)
+                    {
                         button.Checked = true;
+                    }
+
                     _panelMainRadio.Controls.Add(button);
 
                     // Note that largest radio button encountered
@@ -319,8 +315,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 foreach (KryptonTaskDialogCommand command in _commandButtons)
                 {
                     // Create and add a new button instance
-                    KryptonButton button = new KryptonButton();
-                    button.ButtonStyle = ButtonStyle.Command;
+                    KryptonButton button = new KryptonButton
+                    {
+                        ButtonStyle = ButtonStyle.Command
+                    };
                     button.StateCommon.Content.Image.ImageH = PaletteRelativeAlign.Near;
                     button.StateCommon.Content.ShortText.TextH = PaletteRelativeAlign.Near;
                     button.StateCommon.Content.LongText.TextH = PaletteRelativeAlign.Near;
@@ -365,89 +363,127 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((_commonButtons & TaskDialogButtons.OK) == TaskDialogButtons.OK)
             {
                 if ((_defaultButton & TaskDialogButtons.OK) == TaskDialogButtons.OK)
+                {
                     defaultButton = _buttonOK;
-                 
+                }
+
                 firstButton = _buttonOK;
                 _buttonOK.Text = KryptonManager.Strings.OK;
                 _buttonOK.Visible = true;
             }
             else
+            {
                 _buttonOK.Visible = false;
+            }
 
             if ((_commonButtons & TaskDialogButtons.Yes) == TaskDialogButtons.Yes)
             {
                 if ((_defaultButton & TaskDialogButtons.Yes) == TaskDialogButtons.Yes)
+                {
                     defaultButton = _buttonYes;
+                }
 
                 if (firstButton == null)
+                {
                     firstButton = _buttonYes;
-                
+                }
+
                 _buttonYes.Text = KryptonManager.Strings.Yes;
                 _buttonYes.Visible = true;
             }
             else
+            {
                 _buttonYes.Visible = false;
+            }
 
             if ((_commonButtons & TaskDialogButtons.No) == TaskDialogButtons.No)
             {
                 if ((_defaultButton & TaskDialogButtons.No) == TaskDialogButtons.No)
+                {
                     defaultButton = _buttonNo;
-                
+                }
+
                 if (firstButton == null)
+                {
                     firstButton = _buttonNo;
-                
+                }
+
                 _buttonNo.Text = KryptonManager.Strings.No;
                 _buttonNo.Visible = true;
             }
             else
+            {
                 _buttonNo.Visible = false;
+            }
 
             if ((_commonButtons & TaskDialogButtons.Cancel) == TaskDialogButtons.Cancel)
             {
                 if ((_defaultButton & TaskDialogButtons.Cancel) == TaskDialogButtons.Cancel)
+                {
                     defaultButton = _buttonCancel;
+                }
 
                 if (firstButton == null)
+                {
                     firstButton = _buttonCancel;
-                
+                }
+
                 _buttonCancel.Text = KryptonManager.Strings.Cancel;
                 _buttonCancel.Visible = true;
             }
             else
+            {
                 _buttonCancel.Visible = false;
+            }
 
             if ((_commonButtons & TaskDialogButtons.Retry) == TaskDialogButtons.Retry)
             {
                 if ((_defaultButton & TaskDialogButtons.Retry) == TaskDialogButtons.Retry)
+                {
                     defaultButton = _buttonRetry;
-                
+                }
+
                 if (firstButton == null)
+                {
                     firstButton = _buttonRetry;
-                
+                }
+
                 _buttonRetry.Text = KryptonManager.Strings.Retry;
                 _buttonRetry.Visible = true;
             }
             else
+            {
                 _buttonRetry.Visible = false;
+            }
 
             if ((_commonButtons & TaskDialogButtons.Close) == TaskDialogButtons.Close)
             {
                 if ((_defaultButton & TaskDialogButtons.Close) == TaskDialogButtons.Close)
+                {
                     defaultButton = _buttonClose;
+                }
 
                 if (firstButton == null)
+                {
                     firstButton = _buttonClose;
-                
+                }
+
                 _buttonClose.Text = KryptonManager.Strings.Close;
                 _buttonClose.Visible = true;
             }
             else
+            {
                 _buttonClose.Visible = false;
+            }
 
             if (defaultButton != null)
+            {
                 defaultButton.Select();
-            else if (firstButton != null)
-                firstButton.Select();
+            }
+            else
+            {
+                firstButton?.Select();
+            }
         }
 
         private void UpdateCheckbox()
@@ -463,7 +499,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Always use the custom icon as the preferred option
             if (_customFooterIcon != null)
+            {
                 _iconFooter.Image = _customFooterIcon;
+            }
             else
             {
                 switch (_footerIcon)
@@ -493,9 +531,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private void UpdateChrome()
         {
             if (((_commonButtons & TaskDialogButtons.Cancel) == TaskDialogButtons.Cancel) || _allowDialogClose)
+            {
                 ControlBox = true;
+            }
             else
+            {
                 ControlBox = false;
+            }
 
             _buttonOK.IgnoreAltF4 = !ControlBox;
             _buttonYes.IgnoreAltF4 = !ControlBox;
@@ -532,8 +574,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size messageContentSize = g.MeasureString(_content, _messageContent.Font, 400).ToSize();
 
                 // Work out DPI adjustment factor
-                float factorX = g.DpiX > 96 ? (1.0f * g.DpiX / 96) : 1.0f;
-                float factorY = g.DpiY > 96 ? (1.0f * g.DpiY / 96) : 1.0f;
+                float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;
+                float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
                 messageMainSize.Width = (int)((float)messageMainSize.Width * factorX);
                 messageMainSize.Height = (int)((float)messageMainSize.Height * factorY);
                 messageContentSize.Width = (int)((float)messageContentSize.Width * factorX);
@@ -560,9 +602,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private Size UpdateIconSizing()
         {
             if (_messageIcon.Image == null)
+            {
                 return Size.Empty;
+            }
             else
+            {
                 return _panelIcon.Size;
+            }
         }
 
         private Size UpdateRadioSizing()
@@ -699,7 +745,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Size checkboxSize = Size.Empty;
             if (!string.IsNullOrEmpty(_checkboxText))
+            {
                 checkboxSize = _checkBox.GetPreferredSize(Size.Empty);
+            }
 
             if (numButtons == 0)
             {
@@ -712,19 +760,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _panelButtons.Visible = true;
                     _checkBox.Location = new Point(BUTTON_GAP, BUTTON_GAP);
-                    return new Size(checkboxSize.Width + BUTTON_GAP * 2, checkboxSize.Height + BUTTON_GAP * 2);
+                    return new Size(checkboxSize.Width + (BUTTON_GAP * 2), checkboxSize.Height + (BUTTON_GAP * 2));
                 }
             }
             else
             {
                 _panelButtons.Visible = true;
 
-                Size panelButtonSize = new Size((maxButtonSize.Width * numButtons) + BUTTON_GAP * (numButtons + 1), maxButtonSize.Height + BUTTON_GAP * 2);
+                Size panelButtonSize = new Size((maxButtonSize.Width * numButtons) + (BUTTON_GAP * (numButtons + 1)), maxButtonSize.Height + (BUTTON_GAP * 2));
 
                 if (!checkboxSize.IsEmpty)
                 {
                     panelButtonSize.Width += checkboxSize.Width;
-                    panelButtonSize.Height = Math.Max(panelButtonSize.Height, checkboxSize.Height + BUTTON_GAP * 2);
+                    panelButtonSize.Height = Math.Max(panelButtonSize.Height, checkboxSize.Height + (BUTTON_GAP * 2));
                     _checkBox.Location = new Point(BUTTON_GAP, (panelButtonSize.Height - checkboxSize.Height) / 2);
                 }
 
@@ -788,7 +836,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if ((_footerIcon != MessageBoxIcon.None) || (_customFooterIcon != null))
                     {
                         _iconFooter.Location = new Point(offset, (requiredSize.Height - _iconFooter.Height) / 2);
-                        offset += _iconFooter.Width + BUTTON_GAP / 2;
+                        offset += _iconFooter.Width + (BUTTON_GAP / 2);
                     }
 
                     if (!string.IsNullOrEmpty(_footerText))
@@ -800,9 +848,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (!string.IsNullOrEmpty(_footerHyperlink))
                     {
                         if (!string.IsNullOrEmpty(_footerText))
+                        {
                             _linkLabelFooter.Location = new Point(offset, _footerLabel.Location.Y -  1);
+                        }
                         else
+                        {
                             _linkLabelFooter.Location = new Point(offset, (requiredSize.Height - footerHyperlinkSize.Height) / 2);
+                        }
 
                         offset += _footerLabel.Width;
                     }
@@ -837,20 +889,25 @@ namespace ComponentFactory.Krypton.Toolkit
             // If the dialog is being closed because of a user event then it would be either
             // Alt+F4, Hit the close chrome button or the Close common dialog button
             if (e.CloseReason == CloseReason.UserClosing)
+            {
                 DialogResult = DialogResult.Cancel;
+            }
         }
 
+#pragma warning disable IDE1006 // Naming Styles
         private void checkBox_CheckedChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Naming Styles
         {
             _checkboxState = _checkBox.Checked;
             if (_taskDialog != null)
+            {
                 _taskDialog.CheckboxState = _checkboxState;
+            }
         }
 
         private void _linkLabelFooter_LinkClicked(object sender, EventArgs e)
         {
-            if (_taskDialog != null)
-                _taskDialog.RaiseFooterHyperlinkClicked();
+            _taskDialog?.RaiseFooterHyperlinkClicked();
         }
 
         private void _buttonClose_Click(object sender, EventArgs e)
@@ -858,11 +915,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Close();
         }
 
+#pragma warning disable IDE1006 // Naming Styles
         private void button_keyDown(object sender, KeyEventArgs e)
+#pragma warning restore IDE1006 // Naming Styles
         {
             // Escape key kills the dialog if we allow it to be closed
             if ((e.KeyCode == Keys.Escape) && ControlBox)
+            {
                 Close();
+            }
             else
             {
                 // Pressing Ctrl+C should copy message text into the clipboard

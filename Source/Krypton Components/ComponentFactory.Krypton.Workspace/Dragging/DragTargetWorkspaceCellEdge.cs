@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
 
@@ -60,7 +56,9 @@ namespace ComponentFactory.Krypton.Workspace
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 _cell = null;
+            }
 
             base.Dispose(disposing);
         }
@@ -92,12 +90,18 @@ namespace ComponentFactory.Krypton.Workspace
                     // Create list of all the visible pages in the cell
                     KryptonPageCollection visiblePages = new KryptonPageCollection();
                     foreach (KryptonPage page in _cell.Pages)
+                    {
                         if (page.LastVisibleSet)
+                        {
                             visiblePages.Add(page);
+                        }
+                    }
 
                     // Remove all those that are being dragged
                     foreach (KryptonPage page in dragEndData.Pages)
+                    {
                         visiblePages.Remove(page);
+                    }
 
                     // Cache number of visible pages in target that are not part of the dragging set
                     _visibleNotDraggedPages = visiblePages.Count;
@@ -111,9 +115,13 @@ namespace ComponentFactory.Krypton.Workspace
 
             // If the drop leaves at least 1 page in the navigator then allow drag to edge
             if (_visibleNotDraggedPages >= 1)
+            {
                 return base.IsMatch(screenPt, dragEndData);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -125,8 +133,7 @@ namespace ComponentFactory.Krypton.Workspace
         public override bool PerformDrop(Point screenPt, PageDragEndData data)
         {
             // We need a parent sequence in order to perform drop
-            KryptonWorkspaceSequence parent = Cell.WorkspaceParent as KryptonWorkspaceSequence;
-            if (parent != null)
+            if (Cell.WorkspaceParent is KryptonWorkspaceSequence parent)
             {
                 // Transfer the dragged pages into a new cell
                 KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
@@ -134,7 +141,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // If no pages are transferred then we do nothing and no longer need cell instance
                 if (page == null)
+                {
                     cell.Dispose();
+                }
                 else
                 {
                     // If the parent sequence is not the same direction as that needed for the drop then...
@@ -145,9 +154,13 @@ namespace ComponentFactory.Krypton.Workspace
                         // Find opposite direction to the parent sequence
                         Orientation sequenceOrientation;
                         if (parent.Orientation == Orientation.Horizontal)
+                        {
                             sequenceOrientation = Orientation.Vertical;
+                        }
                         else
+                        {
                             sequenceOrientation = Orientation.Horizontal;
+                        }
 
                         // Create a new sequence and transfer the target cell into it
                         KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence(sequenceOrientation);
@@ -160,9 +173,13 @@ namespace ComponentFactory.Krypton.Workspace
 
                         // Add new cell to the start or the end of the new sequence?
                         if ((Edge == VisualOrientation.Left) || (Edge == VisualOrientation.Top))
+                        {
                             sequence.Children.Insert(0, cell);
+                        }
                         else
+                        {
                             sequence.Children.Add(cell);
+                        }
                     }
                     else
                     {
@@ -171,9 +188,13 @@ namespace ComponentFactory.Krypton.Workspace
 
                         // Add new cell before or after the target cell?
                         if ((Edge == VisualOrientation.Left) || (Edge == VisualOrientation.Top))
+                        {
                             parent.Children.Insert(index, cell);
+                        }
                         else
+                        {
                             parent.Children.Insert(index + 1, cell);
+                        }
                     }
 
                     // Make the last page transfered the newly selected page of the cell
@@ -181,7 +202,9 @@ namespace ComponentFactory.Krypton.Workspace
                     {
                         // Does the cell allow the selection of tabs?
                         if (cell.AllowTabSelect)
+                        {
                             cell.SelectedPage = page;
+                        }
 
                         // Need to layout so the new cell has been added as a child control and 
                         // therefore can receive the focus we want to give it immediately afterwards

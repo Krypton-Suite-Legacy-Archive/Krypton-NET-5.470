@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class TabStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(TabStyle.HighProfile,     "High Profile"),
+        private Pair[] _pairs = { new Pair(TabStyle.HighProfile,     "High Profile"),
                                              new Pair(TabStyle.StandardProfile, "Standard Profile"),
                                              new Pair(TabStyle.LowProfile,      "Low Profile"),
                                              new Pair(TabStyle.OneNote,         "OneNote"),

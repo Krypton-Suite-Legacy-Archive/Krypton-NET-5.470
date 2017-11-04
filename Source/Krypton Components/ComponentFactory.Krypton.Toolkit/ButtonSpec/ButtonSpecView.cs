@@ -80,11 +80,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Associate the view with the source component (for design time support)
             if (buttonSpec.AllowComponent)
+            {
                 _viewButton.Component = buttonSpec;
+            }
 
             // Use a view center to place button in centre of given space
-            _viewCenter = new ViewLayoutCenter(paletteMetric, metricPadding, VisualOrientation.Top);
-            _viewCenter.Add(_viewButton);
+            _viewCenter = new ViewLayoutCenter(paletteMetric, metricPadding, VisualOrientation.Top)
+            {
+                _viewButton
+            };
 
             // Create a controller for managing button behavior
             ButtonSpecViewControllers controllers = CreateController(_viewButton, needPaint, new MouseEventHandler(OnClick));
@@ -268,7 +272,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -300,14 +306,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                   MouseEventHandler clickHandler)
         {
             // Create a standard button controller
-            _controller = new ButtonController(viewButton, needPaint);
-            _controller.BecomesFixed = true;
+            _controller = new ButtonController(viewButton, needPaint)
+            {
+                BecomesFixed = true
+            };
             _controller.Click += clickHandler;
 
             // If associated with a tooltip manager then pass mouse messages onto tooltip manager
             IMouseController mouseController = (IMouseController)_controller;
             if (Manager.ToolTipManager != null)
+            {
                 mouseController = new ToolTipController(Manager.ToolTipManager, viewButton, _controller);
+            }
 
             // Return a collection of controllers
             return new ButtonSpecViewControllers(mouseController, _controller, _controller);
@@ -387,9 +397,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If the button spec is on the chrome titlebar then find position manually
                     if (_manager.Control is Form)
+                    {
                         pt = new Point(_manager.Control.Left + rect.Left, _manager.Control.Top + rect.Bottom + 3);
+                    }
                     else
+                    {
                         pt = _manager.Control.PointToScreen(new Point(rect.Left, rect.Bottom + 3));
+                    }
 
                     // Show the context menu just below the view itself
                     _buttonSpec.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
@@ -399,8 +413,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _buttonSpec.KryptonContextMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
 
                         // Not showing a context menu, so remove the fixed view immediately
-                        if (_finishDelegate != null)
-                            _finishDelegate(this, EventArgs.Empty);
+                        _finishDelegate?.Invoke(this, EventArgs.Empty);
                     }
                 }
                 else if ((_buttonSpec.ContextMenuStrip != null) && (ViewButton != null))
@@ -418,15 +431,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Not showing a context menu, so remove the fixed view immediately
-                    if (_finishDelegate != null)
-                        _finishDelegate(this, EventArgs.Empty);
+                    _finishDelegate?.Invoke(this, EventArgs.Empty);
                 }
             }
             else
             {
                 // Not showing a context menu, so remove the fixed view immediately
-                if (_finishDelegate != null)
-                    _finishDelegate(this, EventArgs.Empty);
+                _finishDelegate?.Invoke(this, EventArgs.Empty);
             }
         }
 

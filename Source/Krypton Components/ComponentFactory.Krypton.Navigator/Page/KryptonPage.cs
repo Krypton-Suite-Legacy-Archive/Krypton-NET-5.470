@@ -9,17 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -786,12 +779,16 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_kcm != value)
                 {
                     if (_kcm != null)
+                    {
                         _kcm.Disposed += new EventHandler(OnKryptonContextMenuDisposed);
+                    }
 
                     _kcm = value;
 
                     if (_kcm != null)
+                    {
                         _kcm.Disposed -= new EventHandler(OnKryptonContextMenuDisposed);
+                    }
                 }
             }
         }
@@ -1104,7 +1101,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // We do not want to return a null
             if (ret == null)
+            {
                 ret = string.Empty;
+            }
 
             return ret;
         }
@@ -1220,7 +1219,9 @@ namespace ComponentFactory.Krypton.Navigator
             int changed = _flags.SetFlags((int)flags);
 
             if (changed != 0)
+            {
                 OnFlagsChanged((KryptonPageFlags)changed);
+            }
         }
 
         /// <summary>
@@ -1232,7 +1233,9 @@ namespace ComponentFactory.Krypton.Navigator
             int changed = _flags.ClearFlags((int)flags);
 
             if (changed != 0)
+            {
                 OnFlagsChanged((KryptonPageFlags)changed);
+            }
         }
 
         /// <summary>
@@ -1306,9 +1309,13 @@ namespace ComponentFactory.Krypton.Navigator
 
                     // If keyboard activated, the menu position is centered
                     if (((int)((long)m.LParam)) == -1)
+                    {
                         mousePt = new Point(Width / 2, Height / 2);
+                    }
                     else
+                    {
                         mousePt = PointToClient(mousePt);
+                    }
 
                     // If the mouse posiiton is within our client area
                     if (ClientRectangle.Contains(mousePt))
@@ -1354,9 +1361,8 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnDockChanged(EventArgs e)
 		{
-			if (DockChanged != null)
-				DockChanged(this, e);
-		}
+            DockChanged?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the LocationChanged event.
@@ -1364,9 +1370,8 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnLocationChanged(EventArgs e)
 		{
-			if (LocationChanged != null)
-				LocationChanged(this, e);
-		}
+            LocationChanged?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the TabIndexChanged event.
@@ -1374,9 +1379,8 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnTabIndexChanged(EventArgs e)
 		{
-			if (TabIndexChanged != null)
-				TabIndexChanged(this, e);
-		}
+            TabIndexChanged?.Invoke(this, e);
+        }
 
 		/// <summary>
 		/// Raises the TabStopChanged event.
@@ -1384,9 +1388,8 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnTabStopChanged(EventArgs e)
 		{
-			if (TabStopChanged != null)
-				TabStopChanged(this, e);
-		}
+            TabStopChanged?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Raises the AppearancePropertyChanged event.
@@ -1394,8 +1397,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="propertyName">Name of the appearance property that has changed.</param>
         protected virtual void OnAppearancePropertyChanged(string propertyName)
         {
-            if (AppearancePropertyChanged != null)
-                AppearancePropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            AppearancePropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -1404,8 +1406,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="changed">Set of flags that have changed.</param>
         protected virtual void OnFlagsChanged(KryptonPageFlags changed)
         {
-            if (FlagsChanged != null)
-                FlagsChanged(this, new KryptonPageFlagsEventArgs(changed));
+            FlagsChanged?.Invoke(this, new KryptonPageFlagsEventArgs(changed));
         }
 
         /// <summary>
@@ -1414,8 +1415,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnAutoHiddenSlideSizeChanged(EventArgs e)
         {
-            if (AutoHiddenSlideSizeChanged != null)
-                AutoHiddenSlideSizeChanged(this, e);
+            AutoHiddenSlideSizeChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1424,8 +1424,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnLoad(EventArgs e)
         {
-            if (Load != null)
-                Load(this, e);
+            Load?.Invoke(this, e);
         }
 
         /// <summary>

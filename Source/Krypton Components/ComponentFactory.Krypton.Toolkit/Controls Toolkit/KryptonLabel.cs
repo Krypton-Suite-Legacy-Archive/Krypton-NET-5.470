@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -89,12 +85,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _stateDisabled = new PaletteContent(_stateCommon, NeedPaintDelegate);
             _stateNormal = new PaletteContent(_stateCommon, NeedPaintDelegate);
 
-			// Our view contains background and border with content inside
-			_drawContent = new ViewDrawContent(_stateNormal, this, VisualOrientation.Top);
-            _drawContent.UseMnemonic = _useMnemonic;
+            // Our view contains background and border with content inside
+            _drawContent = new ViewDrawContent(_stateNormal, this, VisualOrientation.Top)
+            {
+                UseMnemonic = _useMnemonic
+            };
 
-			// Create the view manager instance
-			ViewManager = new ViewManager(this, _drawContent);
+            // Create the view manager instance
+            ViewManager = new ViewManager(this, _drawContent);
 
 			// We want to be auto sized by default, but not the property default!
 			AutoSize = true;
@@ -346,17 +344,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
+                    {
                         _wasEnabled = Enabled;
+                    }
 
                     _command = value;
                     OnKryptonCommandChanged(EventArgs.Empty);
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                     else
+                    {
                         Enabled = _wasEnabled;
+                    }
                 }
             }
         }
@@ -380,9 +386,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetShortText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.Text;
+            }
             else
+            {
                 return _labelValues.GetShortText();
+            }
         }
 
         /// <summary>
@@ -392,9 +402,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetLongText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ExtraText;
+            }
             else
+            {
                 return _labelValues.GetLongText();
+            }
         }
 
         /// <summary>
@@ -405,9 +419,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetImage(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageSmall;
+            }
             else
+            {
                 return _labelValues.GetImage(state);
+            }
         }
 
         /// <summary>
@@ -418,9 +436,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetImageTransparentColor(PaletteState state)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageTransparentColor;
+            }
             else
+            {
                 return _labelValues.GetImageTransparentColor(state);
+            }
         }
         #endregion
 
@@ -492,7 +514,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we have a target that can take the focus
                 if ((Target != null) && Target.CanFocus)
+                {
                     Target.Focus();
+                }
             }
 
             base.OnClick(e);
@@ -504,12 +528,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnKryptonCommandChanged(EventArgs e)
         {
-            if (KryptonCommandChanged != null)
-                KryptonCommandChanged(this, e);
+            KryptonCommandChanged?.Invoke(this, e);
 
             // Use the values from the new command
             if (KryptonCommand != null)
+            {
                 Enabled = KryptonCommand.Enabled;
+            }
 
             // Redraw to update the text/extratext/image properties
             PerformNeedPaint(true);
@@ -544,9 +569,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Push correct palettes into the view
 			if (Enabled)
-				_drawContent.SetPalette(_stateNormal);
-			else
-				_drawContent.SetPalette(_stateDisabled);
+            {
+                _drawContent.SetPalette(_stateNormal);
+            }
+            else
+            {
+                _drawContent.SetPalette(_stateDisabled);
+            }
 
             _drawContent.Enabled = Enabled;
             

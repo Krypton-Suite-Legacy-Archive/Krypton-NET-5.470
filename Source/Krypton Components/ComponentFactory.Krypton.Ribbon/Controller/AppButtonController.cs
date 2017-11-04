@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -63,8 +61,10 @@ namespace ComponentFactory.Krypton.Ribbon
         public AppButtonController(KryptonRibbon ribbon)
 		{
             _ribbon = ribbon;
-            _updateTimer = new Timer();
-            _updateTimer.Interval = 1;
+            _updateTimer = new Timer
+            {
+                Interval = 1
+            };
             _updateTimer.Tick += new EventHandler(OnUpdateTimer);
             _keyboard = false;
         }
@@ -138,7 +138,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _mouseOver = true;
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
 
         /// <summary>
@@ -193,7 +195,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Only interested in left mouse going up
             if (button == MouseButtons.Left)
+            {
                 OnMouseReleased(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+            }
         }
 
         /// <summary>
@@ -207,7 +211,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _mouseOver = false;
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
 
         /// <summary>
@@ -237,7 +243,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _hasFocus = true;
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
 
         /// <summary>
@@ -249,7 +257,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _hasFocus = false;
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
         #endregion
 
@@ -273,7 +283,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Get the first near edge button (the last near button is the leftmost one!)
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetLastVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                    }
 
                     if (newView == null)
                     {
@@ -291,11 +303,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any far defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
                     break;
                 case Keys.Tab | Keys.Shift:
                 case Keys.Left:
@@ -304,7 +320,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetLastVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
 
                     if (newView == null)
                     {
@@ -317,9 +335,13 @@ namespace ComponentFactory.Krypton.Ribbon
                             if (newView == null)
                             {
                                 if (ribbon.SelectedTab != null)
+                                {
                                     newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
+                                }
                                 else
+                                {
                                     newView = ribbon.TabsArea.LayoutTabs.GetViewForLastRibbonTab();
+                                }
                             }
                         }
                         else
@@ -331,11 +353,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Get the last near edge button (the first near button is the rightmost one!)
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                    }
 
                     // Get the last qat button
                     if (newView == null)
+                    {
                         newView = ribbon.GetLastQATView();
+                    }
                     break;
                 case Keys.Space:
                 case Keys.Enter:
@@ -357,8 +383,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 (newView != _target2 && (newView != _target3)))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
-                if ((newView is ViewDrawRibbonTab) && !ribbon.RealMinimizedMode)
-                    ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 ribbon.FocusView = newView;
@@ -425,14 +453,20 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Are we showing with the fixed state?
                 if (_fixedPressed)
+                {
                     newState = PaletteState.Pressed;
+                }
                 else
                 {
                     // If being pressed
                     if (_mouseDown)
+                    {
                         newState = PaletteState.Pressed;
+                    }
                     else if (_mouseOver || _hasFocus)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                 }
             }
 
@@ -459,14 +493,20 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (needPaint)
             {
-                if ((_target1 != null) && !_target1.ClientRectangle.IsEmpty) 
+                if ((_target1 != null) && !_target1.ClientRectangle.IsEmpty)
+                {
                     OnNeedPaint(false, _target1.ClientRectangle);
+                }
 
-                if ((_target2 != null) && !_target2.ClientRectangle.IsEmpty) 
+                if ((_target2 != null) && !_target2.ClientRectangle.IsEmpty)
+                {
                     OnNeedPaint(false, _target2.ClientRectangle);
+                }
 
-                if ((_target3 != null) && !_target3.ClientRectangle.IsEmpty) 
+                if ((_target3 != null) && !_target3.ClientRectangle.IsEmpty)
+                {
                     OnNeedPaint(false, _target3.ClientRectangle);
+                }
 
                 // Get the repaint to happen immediately
                 Application.DoEvents();
@@ -481,8 +521,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected virtual void OnNeedPaint(bool needLayout,
                                            Rectangle invalidRect)
         {
-            if (NeedPaint != null)
-                NeedPaint(this, new NeedLayoutEventArgs(needLayout, invalidRect));
+            NeedPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, invalidRect));
         }
 
         /// <summary>
@@ -491,8 +530,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnClick(MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
 
             _keyboard = false;
         }
@@ -503,8 +541,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnMouseReleased(MouseEventArgs e)
         {
-            if (MouseReleased != null)
-                MouseReleased(this, e);
+            MouseReleased?.Invoke(this, e);
         }
         #endregion
 

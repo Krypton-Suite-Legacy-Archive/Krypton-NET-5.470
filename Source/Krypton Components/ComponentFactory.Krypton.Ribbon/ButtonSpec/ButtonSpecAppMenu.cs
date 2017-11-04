@@ -9,13 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -47,9 +40,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Then invert the checked state
                     if (Checked == ButtonCheckState.Unchecked)
+                    {
                         Checked = ButtonCheckState.Checked;
+                    }
                     else
+                    {
                         Checked = ButtonCheckState.Unchecked;
+                    }
                 }
 
                 GenerateClick(e);

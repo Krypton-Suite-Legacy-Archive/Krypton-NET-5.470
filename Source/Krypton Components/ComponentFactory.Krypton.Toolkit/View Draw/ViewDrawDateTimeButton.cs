@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -89,8 +86,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _glyph = glyph;
 
             // Assign a controller to handle visual interaction
-            _controller = new ButtonController(this, needPaintHandler);
-            _controller.BecomesFixed = !repeat;
+            _controller = new ButtonController(this, needPaintHandler)
+            {
+                BecomesFixed = !repeat
+            };
             _controller.Click += new MouseEventHandler(OnButtonClick);
             _controller.MouseSelect += new MouseEventHandler(OnButtonMouseSelect);
             _controller.Repeat = repeat;
@@ -139,7 +138,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Layout the button drawing elements using a reduced size
             Rectangle beforeRect = context.DisplayRectangle;
@@ -197,7 +199,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the drop down calendar is showing then always draw button as pressed
             if (_dateTimePicker.IsDropped)
+            {
                 state = PaletteState.Pressed;
+            }
             else
             {
                 // If the button is in a normal state (not being tracked or pressed)
@@ -206,15 +210,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // If the control is active then use the checked normal appearance, otherwise not active and so use the normal appearance
                     if (_dateTimePicker.IsActive || (_dateTimePicker.IsFixedActive && (_dateTimePicker.InputControlStyle == InputControlStyle.Standalone)))
+                    {
                         state = PaletteState.CheckedNormal;
+                    }
                     else
+                    {
                         state = PaletteState.Normal;
+                    }
                 }
             }
 
             ElementState = state;
             foreach (ViewBase child in this)
+            {
                 child.ElementState = state;
+            }
         }
 
         /// <summary>
@@ -224,8 +234,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">Event arguments assocaited with the event.</param>
         protected void OnButtonClick(object sender, MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
 
         /// <summary>
@@ -235,8 +244,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">Event arguments assocaited with the event.</param>
         protected void OnButtonMouseSelect(object sender, MouseEventArgs e)
         {
-            if (MouseSelect != null)
-                MouseSelect(this, e);
+            MouseSelect?.Invoke(this, e);
         }
         #endregion
     }

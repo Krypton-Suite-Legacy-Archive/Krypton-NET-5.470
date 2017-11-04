@@ -9,12 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -157,7 +154,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "B";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -445,13 +444,17 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (_command != value)
                     {
                         if (_command != null)
+                        {
                             _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        }
 
                         _command = value;
                         OnPropertyChanged("KryptonCommand");
 
                         if (_command != null)
+                        {
                             _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        }
                     }
 
                 }
@@ -472,14 +475,18 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMax != value)
                 {
                     _itemSizeMax = value;
 
                     if (_itemSizeMax == GroupItemSize.Small)
+                    {
                         _itemSizeMin = GroupItemSize.Small;
+                    }
 
                     OnPropertyChanged("ItemSizeMaximum");
                 }
@@ -500,14 +507,18 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMin != value)
                 {
                     _itemSizeMin = value;
 
                     if (_itemSizeMin == GroupItemSize.Medium)
+                    {
                         _itemSizeMax = GroupItemSize.Medium;
+                    }
 
                     OnPropertyChanged("ItemSizeMinimum");
                 }
@@ -637,9 +648,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Push back the change to the attached command
                         if (KryptonCommand != null)
+                        {
                             KryptonCommand.Checked = !KryptonCommand.Checked;
+                        }
                         else
+                        {
                             Checked = !Checked;
+                        }
                     }
 
                     // In showing a popup we fire the delegate before the click so that the
@@ -648,25 +663,27 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (VisualPopupManager.Singleton.CurrentPopup != null)
                     {
                         // Do we need to fire a delegate stating the click processing has finished?
-                        if (fireDelegate && (finishDelegate != null))
-                            finishDelegate(this, EventArgs.Empty);
+                        if (fireDelegate)
+                        {
+                            finishDelegate?.Invoke(this, EventArgs.Empty);
+                        }
 
                         fireDelegate = false;
                     }
 
                     // Generate actual click event
-                    if (Click != null)
-                        Click(this, EventArgs.Empty);
+                    Click?.Invoke(this, EventArgs.Empty);
 
                     // Clicking the button should execute the associated command
-                    if (KryptonCommand != null)
-                        KryptonCommand.PerformExecute();
+                    KryptonCommand?.PerformExecute();
                 }
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -691,8 +708,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Generate an event giving a chance for the krypton context menu strip to 
                             // be shown to be provided/modified or the action even to be cancelled
-                            if (DropDown != null)
-                                DropDown(this, contextArgs);
+                            DropDown?.Invoke(this, contextArgs);
 
                             // If user did not cancel and there is still a krypton context menu strip to show
                             if (!contextArgs.Cancel && (contextArgs.KryptonContextMenu != null))
@@ -701,7 +717,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                                 // Convert the view for the button into screen coordinates
                                 if ((Ribbon != null) && (ClusterButtonView != null))
+                                {
                                     screenRect = Ribbon.ViewRectangleToScreen(ClusterButtonView);
+                                }
 
                                 if (CommonHelper.ValidKryptonContextMenu(contextArgs.KryptonContextMenu))
                                 {
@@ -711,7 +729,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                     // Show at location we were provided, but need to convert to screen coordinates
                                     contextArgs.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
                                     if (contextArgs.KryptonContextMenu.Show(this, new Point(screenRect.X, screenRect.Bottom + 1)))
+                                    {
                                         fireDelegate = false;
+                                    }
                                 }
                             }
                         }
@@ -721,8 +741,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Generate an event giving a chance for the context menu strip to be
                             // shown to be provided/modified or the action even to be cancelled
-                            if (DropDown != null)
-                                DropDown(this, contextArgs);
+                            DropDown?.Invoke(this, contextArgs);
 
                             // If user did not cancel and there is still a context menu strip to show
                             if (!contextArgs.Cancel && (contextArgs.ContextMenuStrip != null))
@@ -731,7 +750,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                                 // Convert the view for the button into screen coordinates
                                 if ((Ribbon != null) && (ClusterButtonView != null))
+                                {
                                     screenRect = Ribbon.ViewRectangleToScreen(ClusterButtonView);
+                                }
 
                                 if (CommonHelper.ValidContextMenuStrip(contextArgs.ContextMenuStrip))
                                 {
@@ -750,8 +771,10 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -760,16 +783,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -810,12 +831,20 @@ namespace ComponentFactory.Krypton.Ribbon
                     (ButtonType == GroupButtonType.Split))
                 {
                     if (KryptonContextMenu != null)
+                    {
                         if (KryptonContextMenu.ProcessShortcut(keyData))
+                        {
                             return true;
+                        }
+                    }
 
                     if (ContextMenuStrip != null)
+                    {
                         if (CommonHelper.CheckContextMenuForShortcut(ContextMenuStrip, ref msg, keyData))
+                        {
                             return true;
+                        }
+                    }
                 }
             }
 

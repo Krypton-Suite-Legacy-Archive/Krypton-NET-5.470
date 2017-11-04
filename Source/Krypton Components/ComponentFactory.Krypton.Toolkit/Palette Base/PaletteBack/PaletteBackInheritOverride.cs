@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -113,13 +110,17 @@ namespace ComponentFactory.Krypton.Toolkit
 				InheritBool ret = _primary.GetBackDraw(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetBackDraw(state);
+                {
+                    ret = _backup.GetBackDraw(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackDraw(state);
-		}
+            {
+                return _backup.GetBackDraw(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the graphics drawing hint.
@@ -133,13 +134,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteGraphicsHint ret = _primary.GetBackGraphicsHint(_override ? _state : state);
 
 				if (ret == PaletteGraphicsHint.Inherit)
-					ret = _backup.GetBackGraphicsHint(state);
+                {
+                    ret = _backup.GetBackGraphicsHint(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackGraphicsHint(state);
-		}
+            {
+                return _backup.GetBackGraphicsHint(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the first background color.
@@ -153,13 +158,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetBackColor1(_override ? _state : state);
 
 				if (ret == Color.Empty)
-					ret = _backup.GetBackColor1(state);
+                {
+                    ret = _backup.GetBackColor1(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackColor1(state);
-		}
+            {
+                return _backup.GetBackColor1(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the second back color.
@@ -173,13 +182,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetBackColor2(_override ? _state : state);
 
 				if (ret == Color.Empty)
-					ret = _backup.GetBackColor2(state);
+                {
+                    ret = _backup.GetBackColor2(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackColor2(state);
-		}
+            {
+                return _backup.GetBackColor2(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color drawing style.
@@ -193,13 +206,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteColorStyle ret = _primary.GetBackColorStyle(_override ? _state : state);
 
 				if (ret == PaletteColorStyle.Inherit)
-					ret = _backup.GetBackColorStyle(state);
+                {
+                    ret = _backup.GetBackColorStyle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackColorStyle(state);
-		}
+            {
+                return _backup.GetBackColorStyle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color alignment style.
@@ -213,13 +230,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetBackColorAlign(_override ? _state : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
-					ret = _backup.GetBackColorAlign(state);
+                {
+                    ret = _backup.GetBackColorAlign(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackColorAlign(state);
-		}
+            {
+                return _backup.GetBackColorAlign(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the color background angle.
@@ -233,13 +254,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 float ret = _primary.GetBackColorAngle(_override ? _state : state);
 
 				if (ret == -1)
-					ret = _backup.GetBackColorAngle(state);
+                {
+                    ret = _backup.GetBackColorAngle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackColorAngle(state);
-		}
+            {
+                return _backup.GetBackColorAngle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets a background image.
@@ -253,13 +278,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Image ret = _primary.GetBackImage(_override ? _state : state);
 
 				if (ret == null)
-					ret = _backup.GetBackImage(state);
+                {
+                    ret = _backup.GetBackImage(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackImage(state);
-		}
+            {
+                return _backup.GetBackImage(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the background image style.
@@ -273,13 +302,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteImageStyle ret = _primary.GetBackImageStyle(_override ? _state : state);
 
 				if (ret == PaletteImageStyle.Inherit)
-					ret = _backup.GetBackImageStyle(state);
+                {
+                    ret = _backup.GetBackImageStyle(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackImageStyle(state);
-		}
+            {
+                return _backup.GetBackImageStyle(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the image alignment style.
@@ -293,13 +326,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetBackImageAlign(_override ? _state : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
-					ret = _backup.GetBackImageAlign(state);
+                {
+                    ret = _backup.GetBackImageAlign(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetBackImageAlign(state);
-		}
+            {
+                return _backup.GetBackImageAlign(state);
+            }
+        }
          #endregion
 	}
 }

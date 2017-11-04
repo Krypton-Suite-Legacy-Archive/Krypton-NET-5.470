@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -161,12 +156,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _keyTip = "X";
 
             // Create the actual date time picker control and set initial settings
-            _dateTimePicker = new KryptonDateTimePicker();
-            _dateTimePicker.InputControlStyle = InputControlStyle.Ribbon;
-            _dateTimePicker.AlwaysActive = false;
-            _dateTimePicker.MinimumSize = new Size(180, 0);
-            _dateTimePicker.MaximumSize = new Size(180, 0);
-            _dateTimePicker.TabStop = false;
+            _dateTimePicker = new KryptonDateTimePicker
+            {
+                InputControlStyle = InputControlStyle.Ribbon,
+                AlwaysActive = false,
+                MinimumSize = new Size(180, 0),
+                MaximumSize = new Size(180, 0),
+                TabStop = false
+            };
 
             // Hook into events to expose via this container
             _dateTimePicker.ValueChanged += new EventHandler(OnDateTimePickerValueChanged);
@@ -281,7 +278,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "X";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -949,8 +948,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnGotFocus(EventArgs e)
         {
-            if (GotFocus != null)
-                GotFocus(this, e);
+            GotFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -959,8 +957,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnLostFocus(EventArgs e)
         {
-            if (LostFocus != null)
-                LostFocus(this, e);
+            LostFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -969,8 +966,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatChanged(EventArgs e)
         {
-            if (FormatChanged != null)
-                FormatChanged(this, e);
+            FormatChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -979,8 +975,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -989,8 +984,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An DateTimePickerCloseArgs containing the event data.</param>
         protected virtual void OnCloseUp(DateTimePickerCloseArgs e)
         {
-            if (CloseUp != null)
-                CloseUp(this, e);
+            CloseUp?.Invoke(this, e);
         }
 
         /// <summary>
@@ -999,8 +993,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An DateTimePickerDropArgs containing the event data.</param>
         protected virtual void OnDropDown(DateTimePickerDropArgs e)
         {
-            if (DropDown != null)
-                DropDown(this, e);
+            DropDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1009,8 +1002,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueNullableChanged(EventArgs e)
         {
-            if (ValueNullableChanged != null)
-                ValueNullableChanged(this, e);
+            ValueNullableChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1019,8 +1011,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueChanged(EventArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1029,8 +1020,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyEventArgs containing the event data.</param>
         protected virtual void OnKeyDown(KeyEventArgs e)
         {
-            if (KeyDown != null)
-                KeyDown(this, e);
+            KeyDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1039,8 +1029,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyEventArgs containing the event data.</param>
         protected virtual void OnKeyUp(KeyEventArgs e)
         {
-            if (KeyUp != null)
-                KeyUp(this, e);
+            KeyUp?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1049,8 +1038,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyPressEventArgs containing the event data.</param>
         protected virtual void OnKeyPress(KeyPressEventArgs e)
         {
-            if (KeyPress != null)
-                KeyPress(this, e);
+            KeyPress?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1059,8 +1047,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An PreviewKeyDownEventArgs containing the event data.</param>
         protected virtual void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
         {
-            if (PreviewKeyDown != null)
-                PreviewKeyDown(this, e);
+            PreviewKeyDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1069,8 +1056,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -1095,8 +1081,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1113,7 +1098,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Can the date time picker take the focus
                         if ((LastDateTimePicker != null) && (LastDateTimePicker.CanFocus))
+                        {
                             LastDateTimePicker.Focus();
+                        }
 
                         return true;
                     }
@@ -1139,21 +1126,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnControlEnter(object sender, EventArgs e)
         {
-            if (MouseEnterControl != null)
-                MouseEnterControl(this, e);
+            MouseEnterControl?.Invoke(this, e);
         }
 
         private void OnControlLeave(object sender, EventArgs e)
         {
-            if (MouseLeaveControl != null)
-                MouseLeaveControl(this, e);
+            MouseLeaveControl?.Invoke(this, e);
         }
 
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            if (_viewPaintDelegate != null)
-                _viewPaintDelegate(this, e);
+            _viewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnDateTimePickerGotFocus(object sender, EventArgs e)

@@ -8,13 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -29,7 +25,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Static Fields
-        private static readonly int SCROLL_SPEED = 24;
+
+        private const int SCROLL_SPEED = 24;
+
         #endregion
 
         #region Instance Fields
@@ -98,9 +96,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public KeyTipInfo[] GetGroupKeyTips(KryptonRibbonTab tab)
         {
             if (_tabToView.ContainsKey(tab))
+            {
                 return _tabToView[tab].GetGroupKeyTips();
+            }
             else
+            {
                 return new KeyTipInfo[] { };
+            }
         }
         #endregion
 
@@ -113,9 +115,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if ((Ribbon.SelectedTab != null) &&
                 (_tabToView.ContainsKey(Ribbon.SelectedTab)))
+            {
                 return _tabToView[Ribbon.SelectedTab].GetFirstFocusItem();
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -128,9 +134,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if ((Ribbon.SelectedTab != null) &&
                 (_tabToView.ContainsKey(Ribbon.SelectedTab)))
+            {
                 return _tabToView[Ribbon.SelectedTab].GetLastFocusItem();
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -144,9 +154,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if ((Ribbon.SelectedTab != null) &&
                 (_tabToView.ContainsKey(Ribbon.SelectedTab)))
+            {
                 return _tabToView[Ribbon.SelectedTab].GetNextFocusItem(current);
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -160,9 +174,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if ((Ribbon.SelectedTab != null) &&
                 (_tabToView.ContainsKey(Ribbon.SelectedTab)))
+            {
                 return _tabToView[Ribbon.SelectedTab].GetPreviousFocusItem(current);
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -206,14 +224,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Get the currently cached view for the tab
                 if (_tabToView.ContainsKey(tab))
+                {
                     view = _tabToView[tab];
+                }
 
                 // If a new tab, create a view for it now
                 if (view == null)
                 {
                     ViewLayoutRibbonGroups groups = new ViewLayoutRibbonGroups(Ribbon, tab, NeedPaintDelegate);
-                    view = new ViewLayoutRibbonScrollPort(Ribbon, Orientation.Horizontal, groups, false, SCROLL_SPEED, NeedPaintDelegate);
-                    view.TransparentBackground = true;
+                    view = new ViewLayoutRibbonScrollPort(Ribbon, Orientation.Horizontal, groups, false, SCROLL_SPEED, NeedPaintDelegate)
+                    {
+                        TransparentBackground = true
+                    };
                     groups.NeedPaintDelegate = view.ViewControlPaintDelegate;
                 }
 
@@ -233,11 +255,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add the view elements in same order as the tab definitions
             foreach (KryptonRibbonTab tab in Ribbon.RibbonTabs)
+            {
                 Add(_tabToView[tab]);
+            }
 
             // Dispose of all the no longer needed child tabs
             foreach (ViewBase oldChild in redundant.Values)
+            {
                 oldChild.Dispose();
+            }
         }
         #endregion
     }

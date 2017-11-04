@@ -11,7 +11,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -50,7 +49,9 @@ namespace ComponentFactory.Krypton.Ribbon
             
             // Disabled key tips are show semi-transparent
             if (_showDisabled)
+            {
                 Opacity = 0.5f;
+            }
 
             // Define the initial set of key tips
             SetKeyTips(keyTips);
@@ -74,7 +75,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the initial rect as enclosing just the single point
                 if (enclosingRect.IsEmpty)
+                {
                     enclosingRect = new Rectangle(keyTip.ScreenPt, new Size(1, 1));
+                }
                 else
                 {
                     // Enlarge the rect to enclose the new point
@@ -86,7 +89,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     if (keyTip.ScreenPt.X > enclosingRect.Right)
+                    {
                         enclosingRect.Width += (keyTip.ScreenPt.X - enclosingRect.Right);
+                    }
 
                     if (keyTip.ScreenPt.Y < enclosingRect.Top)
                     {
@@ -96,7 +101,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     if (keyTip.ScreenPt.Y > enclosingRect.Bottom)
+                    {
                         enclosingRect.Height += (keyTip.ScreenPt.Y - enclosingRect.Bottom);
+                    }
                 }
 
                 _viewList.Add(new ViewDrawRibbonKeyTip(keyTip,
@@ -134,12 +141,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Search for any keytip that is an exact match
             foreach (ViewDrawRibbonKeyTip viewKeyTip in _viewList)
+            {
                 if (viewKeyTip.KeyTipInfo.KeyString.Equals(newPrefix))
                 {
                     // Invoke the target
                     viewKeyTip.KeyTipInfo.KeyTipSelect(_ribbon);
                     return;
                 }
+            }
 
             // Search to see if any keytip has this as a prefix
             bool found = false;
@@ -208,6 +217,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected override void OnPaint(PaintEventArgs e)
         {
             using (ViewLayoutContext layoutContext = new ViewLayoutContext(this, _ribbon.Renderer))
+            {
                 foreach (ViewDrawRibbonKeyTip viewKeyTip in _viewList)
                 {
                     // Only interested in correct enabled state items
@@ -218,7 +228,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Only make the view visible if the key tip matches the prefix
                         if (visible && !string.IsNullOrEmpty(_prefix))
+                        {
                             visible = viewKeyTip.KeyTipInfo.KeyString.StartsWith(_prefix);
+                        }
 
                         // Update with latest enabled/visible state
                         viewKeyTip.Visible = visible;
@@ -239,11 +251,18 @@ namespace ComponentFactory.Krypton.Ribbon
                         viewKeyTip.Layout(layoutContext);
                     }
                 }
+            }
 
             using (RenderContext renderContext = new RenderContext(this, e.Graphics, e.ClipRectangle, _ribbon.Renderer))
+            {
                 foreach (ViewDrawRibbonKeyTip viewKeyTip in _viewList)
+                {
                     if (viewKeyTip.Visible)
+                    {
                         viewKeyTip.Render(renderContext);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -251,8 +270,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private void StartTimer()
         {
             // Start timer to take care of re drawing the display
-            Timer redrawTimer = new Timer();
-            redrawTimer.Interval = 1;
+            Timer redrawTimer = new Timer
+            {
+                Interval = 1
+            };
             redrawTimer.Tick += new EventHandler(OnRedrawTick);
             redrawTimer.Start();
         }
@@ -265,7 +286,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Show the window and so cause it to be redrawn
             if (!IsDisposed && (Handle != IntPtr.Zero))
+            {
                 PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+            }
         }
         #endregion
     }

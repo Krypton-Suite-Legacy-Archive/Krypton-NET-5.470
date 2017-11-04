@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -223,21 +220,30 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Assign the new text to the correct header text
             if (header1)
+            {
                 _text1 = (newVisible ? "Hide primary header" : "Show primary header");
+            }
             else
+            {
                 _text2 = (newVisible ? "Hide secondary header" : "Show secondary header");
+            }
 
             if (header1)
+            {
                 _headerGroup.HeaderVisiblePrimary = newVisible;
+            }
             else
+            {
                 _headerGroup.HeaderVisibleSecondary = newVisible;
+            }
 
             // Get the user interface service associated with actions
-            DesignerActionUIService service = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
 
             // If we managed to get it then request it update to reflect new action setting
-            if (service != null)
+            if (GetService(typeof(DesignerActionUIService)) is DesignerActionUIService service)
+            {
                 service.Refresh(_headerGroup);
+            }
         }
         #endregion
     }

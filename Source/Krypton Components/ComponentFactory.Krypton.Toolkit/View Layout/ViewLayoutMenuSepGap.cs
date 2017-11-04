@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -64,9 +59,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Grab the padding used for the text/extra content of a menu item
             if (_standardStyle)
+            {
                 paddingText = _stateCommon.ItemTextStandard.GetContentPadding(PaletteState.Normal);
+            }
             else
+            {
                 paddingText = _stateCommon.ItemTextAlternate.GetContentPadding(PaletteState.Normal);
+            }
 
             // Get padding needed for the left edge of the item highlight
             Padding paddingHighlight = context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_stateCommon.ItemHighlight.Border, PaletteState.Normal, VisualOrientation.Top);

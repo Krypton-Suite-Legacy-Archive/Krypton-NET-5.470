@@ -8,16 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -40,14 +32,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _blueRestoreA = Properties.Resources.BlueButtonRestoreA;
         private static readonly Image _blueRestoreI = Properties.Resources.BlueButtonRestoreI;
         private static readonly Image _contextMenuSubMenu = Properties.Resources.BlueContextMenuSub;
-        private static readonly Color[] _trackBarColors = new Color[] { Color.FromArgb(116, 150, 194),      // Tick marks
+        private static readonly Color[] _trackBarColors = { Color.FromArgb(116, 150, 194),      // Tick marks
                                                                         Color.FromArgb(116, 150, 194),      // Top track
                                                                         Color.FromArgb(152, 190, 241),      // Bottom track
                                                                         Color.FromArgb(142, 180, 231),      // Fill track
                                                                         Color.FromArgb(64, Color.White),    // Outside position
                                                                         Color.FromArgb(63, 101, 152)        // Border (normal) position
                                                                       };
-        private static readonly Color[] _schemeColors = new Color[] { Color.FromArgb( 21,  66, 139),    // TextLabelControl
+        private static readonly Color[] _schemeColors = { Color.FromArgb( 21,  66, 139),    // TextLabelControl
                                                                       Color.FromArgb( 21,  66, 139),    // TextButtonNormal
                                                                       Color.Black,                      // TextButtonChecked
                                                                       Color.FromArgb(161, 189, 207),    // ButtonNormalBorder
@@ -266,14 +258,18 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         static PaletteOffice2007Blue()
         {
-            _checkBoxList = new ImageList();
-            _checkBoxList.ImageSize = new Size(13, 13);
-            _checkBoxList.ColorDepth = ColorDepth.Depth24Bit;
+            _checkBoxList = new ImageList
+            {
+                ImageSize = new Size(13, 13),
+                ColorDepth = ColorDepth.Depth24Bit
+            };
             _checkBoxList.Images.AddStrip(Properties.Resources.CB2007Blue);
-            _galleryButtonList = new ImageList();
-            _galleryButtonList.ImageSize = new Size(13, 7);
-            _galleryButtonList.ColorDepth = ColorDepth.Depth24Bit;
-            _galleryButtonList.TransparentColor = Color.Magenta;
+            _galleryButtonList = new ImageList
+            {
+                ImageSize = new Size(13, 7),
+                ColorDepth = ColorDepth.Depth24Bit,
+                TransparentColor = Color.Magenta
+            };
             _galleryButtonList.Images.AddStrip(Properties.Resources.GalleryBlue);
             _radioButtonArray = new Image[]{Properties.Resources.RB2007BlueD,
                                             Properties.Resources.RB2007BlueN,
@@ -325,9 +321,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Image GetDropDownButtonImage(PaletteState state)
         {
             if (state != PaletteState.Disabled)
+            {
                 return _blueDropDownButton;
+            }
             else
+            {
                 return base.GetDropDownButtonImage(state);
+            }
         }
         
         /// <summary>
@@ -354,24 +354,44 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteButtonSpecStyle.FormClose:
                     if (state == PaletteState.Disabled)
+                    {
                         return _blueCloseI;
+                    }
                     else
+                    {
                         return _blueCloseA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMin:
                     if (state == PaletteState.Disabled)
+                    {
                         return _blueMinI;
+                    }
                     else
+                    {
                         return _blueMinA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMax:
                     if (state == PaletteState.Disabled)
+                    {
                         return _blueMaxI;
+                    }
                     else
+                    {
                         return _blueMaxA;
+                    }
+
                 case PaletteButtonSpecStyle.FormRestore:
                     if (state == PaletteState.Disabled)
+                    {
                         return _blueRestoreI;
+                    }
                     else
+                    {
                         return _blueRestoreA;
+                    }
+
                 default:
                     return base.GetButtonSpecImage(style, state);
             }
@@ -391,11 +411,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteRibbonBackStyle.RibbonGroupArea:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return PaletteRibbonColorStyle.RibbonGroupAreaBorder;
+                    }
+
                     break;
                 case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
                     if (state == PaletteState.Tracking)
+                    {
                         return PaletteRibbonColorStyle.RibbonGroupNormalBorderTrackingLight;
+                    }
+
                     break;
             }
 

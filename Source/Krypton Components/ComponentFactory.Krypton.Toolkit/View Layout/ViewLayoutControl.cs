@@ -9,18 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -240,7 +231,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // During disposal the view control will not longer exist
             if (_viewControl != null)
@@ -253,7 +247,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Ask the view for its preferred size
                     if (_viewChild != null)
+                    {
                         return _viewChild.GetPreferredSize(context);
+                    }
                 }
             }
 
@@ -269,7 +265,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // During disposal the view control will not longer exist
             if (_viewControl != null)
@@ -302,11 +301,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     context.DisplayRectangle = new Rectangle(LayoutOffset, ClientSize);
 
                     // Do we have a child view to layout?
-                    if (_viewChild != null)
-                    {
-                        // Layout the child view
-                        _viewChild.Layout(context);
-                    }
+                    // Layout the child view
+                    _viewChild?.Layout(context);
 
                     // Put back the original display value now we have finished
                     context.DisplayRectangle = ClientRectangle;

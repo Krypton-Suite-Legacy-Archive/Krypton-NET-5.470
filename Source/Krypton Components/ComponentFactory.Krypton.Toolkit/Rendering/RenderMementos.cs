@@ -9,14 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -35,7 +29,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If not already disposed manually, do it now
             if (!_disposed)
+            {
                 Dispose(false);
+            }
         }
 
         /// <summary>
@@ -45,7 +41,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Only need to dispose of resources once
             if (!_disposed)
+            {
                 Dispose(true);
+            }
         }
 
         /// <summary>
@@ -56,7 +54,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If called manully, no need to use a finalize call to dispose
             if (disposing)
+            {
                 GC.SuppressFinalize(this);
+            }
 
             _disposed = true;
         }
@@ -481,12 +481,14 @@ namespace ComponentFactory.Krypton.Toolkit
             borderFillPath.AddLine(rect.Right - 1, rect.Top + 1.75f, rect.Right - 1, rect.Bottom - 1);
 
             // Path for the highlight at bottom center
-            highlightRect = new Rectangle(rect.Left - (rect.Width / 8), rect.Top + (rect.Height / 2) - 2, rect.Width + (rect.Width / 5), rect.Height + 4);
+            highlightRect = new Rectangle(rect.Left - (rect.Width / 8), (rect.Top + (rect.Height / 2)) - 2, rect.Width + (rect.Width / 5), rect.Height + 4);
             highlightPath = new GraphicsPath();
             highlightPath.AddEllipse(highlightRect);
-            highlightBrush = new PathGradientBrush(highlightPath);
-            highlightBrush.CenterPoint = new PointF(highlightRect.Left + (highlightRect.Width / 2), highlightRect.Top + (highlightRect.Height / 2));
-            highlightBrush.SurroundColors = new Color[] { Color.Transparent };
+            highlightBrush = new PathGradientBrush(highlightPath)
+            {
+                CenterPoint = new PointF(highlightRect.Left + (highlightRect.Width / 2), highlightRect.Top + (highlightRect.Height / 2)),
+                SurroundColors = new Color[] { Color.Transparent }
+            };
 
             // Reduce rectangle to the inside fill area
             rect.X += 2;

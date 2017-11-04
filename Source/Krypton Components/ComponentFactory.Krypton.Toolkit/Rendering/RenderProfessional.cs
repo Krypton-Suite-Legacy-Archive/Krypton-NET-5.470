@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -26,12 +21,13 @@ namespace ComponentFactory.Krypton.Toolkit
     public class RenderProfessional : RenderStandard
     {
         #region Static Fields
-        private static readonly int _grabSquareLength = 2;
-        private static readonly int _grabSquareOffset = 1;
-        private static readonly int _grabSquareTotal = 3;
-        private static readonly int _grabSquareGap = 1;
-        private static readonly int _grabSquareMinSpace = 5;
-        private static readonly int _grabSquareCount = 5;
+
+        private const int GRAB_SQUARE_LENGTH = 2;
+        private const int GRAB_SQUARE_OFFSET = 1;
+        private const int GRAB_SQUARE_TOTAL = 3;
+        private const int GRAB_SQUARE_GAP = 1;
+        private const int GRAB_SQUARE_MIN_SPACE = 5;
+        private const int GRAB_SQUARE_COUNT = 5;
         private static readonly Color _grabHandleLight = Color.FromArgb(228, 255, 255, 255);
         private static readonly Color _grabHandleDark = Color.FromArgb(144, 0, 0, 0);
         #endregion
@@ -69,7 +65,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Only draw grab handle if the user can move the separator
                 if (canMove)
+                {
                     DrawGrabHandleGlyph(context, displayRect, orientation, state);
+                }
             }
         }
         #endregion
@@ -84,19 +82,19 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    PaletteState state)
         {
             // Is there enough room to draw the at least one grab handle?
-            if ((displayRect.Height >= _grabSquareMinSpace) && (displayRect.Width >= _grabSquareMinSpace))
+            if ((displayRect.Height >= GRAB_SQUARE_MIN_SPACE) && (displayRect.Width >= GRAB_SQUARE_MIN_SPACE))
             {
                 // Reduce rectangle to remove the border around the display area edges
-                displayRect.Inflate(-_grabSquareGap, -_grabSquareGap);
+                displayRect.Inflate(-GRAB_SQUARE_GAP, -GRAB_SQUARE_GAP);
 
                 // Find how much space is available for drawing grab handles in the orientation
                 int orientationSpace = (orientation == Orientation.Horizontal ? displayRect.Width : displayRect.Height);
 
                 // Try to display the maximum allowed number of handles, but show less if not possible
-                for (int i = _grabSquareCount; i > 0; i--)
+                for (int i = GRAB_SQUARE_COUNT; i > 0; i--)
                 {
                     // Calculate how much space this number of grab handles takes up
-                    int requiredSpace = (i * _grabSquareTotal) + (i > 1 ? (i - 1) * _grabSquareGap : 0);
+                    int requiredSpace = (i * GRAB_SQUARE_TOTAL) + (i > 1 ? (i - 1) * GRAB_SQUARE_GAP : 0);
 
                     // Is there enough space all the grab handles?
                     if (requiredSpace <= orientationSpace)
@@ -108,9 +106,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Find location of first handle
                         if (orientation == Orientation.Horizontal)
-                            draw = new Point(displayRect.X + offset, displayRect.Y + (displayRect.Height - _grabSquareTotal) / 2);
+                        {
+                            draw = new Point(displayRect.X + offset, displayRect.Y + ((displayRect.Height - GRAB_SQUARE_TOTAL) / 2));
+                        }
                         else
-                            draw = new Point(displayRect.X + (displayRect.Width - _grabSquareTotal) / 2, displayRect.Y + offset);
+                        {
+                            draw = new Point(displayRect.X + ((displayRect.Width - GRAB_SQUARE_TOTAL) / 2), displayRect.Y + offset);
+                        }
 
                         using (Brush lightBrush = new SolidBrush(_grabHandleLight),
                                      darkBrush = new SolidBrush(_grabHandleDark))
@@ -120,23 +122,27 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 // Draw the light colored square 
                                 context.Graphics.FillRectangle(lightBrush,
-                                                               draw.X + _grabSquareOffset,
-                                                               draw.Y + _grabSquareOffset,
-                                                               _grabSquareLength,
-                                                               _grabSquareLength);
+                                                               draw.X + GRAB_SQUARE_OFFSET,
+                                                               draw.Y + GRAB_SQUARE_OFFSET,
+                                                               GRAB_SQUARE_LENGTH,
+                                                               GRAB_SQUARE_LENGTH);
 
                                 // Draw the dark colored square overlapping the dark
                                 context.Graphics.FillRectangle(darkBrush,
                                                                draw.X,
                                                                draw.Y,
-                                                               _grabSquareLength,
-                                                               _grabSquareLength);
+                                                               GRAB_SQUARE_LENGTH,
+                                                               GRAB_SQUARE_LENGTH);
 
                                 // Move to the next handle position
                                 if (orientation == Orientation.Horizontal)
-                                    draw.X += _grabSquareTotal + _grabSquareGap;
+                                {
+                                    draw.X += GRAB_SQUARE_TOTAL + GRAB_SQUARE_GAP;
+                                }
                                 else
-                                    draw.Y += _grabSquareTotal + _grabSquareGap;
+                                {
+                                    draw.Y += GRAB_SQUARE_TOTAL + GRAB_SQUARE_GAP;
+                                }
                             }
                         }
 
@@ -165,10 +171,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoRibbonTabContextOffice2010 cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoRibbonTabContextOffice2010))
+                if (!(memento is MementoRibbonTabContextOffice2010))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoRibbonTabContextOffice2010(rect, c1, c2);
                     memento = cache;

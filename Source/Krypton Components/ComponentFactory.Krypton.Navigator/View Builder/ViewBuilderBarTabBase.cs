@@ -8,8 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -81,15 +79,23 @@ namespace ComponentFactory.Krypton.Navigator
                 case VisualOrientation.Left:
                     if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                         (Navigator.RightToLeft == RightToLeft.Yes))
+                    {
                         return VisualOrientation.Right;
+                    }
                     else
+                    {
                         return VisualOrientation.Left;
+                    }
                 case VisualOrientation.Right:
                     if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                         (Navigator.RightToLeft == RightToLeft.Yes))
+                    {
                         return VisualOrientation.Left;
+                    }
                     else
+                    {
                         return VisualOrientation.Right;
+                    }
                 default:
                     // Should never happen!
                     Debug.Assert(false);
@@ -140,12 +146,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Update each individual tab with the new style for remapping page level button specs
             if (PageLookup != null)
+            {
                 foreach (KeyValuePair<KryptonPage, INavCheckItem> pair in PageLookup)
                 {
                     ViewDrawNavCheckButtonTab tabHeader = (ViewDrawNavCheckButtonTab)pair.Value;
-                    if (tabHeader.ButtonSpecManager != null)
-                        tabHeader.ButtonSpecManager.SetRemapTarget(Navigator.Bar.TabStyle);
+                    tabHeader.ButtonSpecManager?.SetRemapTarget(Navigator.Bar.TabStyle);
                 }
+            }
         }
         #endregion
 
@@ -157,7 +164,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Update the border style of each check button
             foreach (ViewDrawNavCheckButtonTab tab in _pageLookup.Values)
+            {
                 tab.TabBorderStyle = tabBorderStyle;
+            }
 
             // Update border style used to space each tab item
             _layoutBar.TabBorderStyle = tabBorderStyle;

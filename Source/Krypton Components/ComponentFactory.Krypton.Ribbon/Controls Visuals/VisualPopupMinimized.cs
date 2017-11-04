@@ -9,15 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -25,8 +19,10 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class VisualPopupMinimized : VisualPopup
     {
         #region Static Fields
-        private static readonly int MINIMUM_WIDTH = 100;
-        private static readonly int BOTTOMRIGHT_GAP = 4;
+
+        private const int MINIMUM_WIDTH = 100;
+        private const int BOTTOMRIGHT_GAP = 4;
+
         #endregion
 
         #region Instance Fields
@@ -86,7 +82,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Remove all child controls so they do not become disposed
                 for (int i = Controls.Count - 1; i >= 0; i--)
+                {
                     Controls.RemoveAt(0);
+                }
             }
 
             base.Dispose(disposing);
@@ -143,7 +141,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the first item
             if (newView == null)
+            {
                 SetFirstFocusItem();
+            }
             else
             {
                 ViewRibbonManager.FocusView = newView;
@@ -161,7 +161,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the last item
             if (newView == null)
+            {
                 SetLastFocusItem();
+            }
             else
             {
                 ViewRibbonManager.FocusView = newView;
@@ -202,7 +204,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // only when the minimized popup is the current tracking popup
             if ((this == VisualPopupManager.Singleton.CurrentPopup) &&
                 _ribbon.ClientRectangle.Contains(ribbonPt))
+            {
                 return true;
+            }
 
             // Let base class perform standard processing
             return base.AllowMouseMove(m, pt);
@@ -256,7 +260,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If in keyboard mode then pass character onto the key tips
             if (_ribbon.InKeyboardMode && _ribbon.InKeyTipsMode)
+            {
                 _ribbon.AppendKeyTipPress(char.ToUpper(e.KeyChar));
+            }
 
             base.OnKeyPress(e);
         }
@@ -270,7 +276,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Get the preferred size of the groups area, we only really want the height
             using (ViewLayoutContext context = new ViewLayoutContext(_ribbon, Renderer))
+            {
                 popupSize = drawMinimizedPanel.GetPreferredSize(context);
+            }
 
             // The width should default to being the same width as the ribbon control
             popupSize.Width = _ribbon.Width;
@@ -319,7 +327,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Enforce a minimum useful width for the popup
                     if (popupRect.Width < MINIMUM_WIDTH)
+                    {
                         popupRect.Width = MINIMUM_WIDTH;
+                    }
                 }
             }
 
@@ -340,9 +350,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Place it in the area with the most space
                     if (spareAbove > spareBelow)
+                    {
                         popupRect.Y = workingArea.Top;
+                    }
                     else
+                    {
                         popupRect.Y = parentTabsRect.Bottom;
+                    }
                 }
             }
 

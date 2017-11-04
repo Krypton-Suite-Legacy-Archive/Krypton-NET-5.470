@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -79,7 +76,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _orientation = orientation;
 
             if (childElement != null)
+            {
                 Add(childElement);
+            }
         }
 
         /// <summary>
@@ -135,7 +134,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Let base class find preferred size of the children
             Size preferredSize = base.GetPreferredSize(context);
@@ -193,8 +195,11 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
             Rectangle original = context.DisplayRectangle;
             ClientRectangle = original;
@@ -278,8 +283,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     Size childPreferred = child.GetPreferredSize(context);
 
                     // Make sure the child is never bigger than the available space
-                    if (childPreferred.Width > ClientWidth) childPreferred.Width = ClientWidth;
-                    if (childPreferred.Height > ClientHeight) childPreferred.Height = ClientHeight;
+                    if (childPreferred.Width > ClientWidth)
+                    {
+                        childPreferred.Width = ClientWidth;
+                    }
+
+                    if (childPreferred.Height > ClientHeight)
+                    {
+                        childPreferred.Height = ClientHeight;
+                    }
 
                     // Find vertical and horizontal offsets for centering
                     int xOffset = (ClientWidth - childPreferred.Width) / 2;

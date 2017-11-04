@@ -9,14 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Text;
-using System.Diagnostics;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -36,12 +28,9 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="dockingElement">Reference to root element of docking hierarchy.</param>
         public DockingMultiUpdate(IDockingElement dockingElement)
         {
-            // Must provide a valid docking element reference
-            if (dockingElement == null)
-                throw new ArgumentNullException("dockingElement");
 
             // Inform docking elements that a multi-part update is starting
-            _dockingElement = dockingElement;
+            _dockingElement = dockingElement ?? throw new ArgumentNullException("dockingElement");
             _dockingElement.PropogateAction(DockingPropogateAction.StartUpdate, (string[])null);
         }
 

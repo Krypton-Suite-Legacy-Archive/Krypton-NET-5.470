@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -117,15 +113,19 @@ namespace ComponentFactory.Krypton.Ribbon
                         // The image must be 16x16 or less in order to be displayed on the
                         // quick access toolbar. So we reject anything bigger than 16x16.
                         if ((value.Width > 16) || (value.Height > 16))
+                        {
                             throw new ArgumentOutOfRangeException("Image must be 16x16 or smaller.");
+                        }
                     }
 
                     _image = value;
                     OnPropertyChanged("Image");
 
                     // Only need to update display if we are visible
-                    if (Visible && (_ribbon != null))
-                        _ribbon.PerformNeedPaint(false);
+                    if (Visible)
+                    {
+                        _ribbon?.PerformNeedPaint(false);
+                    }
                 }
             }
         }
@@ -198,8 +198,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     OnPropertyChanged("Enabled");
 
                     // Must try and paint to show change
-                    if (Visible && (_ribbon != null))
-                        _ribbon.PerformNeedPaint(false);
+                    if (Visible)
+                    {
+                        _ribbon?.PerformNeedPaint(false);
+                    }
                 }
             }
         }
@@ -221,7 +223,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "QAT Button";
+                }
 
                 if (value != _text)
                 {
@@ -341,17 +345,23 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     _command = value;
                     OnPropertyChanged("KryptonCommand");
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Only need to update display if we are visible
-                    if (Visible && (_ribbon != null))
-                        _ribbon.PerformNeedPaint(false);
+                    if (Visible)
+                    {
+                        _ribbon?.PerformNeedPaint(false);
+                    }
                 }
             }
         }
@@ -407,9 +417,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public Image GetImage()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageSmall;
+            }
             else
+            {
                 return Image;
+            }
         }
 
         /// <summary>
@@ -420,9 +434,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public string GetText()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.TextLine1;
+            }
             else
+            {
                 return Text;
+            }
         }
 
         /// <summary>
@@ -433,9 +451,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public bool GetEnabled()
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.Enabled;
+            }
             else
+            {
                 return Enabled;
+            }
         }
 
         /// <summary>
@@ -551,8 +573,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (refresh)
             {
                 // Only need to update display if we are visible
-                if (Visible && (_ribbon != null))
-                    _ribbon.PerformNeedPaint(false);
+                if (Visible)
+                {
+                    _ribbon?.PerformNeedPaint(false);
+                }
             }
         }
         
@@ -564,15 +588,12 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Perform processing that is common to any action that would dismiss
             // any popup controls such as the showing minimized group popup
-            if (Ribbon != null)
-                Ribbon.ActionOccured();
+            Ribbon?.ActionOccured();
 
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
 
             // Clicking the button should execute the associated command
-            if (KryptonCommand != null)
-                KryptonCommand.PerformExecute();
+            KryptonCommand?.PerformExecute();
         }
 
         /// <summary>
@@ -581,8 +602,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

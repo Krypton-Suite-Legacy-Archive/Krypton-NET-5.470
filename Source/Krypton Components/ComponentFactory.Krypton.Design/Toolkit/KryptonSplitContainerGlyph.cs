@@ -10,12 +10,8 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Windows.Forms.Design.Behavior;
 using System.Diagnostics;
 
@@ -116,7 +112,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 }
                 else
+                {
                     return Rectangle.Empty;
+                }
             }
         }
         #endregion
@@ -131,9 +129,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Is this the primary selection now?
                 if (ReferenceEquals(_selectionService.PrimarySelection, _splitContainer))
+                {
                     _adorner.Enabled = true;
+                }
                 else
+                {
                     _adorner.Enabled = false;
+                }
             }
         }
         #endregion

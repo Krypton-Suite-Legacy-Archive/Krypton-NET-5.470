@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -139,8 +136,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    _stateDisabled.Separator, _stateNormal.Separator, _stateTracking, _statePressed,
                                                     PaletteMetricPadding.SeparatorPaddingLowProfile, Orientation.Vertical);
 
-            _drawPanel = new ViewDrawPanel(_stateNormal.Back);
-            _drawPanel.Add(_drawSeparator);
+            _drawPanel = new ViewDrawPanel(_stateNormal.Back)
+            {
+                _drawSeparator
+            };
 
             // Create a separator controller to handle separator style behaviour
             _separatorController = new SeparatorController(this, _drawSeparator, true, true, NeedPaintDelegate);
@@ -377,7 +376,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cannot assign a value of less than zero
                     if (value < 0)
+                    {
                         throw new ArgumentOutOfRangeException("Panel1MinSize", "Value cannot be less than zero");
+                    }
 
                     // Use the new minimum size
                     _panel1MinSize = value;
@@ -428,9 +429,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Convert distance using the percentage in opposite direction
                         if (_orientation == Orientation.Vertical)
+                        {
                             _splitterDistance = (int)(Width * _splitterPercent);
+                        }
                         else
+                        {
                             _splitterDistance = (int)(Height * _splitterPercent);
+                        }
                     }
 
                     if (IsInitialized)
@@ -478,7 +483,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cannot assign a value of less than zero
                     if (value < 0)
+                    {
                         throw new ArgumentOutOfRangeException("Panel2MinSize", "Value cannot be less than zero");
+                    }
 
                     // Use the new minimum size
                     _panel2MinSize = value;
@@ -529,9 +536,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Convert distance using the percentage in opposite direction
                         if (_orientation == Orientation.Vertical)
+                        {
                             _splitterDistance = (int)(Width * _splitterPercent);
+                        }
                         else
+                        {
                             _splitterDistance = (int)(Height * _splitterPercent);
+                        }
                     }
 
                     if (IsInitialized)
@@ -585,16 +596,24 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (Orientation == Orientation.Vertical)
                     {
                         if (_fixedPanel == FixedPanel.Panel1)
+                        {
                             _fixedDistance = Panel1.Width;
+                        }
                         else if (_fixedPanel == FixedPanel.Panel2)
+                        {
                             _fixedDistance = Panel2.Width;
+                        }
                     }
                     else
                     {
                         if (_fixedPanel == FixedPanel.Panel1)
+                        {
                             _fixedDistance = Panel1.Height;
+                        }
                         else if (_fixedPanel == FixedPanel.Panel2)
+                        {
                             _fixedDistance = Panel2.Height;
+                        }
                     }
                 }
             }
@@ -619,32 +638,44 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cannot assign a value of less than zero
                     if (value < 0)
+                    {
                         value = 0;
+                    }
 
                     // Enforce the minimum size of the first panel
                     if (value < Panel1MinSize)
+                    {
                         value = Panel1MinSize;
+                    }
 
                     // Limit check against the orientation direction
                     if (Orientation == Orientation.Vertical)
                     {
                         // Enfore the minimum size of the second second
                         if ((value + SplitterWidth) > (Width - Panel2MinSize))
+                        {
                             value = Width - Panel2MinSize - SplitterWidth;
+                        }
 
                         // Cannot assign a value of less than zero
                         if (value < 0)
+                        {
                             value = 0;
+                        }
                     }
                     else
                     {
                         // Enfore the minimum size of the second second
                         if ((value + SplitterWidth) > (Height - Panel2MinSize))
+                        {
                             value = Height - Panel2MinSize - SplitterWidth;
+                        }
 
                         // Cannot assign a value of less than zero
                         if (value < 0)
+                        {
                             value = 0;
+                        }
                     }
 
                     // Use new pixel distance
@@ -654,12 +685,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (FixedPanel == FixedPanel.Panel2)
                     {
                         if (Orientation == Orientation.Vertical)
+                        {
                             _fixedDistance = Width - value - SplitterWidth;
+                        }
                         else
+                        {
                             _fixedDistance = Height - value - SplitterWidth;
+                        }
                     }
                     else
+                    {
                         _fixedDistance = value;
+                    }
 
                     if (IsInitialized)
                     {
@@ -694,7 +731,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cannot assign a value of less than zero
                     if (value < 0)
+                    {
                         throw new ArgumentOutOfRangeException("SplitterWidth", "Value cannot be less than zero");
+                    }
 
                     // Use new width of the splitter area
                     _splitterWidth = value;
@@ -732,7 +771,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cannot assign a value of less than zero
                     if (value < 1)
+                    {
                         throw new ArgumentOutOfRangeException("SplitterIncrement", "Value cannot be less than one");
+                    }
 
                     // Remember new value for use when moving the splitter
                     _splitterIncrement = value;
@@ -760,9 +801,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Convert distance using the percentage in opposite direction
                         if (_orientation == Orientation.Vertical)
+                        {
                             _splitterDistance = (int)(Width * _splitterPercent);
+                        }
                         else
+                        {
                             _splitterDistance = (int)(Height * _splitterPercent);
+                        }
                     }
 
                     // Use the new orientation
@@ -904,9 +949,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore the delta applied to the splitter position
             if (Orientation == Orientation.Vertical)
+            {
                 splitter.Y = 0;
+            }
             else
+            {
                 splitter.X = 0;
+            }
 
             // Fire the event that indicates the splitter is being moved
             SplitterCancelEventArgs e = new SplitterCancelEventArgs(mouse.X, mouse.Y, splitter.X, splitter.Y);
@@ -928,16 +977,24 @@ namespace ComponentFactory.Krypton.Toolkit
             if (CommonHelper.GetRightToLeftLayout(this) && (RightToLeft == RightToLeft.Yes))
             {
                 if (Orientation == Orientation.Vertical)
+                {
                     SplitterDistance = Width - splitter.X;
+                }
                 else
+                {
                     SplitterDistance = Height - splitter.Y;
+                }
             }
             else
             {
                 if (Orientation == Orientation.Vertical)
+                {
                     SplitterDistance = splitter.X;
+                }
                 else
+                {
                     SplitterDistance = splitter.Y;
+                }
             }
 
             // Fire the event that indicates the splitter has finished being moved
@@ -997,9 +1054,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Cursor depends on orientation direction
                     if (Orientation == Orientation.Vertical)
+                    {
                         return Cursors.VSplit;
+                    }
                     else
+                    {
                         return Cursors.HSplit;
+                    }
                 }
             }
 
@@ -1085,8 +1146,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A SplitterEventArgs containing the event data.</param>
         protected virtual void OnSplitterMoved(SplitterEventArgs e)
         {
-            if (SplitterMoved != null)
-                SplitterMoved(this, e);
+            SplitterMoved?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1095,8 +1155,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A SplitterEventArgs containing the event data.</param>
         protected virtual void OnSplitterMoving(SplitterCancelEventArgs e)
         {
-            if (SplitterMoving != null)
-                SplitterMoving(this, e);
+            SplitterMoving?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1148,9 +1207,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Push correct palettes into the view
             if (Enabled)
+            {
                 _drawPanel.SetPalettes(_stateNormal.Back);
+            }
             else
+            {
                 _drawPanel.SetPalettes(_stateDisabled.Back);
+            }
 
             _drawPanel.Enabled = Enabled;
             _drawSeparator.Enabled = Enabled;
@@ -1173,9 +1236,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Caluclate new percentage based on the new size
                 if (Orientation == Orientation.Vertical)
+                {
                     _splitterDistance = (int)(Width * _splitterPercent);
+                }
                 else
+                {
                     _splitterDistance = (int)(Height * _splitterPercent);
+                }
             }
 
             // Let base class raise events
@@ -1246,142 +1313,150 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (Orientation == Orientation.Vertical)
                         {
                             // Do we used a fixed size for the first panel?
-                            if (FixedPanel == FixedPanel.Panel1)
+                            switch (FixedPanel)
                             {
-                                // Set the fixed size of first panel, and fill remaining space with 
-                                // second but applying the second panel minimum size specification
-                                Panel1.Size = new Size(_fixedDistance, Height);
-                                Panel2.Size = new Size(Math.Max((Width - SplitterWidth - _fixedDistance), Panel2MinSize), Height);
+                                case FixedPanel.Panel1:
+                                    // Set the fixed size of first panel, and fill remaining space with 
+                                    // second but applying the second panel minimum size specification
+                                    Panel1.Size = new Size(_fixedDistance, Height);
+                                    Panel2.Size = new Size(Math.Max((Width - SplitterWidth - _fixedDistance), Panel2MinSize), Height);
 
-                                // Positioning depends on right-to-left layout setting
-                                if (rtl)
-                                {
-                                    Panel1.Location = new Point(Panel2.Width + SplitterWidth, 0);
-                                    Panel2.Location = Point.Empty;
-                                }
-                                else
-                                {
-                                    Panel1.Location = Point.Empty;
-                                    Panel2.Location = new Point(Panel1.Width + SplitterWidth, 0);
-                                }
+                                    // Positioning depends on right-to-left layout setting
+                                    if (rtl)
+                                    {
+                                        Panel1.Location = new Point(Panel2.Width + SplitterWidth, 0);
+                                        Panel2.Location = Point.Empty;
+                                    }
+                                    else
+                                    {
+                                        Panel1.Location = Point.Empty;
+                                        Panel2.Location = new Point(Panel1.Width + SplitterWidth, 0);
+                                    }
 
-                                // Update the splitter distance and percentage to reflect new positions
-                                _splitterDistance = Panel1.Width;
-                                _splitterPercent = (double)Panel1.Width / (double)Width;
-                            }
-                            else if (FixedPanel == FixedPanel.Panel2)
-                            {
-                                // Set the fixed size of second panel, and fill remaining space with 
-                                // first but applying the first panel minimum size specification
-                                Panel2.Size = new Size(_fixedDistance, Height);
-                                Panel1.Size = new Size(Math.Max((Width - SplitterWidth - _fixedDistance), Panel1MinSize), Height);
+                                    // Update the splitter distance and percentage to reflect new positions
+                                    _splitterDistance = Panel1.Width;
+                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    break;
+                                case FixedPanel.Panel2:
+                                    // Set the fixed size of second panel, and fill remaining space with 
+                                    // first but applying the first panel minimum size specification
+                                    Panel2.Size = new Size(_fixedDistance, Height);
+                                    Panel1.Size = new Size(Math.Max((Width - SplitterWidth - _fixedDistance), Panel1MinSize), Height);
 
-                                // Positioning depends on right-to-left layout setting
-                                if (rtl)
-                                {
-                                    Panel1.Location = new Point(Panel2.Width + SplitterWidth, 0);
-                                    Panel2.Location = Point.Empty;
-                                }
-                                else
-                                {
-                                    Panel1.Location = Point.Empty;
-                                    Panel2.Location = new Point(Panel1.Width + SplitterWidth, 0);
-                                }
+                                    // Positioning depends on right-to-left layout setting
+                                    if (rtl)
+                                    {
+                                        Panel1.Location = new Point(Panel2.Width + SplitterWidth, 0);
+                                        Panel2.Location = Point.Empty;
+                                    }
+                                    else
+                                    {
+                                        Panel1.Location = Point.Empty;
+                                        Panel2.Location = new Point(Panel1.Width + SplitterWidth, 0);
+                                    }
 
-                                // Update the splitter distance and percentage to reflect new positions
-                                _splitterDistance = Panel1.Width;
-                                _splitterPercent = (double)Panel1.Width / (double)Width;
-                            }
-                            else
-                            {
-                                // Find the maximum allowed panel width
-                                int panelMax = Width - SplitterWidth;
+                                    // Update the splitter distance and percentage to reflect new positions
+                                    _splitterDistance = Panel1.Width;
+                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    break;
+                                default:
+                                    // Find the maximum allowed panel width
+                                    int panelMax = Width - SplitterWidth;
 
-                                // Find actual pixel width of first panel but limited to maximum allowed
-                                int panel1Width = Math.Min(SplitterDistance, panelMax);
+                                    // Find actual pixel width of first panel but limited to maximum allowed
+                                    int panel1Width = Math.Min(SplitterDistance, panelMax);
 
-                                // Enfore the minimum panel1 width
-                                panel1Width = Math.Max(Panel1MinSize, panel1Width);
+                                    // Enfore the minimum panel1 width
+                                    panel1Width = Math.Max(Panel1MinSize, panel1Width);
 
-                                // Size the panels
-                                Panel1.Size = new Size(panel1Width, Height);
-                                Panel2.Size = new Size(Width - panel1Width - SplitterWidth, Height);
+                                    // Size the panels
+                                    Panel1.Size = new Size(panel1Width, Height);
+                                    Panel2.Size = new Size(Width - panel1Width - SplitterWidth, Height);
 
-                                // Positioning depends on right-to-left layout setting
-                                if (rtl)
-                                {
-                                    Panel1.Location = new Point(Width - panel1Width, 0);
-                                    Panel2.Location = Point.Empty;
-                                }
-                                else
-                                {
-                                    Panel1.Location = Point.Empty;
-                                    Panel2.Location = new Point(panel1Width + SplitterWidth, 0);
-                                }
+                                    // Positioning depends on right-to-left layout setting
+                                    if (rtl)
+                                    {
+                                        Panel1.Location = new Point(Width - panel1Width, 0);
+                                        Panel2.Location = Point.Empty;
+                                    }
+                                    else
+                                    {
+                                        Panel1.Location = Point.Empty;
+                                        Panel2.Location = new Point(panel1Width + SplitterWidth, 0);
+                                    }
 
-                                // Update the percentage but not if this occurs because of a resize operation
-                                if (!_resizing)
-                                    _splitterPercent = (double)panel1Width / (double)Width;
+                                    // Update the percentage but not if this occurs because of a resize operation
+                                    if (!_resizing)
+                                    {
+                                        _splitterPercent = (double)panel1Width / (double)Width;
+                                    }
+                                    break;
                             }
 
                             // Separator rect depends on right-to-left layout setting
                             if (rtl)
+                            {
                                 separatorRect = new Rectangle(Panel2.Right, 0, SplitterWidth, Height);
+                            }
                             else
+                            {
                                 separatorRect = new Rectangle(Panel1.Right, 0, SplitterWidth, Height);
+                            }
                         }
                         else
                         {
                             // Do we used a fixed size for the first panel?
-                            if (FixedPanel == FixedPanel.Panel1)
+                            switch (FixedPanel)
                             {
-                                // Set the fixed size of first panel, and fill remaining space with 
-                                // second but applying the second panel minimum size specification
-                                Panel1.Size = new Size(Width, _fixedDistance);
-                                Panel2.Size = new Size(Width, Math.Max((Height - SplitterWidth - _fixedDistance), Panel2MinSize));
+                                case FixedPanel.Panel1:
+                                    // Set the fixed size of first panel, and fill remaining space with 
+                                    // second but applying the second panel minimum size specification
+                                    Panel1.Size = new Size(Width, _fixedDistance);
+                                    Panel2.Size = new Size(Width, Math.Max((Height - SplitterWidth - _fixedDistance), Panel2MinSize));
 
-                                Panel1.Location = Point.Empty;
-                                Panel2.Location = new Point(0, Panel1.Height + SplitterWidth);
+                                    Panel1.Location = Point.Empty;
+                                    Panel2.Location = new Point(0, Panel1.Height + SplitterWidth);
 
-                                // Update the splitter distance and percentage to reflect new positions
-                                _splitterDistance = Panel1.Height;
-                                _splitterPercent = (double)Panel1.Height / (double)Height;
-                            }
-                            else if (FixedPanel == FixedPanel.Panel2)
-                            {
-                                // Set the fixed size of second panel, and fill remaining space with 
-                                // first but applying the first panel minimum size specification
-                                Panel2.Size = new Size(Width, _fixedDistance);
-                                Panel1.Size = new Size(Width, Math.Max((Height - SplitterWidth - _fixedDistance), Panel1MinSize));
+                                    // Update the splitter distance and percentage to reflect new positions
+                                    _splitterDistance = Panel1.Height;
+                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    break;
+                                case FixedPanel.Panel2:
+                                    // Set the fixed size of second panel, and fill remaining space with 
+                                    // first but applying the first panel minimum size specification
+                                    Panel2.Size = new Size(Width, _fixedDistance);
+                                    Panel1.Size = new Size(Width, Math.Max((Height - SplitterWidth - _fixedDistance), Panel1MinSize));
 
-                                Panel1.Location = Point.Empty;
-                                Panel2.Location = new Point(0, Panel1.Height + SplitterWidth);
+                                    Panel1.Location = Point.Empty;
+                                    Panel2.Location = new Point(0, Panel1.Height + SplitterWidth);
 
-                                // Update the splitter distance and percentage to reflect new positions
-                                _splitterDistance = Panel1.Height;
-                                _splitterPercent = (double)Panel1.Height / (double)Height;
-                            }
-                            else
-                            {
-                                // Find the maximum allowed panel1 height
-                                int panel1Max = Height - SplitterWidth;
+                                    // Update the splitter distance and percentage to reflect new positions
+                                    _splitterDistance = Panel1.Height;
+                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    break;
+                                default:
+                                    // Find the maximum allowed panel1 height
+                                    int panel1Max = Height - SplitterWidth;
 
-                                // Find actual pixel height of first panel but limited to maximum allowed
-                                int panel1Height = Math.Min(SplitterDistance, panel1Max);
+                                    // Find actual pixel height of first panel but limited to maximum allowed
+                                    int panel1Height = Math.Min(SplitterDistance, panel1Max);
 
-                                // Enfore the minimum panel1 height
-                                panel1Height = Math.Max(Panel1MinSize, panel1Height);
+                                    // Enfore the minimum panel1 height
+                                    panel1Height = Math.Max(Panel1MinSize, panel1Height);
 
-                                // Size the panels
-                                Panel1.Size = new Size(Width, panel1Height);
-                                Panel2.Size = new Size(Width, Height - panel1Height - SplitterWidth);
+                                    // Size the panels
+                                    Panel1.Size = new Size(Width, panel1Height);
+                                    Panel2.Size = new Size(Width, Height - panel1Height - SplitterWidth);
 
-                                Panel1.Location = Point.Empty;
-                                Panel2.Location = new Point(0, panel1Height + SplitterWidth);
+                                    Panel1.Location = Point.Empty;
+                                    Panel2.Location = new Point(0, panel1Height + SplitterWidth);
 
-                                // Update the percentage but not if this occurs because of a resize operation
-                                if (!_resizing)
-                                    _splitterPercent = (double)panel1Height / (double)Height;
+                                    // Update the percentage but not if this occurs because of a resize operation
+                                    if (!_resizing)
+                                    {
+                                        _splitterPercent = (double)panel1Height / (double)Height;
+                                    }
+                                    break;
                             }
 
                             separatorRect = new Rectangle(0, Panel1.Bottom, Width, SplitterWidth);
@@ -1405,7 +1480,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Update the separator element manually
             if (_drawSeparator != null)
+            {
                 _drawSeparator.ClientRectangle = separatorRect;
+            }
         }
 
         /// <summary>
@@ -1426,8 +1503,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected override void OnAutoSizeChanged(EventArgs e)
         {
-            if (AutoSizeChanged != null)
-                AutoSizeChanged(this, e);
+            AutoSizeChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1436,8 +1512,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1446,8 +1521,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1456,8 +1530,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ControlEventArgs containing the event data.</param>
         protected override void OnControlAdded(ControlEventArgs e)
         {
-            if (ControlAdded != null)
-                ControlAdded(this, e);
+            ControlAdded?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1466,8 +1539,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ControlEventArgs containing the event data.</param>
         protected override void OnControlRemoved(ControlEventArgs e)
         {
-            if (ControlRemoved != null)
-                ControlRemoved(this, e);
+            ControlRemoved?.Invoke(this, e);
         }
         #endregion
 

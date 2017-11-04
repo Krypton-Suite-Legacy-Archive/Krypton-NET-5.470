@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -108,11 +104,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add on the padding we need around edges
             if (_ribbon.RealMinimizedMode)
+            {
                 return new Size(preferredSize.Width + _preferredMinimizedPadding.Horizontal,
-                                preferredSize.Height + _preferredMinimizedPadding.Vertical);
+                    preferredSize.Height + _preferredMinimizedPadding.Vertical);
+            }
             else
+            {
                 return new Size(preferredSize.Width + _preferredNormalPadding.Horizontal,
-                                preferredSize.Height + _preferredNormalPadding.Vertical);
+                    preferredSize.Height + _preferredNormalPadding.Vertical);
+            }
         }
 
         /// <summary>

@@ -9,24 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Reflection;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
-using System.Runtime.InteropServices;
-using System.Media;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -40,7 +25,9 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonInputBox : KryptonForm
     {
         #region Static Fields
-        private static readonly int GAP = 10;
+
+        private const int GAP = 10;
+
         #endregion
 
         #region Instance Fields
@@ -170,22 +157,34 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If do not have an owner passed in then get the active window and use that instead
             if (owner == null)
+            {
                 showOwner = Control.FromHandle(PI.GetActiveWindow());
+            }
             else
+            {
                 showOwner = owner;
+            }
 
             // Show input box window as a modal dialog and then dispose of it afterwards
             using (KryptonInputBox ib = new KryptonInputBox(prompt, caption, defaultResponse))
             {
                 if (showOwner == null)
+                {
                     ib.StartPosition = FormStartPosition.CenterScreen;
+                }
                 else
+                {
                     ib.StartPosition = FormStartPosition.CenterParent;
+                }
 
                 if (ib.ShowDialog(showOwner) == DialogResult.OK)
+                {
                     return ib.InputResponse;
+                }
                 else
+                {
                     return string.Empty;
+                }
             }
         }
 
@@ -226,8 +225,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size messageSize = g.MeasureString(_prompt, _labelPrompt.Font, 250).ToSize();
 
                 // Work out DPI adjustment factor
-                float factorX = g.DpiX > 96 ? (1.0f * g.DpiX / 96) : 1.0f;
-                float factorY = g.DpiY > 96 ? (1.0f * g.DpiY / 96) : 1.0f;
+                float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;
+                float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
                 messageSize.Width = (int)((float)messageSize.Width * factorX);
                 messageSize.Height = (int)((float)messageSize.Height * factorY);
                 
@@ -250,7 +249,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Position the buttons relative to the top left of the owning panel
             _buttonOK.Location = new Point(_panelMessage.Right - _buttonOK.Width - GAP, GAP);
-            _buttonCancel.Location = new Point(_panelMessage.Right - _buttonCancel.Width - GAP, _buttonOK.Bottom + GAP / 2);
+            _buttonCancel.Location = new Point(_panelMessage.Right - _buttonCancel.Width - GAP, _buttonOK.Bottom + (GAP / 2));
 
             // We need enough space for the buttons and gaps on either size
             return new Size(_buttonOK.Left + GAP, _buttonCancel.Bottom + GAP);
@@ -268,7 +267,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Escape key kills the dialog if we allow it to be closed
             if ((e.KeyCode == Keys.Escape) && ControlBox)
+            {
                 Close();
+            }
         }
 
         private void InitializeComponent()

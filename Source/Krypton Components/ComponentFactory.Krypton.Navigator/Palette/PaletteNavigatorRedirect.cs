@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -462,7 +455,9 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 case PaletteMetricInt.PageButtonInset:
                     if (_paletteMetrics.PageButtonSpecInset != -1)
+                    {
                         return _paletteMetrics.PageButtonSpecInset;
+                    }
                     break;
             }
 
@@ -482,7 +477,9 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 case PaletteMetricPadding.PageButtonPadding:
                     if (!_paletteMetrics.PageButtonSpecPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return _paletteMetrics.PageButtonSpecPadding;
+                    }
                     break;
             }
 

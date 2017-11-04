@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -71,9 +69,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (_comboBox != null)
+                {
                     return _comboBox.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -99,10 +101,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the label specific list
-                actionLists.Add(new KryptonComboBoxActionList(this));
+                    // Add the label specific list
+                    new KryptonComboBoxActionList(this)
+                };
 
                 return actionLists;
             }
@@ -123,7 +127,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _comboBox.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -131,7 +137,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -139,8 +147,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_comboBox != null)
-                _comboBox.DesignerMouseLeave();
+            _comboBox?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -151,40 +158,36 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (_comboBox != null)
+                // Get any component associated with the current mouse position
+                Component component = _comboBox?.DesignerComponentFromPoint(new Point(e.X, e.Y));
+
+                if (component != null)
                 {
-                    // Get any component associated with the current mouse position
-                    Component component = _comboBox.DesignerComponentFromPoint(new Point(e.X, e.Y));
+                    // Force the layout to be update for any change in selection
+                    _comboBox.PerformLayout();
 
-                    if (component != null)
+                    // Select the component
+                    ArrayList selectionList = new ArrayList
                     {
-                        // Force the layout to be update for any change in selection
-                        _comboBox.PerformLayout();
-
-                        // Select the component
-                        ArrayList selectionList = new ArrayList();
-                        selectionList.Add(component);
-                        _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
-                    }
+                        component
+                    };
+                    _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }
         }
 
         private void OnComboBoxDoubleClick(object sender, Point pt)
         {
-            if (_comboBox != null)
+            // Get any component associated with the current mouse position
+            Component component = _comboBox?.DesignerComponentFromPoint(pt);
+
+            if (component != null)
             {
-                // Get any component associated with the current mouse position
-                Component component = _comboBox.DesignerComponentFromPoint(pt);
+                // Get the designer for the component
+                IDesigner designer = _designerHost.GetDesigner(component);
 
-                if (component != null)
-                {
-                    // Get the designer for the component
-                    IDesigner designer = _designerHost.GetDesigner(component);
-
-                    // Request code for the default event be generated
-                    designer.DoDefaultAction();
-                }
+                // Request code for the default event be generated
+                designer.DoDefaultAction();
             }
         }
 

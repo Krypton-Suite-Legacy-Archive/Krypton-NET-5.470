@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -70,7 +68,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Remove all child controls so they do not become disposed
                 for (int i = Controls.Count - 1; i >= 0; i--)
+                {
                     Controls.RemoveAt(0);
+                }
 
                 // If this group is being dismissed with key tips showing
                 if (_ribbon.InKeyboardMode && _ribbon.KeyTipMode == KeyTipMode.PopupQATOverflow)
@@ -139,7 +139,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the first item
             if (view == null)
+            {
                 SetFirstFocusItem();
+            }
             else
             {
                 ViewOverflowManager.FocusView = view;
@@ -159,7 +161,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the last item
             if (view == null)
+            {
                 SetLastFocusItem();
+            }
             else
             {
                 ViewOverflowManager.FocusView = view;
@@ -181,7 +185,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Find the size the quick access toolbar requests to be
             using (ViewLayoutContext context = new ViewLayoutContext(this, Renderer))
+            {
                 popupSize = _viewQAT.GetPreferredSize(context);
+            }
 
             DismissedDelegate = finishDelegate;
 
@@ -227,7 +233,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the region of the popup to be the border path
             using (GraphicsPath roundPath = CommonHelper.RoundedRectanglePath(ClientRectangle, borderRounding))
+            {
                 Region = new Region(roundPath);
+            }
         }
 
         /// <summary>
@@ -238,7 +246,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If in keyboard mode then pass character onto the key tips
             if (_ribbon.InKeyboardMode && _ribbon.InKeyTipsMode)
+            {
                 _ribbon.AppendKeyTipPress(char.ToUpper(e.KeyChar));
+            }
 
             base.OnKeyPress(e);
         }

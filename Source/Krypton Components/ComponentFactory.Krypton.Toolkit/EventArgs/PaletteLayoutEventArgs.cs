@@ -8,8 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>

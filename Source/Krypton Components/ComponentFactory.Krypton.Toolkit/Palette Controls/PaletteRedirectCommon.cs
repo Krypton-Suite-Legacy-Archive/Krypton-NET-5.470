@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -61,9 +56,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackDraw(state);
+            }
             else
+            {
                 return base.GetBackDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -76,9 +75,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackGraphicsHint(state);
+            }
             else
+            {
                 return base.GetBackGraphicsHint(style, state);
+            }
         }
 
         /// <summary>
@@ -91,9 +94,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackColor1(state);
+            }
             else
+            {
                 return base.GetBackColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -106,9 +113,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackColor2(state);
+            }
             else
+            {
                 return base.GetBackColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -121,9 +132,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackColorStyle(state);
+            }
             else
+            {
                 return base.GetBackColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -136,9 +151,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackColorAlign(state);
+            }
             else
+            {
                 return base.GetBackColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -151,9 +170,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackColorAngle(state);
+            }
             else
+            {
                 return base.GetBackColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -166,9 +189,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackImage(state);
+            }
             else
+            {
                 return base.GetBackImage(style, state);
+            }
         }
 
         /// <summary>
@@ -181,9 +208,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackImageStyle(state);
+            }
             else
+            {
                 return base.GetBackImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -196,9 +227,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBack.GetBackImageAlign(state);
+            }
             else
+            {
                 return base.GetBackImageAlign(style, state);
+            }
         }
         #endregion
 
@@ -213,9 +248,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderDraw(state);
+            }
             else
-                return base.GetBorderDraw(style, state); 
+            {
+                return base.GetBorderDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -228,9 +267,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderDrawBorders(state);
+            }
             else
+            {
                 return base.GetBorderDrawBorders(style, state);
+            }
         }
 
         /// <summary>
@@ -243,9 +286,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderGraphicsHint(state);
+            }
             else
+            {
                 return base.GetBorderGraphicsHint(style, state);
+            }
         }
 
         /// <summary>
@@ -258,9 +305,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderColor1(state);
+            }
             else
+            {
                 return base.GetBorderColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -273,9 +324,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderColor2(state);
+            }
             else
+            {
                 return base.GetBorderColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -288,9 +343,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderColorStyle(state);
+            }
             else
+            {
                 return base.GetBorderColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -303,9 +362,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderColorAlign(state);
+            }
             else
+            {
                 return base.GetBorderColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -318,9 +381,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderColorAngle(state);
+            }
             else
+            {
                 return base.GetBorderColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -333,9 +400,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderWidth(state);
+            }
             else
+            {
                 return base.GetBorderWidth(style, state);
+            }
         }
 
         /// <summary>
@@ -348,9 +419,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderRounding(state);
+            }
             else
+            {
                 return base.GetBorderRounding(style, state);
+            }
         }
 
         /// <summary>
@@ -363,9 +438,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderImage(state);
+            }
             else
+            {
                 return base.GetBorderImage(style, state);
+            }
         }
 
         /// <summary>
@@ -378,9 +457,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderImageStyle(state);
+            }
             else
+            {
                 return base.GetBorderImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -393,9 +476,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteBorder.GetBorderImageAlign(state);
+            }
             else
+            {
                 return base.GetBorderImageAlign(style, state);
+            }
         }
         #endregion
 
@@ -410,9 +497,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentDraw(state);
+            }
             else
+            {
                 return base.GetContentDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -425,9 +516,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentDrawFocus(state);
+            }
             else
+            {
                 return base.GetContentDrawFocus(style, state);
+            }
         }
 
         /// <summary>
@@ -440,9 +535,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentImageH(state);
+            }
             else
+            {
                 return base.GetContentImageH(style, state);
+            }
         }
 
         /// <summary>
@@ -455,9 +554,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentImageV(state);
+            }
             else
+            {
                 return base.GetContentImageV(style, state);
+            }
         }
 
         /// <summary>
@@ -470,9 +573,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentImageEffect(state);
+            }
             else
+            {
                 return base.GetContentImageEffect(style, state);
+            }
         }
 
         /// <summary>
@@ -485,9 +592,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextFont(state);
+            }
             else
+            {
                 return base.GetContentShortTextFont(style, state);
+            }
         }
 
         /// <summary>
@@ -500,9 +611,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextHint(state);
+            }
             else
+            {
                 return base.GetContentShortTextHint(style, state);
+            }
         }
 
         /// <summary>
@@ -515,9 +630,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextPrefix(state);
+            }
             else
+            {
                 return base.GetContentShortTextPrefix(style, state);
+            }
         }
 
         /// <summary>
@@ -530,9 +649,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextMultiLine(state);
+            }
             else
+            {
                 return base.GetContentShortTextMultiLine(style, state);
+            }
         }
 
         /// <summary>
@@ -545,9 +668,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextTrim(state);
+            }
             else
+            {
                 return base.GetContentShortTextTrim(style, state);
+            }
         }
 
         /// <summary>
@@ -560,9 +687,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextH(state);
+            }
             else
+            {
                 return base.GetContentShortTextH(style, state);
+            }
         }
 
         /// <summary>
@@ -575,9 +706,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextV(state);
+            }
             else
+            {
                 return base.GetContentShortTextV(style, state);
+            }
         }
 
         /// <summary>
@@ -590,9 +725,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextMultiLineH(state);
+            }
             else
+            {
                 return base.GetContentShortTextMultiLineH(style, state);
+            }
         }
 
         /// <summary>
@@ -605,9 +744,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextColor1(state);
+            }
             else
+            {
                 return base.GetContentShortTextColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -620,9 +763,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextColor2(state);
+            }
             else
+            {
                 return base.GetContentShortTextColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -635,9 +782,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextColorStyle(state);
+            }
             else
+            {
                 return base.GetContentShortTextColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -650,9 +801,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextColorAlign(state);
+            }
             else
+            {
                 return base.GetContentShortTextColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -665,9 +820,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextColorAngle(state);
+            }
             else
+            {
                 return base.GetContentShortTextColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -680,9 +839,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextImage(state);
+            }
             else
+            {
                 return base.GetContentShortTextImage(style, state);
+            }
         }
 
         /// <summary>
@@ -695,9 +858,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextImageStyle(state);
+            }
             else
+            {
                 return base.GetContentShortTextImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -710,9 +877,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentShortTextImageAlign(state);
+            }
             else
+            {
                 return base.GetContentShortTextImageAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -725,9 +896,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextFont(state);
+            }
             else
+            {
                 return base.GetContentLongTextFont(style, state);
+            }
         }
 
         /// <summary>
@@ -740,9 +915,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextHint(state);
+            }
             else
+            {
                 return base.GetContentLongTextHint(style, state);
+            }
         }
 
         /// <summary>
@@ -755,9 +934,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextMultiLine(state);
+            }
             else
+            {
                 return base.GetContentLongTextMultiLine(style, state);
+            }
         }
 
         /// <summary>
@@ -770,9 +953,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextTrim(state);
+            }
             else
+            {
                 return base.GetContentLongTextTrim(style, state);
+            }
         }
 
         /// <summary>
@@ -785,9 +972,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextPrefix(state);
+            }
             else
+            {
                 return base.GetContentLongTextPrefix(style, state);
+            }
         }
 
         /// <summary>
@@ -800,9 +991,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextH(state);
+            }
             else
+            {
                 return base.GetContentLongTextH(style, state);
+            }
         }
 
         /// <summary>
@@ -815,9 +1010,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextV(state);
+            }
             else
+            {
                 return base.GetContentLongTextV(style, state);
+            }
         }
 
         /// <summary>
@@ -830,9 +1029,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextMultiLineH(state);
+            }
             else
+            {
                 return base.GetContentLongTextMultiLineH(style, state);
+            }
         }
 
         /// <summary>
@@ -845,9 +1048,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextColor1(state);
+            }
             else
+            {
                 return base.GetContentLongTextColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -860,9 +1067,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextColor2(state);
+            }
             else
+            {
                 return base.GetContentLongTextColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -875,9 +1086,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextColorStyle(state);
+            }
             else
+            {
                 return base.GetContentLongTextColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -890,9 +1105,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextColorAlign(state);
+            }
             else
+            {
                 return base.GetContentLongTextColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -905,9 +1124,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextColorAngle(state);
+            }
             else
+            {
                 return base.GetContentLongTextColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -920,9 +1143,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextImage(state);
+            }
             else
+            {
                 return base.GetContentLongTextImage(style, state);
+            }
         }
 
         /// <summary>
@@ -935,9 +1162,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextImageStyle(state);
+            }
             else
+            {
                 return base.GetContentLongTextImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -950,9 +1181,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentLongTextImageAlign(state);
+            }
             else
+            {
                 return base.GetContentLongTextImageAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -965,9 +1200,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentPadding(state);
+            }
             else
+            {
                 return base.GetContentPadding(style, state);
+            }
         }
 
         /// <summary>
@@ -980,9 +1219,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteTriple inherit = GetInherit(state);
             if (inherit != null)
+            {
                 return inherit.PaletteContent.GetContentAdjacentGap(state);
+            }
             else
+            {
                 return base.GetContentAdjacentGap(style, state);
+            }
         }
         #endregion
 
@@ -991,7 +1234,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Do not inherit the override states
             if (CommonHelper.IsOverrideState(state))
+            {
                 return null;
+            }
 
             switch (state)
             {

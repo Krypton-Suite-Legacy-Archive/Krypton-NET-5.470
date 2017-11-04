@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteButtonOrientationConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteButtonOrientation.Inherit,     "Inherit"),
+        private Pair[] _pairs = { new Pair(PaletteButtonOrientation.Inherit,     "Inherit"),
                                              new Pair(PaletteButtonOrientation.Auto,        "Auto"),
                                              new Pair(PaletteButtonOrientation.FixedTop,    "Fixed Top"),
                                              new Pair(PaletteButtonOrientation.FixedBottom, "Fixed Bottom"),

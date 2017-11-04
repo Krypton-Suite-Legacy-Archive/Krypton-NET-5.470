@@ -9,13 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -102,8 +99,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _orientation = PaletteButtonOrientation.Inherit;
             _type = PaletteButtonSpecStyle.Generic;
             _edge = PaletteRelativeEdgeAlign.Inherit;
-            _imageStates = new CheckButtonImageStates();
-            _imageStates.NeedPaint = new NeedPaintHandler(OnImageStateChanged);
+            _imageStates = new CheckButtonImageStates
+            {
+                NeedPaint = new NeedPaintHandler(OnImageStateChanged)
+            };
             _contextMenuStrip = null;
             _kryptonContextMenu = null;
             _buttonSpecView = null;
@@ -116,9 +115,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override string ToString()
 		{
 			if (!IsDefault)
-				return "Modified";
+			{
+			    return "Modified";
+			}
 
-			return string.Empty;
+		    return string.Empty;
 		}
 
         /// <summary>
@@ -179,10 +180,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         (Orientation == PaletteButtonOrientation.Inherit) &&
                         (Edge == PaletteRelativeEdgeAlign.Inherit) &&
                         (ContextMenuStrip == null) &&
-                        (AllowInheritImage == true) &&
-                        (AllowInheritText == true) &&
-                        (AllowInheritExtraText == true) &&
-                        (AllowInheritToolTipTitle == true));
+                        AllowInheritImage &&
+                        AllowInheritText &&
+                        AllowInheritExtraText &&
+                        AllowInheritToolTipTitle);
 			}
 		}
 		#endregion
@@ -868,13 +869,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     _command = value;
                     OnButtonSpecPropertyChanged("KryptonCommand");
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                 }
             }
         }
@@ -964,7 +969,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Prefer to get image from the command first
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageSmall;
+            }
 
             // Try and recover a state specific image
             switch (state)
@@ -994,12 +1001,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Default to the image if no state specific image is found
             if (image == null)
+            {
                 image = Image;
+            }
 
             if ((image != null) || !AllowInheritImage)
+            {
                 return image;
+            }
             else
+            {
                 return palette.GetButtonSpecImage(_type, state);
+            }
         }
 
         /// <summary>
@@ -1010,11 +1023,17 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual Color GetImageTransparentColor(IPalette palette)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ImageTransparentColor;
+            }
             else if (ImageTransparentColor != Color.Empty)
+            {
                 return ImageTransparentColor;
+            }
             else
+            {
                 return palette.GetButtonSpecImageTransparentColor(_type);
+            }
         }
 
         /// <summary>
@@ -1025,11 +1044,17 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual string GetShortText(IPalette palette)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.Text;
+            }
             else if ((Text.Length > 0) || !AllowInheritText)
+            {
                 return Text;
+            }
             else
+            {
                 return palette.GetButtonSpecShortText(_type);
+            }
         }
 
         /// <summary>
@@ -1040,11 +1065,17 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual string GetLongText(IPalette palette)
         {
             if (KryptonCommand != null)
+            {
                 return KryptonCommand.ExtraText;
+            }
             if ((ExtraText.Length > 0) || !AllowInheritExtraText)
+            {
                 return ExtraText;
+            }
             else
+            {
                 return palette.GetButtonSpecLongText(_type);
+            }
         }
 
         /// <summary>
@@ -1055,9 +1086,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual string GetToolTipTitle(IPalette palette)
         {
             if (!string.IsNullOrEmpty(ToolTipTitle) || !AllowInheritToolTipTitle)
+            {
                 return ToolTipTitle;
+            }
             else
+            {
                 return palette.GetButtonSpecToolTipTitle(_type);
+            }
         }
 
         /// <summary>
@@ -1068,9 +1103,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual Color GetColorMap(IPalette palette)
         {
             if (ColorMap != Color.Empty)
+            {
                 return ColorMap;
+            }
             else
+            {
                 return palette.GetButtonSpecColorMap(_type);
+            }
         }
 
         /// <summary>
@@ -1081,9 +1120,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual ButtonStyle GetStyle(IPalette palette)
         {
             if (Style != PaletteButtonStyle.Inherit)
+            {
                 return ConvertToButtonStyle(Style);
+            }
             else
+            {
                 return ConvertToButtonStyle(palette.GetButtonSpecStyle(_type));
+            }
         }
 
         /// <summary>
@@ -1094,9 +1137,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual ButtonOrientation GetOrientation(IPalette palette)
         {
             if (Orientation != PaletteButtonOrientation.Inherit)
+            {
                 return ConvertToButtonOrientation(Orientation);
+            }
             else
+            {
                 return ConvertToButtonOrientation(palette.GetButtonSpecOrientation(_type));
+            }
         }
 
         /// <summary>
@@ -1107,9 +1154,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual RelativeEdgeAlign GetEdge(IPalette palette)
         {
             if (Edge != PaletteRelativeEdgeAlign.Inherit)
+            {
                 return ConvertToRelativeEdgeAlign(Edge);
+            }
             else
+            {
                 return ConvertToRelativeEdgeAlign(palette.GetButtonSpecEdge(_type));
+            }
         }
 
         /// <summary>
@@ -1154,9 +1205,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool GetViewEnabled()
         {
             if (_buttonSpecView == null)
+            {
                 return false;
+            }
             else
+            {
                 return (_buttonSpecView.State != PaletteState.Disabled);
+            }
         }
 
         /// <summary>
@@ -1181,12 +1236,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected void GenerateClick(EventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
 
             // If we have an attached command then execute it
-            if (KryptonCommand != null)
-                KryptonCommand.PerformExecute();
+            KryptonCommand?.PerformExecute();
         }
 
         /// <summary>
@@ -1198,12 +1251,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // Only if associated view is enabled do we perform the click
             if (GetViewEnabled())
             {
-                if (Click != null)
-                    Click(this, e);
+                Click?.Invoke(this, e);
 
                 // If we have an attached command then execute it
-                if (KryptonCommand != null)
-                    KryptonCommand.PerformExecute();
+                KryptonCommand?.PerformExecute();
             }
         }
 
@@ -1213,8 +1264,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="propertyName">Name of the appearance property that has changed.</param>
         protected virtual void OnButtonSpecPropertyChanged(string propertyName)
         {
-            if (ButtonSpecPropertyChanged != null)
-                ButtonSpecPropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            ButtonSpecPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

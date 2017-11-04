@@ -8,14 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -37,8 +29,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Search for a tab with the same text as that requested.
                 foreach(KryptonRibbonTab tab in this)
+                {
                     if (tab.Text == name)
+                    {
                         return tab;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[name];

@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -81,11 +75,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Not found, then get the common image
             if (retImage == null)
+            {
                 retImage = _images.Common;
+            }
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetDropDownButtonImage(state);
+            }
 
             return retImage;
         }

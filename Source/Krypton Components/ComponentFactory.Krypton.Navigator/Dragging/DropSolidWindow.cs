@@ -10,9 +10,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -105,8 +102,12 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If we have a solid rectangle to draw
             if (!SolidRect.IsEmpty)
+            {
                 using(RenderContext context = new RenderContext(this, e.Graphics, e.ClipRectangle, _renderer))
+                {
                     _renderer.RenderGlyph.DrawDragDropSolidGlyph(context, ClientRectangle, _paletteDragDrop);
+                }
+            }
         }
 
         /// <summary>
@@ -122,7 +123,9 @@ namespace ComponentFactory.Krypton.Navigator
                 m.Result = (IntPtr)PI.HTTRANSPARENT;
             }
             else
+            {
                 base.WndProc(ref m);
+            }
         }
         #endregion
     }

@@ -8,15 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -29,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Static Fields
         private static readonly Image _defaultAppImage = Properties.Resources.AppButtonDefault;
-        private static readonly string _defaultAppText = "File";
+        private const string DEFAULT_APP_TEXT = "File";
         private static readonly Color _defaultAppBaseColorDark = Color.FromArgb(31, 72, 161);
         private static readonly Color _defaultAppBaseColorLight = Color.FromArgb(84, 158, 243);
         #endregion
@@ -85,8 +79,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
 
             // Default values
-            _appButtonMenuItems = new KryptonContextMenuItems();
-            _appButtonMenuItems.ImageColumn = false;
+            _appButtonMenuItems = new KryptonContextMenuItems
+            {
+                ImageColumn = false
+            };
             _appButtonImage = _defaultAppImage;
             _appButtonSpecs = new AppMenuButtonSpecCollection(ribbon);
             _appButtonRecentDocs = new KryptonRibbonRecentDocCollection();
@@ -101,7 +97,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _appButtonBaseColorDark = _defaultAppBaseColorDark;
             _appButtonBaseColorLight = _defaultAppBaseColorLight;
             _appButtonTextColor = Color.White;
-            _appButtonText = _defaultAppText;
+            _appButtonText = DEFAULT_APP_TEXT;
         }
 		#endregion
 
@@ -115,7 +111,7 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 return ((AppButtonImage == _defaultAppImage) &&
-                        (AppButtonText == _defaultAppText) &&
+                        (AppButtonText == DEFAULT_APP_TEXT) &&
                         (AppButtonBaseColorDark == _defaultAppBaseColorDark) &&
                         (AppButtonBaseColorLight == _defaultAppBaseColorLight) &&
                         (AppButtonTextColor == Color.White) &&
@@ -155,8 +151,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     _appButtonImage = value;
 
                     // Captin area is not created when property first set to default value
-                    if (_ribbon.CaptionArea != null)
-                        _ribbon.CaptionArea.AppButtonChanged();
+                    _ribbon.CaptionArea?.AppButtonChanged();
                 }
             }
         }

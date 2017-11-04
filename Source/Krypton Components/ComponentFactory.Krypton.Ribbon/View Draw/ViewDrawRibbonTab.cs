@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
@@ -27,7 +25,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                        IContentValues
     {
         #region Static Fields
-        private static string _empty = "<Empty>";
+        private static readonly string _empty = "<Empty>";
         private static Padding _preferredBorder2007 = new Padding(12, 3, 12, 1);
         private static Padding _preferredBorder2010 = new Padding(8, 4, 8, 3);
         private static Padding _layoutBorder2007 = new Padding(4, 3, 4, 1);
@@ -64,13 +62,17 @@ namespace ComponentFactory.Krypton.Ribbon
 		#region Identity
         static ViewDrawRibbonTab()
         {
-            _contextBlend2007 = new Blend();
-            _contextBlend2007.Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f };
-            _contextBlend2007.Positions = new float[] { 0.0f, 0.41f, 0.7f, 1.0f };
+            _contextBlend2007 = new Blend
+            {
+                Factors = new float[] { 0.0f, 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.41f, 0.7f, 1.0f }
+            };
 
-            _contextBlend2010 = new Blend();
-            _contextBlend2010.Factors = new float[] { 0.0f, 1.0f, 1.0f };
-            _contextBlend2010.Positions = new float[] { 0.0f, 0.6f, 1.0f };
+            _contextBlend2010 = new Blend
+            {
+                Factors = new float[] { 0.0f, 1.0f, 1.0f },
+                Positions = new float[] { 0.0f, 0.6f, 1.0f }
+            };
         }
 
 		/// <summary>
@@ -156,8 +158,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Dispose of all the mementos in the array
                     foreach (IDisposable memento in _mementos)
-                        if (memento != null)
-                            memento.Dispose();
+                    {
+                        memento?.Dispose();
+                    }
 
                     _mementos = null;
                 }
@@ -419,13 +422,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 default:
                 case PaletteRibbonShape.Office2007:
                     if (cts != null)
+                    {
                         RenderBefore2007ContextTab(context, cts);
+                    }
 
                     _paletteContextCurrent.LightBackground = false;
                     break;
                 case PaletteRibbonShape.Office2010:
                     if (cts != null)
+                    {
                         RenderBefore2010ContextTab(context, cts);
+                    }
 
                     _paletteContextCurrent.LightBackground = _ribbon.CaptionArea.DrawCaptionOnComposition;
                     break;
@@ -489,7 +496,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // reference and the text is not zero length. We try and prevent
             // an empty string because it makes the tab useless!
             if ((_ribbonTab != null) && (_ribbonTab.Text.Length > 0))
+            {
                 return _ribbonTab.Text;
+            }
 
             return _empty;
         }
@@ -525,10 +534,14 @@ namespace ComponentFactory.Krypton.Ribbon
                     using (Pen sepPen = new Pen(sepBrush))
                     {
                         if (cts.IsFirstTab(this))
+                        {
                             context.Graphics.DrawLine(sepPen, contextRect.X, contextRect.Y, contextRect.X, contextRect.Bottom - 1);
+                        }
 
                         if (cts.IsLastTab(this))
+                        {
                             context.Graphics.DrawLine(sepPen, contextRect.Right - 1, contextRect.Y, contextRect.Right - 1, contextRect.Bottom - 1);
+                        }
                     }
                 }
             }
@@ -600,8 +613,12 @@ namespace ComponentFactory.Krypton.Ribbon
             Array stateValues = Enum.GetValues(typeof(PaletteState));
 
             for (int i = 0; i < stateValues.Length; i++)
+            {
                 if ((PaletteState)stateValues.GetValue(i) == state)
+                {
                     return i;
+                }
+            }
 
             return 0;
         }
@@ -616,7 +633,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Better check we have a child!
             if (Count > 0)
+            {
                 this[0].Enabled = enabled;
+            }
 
             // If disabled...
             if (!enabled)
@@ -646,17 +665,25 @@ namespace ComponentFactory.Krypton.Ribbon
                             case PaletteState.CheckedNormal:
                             case PaletteState.ContextCheckedNormal:
                                 if (contextTab)
+                                {
                                     buttonState = PaletteState.ContextCheckedNormal;
+                                }
                                 else
+                                {
                                     buttonState = PaletteState.CheckedNormal;
+                                }
                                 break;
                             case PaletteState.Tracking:
                             case PaletteState.CheckedTracking:
                             case PaletteState.ContextCheckedTracking:
                                 if (contextTab)
+                                {
                                     buttonState = PaletteState.ContextCheckedTracking;
+                                }
                                 else
+                                {
                                     buttonState = PaletteState.CheckedTracking;
+                                }
                                 break;
                         }
                     }
@@ -672,9 +699,13 @@ namespace ComponentFactory.Krypton.Ribbon
                             case PaletteState.CheckedTracking:
                             case PaletteState.ContextCheckedTracking:
                                 if (contextTab)
+                                {
                                     buttonState = PaletteState.ContextTracking;
+                                }
                                 else
+                                {
                                     buttonState = PaletteState.Tracking;
+                                }
                                 break;
                         }
                     }
@@ -716,7 +747,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Better check we have a child!
                 if (Count > 0)
+                {
                     this[0].ElementState = buttonState;
+                }
 
                 // Update the actual source palette
                 _paletteContextCurrent.SetInherit(_overrideCurrent);
@@ -745,7 +778,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnTabContextClicked(object sender, MouseEventArgs e)
         {
             if (_ribbon.InDesignMode)
+            {
                 _ribbonTab.OnDesignTimeContextMenu(new MouseEventArgs(MouseButtons.Right, 1, e.X, e.Y, 0));
+            }
             else
             {
                 // Convert the mouse point to screen coords from the containing control

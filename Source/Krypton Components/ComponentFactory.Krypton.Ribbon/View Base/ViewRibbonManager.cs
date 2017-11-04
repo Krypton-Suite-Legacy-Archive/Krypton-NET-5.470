@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -117,8 +114,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // We do not need to layout if inside a control that is minimized or if we are not inside a form at all
                 if ((ownerForm == null) || ((ownerForm != null) && (ownerForm.WindowState == FormWindowState.Minimized)))
+                {
                     return;
-                
+                }
+
                 _layingOut = true;
 
                 // Update the calculate values used during layout calls
@@ -143,7 +142,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             if (!_ribbon.InDesignMode)
             {
@@ -190,7 +192,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             if (!_ribbon.InDesignMode)
             {
@@ -231,13 +236,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // We only allow application button views to be interacted with
                     if (mouseView is ViewDrawRibbonAppButton)
+                    {
                         ActiveView = mouseView;
+                    }
                     else
+                    {
                         ActiveView = null;
+                    }
                 }
             }
             else
+            {
                 base.UpdateViewFromPoint(control, pt);
+            }
         }
         #endregion
 
@@ -249,8 +260,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void PerformNeedPaint(bool needLayout, Rectangle invalidRect)
         {
-            if (_needPaintDelegate != null)
-                _needPaintDelegate(this, new NeedLayoutEventArgs(needLayout, invalidRect));
+            _needPaintDelegate?.Invoke(this, new NeedLayoutEventArgs(needLayout, invalidRect));
         }
         #endregion
     }

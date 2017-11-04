@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -101,12 +96,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _maximumLength = 55;
 
             // Create the actual track barcontrol and set initial settings
-            _trackBar = new KryptonTrackBar();
-            _trackBar.DrawBackground = false;
-            _trackBar.TickStyle = TickStyle.None;
-            _trackBar.MinimumSize = new Size(_minimumLength, 0);
-            _trackBar.MaximumSize = new Size(_maximumLength, 0);
-            _trackBar.TabStop = false;
+            _trackBar = new KryptonTrackBar
+            {
+                DrawBackground = false,
+                TickStyle = TickStyle.None,
+                MinimumSize = new Size(_minimumLength, 0),
+                MaximumSize = new Size(_maximumLength, 0),
+                TabStop = false
+            };
 
             // Hook into events to expose via this container
             _trackBar.GotFocus += new EventHandler(OnTrackBarGotFocus);
@@ -187,7 +184,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "T";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -268,9 +267,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 _minimumLength = value;
                 if (Orientation == Orientation.Horizontal)
+                {
                     _trackBar.MinimumSize = new Size(_minimumLength, 0);
+                }
                 else
+                {
                     _trackBar.MinimumSize = new Size(0, _minimumLength);
+                }
             }
         }
 
@@ -288,9 +291,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 _maximumLength = value;
                 if (Orientation == Orientation.Horizontal)
+                {
                     _trackBar.MaximumSize = new Size(_maximumLength, 0);
+                }
                 else
+                {
                     _trackBar.MaximumSize = new Size(0, _maximumLength);
+                }
             }
         }
 
@@ -559,8 +566,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnGotFocus(EventArgs e)
         {
-            if (GotFocus != null)
-                GotFocus(this, e);
+            GotFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -569,8 +575,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnLostFocus(EventArgs e)
         {
-            if (LostFocus != null)
-                LostFocus(this, e);
+            LostFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -579,8 +584,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -605,8 +609,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -630,21 +633,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnControlEnter(object sender, EventArgs e)
         {
-            if (MouseEnterControl != null)
-                MouseEnterControl(this, e);
+            MouseEnterControl?.Invoke(this, e);
         }
 
         private void OnControlLeave(object sender, EventArgs e)
         {
-            if (MouseLeaveControl != null)
-                MouseLeaveControl(this, e);
+            MouseLeaveControl?.Invoke(this, e);
         }
 
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            if (_viewPaintDelegate != null)
-                _viewPaintDelegate(this, e);
+            _viewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnTrackBarGotFocus(object sender, EventArgs e)
@@ -659,8 +659,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnTrackBarValueChanged(object sender, EventArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)

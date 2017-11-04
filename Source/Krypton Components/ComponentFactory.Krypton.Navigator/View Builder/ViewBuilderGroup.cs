@@ -40,13 +40,15 @@ namespace ComponentFactory.Krypton.Navigator
 			// Get the current root element
 			_oldRoot = ViewManager.Root;
 
-			// Create a canvas for the border and background using current enabled state
-			_drawCanvas = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back,
-                                             Navigator.StateNormal.HeaderGroup.Border, 
-											 VisualOrientation.Top);
+            // Create a canvas for the border and background using current enabled state
+            _drawCanvas = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back,
+                                             Navigator.StateNormal.HeaderGroup.Border,
+                                             VisualOrientation.Top)
+            {
 
-			// Put the exising root into the canvas
-			_drawCanvas.Add(_oldRoot);
+                // Put the exising root into the canvas
+                _oldRoot
+            };
 
             // Set the correct palettes based on enabled state and selected page
             UpdateStatePalettes();

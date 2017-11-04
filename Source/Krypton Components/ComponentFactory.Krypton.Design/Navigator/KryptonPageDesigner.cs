@@ -16,7 +16,6 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Windows.Forms.Design.Behavior;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -63,7 +62,9 @@ namespace ComponentFactory.Krypton.Navigator
             // Lock the component from user size/location change
             PropertyDescriptor descriptor = TypeDescriptor.GetProperties(component)["Locked"];
             if ((descriptor != null) && (ParentNavigator != null))
+            {
                 descriptor.SetValue(component, true);
+            }
         }
 
         /// <summary>
@@ -74,10 +75,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override bool CanBeParentedTo(IDesigner parentDesigner)
         {
             // Can only place a KrytonPage in the KryptonNavigator
-            if (parentDesigner != null)
-                return (parentDesigner.Component is KryptonNavigator);
-            else
-                return false;
+            return parentDesigner?.Component is KryptonNavigator;
         }
 
         /// <summary>
@@ -88,9 +86,13 @@ namespace ComponentFactory.Krypton.Navigator
             get
             {
                 if (_page != null)
+                {
                     return _page.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -102,10 +104,12 @@ namespace ComponentFactory.Krypton.Navigator
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the navigator specific list
-                actionLists.Add(new KryptonPageActionList(this));
+                    // Add the navigator specific list
+                    new KryptonPageActionList(this)
+                };
 
                 return actionLists;
             }
@@ -139,9 +143,13 @@ namespace ComponentFactory.Krypton.Navigator
             { 
                 // If inside a navigator then prevent resizing of the page
                 if (ParentNavigator != null)
+                {
                     return (SelectionRules.None | SelectionRules.Locked);
+                }
                 else
+                {
                     return SelectionRules.None;
+                }
             }
         }
 
@@ -154,9 +162,13 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Only draw the glyph for the selected page
                 if (ParentNavigator != null)
+                {
                     return (ParentNavigator.SelectedPage == _page);
+                }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -166,9 +178,13 @@ namespace ComponentFactory.Krypton.Navigator
         public void SelectParentControl()
         {
             if (ParentNavigator != null)
+            {
                 _selectionService.SetSelectedComponents(new object[] { ParentNavigator }, SelectionTypes.Primary);
+            }
             else if (_page.Parent != null)
+            {
                 _selectionService.SetSelectedComponents(new object[] { _page.Parent }, SelectionTypes.Primary);
+            }
         }
         #endregion
 
@@ -234,8 +250,10 @@ namespace ComponentFactory.Krypton.Navigator
                 // Search parent chain looking for navigator instance
                 while(parent != null)
                 {
-                    if (parent is KryptonNavigator)
-                        return (KryptonNavigator)parent;
+                    if (parent is KryptonNavigator navigator)
+                    {
+                        return navigator;
+                    }
 
                     parent = parent.Parent;
                 }

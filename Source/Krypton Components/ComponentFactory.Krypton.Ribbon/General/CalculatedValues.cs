@@ -10,7 +10,6 @@
 
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -22,19 +21,21 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class CalculatedValues
     {
         #region Static Fields
-        private static readonly int FONT_HEIGHT_EXTRA = 2;          // Always need to add 2 pixels for it to draw
-        private static readonly int DIALOG_MIN_HEIGHT = 14;         // Button image = 8 + 2 content gap + 2 for button border + 2 for outside gap
-        private static readonly int GROUP_LINE_CONTENT_MIN = 18;    // Small image = 16 + 2 content gap
-        private static readonly int GROUP_LINE_CONTENT_EXTRA = 4;   // 2 content gap + 2 for button border
-        private static readonly int GROUP_INSIDE_BOTTOM_GAP = 1;    // 1 pixel between last group line and the group title
-        private static readonly int GROUP_TOP_BORDER = 2;           // 2 pixel border for top edge of a group
-        private static readonly int GROUPS_TOP_GAP = 3;             // Space between top of a group and inside edge of borders area
-        private static readonly int GROUPS_BOTTOM_GAP = 2;          // Space between bottom of group and bottom of the borders area
-        private static readonly int TABS_TOP_GAP = 5;               // 4 padding at top of tab text and 1 extra for the bottom
-        private static readonly int KEYTIP_HOFFSET = 16;            // Horizontal distance to offset keytips for group items
-        private static readonly int KEYTIP_VOFFSET_LINE2 = 1;       // Vertical distance to offset keytips on group line 2
-        private static readonly int KEYTIP_VOFFSET_LINE4 = 8;       // Vertical distance to offset keytips on group line 4
-        private static readonly int KEYTIP_VOFFSET_LINE5 = 8;       // Vertical distance to offset keytips on group line 5
+
+        private const int FONT_HEIGHT_EXTRA = 2; // Always need to add 2 pixels for it to draw
+        private const int DIALOG_MIN_HEIGHT = 14; // Button image = 8 + 2 content gap + 2 for button border + 2 for outside gap
+        private const int GROUP_LINE_CONTENT_MIN = 18; // Small image = 16 + 2 content gap
+        private const int GROUP_LINE_CONTENT_EXTRA = 4; // 2 content gap + 2 for button border
+        private const int GROUP_INSIDE_BOTTOM_GAP = 1; // 1 pixel between last group line and the group title
+        private const int GROUP_TOP_BORDER = 2; // 2 pixel border for top edge of a group
+        private const int GROUPS_TOP_GAP = 3; // Space between top of a group and inside edge of borders area
+        private const int GROUPS_BOTTOM_GAP = 2; // Space between bottom of group and bottom of the borders area
+        private const int TABS_TOP_GAP = 5; // 4 padding at top of tab text and 1 extra for the bottom
+        private const int KEYTIP_HOFFSET = 16; // Horizontal distance to offset keytips for group items
+        private const int KEYTIP_VOFFSET_LINE2 = 1; // Vertical distance to offset keytips on group line 2
+        private const int KEYTIP_VOFFSET_LINE4 = 8; // Vertical distance to offset keytips on group line 4
+        private const int KEYTIP_VOFFSET_LINE5 = 8; // Vertical distance to offset keytips on group line 5
+
         #endregion
 
         #region Instance Fields

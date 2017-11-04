@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -101,9 +100,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Can only select if the item is actually enabled
             if (_menuItem.ItemEnabled)
+            {
                 return Control.IsMnemonic(charCode, _menuItem.ItemText);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -116,9 +119,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we press the item or show the sub menu?
                 if (!_menuItem.HasSubMenu)
+                {
                     PressMenuItem();
+                }
                 else
+                {
                     _menuItem.ShowSubMenu(true);
+                }
             }
         }
 
@@ -150,7 +157,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // because we do not want pressed it to cause the context menu to become current. This
             // cause the showing sub menu to be dismissed.
             if (_menuItem.ItemEnabled)
+            {
                 return !_menuItem.PointInSubMenu(pt);
+            }
 
             return true;
         }
@@ -189,10 +198,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
 		{
             if (_menuItem.ItemEnabled)
+            {
                 if (_menuItem.PointInSubMenu(pt))
+                {
                     _menuItem.ShowSubMenu(false);
+                }
+            }
 
-			return false;
+            return false;
 		}
 
 		/// <summary>
@@ -208,9 +221,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Is mouse in the area of the item for indicating a sub menu
                 if (_menuItem.PointInSubMenu(pt))
+                {
                     _menuItem.ShowSubMenu(false);
+                }
                 else
+                {
                     PressMenuItem();
+                }
             }
 		}
 
@@ -258,8 +275,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null)  throw new ArgumentNullException("c");
-            if (e == null)  throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             switch (e.KeyCode)
             {
@@ -270,9 +294,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Do we press the item or show the sub menu?
                         if (!_menuItem.HasSubMenu)
+                        {
                             PressMenuItem();
+                        }
                         else
+                        {
                             _menuItem.ShowSubMenu(true);
+                        }
                     }
                     break;
                 case Keys.Tab:
@@ -302,9 +330,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Right:
                     // If enabled and with a sub menu, then show the sub menu
                     if (_menuItem.ItemEnabled && _menuItem.HasSubMenu)
+                    {
                         _menuItem.ShowSubMenu(true);
+                    }
                     else
+                    {
                         _viewManager.KeyRight();
+                    }
+
                     break;
             }
         }
@@ -320,8 +353,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             _viewManager.KeyMnemonic(e.KeyChar);
         }
@@ -338,8 +378,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             return false;
         }
@@ -464,9 +511,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _menuItem.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _menuItem.ClientRectangle));
+        }
 		#endregion
 	}
 }

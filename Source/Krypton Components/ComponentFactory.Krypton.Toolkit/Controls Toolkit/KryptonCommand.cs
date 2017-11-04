@@ -9,23 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Reflection;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -176,7 +164,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Generate events
                     if (checkedChanged)
+                    {
                         OnPropertyChanged(new PropertyChangedEventArgs("Checked"));
+                    }
 
                     OnPropertyChanged(new PropertyChangedEventArgs("CheckState"));
                 }
@@ -422,8 +412,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnExecute(EventArgs e)
         {
-            if (Execute != null)
-                Execute(this, e);
+            Execute?.Invoke(this, e);
         }
 
         /// <summary>
@@ -432,8 +421,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A PropertyChangedEventArgs containing the event data.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
     }
@@ -459,11 +447,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         string text = item.Text;
                         if (!string.IsNullOrEmpty(text) && (text == name))
+                        {
                             return item;
+                        }
 
                         text = item.ExtraText;
                         if (!string.IsNullOrEmpty(text) && (text == name))
+                        {
                             return item;
+                        }
                     }
                 }
 

@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -105,8 +101,10 @@ namespace ComponentFactory.Krypton.Toolkit
 			{
 				// Only layout visible children
 				if (child.Visible)
-					child.Layout(context);
-			}
+                {
+                    child.Layout(context);
+                }
+            }
 
             // Restore original display rect we were given
             context.DisplayRectangle = ClientRectangle;

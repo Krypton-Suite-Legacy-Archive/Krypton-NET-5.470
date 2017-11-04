@@ -8,11 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-
 namespace ComponentFactory.Krypton.Workspace
 {
     internal class PI

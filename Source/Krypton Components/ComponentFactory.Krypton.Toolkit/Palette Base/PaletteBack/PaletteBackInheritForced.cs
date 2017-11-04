@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -99,13 +96,19 @@ namespace ComponentFactory.Krypton.Toolkit
         public override InheritBool GetBackDraw(PaletteState state)
         {
             if (_forceDraw != InheritBool.Inherit)
+            {
                 return _forceDraw;
+            }
             else
             {
                 if (_borderIgnoreNormal && (state == PaletteState.Normal))
+                {
                     return InheritBool.False;
+                }
                 else
+                {
                     return _inherit.GetBackDraw(state);
+                }
             }
         }
 
@@ -117,9 +120,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
         {
             if (_forceGraphicsHint != PaletteGraphicsHint.Inherit)
+            {
                 return _forceGraphicsHint;
+            }
             else
+            {
                 return _inherit.GetBackGraphicsHint(state);
+            }
         }
 
 		/// <summary>

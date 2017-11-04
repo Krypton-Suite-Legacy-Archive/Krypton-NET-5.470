@@ -8,14 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -26,7 +21,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonPanel : ViewDrawPanel
     {
         #region Static Fields
-        private static readonly int EDGE_GAP = 1;
+
+        private const int EDGE_GAP = 1;
+
         #endregion
 
         #region Instance Fields
@@ -50,9 +47,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _paintDelegate = paintDelegate;
 
-            _compBlend = new Blend();
-            _compBlend.Positions = new float[] { 0.0f, 0.4f, 1.0f };
-            _compBlend.Factors = new float[] { 0.0f, 0.87f, 1.0f };
+            _compBlend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.4f, 1.0f },
+                Factors = new float[] { 0.0f, 0.87f, 1.0f }
+            };
         }
         #endregion
 
@@ -71,12 +70,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Clip to prevent drawing over the tabs area
                 using (Clipping clip = new Clipping(context.Graphics, new Rectangle(ClientLocation.X, ClientLocation.Y + tabsHeight, ClientWidth, ClientHeight - tabsHeight)))
+                {
                     base.RenderBefore(context);
+                }
 
                 PaintRectangle(context.Graphics, new Rectangle(ClientLocation.X, ClientLocation.Y, ClientWidth, tabsHeight), true, null);
             }
             else
+            {
                 base.RenderBefore(context);
+            }
         }
 
         /// <summary>
@@ -103,7 +106,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         border.ClientRectangle = new Rectangle(-sender.Location.X, rect.Bottom - 1, _ribbon.Width, 10);
                         using (RenderContext context = new RenderContext(_ribbon, g, rect, _ribbon.Renderer))
+                        {
                             border.Render(context);
+                        }
                     }
                 }
 
@@ -122,9 +127,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_ribbon != null)
+                {
                     return _ribbon.CaptionArea.DrawCaptionOnComposition;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         #endregion

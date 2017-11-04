@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -25,7 +22,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonGalleryItems : ViewComposite
     {
         #region Static Fields
-        private static readonly int SCROLL_MOVE = 10;
+
+        private const int SCROLL_MOVE = 10;
+
         #endregion
 
         #region Instance Fields
@@ -94,8 +93,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                                  PaletteContentStyle.ButtonLowProfile);
 
             // Setup timer to use for scrolling lines
-            _scrollTimer = new Timer();
-            _scrollTimer.Interval = 40;
+            _scrollTimer = new Timer
+            {
+                Interval = 40
+            };
             _scrollTimer.Tick += new EventHandler(OnScrollTick);
         }
 
@@ -134,7 +135,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void TrackMoveHome()
         {
             if (Count > 0)
+            {
                 _gallery.SetTrackingIndex(0, true);
+            }
         }
 
         /// <summary>
@@ -143,7 +146,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void TrackMoveEnd()
         {
             if (Count > 0)
+            {
                 _gallery.SetTrackingIndex(Count - 1, true);
+            }
         }
 
         /// <summary>
@@ -296,7 +301,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Ensure the old top line can be displayed during scrolling
                     if ((_beginLine == -1) || (_beginLine > prevTopLine))
+                    {
                         _beginLine = prevTopLine;
+                    }
                 }
 
                 // Start the scrolling
@@ -323,7 +330,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Ensure the old top line can be displayed during scrolling
                     if ((_beginLine == -1) || (_beginLine < prevTopLine))
+                    {
                         _beginLine = prevTopLine;
+                    }
                 }
 
                 // Start the scrolling
@@ -401,9 +410,12 @@ namespace ComponentFactory.Krypton.Ribbon
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
-            // We take on all the available display area
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+		    // We take on all the available display area
 			ClientRectangle = context.DisplayRectangle;
 
             // Ensure that the correct number of children are created
@@ -461,7 +473,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Limit check the number of previous lines to show
                         if (_topLine - extraLines < 0)
+                        {
                             extraLines = _topLine;
+                        }
 
                         // Move start to ensure that the previous lines are visible
                         start -= (extraLines * _lineItems);
@@ -479,7 +493,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Limit check the end item to stop it overflowing number of items
                         if (end > Count)
+                        {
                             end = Count;
+                        }
                     }
                 }
 
@@ -493,7 +509,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Should this item be visible
                     if ((i < start) || (i >= end))
+                    {
                         childItem.Visible = false;
+                    }
                     else
                     {
                         childItem.Visible = true;
@@ -539,7 +557,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Find out how many children we need
             if (imageList != null)
+            {
                 required = _gallery.ImageList.Images.Count;
+            }
 
             // If we do not have enough already
             if (Count < required)
@@ -547,14 +567,18 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Create and add the number extra needed
                 int create = required - Count;
                 for (int i = 0; i < create; i++)
+                {
                     Add(new ViewDrawRibbonGalleryItem(_gallery, _triple, this, _needPaint));
+                }
             }
             else if (Count > required)
             {
                 // Destroy the extra ones no longer needed
                 int remove = Count - required;
                 for (int i = 0; i < remove; i++)
+                {
                     RemoveAt(0);
+                }
             }
 
             // Tell each item the image it should be displaying
@@ -591,9 +615,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_offset != 0)
             {
                 if (_offset > 0)
+                {
                     _offset = Math.Max(0, _offset - SCROLL_MOVE);
+                }
                 else
+                {
                     _offset = Math.Min(0, _offset + SCROLL_MOVE);
+                }
             }
 
             // If we have finished the scrolling
@@ -621,7 +649,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Limit check to the last line for display purposes
                     if (line > _endLine)
+                    {
                         line = _endLine;
+                    }
 
                     // Cache top line before any changes made to it
                     int prevTopLine = _topLine;
@@ -674,13 +704,17 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Ensure the old top line can be displayed during scrolling
                         if ((_beginLine == -1) || (_beginLine > prevTopLine))
+                        {
                             _beginLine = prevTopLine;
+                        }
                     }
                     else if (_offset > 0)
                     {
                         // Ensure the old top line can be displayed during scrolling
                         if ((_beginLine == -1) || (_beginLine < prevTopLine))
+                        {
                             _beginLine = prevTopLine;
+                        }
                     }
                 }
 

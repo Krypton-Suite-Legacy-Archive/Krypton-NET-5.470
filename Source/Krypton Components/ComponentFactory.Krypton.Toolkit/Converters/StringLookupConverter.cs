@@ -83,8 +83,12 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Search for a matching value
                 foreach (Pair p in Pairs)
+                {
                     if (p.Enum.Equals(value))
+                    {
                         return p.Display;
+                    }
+                }
             }
 
             // Let base class perform default conversion
@@ -107,8 +111,12 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Search for a matching string
                 foreach (Pair p in Pairs)
+                {
                     if (p.Display.Equals(value))
+                    {
                         return p.Enum;
+                    }
+                }
             }
 
             // Let base class perform default conversion

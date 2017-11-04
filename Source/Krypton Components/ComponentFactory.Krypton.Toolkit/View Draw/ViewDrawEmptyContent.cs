@@ -9,13 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -66,12 +61,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             if (Enabled)
+            {
                 base.SetPalette(_paletteContentNormal);
+            }
             else
+            {
                 base.SetPalette(_paletteContentDisabled);
+            }
 
             return base.GetPreferredSize(context);
         }
@@ -85,12 +87,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             if (Enabled)
+            {
                 base.SetPalette(_paletteContentNormal);
+            }
             else
+            {
                 base.SetPalette(_paletteContentDisabled);
+            }
 
             base.Layout(context);
         }
@@ -106,12 +115,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             if (Enabled)
+            {
                 base.SetPalette(_paletteContentNormal);
+            }
             else
+            {
                 base.SetPalette(_paletteContentDisabled);
+            }
 
             base.RenderBefore(context);
 		}

@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -77,7 +74,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             IPalette palette = provider.ProviderPalette;
             if (palette == null)
+            {
                 palette = KryptonManager.GetPaletteForMode(provider.ProviderPaletteMode);
+            }
 
             // Create triple that can be used by the draw button
             _triple = new PaletteTripleToPalette(palette,
@@ -184,10 +183,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Ensure that the correct number of children are created
             SyncChildren();
@@ -239,14 +241,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Create and add the number extra needed
                 int create = _imageIndexCount - Count;
                 for (int i = 0; i < create; i++)
+                {
                     Add(new ViewDrawMenuImageSelectItem(_viewManager, _itemSelect, _triple, this, _needPaint));
+                }
             }
             else if (Count > _imageIndexCount)
             {
                 // Destroy the extra ones no longer needed
                 int remove = Count - _imageIndexCount;
                 for (int i = 0; i < remove; i++)
+                {
                     RemoveAt(0);
+                }
             }
 
             // Tell each item the image it should be displaying

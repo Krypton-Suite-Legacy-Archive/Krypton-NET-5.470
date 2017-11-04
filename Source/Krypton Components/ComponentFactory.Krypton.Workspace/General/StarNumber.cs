@@ -69,14 +69,18 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Validate the incoming value
                 if (value == null)
+                {
                     throw new ArgumentNullException("Cannot be assigned a null value.");
+                }
 
                 // If it ends with an asterisk...
                 if (value.EndsWith("*"))
                 {
                     // If there is only an asterisk in the string
                     if (value.Length == 1)
+                    {
                         _starSize = 1;
+                    }
                     else
                     {
                         // The star number can have decimal places

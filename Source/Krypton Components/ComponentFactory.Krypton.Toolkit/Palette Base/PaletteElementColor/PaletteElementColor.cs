@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -141,9 +134,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetElementColor1(PaletteState state)
         {
             if (Color1 != Color.Empty)
+            {
                 return Color1;
+            }
             else
+            {
                 return _inheritElementColor.GetElementColor1(state);
+            }
         }
         #endregion
 
@@ -186,9 +183,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetElementColor2(PaletteState state)
         {
             if (Color2 != Color.Empty)
+            {
                 return Color2;
+            }
             else
+            {
                 return _inheritElementColor.GetElementColor2(state);
+            }
         }
         #endregion
 
@@ -231,9 +232,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetElementColor3(PaletteState state)
         {
             if (Color3 != Color.Empty)
+            {
                 return Color3;
+            }
             else
+            {
                 return _inheritElementColor.GetElementColor3(state);
+            }
         }
         #endregion
 
@@ -276,9 +281,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetElementColor4(PaletteState state)
         {
             if (Color4 != Color.Empty)
+            {
                 return Color4;
+            }
             else
+            {
                 return _inheritElementColor.GetElementColor4(state);
+            }
         }
         #endregion
 
@@ -321,9 +330,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetElementColor5(PaletteState state)
         {
             if (Color5 != Color.Empty)
+            {
                 return Color5;
+            }
             else
+            {
                 return _inheritElementColor.GetElementColor5(state);
+            }
         }
         #endregion
     }

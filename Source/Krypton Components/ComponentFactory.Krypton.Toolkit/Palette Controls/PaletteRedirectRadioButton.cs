@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -73,33 +67,53 @@ namespace ComponentFactory.Krypton.Toolkit
             if (checkState)
             {
                 if (!enabled)
+                {
                     retImage = _images.CheckedDisabled;
+                }
                 else if (pressed)
+                {
                     retImage = _images.CheckedPressed;
+                }
                 else if (tracking)
+                {
                     retImage = _images.CheckedTracking;
+                }
                 else
+                {
                     retImage = _images.CheckedNormal;
+                }
             }
             else
             {
                 if (!enabled)
+                {
                     retImage = _images.UncheckedDisabled;
+                }
                 else if (pressed)
+                {
                     retImage = _images.UncheckedPressed;
+                }
                 else if (tracking)
+                {
                     retImage = _images.UncheckedTracking;
+                }
                 else
+                {
                     retImage = _images.UncheckedNormal;
+                }
             }
 
             // Not found, then get the common image
             if (retImage == null)
+            {
                 retImage = _images.Common;
+            }
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetRadioButtonImage(enabled, checkState, tracking, pressed);
+            }
 
             return retImage;
         }

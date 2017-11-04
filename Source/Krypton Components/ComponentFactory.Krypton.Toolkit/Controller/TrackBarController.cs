@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -80,12 +79,16 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (_targetHigher)
                         {
                             if (newTargetValue > currentValue)
+                            {
                                 _targetValue = newTargetValue;
+                            }
                         }
                         else
                         {
                             if (newTargetValue < currentValue)
+                            {
                                 _targetValue = newTargetValue;
+                            }
                         }
 
                         OnRepeatTimer(_repeatTimer, EventArgs.Empty);
@@ -116,8 +119,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     OnRepeatTimer(_repeatTimer, EventArgs.Empty);
 
                     // Use timer to keep moving towards the target value
-                    _repeatTimer = new Timer();
-                    _repeatTimer.Interval = SystemInformation.DoubleClickTime;
+                    _repeatTimer = new Timer
+                    {
+                        Interval = SystemInformation.DoubleClickTime
+                    };
                     _repeatTimer.Tick += new EventHandler(OnRepeatTimer);
                     _repeatTimer.Start();
                 }
@@ -194,48 +199,85 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null)  throw new ArgumentNullException("c");
-            if (e == null)  throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
 
-            switch(e.KeyCode)
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
+
+            switch (e.KeyCode)
             {
                 case Keys.Left:
                 case Keys.Up:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value -_drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
+
                     break;
                 case Keys.Right:
                 case Keys.Down:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
+
                     break;
                 case Keys.Home:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Minimum;
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Maximum;
+                    }
+
                     break;
                 case Keys.End:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Maximum;
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Minimum;
+                    }
+
                     break;
                 case Keys.PageDown:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
+
                     break;
                 case Keys.PageUp:
                     if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
                     else
+                    {
                         _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
+                    }
+
                     break;
             }
         }
@@ -261,8 +303,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             return _captured;
         }
@@ -286,7 +335,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(c != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
 
             // If we are capturing mouse input
             if (_captured)
@@ -312,9 +364,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if (current != _targetValue)
             {
                 if (current < _targetValue)
+                {
                     _drawTB.ViewDrawTrackBar.ScrollValue = Math.Min(_targetValue, current + _drawTB.ViewDrawTrackBar.LargeChange);
+                }
                 else
+                {
                     _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_targetValue, current - _drawTB.ViewDrawTrackBar.LargeChange);
+                }
             }
         }
         #endregion

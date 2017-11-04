@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -45,7 +42,9 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_singleton == null)
+                {
                     _singleton = new NullController();
+                }
 
                 return _singleton;
             }

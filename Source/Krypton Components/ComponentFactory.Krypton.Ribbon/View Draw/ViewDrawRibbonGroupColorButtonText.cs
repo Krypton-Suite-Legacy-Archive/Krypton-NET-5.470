@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -113,7 +109,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // A change in state always causes a size and layout calculation
             if (_cacheState != State)
@@ -136,7 +135,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // If the text is actually empty, then force it to be zero width
                 if (string.IsNullOrEmpty(GetShortText()))
+                {
                     _preferredSize.Width = 0;
+                }
 
                 // Cached value is valid till dirty palette noticed
                 _dirtyPaletteSize = _ribbon.DirtyPaletteCounter;
@@ -208,10 +209,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Use renderer to draw the text content
             if (_memento != null)
+            {
                 context.Renderer.RenderStandardContent.DrawContent(context, drawRect,
-                                                                   _contentProvider, _memento,
-                                                                   VisualOrientation.Top,
-                                                                   State, false, true);
+                    _contentProvider, _memento,
+                    VisualOrientation.Top,
+                    State, false, true);
+            }
         }
         #endregion
 
@@ -245,18 +248,30 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton.KryptonCommand != null)
             {
                 if (_firstText)
+                {
                     return _ribbonColorButton.KryptonCommand.TextLine1;
+                }
                 else if (!string.IsNullOrEmpty(_ribbonColorButton.KryptonCommand.TextLine2))
+                {
                     return _ribbonColorButton.KryptonCommand.TextLine2;
+                }
                 else
+                {
                     return " ";
+                }
             }
             else if (_firstText)
+            {
                 return _ribbonColorButton.TextLine1;
+            }
             else if (!string.IsNullOrEmpty(_ribbonColorButton.TextLine2))
+            {
                 return _ribbonColorButton.TextLine2;
+            }
             else
+            {
                 return " ";
+            }
         }
 
         /// <summary>

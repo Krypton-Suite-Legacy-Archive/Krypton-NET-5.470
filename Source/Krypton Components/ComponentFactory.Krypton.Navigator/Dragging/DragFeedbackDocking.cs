@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Diagnostics;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
@@ -55,8 +53,10 @@ namespace ComponentFactory.Krypton.Navigator
                 _renderer = renderer;
                 _screenRect = target.ScreenRect;
                 _drawRect = target.DrawRect;
-                _hintToTarget = new HintToTarget();
-                _hintToTarget.Add(target.Hint & DragTargetHint.ExcludeFlags, target);
+                _hintToTarget = new HintToTarget
+                {
+                    { target.Hint & DragTargetHint.ExcludeFlags, target }
+                };
                 _excludeCluster = (target.Hint & DragTargetHint.ExcludeCluster) == DragTargetHint.ExcludeCluster;
             }
 
@@ -271,9 +271,13 @@ namespace ComponentFactory.Krypton.Navigator
 
                     // Is the target allowed to be added to the found cluster (if there is one found)
                     if ((cluster == null) || cluster.ExcludeCluster || ((target.Hint & DragTargetHint.ExcludeCluster) == DragTargetHint.ExcludeCluster))
+                    {
                         _clusters.Add(new DockCluster(PaletteDragDrop, Renderer, target));
+                    }
                     else
+                    {
                         cluster.Add(target);
+                    }
                 }
             }
         }
@@ -295,12 +299,16 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // We use the first matching target found in a cluster
                 if ((clusterTarget != null) && (matchTarget == null))
+                {
                     matchTarget = clusterTarget;
+                }
             }
 
             // Update the solid feedback rectangle with area of the specific target
             if (_solid != null)
+            {
                 _solid.SolidRect = (matchTarget != null) ? matchTarget.DrawRect : Rectangle.Empty;
+            }
 
             return matchTarget;
         }
@@ -327,7 +335,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Must dispose each cluster as they contain unmanaged resources
             foreach (DockCluster cluster in _clusters)
+            {
                 cluster.Dispose();
+            }
 
             _clusters.Clear();
         }
@@ -335,8 +345,12 @@ namespace ComponentFactory.Krypton.Navigator
         private DockCluster FindTargetCluster(DragTarget target)
         {
             foreach (DockCluster cluster in _clusters)
+            {
                 if (!cluster.ExcludeCluster && cluster.ScreenRect.Equals(target.ScreenRect))
+                {
                     return cluster;
+                }
+            }
 
             return null;
         }

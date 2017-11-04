@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -71,13 +66,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Image retImage = null;
 
             if (expanded)
+            {
                 retImage = _plusMinusImages.Minus;
+            }
             else
+            {
                 retImage = _plusMinusImages.Plus;
+            }
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetTreeViewImage(expanded);
+            }
 
             return retImage;
         }
@@ -103,43 +104,74 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                 case CheckState.Unchecked:
                     if (!enabled)
+                    {
                         retImage = _checkboxImages.UncheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _checkboxImages.UncheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _checkboxImages.UncheckedTracking;
+                    }
                     else
+                    {
                         retImage = _checkboxImages.UncheckedNormal;
+                    }
+
                     break;
                 case CheckState.Checked:
                     if (!enabled)
+                    {
                         retImage = _checkboxImages.CheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _checkboxImages.CheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _checkboxImages.CheckedTracking;
+                    }
                     else
+                    {
                         retImage = _checkboxImages.CheckedNormal;
+                    }
+
                     break;
                 case CheckState.Indeterminate:
                     if (!enabled)
+                    {
                         retImage = _checkboxImages.IndeterminateDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _checkboxImages.IndeterminatePressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _checkboxImages.IndeterminateTracking;
+                    }
                     else
+                    {
                         retImage = _checkboxImages.IndeterminateNormal;
+                    }
+
                     break;
             }
 
             // Not found, then get the common image
             if (retImage == null)
+            {
                 retImage = _checkboxImages.Common;
+            }
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetCheckBoxImage(enabled, checkState, tracking, pressed);
+            }
 
             return retImage;
         }

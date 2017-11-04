@@ -12,10 +12,8 @@ using System;
 using System.Security;
 using System.Resources;
 using System.Reflection;
-using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 
 [assembly: AssemblyVersion("4.7.0.0")]
 [assembly: AssemblyFileVersion("4.7.0.0")]

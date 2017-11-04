@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -54,7 +48,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Cannot be seen if not attached to an mdi child window and cannot be seen
             // if the window is not maximized and so needing the pendant buttons
             if ((MdiChild == null) || !CommonHelper.IsFormMaximized(MdiChild))
+            {
                 return false;
+            }
 
             // The maximize button is never present on tool windows
             switch (MdiChild.FormBorderStyle)
@@ -66,11 +62,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Have all buttons been turned off?
             if (!MdiChild.ControlBox)
+            {
                 return false;
+            }
 
             // Has the minimize/maximize buttons been turned off?
             if (!MdiChild.MinimizeBox && !MdiChild.MaximizeBox)
+            {
                 return false;
+            }
 
             return true;
         }
@@ -84,11 +84,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Cannot be enabled if not attached to an mdi child window
             if (MdiChild == null)
+            {
                 return ButtonEnabled.False;
+            }
 
             // Has the maximize button been turned off?
             if (!MdiChild.MaximizeBox)
+            {
                 return ButtonEnabled.False;
+            }
 
             return ButtonEnabled.True;
         }

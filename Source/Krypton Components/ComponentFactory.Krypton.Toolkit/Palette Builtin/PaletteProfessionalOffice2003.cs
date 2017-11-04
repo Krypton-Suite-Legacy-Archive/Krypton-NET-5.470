@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -26,15 +20,15 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteProfessionalOffice2003 : PaletteProfessionalSystem
 	{
         #region Static Fields
-        private static readonly Color[] _colorsB = new Color[] { Color.FromArgb( 89, 135, 214),   // Header1Begin
+        private static readonly Color[] _colorsB = { Color.FromArgb( 89, 135, 214),   // Header1Begin
                                                                  Color.FromArgb(  4,  57, 148),   // Header1End
                                                                };
 
-        private static readonly Color[] _colorsG = new Color[] { Color.FromArgb(175, 192, 130),   // Header1Begin
+        private static readonly Color[] _colorsG = { Color.FromArgb(175, 192, 130),   // Header1Begin
                                                                  Color.FromArgb( 99, 122,  69),   // Header1End  
                                                                };
 
-        private static readonly Color[] _colorsS = new Color[] { Color.FromArgb(168, 167, 191),   // Header1Begin
+        private static readonly Color[] _colorsS = { Color.FromArgb(168, 167, 191),   // Header1Begin
                                                                  Color.FromArgb(113, 112, 145),   // Header1End
                                                                };
         #endregion
@@ -138,14 +132,23 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case PaletteBackStyle.HeaderDockInactive:
                         if (state == PaletteState.Disabled)
+                        {
                             return SystemColors.Control;
+                        }
                         else
+                        {
                             return ColorTable.ButtonCheckedHighlight;
+                        }
+
                     case PaletteBackStyle.HeaderDockActive:
                         if (state == PaletteState.Disabled)
+                        {
                             return SystemColors.Control;
+                        }
                         else
+                        {
                             return SystemColors.Highlight;
+                        }
                 }
             }
 
@@ -178,14 +181,24 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case PaletteBackStyle.HeaderDockInactive:
                         if (state == PaletteState.Disabled)
+                        {
                             return SystemColors.Control;
+                        }
                         else
+                        {
                             return ColorTable.ButtonCheckedHighlight;
+                        }
+
                     case PaletteBackStyle.HeaderDockActive:
                         if (state == PaletteState.Disabled)
+                        {
                             return SystemColors.Control;
+                        }
                         else
+                        {
                             return SystemColors.Highlight;
+                        }
+
                     case PaletteBackStyle.TabDock:
                         switch (state)
                         {
@@ -222,7 +235,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_usingOffice2003)
             {
                 if (state == PaletteState.Disabled)
+                {
                     return SystemColors.ControlDark;
+                }
 
                 switch (style)
                 {
@@ -255,7 +270,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_usingOffice2003)
             {
                 if (state == PaletteState.Disabled)
+                {
                     return SystemColors.ControlDark;
+                }
 
                 switch (style)
                 {

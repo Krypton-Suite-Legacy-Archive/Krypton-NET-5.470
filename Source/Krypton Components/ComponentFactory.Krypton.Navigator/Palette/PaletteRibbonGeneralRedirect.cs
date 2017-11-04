@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -310,9 +304,13 @@ namespace ComponentFactory.Krypton.Navigator
         public Font GetRibbonTextFont(PaletteState state)
         {
             if (TextFont != null)
+            {
                 return TextFont;
+            }
             else
+            {
                 return _inherit.GetRibbonTextFont(state);
+            }
         }
         #endregion
 
@@ -354,9 +352,13 @@ namespace ComponentFactory.Krypton.Navigator
         public PaletteTextHint GetRibbonTextHint(PaletteState state)
         {
             if (TextHint != PaletteTextHint.Inherit)
+            {
                 return TextHint;
+            }
             else
+            {
                 return _inherit.GetRibbonTextHint(state);
+            }
         }
         #endregion
 

@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -127,14 +124,16 @@ namespace ComponentFactory.Krypton.Toolkit
 			{
 				// Only create the single instance when first requested
 				if (_empty == null)
-					_empty = new AccurateTextMemento(string.Empty,
-                                                     null,
-                                                     Size.Empty,
-                                                     StringFormat.GenericDefault,
-                                                     TextRenderingHint.SystemDefault,
-                                                     false);
+				{
+				    _empty = new AccurateTextMemento(string.Empty,
+				        null,
+				        Size.Empty,
+				        StringFormat.GenericDefault,
+				        TextRenderingHint.SystemDefault,
+				        false);
+				}
 
-				return _empty;
+			    return _empty;
 			}
 		}
 		#endregion

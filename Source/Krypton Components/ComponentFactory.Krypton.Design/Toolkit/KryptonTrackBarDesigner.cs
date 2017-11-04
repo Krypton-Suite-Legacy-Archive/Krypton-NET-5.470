@@ -8,10 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -48,13 +44,19 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (!_trackBar.AutoSize)
+                {
                     return SelectionRules.AllSizeable | SelectionRules.Moveable;
+                }
                 else
                 {
                     if (_trackBar.Orientation == Orientation.Horizontal)
+                    {
                         return SelectionRules.RightSizeable | SelectionRules.LeftSizeable | SelectionRules.Moveable;
+                    }
                     else
+                    {
                         return SelectionRules.TopSizeable | SelectionRules.BottomSizeable | SelectionRules.Moveable;
+                    }
                 }
             }
         }
@@ -67,10 +69,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the button specific list
-                actionLists.Add(new KryptonTrackBarActionList(this));
+                    // Add the button specific list
+                    new KryptonTrackBarActionList(this)
+                };
 
                 return actionLists;
             }

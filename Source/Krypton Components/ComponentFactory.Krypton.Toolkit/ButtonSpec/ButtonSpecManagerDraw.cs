@@ -8,14 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -117,8 +110,12 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override int DockerIndex(ViewBase viewDocker)
         {
             for (int i = 0; i < _viewDockers.Length; i++)
+            {
                 if (_viewDockers[i] == viewDocker)
+                {
                     return i;
+                }
+            }
 
             return -1;
         }
@@ -155,8 +152,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Find the child that is used to fill docker
             foreach (ViewBase child in viewDocker)
+            {
                 if (viewDocker.GetDock(child) == ViewDockStyle.Fill)
+                {
                     return child as ViewDrawContent;
+                }
+            }
 
             return null;
         }
@@ -183,11 +184,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if (usingSpacers)
             {
                 for(int j=0; j<insertIndex; j++)
+                {
                     if (viewDocker[j] is ViewLayoutMetricSpacer)
                     {
                         insertIndex = j;
                         break;
                     }
+                }
             }
             
             viewDocker.Insert(insertIndex, view);

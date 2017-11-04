@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -29,9 +26,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We show a drop down for editing the PaletteDrawBorders value.
             if ((context != null) && (context.Instance != null))
+            {
                 return UITypeEditorEditStyle.DropDown;
+            }
             else
+            {
                 return base.GetEditStyle(context);
+            }
         }
 
         /// <summary>
@@ -53,10 +54,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (service != null)
                 {
                     // Create the custom control used to edit value
-                    PaletteDrawBordersSelector selector = new PaletteDrawBordersSelector();
+                    PaletteDrawBordersSelector selector = new PaletteDrawBordersSelector
+                    {
 
-                    // Populate selector with starting value
-                    selector.Value = (PaletteDrawBorders)value;
+                        // Populate selector with starting value
+                        Value = (PaletteDrawBorders)value
+                    };
 
                     // Show as a drop down control
                     service.DropDownControl(selector);

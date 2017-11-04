@@ -9,18 +9,13 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
 using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -123,7 +118,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the shadow control
             if (shadow)
+            {
                 _shadow = new VisualPopupShadow();
+            }
         }
 
         /// <summary>
@@ -173,8 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
                       screenRect.Width, screenRect.Height);
 
             // If we have a shadow then update it now
-            if (_shadow != null)
-                _shadow.Show(screenRect);
+            _shadow?.Show(screenRect);
 
             // Show the window without activating it (i.e. do not take focus)
             PI.ShowWindow(this.Handle, PI.SW_SHOWNOACTIVATE);
@@ -205,7 +201,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                               GraphicsPath path3)
         {
             if (_shadow != null)
+            {
                 _shadow.DefinePaths(path1, path2, path3);
+            }
             else
             {
                 path1.Dispose();
@@ -229,9 +227,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Get the window handle of the window under this screen point
                 Point screenPt = PointToScreen(pt);
-                PI.POINT screenPIPt = new PI.POINT();
-                screenPIPt.x = screenPt.X;
-                screenPIPt.y = screenPt.Y;
+                PI.POINT screenPIPt = new PI.POINT
+                {
+                    x = screenPt.X,
+                    y = screenPt.Y
+                };
                 IntPtr hWnd = PI.WindowFromPoint(screenPIPt);
 
                 // Assuming we got back a valid window handle
@@ -246,7 +246,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         // If let the message occur as it is being pressed on a combo box 
                         // drop down list and so it will process the message appropriately
                         if (className.ToString() == "ComboLBox")
+                        {
                             endTracking = false;
+                        }
                     }
                 }
             }
@@ -305,7 +307,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If we have the focus then we always allow the mouse move
             if (ContainsFocus)
+            {
                 return true;
+            }
             else
             {
                 // If the mouse is over this popup then allow
@@ -435,11 +439,16 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // If required, layout the control
             if (e.NeedLayout && !_layoutDirty)
+            {
                 _layoutDirty = true;
+            }
 
             if (IsHandleCreated && (!_refreshAll || !e.InvalidRect.IsEmpty))
             {
@@ -450,11 +459,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     Invalidate();
                 }
                 else
+                {
                     Invalidate(e.InvalidRect);
+                }
 
                 // Do we need to use an Invoke to force repaint?
                 if (!_refresh && EvalInvokePaint)
+                {
                     BeginInvoke(_refreshCall);
+                }
 
                 // A refresh is outstanding
                 _refresh = true;
@@ -560,8 +573,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseMove(e, new Point(e.X, e.Y));
+                ViewManager?.MouseMove(e, new Point(e.X, e.Y));
             }
 
             // Let base class fire events
@@ -578,8 +590,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseDown(e, new Point(e.X, e.Y));
+                ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
             // Do not call base class! Prevent capture of the mouse
@@ -595,8 +606,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseUp(e, new Point(e.X, e.Y));
+                ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
             // Do not call base class! Prevent capture of the mouse
@@ -612,8 +622,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.MouseLeave(e);
+                ViewManager?.MouseLeave(e);
             }
 
             // Let base class fire events
@@ -630,8 +639,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                if (ViewManager != null)
-                    ViewManager.DoubleClick(this.PointToClient(Control.MousePosition));
+                ViewManager?.DoubleClick(this.PointToClient(Control.MousePosition));
             }
 
             // Let base class fire events
@@ -680,8 +688,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Do we have a manager for processing key messages?
-                    if (ViewManager != null)
-                        ViewManager.KeyDown(e);
+                    ViewManager?.KeyDown(e);
                 }
             }
 
@@ -699,8 +706,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyPress(e);
+                ViewManager?.KeyPress(e);
             }
 
             // Let base class fire events
@@ -717,8 +723,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing key messages?
-                if (ViewManager != null)
-                    ViewManager.KeyUp(e);
+                ViewManager?.KeyUp(e);
             }
 
             // Let base class fire events
@@ -775,19 +780,27 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Place it in the area with the most space
                     if (spareAbove > spareBelow)
+                    {
                         popupLocation.Y = screen.WorkingArea.Top;
+                    }
                     else
+                    {
                         popupLocation.Y = parentScreenRect.Bottom;
+                    }
                 }
             }
 
             // Prevent the popup from being off the left side of the screen
             if (popupLocation.X < screen.WorkingArea.Left)
+            {
                 popupLocation.X = screen.WorkingArea.Left;
+            }
 
             // Preven the popup from being off the right size of the screen
-            if ((popupLocation.X + popupSize.Width) > screen.WorkingArea.Right)   
+            if ((popupLocation.X + popupSize.Width) > screen.WorkingArea.Right)
+            {
                 popupLocation.X = screen.WorkingArea.Right - popupSize.Width;
+            }
 
             return new Rectangle(popupLocation, popupSize);
         }

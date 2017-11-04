@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -113,10 +109,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override Font GetContentShortTextFont(PaletteState state)
 		{
 			if (_font != null)
-				return _font;
-			else
+            {
+                return _font;
+            }
+            else
+            {
                 return Inherit.GetContentShortTextFont(state);
-		}
+            }
+        }
         #endregion
 
         #region TextH
@@ -151,10 +151,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override PaletteRelativeAlign GetContentShortTextH(PaletteState state)
 		{
 			if (_textH != PaletteRelativeAlign.Inherit)
-				return _textH;
-			else
+            {
+                return _textH;
+            }
+            else
+            {
                 return Inherit.GetContentShortTextH(state);
-		}
+            }
+        }
         #endregion
 
         #region TextV
@@ -189,10 +193,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override PaletteRelativeAlign GetContentShortTextV(PaletteState state)
 		{
 			if (_textV != PaletteRelativeAlign.Inherit)
-				return _textV;
-			else
+            {
+                return _textV;
+            }
+            else
+            {
                 return Inherit.GetContentShortTextV(state);
-		}
+            }
+        }
         #endregion
 
 		#region Padding
@@ -239,10 +247,25 @@ namespace ComponentFactory.Krypton.Toolkit
             Padding paddingThis = Padding;
 
 			// Override with specified values
-            if (paddingThis.Left != -1) paddingInherit.Left = paddingThis.Left;
-            if (paddingThis.Right != -1) paddingInherit.Right = paddingThis.Right;
-            if (paddingThis.Top != -1) paddingInherit.Top = paddingThis.Top;
-            if (paddingThis.Bottom != -1) paddingInherit.Bottom = paddingThis.Bottom;
+            if (paddingThis.Left != -1)
+            {
+                paddingInherit.Left = paddingThis.Left;
+            }
+
+            if (paddingThis.Right != -1)
+            {
+                paddingInherit.Right = paddingThis.Right;
+            }
+
+            if (paddingThis.Top != -1)
+            {
+                paddingInherit.Top = paddingThis.Top;
+            }
+
+            if (paddingThis.Bottom != -1)
+            {
+                paddingInherit.Bottom = paddingThis.Bottom;
+            }
 
             return paddingInherit;
 		}

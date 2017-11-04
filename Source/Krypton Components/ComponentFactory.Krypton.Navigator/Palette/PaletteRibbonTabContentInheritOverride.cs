@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -126,12 +120,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(_override ? _state : state);
 
                 if (ret == PaletteRibbonColorStyle.Inherit)
+                {
                     ret = _backupBack.GetRibbonBackColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -146,12 +144,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryBack.GetRibbonBackColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor1(state);
+            }
         }
 
         /// <summary>
@@ -166,12 +168,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryBack.GetRibbonBackColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor2(state);
+            }
         }
 
         /// <summary>
@@ -186,12 +192,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryBack.GetRibbonBackColor3(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor3(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor3(state);
+            }
         }
 
         /// <summary>
@@ -206,12 +216,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryBack.GetRibbonBackColor4(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor4(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor4(state);
+            }
         }
 
         /// <summary>
@@ -226,12 +240,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryBack.GetRibbonBackColor5(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor5(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor5(state);
+            }
         }
         #endregion
 
@@ -248,12 +266,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryText.GetRibbonTextColor(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupText.GetRibbonTextColor(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupText.GetRibbonTextColor(state);
+            }
         }
         #endregion
 
@@ -270,12 +292,16 @@ namespace ComponentFactory.Krypton.Navigator
                 InheritBool ret = _primaryContent.GetContentDraw(_override ? _state : state);
 
                 if (ret == InheritBool.Inherit)
+                {
                     ret = _backupContent.GetContentDraw(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentDraw(state);
+            }
         }
 
         /// <summary>
@@ -290,12 +316,16 @@ namespace ComponentFactory.Krypton.Navigator
                 InheritBool ret = _primaryContent.GetContentDrawFocus(_override ? _state : state);
 
                 if (ret == InheritBool.Inherit)
+                {
                     ret = _backupContent.GetContentDrawFocus(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentDrawFocus(state);
+            }
         }
 
         /// <summary>
@@ -310,12 +340,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentImageH(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentImageH(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentImageH(state);
+            }
         }
 
         /// <summary>
@@ -330,12 +364,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentImageV(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentImageV(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentImageV(state);
+            }
         }
 
         /// <summary>
@@ -350,12 +388,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteImageEffect ret = _primaryContent.GetContentImageEffect(_override ? _state : state);
 
                 if (ret == PaletteImageEffect.Inherit)
+                {
                     ret = _backupContent.GetContentImageEffect(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentImageEffect(state);
+            }
         }
 
         /// <summary>
@@ -370,12 +412,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentImageColorMap(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentImageColorMap(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentImageColorMap(state);
+            }
         }
 
         /// <summary>
@@ -390,12 +436,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentImageColorTo(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentImageColorTo(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentImageColorTo(state);
+            }
         }
 
         /// <summary>
@@ -410,12 +460,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Font ret = _primaryContent.GetContentShortTextFont(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentShortTextFont(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextFont(state);
+            }
         }
 
         /// <summary>
@@ -430,12 +484,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Font ret = _primaryContent.GetContentShortTextNewFont(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentShortTextNewFont(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextNewFont(state);
+            }
         }
 
         /// <summary>
@@ -450,12 +508,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextHint ret = _primaryContent.GetContentShortTextHint(_override ? _state : state);
 
                 if (ret == PaletteTextHint.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextHint(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextHint(state);
+            }
         }
 
         /// <summary>
@@ -470,12 +532,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextHotkeyPrefix ret = _primaryContent.GetContentShortTextPrefix(_override ? _state : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextPrefix(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextPrefix(state);
+            }
         }
 
         /// <summary>
@@ -490,12 +556,16 @@ namespace ComponentFactory.Krypton.Navigator
                 InheritBool ret = _primaryContent.GetContentShortTextMultiLine(_override ? _state : state);
 
                 if (ret == InheritBool.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextMultiLine(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextMultiLine(state);
+            }
         }
 
         /// <summary>
@@ -510,12 +580,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextTrim ret = _primaryContent.GetContentShortTextTrim(_override ? _state : state);
 
                 if (ret == PaletteTextTrim.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextTrim(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextTrim(state);
+            }
         }
 
         /// <summary>
@@ -530,12 +604,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentShortTextH(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextH(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextH(state);
+            }
         }
 
         /// <summary>
@@ -550,12 +628,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentShortTextV(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextV(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextV(state);
+            }
         }
 
         /// <summary>
@@ -570,12 +652,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentShortTextMultiLineH(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextMultiLineH(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextMultiLineH(state);
+            }
         }
 
         /// <summary>
@@ -590,12 +676,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentShortTextColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentShortTextColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -610,12 +700,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentShortTextColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentShortTextColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextColor2(state);
+            }
         }
 
         /// <summary>
@@ -630,12 +724,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteColorStyle ret = _primaryContent.GetContentShortTextColorStyle(_override ? _state : state);
 
                 if (ret == PaletteColorStyle.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -650,12 +748,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRectangleAlign ret = _primaryContent.GetContentShortTextColorAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextColorAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextColorAlign(state);
+            }
         }
 
         /// <summary>
@@ -670,12 +772,16 @@ namespace ComponentFactory.Krypton.Navigator
                 float ret = _primaryContent.GetContentShortTextColorAngle(_override ? _state : state);
 
                 if (ret == -1f)
+                {
                     ret = _backupContent.GetContentShortTextColorAngle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextColorAngle(state);
+            }
         }
 
         /// <summary>
@@ -690,12 +796,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Image ret = _primaryContent.GetContentShortTextImage(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentShortTextImage(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextImage(state);
+            }
         }
 
         /// <summary>
@@ -710,12 +820,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteImageStyle ret = _primaryContent.GetContentShortTextImageStyle(_override ? _state : state);
 
                 if (ret == PaletteImageStyle.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextImageStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextImageStyle(state);
+            }
         }
 
         /// <summary>
@@ -730,12 +844,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRectangleAlign ret = _primaryContent.GetContentShortTextImageAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backupContent.GetContentShortTextImageAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentShortTextImageAlign(state);
+            }
         }
 
         /// <summary>
@@ -750,12 +868,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Font ret = _primaryContent.GetContentLongTextFont(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentLongTextFont(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextFont(state);
+            }
         }
 
         /// <summary>
@@ -770,12 +892,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Font ret = _primaryContent.GetContentLongTextNewFont(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentLongTextNewFont(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextNewFont(state);
+            }
         }
 
         /// <summary>
@@ -790,12 +916,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextHint ret = _primaryContent.GetContentLongTextHint(_override ? _state : state);
 
                 if (ret == PaletteTextHint.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextHint(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextHint(state);
+            }
         }
 
         /// <summary>
@@ -810,12 +940,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextHotkeyPrefix ret = _primaryContent.GetContentLongTextPrefix(_override ? _state : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextPrefix(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextPrefix(state);
+            }
         }
 
         /// <summary>
@@ -830,12 +964,16 @@ namespace ComponentFactory.Krypton.Navigator
                 InheritBool ret = _primaryContent.GetContentLongTextMultiLine(_override ? _state : state);
 
                 if (ret == InheritBool.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextMultiLine(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextMultiLine(state);
+            }
         }
 
         /// <summary>
@@ -850,12 +988,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteTextTrim ret = _primaryContent.GetContentLongTextTrim(_override ? _state : state);
 
                 if (ret == PaletteTextTrim.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextTrim(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextTrim(state);
+            }
         }
 
         /// <summary>
@@ -870,12 +1012,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentLongTextH(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextH(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextH(state);
+            }
         }
 
         /// <summary>
@@ -890,12 +1036,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentLongTextV(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextV(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextV(state);
+            }
         }
 
         /// <summary>
@@ -910,12 +1060,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRelativeAlign ret = _primaryContent.GetContentLongTextMultiLineH(_override ? _state : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextMultiLineH(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextMultiLineH(state);
+            }
         }
 
         /// <summary>
@@ -930,12 +1084,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentLongTextColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentLongTextColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -950,12 +1108,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Color ret = _primaryContent.GetContentLongTextColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupContent.GetContentLongTextColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextColor2(state);
+            }
         }
 
         /// <summary>
@@ -970,12 +1132,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteColorStyle ret = _primaryContent.GetContentLongTextColorStyle(_override ? _state : state);
 
                 if (ret == PaletteColorStyle.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -990,12 +1156,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRectangleAlign ret = _primaryContent.GetContentLongTextColorAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextColorAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextColorAlign(state);
+            }
         }
 
         /// <summary>
@@ -1010,12 +1180,16 @@ namespace ComponentFactory.Krypton.Navigator
                 float ret = _primaryContent.GetContentLongTextColorAngle(_override ? _state : state);
 
                 if (ret == -1f)
+                {
                     ret = _backupContent.GetContentLongTextColorAngle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextColorAngle(state);
+            }
         }
 
         /// <summary>
@@ -1030,12 +1204,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Image ret = _primaryContent.GetContentLongTextImage(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backupContent.GetContentLongTextImage(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextImage(state);
+            }
         }
 
         /// <summary>
@@ -1050,12 +1228,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteImageStyle ret = _primaryContent.GetContentLongTextImageStyle(_override ? _state : state);
 
                 if (ret == PaletteImageStyle.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextImageStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextImageStyle(state);
+            }
         }
 
         /// <summary>
@@ -1070,12 +1252,16 @@ namespace ComponentFactory.Krypton.Navigator
                 PaletteRectangleAlign ret = _primaryContent.GetContentLongTextImageAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backupContent.GetContentLongTextImageAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentLongTextImageAlign(state);
+            }
         }
 
         /// <summary>
@@ -1090,12 +1276,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Padding ret = _primaryContent.GetContentPadding(_override ? _state : state);
 
                 if (ret.All == -1)
+                {
                     ret = _backupContent.GetContentPadding(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentPadding(state);
+            }
         }
 
         /// <summary>
@@ -1110,12 +1300,16 @@ namespace ComponentFactory.Krypton.Navigator
                 int ret = _primaryContent.GetContentAdjacentGap(_override ? _state : state);
 
                 if (ret == -1)
+                {
                     ret = _backupContent.GetContentAdjacentGap(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupContent.GetContentAdjacentGap(state);
+            }
         }
 
         /// <summary>
@@ -1125,9 +1319,13 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual PaletteContentStyle GetContentStyle()
         {
             if (_apply)
+            {
                 return _primaryContent.GetContentStyle();
+            }
             else
+            {
                 return _backupContent.GetContentStyle();
+            }
         }
         #endregion
     }

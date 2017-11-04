@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -92,13 +91,17 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
 		{
             if ((_mouseOver) && (button == MouseButtons.Left))
+            {
                 OnClick(EventArgs.Empty);
+            }
 
-            // Remember the user has pressed the right mouse button down
+		    // Remember the user has pressed the right mouse button down
             if (button == MouseButtons.Right)
+            {
                 _rightButtonDown = true;
+            }
 
-            return false;
+		    return false;
 		}
 
 		/// <summary>
@@ -207,9 +210,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -237,9 +244,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+        }
 
         /// <summary>
         /// Raises the Click event.
@@ -247,8 +253,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnClick(EventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
 
         /// <summary>
@@ -257,8 +262,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnContextClick(MouseEventArgs e)
         {
-            if (ContextClick != null)
-                ContextClick(this, e);
+            ContextClick?.Invoke(this, e);
         }
         #endregion
     }

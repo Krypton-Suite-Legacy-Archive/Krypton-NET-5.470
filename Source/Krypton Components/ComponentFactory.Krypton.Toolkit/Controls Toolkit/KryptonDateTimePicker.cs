@@ -9,15 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -58,8 +52,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Static Fields
-        private static readonly string _defaultToday = "Today:";
-        #endregion
+
+	    private const string DEFAULT_TODAY = "Today:";
+
+	    #endregion
         
         #region Instance Fields
         private ViewDrawDocker _drawDockerOuter;
@@ -238,7 +234,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _dayStyle = ButtonStyle.CalendarDay;
             _dayOfWeekStyle = ButtonStyle.CalendarDay;
             _dimensions = new Size(1, 1);
-            _today = _defaultToday;
+            _today = DEFAULT_TODAY;
             _firstDayOfWeek = Day.Default;
             _annualDates = new DateTimeList();
             _monthlyDates = new DateTimeList();
@@ -256,10 +252,14 @@ namespace ComponentFactory.Krypton.Toolkit
             // Add a checkbox to the left of the text area
             _checkBoxImages = new CheckBoxImages(NeedPaintDelegate);
             PaletteRedirectCheckBox paletteCheckBoxImages = new PaletteRedirectCheckBox(Redirector, _checkBoxImages);
-            _drawCheckBox = new ViewDrawCheckBox(paletteCheckBoxImages);
-            _drawCheckBox.CheckState = CheckState.Checked;
-            _layoutCheckBox = new ViewLayoutCenter();
-            _layoutCheckBox.Add(new ViewLayoutPadding(new Padding(1, 1, 4, 1), _drawCheckBox));
+            _drawCheckBox = new ViewDrawCheckBox(paletteCheckBoxImages)
+            {
+                CheckState = CheckState.Checked
+            };
+            _layoutCheckBox = new ViewLayoutCenter
+            {
+                new ViewLayoutPadding(new Padding(1, 1, 4, 1), _drawCheckBox)
+            };
             _layoutCheckBox.Visible = false;
 
             // Need a controller for handling check box mouse input
@@ -273,8 +273,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawText = new ViewDrawDateTimeText(this, NeedPaintDelegate);
 
             // Create inner view for placing inside the drawing docker
-            _drawDockerInner = new ViewLayoutDocker();
-            _drawDockerInner.IgnoreRightToLeftLayout = true;
+            _drawDockerInner = new ViewLayoutDocker
+            {
+                IgnoreRightToLeftLayout = true
+            };
             _drawDockerInner.Add(_layoutCheckBox, ViewDockStyle.Left);
             _drawDockerInner.Add(_drawText, ViewDockStyle.Fill);
 
@@ -291,22 +293,28 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonDown.Click += new EventHandler(OnDownClick);
 
             // Stretch the drop down button to be the height of the available area
-            _dropStretch = new ViewLayoutStretch(Orientation.Vertical);
-            _dropStretch.Add(_buttonDropDown);
+            _dropStretch = new ViewLayoutStretch(Orientation.Vertical)
+            {
+                _buttonDropDown
+            };
             _drawDockerInner.Add(_dropStretch, ViewDockStyle.Right);
 
             // Fit the up/down buttons so they have an equal amount of the vertical space
-            _upDownFit = new ViewLayoutFit(Orientation.Vertical);
-            _upDownFit.Add(_buttonUp);
-            _upDownFit.Add(_buttonDown);
+            _upDownFit = new ViewLayoutFit(Orientation.Vertical)
+            {
+                _buttonUp,
+                _buttonDown
+            };
             _upDownFit.Visible = false;
             _drawDockerInner.Add(_upDownFit, ViewDockStyle.Right);
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border);
-            _drawDockerOuter.Add(new ViewLayoutPadding(new Padding(2, 0, 1, 0), _drawDockerInner), ViewDockStyle.Fill);
+            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            {
+                { new ViewLayoutPadding(new Padding(2, 0, 1, 0), _drawDockerInner), ViewDockStyle.Fill }
+            };
 
-			// Create the view manager instance
+            // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDockerOuter);
 
             // Create button specification collection manager
@@ -407,9 +415,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if ((ValueNullable == null) || (ValueNullable == DBNull.Value))
+                {
                     return string.Empty;
+                }
                 else
-                    return _drawText.ToString();  
+                {
+                    return _drawText.ToString();
+                }
             }
 
             set { }
@@ -442,7 +454,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
-                    value = _defaultToday;
+                {
+                    value = DEFAULT_TODAY;
+                }
 
                 _today = value;
             }
@@ -453,7 +467,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void ResetCalendarTodayText()
         {
-            CalendarTodayText = _defaultToday;
+            CalendarTodayText = DEFAULT_TODAY;
         }
 
         /// <summary>
@@ -529,7 +543,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = DateTime.Now.Date;
+                }
 
                 _todayDate = value;
             }
@@ -558,7 +574,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _annualDates.Clear();
                 _annualDates.AddRange(value);
@@ -592,7 +610,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _monthlyDates.Clear();
                 _monthlyDates.AddRange(value);
@@ -626,7 +646,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _dates.Clear();
                 _dates.AddRange(value);
@@ -690,12 +712,14 @@ namespace ComponentFactory.Krypton.Toolkit
                             _drawCheckBox.CheckState = CheckState.Unchecked;
                         }
                         else
+                        {
                             _drawCheckBox.CheckState = CheckState.Checked;
+                        }
 
                         // Do we need to update the date time value?
-                        if ((value is DateTime) && (_dateTime != (DateTime)value))
+                        if ((value is DateTime time) && (_dateTime != time))
                         {
-                            _dateTime = (DateTime)value;
+                            _dateTime = time;
                             OnValueChanged(EventArgs.Empty);
                         }
 
@@ -704,7 +728,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
                 else
+                {
                     throw new ArgumentException("Value can only accept 'null', 'DBNull' or 'DateTime' values.");
+                }
             }
         }
 
@@ -931,10 +957,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _maxDateTime)
                 {
                     if (value < EffectiveMinDate(_minDateTime))
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum supported date.");
+                    }
 
                     if (value > DateTimePicker.MaximumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum supported date.");
+                    }
 
                     _maxDateTime = value;
 
@@ -983,10 +1013,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _minDateTime)
                 {
                     if (value > EffectiveMaxDate(_maxDateTime))
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is greater than the maximum supported date.");
+                    }
 
                     if (value < DateTimePicker.MinimumDateTime)
+                    {
                         throw new ArgumentOutOfRangeException("Date provided is less than the minimum supported date.");
+                    }
 
                     _minDateTime = value;
 
@@ -1509,9 +1543,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive || ContainsFocus || _mouseOver);
+                }
             }
         }
 
@@ -1599,12 +1637,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -1657,13 +1709,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1676,7 +1734,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -1702,8 +1762,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnRightToLeftLayoutChanged(EventArgs e)
         {
-            if (RightToLeftLayoutChanged != null)
-                RightToLeftLayoutChanged(this, e);
+            RightToLeftLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1712,8 +1771,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatChanged(EventArgs e)
         {
-            if (FormatChanged != null)
-                FormatChanged(this, e);
+            FormatChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1722,8 +1780,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1732,8 +1789,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDropDown(DateTimePickerDropArgs e)
         {
-            if (DropDown != null)
-                DropDown(this, e);
+            DropDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1742,8 +1798,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An DateTimePickerCloseArgs containing the event data.</param>
         protected virtual void OnCloseUp(DateTimePickerCloseArgs e)
         {
-            if (CloseUp != null)
-                CloseUp(this, e);
+            CloseUp?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1752,8 +1807,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCloseUpMonthCalendarChanged(EventArgs e)
         {
-            if (CloseUpMonthCalendarChanged != null)
-                CloseUpMonthCalendarChanged(this, e);
+            CloseUpMonthCalendarChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1762,8 +1816,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         internal protected virtual void OnAutoShiftOverflow(CancelEventArgs e)
         {
-            if (AutoShiftOverflow != null)
-                AutoShiftOverflow(this, e);
+            AutoShiftOverflow?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1772,8 +1825,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueChanged(EventArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1782,8 +1834,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueNullableChanged(EventArgs e)
         {
-            if (ValueNullableChanged != null)
-                ValueNullableChanged(this, e);
+            ValueNullableChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1792,8 +1843,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnActiveFragmentChanged(EventArgs e)
         {
-            if (ActiveFragmentChanged != null)
-                ActiveFragmentChanged(this, e);
+            ActiveFragmentChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1811,7 +1861,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 m.Result = (IntPtr)PI.HTTRANSPARENT;
             }
             else
+            {
                 base.WndProc(ref m);
+            }
         }
         
         /// <summary>
@@ -1857,7 +1909,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Pass request onto the button spec manager
                 if (_buttonManager.ProcessMnemonic(charCode))
+                {
                     return true;
+                }
             }
 
             // No match found, let base class do standard processing
@@ -1878,7 +1932,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // If focus is on the checkbox then invert checked state
                     if (_drawCheckBox.ForcedTracking)
+                    {
                         Checked = !Checked;
+                    }
                 }
                 else
                 {
@@ -1921,7 +1977,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Simulate the up/down key the correct number of times
                 int detents = Math.Abs(e.Delta) / SystemInformation.MouseWheelScrollDelta;
                 for(int i=0; i<detents; i++)
+                {
                     _drawText.PerformKeyDown(kpea);
+                }
 
                 CheckActiveFragment();
             }
@@ -1993,7 +2051,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We always take the focus on a mouse down
             if (!ContainsFocus)
+            {
                 Focus();
+            }
 
             // Let base class perform standard processing
             base.OnMouseDown(e);
@@ -2073,7 +2133,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If we have a checbox then give it the focus
                 if (ShowCheckBox)
+                {
                     _drawCheckBox.ForcedTracking = true;
+                }
                 else
                 {
                     _drawText.MoveFirstFragment();
@@ -2117,7 +2179,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First time the height is set, remember it
                 if (_cachedHeight == -1)
+                {
                     _cachedHeight = height;
+                }
 
                 // Override the actual height used
                 height = PreferredHeight;
@@ -2125,7 +2189,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If setting the actual height then cache it for later
             if ((specified & BoundsSpecified.Height) == BoundsSpecified.Height)
+            {
                 _cachedHeight = height;
+            }
 
             base.SetBoundsCore(x, y, width, height, specified);
         }
@@ -2188,18 +2254,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
             if (maxDate > maximumDateTime)
+            {
                 return maximumDateTime;
+            }
             else
+            {
                 return maxDate;
+            }
         }
 
         internal DateTime EffectiveMinDate(DateTime minDate)
         {
             DateTime minimumDateTime = DateTimePicker.MinimumDateTime;
             if (minDate < minimumDateTime)
+            {
                 return minimumDateTime;
+            }
             else
+            {
                 return minDate;
+            }
         }
         #endregion
 
@@ -2228,9 +2302,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the new state of the main view element
             PaletteState state;
             if (IsActive)
+            {
                 state = PaletteState.Tracking;
+            }
             else
+            {
                 state = PaletteState.Normal;
+            }
 
             _drawDockerOuter.ElementState = state;
         }
@@ -2240,12 +2318,18 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive;
+                }
                 else
+                {
                     return _stateNormal;
+                }
             }
             else
+            {
                 return _stateDisabled;
+            }
         }
 
         private void CheckActiveFragment()
@@ -2280,7 +2364,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -2312,8 +2398,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -2353,34 +2438,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 DTPContextMenu kcm = new DTPContextMenu(RectangleToScreen(_buttonDropDown.ClientRectangle));
 
                 // Add and setup a month calendar element
-                _kmc = new KryptonContextMenuMonthCalendar();
-                _kmc.CalendarDimensions = CalendarDimensions;
-                _kmc.TodayText = CalendarTodayText;
-                _kmc.TodayFormat = CalendarTodayFormat;
-                _kmc.FirstDayOfWeek = CalendarFirstDayOfWeek;
-                _kmc.MaxDate = MaxDate.Date;
-                _kmc.MaxSelectionCount = 1;
-                _kmc.MinDate = MinDate.Date;
-                _kmc.SelectionStart = Value.Date;
-                _kmc.ShowToday = CalendarShowToday;
-                _kmc.ShowTodayCircle = CalendarShowTodayCircle;
-                _kmc.ShowWeekNumbers = CalendarShowWeekNumbers;
-                _kmc.CloseOnTodayClick = CalendarCloseOnTodayClick;
-                _kmc.TodayDate = CalendarTodayDate;
-                _kmc.AnnuallyBoldedDates = CalendarAnnuallyBoldedDates;
-                _kmc.MonthlyBoldedDates = CalendarMonthlyBoldedDates;
-                _kmc.BoldedDates = CalendarBoldedDates;
-                _kmc.DayOfWeekStyle = CalendarDayOfWeekStyle;
-                _kmc.DayStyle = CalendarDayStyle;
-                _kmc.HeaderStyle = CalendarHeaderStyle;
+                _kmc = new KryptonContextMenuMonthCalendar
+                {
+                    CalendarDimensions = CalendarDimensions,
+                    TodayText = CalendarTodayText,
+                    TodayFormat = CalendarTodayFormat,
+                    FirstDayOfWeek = CalendarFirstDayOfWeek,
+                    MaxDate = MaxDate.Date,
+                    MaxSelectionCount = 1,
+                    MinDate = MinDate.Date,
+                    SelectionStart = Value.Date,
+                    ShowToday = CalendarShowToday,
+                    ShowTodayCircle = CalendarShowTodayCircle,
+                    ShowWeekNumbers = CalendarShowWeekNumbers,
+                    CloseOnTodayClick = CalendarCloseOnTodayClick,
+                    TodayDate = CalendarTodayDate,
+                    AnnuallyBoldedDates = CalendarAnnuallyBoldedDates,
+                    MonthlyBoldedDates = CalendarMonthlyBoldedDates,
+                    BoldedDates = CalendarBoldedDates,
+                    DayOfWeekStyle = CalendarDayOfWeekStyle,
+                    DayStyle = CalendarDayStyle,
+                    HeaderStyle = CalendarHeaderStyle
+                };
                 _kmc.DateChanged += new DateRangeEventHandler(OnMonthCalendarDateChanged);
                 kcm.Items.Add(_kmc);
 
                 // Update the krypton menu with this controls palette state
                 if (PaletteMode != PaletteMode.Custom)
+                {
                     kcm.PaletteMode = PaletteMode;
+                }
                 else
+                {
                     kcm.Palette = Palette;
+                }
 
                 // Give user a change to modify the context menu or even cancel the menu entirely
                 DateTimePickerDropArgs dtpda = new DateTimePickerDropArgs(kcm,
@@ -2446,10 +2537,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Range check in case the min/max have time portions and not just full days
             if (newDt > MaxDate)
+            {
                 newDt = MaxDate;
+            }
 
             if (newDt < MinDate)
+            {
                 newDt = MinDate;
+            }
 
             // Use new value
             Value = newDt;
@@ -2477,7 +2572,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Notify that the month calendar changed value whilst the dropped down.
             if (_dropDownMonthChanged)
+            {
                 OnCloseUpMonthCalendarChanged(EventArgs.Empty);
+            }
 
             // Did not show a context menu so we remove the fixed appearance of button
             _buttonDropDown.RemoveFixed();
@@ -2511,8 +2608,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)

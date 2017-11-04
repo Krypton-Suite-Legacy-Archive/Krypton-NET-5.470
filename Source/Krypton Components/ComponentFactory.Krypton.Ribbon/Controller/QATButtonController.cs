@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -97,9 +94,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public void KeyDown(Control c, KeyEventArgs e)
         {
             if (c is VisualPopupQATOverflow)
+            {
                 KeyDownPopupOverflow(c as VisualPopupQATOverflow, e);
+            }
             else
+            {
                 KeyDownRibbon(e);
+            }
         }
 
         /// <summary>
@@ -157,7 +158,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
             else
+            {
                 base.UpdateTargetState(pt);
+            }
         }
         #endregion
 
@@ -192,8 +195,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != Target))
             {
                 // If the new view is a tab then select that tab
-                if ((newView is ViewDrawRibbonTab) && !Ribbon.RealMinimizedMode)
-                    Ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!Ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    Ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 Ribbon.FocusView = newView;

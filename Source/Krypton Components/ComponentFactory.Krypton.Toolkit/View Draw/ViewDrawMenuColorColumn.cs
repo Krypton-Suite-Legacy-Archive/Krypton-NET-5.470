@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -43,8 +39,10 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewLayoutColorStack vertical = new ViewLayoutColorStack();
 
             for (int i = start; i < end; i++)
+            {
                 vertical.Add(new ViewDrawMenuColorBlock(provider, colorColumns, colors[i], 
                                                         (i == start), (i == (end - 1)), enabled));
+            }
 
             Add(vertical);
         }
@@ -90,10 +88,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
-            using(SolidBrush brush = new SolidBrush(Color.FromArgb(197, 197, 197)))
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(197, 197, 197)))
+            {
                 context.Graphics.FillRectangle(brush, ClientRectangle);
+            }
         }
         #endregion
     }

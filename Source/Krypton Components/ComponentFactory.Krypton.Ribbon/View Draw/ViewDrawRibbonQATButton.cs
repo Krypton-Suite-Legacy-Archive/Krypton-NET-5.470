@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -184,7 +182,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Make sure we reflect the current enabled state
             if (!Enabled && _ribbon.InDesignHelperMode)
+            {
                 ElementState = PaletteState.Disabled;
+            }
 
             IPaletteBack paletteBack = _ribbon.StateCommon.RibbonQATButton.PaletteBack;
             IPaletteBorder paletteBorder = _ribbon.StateCommon.RibbonQATButton.PaletteBorder;
@@ -210,8 +210,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Do we need to draw the border?
             if (paletteBorder.GetBorderDraw(State) == InheritBool.True)
+            {
                 context.Renderer.RenderStandardBorder.DrawBorder(context, ClientRectangle, paletteBorder, 
-                                                                 VisualOrientation.Top, State);
+                    VisualOrientation.Top, State);
+            }
 
             base.RenderBefore(context);
         }
@@ -238,8 +240,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 Form ownerForm = _ribbon.FindForm();
 
                 // Ensure the form we are inside is active
-                if (ownerForm != null)
-                    ownerForm.Activate();
+                ownerForm?.Activate();
 
                 // Inform quick access toolbar button it has been clicked
                 _qatButton.PerformClick();

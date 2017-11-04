@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -26,9 +22,11 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonCaptionArea : ViewDrawDocker
     {
         #region Static Fields
-        private static readonly int MIN_INTEGRATED_HEIGHT = 26;    // MiniBar, 16 image + 2 * (2 gap + 1 border + 2 border) 
-        private static readonly int CAPTION_TEXT_GAPS = 10;        // 4 below and 6 above
-        private static readonly int MIN_SELF_HEIGHT = 28;          // Min height to show application button and the mini bar and context tabs
+
+        private const int MIN_INTEGRATED_HEIGHT = 26; // MiniBar, 16 image + 2 * (2 gap + 1 border + 2 border) 
+        private const int CAPTION_TEXT_GAPS = 10; // 4 below and 6 above
+        private const int MIN_SELF_HEIGHT = 28; // Min height to show application button and the mini bar and context tabs
+
         #endregion
 
         #region Instance Fields
@@ -231,9 +229,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_integrated)
+                {
                     return _captionQAT;
+                }
                 else
+                {
                     return _nonCaptionQAT;
+                }
             }
         }
         #endregion
@@ -251,7 +253,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // A change in integrated caption visibility
             if (before != _captionQAT.Visible)
+            {
                 QATButtonsChanged();
+            }
         }
         #endregion
 
@@ -286,7 +290,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Do we need to layout and paint the custom chrome?
             if (UsingCustomChrome)
+            {
                 OnIntegratedNeedPaint(this, new NeedLayoutEventArgs(true));
+            }
         }
         #endregion
 
@@ -308,7 +314,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void RedrawCustomChrome(bool layout)
         {
             if (UsingCustomChrome)
+            {
                 _kryptonForm.PerformNeedPaint(layout);
+            }
         }
         #endregion
 
@@ -341,9 +349,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_kryptonForm != null)
+                {
                     return _kryptonForm.RealWindowBorders;
+                }
                 else
+                {
                     return Padding.Empty;
+                }
             }
         }
 
@@ -391,8 +403,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Search the context title elements for a match
                     foreach (ViewBase child in ContextTitles)
+                    {
                         if ((child is ViewDrawRibbonContextTitle) && child.ClientRectangle.Contains(formPt))
+                        {
                             return false;
+                        }
+                    }
                 }
             }
 
@@ -448,9 +464,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _otherAppButton = new ViewLayoutRibbonAppButton(_ribbon, false);
 
             // Connect up the application button controller to the two button elements
-            _appButtonController = new AppButtonController(_ribbon);
-            _appButtonController.Target1 = _captionAppButton.AppButton;
-            _appButtonController.Target2 = _otherAppButton.AppButton;
+            _appButtonController = new AppButtonController(_ribbon)
+            {
+                Target1 = _captionAppButton.AppButton,
+                Target2 = _otherAppButton.AppButton
+            };
             _appButtonController.NeedPaint += new NeedPaintHandler(OnAppButtonNeedPaint);
             _captionAppButton.MouseController = _appButtonController;
             _otherAppButton.MouseController = _appButtonController;
@@ -458,16 +476,20 @@ namespace ComponentFactory.Krypton.Ribbon
             _appTabController.NeedPaint += new NeedPaintHandler(OnAppButtonNeedPaint);
 
             // When not showing the app button we show this spacer instead
-            _spaceInsteadOfAppButton = new ViewLayoutSeparator(0);
-            _spaceInsteadOfAppButton.Visible = false;
+            _spaceInsteadOfAppButton = new ViewLayoutSeparator(0)
+            {
+                Visible = false
+            };
 
             // Quick access toolbar, minibar versions
             _captionQAT = new ViewLayoutRibbonQATMini(_ribbon, _needIntegratedDelegate);
             _nonCaptionQAT = new ViewLayoutRibbonQATMini(_ribbon, NeedPaintDelegate);
-            
+
             // Layout needed to position and draw the context titles
-            _contextTiles = new ViewLayoutRibbonContextTitles(_ribbon, this);
-            _contextTiles.ReverseRenderOrder = true;
+            _contextTiles = new ViewLayoutRibbonContextTitles(_ribbon, this)
+            {
+                ReverseRenderOrder = true
+            };
 
             // Create composition right border and attach to composition area
             _compRightBorder = new ViewDrawRibbonCompoRightBorder();
@@ -504,10 +526,9 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!_ribbon.IsDisposed && !_ribbon.Disposing)
             {
                 // Find the new owning level form we are hosted inside
-                Form ownerForm = _ribbon.Parent as Form;
 
                 // Should always be inside a form, but you never know!
-                if (ownerForm != null)
+                if (_ribbon.Parent is Form ownerForm)
                 {
                     // We only care if the owner form is a KryptonForm instance
                     if (ownerForm is KryptonForm)
@@ -541,7 +562,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Must be at least the minimum for the application button and spacing gap above it
                     if (height >= MIN_INTEGRATED_HEIGHT)
+                    {
                         integrated = true;
+                    }
 
                     // Update width of the separator used in place of the app button when app button not visible
                     _spaceInsteadOfAppButton.SeparatorSize = new Size(_kryptonForm.RealWindowBorders.Left, 0);
@@ -554,7 +577,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // If told to prevent the integration, then prevent it now
                 if (PreventIntegration && overrideIntegrated)
+                {
                     overrideIntegrated = false;
+                }
 
                 // Is there a change in integrated requirements?
                 if (overrideIntegrated != _integrated)
@@ -655,7 +680,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // When integrated into composition we need to repaint whenever the
                 // owning form changes active status, as we are drawing the caption
                 if (_kryptonForm.ApplyCustomChrome && _kryptonForm.ApplyComposition)
+                {
                     PerformNeedPaint(true);
+                }
             }
         }
 
@@ -667,14 +694,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If we have integrated the button into the custom chrome caption area
             if (_integrated)
+            {
                 _kryptonForm.PerformNeedPaint(e.NeedLayout);
+            }
         }
 
         private void OnIntegratedNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // If we have integrated the button into the custom chrome caption area
             if (_integrated)
+            {
                 _kryptonForm.PerformNeedPaint(e.NeedLayout);
+            }
         }
         #endregion
     }

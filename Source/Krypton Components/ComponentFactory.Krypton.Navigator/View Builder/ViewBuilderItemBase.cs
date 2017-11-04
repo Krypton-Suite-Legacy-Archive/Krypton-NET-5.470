@@ -64,10 +64,9 @@ namespace ComponentFactory.Krypton.Navigator
             PostCreate();
 
             // Force buttons to be recreated in the headers
-            if (_buttonManager != null)
-                _buttonManager.RecreateButtons();
-            
-            // Canvas becomes the new root
+		    _buttonManager?.RecreateButtons();
+
+		    // Canvas becomes the new root
             ViewManager.Root = _newRoot;
 
 			// Need to monitor changes in the enabled state
@@ -209,8 +208,12 @@ namespace ComponentFactory.Krypton.Navigator
             if (_pageLookup != null)
             {
                 foreach (KeyValuePair<KryptonPage, INavCheckItem> pair in _pageLookup)
+                {
                     if (pair.Value.View == element)
+                    {
                         return pair.Key;
+                    }
+                }
             }
 
             return null;
@@ -224,7 +227,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override ButtonSpec ButtonSpecFromView(ViewBase element)
         {
             // Check the set of navgator level button specs
-            ButtonSpec bs = (_buttonManager != null ? _buttonManager.ButtonSpecFromView(element) : null);
+            ButtonSpec bs = (_buttonManager?.ButtonSpecFromView(element));
 
             // Check each page level button spec
             if ((bs == null) && (_pageLookup != null))
@@ -233,7 +236,9 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     bs = pair.Value.ButtonSpecFromView(element);
                     if (bs != null)
+                    {
                         break;
+                    }
                 }
             }
 
@@ -284,9 +289,13 @@ namespace ComponentFactory.Krypton.Navigator
                 paletteCommon = Navigator.StateCommon;
 
                 if (Navigator.Enabled)
+                {
                     paletteState = Navigator.StateNormal;
+                }
                 else
+                {
                     paletteState = Navigator.StateDisabled;
+                }
             }
             else
             {
@@ -294,7 +303,9 @@ namespace ComponentFactory.Krypton.Navigator
                 paletteCommon = Navigator.SelectedPage.StateCommon;
 
                 if (Navigator.SelectedPage.Enabled)
+                {
                     paletteState = Navigator.SelectedPage.StateNormal;
+                }
                 else
                 {
                     paletteState = Navigator.SelectedPage.StateDisabled;
@@ -324,8 +335,7 @@ namespace ComponentFactory.Krypton.Navigator
             _layoutBar.SetMetrics(paletteCommon.Bar);
             _layoutBarViewport.SetMetrics(paletteCommon.Bar);
 
-            if (_buttonManager != null)
-                _buttonManager.SetDockerMetrics(_layoutBarDocker, paletteCommon.Bar);
+            _buttonManager?.SetDockerMetrics(_layoutBarDocker, paletteCommon.Bar);
 
             // Let base class perform common actions
             base.UpdateStatePalettes();
@@ -349,7 +359,9 @@ namespace ComponentFactory.Krypton.Navigator
                 return Navigator.PointToScreen(pt);
             }
             else
+            {
                 return base.GetContextShowPoint();
+            }
         }
 
         /// <summary>
@@ -361,15 +373,21 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
 
             // Check that the point is into the bar viewport
             if (_layoutBarViewport.ClientRectangle.Contains(pt))
             {
                 // Check if any of the bar items wants the point
                 foreach (ViewBase item in _layoutBar)
+                {
                     if (item.ClientRectangle.Contains(pt))
+                    {
                         return true;
+                    }
+                }
             }
 
             return false;
@@ -395,13 +413,19 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to move the bar positoin
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.MoveBar;
+            }
 
             // Only we know how to calculate the moving bar action
             if (action == DirectionButtonAction.MoveBar)
+            {
                 return (_layoutBarViewport.CanScrollNext ? ButtonEnabled.True : ButtonEnabled.False);
+            }
             else
+            {
                 return base.NextActionEnabled(action);
+            }
         }
 
         /// <summary>
@@ -413,7 +437,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to move the bar positoin
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.MoveBar;
+            }
 
             // Only we know how to actually move the bar
             if (action == DirectionButtonAction.MoveBar)
@@ -421,14 +447,15 @@ namespace ComponentFactory.Krypton.Navigator
                 // Tell the viewport to shift to next area
                 _layoutBarViewport.MoveNext();
 
-                if (_buttonManager != null)
-                    _buttonManager.RecreateButtons();
+                _buttonManager?.RecreateButtons();
 
                 // Need to layout and paint to effect change
                 Navigator.PerformNeedPaint(true);
             }
             else
+            {
                 base.PerformNextAction(action, page);
+            }
         }
 
         /// <summary>
@@ -440,13 +467,19 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to move the bar positoin
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.MoveBar;
+            }
 
             // Only we know how to calculate the moving bar action
             if (action == DirectionButtonAction.MoveBar)
+            {
                 return (_layoutBarViewport.CanScrollPrevious ? ButtonEnabled.True : ButtonEnabled.False);
+            }
             else
+            {
                 return base.PreviousActionEnabled(action);
+            }
         }
 
         /// <summary>
@@ -458,7 +491,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to move the bar positoin
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.MoveBar;
+            }
 
             // Only we know how to actually move the bar
             if (action == DirectionButtonAction.MoveBar)
@@ -466,14 +501,15 @@ namespace ComponentFactory.Krypton.Navigator
                 // Tell the viewport to shift to previous area
                 _layoutBarViewport.MovePrevious();
 
-                if (_buttonManager != null)
-                    _buttonManager.RecreateButtons();
+                _buttonManager?.RecreateButtons();
 
                 // Need to layout and paint to effect change
                 Navigator.PerformNeedPaint(true);
             }
             else
+            {
                 base.PerformPreviousAction(action, page);
+            }
         }
 
         /// <summary>
@@ -505,7 +541,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If there is a selected page
             if (Navigator.SelectedPage != null)
+            {
                 BringPageIntoView(Navigator.SelectedPage);
+            }
         }
 
         /// <summary>
@@ -535,7 +573,9 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     // If pressing on a check button then we take the focus
                     if ((element is INavCheckItem) && Navigator.AllowTabSelect)
+                    {
                         return true;
+                    }
 
                     // Move up a level
                     element = element.Parent;
@@ -577,9 +617,13 @@ namespace ComponentFactory.Krypton.Navigator
                             {
                                 bool changed;
                                 if (!shift)
+                                {
                                     changed = SelectNextPage(Navigator.SelectedPage, true, true);
+                                }
                                 else
+                                {
                                     changed = SelectPreviousPage(Navigator.SelectedPage, true, true);
+                                }
                             }
                         }
                         return true;
@@ -607,7 +651,9 @@ namespace ComponentFactory.Krypton.Navigator
                         {
                             // Can only use Up arrow when on a vertical bar
                             if (!BarHorizontal)
+                            {
                                 SelectPreviousPage(Navigator.SelectedPage, false, false);
+                            }
                             return true;
                         }
                         break;
@@ -616,7 +662,9 @@ namespace ComponentFactory.Krypton.Navigator
                         {
                             // Can only use Down arrow when on a vertical bar
                             if (!BarHorizontal)
+                            {
                                 SelectNextPage(Navigator.SelectedPage, false, false);
+                            }
                             return true;
                         }
                         break;
@@ -628,9 +676,13 @@ namespace ComponentFactory.Krypton.Navigator
                             {
                                 // Reverse the direction if working RightToLeft
                                 if (Navigator.RightToLeft != RightToLeft.Yes)
+                                {
                                     SelectNextPage(Navigator.SelectedPage, false, false);
+                                }
                                 else
+                                {
                                     SelectPreviousPage(Navigator.SelectedPage, false, false);
+                                }
                             }
                             return true;
                         }
@@ -643,9 +695,13 @@ namespace ComponentFactory.Krypton.Navigator
                             {
                                 // Reverse the direction if working RightToLeft
                                 if (Navigator.RightToLeft != RightToLeft.Yes)
+                                {
                                     SelectPreviousPage(Navigator.SelectedPage, false, false);
+                                }
                                 else
+                                {
                                     SelectNextPage(Navigator.SelectedPage, false, false);
+                                }
                             }
                             return true;
                         }
@@ -653,7 +709,9 @@ namespace ComponentFactory.Krypton.Navigator
                     case Keys.Space:
                     case Keys.Enter:
                         if (_hasFocus)
+                        {
                             KeyPressedPageView();
+                        }
                         break;
                 }
             }
@@ -686,10 +744,12 @@ namespace ComponentFactory.Krypton.Navigator
                                                                new PaletteMetricInt[] { PaletteMetricInt.BarButtonEdgeOutside },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.BarButtonPadding },
                                                                new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
-                                                               NeedPaintDelegate);
+                                                               NeedPaintDelegate)
+            {
 
-            // Hook up the tooltip manager so that tooltips can be generated
-            _buttonManager.ToolTipManager = Navigator.ToolTipManager;
+                // Hook up the tooltip manager so that tooltips can be generated
+                ToolTipManager = Navigator.ToolTipManager
+            };
         }
 
         /// <summary>
@@ -721,8 +781,7 @@ namespace ComponentFactory.Krypton.Navigator
             _layoutBarViewport.AnimateStep -= new EventHandler(OnViewportAnimation);
 
             // Remove the old root from the canvas
-            if (_drawPanel != null)
-                _drawPanel.Clear();
+            _drawPanel?.Clear();
         }
 
         /// <summary>
@@ -816,15 +875,23 @@ namespace ComponentFactory.Krypton.Navigator
                         case VisualOrientation.Left:
                             if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                                 (Navigator.RightToLeft == RightToLeft.Yes))
+                            {
                                 return VisualOrientation.Right;
+                            }
                             else
+                            {
                                 return VisualOrientation.Left;
+                            }
                         case VisualOrientation.Right:
                             if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                                 (Navigator.RightToLeft == RightToLeft.Yes))
+                            {
                                 return VisualOrientation.Left;
+                            }
                             else
+                            {
                                 return VisualOrientation.Right;
+                            }
                         default:
                             // Should never happen!
                             Debug.Assert(false);
@@ -868,8 +935,7 @@ namespace ComponentFactory.Krypton.Navigator
                 case "ItemAlignment":
                     _layoutBar.ItemAlignment = Navigator.Bar.ItemAlignment;
                     _layoutBarViewport.Alignment = Navigator.Bar.ItemAlignment;
-                    if (_buttonManager != null)
-                        _buttonManager.RecreateButtons();
+                    _buttonManager?.RecreateButtons();
                     Navigator.PerformNeedPaint(true);
                     break;
                 case "ItemMinimumSize":
@@ -895,8 +961,7 @@ namespace ComponentFactory.Krypton.Navigator
                 case "ContextButtonDisplay":
                 case "CloseButtonDisplay":
                 case "ButtonDisplayLogic":
-                    if (_buttonManager != null)
-                        _buttonManager.RecreateButtons();
+                    _buttonManager?.RecreateButtons();
                     Navigator.PerformNeedPaint(true);
                     break;
                 case "CheckButtonStyleBar":
@@ -975,21 +1040,20 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Update each individual button with the new style for remapping page level button specs
             if (PageLookup != null)
+            {
                 foreach (KeyValuePair<KryptonPage, INavCheckItem> pair in PageLookup)
                 {
-                    if (pair.Value is ViewDrawNavCheckButtonBar)
+                    switch (pair.Value)
                     {
-                        ViewDrawNavCheckButtonBar pageButton = (ViewDrawNavCheckButtonBar)pair.Value;
-                        if (pageButton.ButtonSpecManager != null)
-                            pageButton.ButtonSpecManager.SetRemapTarget(Navigator.Bar.TabStyle);
-                    }
-                    else if (pair.Value is ViewDrawNavRibbonTab)
-                    {
-                        ViewDrawNavRibbonTab pageRibbon = (ViewDrawNavRibbonTab)pair.Value;
-                        if (pageRibbon.ButtonSpecManager != null)
-                            pageRibbon.ButtonSpecManager.SetRemapTarget(Navigator.Bar.TabStyle);
+                        case ViewDrawNavCheckButtonBar pageButton:
+                            pageButton.ButtonSpecManager?.SetRemapTarget(Navigator.Bar.TabStyle);
+                            break;
+                        case ViewDrawNavRibbonTab pageRibbon:
+                            pageRibbon.ButtonSpecManager?.SetRemapTarget(Navigator.Bar.TabStyle);
+                            break;
                     }
                 }
+            }
         }
 
         private void UpdateButtonsAndPalette()
@@ -998,8 +1062,7 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateStatePalettes();
 
             // Ensure buttons are recreated to reflect different page
-            if (_buttonManager != null)
-                _buttonManager.RecreateButtons();
+            _buttonManager?.RecreateButtons();
         }
 
         private void UpdateSelectedPageFocus()
@@ -1245,9 +1308,13 @@ namespace ComponentFactory.Krypton.Navigator
                         else
                         {
                             if ((orientation == VisualOrientation.Left) || (orientation == VisualOrientation.Right))
+                            {
                                 childRect.Height = Math.Min(childRect.Height, reorderView.ClientHeight);
+                            }
                             else
+                            {
                                 childRect.Width = Math.Min(childRect.Width, reorderView.ClientWidth);
+                            }
 
                             // Ensure that when we are placed in the 'before' position the mouse is still over
                             // ourself as the moved button. Otherwise we just end up toggling back and forth.

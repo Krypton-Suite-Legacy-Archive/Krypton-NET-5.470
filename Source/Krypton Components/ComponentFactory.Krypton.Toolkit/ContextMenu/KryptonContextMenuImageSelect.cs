@@ -9,18 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -83,8 +74,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _style = ButtonStyle.LowProfile;
 
             // Timer used to generate tracking change event
-            _trackingEventTimer = new Timer();
-            _trackingEventTimer.Interval = 120;
+            _trackingEventTimer = new Timer
+            {
+                Interval = 120
+            };
             _trackingEventTimer.Tick += new EventHandler(OnTrackingTick);
         }
 
@@ -326,8 +319,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedIndexChanged(EventArgs e)
         {
-            if (SelectedIndexChanged != null)
-                SelectedIndexChanged(this, e);
+            SelectedIndexChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -337,8 +329,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual void OnTrackingImage(ImageSelectEventArgs e)
         {
             _eventTrackingIndex = e.ImageIndex;
-            if (TrackingImage != null)
-                TrackingImage(this, e);
+            TrackingImage?.Invoke(this, e);
         }
         #endregion
 
@@ -373,7 +364,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // But only generate if actual event would yield a different value
                 if (_eventTrackingIndex != _trackingIndex)
+                {
                     OnTrackingImage(new ImageSelectEventArgs(_imageList, _trackingIndex));
+                }
             }
             else
             {

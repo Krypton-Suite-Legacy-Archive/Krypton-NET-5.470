@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.Reflection;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -27,8 +21,10 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonAppButton : ViewLayoutDocker
     {
         #region Static Fields
-        private static readonly int APPBUTTON_WIDTH = 39;
-        private static readonly int APPBUTTON_GAP = 4;
+
+        private const int APPBUTTON_WIDTH = 39;
+        private const int APPBUTTON_GAP = 4;
+
         #endregion
 
         #region Instance Fields
@@ -94,9 +90,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get 
             {
                 if (_ownerForm == null)
+                {
                     return base.Visible;
+                }
                 else
+                {
                     return (_ribbon.Visible && base.Visible);
+                }
             }
 
             set { base.Visible = value; }

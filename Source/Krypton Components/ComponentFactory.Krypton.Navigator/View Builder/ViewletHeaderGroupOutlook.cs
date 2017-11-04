@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -91,9 +86,13 @@ namespace ComponentFactory.Krypton.Navigator
         protected override IContentValues GetPrimaryValues()
         {
             if (_full)
+            {
                 return Navigator.Header.HeaderValuesPrimary;
+            }
             else
+            {
                 return CommonHelper.NullContentValues;
+            }
         }
 
         /// <summary>
@@ -103,9 +102,13 @@ namespace ComponentFactory.Krypton.Navigator
         protected override IContentValues GetSecondaryValues()
         {
             if (_full)
+            {
                 return Navigator.Header.HeaderValuesSecondary;
+            }
             else
+            {
                 return CommonHelper.NullContentValues;
+            }
         }
         #endregion
     }

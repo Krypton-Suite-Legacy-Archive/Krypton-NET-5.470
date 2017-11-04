@@ -9,15 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -117,8 +111,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _dropMinItemWidth = 3;
 
             // Timer used to generate tracking change event
-            _trackingEventTimer = new Timer();
-            _trackingEventTimer.Interval = 120;
+            _trackingEventTimer = new Timer
+            {
+                Interval = 120
+            };
             _trackingEventTimer.Tick += new EventHandler(OnTrackingTick);
 
             // Create content storage
@@ -135,10 +131,12 @@ namespace ComponentFactory.Krypton.Ribbon
             _buttonUp = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Near, PaletteRibbonGalleryButton.Up, _images, NeedPaintDelegate);
             _buttonDown = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Center, PaletteRibbonGalleryButton.Down, _images, NeedPaintDelegate);
             _buttonContext = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Far, PaletteRibbonGalleryButton.DropDown, _images, NeedPaintDelegate);
-            _buttonsLayout = new ViewLayoutRibbonGalleryButtons();
-            _buttonsLayout.Add(_buttonUp);
-            _buttonsLayout.Add(_buttonDown);
-            _buttonsLayout.Add(_buttonContext);
+            _buttonsLayout = new ViewLayoutRibbonGalleryButtons
+            {
+                _buttonUp,
+                _buttonDown,
+                _buttonContext
+            };
 
             // The draw layout that contains the actual selection images
             _backBorder = new PaletteGalleryBackBorder(_stateNormal);
@@ -147,11 +145,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _drawDocker.Add(_drawItems, ViewDockStyle.Fill);
 
             // Top level layout view
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(_drawDocker, ViewDockStyle.Fill);
-            _layoutDocker.Add(_buttonsLayout, ViewDockStyle.Right);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { _drawDocker, ViewDockStyle.Fill },
+                { _buttonsLayout, ViewDockStyle.Right }
+            };
 
-			// Create the view manager instance
+            // Create the view manager instance
             ViewManager = new ViewManager(this, _layoutDocker);
 
             // Set the default padding value
@@ -480,7 +480,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Check the index is within range of what we actually have
             if ((index >= 0) && (index < images))
+            {
                 _drawItems.BringIntoView(index);
+            }
         }
 
         /// <summary>
@@ -502,9 +504,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive || ContainsFocus || _mouseOver);
+                }
             }
         }
 
@@ -517,8 +523,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnImageListChanged(EventArgs e)
         {
-            if (ImageListChanged != null)
-                ImageListChanged(this, e);
+            ImageListChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -527,8 +532,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedIndexChanged(EventArgs e)
         {
-            if (SelectedIndexChanged != null)
-                SelectedIndexChanged(this, e);
+            SelectedIndexChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -538,8 +542,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected virtual void OnTrackingImage(ImageSelectEventArgs e)
         {
             _eventTrackingIndex = e.ImageIndex;
-            if (TrackingImage != null)
-                TrackingImage(this, e);
+            TrackingImage?.Invoke(this, e);
         }
 
         /// <summary>
@@ -548,8 +551,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An GalleryDropMenuEventArgs containing the event data.</param>
         protected virtual void OnGalleryDropMenu(GalleryDropMenuEventArgs e)
         {
-            if (GalleryDropMenu != null)
-                GalleryDropMenu(this, e);
+            GalleryDropMenu?.Invoke(this, e);
         }
         #endregion
 
@@ -613,9 +615,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the selected index if it matches a visible item, otherwise default to first item
                     if ((SelectedIndex < _imageList.Images.Count) && (SelectedIndex >= 0))
+                    {
                         SetTrackingIndex(SelectedIndex, true);
+                    }
                     else
+                    {
                         SetTrackingIndex(0, true);
+                    }
                 }
             }
 
@@ -653,9 +659,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Use the selected index if it matches a visible item, otherwise default to first item
                         if ((SelectedIndex < _imageList.Images.Count) && (SelectedIndex >= 0))
+                        {
                             SetTrackingIndex(SelectedIndex, true);
+                        }
                         else
+                        {
                             SetTrackingIndex(0, true);
+                        }
 
                         return true;
                     }
@@ -699,8 +709,10 @@ namespace ComponentFactory.Krypton.Ribbon
         protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             if (IsHandleCreated)
+            {
                 UpdateStateAndPalettes();
-            
+            }
+
             base.OnNeedPaint(sender, e);
         }
 
@@ -732,9 +744,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 case PI.WM_NCHITTEST:
                     if (InTransparentDesignMode)
+                    {
                         m.Result = (IntPtr)PI.HTTRANSPARENT;
+                    }
                     else
+                    {
                         base.WndProc(ref m);
+                    }
                     break;
                 default:
                     base.WndProc(ref m);
@@ -771,8 +787,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Find the target view and bring it into view
             if (_trackingIndex != -1)
+            {
                 if (bringIntoView)
+                {
                     BringIntoView(_trackingIndex);
+                }
+            }
         }
 
         internal bool InTransparentDesignMode
@@ -789,7 +809,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -831,7 +853,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // First time around create the context menu, otherwise just clear it down
             if (_dropMenu == null)
+            {
                 _dropMenu = new KryptonContextMenu();
+            }
 
             // Number of line items equals the number actually used
             int lineItems = Math.Max(DropMinItemWidth, Math.Min(DropMaxItemWidth, actualLineItems));
@@ -839,12 +863,14 @@ namespace ComponentFactory.Krypton.Ribbon
             // If there are no ranges defined, just add a single entry showing all enties
             if (_dropButtonRanges.Count == 0)
             {
-                KryptonContextMenuImageSelect imageSelect = new KryptonContextMenuImageSelect();
-                imageSelect.ImageList = ImageList;
-                imageSelect.ImageIndexStart = 0;
-                imageSelect.ImageIndexEnd = (ImageList == null ? 0 : ImageList.Images.Count - 1);
-                imageSelect.SelectedIndex = SelectedIndex;
-                imageSelect.LineItems = lineItems;
+                KryptonContextMenuImageSelect imageSelect = new KryptonContextMenuImageSelect
+                {
+                    ImageList = ImageList,
+                    ImageIndexStart = 0,
+                    ImageIndexEnd = (ImageList == null ? 0 : ImageList.Images.Count - 1),
+                    SelectedIndex = SelectedIndex,
+                    LineItems = lineItems
+                };
                 _dropMenu.Items.Add(imageSelect);
             }
             else
@@ -853,23 +879,29 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // If not the first item in the menu, add a separator
                     if (_dropMenu.Items.Count > 0)
+                    {
                         _dropMenu.Items.Add(new KryptonContextMenuSeparator());
+                    }
 
                     // Only add a heading if the heading text is not empty
                     if (!string.IsNullOrEmpty(range.Heading))
                     {
-                        KryptonContextMenuHeading heading = new KryptonContextMenuHeading();
-                        heading.Text = range.Heading;
+                        KryptonContextMenuHeading heading = new KryptonContextMenuHeading
+                        {
+                            Text = range.Heading
+                        };
                         _dropMenu.Items.Add(heading);
                     }
 
                     // Add the image select for the range
-                    KryptonContextMenuImageSelect imageSelect = new KryptonContextMenuImageSelect();
-                    imageSelect.ImageList = ImageList;
-                    imageSelect.ImageIndexStart = Math.Max(0, range.ImageIndexStart);
-                    imageSelect.ImageIndexEnd = Math.Min(range.ImageIndexEnd, (ImageList == null ? 0 : ImageList.Images.Count - 1));
-                    imageSelect.SelectedIndex = SelectedIndex;
-                    imageSelect.LineItems = lineItems;
+                    KryptonContextMenuImageSelect imageSelect = new KryptonContextMenuImageSelect
+                    {
+                        ImageList = ImageList,
+                        ImageIndexStart = Math.Max(0, range.ImageIndexStart),
+                        ImageIndexEnd = Math.Min(range.ImageIndexEnd, (ImageList == null ? 0 : ImageList.Images.Count - 1)),
+                        SelectedIndex = SelectedIndex,
+                        LineItems = lineItems
+                    };
                     _dropMenu.Items.Add(imageSelect);
                 }
             }
@@ -882,12 +914,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Hook into relevant events of the image select areas
                 foreach (KryptonContextMenuItemBase item in _dropMenu.Items)
-                    if (item is KryptonContextMenuImageSelect)
+                {
+                    if (item is KryptonContextMenuImageSelect itemSelect)
                     {
-                        KryptonContextMenuImageSelect itemSelect = (KryptonContextMenuImageSelect)item;
                         itemSelect.SelectedIndexChanged += new EventHandler(OnDropImageSelect);
                         itemSelect.TrackingImage += new EventHandler<ImageSelectEventArgs>(OnDropImageTracking);
                     }
+                }
 
                 // Need to know when the menu is dismissed
                 args.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnDropMenuClosed);
@@ -901,8 +934,7 @@ namespace ComponentFactory.Krypton.Ribbon
             else
             {
                 // Nothing to show, but still need to call the finished delegate?
-                if (finishDelegate != null)
-                    finishDelegate(this, EventArgs.Empty);
+                finishDelegate?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -918,12 +950,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Unhook from the image select events
                 foreach (KryptonContextMenuItemBase item in _dropMenu.Items)
-                    if (item is KryptonContextMenuImageSelect)
+                {
+                    if (item is KryptonContextMenuImageSelect itemSelect)
                     {
-                        KryptonContextMenuImageSelect itemSelect = (KryptonContextMenuImageSelect)item;
                         itemSelect.SelectedIndexChanged -= new EventHandler(OnDropImageSelect);
                         itemSelect.TrackingImage -= new EventHandler<ImageSelectEventArgs>(OnDropImageTracking);
                     }
+                }
 
                 // Remove all items from the menu
                 _dropMenu.Items.Clear();
@@ -964,9 +997,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // Find the new state of the main view element
             PaletteState state;
             if (IsActive)
+            {
                 state = PaletteState.Tracking;
+            }
             else
+            {
                 state = PaletteState.Normal;
+            }
 
             _drawDocker.ElementState = state;
         }
@@ -976,12 +1013,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive;
+                }
                 else
+                {
                     return _stateNormal;
+                }
             }
             else
+            {
                 return _stateDisabled;
+            }
         }
 
         private void OnTrackingTick(object sender, EventArgs e)
@@ -994,7 +1037,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // But only generate if actual event would yield a different value
                 if (_eventTrackingIndex != _trackingIndex)
+                {
                     OnTrackingImage(new ImageSelectEventArgs(_imageList, _trackingIndex));
+                }
             }
             else
             {

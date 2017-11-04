@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -55,7 +50,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _windowSize = Size.Empty;
             _rects = new Rectangle[5];
             for (int i = 0; i < _rects.Length; i++)
+            {
                 _rects[i] = Rectangle.Empty;
+            }
         }
         #endregion
 
@@ -241,9 +238,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private void UpdateFlag(bool value, int flag)
         {
             if (value)
+            {
                 _flags.SetFlags(flag);
+            }
             else
+            {
                 _flags.ClearFlags(flag);
+            }
         }
 
         private void UpdateShowFlag(bool value, int flag)

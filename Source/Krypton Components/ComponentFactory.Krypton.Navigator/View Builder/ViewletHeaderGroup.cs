@@ -11,8 +11,6 @@
 using System;
 using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -133,8 +131,7 @@ namespace ComponentFactory.Krypton.Navigator
         public void UpdateButtons()
         {
             // Ensure buttons are recreated to reflect different page
-            if (_buttonManager != null)
-                _buttonManager.RecreateButtons();
+            _buttonManager?.RecreateButtons();
         }
 
         /// <summary>
@@ -150,15 +147,21 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Then use the states defined in the navigator itself
                 if (Navigator.Enabled)
+                {
                     SetPalettes(Navigator.StateNormal.HeaderGroup);
+                }
                 else
+                {
                     SetPalettes(Navigator.StateDisabled.HeaderGroup);
+                }
             }
             else
             {
                 // Use states defined in the selected page
                 if (Navigator.SelectedPage.Enabled)
+                {
                     SetPalettes(Navigator.SelectedPage.StateNormal.HeaderGroup);
+                }
                 else
                 {
                     SetPalettes(Navigator.SelectedPage.StateDisabled.HeaderGroup);
@@ -208,7 +211,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             return action;
         }
@@ -222,7 +227,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             return action;
         }
@@ -381,10 +388,12 @@ namespace ComponentFactory.Krypton.Navigator
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary, PaletteMetricInt.HeaderButtonEdgeInsetSecondary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary, PaletteMetricPadding.HeaderButtonPaddingSecondary },
                                                        new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
-                                                       _needPaintDelegate);
+                                                       _needPaintDelegate)
+            {
 
-            // Hook up the tooltip manager so that tooltips can be generated
-            _buttonManager.ToolTipManager = Navigator.ToolTipManager;
+                // Hook up the tooltip manager so that tooltips can be generated
+                ToolTipManager = Navigator.ToolTipManager
+            };
         }
 
         private void UpdateHeaders()

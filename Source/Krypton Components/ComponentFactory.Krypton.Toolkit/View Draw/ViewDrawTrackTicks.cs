@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -71,7 +67,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
@@ -87,9 +86,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteElementColor elementColors;
             if (Enabled)
+            {
                 elementColors =_drawTrackBar.StateNormal.Tick;
+            }
             else
+            {
                 elementColors = _drawTrackBar.StateDisabled.Tick;
+            }
 
             context.Renderer.RenderGlyph.DrawTrackTicksGlyph(context, State, elementColors, ClientRectangle, 
                                                              _drawTrackBar.Orientation, _topRight, 

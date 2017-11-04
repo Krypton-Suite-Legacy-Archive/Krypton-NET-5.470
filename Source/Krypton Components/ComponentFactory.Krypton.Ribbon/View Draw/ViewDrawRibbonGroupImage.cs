@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -29,9 +25,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private static readonly Size _viewSize_2007 = new Size(30, 31);
         private static readonly Size _viewSize_2010 = new Size(31, 31);
         private static readonly Size _imageSize = new Size(16, 16);
-        private static readonly int _imageOffsetX = 7;
-        private static readonly int _imageOffsetY_2007 = 4;
-        private static readonly int _imageOffsetY_2010 = 7;
+        private const int IMAGE_OFFSET_X = 7;
+        private const int IMAGE_OFFSET_Y_2007 = 4;
+        private const int IMAGE_OFFSET_Y_2010 = 7;
+
         #endregion
 
         #region Instance Fields
@@ -111,11 +108,11 @@ namespace ComponentFactory.Krypton.Ribbon
                 default:
                 case PaletteRibbonShape.Office2007:
                     _viewSize = _viewSize_2007;
-                    _offsetY = _imageOffsetY_2007;
+                    _offsetY = IMAGE_OFFSET_Y_2007;
                     break;
                 case PaletteRibbonShape.Office2010:
                     _viewSize = _viewSize_2010;
-                    _offsetY = _imageOffsetY_2010;
+                    _offsetY = IMAGE_OFFSET_Y_2010;
                     break;
             }
 
@@ -145,9 +142,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Are we a group inside a context tab?
             if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+            {
                 ElementState = _viewGroup.Pressed ? PaletteState.Pressed : _viewGroup.Tracking ? PaletteState.ContextTracking : PaletteState.ContextNormal;
+            }
             else
+            {
                 ElementState =  _viewGroup.Pressed ? PaletteState.Pressed : _viewGroup.Tracking ? PaletteState.Tracking : PaletteState.Normal;
+            }
 
             // Decide on the palette to use
             switch (State)
@@ -189,7 +190,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonGroup.Image != null)
             {
                 // Determine the rectangle for the fixed size of image drawing
-                Rectangle drawRect = new Rectangle(new Point(ClientLocation.X + _imageOffsetX,
+                Rectangle drawRect = new Rectangle(new Point(ClientLocation.X + IMAGE_OFFSET_X,
                                                              ClientLocation.Y + _offsetY),
                                                    _imageSize);
 

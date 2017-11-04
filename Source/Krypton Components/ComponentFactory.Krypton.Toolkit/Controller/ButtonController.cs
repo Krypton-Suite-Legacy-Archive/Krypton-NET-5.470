@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -285,7 +284,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (AllowDragging)
                     {
                         if (_dragging)
+                        {
                             OnDragMove(_mousePoint);
+                        }
                         else if (!_dragRect.IsEmpty && !_dragRect.Contains(_mousePoint))
                         {
                             if (!_draggingAttempt)
@@ -342,7 +343,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we become fixed in the pressed state until RemoveFixed is called?
                             if (BecomesFixed)
+                            {
                                 _fixedPressed = true;
+                            }
 
                             // Indicate that the mouse wants to select the elment
                             OnMouseSelect(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
@@ -355,8 +358,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // If we need to perform click repeats then use a timer...
                                 if (Repeat)
                                 {
-                                    _repeatTimer = new Timer();
-                                    _repeatTimer.Interval = SystemInformation.DoubleClickTime;
+                                    _repeatTimer = new Timer
+                                    {
+                                        Interval = SystemInformation.DoubleClickTime
+                                    };
                                     _repeatTimer.Tick += new EventHandler(OnRepeatTimer);
                                     _repeatTimer.Start();
                                 }
@@ -369,7 +374,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Do we become fixed in the pressed state until RemoveFixed is called?
                             if (BecomesRightFixed)
+                            {
                                 _fixedPressed = true;
+                            }
 
                             // Indicate the right mouse was used on the button
                             OnRightClick(new MouseEventArgs(MouseButtons.Right, 1, pt.X, pt.Y, 0));
@@ -413,7 +420,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (button == MouseButtons.Left)
                         {
                             if (_dragging)
+                            {
                                 OnDragEnd(pt);
+                            }
 
                             // Only if the button is still pressed, do we generate a click
                             if ((_target.ElementState == PaletteState.Pressed) ||
@@ -443,7 +452,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         else
                         {
                             if (_dragging)
+                            {
                                 OnDragQuit();
+                            }
 
                             // Update the visual state
                             UpdateTargetState(pt);
@@ -488,7 +499,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // End any current dragging operation
                         if (_dragging)
+                        {
                             OnDragQuit();
+                        }
 
                         // Update the visual state
                         UpdateTargetState(c);
@@ -527,8 +540,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null)  throw new ArgumentNullException("c");
-            if (e == null)  throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             if (e.KeyCode == Keys.Space)
             {
@@ -538,7 +558,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we become fixed in the pressed state until RemoveFixed is called?
                 if (BecomesFixed)
+                {
                     _fixedPressed = true;
+                }
 
                 // Update target to reflect new state
                 _target.ElementState = PaletteState.Pressed;
@@ -569,8 +591,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // If the user pressed the escape key
             if ((e.KeyCode == Keys.Escape) || (e.KeyCode == Keys.Space))
@@ -584,7 +613,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // End any current dragging operation
                     if (_dragging)
+                    {
                         OnDragQuit();
+                    }
 
                     // Recalculate if the mouse is over the button area
                     _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
@@ -626,7 +657,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(c != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
 
             // If we are capturing mouse input
             if (_captured)
@@ -767,13 +801,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Disabled;
+            }
             else
             {
                 newState = PaletteState.Normal;
 
                 if (_fixedPressed)
+                {
                     newState = PaletteState.Pressed;
+                }
                 else
                 {
                     // If capturing input....
@@ -783,13 +821,19 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (IsOnlyPressedWhenOver)
                         {
                             if (_target.ClientRectangle.Contains(pt))
+                            {
                                 newState = PaletteState.Pressed;
+                            }
                             else
                             {
                                 if (NonClientAsNormal)
+                                {
                                     newState = PaletteState.Normal;
+                                }
                                 else
+                                {
                                     newState = PaletteState.Tracking;
+                                }
                             }
                         }
                         else
@@ -802,9 +846,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Only hot tracking, so show tracking only if mouse over the target 
                         if (_mouseOver)
+                        {
                             newState = PaletteState.Tracking;
+                        }
                         else
+                        {
                             newState = PaletteState.Normal;
+                        }
                     }
                 }
             }
@@ -830,8 +878,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ButtonDragRectangleEventArgs containing the event args.</param>
         protected virtual void OnButtonDragRectangle(ButtonDragRectangleEventArgs e)
         {
-            if (ButtonDragRectangle != null)
-                ButtonDragRectangle(this, e);
+            ButtonDragRectangle?.Invoke(this, e);
         }
 
         /// <summary>
@@ -840,8 +887,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ButtonDragOffsetEventArgs containing the event args.</param>
         protected virtual void OnButtonDragOffset(ButtonDragOffsetEventArgs e)
         {
-            if (ButtonDragOffset != null)
-                ButtonDragOffset(this, e);
+            ButtonDragOffset?.Invoke(this, e);
         }
 
         /// <summary>
@@ -855,9 +901,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Convert point from client to screen coordinates
             mousePt = _target.OwningControl.PointToScreen(mousePt);
             DragStartEventCancelArgs ce = new DragStartEventCancelArgs(mousePt, offset, c);
-            
-            if (DragStart != null)
-                DragStart(this, ce);
+
+            DragStart?.Invoke(this, ce);
 
             // If event is not cancelled then allow dragging
             _dragging = !ce.Cancel;
@@ -898,8 +943,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual void OnDragQuit()
         {
             _dragging = false;
-            if (DragQuit != null)
-                DragQuit(this, EventArgs.Empty);
+            DragQuit?.Invoke(this, EventArgs.Empty);
         }
 
 		/// <summary>
@@ -908,9 +952,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-			if (Click != null)
-				Click(_target, e);
-		}
+            Click?.Invoke(_target, e);
+        }
 
         /// <summary>
         /// Raises the RightClick event.
@@ -918,8 +961,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnRightClick(MouseEventArgs e)
         {
-            if (RightClick != null)
-                RightClick(_target, e);
+            RightClick?.Invoke(_target, e);
         }
         
         /// <summary>
@@ -928,9 +970,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnMouseSelect(MouseEventArgs e)
 		{
-			if (MouseSelect != null)
-				MouseSelect(_target, e);
-		}
+            MouseSelect?.Invoke(_target, e);
+        }
 
 		/// <summary>
 		/// Raises the NeedPaint event.
@@ -938,9 +979,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+        }
 		#endregion
 
         #region Implementation

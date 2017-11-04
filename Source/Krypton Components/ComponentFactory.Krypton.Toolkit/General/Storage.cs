@@ -8,9 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.ComponentModel;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -33,7 +31,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string ToString()
         {
             if (!IsDefault)
+            {
                 return "Modified";
+            }
 
             return string.Empty;
         }
@@ -70,7 +70,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Only create the delegate when it is first needed
                 if (_needPaintDelegate == null)
+                {
                     _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+                }
 
                 return _needPaintDelegate; 
             }
@@ -104,9 +106,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
 		{
-            if (_needPaint != null)
-                _needPaint(this, e);
-		}
+            _needPaint?.Invoke(this, e);
+        }
 		#endregion
 	}
 }

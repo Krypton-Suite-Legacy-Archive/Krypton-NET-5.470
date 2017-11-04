@@ -8,16 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -62,18 +53,30 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // First priority is the UniqueName
                 foreach (KryptonPage page in this)
+                {
                     if (page.UniqueName == name)
+                    {
                         return page;
+                    }
+                }
 
                 // Second priority is the design time Name
                 foreach (KryptonPage page in this)
+                {
                     if (page.Name == name)
+                    {
                         return page;
+                    }
+                }
 
                 // Third priority is the Text of the page
                 foreach (KryptonPage page in this)
+                {
                     if (page.Text == name)
+                    {
                         return page;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[name];
@@ -91,8 +94,12 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Count the number of pages that are visible
                 foreach (KryptonPage page in this)
+                {
                     if (page.LastVisibleSet)
+                    {
                         visibleCount++;
+                    }
+                }
 
                 return visibleCount;
             }

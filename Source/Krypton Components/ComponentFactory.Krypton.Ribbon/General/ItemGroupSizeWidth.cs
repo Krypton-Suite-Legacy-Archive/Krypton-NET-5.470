@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using ComponentFactory.Krypton.Toolkit;
-
 namespace ComponentFactory.Krypton.Ribbon
 {
     internal class ItemSizeWidth

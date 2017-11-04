@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -146,7 +145,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the visual state
             if (!_fixedPressed)
+            {
                 UpdateTargetState(c);
+            }
 		}
 
 		/// <summary>
@@ -158,13 +159,17 @@ namespace ComponentFactory.Krypton.Ribbon
 		{
             // Check to ensure we are actually in mouse over state
             if (!_mouseOver)
+            {
                 _mouseOver = true;
+            }
 
-            // Track if the mouse is inside the split area
+		    // Track if the mouse is inside the split area
             if (ButtonType == GroupButtonType.Split)
+            {
                 _mouseInSplit = _splitRectangle.Contains(pt);
+            }
 
-            // Update the visual state
+		    // Update the visual state
             UpdateTargetState(pt);
         }
 
@@ -200,12 +205,18 @@ namespace ComponentFactory.Krypton.Ribbon
                             case GroupButtonType.Split:
                                 // Track if the mouse is inside the split area
                                 if (ButtonType == GroupButtonType.Split)
+                                {
                                     _mouseInSplit = _splitRectangle.Contains(pt);
+                                }
 
                                 if (_splitRectangle.Contains(pt))
+                                {
                                     OnDropDown(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+                                }
                                 else
+                                {
                                     OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+                                }
                                 break;
                             case GroupButtonType.DropDown:
                                 OnDropDown(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
@@ -230,9 +241,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember the user has pressed the right mouse button down
             if (button == MouseButtons.Right)
+            {
                 _rightButtonDown = true;
-    			
-            return _captured;
+            }
+
+		    return _captured;
 		}
 
 		/// <summary>
@@ -270,12 +283,18 @@ namespace ComponentFactory.Krypton.Ribbon
                                 case GroupButtonType.Split:
                                     // Track if the mouse is inside the split area
                                     if (ButtonType == GroupButtonType.Split)
+                                    {
                                         _mouseInSplit = _splitRectangle.Contains(pt);
+                                    }
 
                                     if (_splitRectangle.Contains(pt))
+                                    {
                                         OnDropDown(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+                                    }
                                     else
+                                    {
                                         OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+                                    }
                                     break;
                                 case GroupButtonType.DropDown:
                                     OnDropDown(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
@@ -386,12 +405,18 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the root control that owns the provided control
             c = _ribbon.GetControllerControl(c);
 
-            if (c is KryptonRibbon)
-                KeyDownRibbon(c as KryptonRibbon, e);
-            else if (c is VisualPopupGroup)
-                KeyDownPopupGroup(c as VisualPopupGroup, e);
-            else if (c is VisualPopupMinimized)
-                KeyDownPopupMinimized(c as VisualPopupMinimized, e);
+            switch (c)
+            {
+                case KryptonRibbon rib:
+                    KeyDownRibbon(rib, e);
+                    break;
+                case VisualPopupGroup pop:
+                    KeyDownPopupGroup(pop, e);
+                    break;
+                case VisualPopupMinimized min:
+                    KeyDownPopupMinimized(min, e);
+                    break;
+            }
         }
 
         /// <summary>
@@ -511,9 +536,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -528,7 +557,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // When disabled the button itself is shown as normal, the 
             // content is expected to draw itself as disbled though
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Normal;
+            }
             else
             {
                 newState = PaletteState.Normal;
@@ -537,9 +568,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_captured)
                 {
                     if (_fixedPressed || _target.ClientRectangle.Contains(pt))
+                    {
                         newState = PaletteState.Pressed;
+                    }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
                 else
                 {
@@ -550,10 +585,14 @@ namespace ComponentFactory.Krypton.Ribbon
                         
                         // We always show the button as being in the split when it has focus
                         if (_hasFocus)
+                        {
                             _mouseInSplit = true;
+                        }
                     }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
             }
 
@@ -575,9 +614,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
 		protected virtual void OnClick(EventArgs e)
 		{
-			if (Click != null)
-				Click(_target, e);
-		}
+            Click?.Invoke(_target, e);
+        }
 
         /// <summary>
         /// Raises the Click event.
@@ -585,8 +623,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnContextClick(MouseEventArgs e)
         {
-            if (ContextClick != null)
-                ContextClick(this, e);
+            ContextClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -595,8 +632,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnDropDown(EventArgs e)
         {
-            if (DropDown != null)
-                DropDown(_target, e);
+            DropDown?.Invoke(_target, e);
         }
         
         /// <summary>
@@ -605,9 +641,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+        }
 		#endregion
 
         #region Implementation
@@ -624,7 +659,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Got to the actual tab header
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
+                    }
                     break;
                 case Keys.Tab:
                 case Keys.Right:
@@ -633,19 +670,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any far defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Space:
@@ -683,8 +728,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != Target))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
-                if ((newView is ViewDrawRibbonTab) && !ribbon.RealMinimizedMode)
-                    ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 ribbon.FocusView = newView;

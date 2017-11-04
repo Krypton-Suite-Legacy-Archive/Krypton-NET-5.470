@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -37,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Initialize a new instance of the AnyButtonSpec class.
 		/// </summary>
         public ButtonSpecAny()
-		{
+        {
             _visible = true;
             _enabled = ButtonEnabled.Container;
             _checked = ButtonCheckState.NotCheckButton;
@@ -68,7 +62,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 return (base.IsDefault &&
-                        (Visible == true) &&
+                        Visible &&
                         (Enabled == ButtonEnabled.Container) &&
                         (Checked == ButtonCheckState.NotCheckButton));
             }
@@ -300,20 +294,22 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.OnButtonSpecPropertyChanged(propertyName);
 
-            if (propertyName == "KryptonCommand")
+            if (KryptonCommand != null)
             {
-                if (KryptonCommand != null)
+                switch (propertyName)
                 {
-                    if (Checked != ButtonCheckState.NotCheckButton)
-                        Checked = (KryptonCommand.Checked ? ButtonCheckState.Checked : ButtonCheckState.Unchecked);
+                    case "KryptonCommand":
+                        if (Checked != ButtonCheckState.NotCheckButton)
+                        {
+                            Checked = (KryptonCommand.Checked ? ButtonCheckState.Checked : ButtonCheckState.Unchecked);
+                        }
 
-                    Enabled = (KryptonCommand.Enabled ? ButtonEnabled.True : ButtonEnabled.False);
+                        Enabled = (KryptonCommand.Enabled ? ButtonEnabled.True : ButtonEnabled.False);
+                        break;
+                    case "Checked":
+                        KryptonCommand.Checked = (Checked == ButtonCheckState.Checked);
+                        break;
                 }
-            }
-            else if (propertyName == "Checked")
-            {
-                if (KryptonCommand != null)
-                    KryptonCommand.Checked = (Checked == ButtonCheckState.Checked);
             }
         }
 
@@ -351,9 +347,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Then invert the checked state
                     if (Checked == ButtonCheckState.Unchecked)
+                    {
                         Checked = ButtonCheckState.Checked;
+                    }
                     else
+                    {
                         Checked = ButtonCheckState.Unchecked;
+                    }
                 }
             }
 

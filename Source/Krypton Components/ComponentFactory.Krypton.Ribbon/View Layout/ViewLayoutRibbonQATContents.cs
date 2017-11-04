@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -85,7 +83,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 Clear();
 
                 foreach (ViewDrawRibbonQATButton view in _qatButtonToView.Values)
+                {
                     view.Dispose();
+                }
 
                 _qatButtonToView.Clear();
 
@@ -123,20 +123,28 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Then use the alphanumeric 0A - 0Z
             for (int i = 25; i >= 0; i--)
+            {
                 keyTipsPool.Push("0" + (char)(65 + i));
+            }
 
             // Then use the number 09 - 01
             for (int i = 1; i <= 9; i++)
+            {
                 keyTipsPool.Push("0" + i.ToString());
+            }
 
             // Start with the number 1 - 9
             for (int i = 9; i >= 1; i--)
+            {
                 keyTipsPool.Push(i.ToString());
+            }
 
             // If integrated into the caption area then get the caption area height
             Padding borders = Padding.Empty;
             if ((ownerForm != null) && !ownerForm.ApplyComposition)
+            {
                 borders = ownerForm.RealWindowBorders;
+            }
 
             KeyTipInfoList keyTipList = new KeyTipInfoList();
 
@@ -326,7 +334,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // If the quick access toolbar button wants to be visible
                             if (view.QATButton.GetVisible() || _ribbon.InDesignHelperMode)
+                            {
                                 _overflow = true;
+                            }
                         }
                     }
                 }
@@ -379,9 +389,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewBase ViewForButton(IQuickAccessToolbarButton qatButton)
         {
             if (_qatButtonToView.ContainsKey(qatButton))
+            {
                 return _qatButtonToView[qatButton];
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -394,14 +408,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Scan all the buttons looking for one that is enabled and visible
             foreach (ViewBase qatView in _qatButtonToView.Values)
+            {
                 if (qatView.Visible && qatView.Enabled)
+                {
                     return qatView;
+                }
+            }
 
             // If showing the extra button, then use that
-            if (_extraButton != null)
-                return _extraButton;
-
-            return null;
+            return _extraButton;
         }
         #endregion
 
@@ -414,7 +429,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If showing the extra button, then use that
             if (_extraButton != null)
+            {
                 return _extraButton;
+            }
 
             // Extract the set of views into an array
             ViewDrawRibbonQATButton[] qatViews = new ViewDrawRibbonQATButton[_qatButtonToView.Count];
@@ -428,7 +445,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // QAT button must be visible and enabled
                 if (qatView.Visible && qatView.Enabled)
+                {
                     return qatView;
+                }
             }
 
             return null;
@@ -449,14 +468,20 @@ namespace ComponentFactory.Krypton.Ribbon
             foreach (ViewBase qatView in _qatButtonToView.Values)
             {
                 if (!found)
+                {
                     found = (qatView == qatButton);
+                }
                 else if (qatView.Visible && qatView.Enabled)
+                {
                     return qatView;
+                }
             }
 
             // If showing the extra button, then use that
             if ((qatButton != _extraButton) && (_extraButton != null))
+            {
                 return _extraButton;
+            }
 
             return null;
         }
@@ -484,9 +509,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 ViewDrawRibbonQATButton qatView = qatViews[i];
                 
                 if (!found)
+                {
                     found = (qatView == qatButton);
+                }
                 else if (qatView.Visible && qatView.Enabled)
+                {
                     return qatView;
+                }
             }
 
             return null;
@@ -523,11 +552,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Get the currently cached view for the button
                 if (_qatButtonToView.ContainsKey(qatButton))
+                {
                     view = _qatButtonToView[qatButton];
+                }
 
                 // If a new button, create a view for it now
                 if (view == null)
+                {
                     view = new ViewDrawRibbonQATButton(_ribbon, qatButton, _needPaint);
+                }
 
                 // Add to the lookup for future reference
                 regenerate.Add(qatButton, view);
@@ -551,19 +584,25 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Remove entries we are still using
                 if (_qatButtonToView.ContainsKey(qatButton))
+                {
                     _qatButtonToView.Remove(qatButton);
+                }
             }
 
             // Dispose of views no longer required
             foreach (ViewDrawRibbonQATButton view in _qatButtonToView.Values)
+            {
                 view.Dispose();
+            }
 
             // No longer need the old lookup
             _qatButtonToView = regenerate;
 
             // Always add the customization/overflow button last
             if (_extraButton != null)
+            {
                 Add(_extraButton);
+            }
         }
 
         private void OnExtraButtonClick(object sender, EventHandler finishDelegate)
@@ -574,9 +613,13 @@ namespace ComponentFactory.Krypton.Ribbon
             Rectangle screenRect = ParentControl.RectangleToScreen(button.ClientRectangle);
 
             if (_extraButton.Overflow)
+            {
                 _ribbon.DisplayQATOverflowMenu(screenRect, this, finishDelegate);
+            }
             else
+            {
                 _ribbon.DisplayQATCustomizeMenu(screenRect, this, finishDelegate);
+            }
         }
         #endregion
     }

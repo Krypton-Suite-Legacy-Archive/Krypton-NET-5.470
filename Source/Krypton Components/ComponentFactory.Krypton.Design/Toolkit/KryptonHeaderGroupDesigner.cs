@@ -10,9 +10,7 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -62,7 +60,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -92,7 +93,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Let the internal panel in the container be designable
             if (_headerGroup != null)
+            {
                 EnableDesignMode(_headerGroup.Panel, "Panel");
+            }
         }
 
         /// <summary>
@@ -107,7 +110,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If no button specs then nothing more to do
                 if ((_headerGroup == null) || (_headerGroup.ButtonSpecs.Count == 0))
+                {
                     return baseComponents;
+                }
                 else
                 {
                     // Create a new collection for both values
@@ -141,9 +146,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Get the control designer for the requested indexed child control
             if ((_headerGroup != null) && (internalControlIndex == 0))
+            {
                 return (ControlDesigner)_designerHost.GetDesigner(_headerGroup.Panel);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -153,9 +162,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override int NumberOfInternalControlDesigners()
         {
             if (_headerGroup != null)
+            {
                 return 1;
+            }
             else
+            {
                 return 0;
+            }
         }
 
         /// <summary>
@@ -166,10 +179,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the header group specific list
-                actionLists.Add(new KryptonHeaderGroupActionList(this));
+                    // Add the header group specific list
+                    new KryptonHeaderGroupActionList(this)
+                };
 
                 return actionLists;
             }
@@ -192,7 +207,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _headerGroup.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -200,7 +217,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -208,8 +227,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_headerGroup != null)
-                _headerGroup.DesignerMouseLeave();
+            _headerGroup?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }        
@@ -229,8 +247,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _headerGroup.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }

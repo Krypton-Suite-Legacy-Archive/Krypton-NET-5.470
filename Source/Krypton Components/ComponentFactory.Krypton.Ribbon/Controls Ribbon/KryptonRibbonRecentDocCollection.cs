@@ -8,14 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -42,8 +34,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Search for an entry with the same text name as that requested.
                 foreach (KryptonRibbonRecentDoc recentDoc in this)
+                {
                     if (recentDoc.Text == name)
+                    {
                         return recentDoc;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[name];

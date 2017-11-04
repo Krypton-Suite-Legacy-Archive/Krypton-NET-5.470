@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -86,9 +82,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public PaletteImageEffect GetContentImageEffect(PaletteState state)
         {
             if (state != PaletteState.Disabled)
+            {
                 return PaletteImageEffect.Normal;
+            }
             else
+            {
                 return PaletteImageEffect.Disabled;
+            }
         }
 
         /// <summary>

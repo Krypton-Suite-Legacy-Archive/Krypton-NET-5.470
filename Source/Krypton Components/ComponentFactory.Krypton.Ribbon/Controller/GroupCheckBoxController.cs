@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -107,7 +106,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the visual state
             if (!_fixedPressed)
+            {
                 UpdateTargetState(c);
+            }
 		}
 
 		/// <summary>
@@ -131,9 +132,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember the user has pressed the right mouse button down
             if (button == MouseButtons.Right)
+            {
                 _rightButtonDown = true;
-    			
-            return _captured;
+            }
+
+		    return _captured;
 		}
 
         /// <summary>
@@ -176,7 +179,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Can only click if enabled
                         if (_targetImage.Enabled)
+                        {
                             OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
+                        }
                     }
 
                     // Repaint to reflect new state
@@ -274,12 +279,18 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the root control that owns the provided control
             c = _ribbon.GetControllerControl(c);
 
-            if (c is KryptonRibbon)
-                KeyDownRibbon(c as KryptonRibbon, e);
-            else if (c is VisualPopupGroup)
-                KeyDownPopupGroup(c as VisualPopupGroup, e);
-            else if (c is VisualPopupMinimized)
-                KeyDownPopupMinimized(c as VisualPopupMinimized, e);
+            switch (c)
+            {
+                case KryptonRibbon rib:
+                    KeyDownRibbon(rib, e);
+                    break;
+                case VisualPopupGroup pop:
+                    KeyDownPopupGroup(pop, e);
+                    break;
+                case VisualPopupMinimized min:
+                    KeyDownPopupMinimized(min, e);
+                    break;
+            }
         }
 
         /// <summary>
@@ -378,9 +389,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -399,13 +414,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_captured)
                 {
                     if (_fixedPressed || _targetMain.ClientRectangle.Contains(pt))
+                    {
                         pressed = true;
+                    }
                 }
                 else
                 {
                     // Only hot tracking, so show tracking only if mouse over the target or has focus
                     if (_mouseOver || _hasFocus)
+                    {
                         tracking = true;
+                    }
                 }
             }
 
@@ -427,9 +446,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
 		protected virtual void OnClick(EventArgs e)
 		{
-			if (Click != null)
-				Click(_targetMain, e);
-		}
+            Click?.Invoke(_targetMain, e);
+        }
 
         /// <summary>
         /// Raises the Click event.
@@ -437,8 +455,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnContextClick(MouseEventArgs e)
         {
-            if (ContextClick != null)
-                ContextClick(this, e);
+            ContextClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -447,9 +464,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, _targetMain.ClientRectangle));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _targetMain.ClientRectangle));
+        }
 		#endregion
 
         #region Implementation
@@ -466,7 +482,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Got to the actual tab header
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
+                    }
                     break;
                 case Keys.Tab:
                 case Keys.Right:
@@ -475,19 +493,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any far defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Space:
@@ -503,8 +529,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != TargetMain))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
-                if ((newView is ViewDrawRibbonTab) && !ribbon.RealMinimizedMode)
-                    ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 ribbon.FocusView = newView;

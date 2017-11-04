@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -89,8 +85,10 @@ namespace ComponentFactory.Krypton.Navigator
             Component = page;
 
             // Create a controller for managing button behavior
-            _buttonController = new PageButtonController(this, new NeedPaintHandler(OnNeedPaint));
-            _buttonController.ClickOnDown = true;
+            _buttonController = new PageButtonController(this, new NeedPaintHandler(OnNeedPaint))
+            {
+                ClickOnDown = true
+            };
             _buttonController.Click += new MouseEventHandler(OnClick);
             _buttonController.RightClick += new MouseEventHandler(OnRightClick);
 
@@ -132,8 +130,10 @@ namespace ComponentFactory.Krypton.Navigator
             _viewContent = new ViewDrawContent(_contentProvider, this, VisualOrientation.Top);
 
             // Add content to the view
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(_viewContent, ViewDockStyle.Fill);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { _viewContent, ViewDockStyle.Fill }
+            };
             Add(_layoutDocker);
 
             // Create button specification collection manager
@@ -144,11 +144,13 @@ namespace ComponentFactory.Krypton.Navigator
                                                                new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.PageButtonPadding },
                                                                new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
-                                                               new NeedPaintHandler(OnNeedPaint));
+                                                               new NeedPaintHandler(OnNeedPaint))
+            {
 
-            // Hook up the tooltip manager so that tooltips can be generated
-            _buttonManager.ToolTipManager = Navigator.ToolTipManager;
-            _buttonManager.RemapTarget = ButtonSpecNavRemap.ButtonSpecRemapTarget.ButtonStandalone;
+                // Hook up the tooltip manager so that tooltips can be generated
+                ToolTipManager = Navigator.ToolTipManager,
+                RemapTarget = ButtonSpecNavRemap.ButtonSpecRemapTarget.ButtonStandalone
+            };
 
             // Ensure current button specs are created
             _buttonManager.RecreateButtons();
@@ -182,8 +184,9 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     // Dispose of all the mementos in the array
                     foreach (IDisposable memento in _mementos)
-                        if (memento != null)
-                            memento.Dispose();
+                    {
+                        memento?.Dispose();
+                    }
 
                     _mementos = null;
                 }
@@ -276,10 +279,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Reference to ButtonSpec; otherwise null.</returns>
         public ButtonSpec ButtonSpecFromView(ViewBase element)
         {
-            if (_buttonManager != null)
-                return _buttonManager.ButtonSpecFromView(element);
-            else
-                return null;
+            return _buttonManager?.ButtonSpecFromView(element);
         }
 
         /// <summary>
@@ -445,7 +445,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Can only select the page if not already selected and allowed to select a tab
             if ((_navigator.SelectedPage != _page) && _navigator.AllowTabSelect)
+            {
                 _navigator.SelectedPage = _page;
+            }
 
             // Generate event so user can decide what, if any, context menu to show
             ShowContextMenuArgs scma = new ShowContextMenuArgs(_page, _navigator.Pages.IndexOf(_page));
@@ -455,11 +457,15 @@ namespace ComponentFactory.Krypton.Navigator
             if (!scma.Cancel)
             {
                 if (CommonHelper.ValidKryptonContextMenu(scma.KryptonContextMenu))
+                {
                     scma.KryptonContextMenu.Show(_navigator, _navigator.PointToScreen(new Point(e.X, e.Y)));
+                }
                 else if (scma.ContextMenuStrip != null)
                 {
-                    if (CommonHelper.ValidContextMenuStrip(scma.ContextMenuStrip) && (scma.ContextMenuStrip != null))
+                    if (CommonHelper.ValidContextMenuStrip(scma.ContextMenuStrip) )
+                    {
                         scma.ContextMenuStrip.Show(_navigator.PointToScreen(new Point(e.X, e.Y)));
+                    }
                 }
             }
         }
@@ -471,8 +477,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
-            if (_needPaint != null)
-                _needPaint(this, e);
+            _needPaint?.Invoke(this, e);
         }
         #endregion
 
@@ -482,8 +487,12 @@ namespace ComponentFactory.Krypton.Navigator
             Array stateValues = Enum.GetValues(typeof(PaletteState));
 
             for (int i = 0; i < stateValues.Length; i++)
+            {
                 if ((PaletteState)stateValues.GetValue(i) == state)
+                {
                     return i;
+                }
+            }
 
             return 0;
         }
@@ -495,9 +504,13 @@ namespace ComponentFactory.Krypton.Navigator
 
             // If the actual control is not enabled, force to disabled state
             if (!IsFixed && !context.Control.Enabled)
+            {
                 buttonState = PaletteState.Disabled;
+            }
             else if (buttonState == PaletteState.Disabled)
+            {
                 buttonState = PaletteState.Normal;
+            }
 
             if (!IsFixed)
             {
@@ -607,14 +620,18 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Can only select the page if not already selected and allowed a selected tab
             if ((Navigator.SelectedPage != _page) && Navigator.AllowTabSelect)
+            {
                 Navigator.SelectedPage = _page;
+            }
 
             // If the page is actually now selected
             if (Navigator.SelectedPage == _page)
             {
                 // If in a tabs only mode then show the popup for the page
                 if (Navigator.NavigatorMode == NavigatorMode.BarRibbonTabOnly)
+                {
                     Navigator.ShowPopupPage(Page, this, null);
+                }
             }
         }
 
@@ -640,14 +657,12 @@ namespace ComponentFactory.Krypton.Navigator
 
         private void OnButtonDragRectangle(object sender, ButtonDragRectangleEventArgs e)
         {
-            if (ButtonDragRectangle != null)
-                ButtonDragRectangle(this, e);
+            ButtonDragRectangle?.Invoke(this, e);
         }
 
         private void OnButtonDragOffset(object sender, ButtonDragOffsetEventArgs e)
         {
-            if (ButtonDragOffset != null)
-                ButtonDragOffset(this, e);
+            ButtonDragOffset?.Invoke(this, e);
         }
         #endregion
     }

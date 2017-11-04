@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -60,15 +56,23 @@ namespace ComponentFactory.Krypton.Navigator
                 case VisualOrientation.Left:
                     if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                         (Navigator.RightToLeft == RightToLeft.Yes))
+                    {
                         return VisualOrientation.Right;
+                    }
                     else
+                    {
                         return VisualOrientation.Left;
+                    }
                 case VisualOrientation.Right:
                     if (CommonHelper.GetRightToLeftLayout(Navigator) &&
                         (Navigator.RightToLeft == RightToLeft.Yes))
+                    {
                         return VisualOrientation.Left;
+                    }
                     else
+                    {
                         return VisualOrientation.Right;
+                    }
                 default:
                     // Should never happen!
                     Debug.Assert(false);

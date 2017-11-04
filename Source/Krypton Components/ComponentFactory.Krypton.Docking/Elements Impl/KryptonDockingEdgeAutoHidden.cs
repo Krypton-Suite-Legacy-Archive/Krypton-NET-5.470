@@ -9,12 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
@@ -30,7 +27,9 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingEdgeAutoHidden : DockingElementClosedCollection
     {
         #region Static Fields
-        private static readonly int CLIENT_MINIMUM = 22;
+
+        private const int CLIENT_MINIMUM = 22;
+
         #endregion
 
         #region Instance Fields
@@ -51,18 +50,17 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingEdgeAutoHidden(string name, Control control, DockingEdge edge)
             : base(name)
         {
-            if (control == null)
-                throw new ArgumentNullException("control");
-
-            _control = control;
+            _control = control ?? throw new ArgumentNullException("control");
             _edge = edge;
             _panelEventFired = false;
 
             // Create and add the panel used to host auto hidden groups
-            _panel = new KryptonAutoHiddenPanel(edge);
-            _panel.AutoSize = true;
-            _panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            _panel.Dock = DockingHelper.DockStyleFromDockEdge(edge, false);
+            _panel = new KryptonAutoHiddenPanel(edge)
+            {
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                Dock = DockingHelper.DockStyleFromDockEdge(edge, false)
+            };
             _panel.Disposed += new EventHandler(OnPanelDisposed);
 
             // Create the panel that slides into/out of view to show selected auto host entry
@@ -154,7 +152,10 @@ namespace ComponentFactory.Krypton.Docking
                 case DockingPropogateAction.StorePages:
                     // Ask the sliding panel to remove its display if an incoming name matches
                     foreach (string uniqueName in uniqueNames)
+                    {
                         _slidePanel.HideUniqueName(uniqueName);
+                    }
+
                     break;
                 case DockingPropogateAction.Loading:
                 case DockingPropogateAction.HideAllPages:
@@ -192,7 +193,10 @@ namespace ComponentFactory.Krypton.Docking
                 case DockingPropogateAction.RestorePages:
                     // Ask the sliding panel to remove its display if an incoming name matches
                     foreach (KryptonPage page in pages)
+                    {
                         _slidePanel.HideUniqueName(page.UniqueName);
+                    }
+
                     break;
             }
 
@@ -230,8 +234,7 @@ namespace ComponentFactory.Krypton.Docking
             // Search each of our AutoHiddenGroup entries
             for (int i = 0; i < Count; i++)
             {
-                KryptonDockingAutoHiddenGroup ahg = this[i] as KryptonDockingAutoHiddenGroup;
-                if (ahg != null)
+                if (this[i] is KryptonDockingAutoHiddenGroup ahg)
                 {
                     // If the target page is inside this group
                     KryptonPage page = ahg.AutoHiddenGroupControl.Pages[uniqueName];
@@ -267,7 +270,9 @@ namespace ComponentFactory.Krypton.Docking
                                                         IDockingElement child)
         {
             if (child != null)
+            {
                 child.LoadElementFromXml(xmlReader, pages);
+            }
             else
             {
                 // Create a new auto hidden group and then reload it
@@ -353,7 +358,9 @@ namespace ComponentFactory.Krypton.Docking
 
             // Make sure the sliding panel is also disposed
             if (!_slidePanel.IsDisposed)
+            {
                 _slidePanel.Dispose();
+            }
         }
 
         private void OnSlidePanelDisposed(object sender, EventArgs e)
@@ -383,7 +390,9 @@ namespace ComponentFactory.Krypton.Docking
 
             // Make sure the groups panel is also disposed
             if (!_panel.IsDisposed)
+            {
                 _panel.Dispose();
+            }
         }
 
         private void OnDockingAutoHiddenGroupClicked(object sender, KryptonPageEventArgs e)
@@ -439,16 +448,14 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Generate event so that the close action is handled for the named page
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.CloseRequest(new string[] { e.UniqueName });
+            dockingManager?.CloseRequest(new string[] { e.UniqueName });
         }
 
         private void OnSlidePanelPageAutoHiddenClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the auto hidden is switched to docked is handled for the group that contains the named page
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.SwitchAutoHiddenGroupToDockedCellRequest(e.UniqueName);
+            dockingManager?.SwitchAutoHiddenGroupToDockedCellRequest(e.UniqueName);
         }
 
         private void OnSlidePanelPageDropDownClicked(object sender, CancelDropDownEventArgs e)
@@ -456,15 +463,16 @@ namespace ComponentFactory.Krypton.Docking
             // Generate event so that the appropriate context menu options are preseted and actioned
             KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
+            {
                 e.Cancel = !dockingManager.ShowPageContextMenuRequest(e.Page, e.KryptonContextMenu);
+            }
         }
 
         private void OnSlidePanelAutoHiddenShowingStateChanged(object sender, AutoHiddenShowingStateEventArgs e)
         {
             // Generate event so that the appropriate context menu options are preseted and actioned
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.RaiseAutoHiddenShowingStateChanged(e);
+            dockingManager?.RaiseAutoHiddenShowingStateChanged(e);
         }
 
         private Rectangle FindMovementRect(Rectangle moveRect)

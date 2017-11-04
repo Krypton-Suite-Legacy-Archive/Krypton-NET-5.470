@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -79,7 +74,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 return ((CheckButtonStyle == ButtonStyle.NavigatorStack) &&
                         (BorderEdgeStyle == PaletteBorderStyle.ControlClient) &&
-                        (StackAnimation == true) &&
+                        StackAnimation &&
                         (StackOrientation == Orientation.Vertical) &&
                         (StackAlignment == RelativePositionAlign.Center) &&
                         (ItemOrientation == ButtonOrientation.Auto) &&

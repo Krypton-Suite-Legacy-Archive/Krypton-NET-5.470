@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
@@ -26,7 +22,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonCompoRightBorder : ViewLeaf
     {
         #region Static Fields
-        private static readonly int SPACING_GAP = 10;
+
+        private const int SPACING_GAP = 10;
+
         #endregion
 
         #region Instance Fields
@@ -100,16 +98,24 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Find the left most button edge (start with right side of client area)
                         if ((closeWidth > 0) && (closeWidth < clientWidth))
+                        {
                             leftMost = Math.Min(leftMost, tbi.rcCloseButton.left);
+                        }
 
                         if ((helpWidth > 0) && (helpWidth < clientWidth))
+                        {
                             leftMost = Math.Min(leftMost, tbi.rcHelpButton.left);
+                        }
 
                         if ((minWidth > 0) && (minWidth < clientWidth))
+                        {
                             leftMost = Math.Min(leftMost, tbi.rcMinButton.left);
+                        }
 
                         if ((maxWidth > 0) && (maxWidth < clientWidth))
+                        {
                             leftMost = Math.Min(leftMost, tbi.rcMaxButton.left);
+                        }
 
                         // Our width is the distance between the left most button edge and the right
                         // side of the client area (this space the buttons are taking up). Plus a small

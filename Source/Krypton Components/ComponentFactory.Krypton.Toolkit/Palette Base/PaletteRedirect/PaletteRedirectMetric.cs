@@ -8,12 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -93,9 +87,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteMetric inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetMetricInt(state, metric);
+            }
             else
+            {
                 return Target.GetMetricInt(state, metric);
+            }
         }
 
         /// <summary>
@@ -109,9 +107,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteMetric inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetMetricBool(state, metric);
+            }
             else
+            {
                 return Target.GetMetricBool(state, metric);
+            }
         }
 
         /// <summary>
@@ -125,9 +127,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteMetric inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetMetricPadding(state, metric);
+            }
             else
+            {
                 return Target.GetMetricPadding(state, metric);
+            }
         }
         #endregion
 

@@ -8,8 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -233,10 +231,14 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbon.SelectedTab == null)
             {
                 if (keyData == Keys.Tab)
+                {
                     keyData = Keys.Right;
+                }
 
                 if (keyData == (Keys.Tab | Keys.Shift))
+                {
                     keyData = Keys.Left;
+                }
             }
 
             switch (keyData)
@@ -247,19 +249,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any far defined buttons
                     if (newView == null)
+                    {
                         newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Far);
+                    }
 
                     // Move across to any inherit defined buttons
                     if (newView == null)
+                    {
                         newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Inherit);
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (_ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (_ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Left:
@@ -268,19 +278,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any near defined buttons
                     if (newView == null)
+                    {
                         newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                    }
 
                     // Get the last qat button
                     if (newView == null)
+                    {
                         newView = _ribbon.GetLastQATView();
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (_ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (_ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Tab | Keys.Shift:
@@ -289,15 +307,21 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Get the last qat button
                     if (newView == null)
+                    {
                         newView = _ribbon.GetLastQATView();
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (_ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (_ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Down:
@@ -310,19 +334,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Move across to any near defined buttons
                     if (newView == null)
+                    {
                         newView = _ribbon.TabsArea.ButtonSpecManager.GetFirstVisibleViewButton(PaletteRelativeEdgeAlign.Near);
+                    }
 
                     // Get the last qat button
                     if (newView == null)
+                    {
                         newView = _ribbon.GetLastQATView();
+                    }
 
                     // Rotate around to application button
                     if (newView == null)
                     {
                         if (_ribbon.TabsArea.LayoutAppButton.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppButton.AppButton;
+                        }
                         else if (_ribbon.TabsArea.LayoutAppTab.Visible)
+                        {
                             newView = _ribbon.TabsArea.LayoutAppTab.AppTab;
+                        }
                     }                        
                     break;
                 case Keys.Enter:
@@ -349,8 +381,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((newView != null) && (newView != _target))
             {
                 // If the new view is a tab then select that tab
-                if ((newView is ViewDrawRibbonTab) && !_ribbon.RealMinimizedMode)
-                    _ribbon.SelectedTab = ((ViewDrawRibbonTab)newView).RibbonTab;
+                if (!_ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
+                {
+                    _ribbon.SelectedTab = tab.RibbonTab;
+                }
 
                 // Finally we switch focus to new view
                 _ribbon.FocusView = newView;
@@ -387,7 +421,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If we are not selected then make us so
             if (_ribbon.SelectedTab != _target.RibbonTab)
+            {
                 _ribbon.SelectedTab = _target.RibbonTab;
+            }
 
             // Switch focus to this view
             _ribbon.FocusView = _target;
@@ -426,9 +462,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -442,22 +482,32 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Disabled;
+            }
             else
             {
                 if (_target.Checked)
                 {
                     if (_mouseOver)
+                    {
                         newState = PaletteState.CheckedTracking;
+                    }
                     else
+                    {
                         newState = PaletteState.CheckedNormal;
+                    }
                 }
                 else
                 {
                     if (_mouseOver)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
             }
 
@@ -478,9 +528,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-			if (Click != null)
-				Click(_target, e);
-		}
+            Click?.Invoke(_target, e);
+        }
 
         /// <summary>
         /// Raises the ContextClick event.
@@ -488,8 +537,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnContextClick(MouseEventArgs e)
         {
-            if (ContextClick != null)
-                ContextClick(_target, e);
+            ContextClick?.Invoke(_target, e);
         }
         
         /// <summary>
@@ -515,11 +563,15 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_ribbon == null)
+                {
                     return false;
+                }
                 else
                 {
                     if (_ribbon.InDesignMode)
+                    {
                         return true;
+                    }
                     else
                     {
                         Form topForm = _ribbon.FindForm();

@@ -9,19 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -34,7 +25,9 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonAutoHiddenPanel : KryptonPanel
     {
         #region Static Fields
-        private static readonly int EXTRA_PADDING = 4;
+
+        private const int EXTRA_PADDING = 4;
+
         #endregion
 
         #region Identity
@@ -103,8 +96,15 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Add on any padding values but only if we have something to display
-            if (width > 0)  width += Padding.Horizontal;
-            if (height > 0) height += Padding.Vertical;
+            if (width > 0)
+            {
+                width += Padding.Horizontal;
+            }
+
+            if (height > 0)
+            {
+                height += Padding.Vertical;
+            }
 
             return new Size(width, height);
         }

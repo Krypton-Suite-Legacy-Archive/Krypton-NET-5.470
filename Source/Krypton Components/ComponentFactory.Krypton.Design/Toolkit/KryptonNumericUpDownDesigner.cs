@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -71,9 +69,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (_numericUpDown != null)
+                {
                     return _numericUpDown.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -105,10 +107,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the label specific list
-                actionLists.Add(new KryptonNumericUpDownActionList(this));
+                    // Add the label specific list
+                    new KryptonNumericUpDownActionList(this)
+                };
 
                 return actionLists;
             }
@@ -129,7 +133,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _numericUpDown.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -137,7 +143,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -145,8 +153,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_numericUpDown != null)
-                _numericUpDown.DesignerMouseLeave();
+            _numericUpDown?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -166,8 +173,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _numericUpDown.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }
@@ -175,19 +184,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnNumericUpDownDoubleClick(object sender, Point pt)
         {
-            if (_numericUpDown != null)
+            // Get any component associated with the current mouse position
+            Component component = _numericUpDown?.DesignerComponentFromPoint(pt);
+
+            if (component != null)
             {
-                // Get any component associated with the current mouse position
-                Component component = _numericUpDown.DesignerComponentFromPoint(pt);
+                // Get the designer for the component
+                IDesigner designer = _designerHost.GetDesigner(component);
 
-                if (component != null)
-                {
-                    // Get the designer for the component
-                    IDesigner designer = _designerHost.GetDesigner(component);
-
-                    // Request code for the default event be generated
-                    designer.DoDefaultAction();
-                }
+                // Request code for the default event be generated
+                designer.DoDefaultAction();
             }
         }
 

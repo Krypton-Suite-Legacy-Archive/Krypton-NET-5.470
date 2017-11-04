@@ -9,18 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Workspace;
@@ -146,18 +138,18 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case PI.WM_KEYDOWN:
                     base.WndProc(ref m);
-                    if (_floatingMessages != null)
-                        _floatingMessages.OnKEYDOWN(ref m);
+                    _floatingMessages?.OnKEYDOWN(ref m);
+
                     return;
                 case PI.WM_MOUSEMOVE:
                     base.WndProc(ref m);
-                    if (_floatingMessages != null)
-                        _floatingMessages.OnMOUSEMOVE();
+                    _floatingMessages?.OnMOUSEMOVE();
+
                     return;
                 case PI.WM_LBUTTONUP:
                     base.WndProc(ref m);
-                    if (_floatingMessages != null)
-                        _floatingMessages.OnLBUTTONUP();
+                    _floatingMessages?.OnLBUTTONUP();
+
                     return;
             }
 
@@ -170,8 +162,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An UniqueNamesEventArgs that contains the event data.</param>
         protected virtual void OnWindowCloseClicked(UniqueNamesEventArgs e)
         {
-            if (WindowCloseClicked != null)
-                WindowCloseClicked(this, e);
+            WindowCloseClicked?.Invoke(this, e);
         }
 
         /// <summary>
@@ -180,8 +171,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An ScreenAndOffsetEventArgs that contains the event data.</param>
         protected virtual void OnWindowCaptionDragging(ScreenAndOffsetEventArgs e)
         {
-            if (WindowCaptionDragging != null)
-                WindowCaptionDragging(this, e);
+            WindowCaptionDragging?.Invoke(this, e);
         }
 
         /// <summary>
@@ -206,7 +196,9 @@ namespace ComponentFactory.Krypton.Docking
             // Generate event so handlers to perform appropriate processing
             string[] uniqueNames = VisibleCloseableUniqueNames();
             if (uniqueNames.Length > 0)
+            {
                 OnWindowCloseClicked(new UniqueNamesEventArgs(uniqueNames));
+            }
 
             base.OnClosing(e);
         }
@@ -248,7 +240,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // When all the cells (and so pages) have been removed we kill ourself
             if (FloatspaceControl.CellCount == 0)
+            {
                 FloatspaceControl.Dispose();
+            }
         }
 
         private void OnFloatspaceCellVisibleCountChanged(object sender, EventArgs e)
@@ -286,9 +280,13 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     // Cell display mode depends on the number of tabs in the cell
                     if (cell.Pages.VisibleCount == 1)
+                    {
                         cell.NavigatorMode = NavigatorMode.HeaderGroup;
+                    }
                     else
+                    {
                         cell.NavigatorMode = NavigatorMode.HeaderGroupTab;
+                    }
                 }
                 else
                 {
@@ -314,8 +312,12 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // Create a list of all the visible page names in the floatspace that are allowed to be closed
                 foreach (KryptonPage page in cell.Pages)
+                {
                     if (page.LastVisibleSet && page.AreFlagsSet(KryptonPageFlags.DockingAllowClose))
+                    {
                         uniqueNames.Add(page.UniqueName);
+                    }
+                }
 
                 cell = FloatspaceControl.NextVisibleCell(cell);
             }

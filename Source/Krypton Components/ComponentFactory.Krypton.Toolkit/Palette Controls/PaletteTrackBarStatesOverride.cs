@@ -9,12 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -46,8 +41,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(overrideStates != null);
 
             // Validate incoming references
-            if (normalStates == null) throw new ArgumentNullException("normalStates");
-            if (overrideStates == null) throw new ArgumentNullException("overrideStates");
+            if (normalStates == null)
+            {
+                throw new ArgumentNullException("normalStates");
+            }
+
+            if (overrideStates == null)
+            {
+                throw new ArgumentNullException("overrideStates");
+            }
 
             // Create the triple override instances
             _back = normalStates.Back;

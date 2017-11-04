@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -186,8 +184,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Do we need to draw the border?
             if (paletteBorder.GetBorderDraw(State) == InheritBool.True)
+            {
                 context.Renderer.RenderStandardBorder.DrawBorder(context, ClientRectangle, paletteBorder, 
-                                                                 VisualOrientation.Top, State);
+                    VisualOrientation.Top, State);
+            }
 
             // Find the content area inside the button rectangle
             Rectangle contentRect = ClientRectangle;
@@ -195,9 +195,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Decide if we are drawing an overflow or context arrow image
             if (Overflow)
+            {
                 context.Renderer.RenderGlyph.DrawRibbonOverflow(_ribbon.RibbonShape, context, contentRect, paletteGeneral, State);
+            }
             else
+            {
                 context.Renderer.RenderGlyph.DrawRibbonContextArrow(_ribbon.RibbonShape, context, contentRect, paletteGeneral, State);
+            }
         }
         #endregion
 
@@ -216,13 +220,16 @@ namespace ComponentFactory.Krypton.Ribbon
             Form ownerForm = _ribbon.FindForm();
 
             // Ensure the form we are inside is active
-            if (ownerForm != null)
-                ownerForm.Activate();
+            ownerForm?.Activate();
 
             if ((ClickAndFinish != null) && !_ribbon.InDesignMode)
+            {
                 ClickAndFinish(this, _finishDelegate);
+            }
             else
+            {
                 ClickFinished(this, EventArgs.Empty);
+            }
         }
         #endregion
     }

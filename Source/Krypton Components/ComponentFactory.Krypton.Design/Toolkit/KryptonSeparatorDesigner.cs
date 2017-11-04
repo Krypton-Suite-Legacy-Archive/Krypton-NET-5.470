@@ -8,16 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Windows.Forms.Design.Behavior;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -45,10 +37,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the label specific list
-                actionLists.Add(new KryptonSeparatorActionList(this));
+                    // Add the label specific list
+                    new KryptonSeparatorActionList(this)
+                };
 
                 return actionLists;
             }

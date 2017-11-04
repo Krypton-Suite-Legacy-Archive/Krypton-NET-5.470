@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonLinkBehaviorConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(KryptonLinkBehavior.AlwaysUnderline,  "Always Underline"),
+        private Pair[] _pairs = { new Pair(KryptonLinkBehavior.AlwaysUnderline,  "Always Underline"),
                                              new Pair(KryptonLinkBehavior.HoverUnderline,   "Hover Underline"),
                                              new Pair(KryptonLinkBehavior.NeverUnderline,   "Never Underline") };
         #endregion

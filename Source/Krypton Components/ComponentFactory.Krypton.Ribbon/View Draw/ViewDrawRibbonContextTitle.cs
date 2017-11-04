@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
@@ -29,9 +26,11 @@ namespace ComponentFactory.Krypton.Ribbon
                                                 IContentValues
     {
         #region Static Fields
-        private static readonly int TEXT_SIDE_GAP = 4;
-        private static readonly int TEXT_SIDE_GAP_COMPOSITION = 2;
-        private static readonly int TEXT_BOTTOM_GAP = 3;
+
+        private const int TEXT_SIDE_GAP = 4;
+        private const int TEXT_SIDE_GAP_COMPOSITION = 2;
+        private const int TEXT_BOTTOM_GAP = 3;
+
         #endregion
 
         #region Instance Fields
@@ -127,9 +126,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Update the component we are associated with
                 if (_context != null)
+                {
                     Component = _context.Context;
+                }
                 else
+                {
                     Component = null;
+                }
             }
         }
         #endregion
@@ -225,7 +228,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _contentProvider.OverrideTextColor = Color.FromArgb(128, ControlPaint.Dark(GetRibbonBackColor1(PaletteState.Normal)));
 
                 if (DrawOnComposition)
+                {
                     _contentProvider.OverrideTextHint = PaletteTextHint.SingleBitPerPixelGridFit;
+                }
 
                 _mementoContentShadow1 = context.Renderer.RenderStandardContent.LayoutContent(context, shadowTextRect1,
                                                                                              _contentProvider, this,
@@ -270,7 +275,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _contentProvider.OverrideTextColor = Color.FromArgb(128, ControlPaint.Dark(GetRibbonBackColor1(PaletteState.Normal)));
 
                 if (DrawOnComposition)
+                {
                     _contentProvider.OverrideTextHint = PaletteTextHint.SingleBitPerPixelGridFit;
+                }
 
                 context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect1,
                                                                    _contentProvider, _mementoContentShadow1,
@@ -286,17 +293,21 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Use renderer to draw the text content
                 if (_mementoContentText != null)
+                {
                     context.Renderer.RenderStandardContent.DrawContent(context, _textRect,
-                                                                       _contentProvider, _mementoContentText,
-                                                                       VisualOrientation.Top,
-                                                                       state, false, true);
+                        _contentProvider, _mementoContentText,
+                        VisualOrientation.Top,
+                        state, false, true);
+                }
 
                 _contentProvider.OverrideTextHint = PaletteTextHint.Inherit;
             }
             else
             {
                 if (DrawOnComposition)
+                {
                     RenderOnComposition(context);
+                }
                 else
                 {
                     PaletteState state = (_ribbon.Enabled ? PaletteState.Normal : PaletteState.Disabled);
@@ -306,10 +317,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Use renderer to draw the text content
                     if (_mementoContentText != null)
+                    {
                         context.Renderer.RenderStandardContent.DrawContent(context, _textRect,
-                                                                           _contentProvider, _mementoContentText,
-                                                                           VisualOrientation.Top,
-                                                                           state, DrawOnComposition, true);
+                            _contentProvider, _mementoContentText,
+                            VisualOrientation.Top,
+                            state, DrawOnComposition, true);
+                    }
                 }
             }
         }
@@ -337,7 +350,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -353,7 +368,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -369,7 +386,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -385,7 +404,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -401,7 +422,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -458,27 +481,31 @@ namespace ComponentFactory.Krypton.Ribbon
                 VisualStyleRenderer renderer = new VisualStyleRenderer(VisualStyleElement.Window.Caption.Active);
 
                 // Create structures needed for theme drawing call
-                PI.RECT textBounds = new PI.RECT();
-                textBounds.left = TEXT_SIDE_GAP_COMPOSITION;
-                textBounds.top = 0;
-                textBounds.right = ClientWidth - (TEXT_SIDE_GAP_COMPOSITION * 2);
-                textBounds.bottom = ClientHeight;
-                PI.DTTOPTS dttOpts = new PI.DTTOPTS();
-                dttOpts.dwSize = Marshal.SizeOf(typeof(PI.DTTOPTS));
-			    dttOpts.dwFlags = PI.DTT_COMPOSITED | PI.DTT_GLOWSIZE | PI.DTT_TEXTCOLOR;
-                dttOpts.crText = ColorTranslator.ToWin32(SystemColors.ActiveCaptionText);
-			    dttOpts.iGlowSize = (_ribbon.Enabled ? 12 : 2);
+                PI.RECT textBounds = new PI.RECT
+                {
+                    left = TEXT_SIDE_GAP_COMPOSITION,
+                    top = 0,
+                    right = ClientWidth - (TEXT_SIDE_GAP_COMPOSITION * 2),
+                    bottom = ClientHeight
+                };
+                PI.DTTOPTS dttOpts = new PI.DTTOPTS
+                {
+                    dwSize = Marshal.SizeOf(typeof(PI.DTTOPTS)),
+                    dwFlags = PI.DTT_COMPOSITED | PI.DTT_GLOWSIZE | PI.DTT_TEXTCOLOR,
+                    crText = ColorTranslator.ToWin32(SystemColors.ActiveCaptionText),
+                    iGlowSize = (_ribbon.Enabled ? 12 : 2)
+                };
 
-			    // Always draw text centered
-                TextFormatFlags textFormat = TextFormatFlags.SingleLine | 
-                                             TextFormatFlags.HorizontalCenter | 
-                                             TextFormatFlags.VerticalCenter |
-                                             TextFormatFlags.EndEllipsis;
+                // Always draw text centered
+                const TextFormatFlags TEXT_FORMAT = TextFormatFlags.SingleLine | 
+                                                   TextFormatFlags.HorizontalCenter | 
+                                                   TextFormatFlags.VerticalCenter |
+                                                   TextFormatFlags.EndEllipsis;
 
                 // Perform actual drawing
                 PI.DrawThemeTextEx(renderer.Handle,
                                    mDC, 0, 0,
-                                   GetShortText(), -1, (int)textFormat,
+                                   GetShortText(), -1, (int)TEXT_FORMAT,
                                    ref textBounds, ref dttOpts);
 
 			    // Copy to foreground
@@ -502,9 +529,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_ribbon != null)
+                {
                     return _ribbon.CaptionArea.DrawCaptionOnComposition;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -512,9 +543,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // We need an associated context
             if (_context != null)
+            {
                 return _context.ContextColor;
+            }
             else
+            {
                 return Color.Empty;
+            }
         }
         #endregion    
     
@@ -546,9 +581,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public string GetShortText()
         {
             if ((_context != null) && (_context.ContextTitle != null))
+            {
                 return _context.ContextTitle;
+            }
             else
+            {
                 return string.Empty;
+            }
         }
 
         /// <summary>

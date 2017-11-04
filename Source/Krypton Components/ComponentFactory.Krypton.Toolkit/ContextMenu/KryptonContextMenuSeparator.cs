@@ -8,19 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -121,8 +111,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Take up same space as the image column, so separator starts close to actual text
                 ViewDrawContent imageContent = new ViewDrawContent(provider.ProviderStateCommon.ItemImage.Content, new FixedContentValue(null, null, null, Color.Empty), VisualOrientation.Top);
-                ViewDrawMenuImageCanvas imageCanvas = new ViewDrawMenuImageCanvas(provider.ProviderStateCommon.ItemImage.Back, provider.ProviderStateCommon.ItemImage.Border, 0, true);
-                imageCanvas.Add(imageContent);
+                ViewDrawMenuImageCanvas imageCanvas = new ViewDrawMenuImageCanvas(provider.ProviderStateCommon.ItemImage.Back, provider.ProviderStateCommon.ItemImage.Border, 0, true)
+                {
+                    imageContent
+                };
                 docker.Add(new ViewLayoutCenter(imageCanvas), ViewDockStyle.Left);
                 docker.Add(new ViewLayoutSeparator(1, 0), ViewDockStyle.Left);
 
@@ -130,16 +122,20 @@ namespace ComponentFactory.Krypton.Toolkit
                 docker.Add(new ViewLayoutMenuSepGap(provider.ProviderStateCommon, standardStyle), ViewDockStyle.Left);
 
                 // Separator Display
-                ViewLayoutStack separatorStack = new ViewLayoutStack(false);
-                separatorStack.Add(new ViewLayoutSeparator(1, 1));
-                separatorStack.Add(new ViewDrawMenuSeparator(this, provider.ProviderStateCommon.Separator));
-                separatorStack.Add(new ViewLayoutSeparator(1, 1));
+                ViewLayoutStack separatorStack = new ViewLayoutStack(false)
+                {
+                    new ViewLayoutSeparator(1, 1),
+                    new ViewDrawMenuSeparator(this, provider.ProviderStateCommon.Separator),
+                    new ViewLayoutSeparator(1, 1)
+                };
                 docker.Add(separatorStack, ViewDockStyle.Fill);
 
                 return docker;
             }
             else
+            {
                 return new ViewDrawMenuSeparator(this, provider.ProviderStateCommon.Separator);
+            }
         }
 
         /// <summary>

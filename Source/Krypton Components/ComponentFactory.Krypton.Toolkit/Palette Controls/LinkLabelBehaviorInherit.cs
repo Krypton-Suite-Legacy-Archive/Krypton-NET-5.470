@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -135,7 +130,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We never try and modify an empty font
             if (ret != null)
+            {
                 ret = GetContentFont(state, ret);
+            }
 
             return ret;
         }
@@ -152,7 +149,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We never try and modify an empty font
             if (ret != null)
+            {
                 ret = GetContentFont(state, ret);
+            }
 
             return ret;
         }
@@ -533,7 +532,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to add an underline to the font?
                 if (underline)
+                {
                     font = new Font(font, FontStyle.Underline | font.Style);
+                }
             }
 
             return font;

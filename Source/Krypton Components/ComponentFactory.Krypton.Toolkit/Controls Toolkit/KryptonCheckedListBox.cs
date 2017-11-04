@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Collections;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Reflection;
@@ -82,7 +78,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 int count = _owner.CheckedItems.Count;
                 for (int i = 0; i < count; i++)
+                {
                     array.SetValue(this[i], (int)(i + index));
+                }
             }
 
             /// <summary>
@@ -118,10 +116,14 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>-1 if not found; otherwise index position.</returns>
             public int IndexOf(object item)
             {
-                if (item is int)
-                    return this.IndexOf((int)item);
+                if (item is int i)
+                {
+                    return this.IndexOf(i);
+                }
                 else
+                {
                     return -1;
+                }
             }
 
             /// <summary>
@@ -265,7 +267,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 int count = InnerArrayGetCount(_anyItemMask);
                 for (int i = 0; i < count; i++)
+                {
                     array.SetValue(InnerArrayGetItem(i, _anyItemMask), (int)(i + index));
+                }
             }
 
             /// <summary>
@@ -330,10 +334,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 bool state = InnerArrayGetState(index, _checkedItemMask);
                 if (InnerArrayGetState(index, _indeterminateItemMask))
+                {
                     return CheckState.Indeterminate;
+                }
 
                 if (state)
+                {
                     return CheckState.Checked;
+                }
 
                 return CheckState.Unchecked;
             }
@@ -571,7 +579,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 base.Dispose(disposing);
                 if (_screenDC != IntPtr.Zero)
+                {
                     PI.DeleteDC(_screenDC);
+                }
             }
             #endregion
 
@@ -616,7 +626,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
                         {
                             OnTrackMouseLeave(EventArgs.Empty);
@@ -662,10 +674,14 @@ namespace ComponentFactory.Krypton.Toolkit
             protected override void OnKeyPress(KeyPressEventArgs e)
             {
                 if ((e.KeyChar == ' ') && (SelectionMode != SelectionMode.None))
+                {
                     LbnSelChange();
-                
+                }
+
                 if (_kryptonCheckedListBox.FormattingEnabled)
+                {
                     base.OnKeyPress(e);
+                }
             }
 
             /// <summary>
@@ -698,7 +714,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Ask the panel to layout given our available size
                 using (ViewLayoutContext context = new ViewLayoutContext(_viewManager, this, _kryptonCheckedListBox, _kryptonCheckedListBox.Renderer))
+                {
                     _drawPanel.Layout(context);
+                }
             }
 
             /// <summary>
@@ -711,16 +729,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     int wParam = (int)m.WParam.ToInt64();
                     if ((wParam < 0) || (wParam >= Items.Count))
+                    {
                         m.Result = (IntPtr)(-1);
+                    }
                     else
+                    {
                         m.Result = _kryptonCheckedListBox.GetItemChecked(wParam) ? ((IntPtr)1) : IntPtr.Zero;
+                    }
                 }
                 else if (m.Msg == LBC_SETCHECKSTATE)
                 {
                     int index = (int)m.WParam.ToInt64();
                     int lParam = (int)m.LParam;
                     if (((index < 0) || (index >= this.Items.Count)) || ((lParam != 1) && (lParam != 0)))
+                    {
                         m.Result = IntPtr.Zero;
+                    }
                     else
                     {
                         _kryptonCheckedListBox.SetItemChecked(index, lParam == 1);
@@ -775,7 +799,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Check that the mouse really is in the item rectangle
                                 Rectangle indexRect = GetItemRectangle(mouseIndex);
                                 if (!indexRect.Contains(mousePoint))
+                                {
                                     mouseIndex = -1;
+                                }
                             }
 
                             // If item under mouse has changed, then need to reflect for tracking
@@ -820,8 +846,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -830,8 +855,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
 
@@ -858,7 +882,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal int InnerArrayGetCount(int stateMask)
             {
                 if (_miGetCount == null)
+                {
                     _miGetCount = InnerArray.GetType().GetMethod("GetCount", new Type[] { typeof(int) }, null);
+                }
 
                 return (int)_miGetCount.Invoke(InnerArray, new object[] { stateMask });
             }
@@ -866,7 +892,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal int InnerArrayIndexOf(object item, int stateMask)
             {
                 if (_miIndexOf == null)
+                {
                     _miIndexOf = InnerArray.GetType().GetMethod("IndexOf", new Type[] { typeof(object), typeof(int) }, null);
+                }
 
                 return (int)_miIndexOf.Invoke(InnerArray, new object[] { item, stateMask });
             }
@@ -874,7 +902,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal int InnerArrayIndexOfIdentifier(object identifier, int stateMask)
             {
                 if (_miIndexOfIdentifier == null)
+                {
                     _miIndexOfIdentifier = InnerArray.GetType().GetMethod("IndexOfIdentifier", new Type[] { typeof(object), typeof(int) }, null);
+                }
 
                 return (int)_miIndexOfIdentifier.Invoke(InnerArray, new object[] { identifier, stateMask });
             }
@@ -882,7 +912,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal object InnerArrayGetItem(int index, int stateMask)
             {
                 if (_miGetItem == null)
+                {
                     _miGetItem = InnerArray.GetType().GetMethod("GetItem", new Type[] { typeof(int), typeof(int) }, null);
+                }
 
                 return _miGetItem.Invoke(InnerArray, new object[] { index, stateMask });
             }
@@ -890,7 +922,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal object InnerArrayGetEntryObject(int index, int stateMask)
             {
                 if (_miGetEntryObject == null)
+                {
                     _miGetEntryObject = InnerArray.GetType().GetMethod("GetEntryObject", BindingFlags.NonPublic | BindingFlags.Instance );
+                }
 
                 return _miGetEntryObject.Invoke(InnerArray, new object[] { index, stateMask });
             }
@@ -898,7 +932,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal bool InnerArrayGetState(int index, int stateMask)
             {
                 if (_miGetState == null)
+                {
                     _miGetState = InnerArray.GetType().GetMethod("GetState", new Type[] { typeof(int), typeof(int) }, null);
+                }
 
                 return (bool)_miGetState.Invoke(InnerArray, new object[] { index, stateMask });
             }
@@ -906,7 +942,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal void InnerArraySetState(int index, int stateMask, bool value)
             {
                 if (_miSetState == null)
+                {
                     _miSetState = InnerArray.GetType().GetMethod("SetState", new Type[] { typeof(int), typeof(int), typeof(bool) }, null);
+                }
 
                 _miSetState.Invoke(InnerArray, new object[] { index, stateMask, value });
             }
@@ -914,7 +952,9 @@ namespace ComponentFactory.Krypton.Toolkit
             internal IEnumerator InnerArrayGetEnumerator(int stateMask, bool anyBit)
             {
                 if (_miGetEnumerator == null)
+                {
                     _miGetEnumerator = InnerArray.GetType().GetMethod("GetEnumerator", new Type[] { typeof(int), typeof(bool) }, null);
+                }
 
                 return (IEnumerator)_miGetEnumerator.Invoke(InnerArray, new object[] { stateMask, anyBit });
             }
@@ -928,9 +968,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to BeginPaint or just take the given HDC?
                 if (m.WParam == IntPtr.Zero)
+                {
                     hdc = PI.BeginPaint(Handle, ref ps);
+                }
                 else
+                {
                     hdc = m.WParam;
+                }
 
                 // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
                 Rectangle realRect = CommonHelper.RealClientRectangle(Handle);
@@ -960,7 +1004,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 }
 
                                 using (RenderContext context = new RenderContext(this, _kryptonCheckedListBox, g, realRect, _kryptonCheckedListBox.Renderer))
+                                {
                                     _drawPanel.Render(context);
+                                }
 
                                 // Replace given DC with the screen DC for base window proc drawing
                                 IntPtr beforeDC = m.WParam;
@@ -969,8 +1015,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                 m.WParam = beforeDC;
 
                                 if (Items.Count == 0)
+                                {
                                     using (RenderContext context = new RenderContext(this, _kryptonCheckedListBox, g, realRect, _kryptonCheckedListBox.Renderer))
+                                    {
                                         _drawPanel.Render(context);
+                                    }
+                                }
                             }
 
                             // Now blit from the bitmap from the screen to the real dc
@@ -982,7 +1032,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 using (Graphics g = Graphics.FromHdc(hdc))
                                     using (RenderContext context = new RenderContext(this, _kryptonCheckedListBox, g, realRect, _kryptonCheckedListBox.Renderer))
-                                        _drawPanel.Render(context);
+                                {
+                                    _drawPanel.Render(context);
+                                }
                             }
                         }
                         finally
@@ -995,7 +1047,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to match the original BeginPaint?
                 if (m.WParam == IntPtr.Zero)
+                {
                     PI.EndPaint(Handle, ref ps);
+                }
             }
 
             private void WmKeyDown(ref Message m)
@@ -1237,8 +1291,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the check box image drawer and place inside element so it is always centered
             _drawCheckBox = new ViewDrawCheckBox(_paletteCheckBoxImages);
-            _layoutCenter = new ViewLayoutCenter();
-            _layoutCenter.Add(_drawCheckBox);
+            _layoutCenter = new ViewLayoutCenter
+            {
+                _drawCheckBox
+            };
 
             // Create the draw element for owner drawing individual items
             _contentValues = new FixedContentValue();
@@ -1250,11 +1306,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                              _contentValues, VisualOrientation.Top, false);
 
             // Place check box on the left and the label in the remainder
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Left);
-            _layoutDocker.Add(_layoutCenter, ViewDockStyle.Left);
-            _layoutDocker.Add(new ViewLayoutSeparator(2), ViewDockStyle.Left);
-            _layoutDocker.Add(_drawButton, ViewDockStyle.Fill);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { new ViewLayoutSeparator(1), ViewDockStyle.Left },
+                { _layoutCenter, ViewDockStyle.Left },
+                { new ViewLayoutSeparator(2), ViewDockStyle.Left },
+                { _drawButton, ViewDockStyle.Fill }
+            };
 
             // Create the internal list box used for containing content
             _listBox = new InternalCheckedListBox(this);
@@ -1282,16 +1340,22 @@ namespace ComponentFactory.Krypton.Toolkit
             _checkedIndices = new CheckedIndexCollection(this);
 
             // Create the element that fills the remainder space and remembers fill rectange
-            _layoutFill = new ViewLayoutFill(_listBox);
-            _layoutFill.DisplayPadding = new Padding(1);
+            _layoutFill = new ViewLayoutFill(_listBox)
+            {
+                DisplayPadding = new Padding(1)
+            };
 
             // Create inner view for placing inside the drawing docker
-            _drawDockerInner = new ViewLayoutDocker();
-            _drawDockerInner.Add(_layoutFill, ViewDockStyle.Fill);
+            _drawDockerInner = new ViewLayoutDocker
+            {
+                { _layoutFill, ViewDockStyle.Fill }
+            };
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border);
-            _drawDockerOuter.Add(_drawDockerInner, ViewDockStyle.Fill);
+            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            {
+                { _drawDockerInner, ViewDockStyle.Fill }
+            };
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDockerOuter);
@@ -1311,7 +1375,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.Dispose(disposing);
             if (_screenDC != IntPtr.Zero)
+            {
                 PI.DeleteDC(_screenDC);
+            }
         }
         #endregion
 
@@ -1945,7 +2011,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Check index actually exists
             if ((index < 0) || (index >= Items.Count))
+            {
                 throw new ArgumentOutOfRangeException("index", "index out of range");
+            }
 
             return CheckedItems.GetCheckedState(index);
         }
@@ -1969,7 +2037,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Check index actually exists
             if ((index < 0) || (index >= Items.Count))
+            {
                 throw new ArgumentOutOfRangeException("index", "index out of range");
+            }
 
             // Is the new state different from the current checked state?
             CheckState checkedState = CheckedItems.GetCheckedState(index);
@@ -2136,9 +2206,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive || ContainsFocus || _mouseOver || _listBox.MouseOver);
+                }
             }
         }
 
@@ -2149,9 +2223,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public new bool Focus()
         {
             if (ListBox != null)
+            {
                 return ListBox.Focus();
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -2159,8 +2237,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public new void Select()
         {
-            if (ListBox != null)
-                ListBox.Select();
+            ListBox?.Select();
         }
         #endregion
 
@@ -2186,8 +2263,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedIndexChanged(EventArgs e)
         {
-            if (SelectedIndexChanged != null)
-                SelectedIndexChanged(this, e);
+            SelectedIndexChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2196,8 +2272,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedValueChanged(EventArgs e)
         {
-            if (SelectedValueChanged != null)
-                SelectedValueChanged(this, e);
+            SelectedValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2206,8 +2281,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ItemCheckEventArgs containing the event data.</param>
         protected virtual void OnItemCheck(ItemCheckEventArgs e)
         {
-            if (ItemCheck != null)
-                ItemCheck(this, e);
+            ItemCheck?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2216,8 +2290,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormat(ListControlConvertEventArgs e)
         {
-            if (Format != null)
-                Format(this, e);
+            Format?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2226,8 +2299,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatInfoChanged(EventArgs e)
         {
-            if (FormatInfoChanged != null)
-                FormatInfoChanged(this, e);
+            FormatInfoChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2236,8 +2308,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormatStringChanged(EventArgs e)
         {
-            if (FormatStringChanged != null)
-                FormatStringChanged(this, e);
+            FormatStringChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2246,8 +2317,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnFormattingEnabledChanged(EventArgs e)
         {
-            if (FormattingEnabledChanged != null)
-                FormattingEnabledChanged(this, e);
+            FormattingEnabledChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -2305,8 +2375,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            if (BackColorChanged != null)
-                BackColorChanged(this, e);
+            BackColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2315,8 +2384,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2325,8 +2393,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2335,8 +2402,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
-            if (ForeColorChanged != null)
-                ForeColorChanged(this, e);
+            ForeColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2345,8 +2411,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnPaddingChanged(EventArgs e)
         {
-            if (PaddingChanged != null)
-                PaddingChanged(this, e);
+            PaddingChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2375,8 +2440,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An PaintEventArgs that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (Paint != null)
-                Paint(this, e);
+            Paint?.Invoke(this, e);
 
             base.OnPaint(e);
         }
@@ -2387,8 +2451,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An PaintEventArgs that contains the event data.</param>
         protected override void OnTextChanged(EventArgs e)
         {
-            if (TextChanged != null)
-                TextChanged(this, e);
+            TextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2397,8 +2460,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseEnter(EventArgs e)
         {
-            if (TrackMouseEnter != null)
-                TrackMouseEnter(this, e);
+            TrackMouseEnter?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2407,8 +2469,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e)
         {
-            if (TrackMouseLeave != null)
-                TrackMouseLeave(this, e);
+            TrackMouseLeave?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2435,9 +2496,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             if (IsHandleCreated && !e.NeedLayout)
+            {
                 _listBox.Invalidate();
+            }
             else
+            {
                 ForceControlLayout();
+            }
 
             // Update palette to reflect latest state
             UpdateStateAndPalettes();
@@ -2508,13 +2573,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Find the new state of the main view element
                 PaletteState state;
                 if (IsActive)
+                {
                     state = PaletteState.Tracking;
+                }
                 else
                 {
                     if (Enabled)
+                    {
                         state = PaletteState.Normal;
+                    }
                     else
+                    {
                         state = PaletteState.Disabled;
+                    }
                 }
 
                 _listBox.ViewDrawPanel.ElementState = state;
@@ -2527,19 +2598,27 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive;
+                }
                 else
+                {
                     return _stateNormal;
+                }
             }
             else
+            {
                 return _stateDisabled;
+            }
         }
 
         private void OnListBoxDrawItem(object sender, DrawItemEventArgs e)
         {
             // We cannot do anything with an invalid index
             if (e.Index < 0)
+            {
                 return;
+            }
 
             // Update our content object with values from the list item
             UpdateContentFromItemIndex(e.Index);
@@ -2549,7 +2628,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Is this item disabled
             if ((e.State & DrawItemState.Disabled) == DrawItemState.Disabled)
+            {
                 buttonState = PaletteState.Disabled;
+            }
             else
             {
                 // Is the mouse over the item about to be drawn
@@ -2559,7 +2640,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
                     if (SelectionMode == CheckedSelectionMode.None)
+                    {
                         _drawButton.Checked = false;
+                    }
                     else
                     {
                         _drawButton.Checked = true;
@@ -2570,14 +2653,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _drawButton.Checked = false;
                     if (mouseOver && (SelectionMode != CheckedSelectionMode.None))
+                    {
                         buttonState = PaletteState.Tracking;
+                    }
                 }
 
                 // Do we need to show item as having the focus
                 bool hasFocus = false;
                 if (((e.State & DrawItemState.Focus) == DrawItemState.Focus) &&
                     ((e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect))
+                {
                     hasFocus = true;
+                }
 
                 _overrideNormal.Apply = hasFocus;
                 _overrideTracking.Apply = hasFocus;
@@ -2661,10 +2748,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void UpdateContentFromItemIndex(int index)
         {
-            IContentValues itemValues = Items[index] as IContentValues;
 
             // If the object exposes the rich interface then use is...
-            if (itemValues != null)
+            if (Items[index] is IContentValues itemValues)
             {
                 _contentValues.ShortText = itemValues.GetShortText();
                 _contentValues.LongText = itemValues.GetLongText();
@@ -2674,7 +2760,7 @@ namespace ComponentFactory.Krypton.Toolkit
             else
             {
                 // Get the text string for the item
-                _contentValues.ShortText = _listBox.GetItemText(Items[index]); 
+                _contentValues.ShortText = _listBox.GetItemText(Items[index]);
                 _contentValues.LongText = null;
                 _contentValues.Image = null;
                 _contentValues.ImageTransparentColor = Color.Empty;
@@ -2780,9 +2866,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Raise appropriate event
                 if (_trackingMouseEnter)
+                {
                     OnTrackMouseEnter(EventArgs.Empty);
+                }
                 else
+                {
                     OnTrackMouseLeave(EventArgs.Empty);
+                }
             }
         }
         #endregion

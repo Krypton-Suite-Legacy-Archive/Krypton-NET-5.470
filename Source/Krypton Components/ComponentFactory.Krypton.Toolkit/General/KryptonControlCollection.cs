@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -67,7 +64,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void ClearInternal()
         {
             for (int i = Count - 1; i >= 0; i--)
+            {
                 RemoveInternal(this[i]);
+            }
         }
         #endregion
     }

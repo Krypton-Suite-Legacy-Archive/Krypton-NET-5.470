@@ -51,19 +51,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If the inherit flag is set that that is the only flag of interest
                 if ((borders & PaletteDrawBorders.Inherit) == PaletteDrawBorders.Inherit)
+                {
                     return "Inherit";
+                }
                 else
                 {
                     // Append the names of each border we want
                     StringBuilder sb = new StringBuilder();
 
                     if ((borders & PaletteDrawBorders.Top) == PaletteDrawBorders.Top)
+                    {
                         sb.Append("Top");
+                    }
 
                     if ((borders & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom)
                     {
                         if (sb.Length > 0)
+                        {
                             sb.Append(",");
+                        }
 
                         sb.Append("Bottom");
                     }
@@ -71,7 +77,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if ((borders & PaletteDrawBorders.Left) == PaletteDrawBorders.Left)
                     {
                         if (sb.Length > 0)
+                        {
                             sb.Append(",");
+                        }
 
                         sb.Append("Left");
                     }
@@ -79,14 +87,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     if ((borders & PaletteDrawBorders.Right) == PaletteDrawBorders.Right)
                     {
                         if (sb.Length > 0)
+                        {
                             sb.Append(",");
+                        }
 
                         sb.Append("Right");
                     }
 
                     // If no border is wanted then return a fixed string
                     if (sb.Length == 0)
+                    {
                         sb.Append("None");
+                    }
 
                     return sb.ToString();
                 }
@@ -107,28 +119,44 @@ namespace ComponentFactory.Krypton.Toolkit
                                            System.Globalization.CultureInfo culture,
                                            object value)
         {
+            // Convert incoming value to a string
             // We are only interested in adding functionality for converting from strings
-            if (value is string)
+            if (value is string conv)
             {
-                // Convert incoming value to a string
-                string conv = (string)value;
 
                 // Default to returning an empty value
                 PaletteDrawBorders ret = PaletteDrawBorders.None;
 
                 // If inherit is in the string, we use only that value
                 if (conv.Contains("Inherit"))
+                {
                     ret = PaletteDrawBorders.Inherit;
+                }
                 else
                 {
                     // If the word 'none' is found then no value is needed
                     if (!conv.Contains("None"))
                     {
                         // Get the borders actually specified
-                        if (conv.Contains("Top"))   ret |= PaletteDrawBorders.Top;
-                        if (conv.Contains("Bottom")) ret |= PaletteDrawBorders.Bottom;
-                        if (conv.Contains("Left")) ret |= PaletteDrawBorders.Left;
-                        if (conv.Contains("Right")) ret |= PaletteDrawBorders.Right;
+                        if (conv.Contains("Top"))
+                        {
+                            ret |= PaletteDrawBorders.Top;
+                        }
+
+                        if (conv.Contains("Bottom"))
+                        {
+                            ret |= PaletteDrawBorders.Bottom;
+                        }
+
+                        if (conv.Contains("Left"))
+                        {
+                            ret |= PaletteDrawBorders.Left;
+                        }
+
+                        if (conv.Contains("Right"))
+                        {
+                            ret |= PaletteDrawBorders.Right;
+                        }
                     }
                 }
 

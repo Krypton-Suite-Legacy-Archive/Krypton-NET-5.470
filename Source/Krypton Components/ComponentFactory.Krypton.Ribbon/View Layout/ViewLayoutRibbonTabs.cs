@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -31,9 +29,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Static Fields
-        private static readonly int TAB_MINWIDTH = 32;
-        private static readonly int TAB_EXCESS = 14;
-        private static ContextTabSetCollection _contextTabSets;
+
+	    private const int TAB_MINWIDTH = 32;
+	    private const int TAB_EXCESS = 14;
+	    private static ContextTabSetCollection _contextTabSets;
         #endregion
 
         #region Instance Fields
@@ -100,10 +99,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 Clear();
 
                 foreach (ViewDrawRibbonTab tab in _tabCache)
+                {
                     tab.Dispose();
+                }
 
                 foreach (ViewDrawRibbonTabSep tabSep in _tabSepCache)
+                {
                     tabSep.Dispose();
+                }
 
                 _tabCache.Clear();
                 _tabSepCache.Clear();
@@ -153,8 +156,12 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonTab GetViewForRibbonTab(KryptonRibbonTab ribbonTab)
         {
             foreach (ViewDrawRibbonTab viewTab in _tabCache)
+            {
                 if (viewTab.RibbonTab == ribbonTab)
+                {
                     return viewTab;
+                }
+            }
 
             return null;
         }
@@ -166,8 +173,12 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonTab GetViewForFirstRibbonTab()
         {
             foreach (ViewBase child in this)
+            {
                 if ((child.Visible) && (child is ViewDrawRibbonTab))
+                {
                     return child as ViewDrawRibbonTab;
+                }
+            }
 
             return null;
         }
@@ -182,17 +193,20 @@ namespace ComponentFactory.Krypton.Ribbon
             bool found = false;
             foreach (ViewBase child in this)
             {
+                // Cast to correct type
                 // Only interested in tab views
-                if (child is ViewDrawRibbonTab)
+                if (child is ViewDrawRibbonTab viewTab)
                 {
-                    // Cast to correct type
-                    ViewDrawRibbonTab viewTab = (ViewDrawRibbonTab)child;
 
                     // Wait until we see the provided tab, then first visible tab after it
                     if (!found)
+                    {
                         found = (viewTab.RibbonTab == ribbonTab);
+                    }
                     else if (child.Visible)
+                    {
                         return viewTab;
+                    }
                 }
             }
 
@@ -209,17 +223,20 @@ namespace ComponentFactory.Krypton.Ribbon
             bool found = false;
             foreach (ViewBase child in this.Reverse())
             {
+                // Cast to correct type
                 // Only interested in tab views
-                if (child is ViewDrawRibbonTab)
+                if (child is ViewDrawRibbonTab viewTab)
                 {
-                    // Cast to correct type
-                    ViewDrawRibbonTab viewTab = (ViewDrawRibbonTab)child;
 
                     // Wait until we see the provided tab, then first visible tab after it
                     if (!found)
+                    {
                         found = (viewTab.RibbonTab == ribbonTab);
+                    }
                     else if (child.Visible)
+                    {
                         return viewTab;
+                    }
                 }
             }
 
@@ -233,8 +250,12 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonTab GetViewForLastRibbonTab()
         {
             foreach (ViewBase child in this.Reverse())
+            {
                 if ((child.Visible) && (child is ViewDrawRibbonTab))
+                {
                     return child as ViewDrawRibbonTab;
+                }
+            }
 
             return null;
         }
@@ -251,11 +272,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             foreach (ViewBase child in this)
             {
+                // Cast to correct type
                 // Only interested in tab views
-                if (child is ViewDrawRibbonTab)
+                if (child is ViewDrawRibbonTab viewTab)
                 {
-                    // Cast to correct type
-                    ViewDrawRibbonTab viewTab = (ViewDrawRibbonTab)child;
 
                     // Get the screen location of the view tab
                     Rectangle tabRect = viewTab.OwningControl.RectangleToScreen(viewTab.ClientRectangle);
@@ -312,7 +332,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             // And if we have a previous tab, then use it
                             if (prev != null)
+                            {
                                 selectTab = prev;
+                            }
                             break;
                         }
 
@@ -335,7 +357,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Is there a change in selection?
             if (selectTab != null)
+            {
                 _ribbon.SelectedTab = selectTab;
+            }
         }
         #endregion
 
@@ -387,7 +411,9 @@ namespace ComponentFactory.Krypton.Ribbon
                             // Cache number of non-context tabs encountered
                             ViewDrawRibbonTab tab = child as ViewDrawRibbonTab;
                             if (string.IsNullOrEmpty(tab.RibbonTab.ContextName))
+                            {
                                 _cachedNonContextTabCount++;
+                            }
                         }
                         else if (child is ViewDrawRibbonDesignTab)
                         {
@@ -421,7 +447,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Always take up the entire provided width as the spare will take up any remainder not used by actual tabs
                 if (preferredSize.Width < context.DisplayRectangle.Width)
+                {
                     preferredSize.Width = context.DisplayRectangle.Width;
+                }
             }
 
             return preferredSize;
@@ -460,25 +488,23 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (layoutSizes[i].Width > 0)
                     {
                         // Separators are made the full height, others are aligned on the bottom edge
-                        if (this[i] is ViewDrawRibbonTabSep)
+                        switch (this[i])
                         {
-                            // Update separator with latest calculated need to draw
-                            ViewDrawRibbonTabSep tabSep = this[i] as ViewDrawRibbonTabSep;
-                            tabSep.Draw = _showSeparators;
+                            case ViewDrawRibbonTabSep tabSep:
+                                // Update separator with latest calculated need to draw
+                                tabSep.Draw = _showSeparators;
 
-                            context.DisplayRectangle = new Rectangle(x, y, layoutSizes[i].Width, height);
-                        }
-                        else if (this[i] is ViewDrawRibbonTab)
-                        {
-                            // Update checked state of the tab
-                            ViewDrawRibbonTab tab = this[i] as ViewDrawRibbonTab;
-                            tab.Checked = (_ribbon.SelectedTab == tab.RibbonTab);
+                                context.DisplayRectangle = new Rectangle(x, y, layoutSizes[i].Width, height);
+                                break;
+                            case ViewDrawRibbonTab tab:
+                                // Update checked state of the tab
+                                tab.Checked = (_ribbon.SelectedTab == tab.RibbonTab);
 
-                            context.DisplayRectangle = new Rectangle(x, bottom - layoutSizes[i].Height, layoutSizes[i].Width, layoutSizes[i].Height);
-                        }
-                        else if (this[i] is ViewDrawRibbonDesignTab)
-                        {
-                            context.DisplayRectangle = new Rectangle(x, bottom - layoutSizes[i].Height, layoutSizes[i].Width, layoutSizes[i].Height);
+                                context.DisplayRectangle = new Rectangle(x, bottom - layoutSizes[i].Height, layoutSizes[i].Width, layoutSizes[i].Height);
+                                break;
+                            case ViewDrawRibbonDesignTab _:
+                                context.DisplayRectangle = new Rectangle(x, bottom - layoutSizes[i].Height, layoutSizes[i].Width, layoutSizes[i].Height);
+                                break;
                         }
 
                         // Position the element
@@ -537,12 +563,20 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Make sure we have enough cached elements
             if (_tabCache.Count < _ribbon.RibbonTabs.Count)
+            {
                 for (int i = _tabCache.Count; i < _ribbon.RibbonTabs.Count; i++)
+                {
                     _tabCache.Add(new ViewDrawRibbonTab(_ribbon, this, _needPaint));
+                }
+            }
 
             if (_tabSepCache.Count < _ribbon.RibbonTabs.Count)
+            {
                 for (int i = _tabSepCache.Count; i < _ribbon.RibbonTabs.Count; i++)
+                {
                     _tabSepCache.Add(new ViewDrawRibbonTabSep(_ribbon.StateCommon.RibbonGeneral));
+                }
+            }
 
             // Update from ribbon control in same order as display
             UpdateContextNameCache();
@@ -558,7 +592,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Check that the context name actually is defined
                 if (_ribbon.RibbonContexts[contextName] != null)
+                {
                     AddTabsWithContextName(contextName);
+                }
             }
             
             // When in design time help mode
@@ -566,7 +602,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the design time 'Add Tab' first time it is needed
                 if (_viewAddTab == null)
+                {
                     _viewAddTab = new ViewDrawRibbonDesignTab(_ribbon, _needPaint);
+                }
 
                 // Always add at end of the list of tabs
                 Add(_viewAddTab);
@@ -575,7 +613,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At run time we add the filler that acts like title bar header
                 if (_tabsSpare == null)
+                {
                     _tabsSpare = new ViewLayoutRibbonTabsSpare();
+                }
 
                 // Always add at end of the list of tabs
                 Add(_tabsSpare);
@@ -592,7 +632,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 KryptonRibbonTab ribbonTab = _ribbon.RibbonTabs[i];
                 if (IsRibbonVisible(ribbonTab, contextName))
+                {
                     _tabCache[i].RibbonTab = null;
+                }
             }
 
             // Add child elements appropriate for each ribbon tab
@@ -616,16 +658,22 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Create tab set when first needed, otherwise this tab must be the last one
                         if (cts == null)
+                        {
                             cts = new ContextTabSet(drawTab, _ribbon.RibbonContexts[ribbonTab.ContextName]);
+                        }
                         else
+                        {
                             cts.UpdateLastTab(drawTab);
+                        }
                     }
                 }
             }
 
             // If we created a new tab set, then add to the collection
             if (cts != null)
+            {
                 ContextTabSets.Add(cts);
+            }
         }
 
         private Size[] AdjustSizesToFit()
@@ -637,7 +685,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Make a copy of the cached sizes
             for(int i=0; i<_cachedSizes.Length; i++)
+            {
                 retSizes[i] = _cachedSizes[i];
+            }
 
             // Only need to shrink if total tab width is less than that available
             if (_cachedPreferredWidth > ClientWidth)
@@ -647,7 +697,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Reduce all the tabs to the minimum allowed
                     for (int i = 0; i < retSizes.Length; i++)
+                    {
                         retSizes[i].Width = Math.Min(retSizes[i].Width, TAB_MINWIDTH);
+                    }
 
                     // Must show separators as we are now taking space away that will 
                     // cause truncation to the text of one or more of the tabs
@@ -666,6 +718,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     int remove = Math.Min(totalWidth - ClientWidth, _cachedNonContextTabCount * TAB_EXCESS);
 
                     for (int i = 0, tabCount = _cachedNonContextTabCount; (i < retSizes.Length) && (tabCount > 0); i++)
+                    {
                         if (retSizes[i].Width > TAB_MINWIDTH)
                         {
                             // Remove an equal amount per tab (limited to TAB_EXCESS)
@@ -675,6 +728,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             totalWidth -= shrink;
                             tabCount--;
                         }
+                    }
 
                     // If even more shrinkage is needed
                     if (totalWidth > ClientWidth)
@@ -695,6 +749,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             int widestTab = 0;
                             int secondTab = 0;
                             for (int i = 0; i < retSizes.Length; i++)
+                            {
                                 if (retSizes[i].Width > TAB_MINWIDTH)
                                 {
                                     if (retSizes[i].Width > widestTab)
@@ -703,16 +758,23 @@ namespace ComponentFactory.Krypton.Ribbon
                                         widestTab = retSizes[i].Width;
                                     }
                                 }
+                            }
 
                             // If the widest tab is equal to the minimum, then nothing more to do
                             if (widestTab <= TAB_MINWIDTH)
+                            {
                                 break;
+                            }
 
                             // Create a list of all tab indexes matching widest
                             List<int> widestIndexes = new List<int>();
                             for (int i = 0; i < retSizes.Length; i++)
+                            {
                                 if (retSizes[i].Width == widestTab)
+                                {
                                     widestIndexes.Add(i);
+                                }
+                            }
 
                             // Maximum we can remove is the difference between widest and then second
                             // widest times by the number of tabs we are going to be shrinking
@@ -722,6 +784,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             remove = Math.Min(maxRemove, totalWidth - ClientWidth);
 
                             for (int i = 0, tabCount = widestIndexes.Count; i < widestIndexes.Count; i++, tabCount--)
+                            {
                                 if (retSizes[widestIndexes[i]].Width > TAB_MINWIDTH)
                                 {
                                     // Remove an equal amount per tab (limited to TAB_EXCESS)
@@ -730,7 +793,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     remove -= shrink;
                                     totalWidth -= shrink;
                                 }
-
+                            }
                         } while (totalWidth > ClientWidth);
                     }
                 }
@@ -743,16 +806,22 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Create list first time around, otherwise clear it down
             if (_cachedSelectedContext == null)
+            {
                 _cachedSelectedContext = new ContextNameList();
+            }
             else
+            {
                 _cachedSelectedContext.Clear();
+            }
 
             // In design mode 
             if (_ribbon.InDesignHelperMode)
             {
                 // All all the defined ribbon contexts
                 foreach (KryptonRibbonContext context in _ribbon.RibbonContexts)
+                {
                     _cachedSelectedContext.Add(context.ContextName);
+                }
             }
             else
             {
@@ -764,8 +833,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Only add each unique context name once
                     foreach (string context in contexts)
+                    {
                         if (!_cachedSelectedContext.Contains(context))
+                        {
                             _cachedSelectedContext.Add(context);
+                        }
+                    }
                 }
             }
         }
@@ -777,7 +850,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Tab must have a matching context name setting
                 if (tab.ContextName.Equals(contextName))
+                {
                     return true;
+                }
                 else if (_ribbon.InDesignHelperMode)
                 {
                     // If the tab has context name and we are adding tabs with no

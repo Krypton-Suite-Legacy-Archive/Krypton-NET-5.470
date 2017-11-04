@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Workspace
@@ -26,23 +20,24 @@ namespace ComponentFactory.Krypton.Workspace
     public class WorkspaceMenus : Storage
     {
         #region Static Fields
-        private static readonly string _defaultTextClose = "&Close";
-        private static readonly string _defaultTextCloseAllButThis = "Close &All But This";
-        private static readonly string _defaultTextMoveNext = "Move &Next";
-        private static readonly string _defaultTextMovePrevious = "Move &Previous";
-        private static readonly string _defaultTextSplitVertical = "Split &Vertical";
-        private static readonly string _defaultTextSplitHorizontal = "Split &Horizontal";
-        private static readonly string _defaultTextRebalance = "&Rebalance";
-        private static readonly string _defaultTextMaximize = "&Maximize";
-        private static readonly string _defaultTextRestore = "Res&tore";
-        private static readonly Keys _defaultShortcutClose = Keys.Control | Keys.Shift | Keys.C;
-        private static readonly Keys _defaultShortcutCloseAllButThis = Keys.Control | Keys.Shift | Keys.A;
-        private static readonly Keys _defaultShortcutMoveNext = Keys.Control | Keys.Shift | Keys.N;
-        private static readonly Keys _defaultShortcutMovePrevious = Keys.Control | Keys.Shift | Keys.P;
-        private static readonly Keys _defaultShortcutSplitVertical = Keys.Control | Keys.Shift | Keys.V;
-        private static readonly Keys _defaultShortcutSplitHorizontal = Keys.Control | Keys.Shift | Keys.H;
-        private static readonly Keys _defaultShortcutRebalance = Keys.Control | Keys.Shift | Keys.R;
-        private static readonly Keys _defaultShortcutMaximizeRestore = Keys.Control | Keys.Shift | Keys.M;
+
+        private const string DEFAULT_TEXT_CLOSE = "&Close";
+        private const string DEFAULT_TEXT_CLOSE_ALL_BUT_THIS = "Close &All But This";
+        private const string DEFAULT_TEXT_MOVE_NEXT = "Move &Next";
+        private const string DEFAULT_TEXT_MOVE_PREVIOUS = "Move &Previous";
+        private const string DEFAULT_TEXT_SPLIT_VERTICAL = "Split &Vertical";
+        private const string DEFAULT_TEXT_SPLIT_HORIZONTAL = "Split &Horizontal";
+        private const string DEFAULT_TEXT_REBALANCE = "&Rebalance";
+        private const string DEFAULT_TEXT_MAXIMIZE = "&Maximize";
+        private const string DEFAULT_TEXT_RESTORE = "Res&tore";
+        private const Keys DEFAULT_SHORTCUT_CLOSE = Keys.Control | Keys.Shift | Keys.C;
+        private const Keys DEFAULT_SHORTCUT_CLOSE_ALL_BUT_THIS = Keys.Control | Keys.Shift | Keys.A;
+        private const Keys DEFAULT_SHORTCUT_MOVE_NEXT = Keys.Control | Keys.Shift | Keys.N;
+        private const Keys DEFAULT_SHORTCUT_MOVE_PREVIOUS = Keys.Control | Keys.Shift | Keys.P;
+        private const Keys DEFAULT_SHORTCUT_SPLIT_VERTICAL = Keys.Control | Keys.Shift | Keys.V;
+        private const Keys DEFAULT_SHORTCUT_SPLIT_HORIZONTAL = Keys.Control | Keys.Shift | Keys.H;
+        private const Keys DEFAULT_SHORTCUT_REBALANCE = Keys.Control | Keys.Shift | Keys.R;
+        private const Keys DEFAULT_SHORTCUT_MAXIMIZE_RESTORE = Keys.Control | Keys.Shift | Keys.M;
         #endregion
 
         #region Instance Fields
@@ -74,23 +69,23 @@ namespace ComponentFactory.Krypton.Workspace
             : base()
 		{
             // Default values
-            _textClose = _defaultTextClose;
-            _textCloseAllButThis = _defaultTextCloseAllButThis;
-            _textMoveNext = _defaultTextMoveNext;
-            _textMovePrevious = _defaultTextMovePrevious;
-            _textSplitVertical = _defaultTextSplitVertical;
-            _textSplitHorizontal = _defaultTextSplitHorizontal;
-            _textRebalance = _defaultTextRebalance;
-            _textMaximize = _defaultTextMaximize;
-            _textRestore = _defaultTextRestore;
-            _shortcutClose = _defaultShortcutClose;
-            _shortcutCloseAllButThis = _defaultShortcutCloseAllButThis;
-            _shortcutMoveNext = _defaultShortcutMoveNext;
-            _shortcutMovePrevious = _defaultShortcutMovePrevious;
-            _shortcutSplitVertical = _defaultShortcutSplitVertical;
-            _shortcutSplitHorizontal = _defaultShortcutSplitHorizontal;
-            _shortcutRebalance = _defaultShortcutRebalance;
-            _shortcutMaximizeRestore = _defaultShortcutMaximizeRestore;
+            _textClose = DEFAULT_TEXT_CLOSE;
+            _textCloseAllButThis = DEFAULT_TEXT_CLOSE_ALL_BUT_THIS;
+            _textMoveNext = DEFAULT_TEXT_MOVE_NEXT;
+            _textMovePrevious = DEFAULT_TEXT_MOVE_PREVIOUS;
+            _textSplitVertical = DEFAULT_TEXT_SPLIT_VERTICAL;
+            _textSplitHorizontal = DEFAULT_TEXT_SPLIT_HORIZONTAL;
+            _textRebalance = DEFAULT_TEXT_REBALANCE;
+            _textMaximize = DEFAULT_TEXT_MAXIMIZE;
+            _textRestore = DEFAULT_TEXT_RESTORE;
+            _shortcutClose = DEFAULT_SHORTCUT_CLOSE;
+            _shortcutCloseAllButThis = DEFAULT_SHORTCUT_CLOSE_ALL_BUT_THIS;
+            _shortcutMoveNext = DEFAULT_SHORTCUT_MOVE_NEXT;
+            _shortcutMovePrevious = DEFAULT_SHORTCUT_MOVE_PREVIOUS;
+            _shortcutSplitVertical = DEFAULT_SHORTCUT_SPLIT_VERTICAL;
+            _shortcutSplitHorizontal = DEFAULT_SHORTCUT_SPLIT_HORIZONTAL;
+            _shortcutRebalance = DEFAULT_SHORTCUT_REBALANCE;
+            _shortcutMaximizeRestore = DEFAULT_SHORTCUT_MAXIMIZE_RESTORE;
             _showContextMenu = true;
         }
 		#endregion
@@ -104,24 +99,24 @@ namespace ComponentFactory.Krypton.Workspace
         {
             get
             {
-                return (TextClose.Equals(_defaultTextClose) &&
-                        TextCloseAllButThis.Equals(_defaultTextCloseAllButThis) &&
-                        TextMoveNext.Equals(_defaultTextMoveNext) &&
-                        TextMovePrevious.Equals(_defaultTextMovePrevious) &&
-                        TextSplitVertical.Equals(_defaultTextSplitVertical) &&
-                        TextSplitHorizontal.Equals(_defaultTextSplitHorizontal) &&
-                        TextRebalance.Equals(_defaultTextRebalance) &&
-                        TextMaximize.Equals(_defaultTextMaximize) &&
-                        TextRestore.Equals(_defaultTextRestore) &&
-                        ShortcutClose.Equals(_defaultShortcutClose) &&
-                        ShortcutCloseAllButThis.Equals(_defaultShortcutCloseAllButThis) &&
-                        ShortcutMoveNext.Equals(_defaultShortcutMoveNext) &&
-                        ShortcutMovePrevious.Equals(_defaultShortcutMovePrevious) &&
-                        ShortcutSplitVertical.Equals(_defaultShortcutSplitVertical) &&
-                        ShortcutSplitHorizontal.Equals(_defaultShortcutSplitHorizontal) &&
-                        ShortcutRebalance.Equals(_defaultShortcutRebalance) &&
-                        ShortcutMaximizeRestore.Equals(_defaultShortcutMaximizeRestore) &&
-                        (ShowContextMenu == true));
+                return (TextClose.Equals(DEFAULT_TEXT_CLOSE) &&
+                        TextCloseAllButThis.Equals(DEFAULT_TEXT_CLOSE_ALL_BUT_THIS) &&
+                        TextMoveNext.Equals(DEFAULT_TEXT_MOVE_NEXT) &&
+                        TextMovePrevious.Equals(DEFAULT_TEXT_MOVE_PREVIOUS) &&
+                        TextSplitVertical.Equals(DEFAULT_TEXT_SPLIT_VERTICAL) &&
+                        TextSplitHorizontal.Equals(DEFAULT_TEXT_SPLIT_HORIZONTAL) &&
+                        TextRebalance.Equals(DEFAULT_TEXT_REBALANCE) &&
+                        TextMaximize.Equals(DEFAULT_TEXT_MAXIMIZE) &&
+                        TextRestore.Equals(DEFAULT_TEXT_RESTORE) &&
+                        ShortcutClose.Equals(DEFAULT_SHORTCUT_CLOSE) &&
+                        ShortcutCloseAllButThis.Equals(DEFAULT_SHORTCUT_CLOSE_ALL_BUT_THIS) &&
+                        ShortcutMoveNext.Equals(DEFAULT_SHORTCUT_MOVE_NEXT) &&
+                        ShortcutMovePrevious.Equals(DEFAULT_SHORTCUT_MOVE_PREVIOUS) &&
+                        ShortcutSplitVertical.Equals(DEFAULT_SHORTCUT_SPLIT_VERTICAL) &&
+                        ShortcutSplitHorizontal.Equals(DEFAULT_SHORTCUT_SPLIT_HORIZONTAL) &&
+                        ShortcutRebalance.Equals(DEFAULT_SHORTCUT_REBALANCE) &&
+                        ShortcutMaximizeRestore.Equals(DEFAULT_SHORTCUT_MAXIMIZE_RESTORE) &&
+                        ShowContextMenu);
             }
         }
         #endregion
@@ -146,7 +141,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextClose()
         {
-            TextClose = _defaultTextClose;
+            TextClose = DEFAULT_TEXT_CLOSE;
         }
         #endregion
 
@@ -170,7 +165,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextCloseAllButThis()
         {
-            TextCloseAllButThis = _defaultTextCloseAllButThis;
+            TextCloseAllButThis = DEFAULT_TEXT_CLOSE_ALL_BUT_THIS;
         }
         #endregion
 
@@ -194,7 +189,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextMoveNext()
         {
-            TextMoveNext = _defaultTextMoveNext;
+            TextMoveNext = DEFAULT_TEXT_MOVE_NEXT;
         }
         #endregion
 
@@ -218,7 +213,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextMovePrevious()
         {
-            TextMovePrevious = _defaultTextMovePrevious;
+            TextMovePrevious = DEFAULT_TEXT_MOVE_PREVIOUS;
         }
         #endregion
 
@@ -242,7 +237,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextSplitVertical()
         {
-            TextSplitVertical = _defaultTextSplitVertical;
+            TextSplitVertical = DEFAULT_TEXT_SPLIT_VERTICAL;
         }
         #endregion
 
@@ -266,7 +261,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextSplitHorizontal()
         {
-            TextSplitHorizontal = _defaultTextSplitHorizontal;
+            TextSplitHorizontal = DEFAULT_TEXT_SPLIT_HORIZONTAL;
         }
         #endregion
 
@@ -290,7 +285,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextRebalance()
         {
-            TextRebalance = _defaultTextRebalance;
+            TextRebalance = DEFAULT_TEXT_REBALANCE;
         }
         #endregion
 
@@ -314,7 +309,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextMaximize()
         {
-            TextMaximize = _defaultTextMaximize;
+            TextMaximize = DEFAULT_TEXT_MAXIMIZE;
         }
         #endregion
 
@@ -338,7 +333,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetTextRestore()
         {
-            TextRestore = _defaultTextRestore;
+            TextRestore = DEFAULT_TEXT_RESTORE;
         }
         #endregion
 
@@ -361,7 +356,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutClose()
         {
-            return !_shortcutClose.Equals(_defaultShortcutClose);
+            return !_shortcutClose.Equals(DEFAULT_SHORTCUT_CLOSE);
         }
 
         /// <summary>
@@ -369,7 +364,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutClose()
         {
-            ShortcutClose = _defaultShortcutClose;
+            ShortcutClose = DEFAULT_SHORTCUT_CLOSE;
         }
         #endregion
 
@@ -392,7 +387,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutCloseAllButThis()
         {
-            return !_shortcutCloseAllButThis.Equals(_defaultShortcutCloseAllButThis);
+            return !_shortcutCloseAllButThis.Equals(DEFAULT_SHORTCUT_CLOSE_ALL_BUT_THIS);
         }
 
         /// <summary>
@@ -400,7 +395,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutCloseAllButThis()
         {
-            ShortcutCloseAllButThis = _defaultShortcutCloseAllButThis;
+            ShortcutCloseAllButThis = DEFAULT_SHORTCUT_CLOSE_ALL_BUT_THIS;
         }
         #endregion
 
@@ -423,7 +418,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutMoveNext()
         {
-            return !_shortcutMoveNext.Equals(_defaultShortcutMoveNext);
+            return !_shortcutMoveNext.Equals(DEFAULT_SHORTCUT_MOVE_NEXT);
         }
 
         /// <summary>
@@ -431,7 +426,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutMoveNext()
         {
-            ShortcutMoveNext = _defaultShortcutMoveNext;
+            ShortcutMoveNext = DEFAULT_SHORTCUT_MOVE_NEXT;
         }
         #endregion
 
@@ -454,7 +449,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutMovePrevious()
         {
-            return !_shortcutMovePrevious.Equals(_defaultShortcutMovePrevious);
+            return !_shortcutMovePrevious.Equals(DEFAULT_SHORTCUT_MOVE_PREVIOUS);
         }
 
         /// <summary>
@@ -462,7 +457,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutMovePrevious()
         {
-            ShortcutMovePrevious = _defaultShortcutMovePrevious;
+            ShortcutMovePrevious = DEFAULT_SHORTCUT_MOVE_PREVIOUS;
         }
         #endregion
 
@@ -485,7 +480,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutSplitVertical()
         {
-            return !_shortcutSplitVertical.Equals(_defaultShortcutSplitVertical);
+            return !_shortcutSplitVertical.Equals(DEFAULT_SHORTCUT_SPLIT_VERTICAL);
         }
 
         /// <summary>
@@ -493,7 +488,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutSplitVertical()
         {
-            ShortcutSplitVertical = _defaultShortcutSplitVertical;
+            ShortcutSplitVertical = DEFAULT_SHORTCUT_SPLIT_VERTICAL;
         }
         #endregion
 
@@ -516,7 +511,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutSplitHorizontal()
         {
-            return !_shortcutSplitHorizontal.Equals(_defaultShortcutSplitHorizontal);
+            return !_shortcutSplitHorizontal.Equals(DEFAULT_SHORTCUT_SPLIT_HORIZONTAL);
         }
 
         /// <summary>
@@ -524,7 +519,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutSplitHorizontal()
         {
-            ShortcutSplitHorizontal = _defaultShortcutSplitHorizontal;
+            ShortcutSplitHorizontal = DEFAULT_SHORTCUT_SPLIT_HORIZONTAL;
         }
         #endregion
 
@@ -547,7 +542,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutRebalance()
         {
-            return !_shortcutRebalance.Equals(_defaultShortcutRebalance);
+            return !_shortcutRebalance.Equals(DEFAULT_SHORTCUT_REBALANCE);
         }
 
         /// <summary>
@@ -555,7 +550,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutRebalance()
         {
-            ShortcutRebalance = _defaultShortcutRebalance;
+            ShortcutRebalance = DEFAULT_SHORTCUT_REBALANCE;
         }
         #endregion
 
@@ -578,7 +573,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>True if value should be serialized.</returns>
         protected bool ShouldSerializeShortcutMaximizeRestore()
         {
-            return !_shortcutMaximizeRestore.Equals(_defaultShortcutMaximizeRestore);
+            return !_shortcutMaximizeRestore.Equals(DEFAULT_SHORTCUT_MAXIMIZE_RESTORE);
         }
 
         /// <summary>
@@ -586,7 +581,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetShortcutMaximizeRestore()
         {
-            ShortcutMaximizeRestore = _defaultShortcutMaximizeRestore;
+            ShortcutMaximizeRestore = DEFAULT_SHORTCUT_MAXIMIZE_RESTORE;
         }
         #endregion
 

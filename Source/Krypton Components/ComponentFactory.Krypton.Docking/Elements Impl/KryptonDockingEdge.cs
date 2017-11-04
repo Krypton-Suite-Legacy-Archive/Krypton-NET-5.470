@@ -9,13 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -42,10 +37,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingEdge(string name, Control control, DockingEdge edge)
             : base(name)
         {
-            if (control == null)
-                throw new ArgumentNullException("control");
-
-            _control = control;
+            _control = control ?? throw new ArgumentNullException("control");
             _edge = edge;
 
             // Auto create elements for handling standard docked content and auto hidden content

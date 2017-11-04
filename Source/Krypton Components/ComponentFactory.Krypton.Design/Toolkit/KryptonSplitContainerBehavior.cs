@@ -8,14 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Windows.Forms.Design.Behavior;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -46,8 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override bool OnMouseEnter(Glyph g)
         {
             // Notify the split container so it can track mouse message
-            if (_splitContainer != null)
-                _splitContainer.DesignMouseEnter();
+            _splitContainer?.DesignMouseEnter();
 
             return base.OnMouseEnter(g);
         }
@@ -107,8 +101,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override bool OnMouseUp(Glyph g, MouseButtons button)
         {
             // Notify the split container so it can track mouse message
-            if (_splitContainer != null)
-                _splitContainer.DesignMouseUp(button);
+            _splitContainer?.DesignMouseUp(button);
 
             return base.OnMouseUp(g, button);
         }
@@ -121,9 +114,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public override bool OnMouseLeave(Glyph g)
         {
             // Notify the split container so it can track mouse message
-            if (_splitContainer != null)
-                _splitContainer.DesignMouseLeave();
-            
+            _splitContainer?.DesignMouseLeave();
+
             return base.OnMouseLeave(g);
         }
         #endregion

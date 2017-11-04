@@ -9,11 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -48,8 +43,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawContent = new ViewDrawContent(heading.StateNormal.Content, _contentValues, VisualOrientation.Top);
 
             // Use the docker to provide the background and border
-            _drawDocker = new ViewDrawDocker(heading.StateNormal.Back, heading.StateNormal.Border);
-            _drawDocker.Add(_drawContent, ViewDockStyle.Fill);
+            _drawDocker = new ViewDrawDocker(heading.StateNormal.Back, heading.StateNormal.Border)
+            {
+                { _drawContent, ViewDockStyle.Fill }
+            };
 
             // Add docker as the composite content
             Add(_drawDocker);
@@ -76,10 +73,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
 			// Let base class perform usual processing
 			base.Layout(context);

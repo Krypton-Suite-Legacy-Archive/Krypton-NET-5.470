@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -133,13 +129,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _stateNormal = new PaletteHeaderGroup(_stateCommon, _stateCommon.HeaderPrimary, _stateCommon.HeaderSecondary, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint));
+            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            {
 
-            // Make sure the panel back style always mimics our back style
-            _panel.PanelBackStyle = PaletteBackStyle.ControlClient;
+                // Make sure the panel back style always mimics our back style
+                PanelBackStyle = PaletteBackStyle.ControlClient
+            };
 
-			// Create view for header 1
-			_drawHeading1 = new ViewDrawDocker(_stateNormal.HeaderPrimary.Back,
+            // Create view for header 1
+            _drawHeading1 = new ViewDrawDocker(_stateNormal.HeaderPrimary.Back,
                                                _stateNormal.HeaderPrimary.Border,
                                                _stateNormal.HeaderPrimary,
                                                PaletteMetricBool.None,
@@ -160,15 +158,17 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawContent2 = new ViewDrawContent(_stateNormal.HeaderSecondary.Content, _headerValues2, VisualOrientation.Top);
             _drawHeading2.Add(_drawContent2, ViewDockStyle.Fill);
 
-			// Create view for the control border and background
-			_drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, _stateNormal,
-                                             PaletteMetricBool.HeaderGroupOverlay);
+            // Create view for the control border and background
+            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, _stateNormal,
+                                             PaletteMetricBool.HeaderGroupOverlay)
+            {
 
-            // Layout child view ontop of the border space
-            _drawDocker.IgnoreBorderSpace = true;
+                // Layout child view ontop of the border space
+                IgnoreBorderSpace = true,
 
-            // Prevent adjacent headers from having two borders
-            _drawDocker.RemoveChildBorders = true;
+                // Prevent adjacent headers from having two borders
+                RemoveChildBorders = true
+            };
 
             // Create the element that fills the remainder space and remembers fill rectange
             _layoutFill = new ViewLayoutFill(_panel);
@@ -307,7 +307,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Only perform an immediate layout if
                     // currently performing auto size operations
                     if (AutoSize)
+                    {
                         PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -777,12 +779,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -839,13 +855,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -858,7 +880,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -904,8 +928,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCollapsedChanged(EventArgs e)
         {
-            if (CollapsedChanged != null)
-                CollapsedChanged(this, e);
+            CollapsedChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -993,7 +1016,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Pass request onto the button spec manager
                 if (_buttonManager.ProcessMnemonic(charCode))
+                {
                     return true;
+                }
             }
 
             // No match found, let base class do standard processing
@@ -1087,7 +1112,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _panel.PerformNeedPaint(e.NeedLayout);
             }
             else
+            {
                 ForceControlLayout();
+            }
 
             base.OnNeedPaint(sender, e);
         }
@@ -1102,11 +1129,15 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First time around we need to create the obscurer
                 if (_obscurer == null)
+                {
                     _obscurer = new ScreenObscurer();
+                }
 
                 // Obscure the display area of the control
                 if (!IsDisposed && IsHandleCreated && !DesignMode)
+                {
                     _obscurer.Cover(this);
+                }
 
                 // Just in case the WM_WINDOWPOSCHANGED does not occur we can 
                 // ensure the obscurer is removed using this async delegate call
@@ -1116,8 +1147,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (m.Msg == PI.WM_WINDOWPOSCHANGED)
             {
                 // Uncover from the covered area
-                if (_obscurer != null)
-                    _obscurer.Uncover();
+                _obscurer?.Uncover();
             }
 
             base.WndProc(ref m);
@@ -1141,8 +1171,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Implementation
         private void OnRemoveObscurer(object sender, EventArgs e)
         {
-            if (_obscurer != null)
-                _obscurer.Uncover();
+            _obscurer?.Uncover();
         }
 
         private void OnHeaderGroupTextChanged(object sender, EventArgs e)
@@ -1157,7 +1186,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -1189,8 +1220,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -1212,8 +1242,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
@@ -1275,7 +1304,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // laying out because a child has changed visibility/size/etc. If we are an
             // AutoSize control then we need to ensure we layout as well to change size.
             if (e.NeedLayout && !_layingOut && AutoSize)
-                    PerformNeedPaint(true);
+            {
+                PerformNeedPaint(true);
+            }
         }
 
 		private void SetHeaderPosition(ViewDrawCanvas canvas, 

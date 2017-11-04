@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -105,7 +102,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void SetFixedState(PaletteState state)
         {
             if ((state == PaletteState.Normal) || (state == PaletteState.Disabled))
+            {
                 _drawTrack.FixedState = state;
+            }
 
             _drawPosition.FixedState = state;
         }
@@ -126,7 +125,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If min and max are the same, we are done!
             if (range == 0)
+            {
                 return min;
+            }
 
             Rectangle trackRect = TrackArea;
             if (_drawTrackBar.Orientation == Orientation.Horizontal)
@@ -135,14 +136,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Limit check the position
                     if (pt.X <= trackRect.X)
+                    {
                         return max;
+                    }
                     else if (pt.X >= (trackRect.Right - 1))
+                    {
                         return min;
+                    }
                     else
                     {
                         float offset = trackRect.Right - pt.X;
                         float x = offset / trackRect.Width;
-                        float y = min + x * range;
+                        float y = min + (x * range);
                         int ret = (int)Math.Round(y, 0, MidpointRounding.AwayFromZero);
                         return ret;
                     }
@@ -151,14 +156,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Limit check the position
                     if (pt.X <= trackRect.X)
+                    {
                         return min;
+                    }
                     else if (pt.X >= (trackRect.Right - 1))
+                    {
                         return max;
+                    }
                     else
                     {
                         float offset = pt.X - trackRect.X;
                         float x = offset / trackRect.Width;
-                        float y = min + x * range;
+                        float y = min + (x * range);
                         int ret = (int)Math.Round(y, 0, MidpointRounding.AwayFromZero);
                         return ret;
                     }
@@ -168,13 +177,18 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Limit check the position
                 if (pt.Y <= trackRect.Y)
+                {
                     return max;
+                }
                 else if (pt.Y >= (trackRect.Bottom - 1))
+                {
                     return min;
+                }
+
                 {
                     float offset = trackRect.Bottom - pt.Y;
                     float x = offset / trackRect.Height;
-                    float y = min + x * range;
+                    float y = min + (x * range);
                     int ret = (int)Math.Round(y, 0, MidpointRounding.AwayFromZero);
                     return ret;
                 }
@@ -190,7 +204,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
@@ -215,12 +232,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_drawTrackBar.RightToLeft == RightToLeft.Yes)
                 {
                     if (valueLength > 0)
-                        positionRect.X = positionRect.Right - positionSize.Width - (int)Math.Round(valueLength / range * offset, 0, MidpointRounding.AwayFromZero);
+                    {
+                        positionRect.X = positionRect.Right - positionSize.Width - (int)Math.Round((valueLength / range) * offset, 0, MidpointRounding.AwayFromZero);
+                    }
                 }
                 else
                 {
                     if (valueLength > 0)
-                        positionRect.X += (int)Math.Round(valueLength / range * offset, 0, MidpointRounding.AwayFromZero);
+                    {
+                        positionRect.X += (int)Math.Round((valueLength / range) * offset, 0, MidpointRounding.AwayFromZero);
+                    }
                 }
 
                 trackRect.Y += (ClientHeight - trackSize.Height) / 2;
@@ -234,7 +255,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 float valueLength = (ClientHeight - positionSize.Height);
                 if (valueLength > 0)
-                    positionRect.Y = positionRect.Bottom - positionSize.Height - (int)Math.Round(valueLength / range * offset, 0, MidpointRounding.AwayFromZero);
+                {
+                    positionRect.Y = positionRect.Bottom - positionSize.Height - (int)Math.Round((valueLength / range) * offset, 0, MidpointRounding.AwayFromZero);
+                }
 
                 trackRect.X += (ClientWidth - trackSize.Width) / 2;
                 trackRect.Width = trackSize.Width;

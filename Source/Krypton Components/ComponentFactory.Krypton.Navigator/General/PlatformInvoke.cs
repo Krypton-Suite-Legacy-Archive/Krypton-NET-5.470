@@ -9,8 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Navigator
