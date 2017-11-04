@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Globalization;
 using System.Diagnostics;
 
@@ -26,7 +23,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                        IContentValues
     {
         #region Static Fields
-        private static readonly int WEEKS = 6;
+
+        private const int WEEKS = 6;
         private static readonly TimeSpan TIMESPAN_1DAY = new TimeSpan(1, 0, 0, 0);
         private static readonly TimeSpan TIMESPAN_6DAYS = new TimeSpan(6, 0, 0, 0);
         private static readonly TimeSpan TIMESPAN_1WEEK = new TimeSpan(7, 0, 0, 0);
@@ -76,11 +74,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Dispose of the mementos to prevent memory leak
             for(int i=0; i<_dayMementos.Length; i++)
+            {
                 if (_dayMementos[i] != null)
                 {
                     _dayMementos[i].Dispose();
                     _dayMementos[i] = null;
                 }
+            }
 
             base.Dispose(disposing);
         }
@@ -118,7 +118,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Move backwards until we hit the starting day of the week
                 while (_firstDay.DayOfWeek != _months.DisplayDayOfWeek)
+                {
                     _firstDay -= TIMESPAN_1DAY;
+                }
 
                 // Find the first day of the year
                 DateTime yearDay = new DateTime(value.Year, 1, 1);
@@ -126,7 +128,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Move forewards until we hit the starting day of the year
                 while (_weekDay.DayOfWeek != yearDay.DayOfWeek)
+                {
                     _weekDay += TIMESPAN_1DAY;
+                }
             }
         }
         #endregion
@@ -309,9 +313,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 displayDate += TIMESPAN_6DAYS;
                 if (displayDate < _month)
+                {
                     return _firstMonth;
+                }
                 else
+                {
                     weekDate = _month;
+                }
             }
             else
             {
@@ -320,9 +328,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (displayDate2 >= nextMonth)
                 {
                     if (displayDate >= nextMonth)
+                    {
                         return _lastMonth;
+                    }
                     else
+                    {
                         weekDate = nextMonth.AddDays(-1);
+                    }
                 }
             }
 

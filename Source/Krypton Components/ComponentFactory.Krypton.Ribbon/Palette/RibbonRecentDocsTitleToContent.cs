@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -49,8 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void Dispose()
         {
-            if (_shortTextFont != null)
-                _shortTextFont.Dispose();
+            _shortTextFont?.Dispose();
         }
         #endregion
 
@@ -122,8 +117,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Font value.</returns>
         public override Font GetContentShortTextFont(PaletteState state)
         {
-            if (_shortTextFont != null)
-                _shortTextFont.Dispose();
+            _shortTextFont?.Dispose();
 
             _shortTextFont = new Font(RibbonGeneral.GetRibbonTextFont(state), FontStyle.Bold);
             return _shortTextFont;

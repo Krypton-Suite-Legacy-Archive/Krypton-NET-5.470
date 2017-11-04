@@ -9,21 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -99,8 +89,12 @@ namespace ComponentFactory.Krypton.Docking
 
             // Create a list of pages that have not yet store placeholders
             foreach(KryptonPage page in Pages)
+            {
                 if (!(page is KryptonStorePage))
+                {
                     uniqueNames.Add(page.UniqueName);
+                }
+            }
 
             StorePages(uniqueNames.ToArray());
         }
@@ -155,8 +149,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An StorePageEventArgs containing the event data.</param>
         protected virtual void OnStoringPage(UniqueNameEventArgs e)
         {
-            if (StoringPage != null)
-                StoringPage(this, e);
+            StoringPage?.Invoke(this, e);
         }
 
         /// <summary>
@@ -167,7 +160,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // When all the pages have been removed we kill ourself
             if (Pages.Count == 0)
+            {
                 Dispose();
+            }
         }
         #endregion
     }

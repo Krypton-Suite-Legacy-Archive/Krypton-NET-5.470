@@ -8,12 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -40,7 +37,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Delegate lookup to the viewlet that has the button spec manager
             if (bs == null)
+            {
                 bs = _headerGroup.ButtonSpecFromView(element);
+            }
 
             return bs;
         }
@@ -76,11 +75,8 @@ namespace ComponentFactory.Krypton.Navigator
         public override void PageVisibleStateChanged(KryptonPage page)
         {
             // If is possible the header group has not been created yet
-            if (_headerGroup != null)
-            {
-                // Ensure buttons are recreated to reflect different previous/next visibility
-                _headerGroup.UpdateButtons();
-            }
+            // Ensure buttons are recreated to reflect different previous/next visibility
+            _headerGroup?.UpdateButtons();
 
             // Let base class do standard work
             base.PageVisibleStateChanged(page);
@@ -116,8 +112,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void UpdateStatePalettes()
         {
             // Update palettes for the header group
-            if (_headerGroup != null)
-                _headerGroup.UpdateStatePalettes();
+            _headerGroup?.UpdateStatePalettes();
 
             // Let base class do standard work
             base.UpdateStatePalettes();
@@ -142,7 +137,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Check if any of the button specs want the point
             if (_headerGroup.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
 
             // Let base class search individual stack items
             return base.DesignerGetHitTest(pt);

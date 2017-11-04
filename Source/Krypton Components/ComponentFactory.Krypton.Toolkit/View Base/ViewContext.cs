@@ -11,7 +11,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -79,7 +78,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Use the manager is provided, otherwise create a temporary one with a null view
             if (manager != null)
+            {
                 _manager = manager;
+            }
             else
             {
                 _manager = new ViewManager(control, new ViewLayoutNull());
@@ -103,7 +104,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Only dispose if we created it
                 if (_disposeGraphics)
+                {
                     _graphics.Dispose();
+                }
 
                 _graphics = null;
             }
@@ -113,7 +116,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Only dispose if we created it
                 if (_disposeManager)
+                {
                     _manager.Dispose();
+                }
 
                 _manager = null;
             }
@@ -207,7 +212,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Stop at the first Form instance found
                             if (parentControl is Form)
+                            {
                                 break;
+                            }
 
                             parentControl = parentControl.Parent;
                         }

@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
@@ -27,16 +26,17 @@ namespace ComponentFactory.Krypton.Ribbon
                                          IRibbonViewGroupSize
     {
         #region Static Fields
-        private static readonly int MINIMUM_GROUP_WIDTH = 32;
-        private static readonly int NORMAL_BORDER_TOPLEFT2007 = 2;
-        private static readonly int NORMAL_BORDER_RIGHT2007 = 4;
-        private static readonly int NORMAL_BORDER_TOP2010 = 3;
-        private static readonly int NORMAL_BORDER_LEFT2010 = 3;
-        private static readonly int NORMAL_BORDER_RIGHT2010 = 6;
-        private static readonly int TOTAL_LEFT_RIGHT_BORDERS_2007 = 7;
-        private static readonly int TOTAL_LEFT_RIGHT_BORDERS_2010 = 10;
-        private static readonly int VERT_OFFSET_2007 = 0;
-        private static readonly int VERT_OFFSET_2010 = 2;
+
+        private const int MINIMUM_GROUP_WIDTH = 32;
+        private const int NORMAL_BORDER_TOPLEFT2007 = 2;
+        private const int NORMAL_BORDER_RIGHT2007 = 4;
+        private const int NORMAL_BORDER_TOP2010 = 3;
+        private const int NORMAL_BORDER_LEFT2010 = 3;
+        private const int NORMAL_BORDER_RIGHT2010 = 6;
+        private const int TOTAL_LEFT_RIGHT_BORDERS_2007 = 7;
+        private const int TOTAL_LEFT_RIGHT_BORDERS_2010 = 10;
+        private const int VERT_OFFSET_2007 = 0;
+        private const int VERT_OFFSET_2010 = 2;
         private static readonly Padding COLLAPSED_PADDING = new Padding(2);
         private static readonly Padding COLLAPSED_IMAGE_PADDING_2007 = new Padding(3, 3, 3, 4);
         private static readonly Padding COLLAPSED_IMAGE_PADDING_2010 = new Padding(3, 1, 5, 5);
@@ -230,9 +230,13 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewBase view = null;
 
             if (Collapsed)
+            {
                 view = _layoutCollapsedMain;
+            }
             else
+            {
                 view = _layoutNormalContent.GetFirstFocusItem();
+            }
 
             return view;
         }
@@ -248,9 +252,13 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewBase view = null;
 
             if (Collapsed)
+            {
                 view = _layoutCollapsedMain;
+            }
             else
+            {
                 view = _layoutNormalContent.GetLastFocusItem();
+            }
 
             return view;
         }
@@ -270,12 +278,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (Collapsed)
             {
                 if (matched)
+                {
                     view = _layoutCollapsedMain;
+                }
                 else
+                {
                     matched = (current == _layoutCollapsedMain);
+                }
             }
             else
+            {
                 view = _layoutNormalContent.GetNextFocusItem(current, ref matched);
+            }
 
             return view;
         }
@@ -295,12 +309,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (Collapsed)
             {
                 if (matched)
+                {
                     view = _layoutCollapsedMain;
+                }
                 else
+                {
                     matched = (current == _layoutCollapsedMain);
+                }
             }
             else
+            {
                 view = _layoutNormalContent.GetPreviousFocusItem(current, ref matched);
+            }
 
             return view;
         }
@@ -342,8 +362,14 @@ namespace ComponentFactory.Krypton.Ribbon
             bool ignoreMin = (minWidth < 0);
 
             // If a minus number then max width is effectively as big as you like
-            if (maxWidth <= 0)  maxWidth = int.MaxValue;
-            if (minWidth < 0)   minWidth = 0;
+            if (maxWidth <= 0)
+            {
+                maxWidth = int.MaxValue;
+            }
+            if (minWidth < 0)
+            {
+                minWidth = 0;
+            }
 
             // Prevent the minimum being bigger than the maximum
             minWidth = Math.Min(minWidth, maxWidth);
@@ -360,11 +386,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Find the first entry that is smaller than the maximum allowed
                 if ((retWidth.Width <= maxWidth) && (firstUnderMax == -1))
+                {
                     firstUnderMax = i;
+                }
 
                 // Find the last entry that is bigger than the minimum
                 if (retWidth.Width >= minWidth)
+                {
                     lastOverMin = i;
+                }
 
                 smallestWidth = Math.Min(smallestWidth, retWidth.Width);
             }
@@ -403,7 +433,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // to using the smaller of the two items. This can happen when max is same as min
                     // and does not exactly match an entry. Makes most sense to use the smaller perm.
                     if (firstUnderMax > lastOverMin)
+                    {
                         lastOverMin = firstUnderMax;
+                    }
 
                     // Reset smallest value which needs finding again
                     smallestWidth = int.MaxValue;
@@ -414,7 +446,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // If the last entry we override width with the minimum
                         if (!ignoreMin && (i == lastOverMin) && (retWidth.Width < minWidth))
+                        {
                             retWidth.Width = minWidth;
+                        }
 
                         // Append to end of the new list
                         newWidths.Add(retWidth);
@@ -443,7 +477,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // We never allow a collapsed state if that is smaller than the smallest valid permutation
                     if (smallestWidth > retCollapsed.Width)
+                    {
                         retWidths.Add(retCollapsed);
+                    }
                 }
             }
 
@@ -514,12 +550,18 @@ namespace ComponentFactory.Krypton.Ribbon
             if (Collapsed)
             {
                 if (Pressed)
+                {
                     RenderCollapsedPressedBefore(context);
+                }
                 else
+                {
                     RenderCollapsedBefore(context);
+                }
             }
             else
+            {
                 RenderNormalBefore(context);
+            }
         }
         #endregion
 
@@ -545,7 +587,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -679,9 +723,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // Are we a group inside a context tab?
             PaletteState elementState;
             if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+            {
                 elementState = Tracking ? PaletteState.ContextTracking : PaletteState.ContextNormal;
+            }
             else
+            {
                 elementState = Tracking ? PaletteState.Tracking : PaletteState.Normal;
+            }
 
             // Decide on the palette to use
             switch (elementState)
@@ -709,8 +757,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Indicate the showing of the group inside a popup by adding focus override
             if (_ribbonGroup.ShowingAsPopup)
+            {
                 elementState |= PaletteState.FocusOverride;
-            
+            }
+
             // Draw the group border
             _paletteContextBack.SetInherit(paletteBorder);
             _mementoRibbonBack1 = context.Renderer.RenderRibbon.DrawRibbonBack(_ribbon.RibbonShape, context, drawRect, elementState, _paletteContextBack, VisualOrientation.Top, false, _mementoRibbonBack1);
@@ -742,14 +792,20 @@ namespace ComponentFactory.Krypton.Ribbon
             IPaletteRibbonBack paletteBorder;
 
             if (_collapsedController.HasFocus)
+            {
                 ElementState = PaletteState.Tracking;
+            }
             else
             {
                 // Are we a group inside a context tab?
                 if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+                {
                     ElementState = Tracking ? PaletteState.ContextTracking : PaletteState.ContextNormal;
+                }
                 else
+                {
                     ElementState = Tracking ? PaletteState.Tracking : PaletteState.Normal;
+                }
             }
 
             // Decide on the palette to use
@@ -815,8 +871,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Do we need to draw the border?
                         if (paletteBorder.GetBorderDraw(PaletteState.Pressed) == InheritBool.True)
+                        {
                             context.Renderer.RenderStandardBorder.DrawBorder(context, ClientRectangle, paletteBorder,
-                                                                             VisualOrientation.Top, PaletteState.Pressed);
+                                VisualOrientation.Top, PaletteState.Pressed);
+                        }
                     }
                     break;
                 case PaletteRibbonShape.Office2010:
@@ -830,7 +888,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Are we a group inside a context tab?
                         if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+                        {
                             state = PaletteState.ContextPressed;
+                        }
 
                         // Draw the group border
                         _paletteContextBack.SetInherit(paletteBorder);

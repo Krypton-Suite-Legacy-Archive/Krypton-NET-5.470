@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -90,8 +87,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _counterAlignment = RelativePositionAlign.Far;
 
             // Create a timer for animation effect
-            _animationTimer = new Timer();
-            _animationTimer.Interval = _animationInterval;
+            _animationTimer = new Timer
+            {
+                Interval = _animationInterval
+            };
             _animationTimer.Tick += new EventHandler(OnAnimationTick);
 		}
 
@@ -465,14 +464,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Reduce available display rect by the required border sizing
             if (_paletteMetrics != null)
+            {
                 context.DisplayRectangle = CommonHelper.ApplyPadding(Orientation, originalRect, _paletteMetrics.GetMetricPadding(State, _metricPadding));
+            }
 
             // Cache the maximum extent of all the children
             _extent = base.GetPreferredSize(context);
 
             // Do we have a metric source for additional padding?
             if (_paletteMetrics == null)
+            {
                 return _extent;
+            }
 
             // Restore the original display rectangle
             context.DisplayRectangle = originalRect;
@@ -490,7 +493,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Cache the right to left setting at layout time
             _rightToLeft = context.Control.RightToLeft;
@@ -516,11 +522,15 @@ namespace ComponentFactory.Krypton.Toolkit
             if (FillSpace)
             {
                 // Ensure the extent reflects the maximum size we want, the whole area
-                if (_extent.Width < positionRectangle.Width)    
+                if (_extent.Width < positionRectangle.Width)
+                {
                     _extent.Width = positionRectangle.Width;
+                }
 
-                if (_extent.Height < positionRectangle.Height)  
+                if (_extent.Height < positionRectangle.Height)
+                {
                     _extent.Height = positionRectangle.Height;
+                }
             }
 
             // Find the limits allowed for the offset given current extent and display rect
@@ -528,11 +538,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                Math.Min(positionRectangle.Height - _extent.Height, 0));
 
             // Enforce the offset back to the limits
-            if (_offset.X < _limit.X) _offset.X = _limit.X;
-            if (_offset.Y < _limit.Y) _offset.Y = _limit.Y;
+            if (_offset.X < _limit.X)
+            {
+                _offset.X = _limit.X;
+            }
+
+            if (_offset.Y < _limit.Y)
+            {
+                _offset.Y = _limit.Y;
+            }
 
             // Calculate the offset given the current alignment and counter alignment
-            Point childOffset;
             int childOffsetX;
             int childOffsetY;
 
@@ -548,7 +564,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 childOffsetY = CalculateAlignedOffset(AlignmentRTL, positionRectangle.Y, positionRectangle.Height, _offset.Y, _extent.Height, _limit.Y);
             }
 
-            childOffset = new Point(childOffsetX, childOffsetY);
+            Point childOffset = new Point(childOffsetX, childOffsetY);
 
             // Ask each child to layout in turn
             foreach (ViewBase child in this)
@@ -566,11 +582,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (FillSpace)
                     {
                         // Ensure the child reflect the size we want, the whole area
-                        if (childSize.Width < positionRectangle.Width)      
+                        if (childSize.Width < positionRectangle.Width)
+                        {
                             childSize.Width = positionRectangle.Width;
+                        }
 
-                        if (childSize.Height < positionRectangle.Height)    
+                        if (childSize.Height < positionRectangle.Height)
+                        {
                             childSize.Height = positionRectangle.Height;
+                        }
                     }
 
                     // Give the child all the space it requires
@@ -626,7 +646,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Only render visible children that are inside the clipping rectangle
                     if (child.Visible)
+                    {
                         child.Render(context);
+                    }
                 }
 
                 // Perform rendering after that of children
@@ -703,12 +725,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 case RelativePositionAlign.Center:
                     // If there is no need for any scrolling then center, otherwise place near
                     if (limit == 0)
-                        return posRect + (posRectLength - extent) / 2;
+                    {
+                        return posRect + ((posRectLength - extent) / 2);
+                    }
                     else
+                    {
                         return posRect + offset;
+                    }
+
                 case RelativePositionAlign.Far:
                     // Position against the far side
-                    return posRect + posRectLength - extent - offset;
+                    return (posRect + posRectLength) - extent - offset;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
@@ -786,15 +813,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     case RelativePositionAlign.Near:
                     case RelativePositionAlign.Center:
                         if (next)
+                        {
                             offset.X -= change;
+                        }
                         else
+                        {
                             offset.X += change;
+                        }
+
                         break;
                     case RelativePositionAlign.Far:
                         if (next)
+                        {
                             offset.X += change;
+                        }
                         else
+                        {
                             offset.X -= change;
+                        }
+
                         break;
                 }
             }
@@ -808,15 +845,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     case RelativePositionAlign.Near:
                     case RelativePositionAlign.Center:
                         if (next)
+                        {
                             offset.Y -= change;
+                        }
                         else
+                        {
                             offset.Y += change;
+                        }
+
                         break;
                     case RelativePositionAlign.Far:
                         if (next)
+                        {
                             offset.Y += change;
+                        }
                         else
+                        {
                             offset.Y -= change;
+                        }
+
                         break;
                 }
             }
@@ -850,7 +897,9 @@ namespace ComponentFactory.Krypton.Toolkit
             
             // We might not be provided with metrics, so only use if reference provided
             if (_paletteMetrics != null)
+            {
                 overs = _paletteMetrics.GetMetricInt(State, _metricOvers) + _scrollOvers;
+            }
 
             // Move the required rectangle more than exactly into view in order to make it
             // easier for users to see extra pages before and after it for easy selection
@@ -877,22 +926,56 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Center alignment needs changing to near or far for scrolling
                     if (alignment == RelativePositionAlign.Center)
+                    {
                         alignment = RelativePositionAlign.Near;
+                    }
 
                     // How to scroll into view depends on the alignmnent of items
                     switch (alignment)
                     {
                         case RelativePositionAlign.Near:
-                            if (rect.Right > ClientRectangle.Right)     offset.X += (ClientRectangle.Right - rect.Right);
-                            if (rect.Left < ClientRectangle.Left)       offset.X += (ClientRectangle.Left - rect.Left);
-                            if (rect.Bottom > ClientRectangle.Bottom)   offset.Y += (ClientRectangle.Bottom - rect.Bottom);
-                            if (rect.Top < ClientRectangle.Top)         offset.Y += (ClientRectangle.Top - rect.Top);
+                            if (rect.Right > ClientRectangle.Right)
+                            {
+                                offset.X += (ClientRectangle.Right - rect.Right);
+                            }
+
+                            if (rect.Left < ClientRectangle.Left)
+                            {
+                                offset.X += (ClientRectangle.Left - rect.Left);
+                            }
+
+                            if (rect.Bottom > ClientRectangle.Bottom)
+                            {
+                                offset.Y += (ClientRectangle.Bottom - rect.Bottom);
+                            }
+
+                            if (rect.Top < ClientRectangle.Top)
+                            {
+                                offset.Y += (ClientRectangle.Top - rect.Top);
+                            }
+
                             break;
                         case RelativePositionAlign.Far:
-                            if (rect.Right > ClientRectangle.Right)     offset.X -= (ClientRectangle.Right - rect.Right);
-                            if (rect.Left < ClientRectangle.Left)       offset.X -= (ClientRectangle.Left - rect.Left);
-                            if (rect.Bottom > ClientRectangle.Bottom)   offset.Y -= (ClientRectangle.Bottom - rect.Bottom);
-                            if (rect.Top < ClientRectangle.Top)         offset.Y -= (ClientRectangle.Top - rect.Top);
+                            if (rect.Right > ClientRectangle.Right)
+                            {
+                                offset.X -= (ClientRectangle.Right - rect.Right);
+                            }
+
+                            if (rect.Left < ClientRectangle.Left)
+                            {
+                                offset.X -= (ClientRectangle.Left - rect.Left);
+                            }
+
+                            if (rect.Bottom > ClientRectangle.Bottom)
+                            {
+                                offset.Y -= (ClientRectangle.Bottom - rect.Bottom);
+                            }
+
+                            if (rect.Top < ClientRectangle.Top)
+                            {
+                                offset.Y -= (ClientRectangle.Top - rect.Top);
+                            }
+
                             break;
                     }
                 }
@@ -952,8 +1035,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _offset.Y = Math.Min(Math.Max(_offset.Y, _limit.Y), 0);
 
             // Request the layout and paint to reflect change
-            if (AnimateStep != null)
-                AnimateStep.Invoke(this, EventArgs.Empty);
+            AnimateStep?.Invoke(this, EventArgs.Empty);
         }
         #endregion
     }

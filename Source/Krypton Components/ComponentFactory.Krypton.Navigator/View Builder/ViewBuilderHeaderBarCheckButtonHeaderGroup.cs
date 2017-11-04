@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -49,8 +45,10 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Call onto the contained header group implementation
             if (bs == null)
+            {
                 bs = _headerGroup.ButtonSpecFromView(element);
-            
+            }
+
             return bs;
         }
         #endregion
@@ -78,12 +76,16 @@ namespace ComponentFactory.Krypton.Navigator
                                                         PaletteMetricInt.CheckButtonGap,
                                                         Navigator.Header.HeaderPositionBar,
                                                         Navigator.Bar.ItemAlignment,
-                                                        Navigator.Bar.BarAnimation);
-            _layoutBarViewport.Add(_layoutBar);
+                                                        Navigator.Bar.BarAnimation)
+            {
+                _layoutBar
+            };
 
             // Create the button bar area docker
-            _layoutBarDocker = new ViewLayoutDocker();
-            _layoutBarDocker.Add(_layoutBarViewport, ViewDockStyle.Fill);
+            _layoutBarDocker = new ViewLayoutDocker
+            {
+                { _layoutBarViewport, ViewDockStyle.Fill }
+            };
 
             // Place the bar inside a header style area
             _viewHeadingBar = new ViewDrawDocker(Navigator.StateNormal.HeaderGroup.HeaderBar.Back,
@@ -91,10 +93,11 @@ namespace ComponentFactory.Krypton.Navigator
                                                  Navigator.StateNormal.HeaderGroup.HeaderBar,
                                                  PaletteMetricBool.None,
                                                  PaletteMetricPadding.HeaderGroupPaddingSecondary,
-                                                 VisualOrientation.Top);
+                                                 VisualOrientation.Top)
+            {
+                { _layoutBarDocker, ViewDockStyle.Fill }
+            };
 
-            _viewHeadingBar.Add(_layoutBarDocker, ViewDockStyle.Fill);
-            
             // Construct the viewlet instance
             _headerGroup = new ViewletHeaderGroup(Navigator, Redirector, NeedPaintDelegate);
 
@@ -230,11 +233,8 @@ namespace ComponentFactory.Krypton.Navigator
         public override void PageVisibleStateChanged(KryptonPage page)
         {
             // If is possible the header group has not been created yet
-            if (_headerGroup != null)
-            {
-                // Ensure buttons are recreated to reflect different previous/next visibility
-                _headerGroup.UpdateButtons();
-            }
+            // Ensure buttons are recreated to reflect different previous/next visibility
+            _headerGroup?.UpdateButtons();
 
             // Let base class do standard work
             base.PageVisibleStateChanged(page);
@@ -295,7 +295,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Check if any of the button specs want the point
             if (_headerGroup.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
 
             // Let base class search individual stack items
             return base.DesignerGetHitTest(pt);

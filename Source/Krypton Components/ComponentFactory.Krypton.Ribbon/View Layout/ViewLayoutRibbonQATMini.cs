@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -25,7 +22,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonQATMini : ViewLayoutDocker
     {
         #region Static Fields
-        private static readonly int SEP_GAP = 2;
+
+        private const int SEP_GAP = 2;
+
         #endregion
 
         #region Instance Fields
@@ -85,7 +84,9 @@ namespace ComponentFactory.Krypton.Ribbon
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 _extraButton.ClickAndFinish -= new ClickAndFinishHandler(OnExtraButtonClick);
+            }
 
             base.Dispose(disposing);
         }
@@ -142,7 +143,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // If integrated into the caption area then get the caption area height
                 Padding borders = Padding.Empty;
                 if ((OwnerForm != null) && !OwnerForm.ApplyComposition)
+                {
                     borders = OwnerForm.RealWindowBorders;
+                }
 
                 // Get the screen location of the extra button
                 Rectangle viewRect = _borderContents.ParentControl.RectangleToScreen(_extraButton.ClientRectangle);
@@ -173,7 +176,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If defined then use the extra button
             if (view == null)
+            {
                 view = _extraButton;
+            }
 
             return view;
         }
@@ -188,7 +193,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Last view is the extra button if defined
             if (_extraButton != null)
+            {
                 return _extraButton;
+            }
 
             // Find the last qat button
             return _borderContents.GetLastQATView();
@@ -207,7 +214,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If no qat button is found and not already at the extra button
             if ((view == null) && (_extraButton != qatButton))
+            {
                 view = _extraButton;
+            }
 
             return view;
         }
@@ -223,9 +232,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If on the extra button then find the right most qat button instead
             if (qatButton == _extraButton)
+            {
                 return _borderContents.GetLastQATView();
+            }
             else
+            {
                 return _borderContents.GetPreviousQATView(qatButton);
+            }
         }
         #endregion
 
@@ -242,18 +255,22 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Scan to see if there are any visible quick access toolbar buttons
             foreach(IQuickAccessToolbarButton qatButton in _ribbon.QATButtons)
+            {
                 if (qatButton.GetVisible())
                 {
                     visibleQATButtons = true;
                     break;
                 }
+            }
 
             // Only show the border if there are some visible contents
             _border.Visible = visibleQATButtons;
 
             // If there are no visible buttons, then extra button must be for customization
             if (!visibleQATButtons)
+            {
                 _extraButton.Overflow = false;
+            }
 
             return base.GetPreferredSize(context);
         }
@@ -284,9 +301,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only if border is visible do we need to find the latest overflow value
             // otherwise it must be a customization image because there are no buttons
             if (_border.Visible)
+            {
                 _extraButton.Overflow = _borderContents.Overflow;
+            }
             else
+            {
                 _extraButton.Overflow = false;
+            }
         }
 
         private void OnExtraButtonClick(object sender, EventHandler finishDelegate)
@@ -306,9 +327,13 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             if (_extraButton.Overflow)
+            {
                 _ribbon.DisplayQATOverflowMenu(screenRect, _borderContents, finishDelegate);
+            }
             else
+            {
                 _ribbon.DisplayQATCustomizeMenu(screenRect, _borderContents, finishDelegate);
+            }
         }
         #endregion
     }

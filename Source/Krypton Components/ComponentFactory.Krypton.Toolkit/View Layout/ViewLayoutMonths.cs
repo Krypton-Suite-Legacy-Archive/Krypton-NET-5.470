@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -30,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Static Fields
-        internal static readonly int GAP = 2;
+        internal const int GAP = 2;
         #endregion
 
         #region Instance Fields
@@ -335,7 +332,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -348,9 +347,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // Search for an exact matching month view
             foreach (ViewBase view in this)
             {
-                ViewDrawMonth month = view as ViewDrawMonth;
-                if ((month != null) && month.ClientRectangle.Contains(pt))
+                if ((view is ViewDrawMonth month) && month.ClientRectangle.Contains(pt))
+                {
                     return month.ViewDrawMonthDays.DayNearPoint(pt);
+                }
             }
 
             int cols = _calendar.CalendarDimensions.Width;
@@ -360,19 +360,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Find the column to be used in lookup
             for (int col = 0; col < cols; col++)
+            {
                 if (pt.X < this[col + 1].ClientRectangle.Right)
                 {
                     ptCol = col;
                     break;
                 }
+            }
 
             // Find the row to be used in lookup
             for (int row = 0; row < rows; row++)
+            {
                 if (pt.Y < this[(row * cols) + 1].ClientRectangle.Bottom)
                 {
                     ptRow = row;
                     break;
                 }
+            }
 
             ViewDrawMonth target = ((ViewDrawMonth)this[(ptCol + (ptRow * cols)) + 1]);
             return target.ViewDrawMonthDays.DayNearPoint(pt);
@@ -392,9 +396,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // Climb view hierarchy looking for the days view 
             while (view != null)
             {
-                ViewDrawMonthDays month = view as ViewDrawMonthDays;
-                if ((month != null) && month.ClientRectangle.Contains(pt))
+                if ((view is ViewDrawMonthDays month) && month.ClientRectangle.Contains(pt))
+                {
                     return month.DayFromPoint(pt, exact);
+                }
 
                 view = view.Parent;
             }
@@ -410,7 +415,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the number of months to move
             int move = _calendar.ScrollChange;
             if (move == 0)
+            {
                 move = 1;
+            }
 
             // Calculate the next set of months shown
             DateTime nextMonth = _displayMonth.AddMonths(move);
@@ -434,8 +441,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     DateTime newSelEnd = _calendar.SelectionEnd.AddMonths(move);
 
                     // Impose the min/max dates
-                    if (newSelStart > _calendar.MaxDate) newSelStart = _calendar.MaxDate;
-                    if (newSelEnd > _calendar.MaxDate) newSelEnd = _calendar.MaxDate;
+                    if (newSelStart > _calendar.MaxDate)
+                    {
+                        newSelStart = _calendar.MaxDate;
+                    }
+
+                    if (newSelEnd > _calendar.MaxDate)
+                    {
+                        newSelEnd = _calendar.MaxDate;
+                    }
 
                     // Shift selection onwards
                     _calendar.SetSelectionRange(newSelStart, newSelEnd);
@@ -453,7 +467,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the number of months to move
             int move = _calendar.ScrollChange;
             if (move == 0)
+            {
                 move = 1;
+            }
 
             // Calculate the next set of months shown
             DateTime prevMonth = _displayMonth.AddMonths(-move);
@@ -475,8 +491,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     DateTime newSelEnd = _calendar.SelectionEnd.AddMonths(-move);
 
                     // Impose the min/max dates
-                    if (newSelStart < _calendar.MinDate)    newSelStart = _calendar.MinDate;
-                    if (newSelEnd < _calendar.MinDate)      newSelEnd = _calendar.MinDate;
+                    if (newSelStart < _calendar.MinDate)
+                    {
+                        newSelStart = _calendar.MinDate;
+                    }
+
+                    if (newSelEnd < _calendar.MinDate)
+                    {
+                        newSelEnd = _calendar.MinDate;
+                    }
 
                     // Shift selection backwards
                     _calendar.SetSelectionRange(newSelStart, newSelEnd);
@@ -518,7 +541,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return retSize;
             }
             else
+            {
                 return Size.Empty;
+            }
         }
 
         /// <summary>
@@ -541,7 +566,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size headerSize = _drawHeader.GetPreferredSize(context);
 
                 // Only use the height as the width is based on the months only
-                preferredSize.Height = headerSize.Height + GAP * 2;
+                preferredSize.Height = headerSize.Height + (GAP * 2);
             }
 
             // Are there any months to be measured?
@@ -551,8 +576,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size monthSize = this[1].GetPreferredSize(context);
 
                 // Find total width based on requested dimensions and add a single pixel space around and between months
-                preferredSize.Width += monthSize.Width * _calendar.CalendarDimensions.Width + (GAP * _calendar.CalendarDimensions.Width) + GAP;
-                preferredSize.Height += monthSize.Height * _calendar.CalendarDimensions.Height + (GAP * _calendar.CalendarDimensions.Height) + GAP;
+                preferredSize.Width += (monthSize.Width * _calendar.CalendarDimensions.Width) + (GAP * _calendar.CalendarDimensions.Width) + GAP;
+                preferredSize.Height += (monthSize.Height * _calendar.CalendarDimensions.Height) + (GAP * _calendar.CalendarDimensions.Height) + GAP;
             }
 
             return preferredSize;
@@ -580,7 +605,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Position the header a the bottom of the area
                 context.DisplayRectangle = new Rectangle(ClientLocation.X + GAP, ClientRectangle.Bottom - GAP - headerSize.Height,
-                                                         ClientSize.Width - GAP * 2, headerSize.Height);
+                                                         ClientSize.Width - (GAP * 2), headerSize.Height);
 
                 _drawHeader.Layout(context);
             }
@@ -725,9 +750,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             if (_calendar.FirstDayOfWeek == Day.Default)
+            {
                 _displayDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+            }
             else
+            {
                 _displayDayOfWeek = (DayOfWeek)((((int)_calendar.FirstDayOfWeek) + 1) % 6);
+            }
 
             // Find the grid cell sizes needed for day names and day entries
             _sizeDayOfWeek = MaxGridCellDayOfWeek(context);
@@ -748,7 +777,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Count < (months + 1))
             {
                 for (int i = Count - 1; i < months; i++)
+                {
                     Add(new ViewDrawMonth(_calendar, this, _redirector, _needPaintDelegate));
+                }
             }
             else if (Count > (months + 1))
             {
@@ -776,13 +807,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // If focus day is before the first month
                     if (FocusDay.Value < _displayMonth)
+                    {
                         _displayMonth = new DateTime(FocusDay.Value.Year, FocusDay.Value.Month, 1);
+                    }
                     else
                     {
                         // If focus day is after the last month
                         DateTime endDate = _displayMonth.AddMonths(months);
                         if (FocusDay.Value >= endDate)
+                        {
                             _displayMonth = new DateTime(FocusDay.Value.Year, FocusDay.Value.Month, 1).AddMonths(-(months - 1));
+                        }
                     }
                 }
                 else
@@ -792,10 +827,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     DateTime oldSelEndDate = _oldSelectionEnd.Date;
                     DateTime oldSelEndMonth = new DateTime(oldSelEndDate.Year, oldSelEndDate.Month, 1);
                     if (oldSelEndMonth >= endMonth)
+                    {
                         _displayMonth = oldSelEndMonth.AddMonths(-(months - 1));
+                    }
 
                     if (_oldSelectionStart < _displayMonth)
+                    {
                         _displayMonth = new DateTime(_calendar.SelectionStart.Year, _calendar.SelectionStart.Month, 1);
+                    }
                 }
             }
 
@@ -823,7 +862,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = _calendar.CalendarControl.FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!_calendar.InDesignMode)
@@ -855,8 +896,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(_redirector,
@@ -878,8 +918,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)

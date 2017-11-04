@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
@@ -47,16 +44,14 @@ namespace ComponentFactory.Krypton.Navigator
 			KryptonNavigator navigator = (KryptonNavigator)Context.Instance;
 
 			// Suspend changes until collection has been updated
-			if (navigator != null)
-				navigator.SuspendLayout();
+		    navigator?.SuspendLayout();
 
-			// Let base class update the collection
+		    // Let base class update the collection
 			object ret = base.SetItems(editValue, value);
 
-			if (navigator != null)
-				navigator.ResumeLayout(true);
+		    navigator?.ResumeLayout(true);
 
-			return ret;
+		    return ret;
 		}
 	}
 }

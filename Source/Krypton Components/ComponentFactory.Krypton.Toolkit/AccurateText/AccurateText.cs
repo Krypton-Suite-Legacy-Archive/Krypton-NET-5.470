@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
@@ -27,8 +24,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class AccurateText : GlobalId
     {
         #region Static Fields
-        private static readonly int GLOW_EXTRA_WIDTH = 14;
-        private static readonly int GLOW_EXTRA_HEIGHT = 3;
+
+        private const int GLOW_EXTRA_WIDTH = 14;
+        private const int GLOW_EXTRA_HEIGHT = 3;
+
         #endregion
 
         #region Public Static Methods
@@ -61,21 +60,35 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(text != null);
             Debug.Assert(font != null);
 
-            if (g == null) throw new ArgumentNullException("g");
-            if (text == null) throw new ArgumentNullException("text");
-            if (font == null) throw new ArgumentNullException("font");
+            if (g == null)
+            {
+                throw new ArgumentNullException("g");
+            }
+
+            if (text == null)
+            {
+                throw new ArgumentNullException("text");
+            }
+
+            if (font == null)
+            {
+                throw new ArgumentNullException("font");
+            }
 
             // An empty string cannot be drawn, so uses the empty memento
             if (text.Length == 0)
+            {
                 return AccurateTextMemento.Empty;
+            }
 
             // Create the format object used when measuring and drawing
-            StringFormat format = new StringFormat();
-            format.FormatFlags = StringFormatFlags.NoClip;
+            StringFormat format = new StringFormat {FormatFlags = StringFormatFlags.NoClip};
 
             // Ensure that text reflects reversed RTL setting
             if (rtl == RightToLeft.Yes)
+            {
                 format.FormatFlags = StringFormatFlags.DirectionRightToLeft;
+            }
 
             // How do we position text horizontally?
             switch (align)
@@ -153,7 +166,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     textSize = g.MeasureString(text, font, int.MaxValue, format);
 
                     if (composition)
+                    {
                         textSize.Width += GLOW_EXTRA_WIDTH;
+                    }
                 }
                 catch {}
 
@@ -188,11 +203,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Cannot draw with a null graphics instance
             if (g == null)
+            {
                 throw new ArgumentNullException("g");
+            }
 
             // Cannot draw with a null memento instance
             if (memento == null)
+            {
                 throw new ArgumentNullException("memento");
+            }
 
             bool ret = true;
 
@@ -212,8 +231,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         case VisualOrientation.Bottom:
                             // Translate to opposite side of origin, so the rotate can 
                             // then bring it back to original position but mirror image
-                            translateX = rect.X * 2 + rect.Width;
-                            translateY = rect.Y * 2 + rect.Height;
+                            translateX = (rect.X * 2) + rect.Width;
+                            translateY = (rect.Y * 2) + rect.Height;
                             rotation = 180f;
                             break;
                         case VisualOrientation.Left:
@@ -238,18 +257,26 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Apply the transforms if we have any to apply
                     if ((translateX != 0) || (translateY != 0))
+                    {
                         g.TranslateTransform(translateX, translateY);
+                    }
 
                     if (rotation != 0f)
+                    {
                         g.RotateTransform(rotation);
+                    }
 
                     try
                     {
                         if (composition)
+                        {
                             DrawCompositionGlowingText(g, memento.Text, memento.Font, rect, state,
                                                        SystemColors.ActiveCaptionText, true);
+                        }
                         else
+                        {
                             g.DrawString(memento.Text, memento.Font, brush, rect, memento.Format);
+                        }
                     }
                     catch
                     {
@@ -263,10 +290,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Remove the applied transforms
                         if (rotation != 0f)
+                        {
                             g.RotateTransform(-rotation);
+                        }
 
                         if ((translateX != 0) || (translateY != 0))
+                        {
                             g.TranslateTransform(-translateX, -translateY);
+                        }
                     }
                 }
             }
@@ -303,7 +334,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
                 bmi.biSize = Marshal.SizeOf(bmi);
                 bmi.biWidth = bounds.Width;
-                bmi.biHeight = -(bounds.Height + GLOW_EXTRA_HEIGHT * 2);
+                bmi.biHeight = -(bounds.Height + (GLOW_EXTRA_HEIGHT * 2));
                 bmi.biCompression = 0;
                 bmi.biBitCount = 32;
                 bmi.biPlanes = 1;
@@ -315,7 +346,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (copyBackground)
                 {
                     // Copy existing background into the bitmap
-                    PI.BitBlt(mDC, 0, 0, bounds.Width, bounds.Height + GLOW_EXTRA_HEIGHT * 2,
+                    PI.BitBlt(mDC, 0, 0, bounds.Width, bounds.Height + (GLOW_EXTRA_HEIGHT * 2),
                               gDC, bounds.X, bounds.Y - GLOW_EXTRA_HEIGHT, 0x00CC0020);
                 }
 
@@ -328,27 +359,31 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                                                       VisualStyleElement.Window.Caption.Inactive);
 
                 // Create structures needed for theme drawing call
-                PI.RECT textBounds = new PI.RECT();
-                textBounds.left = 0;
-                textBounds.top = 0;
-                textBounds.right = (bounds.Right - bounds.Left);
-                textBounds.bottom = (bounds.Bottom - bounds.Top) + (GLOW_EXTRA_HEIGHT * 2);
-                PI.DTTOPTS dttOpts = new PI.DTTOPTS();
-                dttOpts.dwSize = Marshal.SizeOf(typeof(PI.DTTOPTS));
-                dttOpts.dwFlags = PI.DTT_COMPOSITED | PI.DTT_GLOWSIZE | PI.DTT_TEXTCOLOR;
-                dttOpts.crText = ColorTranslator.ToWin32(color);
-                dttOpts.iGlowSize = 11;
+                PI.RECT textBounds = new PI.RECT
+                {
+                    left = 0,
+                    top = 0,
+                    right = (bounds.Right - bounds.Left),
+                    bottom = (bounds.Bottom - bounds.Top) + (GLOW_EXTRA_HEIGHT * 2)
+                };
+                PI.DTTOPTS dttOpts = new PI.DTTOPTS
+                {
+                    dwSize = Marshal.SizeOf(typeof(PI.DTTOPTS)),
+                    dwFlags = PI.DTT_COMPOSITED | PI.DTT_GLOWSIZE | PI.DTT_TEXTCOLOR,
+                    crText = ColorTranslator.ToWin32(color),
+                    iGlowSize = 11
+                };
 
                 // Always draw text centered
-                TextFormatFlags textFormat = TextFormatFlags.SingleLine |
-                                             TextFormatFlags.HorizontalCenter |
-                                             TextFormatFlags.VerticalCenter |
-                                             TextFormatFlags.EndEllipsis;
+                const TextFormatFlags TEXT_FORMAT = TextFormatFlags.SingleLine |
+                                                   TextFormatFlags.HorizontalCenter |
+                                                   TextFormatFlags.VerticalCenter |
+                                                   TextFormatFlags.EndEllipsis;
 
                 // Perform actual drawing
                 PI.DrawThemeTextEx(renderer.Handle,
                                    mDC, 0, 0,
-                                   text, -1, (int)textFormat,
+                                   text, -1, (int)TEXT_FORMAT,
                                    ref textBounds, ref dttOpts);
 
                 // Copy to foreground

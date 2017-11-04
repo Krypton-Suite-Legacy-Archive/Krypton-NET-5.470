@@ -9,15 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Collections;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -150,10 +145,12 @@ namespace ComponentFactory.Krypton.Ribbon
             _toolTipStyle = LabelStyle.SuperTip;
 
             // Create the actual text box control and set initial settings
-            _gallery = new KryptonGallery();
-            _gallery.AlwaysActive = false;
-            _gallery.TabStop = false;
-            _gallery.InternalPreferredItemSize = new Size(_largeItemCount, 1);
+            _gallery = new KryptonGallery
+            {
+                AlwaysActive = false,
+                TabStop = false,
+                InternalPreferredItemSize = new Size(_largeItemCount, 1)
+            };
 
             // Hook into events to expose via this container
             _gallery.SelectedIndexChanged += new EventHandler(OnGallerySelectedIndexChanged);
@@ -267,7 +264,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Ensure the large count can never be less than the medium count
                     if (_largeItemCount < _mediumItemCount)
+                    {
                         _mediumItemCount = _largeItemCount;
+                    }
 
                     OnPropertyChanged("LargeItemCount");
                 }
@@ -292,7 +291,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Ensure the medium count can never be more than the large count
                     if (_mediumItemCount > _largeItemCount)
+                    {
                         _largeItemCount = _mediumItemCount;
+                    }
 
                     OnPropertyChanged("MediumItemCount");
                 }
@@ -399,7 +400,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "X";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -449,7 +452,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "Gallery";
+                }
 
                 if (value != _textLine1)
                 {
@@ -772,8 +777,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal int InternalItemCount
@@ -820,8 +824,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnImageListChanged(EventArgs e)
         {
-            if (ImageListChanged != null)
-                ImageListChanged(this, e);
+            ImageListChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -830,8 +833,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSelectedIndexChanged(EventArgs e)
         {
-            if (SelectedIndexChanged != null)
-                SelectedIndexChanged(this, e);
+            SelectedIndexChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -840,8 +842,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An ImageSelectEventArgs containing the event data.</param>
         protected virtual void OnTrackingImage(ImageSelectEventArgs e)
         {
-            if (TrackingImage != null)
-                TrackingImage(this, e);
+            TrackingImage?.Invoke(this, e);
         }
 
         /// <summary>
@@ -850,8 +851,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An GalleryDropMenuEventArgs containing the event data.</param>
         protected virtual void OnGalleryDropMenu(GalleryDropMenuEventArgs e)
         {
-            if (GalleryDropMenu != null)
-                GalleryDropMenu(this, e);
+            GalleryDropMenu?.Invoke(this, e);
         }
 
         /// <summary>
@@ -860,8 +860,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnGotFocus(EventArgs e)
         {
-            if (GotFocus != null)
-                GotFocus(this, e);
+            GotFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -870,8 +869,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnLostFocus(EventArgs e)
         {
-            if (LostFocus != null)
-                LostFocus(this, e);
+            LostFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -880,8 +878,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -900,14 +897,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnControlEnter(object sender, EventArgs e)
         {
-            if (MouseEnterControl != null)
-                MouseEnterControl(this, e);
+            MouseEnterControl?.Invoke(this, e);
         }
 
         private void OnControlLeave(object sender, EventArgs e)
         {
-            if (MouseLeaveControl != null)
-                MouseLeaveControl(this, e);
+            MouseLeaveControl?.Invoke(this, e);
         }
 
         private void OnGalleryImageListChanged(object sender, EventArgs e)

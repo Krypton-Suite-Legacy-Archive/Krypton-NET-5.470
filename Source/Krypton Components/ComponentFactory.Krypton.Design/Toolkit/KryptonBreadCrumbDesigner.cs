@@ -11,7 +11,6 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -37,7 +36,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Initialize(IComponent component)
         {
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -93,10 +95,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the bread crumb specific list
-                actionLists.Add(new KryptonBreadCrumbActionList(this));
+                    // Add the bread crumb specific list
+                    new KryptonBreadCrumbActionList(this)
+                };
 
                 return actionLists;
             }
@@ -138,7 +142,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _breadCrumb.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -146,7 +152,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -154,8 +162,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_breadCrumb != null)
-                _breadCrumb.DesignerMouseLeave();
+            _breadCrumb?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -175,8 +182,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _breadCrumb.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }
@@ -184,19 +193,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnBreadCrumbDoubleClick(object sender, Point pt)
         {
-            if (_breadCrumb != null)
+            // Get any component associated with the current mouse position
+            Component component = _breadCrumb?.DesignerComponentFromPoint(pt);
+
+            if (component != null)
             {
-                // Get any component associated with the current mouse position
-                Component component = _breadCrumb.DesignerComponentFromPoint(pt);
+                // Get the designer for the component
+                IDesigner designer = _designerHost.GetDesigner(component);
 
-                if (component != null)
-                {
-                    // Get the designer for the component
-                    IDesigner designer = _designerHost.GetDesigner(component);
-
-                    // Request code for the default event be generated
-                    designer.DoDefaultAction();
-                }
+                // Request code for the default event be generated
+                designer.DoDefaultAction();
             }
         }
 

@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -151,9 +144,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteDragFeedback GetDragDropFeedback()
         {
             if (Feedback != PaletteDragFeedback.Inherit)
+            {
                 return Feedback;
+            }
             else
+            {
                 return _inherit.GetDragDropFeedback();
+            }
         }
         #endregion
 
@@ -195,9 +192,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropSolidBack()
         {
             if (SolidBack != Color.Empty)
+            {
                 return SolidBack;
+            }
             else
+            {
                 return _inherit.GetDragDropSolidBack();
+            }
         }
         #endregion
 
@@ -239,9 +240,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropSolidBorder()
         {
             if (SolidBorder != Color.Empty)
+            {
                 return SolidBorder;
+            }
             else
+            {
                 return _inherit.GetDragDropSolidBorder();
+            }
         }
         #endregion
 
@@ -283,9 +288,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual float GetDragDropSolidOpacity()
         {
             if (SolidOpacity >= 0.0f)
+            {
                 return SolidOpacity;
+            }
             else
+            {
                 return _inherit.GetDragDropSolidOpacity();
+            }
         }
         #endregion
 
@@ -328,9 +337,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropDockBack()
         {
             if (DropDockBack != Color.Empty)
+            {
                 return DropDockBack;
+            }
             else
+            {
                 return _inherit.GetDragDropDockBack();
+            }
         }
         #endregion
 
@@ -372,9 +385,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropDockBorder()
         {
             if (DropDockBorder != Color.Empty)
+            {
                 return DropDockBorder;
+            }
             else
+            {
                 return _inherit.GetDragDropDockBorder();
+            }
         }
         #endregion
 
@@ -416,9 +433,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropDockActive()
         {
             if (DropDockActive != Color.Empty)
+            {
                 return DropDockActive;
+            }
             else
+            {
                 return _inherit.GetDragDropDockActive();
+            }
         }
         #endregion
 
@@ -460,9 +481,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetDragDropDockInactive()
         {
             if (DropDockInactive != Color.Empty)
+            {
                 return DropDockInactive;
+            }
             else
+            {
                 return _inherit.GetDragDropDockInactive();
+            }
         }
         #endregion
     }

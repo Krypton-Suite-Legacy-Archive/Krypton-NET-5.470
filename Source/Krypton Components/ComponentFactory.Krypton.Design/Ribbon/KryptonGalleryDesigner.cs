@@ -10,14 +10,11 @@
 
 using System;
 using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -51,7 +48,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -76,7 +76,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Add all the display ranges
                 foreach (KryptonGalleryRange dropRange in _gallery.DropButtonRanges)
+                {
                     compound.Add(dropRange);
+                }
 
                 return compound;
             }
@@ -101,10 +103,12 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the gallery specific list
-                actionLists.Add(new KryptonGalleryActionList(this));
+                    // Add the gallery specific list
+                    new KryptonGalleryActionList(this)
+                };
 
                 return actionLists;
             }

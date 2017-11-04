@@ -10,9 +10,7 @@
 
 using System;
 using System.Drawing;
-using System.Diagnostics;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
@@ -29,11 +27,10 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="dragEndData">Pages data being dragged.</param>
         public void AddRange(IDragTargetProvider provider, PageDragEndData dragEndData)
         {
-            if (provider != null)
+            DragTargetList targets = provider?.GenerateDragTargets(dragEndData);
+            if (targets != null && (targets.Count > 0))
             {
-                DragTargetList targets = provider.GenerateDragTargets(dragEndData);
-                if ((targets != null) && (targets.Count > 0))
-                    AddRange(targets);
+                AddRange(targets);
             }
         }
         #endregion

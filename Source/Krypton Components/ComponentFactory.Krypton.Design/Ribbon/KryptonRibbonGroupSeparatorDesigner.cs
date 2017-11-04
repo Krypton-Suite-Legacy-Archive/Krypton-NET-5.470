@@ -9,13 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -63,7 +60,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -162,7 +162,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Invert the current toggle helper mode
             if ((_ribbonSeparator != null) && (_ribbonSeparator.Ribbon != null))
+            {
                 _ribbonSeparator.Ribbon.InDesignHelperMode = !_ribbonSeparator.Ribbon.InDesignHelperMode;
+            }
         }
 
         private void OnMoveFirst(object sender, EventArgs e)
@@ -192,8 +194,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -227,8 +228,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -262,8 +262,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -295,8 +294,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -331,8 +329,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -402,9 +399,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (group != _ribbonSeparator.RibbonGroup)
                     {
                         // Create menu item for the group
-                        ToolStripMenuItem groupMenuItem = new ToolStripMenuItem();
-                        groupMenuItem.Text = group.TextLine1 + " " + group.TextLine2;
-                        groupMenuItem.Tag = group;
+                        ToolStripMenuItem groupMenuItem = new ToolStripMenuItem
+                        {
+                            Text = group.TextLine1 + " " + group.TextLine2,
+                            Tag = group
+                        };
 
                         // Hook into selection of the menu item
                         groupMenuItem.Click += new EventHandler(OnMoveToGroup);
@@ -455,8 +454,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }

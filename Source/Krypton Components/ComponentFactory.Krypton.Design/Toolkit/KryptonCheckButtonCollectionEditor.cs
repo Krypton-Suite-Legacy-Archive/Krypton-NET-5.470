@@ -9,13 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.ComponentModel;
-using System.Collections;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -29,9 +26,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
         {
             if ((context != null) && (context.Instance != null))
+            {
                 return UITypeEditorEditStyle.Modal;
+            }
             else
+            {
                 return base.GetEditStyle(context);
+            }
         }
 
         /// <summary>

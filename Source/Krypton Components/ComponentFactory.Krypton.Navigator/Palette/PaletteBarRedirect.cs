@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -381,25 +376,32 @@ namespace ComponentFactory.Krypton.Navigator
         public override int GetMetricInt(PaletteState state, PaletteMetricInt metric)
         {
             // Is this the metric we provide?
-            if (metric == PaletteMetricInt.BarButtonEdgeOutside)
+            switch (metric)
             {
-                if (ButtonEdgeOutside != -1)
-                    return ButtonEdgeOutside;
-            }
-            else if (metric == PaletteMetricInt.BarButtonEdgeInside)
-            {
-                if (ButtonEdgeInside != -1)
-                    return ButtonEdgeInside;
-            }
-            else if (metric == PaletteMetricInt.CheckButtonGap)
-            {
-                if (CheckButtonGap != -1)
-                    return CheckButtonGap;
-            }
-            else if (metric == PaletteMetricInt.RibbonTabGap)
-            {
-                if (RibbonTabGap != -1)
-                    return RibbonTabGap;
+                case PaletteMetricInt.BarButtonEdgeOutside:
+                    if (ButtonEdgeOutside != -1)
+                    {
+                        return ButtonEdgeOutside;
+                    }
+                    break;
+                case PaletteMetricInt.BarButtonEdgeInside:
+                    if (ButtonEdgeInside != -1)
+                    {
+                        return ButtonEdgeInside;
+                    }
+                    break;
+                case PaletteMetricInt.CheckButtonGap:
+                    if (CheckButtonGap != -1)
+                    {
+                        return CheckButtonGap;
+                    }
+                    break;
+                case PaletteMetricInt.RibbonTabGap:
+                    if (RibbonTabGap != -1)
+                    {
+                        return RibbonTabGap;
+                    }
+                    break;
             }
 
             // Pass onto the inheritance
@@ -430,23 +432,33 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 case PaletteMetricPadding.BarButtonPadding:
                     if (!ButtonPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return ButtonPadding;
+                    }
                     break;
                 case PaletteMetricPadding.BarPaddingTabs:
                     if (!BarPaddingTabs.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingInside;
+                    }
                     break;
                 case PaletteMetricPadding.BarPaddingInside:
                     if (!BarPaddingInside.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingInside;
+                    }
                     break;
                 case PaletteMetricPadding.BarPaddingOutside:
                     if (!BarPaddingOutside.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingOutside;
+                    }
                     break;
                 case PaletteMetricPadding.BarPaddingOnly:
                     if (!BarPaddingOnly.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingOnly;
+                    }
                     break;
             }
 

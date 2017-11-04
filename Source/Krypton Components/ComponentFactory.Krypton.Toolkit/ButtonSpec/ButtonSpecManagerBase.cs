@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -92,7 +88,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _getRenderer = getRenderer;
 
             if (_viewMetrics != null)
+            {
                 _viewSpacers = new ListSpacers[_viewMetrics.Length];
+            }
 
             // Default state
             _useMnemonic = true;
@@ -149,7 +147,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 int i=0;
                 foreach (ButtonSpecView view in _specLookup.Values)
+                {
                     array[i++] = view;
+                }
 
                 return array;
             }
@@ -321,7 +321,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Update the the metric for all the spacers associated with this docker
                     foreach (ViewLayoutMetricSpacer spacer in _viewSpacers[i])
+                    {
                         spacer.SetMetrics(viewMetric);
+                    }
 
                     // Need a repaint and layout to show change
                     PerformNeedPaint(true);
@@ -356,7 +358,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Update the the metric for all the spacers associated with this docker
                     foreach (ViewLayoutMetricSpacer spacer in _viewSpacers[i])
+                    {
                         spacer.SetMetrics(viewMetric, viewMetricInt);
+                    }
 
                     // Need a repaint and layout to show change
                     PerformNeedPaint(true);
@@ -384,8 +388,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Find all the buttons on this view docker
             foreach (ButtonSpecView buttonView in _specLookup.Values)
+            {
                 if (buttonView.ButtonSpec == buttonSpec)
+                {
                     return buttonView.ViewButton.ClientRectangle;
+                }
+            }
 
             return Rectangle.Empty;
         }
@@ -399,8 +407,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Search for a button spec that contains this element
             foreach (ButtonSpecView buttonView in _specLookup.Values)
+            {
                 if (buttonView.ViewCenter.ContainsRecurse(element))
+                {
                     return buttonView.ButtonSpec;
+                }
+            }
 
             // No match
             return null;
@@ -415,10 +427,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Search all buttons for any that contain the provided point
             foreach (ButtonSpecView buttonView in _specLookup.Values)
+            {
                 if (buttonView.ViewButton.Visible &&
                     buttonView.ViewButton.Enabled &&
                     buttonView.ViewButton.ClientRectangle.Contains(pt))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -460,8 +476,12 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual ButtonSpec GetButtonSpecFromView(ViewDrawButton viewButton)
         {
             foreach (ButtonSpecView specView in _specLookup.Values)
+            {
                 if (specView.ViewButton == viewButton)
+                {
                     return specView.ButtonSpec;
+                }
+            }
 
             return null;
         }
@@ -480,7 +500,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     specView.ViewButton.Enabled)
                 {
                     if (specView.ButtonSpec.Edge == align)
+                    {
                         return specView.ViewButton;
+                    }
                 }
             }
 
@@ -500,7 +522,9 @@ namespace ComponentFactory.Krypton.Toolkit
             foreach (ButtonSpecView specView in _specLookup.Values)
             {
                 if (!found)
+                {
                     found = (specView.ViewButton == current);
+                }
                 else
                 {
                     // Is the button actually visible/enabled
@@ -508,7 +532,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         specView.ViewButton.Enabled)
                     {
                         if (specView.ButtonSpec.Edge == align)
+                        {
                             return specView.ViewButton;
+                        }
                     }
                 }
             }
@@ -534,7 +560,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ButtonSpecView specView = (ButtonSpecView)specLookups[i];
 
                 if (!found)
+                {
                     found = (specView.ViewButton == current);
+                }
                 else
                 {
                     // Is the button actually visible/enabled
@@ -542,7 +570,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         specView.ViewButton.Enabled)
                     {
                         if (specView.ButtonSpec.Edge == align)
+                        {
                             return specView.ViewButton;
+                        }
                     }
                 }
             }
@@ -569,7 +599,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     specView.ViewButton.Enabled)
                 {
                     if (specView.ButtonSpec.Edge == align)
+                    {
                         return specView.ViewButton;
+                    }
                 }
             }
 
@@ -693,8 +725,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="needLayout">Does the palette change require a layout.</param>
         protected virtual void OnNeedPaint(object sender, bool needLayout)
         {
-            if (_needPaint != null)
-                _needPaint(sender, new NeedLayoutEventArgs(needLayout));
+            _needPaint?.Invoke(sender, new NeedLayoutEventArgs(needLayout));
         }
         #endregion
 
@@ -709,7 +740,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Destruct all the current views
             foreach (ButtonSpecView buttonView in _specLookup.Values)
+            {
                 RemoveButtonSpec(buttonView.ButtonSpec);
+            }
 
             // All views are destroyed so clear down lookup
             _specLookup.Clear();
@@ -773,9 +806,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // The edge determines which count to use
                             if (buttonSpec.GetEdge(_redirector) == RelativeEdgeAlign.Far)
+                            {
                                 farCounts[dockerIndex]++;
+                            }
                             else
+                            {
                                 nearCounts[dockerIndex]++;
+                            }
                         }
                     }
                 }

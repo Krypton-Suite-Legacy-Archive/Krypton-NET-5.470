@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -119,10 +115,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _ticksBottom.Visible = true;
 
             // Connect up layout structure
-            _layoutTop = new ViewLayoutDocker();
-            _layoutTop.Add(_ticksTop, ViewDockStyle.Top);
-            _layoutTop.Add(_trackPosition, ViewDockStyle.Top);
-            _layoutTop.Add(_ticksBottom, ViewDockStyle.Top);
+            _layoutTop = new ViewLayoutDocker
+            {
+                { _ticksTop, ViewDockStyle.Top },
+                { _trackPosition, ViewDockStyle.Top },
+                { _ticksBottom, ViewDockStyle.Top }
+            };
             _layoutTop.Padding = Padding;
             Add(_layoutTop);
         }
@@ -229,7 +227,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value != _tickFreq)
+                {
                     _tickFreq = value;
+                }
             }
         }
 
@@ -263,7 +263,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _maximum)
                 {
                     if (value < _minimum)
+                    {
                         _minimum = value;
+                    }
 
                     SetRange(Minimum, value);
                 }
@@ -282,7 +284,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _minimum)
                 {
                     if (value > _maximum)
+                    {
                         _maximum = value;
+                    }
 
                     SetRange(value, Maximum);
                 }
@@ -301,7 +305,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _value)
                 {
                     if ((value < Minimum) || (value > Maximum))
+                    {
                         throw new ArgumentOutOfRangeException("Value", "Provided value is out of the Minimum to Maximum range of values.");
+                    }
 
                     _value = value;
                     OnValueChanged(EventArgs.Empty);
@@ -319,7 +325,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (value != _value)
                 {
                     if ((value < Minimum) || (value > Maximum))
+                    {
                         throw new ArgumentOutOfRangeException("Value", "Provided value is out of the Minimum to Maximum range of values.");
+                    }
 
                     _value = value;
                     OnScroll(EventArgs.Empty);
@@ -338,7 +346,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < 0)
+                {
                     throw new ArgumentOutOfRangeException("SmallChange", "SmallChange cannot be less than zero.");
+                }
 
                 _smallChange = value;
             }
@@ -354,7 +364,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < 0)
+                {
                     throw new ArgumentOutOfRangeException("LargeChange", "LargeChange cannot be less than zero.");
+                }
 
                 _largeChange = value;
             }
@@ -370,20 +382,28 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((Minimum != minValue) || (Maximum != maxValue))
             {
                 if (minValue > maxValue)
+                {
                     minValue = maxValue;
+                }
 
                 _minimum = minValue;
                 _maximum = maxValue;
 
                 int beforeValue = _value;
                 if (_value < _minimum)
+                {
                     _value = _minimum;
+                }
 
                 if (_value > _maximum)
+                {
                     _value = _maximum;
+                }
 
                 if (beforeValue != _value)
+                {
                     OnValueChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -430,7 +450,9 @@ namespace ComponentFactory.Krypton.Toolkit
             int change = (e.Delta > 0) ? -SmallChange : SmallChange;
             int detents = Math.Abs(e.Delta) / SystemInformation.MouseWheelScrollDelta;
             for (int i = 0; i < detents; i++)
+            {
                 ScrollValue = Math.Max(Minimum, Math.Min(Value - change, Maximum));
+            }
         }
 
         /// <summary>
@@ -531,8 +553,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="needLayout">Does the layout need recalculating.</param>
         public void PerformNeedPaint(bool needLayout)
         {
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
         }
         #endregion
 
@@ -543,8 +564,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnValueChanged(EventArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -553,8 +573,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnScroll(EventArgs e)
         {
-            if (Scroll != null)
-                Scroll(this, e);
+            Scroll?.Invoke(this, e);
         }
         #endregion
     }

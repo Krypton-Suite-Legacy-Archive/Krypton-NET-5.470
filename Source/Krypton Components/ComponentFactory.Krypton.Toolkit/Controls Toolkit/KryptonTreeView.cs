@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Collections;
@@ -98,7 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 base.Dispose(disposing);
                 if (_screenDC != IntPtr.Zero)
+                {
                     PI.DeleteDC(_screenDC);
+                }
             }
             #endregion
 
@@ -135,9 +133,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
+                        {
                             OnTrackMouseLeave(EventArgs.Empty);
+                        }
                     }
                 }
             }
@@ -169,7 +171,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Ask the panel to layout given our available size
                 using (ViewLayoutContext context = new ViewLayoutContext(_viewManager, this, _kryptonTreeView, _kryptonTreeView.Renderer))
+                {
                     _drawPanel.Layout(context);
+                }
             }
 
             /// <summary>
@@ -224,8 +228,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -234,8 +237,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
 
@@ -247,9 +249,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to BeginPaint or just take the given HDC?
                 if (m.WParam == IntPtr.Zero)
+                {
                     hdc = PI.BeginPaint(Handle, ref ps);
+                }
                 else
+                {
                     hdc = m.WParam;
+                }
 
                 // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
                 Rectangle realRect = CommonHelper.RealClientRectangle(Handle);
@@ -279,13 +285,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                 }
 
                                 using (RenderContext context = new RenderContext(this, _kryptonTreeView, g, realRect, _kryptonTreeView.Renderer))
+                                {
                                     _drawPanel.Render(context);
+                                }
 
                                 // We can only control the background color by using the built in property and not
                                 // by overriding the drawing directly, therefore we can only provide a single color.
                                 Color color1 = _drawPanel.GetPalette().GetBackColor1(_drawPanel.State);
                                 if (color1 != BackColor)
+                                {
                                     BackColor = color1;
+                                }
 
                                 // Replace given DC with the screen DC for base window proc drawing
                                 IntPtr beforeDC = m.WParam;
@@ -307,7 +317,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to match the original BeginPaint?
                 if (m.WParam == IntPtr.Zero)
+                {
                     PI.EndPaint(Handle, ref ps);
+                }
             }
             #endregion
         }
@@ -587,16 +599,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the check box image drawer and place inside element so it is always centered
             _drawCheckBox = new ViewDrawCheckBox(_redirectImages);
-            _layoutCheckBox = new ViewLayoutCenter();
-            _layoutCheckBox.Add(_drawCheckBox);
+            _layoutCheckBox = new ViewLayoutCenter
+            {
+                _drawCheckBox
+            };
 
             // Stack used to layout the location of the node image
             _layoutImage = new ViewLayoutSeparator(0, 0);
             _layoutImageAfter = new ViewLayoutSeparator(3, 0);
             _layoutImageCenter = new ViewLayoutCenter(_layoutImage);
-            _layoutImageStack = new ViewLayoutStack(true);
-            _layoutImageStack.Add(_layoutImageCenter);
-            _layoutImageStack.Add(_layoutImageAfter);
+            _layoutImageStack = new ViewLayoutStack(true)
+            {
+                _layoutImageCenter,
+                _layoutImageAfter
+            };
             _layoutImageState = new ViewLayoutSeparator(16, 16);
             _layoutImageCenterState = new ViewLayoutCenter(_layoutImageState);
 
@@ -610,11 +626,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                              _contentValues, VisualOrientation.Top, false);
 
             // Place check box on the left and the label in the remainder
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(_layoutImageStack, ViewDockStyle.Left);
-            _layoutDocker.Add(_layoutImageCenterState, ViewDockStyle.Left);
-            _layoutDocker.Add(_layoutCheckBox, ViewDockStyle.Left);
-            _layoutDocker.Add(_drawButton, ViewDockStyle.Fill);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { _layoutImageStack, ViewDockStyle.Left },
+                { _layoutImageCenterState, ViewDockStyle.Left },
+                { _layoutCheckBox, ViewDockStyle.Left },
+                { _drawButton, ViewDockStyle.Fill }
+            };
 
             // Create the internal tree view used for containing content
             _treeView = new InternalTreeView(this);
@@ -646,16 +664,22 @@ namespace ComponentFactory.Krypton.Toolkit
             _treeView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
 
             // Create the element that fills the remainder space and remembers fill rectange
-            _layoutFill = new ViewLayoutFill(_treeView);
-            _layoutFill.DisplayPadding = new Padding(1);
+            _layoutFill = new ViewLayoutFill(_treeView)
+            {
+                DisplayPadding = new Padding(1)
+            };
 
             // Create inner view for placing inside the drawing docker
-            _drawDockerInner = new ViewLayoutDocker();
-            _drawDockerInner.Add(_layoutFill, ViewDockStyle.Fill);
+            _drawDockerInner = new ViewLayoutDocker
+            {
+                { _layoutFill, ViewDockStyle.Fill }
+            };
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border);
-            _drawDockerOuter.Add(_drawDockerInner, ViewDockStyle.Fill);
+            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            {
+                { _drawDockerInner, ViewDockStyle.Fill }
+            };
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDockerOuter);
@@ -675,7 +699,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.Dispose(disposing);
             if (_screenDC != IntPtr.Zero)
+            {
                 PI.DeleteDC(_screenDC);
+            }
         }
         #endregion
 
@@ -1528,9 +1554,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive || ContainsFocus || _mouseOver || _treeView.MouseOver);
+                }
             }
         }
 
@@ -1541,9 +1571,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public new bool Focus()
         {
             if (TreeView != null)
+            {
                 return TreeView.Focus();
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1551,8 +1585,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public new void Select()
         {
-            if (TreeView != null)
-                TreeView.Select();
+            TreeView?.Select();
         }
         #endregion
 
@@ -1578,8 +1611,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
         protected virtual void OnAfterCheck(TreeViewEventArgs e)
         {
-            if (AfterCheck != null)
-                AfterCheck(this, e);
+            AfterCheck?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1588,8 +1620,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
         protected virtual void OnAfterCollapse(TreeViewEventArgs e)
         {
-            if (AfterCollapse != null)
-                AfterCollapse(this, e);
+            AfterCollapse?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1598,8 +1629,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
         protected virtual void OnAfterExpand(TreeViewEventArgs e)
         {
-            if (AfterExpand != null)
-                AfterExpand(this, e);
+            AfterExpand?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1608,8 +1638,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An NodeLabelEditEventArgs that contains the event data.</param>
         protected virtual void OnAfterLabelEdit(NodeLabelEditEventArgs e)
         {
-            if (AfterLabelEdit != null)
-                AfterLabelEdit(this, e);
+            AfterLabelEdit?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1618,8 +1647,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
         protected virtual void OnAfterSelect(TreeViewEventArgs e)
         {
-            if (AfterSelect != null)
-                AfterSelect(this, e);
+            AfterSelect?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1628,8 +1656,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
         protected virtual void OnBeforeCheck(TreeViewCancelEventArgs e)
         {
-            if (BeforeCheck != null)
-                BeforeCheck(this, e);
+            BeforeCheck?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1638,8 +1665,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
         protected virtual void OnBeforeCollapse(TreeViewCancelEventArgs e)
         {
-            if (BeforeCollapse != null)
-                BeforeCollapse(this, e);
+            BeforeCollapse?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1648,8 +1674,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
         protected virtual void OnBeforeExpand(TreeViewCancelEventArgs e)
         {
-            if (BeforeExpand != null)
-                BeforeExpand(this, e);
+            BeforeExpand?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1658,8 +1683,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An NodeLabelEditEventArgs that contains the event data.</param>
         protected virtual void OnBeforeLabelEdit(NodeLabelEditEventArgs e)
         {
-            if (BeforeLabelEdit != null)
-                BeforeLabelEdit(this, e);
+            BeforeLabelEdit?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1668,8 +1692,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
         protected virtual void OnBeforeSelect(TreeViewCancelEventArgs e)
         {
-            if (BeforeSelect != null)
-                BeforeSelect(this, e);
+            BeforeSelect?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1678,8 +1701,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An ItemDragEventArgs that contains the event data.</param>
         protected virtual void OnItemDrag(ItemDragEventArgs e)
         {
-            if (ItemDrag != null)
-                ItemDrag(this, e);
+            ItemDrag?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1688,8 +1710,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeNodeMouseClickEventArgs that contains the event data.</param>
         protected virtual void OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
         {
-            if (NodeMouseClick != null)
-                NodeMouseClick(this, e);
+            NodeMouseClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1698,8 +1719,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeNodeMouseClickEventArgs that contains the event data.</param>
         protected virtual void OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
         {
-            if (NodeMouseDoubleClick != null)
-                NodeMouseDoubleClick(this, e);
+            NodeMouseDoubleClick?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1708,8 +1728,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An TreeNodeMouseHoverEventArgs that contains the event data.</param>
         protected virtual void OnNodeMouseHover(TreeNodeMouseHoverEventArgs e)
         {
-            if (NodeMouseHover != null)
-                NodeMouseHover(this, e);
+            NodeMouseHover?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1718,8 +1737,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnRightToLeftLayoutChanged(EventArgs e)
         {
-            if (RightToLeftLayoutChanged != null)
-                RightToLeftLayoutChanged(this, e);
+            RightToLeftLayoutChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1785,8 +1803,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            if (BackColorChanged != null)
-                BackColorChanged(this, e);
+            BackColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1795,8 +1812,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1805,8 +1821,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1815,8 +1830,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
-            if (ForeColorChanged != null)
-                ForeColorChanged(this, e);
+            ForeColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1825,8 +1839,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnPaddingChanged(EventArgs e)
         {
-            if (PaddingChanged != null)
-                PaddingChanged(this, e);
+            PaddingChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1855,8 +1868,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An PaintEventArgs that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (Paint != null)
-                Paint(this, e);
+            Paint?.Invoke(this, e);
 
             base.OnPaint(e);
         }
@@ -1867,8 +1879,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnTextChanged(EventArgs e)
         {
-            if (TextChanged != null)
-                TextChanged(this, e);
+            TextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1877,8 +1888,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseEnter(EventArgs e)
         {
-            if (TrackMouseEnter != null)
-                TrackMouseEnter(this, e);
+            TrackMouseEnter?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1887,8 +1897,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e)
         {
-            if (TrackMouseLeave != null)
-                TrackMouseLeave(this, e);
+            TrackMouseLeave?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1915,9 +1924,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             if (IsHandleCreated && !e.NeedLayout)
+            {
                 _treeView.Invalidate();
+            }
             else
+            {
                 ForceControlLayout();
+            }
 
             // Update palette to reflect latest state
             UpdateItemHeight();
@@ -1992,13 +2005,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If we have images defined then adjust to reflect image height
                 if (ImageList != null)
+                {
                     size.Height = Math.Max(size.Height, ImageList.ImageSize.Height);
+                }
 
                 // Update the item height to match height of a single node
                 if (size.Height != ItemHeight)
                 {
                     if (_itemHeightDefault)
+                    {
                         _treeView.ItemHeight = size.Height;
+                    }
                 }
             }
         }
@@ -2015,8 +2032,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _contentValues.Image = null;
                 _contentValues.ImageTransparentColor = Color.Empty;
 
-                KryptonTreeNode kryptonNode = node as KryptonTreeNode;
-                if (kryptonNode != null)
+                if (node is KryptonTreeNode kryptonNode)
                 {
                     // Get long text from the Krypton extension
                     _contentValues.LongText = kryptonNode.LongText;
@@ -2045,13 +2061,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Find the new state of the main view element
                 PaletteState state;
                 if (IsActive)
+                {
                     state = PaletteState.Tracking;
+                }
                 else
                 {
                     if (Enabled)
+                    {
                         state = PaletteState.Normal;
+                    }
                     else
+                    {
                         state = PaletteState.Disabled;
+                    }
                 }
 
                 _treeView.ViewDrawPanel.ElementState = state;
@@ -2064,12 +2086,18 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive;
+                }
                 else
+                {
                     return _stateNormal;
+                }
             }
             else
+            {
                 return _stateDisabled;
+            }
         }
 
         private int NodeIndent(TreeNode node)
@@ -2086,7 +2114,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Do we need the root level indent?
             if (!ShowRootLines)
+            {
                 depth--;
+            }
 
             return depth * _treeView.Indent;
         }
@@ -2095,7 +2125,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We cannot do anything without a valid node
             if (e.Node == null)
+            {
                 return;
+            }
 
             // Update our content object with values from the node
             UpdateContentFromNode(e.Node);
@@ -2107,7 +2139,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _layoutImage.SeparatorSize = ImageList.ImageSize;
             }
             else
+            {
                 _layoutImageStack.Visible = false;
+            }
 
             // Work out if we need to draw a state image
             Image drawStateImage = null;
@@ -2119,17 +2153,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (CheckBoxes)
                     {
                         if (e.Node.Checked)
+                        {
                             drawStateImage = StateImageList.Images[1];
+                        }
                         else
+                        {
                             drawStateImage = StateImageList.Images[0];
+                        }
                     }
                     else
                     {
                         // Check node values before tree level values
                         if (!string.IsNullOrEmpty(e.Node.StateImageKey))
+                        {
                             drawStateImage = StateImageList.Images[e.Node.StateImageKey];
+                        }
                         else if ((e.Node.StateImageIndex >= 0) && (e.Node.StateImageIndex < StateImageList.Images.Count))
+                        {
                             drawStateImage = StateImageList.Images[e.Node.StateImageIndex];
+                        }
                     }
                 }
                 catch
@@ -2142,14 +2184,18 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we need the check box?
             _layoutCheckBox.Visible = (StateImageList == null) && CheckBoxes;
             if (_layoutCheckBox.Visible)
-                _drawCheckBox.CheckState = e.Node.Checked ? CheckState.Checked : CheckState.Unchecked;           
+            {
+                _drawCheckBox.CheckState = e.Node.Checked ? CheckState.Checked : CheckState.Unchecked;
+            }
 
             // By default the button is in the normal state
             PaletteState buttonState = PaletteState.Normal;
 
             // Is this item disabled
             if ((e.State & TreeNodeStates.Grayed) == TreeNodeStates.Grayed)
+            {
                 buttonState = PaletteState.Disabled;
+            }
             else
             {
                 // If selected then show as a checked item
@@ -2158,24 +2204,34 @@ namespace ComponentFactory.Krypton.Toolkit
                     _drawButton.Checked = true;
 
                     if ((e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot)
+                    {
                         buttonState = PaletteState.CheckedTracking;
+                    }
                     else
+                    {
                         buttonState =  PaletteState.CheckedNormal;
+                    }
                 }
                 else
                 {
                     _drawButton.Checked = false;
 
                     if ((e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot)
+                    {
                         buttonState = PaletteState.Tracking;
+                    }
                     else
+                    {
                         buttonState = PaletteState.Normal;
+                    }
                 }
 
                 // Do we need to show item as having the focus
                 bool hasFocus = false;
                 if ((e.State & TreeNodeStates.Focused) == TreeNodeStates.Focused)
+                {
                     hasFocus = true;
+                }
 
                 _overrideNormal.Apply = hasFocus;
                 _overrideTracking.Apply = hasFocus;
@@ -2198,7 +2254,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Create indent rectangle and adjust bounds for remainder
                 int nodeIndent = NodeIndent(e.Node) + 2;
-                Rectangle indentBounds = new Rectangle(bounds.X + nodeIndent - indent, bounds.Y, indent, bounds.Height);
+                Rectangle indentBounds = new Rectangle((bounds.X + nodeIndent) - indent, bounds.Y, indent, bounds.Height);
                 bounds.X += nodeIndent;
                 bounds.Width -= nodeIndent;
 
@@ -2229,12 +2285,16 @@ namespace ComponentFactory.Krypton.Toolkit
                                 if (!FullRowSelect)
                                 {
                                     if (prefSize.Width < bounds.Width)
+                                    {
                                         bounds.Width = prefSize.Width;
+                                    }
                                 }
 
                                 // Always ensure we have enough space for drawing all the elements
                                 if (bounds.Width < prefSize.Width)
+                                {
                                     bounds.Width = prefSize.Width;
+                                }
 
                                 context.DisplayRectangle = bounds;
 
@@ -2242,7 +2302,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             using (RenderContext context = new RenderContext(this, g, e.Bounds, Renderer))
+                            {
                                 _treeView.ViewDrawPanel.Render(context);
+                            }
 
                             // Do we have a indent area for drawing plus/minus/lines?
                             if (indentBounds.X >= 0)
@@ -2251,7 +2313,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 if (ShowLines && (Redirector.GetMetricBool(PaletteState.Normal, PaletteMetricBool.TreeViewLines) != InheritBool.False))
                                 {
                                     // Find center points
-                                    int hCenter = indentBounds.X + (indentBounds.Width / 2) - 1;
+                                    int hCenter = (indentBounds.X + (indentBounds.Width / 2)) - 1;
                                     int vCenter = indentBounds.Y + (indentBounds.Height / 2);
                                     vCenter -= (vCenter + 1) % 2;
                                     
@@ -2268,7 +2330,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // If the last node in collection then do not show bottom half of line
                                     if (e.Node.NextNode == null)
+                                    {
                                         bottom = vCenter;
+                                    }
 
                                     // Draw the horizontal and vertical lines
                                     Color lineColor = Redirector.GetContentShortTextColor1(PaletteContentStyle.InputControlStandalone, PaletteState.Normal);
@@ -2296,14 +2360,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                 {
                                     Image drawImage = _redirectImages.GetTreeViewImage(e.Node.IsExpanded);
                                     if (drawImage != null)
-                                        g.DrawImage(drawImage, new Rectangle(indentBounds.X + (indentBounds.Width - drawImage.Width) / 2 - 1,
-                                                                             indentBounds.Y + (indentBounds.Height - drawImage.Height) / 2,
+                                    {
+                                        g.DrawImage(drawImage, new Rectangle((indentBounds.X + ((indentBounds.Width - drawImage.Width) / 2)) - 1,
+                                                                             indentBounds.Y + ((indentBounds.Height - drawImage.Height) / 2),
                                                                              drawImage.Width, drawImage.Height));
+                                    }
                                 }
                             }
 
                             using (RenderContext context = new RenderContext(this, g, bounds, Renderer))
+                            {
                                 _layoutDocker.Render(context);
+                            }
 
                             // Do we draw an image for the node?
                             if (ImageList != null)
@@ -2317,29 +2385,47 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         // Check node values before tree level values
                                         if (!string.IsNullOrEmpty(e.Node.SelectedImageKey))
+                                        {
                                             drawImage = ImageList.Images[e.Node.SelectedImageKey];
+                                        }
                                         else if ((e.Node.SelectedImageIndex >= 0) && (e.Node.SelectedImageIndex < imageCount))
+                                        {
                                             drawImage = ImageList.Images[e.Node.SelectedImageIndex];
+                                        }
                                         else if (!string.IsNullOrEmpty(SelectedImageKey))
+                                        {
                                             drawImage = ImageList.Images[SelectedImageKey];
+                                        }
                                         else if ((SelectedImageIndex >= 0) && (SelectedImageIndex < imageCount))
+                                        {
                                             drawImage = ImageList.Images[SelectedImageIndex];
+                                        }
                                     }
                                     else
                                     {
                                         // Check node values before tree level values
                                         if (!string.IsNullOrEmpty(e.Node.ImageKey))
+                                        {
                                             drawImage = ImageList.Images[e.Node.ImageKey];
+                                        }
                                         else if ((e.Node.ImageIndex >= 0) && (e.Node.ImageIndex < imageCount))
+                                        {
                                             drawImage = ImageList.Images[e.Node.ImageIndex];
+                                        }
                                         else if (!string.IsNullOrEmpty(ImageKey))
+                                        {
                                             drawImage = ImageList.Images[ImageKey];
+                                        }
                                         else if ((ImageIndex >= 0) && (ImageIndex < imageCount))
+                                        {
                                             drawImage = ImageList.Images[ImageIndex];
+                                        }
                                     }
 
                                     if (drawImage != null)
+                                    {
                                         g.DrawImage(drawImage, _layoutImage.ClientRectangle);
+                                    }
                                 }
                                 catch
                                 {
@@ -2350,7 +2436,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             if (_layoutImageCenterState.Visible)
                             {
                                 if (drawStateImage != null)
+                                {
                                     g.DrawImage(drawStateImage, _layoutImageState.ClientRectangle);
+                                }
                             }
 
                             // Now blit from the bitmap from the screen to the real dc
@@ -2496,9 +2584,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Raise appropriate event
                 if (_trackingMouseEnter)
+                {
                     OnTrackMouseEnter(EventArgs.Empty);
+                }
                 else
+                {
                     OnTrackMouseLeave(EventArgs.Empty);
+                }
             }
         }
         #endregion

@@ -8,19 +8,11 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -30,8 +22,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class VisualPopupToolTip : VisualPopup
     {
         #region Static Fields
-        private static readonly int VERT_OFFSET = 22;
-        private static readonly int HORZ_OFFSET = 8;
+
+        private const int VERT_OFFSET = 22;
+        private const int HORZ_OFFSET = 8;
+
         #endregion
 
         #region Instance Fields
@@ -135,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Size popupSize = ViewManager.GetPreferredSize(Renderer, Size.Empty);
 
             // Find the screen position the popup will be relative to
-            Rectangle screenRect = new Rectangle(screenPt.X + HORZ_OFFSET - (popupSize.Width / 2),
+            Rectangle screenRect = new Rectangle((screenPt.X + HORZ_OFFSET) - (popupSize.Width / 2),
                                                  screenPt.Y - VERT_OFFSET ,
                                                  1, VERT_OFFSET * 2);
             

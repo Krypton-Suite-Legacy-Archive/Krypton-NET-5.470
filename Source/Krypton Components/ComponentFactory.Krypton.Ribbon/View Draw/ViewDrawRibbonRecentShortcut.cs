@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Reflection;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -58,15 +52,20 @@ namespace ComponentFactory.Krypton.Ribbon
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
-            // Only draw the shortcut text if there is some defined
+		    // Only draw the shortcut text if there is some defined
             string shortcut = Values.GetShortText();
             if (!string.IsNullOrEmpty(shortcut))
             {
                 // Only draw shortcut if the shortcut is not equal to the fixed string 'A'
                 if (!shortcut.Equals("A"))
+                {
                     base.RenderBefore(context);
+                }
             }
 		}
 		#endregion

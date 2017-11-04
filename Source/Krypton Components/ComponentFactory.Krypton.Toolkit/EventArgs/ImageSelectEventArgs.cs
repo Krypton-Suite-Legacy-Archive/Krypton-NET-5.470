@@ -9,8 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit

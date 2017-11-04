@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -178,10 +174,12 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Use renderer to draw the text content
             if (_memento != null)
+            {
                 context.Renderer.RenderStandardContent.DrawContent(context, ClientRectangle,
-                                                                   _contentProvider, _memento,
-                                                                   VisualOrientation.Top, 
-                                                                   PaletteState.Normal, false, true);
+                    _contentProvider, _memento,
+                    VisualOrientation.Top, 
+                    PaletteState.Normal, false, true);
+            }
         }
         #endregion
 
@@ -213,9 +211,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public string GetShortText()
         {
             if (!string.IsNullOrEmpty(_ribbonGroup.TextLine2))
+            {
                 return _ribbonGroup.TextLine1 + " " + _ribbonGroup.TextLine2;
+            }
             else
+            {
                 return _ribbonGroup.TextLine1;
+            }
         }
 
         /// <summary>

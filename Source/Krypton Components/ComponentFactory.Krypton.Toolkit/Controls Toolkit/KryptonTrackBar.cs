@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -416,8 +412,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     if (IsHandleCreated)
+                    {
                         AdjustSize();
-                    
+                    }
+
                     PerformNeedPaint(true);
                 }
             }
@@ -478,7 +476,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value != _drawTrackBar.Value)
+                {
                     _drawTrackBar.Value = value;
+                }
             }
         }
 
@@ -591,10 +591,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (Orientation == Orientation.Horizontal)
                 {
                     if ((specified & BoundsSpecified.Height) != BoundsSpecified.None)
+                    {
                         height = GetPreferredSize(Size.Empty).Height;
+                    }
                 }
                 else if ((specified & BoundsSpecified.Width) != BoundsSpecified.None)
+                {
                     width = GetPreferredSize(Size.Empty).Width;
+                }
             }
             
             base.SetBoundsCore(x, y, width, height, specified);
@@ -640,7 +644,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (CanFocus)
+            {
                 Focus();
+            }
 
             base.OnMouseDown(e);
         }
@@ -720,8 +726,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             PerformNeedPaint(true);
 
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -730,8 +735,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnScroll(EventArgs e)
         {
-            if (Scroll != null)
-                Scroll(this, e);
+            Scroll?.Invoke(this, e);
         }
 
         /// <summary>
@@ -755,9 +759,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PI.WM_NCHITTEST:
                     if (InTransparentDesignMode)
+                    {
                         m.Result = (IntPtr)PI.HTTRANSPARENT;
+                    }
                     else
+                    {
                         base.WndProc(ref m);
+                    }
+
                     break;
                 default:
                     base.WndProc(ref m);
@@ -792,9 +801,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 try
                 {
                     if (Orientation == Orientation.Horizontal)
+                    {
                         Height = _autoSize ? GetPreferredSize(Size.Empty).Height : requestedDim;
+                    }
                     else
+                    {
                         Width = _autoSize ? GetPreferredSize(Size.Empty).Width : requestedDim;
+                    }
                 }
                 finally
                 {

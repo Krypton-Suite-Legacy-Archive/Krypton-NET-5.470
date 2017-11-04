@@ -9,13 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -183,7 +178,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Only perform an immediate layout if
                     // currently performing auto size operations
                     if (AutoSize)
+                    {
                         PerformNeedPaint(true);
+                    }
                 }
             }
         }
@@ -299,9 +296,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if (AutoSize)
             {
                 if (Orientation == Orientation.Horizontal)
+                {
                     proposedSize.Height = _stateCurrent.GetBorderWidth(_state);
+                }
                 else
+                {
                     proposedSize.Width = _stateCurrent.GetBorderWidth(_state);
+                }
             }
 
             return proposedSize;

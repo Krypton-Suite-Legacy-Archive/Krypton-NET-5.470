@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class InputControlStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(InputControlStyle.Standalone, "Standalone"),
+        private Pair[] _pairs = { new Pair(InputControlStyle.Standalone, "Standalone"),
                                              new Pair(InputControlStyle.Ribbon,     "Ribbon"),
                                              new Pair(InputControlStyle.Custom1,    "Custom1"),
  };

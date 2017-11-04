@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -26,10 +22,12 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorButton : Storage
     {
         #region Static Fields
-        private static readonly Keys _defaultShortcutPrevious = (Keys.Control | Keys.Shift | Keys.F6);
-        private static readonly Keys _defaultShortcutNext = (Keys.Control | Keys.F6);
-        private static readonly Keys _defaultShortcutContext = (Keys.Control | Keys.Alt | Keys.Down);
-        private static readonly Keys _defaultShortcutClose = (Keys.Control | Keys.F4);
+
+        private const Keys DEFAULT_SHORTCUT_PREVIOUS = (Keys.Control | Keys.Shift | Keys.F6);
+        private const Keys DEFAULT_SHORTCUT_NEXT = (Keys.Control | Keys.F6);
+        private const Keys DEFAULT_SHORTCUT_CONTEXT = (Keys.Control | Keys.Alt | Keys.Down);
+        private const Keys DEFAULT_SHORTCUT_CLOSE = (Keys.Control | Keys.F4);
+
         #endregion
 
         #region Instance Fields
@@ -101,10 +99,10 @@ namespace ComponentFactory.Krypton.Navigator
             _actionContext = ContextButtonAction.SelectPage;
             _actionPrevious = _actionNext = DirectionButtonAction.ModeAppropriateAction;
             _displayPrevious = _displayNext = _displayContext = _displayClosed = ButtonDisplay.Logic;
-            _shortcutClose = _defaultShortcutClose;
-            _shortcutContext = _defaultShortcutContext;
-            _shortcutNext = _defaultShortcutNext;
-            _shortcutPrevious = _defaultShortcutPrevious;
+            _shortcutClose = DEFAULT_SHORTCUT_CLOSE;
+            _shortcutContext = DEFAULT_SHORTCUT_CONTEXT;
+            _shortcutNext = DEFAULT_SHORTCUT_NEXT;
+            _shortcutPrevious = DEFAULT_SHORTCUT_PREVIOUS;
         }
 		#endregion
 
@@ -121,20 +119,20 @@ namespace ComponentFactory.Krypton.Navigator
                         PreviousButton.IsDefault &&
                         (PreviousButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
                         (PreviousButtonDisplay == ButtonDisplay.Logic) &&
-                        (PreviousButtonShortcut == _defaultShortcutPrevious) &&
+                        (PreviousButtonShortcut == DEFAULT_SHORTCUT_PREVIOUS) &&
                         NextButton.IsDefault &&
                         (NextButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
                         (NextButtonDisplay == ButtonDisplay.Logic) &&
-                        (NextButtonShortcut == _defaultShortcutNext) &&
+                        (NextButtonShortcut == DEFAULT_SHORTCUT_NEXT) &&
                         ContextButton.IsDefault &&
                         (ContextButtonDisplay == ButtonDisplay.Logic) &&
-                        (ContextButtonShortcut == _defaultShortcutContext) &&
+                        (ContextButtonShortcut == DEFAULT_SHORTCUT_CONTEXT) &&
                         (ContextMenuMapText == MapKryptonPageText.TextTitle) &&
                         (ContextMenuMapImage == MapKryptonPageImage.Small) &&
                         CloseButton.IsDefault &&
                         (CloseButtonAction == CloseButtonAction.RemovePageAndDispose) &&
                         (CloseButtonDisplay == ButtonDisplay.Logic) &&
-                        (CloseButtonShortcut == _defaultShortcutClose) &&
+                        (CloseButtonShortcut == DEFAULT_SHORTCUT_CLOSE) &&
                         (ButtonDisplayLogic == ButtonDisplayLogic.Context));
             }
         }
@@ -232,7 +230,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private bool ShouldSerializePreviousButtonShortcut()
         {
-            return (PreviousButtonShortcut != _defaultShortcutPrevious);
+            return (PreviousButtonShortcut != DEFAULT_SHORTCUT_PREVIOUS);
         }
 
         /// <summary>
@@ -240,7 +238,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetPreviousButtonShortcut()
         {
-            PreviousButtonShortcut = _defaultShortcutPrevious;
+            PreviousButtonShortcut = DEFAULT_SHORTCUT_PREVIOUS;
         }
         #endregion
 
@@ -322,7 +320,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private bool ShouldSerializeNextButtonShortcut()
         {
-            return (NextButtonShortcut != _defaultShortcutNext);
+            return (NextButtonShortcut != DEFAULT_SHORTCUT_NEXT);
         }
 
         /// <summary>
@@ -330,7 +328,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetNextButtonShortcut()
         {
-            NextButtonShortcut = _defaultShortcutNext;
+            NextButtonShortcut = DEFAULT_SHORTCUT_NEXT;
         }
         #endregion
 
@@ -412,7 +410,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private bool ShouldSerializeContextButtonShortcut()
         {
-            return (ContextButtonShortcut != _defaultShortcutContext);
+            return (ContextButtonShortcut != DEFAULT_SHORTCUT_CONTEXT);
         }
 
         /// <summary>
@@ -420,7 +418,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetContextButtonShortcut()
         {
-            ContextButtonShortcut = _defaultShortcutContext;
+            ContextButtonShortcut = DEFAULT_SHORTCUT_CONTEXT;
         }
         #endregion
 
@@ -530,7 +528,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private bool ShouldSerializeCloseButtonShortcut()
         {
-            return (CloseButtonShortcut != _defaultShortcutClose);
+            return (CloseButtonShortcut != DEFAULT_SHORTCUT_CLOSE);
         }
 
         /// <summary>
@@ -538,7 +536,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetCloseButtonShortcut()
         {
-            CloseButtonShortcut = _defaultShortcutClose;
+            CloseButtonShortcut = DEFAULT_SHORTCUT_CLOSE;
         }
         #endregion
 

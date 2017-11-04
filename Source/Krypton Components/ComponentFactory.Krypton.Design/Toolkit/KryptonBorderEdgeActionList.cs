@@ -12,7 +12,6 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -45,9 +44,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Decide on the next action to take given the current setting
                     if ((Orientation)orientationProp.GetValue(_borderEdge) == Orientation.Vertical)
+                    {
                         _action = "Horizontal border orientation";
+                    }
                     else
+                    {
                         _action = "Vertical border orientation";
+                    }
                 }
             }
 
@@ -158,36 +161,37 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnOrientationClick(object sender, EventArgs e)
         {
             // Cast to the correct type
-            DesignerVerb verb = sender as DesignerVerb;
-            
+
             // Double check the source is the expected type
-            if (verb != null)
+            if (sender is DesignerVerb verb)
             {
                 // Decide on the new orientation required
                 Orientation orientation = verb.Text.Equals("Horizontal border orientation") ? Orientation.Horizontal : Orientation.Vertical;
 
                 // Decide on the next action to take given the new setting
                 if (orientation == Orientation.Vertical)
+                {
                     _action = "Horizontal border orientation";
+                }
                 else
+                {
                     _action = "Vertical border orientation";
+                }
 
                 // Get access to the actual Orientation propertry
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_borderEdge)["Orientation"];
 
                 // If we succeeded in getting the property
-                if (orientationProp != null)
-                {
-                    // Update the actual property with the new value
-                    orientationProp.SetValue(_borderEdge, orientation);
-                }
+                // Update the actual property with the new value
+                orientationProp?.SetValue(_borderEdge, orientation);
 
                 // Get the user interface service associated with actions
-                DesignerActionUIService service = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
 
                 // If we managed to get it then request it update to reflect new action setting
-                if (service != null)
+                if (GetService(typeof(DesignerActionUIService)) is DesignerActionUIService service)
+                {
                     service.Refresh(_borderEdge);
+                }
             }
         }
         #endregion

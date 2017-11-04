@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -113,7 +109,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // A change in state always causes a size and layout calculation
             if (_cacheState != State)
@@ -248,11 +247,17 @@ namespace ComponentFactory.Krypton.Ribbon
         public string GetShortText()
         {
             if (_firstText)
+            {
                 return _ribbonRadioButton.TextLine1;
+            }
             else if (!string.IsNullOrEmpty(_ribbonRadioButton.TextLine2))
+            {
                 return _ribbonRadioButton.TextLine2;
+            }
             else
+            {
                 return " ";
+            }
         }
 
         /// <summary>

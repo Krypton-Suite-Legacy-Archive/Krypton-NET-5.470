@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -60,8 +59,10 @@ namespace ComponentFactory.Krypton.Ribbon
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-            _repeatTimer = new Timer();
-            _repeatTimer.Interval = 50;
+            _repeatTimer = new Timer
+            {
+                Interval = 50
+            };
             _repeatTimer.Tick += new EventHandler(OnRepeatTick);
         }
 		#endregion
@@ -244,9 +245,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -260,7 +265,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Disabled;
+            }
             else
             {
                 newState = PaletteState.Normal;
@@ -275,9 +282,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Only hot tracking, so show tracking only if mouse over the target 
                     if (_mouseOver)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
             }
 
@@ -298,8 +309,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needLayout">Does the palette change require a layout.</param>
         protected virtual void OnNeedPaint(bool needLayout)
         {
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
         }
 
         /// <summary>
@@ -308,8 +318,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnClick(MouseEventArgs e)
         {
-            if (Click != null)
-                Click(_target, e);
+            Click?.Invoke(_target, e);
 
             // Generate more clicks until mouse button released
             _repeatTimer.Start();
@@ -322,11 +331,15 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_ribbon == null)
+                {
                     return false;
+                }
                 else
                 {
                     if (_ribbon.InDesignMode)
+                    {
                         return true;
+                    }
                     else
                     {
                         Form topForm = _ribbon.FindForm();

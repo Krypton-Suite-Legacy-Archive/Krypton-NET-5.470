@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -203,10 +199,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public virtual Font GetContentShortTextFont(PaletteState state)
 		{
             if (_font != null)
+            {
                 return _font;
+            }
             else
+            {
                 return _inherit.GetContentShortTextFont(state);
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
@@ -216,10 +216,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual Font GetContentShortTextNewFont(PaletteState state)
 		{
             if (_font != null)
+            {
                 return _font;
+            }
             else
+            {
                 return _inherit.GetContentShortTextNewFont(state);
-		}
+            }
+        }
 
 		/// <summary>
 		/// Gets the actual text rendering hint for short text.
@@ -321,9 +325,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetContentShortTextColor1(PaletteState state)
         {
             if (_color1 != Color.Empty)
+            {
                 return _color1;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColor1(state);
+            }
         }
         
         /// <summary>
@@ -600,10 +608,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public virtual Padding GetContentPadding(PaletteState state)
 		{
             if (!_padding.Equals(CommonHelper.InheritPadding))
+            {
                 return _padding;
+            }
             else
-			    return _inherit.GetContentPadding(state);
-		}
+            {
+                return _inherit.GetContentPadding(state);
+            }
+        }
 		#endregion
 
 		#region AdjacentGap

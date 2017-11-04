@@ -9,14 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Collections;
 using System.ComponentModel;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -90,8 +85,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected void OnInserting(ButtonSpecEventArgs e)
         {
             e.ButtonSpec.Owner = _owner;
-            if (Inserting != null)
-                Inserting(this, e);
+            Inserting?.Invoke(this, e);
         }
 
         /// <summary>
@@ -100,8 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A NavButtonSpecEventArgs instance containing event data.</param>
         protected void OnInserted(ButtonSpecEventArgs e)
         {
-            if (Inserted != null)
-                Inserted(this, e);
+            Inserted?.Invoke(this, e);
         }
 
         /// <summary>
@@ -111,8 +104,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected void OnRemoving(ButtonSpecEventArgs e)
         {
             e.ButtonSpec.Owner = null;
-            if (Removing != null)
-                Removing(this, e);
+            Removing?.Invoke(this, e);
         }
 
         /// <summary>
@@ -121,8 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A NavButtonSpecEventArgs instance containing event data.</param>
         protected void OnRemoved(ButtonSpecEventArgs e)
         {
-            if (Removed != null)
-                Removed(this, e);
+            Removed?.Invoke(this, e);
         }
         #endregion
     }
@@ -186,7 +177,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void AddRange(T[] array)
         {
             foreach (T item in array)
+            {
                 Add(item);
+            }
         }
 
 		/// <summary>
@@ -279,13 +272,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We do not allow an empty button spec to be added
 			if (item == null)
-				throw new ArgumentNullException("item");
+			{
+			    throw new ArgumentNullException("item");
+			}
 
-            // Not allow to add the same button spec more than once
+		    // Not allow to add the same button spec more than once
 			if (_specs.Contains(item))
-                throw new ArgumentOutOfRangeException("item", "T already in collection");
+			{
+			    throw new ArgumentOutOfRangeException("item", "T already in collection");
+			}
 
-            // Generate before insert event
+		    // Generate before insert event
             OnInserting(new ButtonSpecEventArgs(item, index));
 
 			// Add into the internal collection
@@ -340,13 +337,21 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First priority is the UniqueName
                 foreach (T bs in this)
+                {
                     if (bs.UniqueName == uniqueName)
+                    {
                         return bs;
+                    }
+                }
 
                 // Second priority is the Text
                 foreach (T bs in this)
+                {
                     if (bs.Text == uniqueName)
+                    {
                         return bs;
+                    }
+                }
 
                 // No match found
                 return null;
@@ -365,13 +370,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We do not allow an empty button spec to be added
 			if (item == null)
-				throw new ArgumentNullException("item");
+			{
+			    throw new ArgumentNullException("item");
+			}
 
-            // Not allow to add the same button spec more than once
+		    // Not allow to add the same button spec more than once
 			if (_specs.Contains(item))
-                throw new ArgumentOutOfRangeException("item", "T already in collection");
+			{
+			    throw new ArgumentOutOfRangeException("item", "T already in collection");
+			}
 
-            // Generate inserting event
+		    // Generate inserting event
             OnInserting(new ButtonSpecEventArgs(item, _specs.Count));
 
 			// Add to the internal collection
@@ -456,11 +465,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Cannot pass a null target array
 			if (array == null)
-				throw new ArgumentNullException("array");
+			{
+			    throw new ArgumentNullException("array");
+			}
 
-            // Try and copy each button spec to the destination array
+		    // Try and copy each button spec to the destination array
             foreach (T spec in this)
+            {
                 array.SetValue(spec, index++);
+            }
 		}
 
         /// <summary>
@@ -470,7 +483,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Remove all the button specs that are allowed to be removed
             for (int i = Count - 1; i >= 0; i--)
+            {
                 RemoveAt(i);
+            }
         }
 
         /// <summary>

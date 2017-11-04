@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Drawing;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Docking
 {

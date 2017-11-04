@@ -247,10 +247,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override ViewBase ViewFromPoint(Point pt)
 		{
 			if (ClientRectangle.Contains(pt))
-				return this;
-			else
-				return null;
-		}
+            {
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+        }
 		#endregion
 	}
 }

@@ -11,7 +11,6 @@
 using System;
 using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -144,7 +143,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             // Let base class perform basic action calculations
             return base.NextActionEnabled(action);
@@ -159,7 +160,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             // Let base class perform basic actions
             base.PerformNextAction(action, page);
@@ -174,7 +177,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             // Let base class perform basic action calculations
             return base.PreviousActionEnabled(action);
@@ -189,7 +194,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Our mode appropriate action is always to select a page
             if (action == DirectionButtonAction.ModeAppropriateAction)
+            {
                 action = DirectionButtonAction.SelectPage;
+            }
 
             // Let base class perform basic actions
             base.PerformPreviousAction(action, page);
@@ -201,8 +208,7 @@ namespace ComponentFactory.Krypton.Navigator
         public void UpdateButtons()
         {
             // Ensure buttons are recreated to reflect different page
-            if (_buttonManager != null)
-                _buttonManager.RecreateButtons();
+            _buttonManager?.RecreateButtons();
         }
         #endregion
 
@@ -255,9 +261,10 @@ namespace ComponentFactory.Krypton.Navigator
             // Create a canvas for containing the selected page and put old root inside it
             _drawGroup = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back,
                                             Navigator.StateNormal.HeaderGroup.Border,
-                                            VisualOrientation.Top);
-
-            _drawGroup.ApplyIncludeBorderEdge = true;
+                                            VisualOrientation.Top)
+            {
+                ApplyIncludeBorderEdge = true
+            };
             _drawGroup.Add(_oldRoot);
 
             // Create the view element that lays out the check/tab buttons
@@ -277,12 +284,16 @@ namespace ComponentFactory.Krypton.Navigator
                                                         PaletteMetricInt.CheckButtonGap,
                                                         Navigator.Bar.BarOrientation,
                                                         Navigator.Bar.ItemAlignment,
-                                                        Navigator.Bar.BarAnimation);
-            _layoutBarViewport.Add(_layoutBar);
+                                                        Navigator.Bar.BarAnimation)
+            {
+                _layoutBar
+            };
 
             // Create the button bar area docker
-            _layoutBarDocker = new ViewLayoutDocker();
-            _layoutBarDocker.Add(_layoutBarViewport, ViewDockStyle.Fill);
+            _layoutBarDocker = new ViewLayoutDocker
+            {
+                { _layoutBarViewport, ViewDockStyle.Fill }
+            };
 
             // Add a separators for insetting items
             _layoutBarSeparatorFirst = new ViewLayoutSeparator(0);
@@ -291,26 +302,34 @@ namespace ComponentFactory.Krypton.Navigator
             _layoutBarDocker.Add(_layoutBarSeparatorLast, ViewDockStyle.Right);
 
             // Create the layout that insets the contents to allow for rounding of the group border
-            _layoutOverlap = new ViewLayoutInsetOverlap(_drawGroup);
-            _layoutOverlap.Add(_layoutBarDocker);
+            _layoutOverlap = new ViewLayoutInsetOverlap(_drawGroup)
+            {
+                _layoutBarDocker
+            };
 
             // Create the docker used to layout contents of main panel and fill with group
-            _layoutPanelDocker = new ViewLayoutDockerOverlap(_drawGroup, _layoutOverlap, layoutBar);
-            _layoutPanelDocker.Add(_layoutOverlap, ViewDockStyle.Top);
-            _layoutPanelDocker.Add(_drawGroup, ViewDockStyle.Fill);
+            _layoutPanelDocker = new ViewLayoutDockerOverlap(_drawGroup, _layoutOverlap, layoutBar)
+            {
+                { _layoutOverlap, ViewDockStyle.Top },
+                { _drawGroup, ViewDockStyle.Fill }
+            };
 
             // Place the headers and page holding area into the group
-            _topGroup = new ViewLayoutDocker();
-            _topGroup.Add(_viewHeadingSecondary, ViewDockStyle.Bottom);
-            _topGroup.Add(_viewHeadingPrimary, ViewDockStyle.Top);
-            _topGroup.Add(_layoutPanelDocker, ViewDockStyle.Fill);
+            _topGroup = new ViewLayoutDocker
+            {
+                { _viewHeadingSecondary, ViewDockStyle.Bottom },
+                { _viewHeadingPrimary, ViewDockStyle.Top },
+                { _layoutPanelDocker, ViewDockStyle.Fill }
+            };
 
             // Prevent adjacent headers from having two borders
             _topGroup.RemoveChildBorders = true;
 
             // Create the top level panel and put a layout docker inside it
-            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back);
-            _drawPanel.Add(_topGroup);
+            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back)
+            {
+                _topGroup
+            };
             _newRoot = _drawPanel;
 
             // Set initial visible state of headers
@@ -340,15 +359,21 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Then use the states defined in the navigator itself
                 if (Navigator.Enabled)
+                {
                     SetPalettes(Navigator.StateNormal.HeaderGroup);
+                }
                 else
+                {
                     SetPalettes(Navigator.StateDisabled.HeaderGroup);
+                }
             }
             else
             {
                 // Use states defined in the selected page
                 if (Navigator.SelectedPage.Enabled)
+                {
                     SetPalettes(Navigator.SelectedPage.StateNormal.HeaderGroup);
+                }
                 else
                 {
                     SetPalettes(Navigator.SelectedPage.StateDisabled.HeaderGroup);
@@ -481,10 +506,12 @@ namespace ComponentFactory.Krypton.Navigator
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary, PaletteMetricInt.HeaderButtonEdgeInsetSecondary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary, PaletteMetricPadding.HeaderButtonPaddingSecondary },
                                                        new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
-                                                       NeedPaintDelegate);
+                                                       NeedPaintDelegate)
+            {
 
-            // Hook up the tooltip manager so that tooltips can be generated
-            _buttonManager.ToolTipManager = Navigator.ToolTipManager;
+                // Hook up the tooltip manager so that tooltips can be generated
+                ToolTipManager = Navigator.ToolTipManager
+            };
         }
 
         private void UpdateHeaders()

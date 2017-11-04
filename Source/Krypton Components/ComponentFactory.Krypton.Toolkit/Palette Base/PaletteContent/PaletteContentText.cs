@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -143,10 +137,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             get
             {
-                if (_storage == null)
-                    return null;
-                else
-                    return _storage.ContentTextFont;
+                return _storage?.ContentTextFont;
             }
 
 			set
@@ -164,8 +155,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != null)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextFont = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextFont = value
+                        };
                         OnPropertyChanged("Font");
                         PerformNeedPaint(true);
                     }
@@ -188,9 +181,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteTextHint.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextHint;
+                }
             }
 
 			set
@@ -208,8 +205,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteTextHint.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextHint = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextHint = value
+                        };
                         OnPropertyChanged("Hint");
                         PerformNeedPaint(true);
                     }
@@ -232,9 +231,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteTextTrim.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextTrim;
+                }
             }
 
 			set
@@ -252,8 +255,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteTextTrim.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextTrim = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextTrim = value
+                        };
                         OnPropertyChanged("Trim");
                         PerformNeedPaint(true);
                     }
@@ -276,9 +281,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteTextHotkeyPrefix.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextPrefix;
+                }
             }
 
             set
@@ -296,8 +305,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteTextHotkeyPrefix.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextPrefix = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextPrefix = value
+                        };
                         OnPropertyChanged("Prefix");
                         PerformNeedPaint(true);
                     }
@@ -320,9 +331,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteRelativeAlign.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextH;
+                }
             }
 
 			set
@@ -340,8 +355,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRelativeAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextH = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextH = value
+                        };
                         OnPropertyChanged("TextH");
                         PerformNeedPaint(true);
                     }
@@ -364,9 +381,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteRelativeAlign.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextV;
+                }
             }
 
 			set
@@ -384,8 +405,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRelativeAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextV = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextV = value
+                        };
                         OnPropertyChanged("TextV");
                         PerformNeedPaint(true);
                     }
@@ -408,9 +431,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteRelativeAlign.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextMultiLineH;
+                }
             }
 
 			set
@@ -428,8 +455,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRelativeAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextMultiLineH = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextMultiLineH = value
+                        };
                         OnPropertyChanged("MultiLineH");
                         PerformNeedPaint(true);
                     }
@@ -452,9 +481,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return InheritBool.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextMultiLine;
+                }
             }
 
 			set
@@ -472,8 +505,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != InheritBool.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextMultiLine = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextMultiLine = value
+                        };
                         OnPropertyChanged("MultiLine");
                         PerformNeedPaint(true);
                     }
@@ -496,9 +531,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
+                {
                     return _storage.ContentTextColor1;
+                }
             }
 
             set
@@ -516,8 +555,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextColor1 = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextColor1 = value
+                        };
                         OnPropertyChanged("Color1");
                         PerformNeedPaint();
                     }
@@ -540,9 +581,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
+                {
                     return _storage.ContentTextColor2;
+                }
             }
 
             set
@@ -560,8 +605,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextColor2 = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextColor2 = value
+                        };
                         OnPropertyChanged("Color2");
                         PerformNeedPaint();
                     }
@@ -584,9 +631,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteColorStyle.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextColorStyle;
+                }
             }
 
             set
@@ -604,8 +655,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteColorStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextColorStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextColorStyle = value
+                        };
                         OnPropertyChanged("ColorStyle");
                         PerformNeedPaint();
                     }
@@ -628,9 +681,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextColorAlign;
+                }
             }
 
             set
@@ -648,8 +705,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextColorAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextColorAlign = value
+                        };
                         OnPropertyChanged("ColorAlign");
                         PerformNeedPaint();
                     }
@@ -672,9 +731,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return -1f;
+                }
                 else
+                {
                     return _storage.ContentTextColorAngle;
+                }
             }
 
             set
@@ -692,8 +755,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != -1f)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextColorAngle = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextColorAngle = value
+                        };
                         OnPropertyChanged("ColorAngle");
                         PerformNeedPaint();
                     }
@@ -715,10 +780,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_storage == null)
-                    return null;
-                else
-                    return _storage.ContentTextImage;
+                return _storage?.ContentTextImage;
             }
 
             set
@@ -736,8 +798,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != null)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextImage = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextImage = value
+                        };
                         OnPropertyChanged("Image");
                         PerformNeedPaint();
                     }
@@ -760,9 +824,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteImageStyle.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextImageStyle;
+                }
             }
 
             set
@@ -780,8 +848,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteImageStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextImageStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextImageStyle = value
+                        };
                         OnPropertyChanged("ImageStyle");
                         PerformNeedPaint();
                     }
@@ -804,9 +874,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
+                {
                     return _storage.ContentTextImageAlign;
+                }
             }
 
             set
@@ -824,8 +898,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.ContentTextImageAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            ContentTextImageAlign = value
+                        };
                         OnPropertyChanged("ImageAlign");
                         PerformNeedPaint();
                     }
@@ -841,8 +917,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="property">Name of the property changed.</param>
         protected virtual void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
         #endregion
     }

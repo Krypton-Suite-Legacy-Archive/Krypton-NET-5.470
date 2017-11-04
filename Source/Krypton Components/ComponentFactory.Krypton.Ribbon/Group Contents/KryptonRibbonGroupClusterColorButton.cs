@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -301,7 +297,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "B";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -727,7 +725,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // You cannot add an empty collection
                 if (value != null)
+                {
                     _recentColors.AddRange(value);
+                }
             }
         }
 
@@ -754,13 +754,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     _command = value;
                     OnPropertyChanged("KryptonCommand");
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                 }
             }
         }
@@ -779,14 +783,18 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMax != value)
                 {
                     _itemSizeMax = value;
 
                     if (_itemSizeMax == GroupItemSize.Small)
+                    {
                         _itemSizeMin = GroupItemSize.Small;
+                    }
 
                     OnPropertyChanged("ItemSizeMaximum");
                 }
@@ -807,14 +815,18 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMin != value)
                 {
                     _itemSizeMin = value;
 
                     if (_itemSizeMin == GroupItemSize.Medium)
+                    {
                         _itemSizeMax = GroupItemSize.Medium;
+                    }
 
                     OnPropertyChanged("ItemSizeMinimum");
                 }
@@ -944,9 +956,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Push back the change to the attached command
                         if (KryptonCommand != null)
+                        {
                             KryptonCommand.Checked = !KryptonCommand.Checked;
+                        }
                         else
+                        {
                             Checked = !Checked;
+                        }
                     }
 
                     // In showing a popup we fire the delegate before the click so that the
@@ -955,25 +971,27 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (VisualPopupManager.Singleton.CurrentPopup != null)
                     {
                         // Do we need to fire a delegate stating the click processing has finished?
-                        if (fireDelegate && (finishDelegate != null))
-                            finishDelegate(this, EventArgs.Empty);
+                        if (fireDelegate)
+                        {
+                            finishDelegate?.Invoke(this, EventArgs.Empty);
+                        }
 
                         fireDelegate = false;
                     }
 
                     // Generate actual click event
-                    if (Click != null)
-                        Click(this, EventArgs.Empty);
+                    Click?.Invoke(this, EventArgs.Empty);
 
                     // Clicking the button should execute the associated command
-                    if (KryptonCommand != null)
-                        KryptonCommand.PerformExecute();
+                    KryptonCommand?.PerformExecute();
                 }
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -1000,8 +1018,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Generate an event giving a chance for the krypton context menu strip to 
                             // be shown to be provided/modified or the action even to be cancelled
-                            if (DropDown != null)
-                                DropDown(this, contextArgs);
+                            DropDown?.Invoke(this, contextArgs);
 
                             // If user did not cancel and there is still a krypton context menu strip to show
                             if (!contextArgs.Cancel && (contextArgs.KryptonContextMenu != null))
@@ -1010,7 +1027,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                                 // Convert the view for the button into screen coordinates
                                 if ((Ribbon != null) && (ClusterColorButtonView != null))
+                                {
                                     screenRect = Ribbon.ViewRectangleToScreen(ClusterColorButtonView);
+                                }
 
                                 if (CommonHelper.ValidKryptonContextMenu(contextArgs.KryptonContextMenu))
                                 {
@@ -1030,7 +1049,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                     // Show at location we were provided, but need to convert to screen coordinates
                                     contextArgs.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
                                     if (contextArgs.KryptonContextMenu.Show(this, new Point(screenRect.X, screenRect.Bottom + 1)))
+                                    {
                                         fireDelegate = false;
+                                    }
                                 }
                             }
                         }
@@ -1039,8 +1060,10 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -1049,8 +1072,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="selectedColor">New selected color.</param>
         protected virtual void OnSelectedColorChanged(Color selectedColor)
         {
-            if (SelectedColorChanged != null)
-                SelectedColorChanged(this, new ColorEventArgs(selectedColor));
+            SelectedColorChanged?.Invoke(this, new ColorEventArgs(selectedColor));
         }
 
         /// <summary>
@@ -1059,8 +1081,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An ColorEventArgs that contains the event data.</param>
         protected virtual void OnTrackingColor(ColorEventArgs e)
         {
-            if (TrackingColor != null)
-                TrackingColor(this, e);
+            TrackingColor?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1069,8 +1090,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An CancelEventArgs that contains the event data.</param>
         protected virtual void OnMoreColors(CancelEventArgs e)
         {
-            if (MoreColors != null)
-                MoreColors(this, e);
+            MoreColors?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1079,16 +1099,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1129,8 +1147,12 @@ namespace ComponentFactory.Krypton.Ribbon
                     (ButtonType == GroupButtonType.Split))
                 {
                     if (_kryptonContextMenu != null)
+                    {
                         if (_kryptonContextMenu.ProcessShortcut(keyData))
+                        {
                             return true;
+                        }
+                    }
                 }
             }
 
@@ -1170,9 +1192,8 @@ namespace ComponentFactory.Krypton.Ribbon
             foreach (KryptonContextMenuItemBase item in collection)
             {
                 // Hook into color events
-                if (item is KryptonContextMenuColorColumns)
+                if (item is KryptonContextMenuColorColumns columns)
                 {
-                    KryptonContextMenuColorColumns columns = (KryptonContextMenuColorColumns)item;
                     columns.SelectedColor = _selectedColor;
 
                     if (hook)
@@ -1198,19 +1219,22 @@ namespace ComponentFactory.Krypton.Ribbon
                 foreach (KryptonContextMenuItemBase item in _kryptonContextMenu.Items)
                 {
                     // Only interested in the non-recent colors color columns
-                    if ((item is KryptonContextMenuColorColumns) && (item != _colorsRecent))
+                    if ((item != _colorsRecent) && (item is KryptonContextMenuColorColumns colors))
                     {
                         // Cast to correct type
-                        KryptonContextMenuColorColumns colors = (KryptonContextMenuColorColumns)item;
 
                         // We do not change the theme or standard entries if they are not to be used
                         if (((item == _colorsTheme) && !VisibleThemes) ||
                             ((item == _colorsStandard) && !VisibleStandard))
+                        {
                             continue;
+                        }
 
                         // If matching color found, do not add to recent colors
                         if (colors.ContainsColor(color))
+                        {
                             return;
+                        }
                     }
                 }
 
@@ -1219,11 +1243,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     bool found = false;
                     foreach (Color recentColor in _recentColors)
+                    {
                         if (recentColor.Equals(color))
                         {
                             found = true;
                             break;
                         }
+                    }
 
                     // If the color is not already part of the recent colors
                     if (!found)
@@ -1233,7 +1259,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Enforce the maximum number of recent colors
                         if (_recentColors.Count > MaxRecentColors)
+                        {
                             _recentColors.RemoveRange(MaxRecentColors, _recentColors.Count - MaxRecentColors);
+                        }
                     }
                 }
             }
@@ -1261,7 +1289,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Define the recent colors
             if (_recentColors.Count == 0)
+            {
                 _colorsRecent.SetCustomColors(null);
+            }
             else
             {
                 // Create an array of color arrays
@@ -1269,7 +1299,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Each column is just a single color
                 for (int i = 0; i < _recentColors.Count; i++)
+                {
                     colors[i] = new Color[] { _recentColors[i] };
+                }
 
                 _colorsRecent.SetCustomColors(colors);
             }
@@ -1290,7 +1322,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Finish when we reach the target
                     if (item == target)
+                    {
                         break;
+                    }
 
                     // We do not consider existing separators
                     if (!((item is KryptonContextMenuSeparator) ||
@@ -1334,13 +1368,17 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!cea.Cancel)
             {
                 // Use a standard color dialog for the selection of custom colors
-                ColorDialog cd = new ColorDialog();
-                cd.Color = SelectedColor;
-                cd.FullOpen = true;
+                ColorDialog cd = new ColorDialog
+                {
+                    Color = SelectedColor,
+                    FullOpen = true
+                };
 
                 // Only if user selected a value do we want to use it
                 if (cd.ShowDialog() == DialogResult.OK)
+                {
                     SelectedColor = cd.Color;
+                }
             }
         }
 

@@ -12,16 +12,12 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Globalization;
-using System.Diagnostics;
-using System.Reflection;
 using System.Threading;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
@@ -440,7 +436,9 @@ namespace ComponentFactory.Krypton.Workspace
                 // You cannot set the active cell to 'null' as if we have any cells then one of them
                 // must always be the active cell. Active just means the primary cell in the workspace.
                 if (value != null)
+                {
                     SetActiveCell(value);
+                }
             }
         }
 
@@ -513,7 +511,9 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // Cannot assign a value of less than zero
                     if (value < 0)
+                    {
                         throw new ArgumentOutOfRangeException("SplitterWidth", "Value cannot be less than zero");
+                    }
 
                     // Use new width of the splitter area
                     _splitterWidth = value;
@@ -584,7 +584,9 @@ namespace ComponentFactory.Krypton.Workspace
                     // Update all the separators to match control state
                     PaletteMetricPadding metricPadding = CommonHelper.SeparatorStyleToMetricPadding(_separatorStyle);
                     foreach (ViewDrawWorkspaceSeparator separator in _drawPanel)
+                    {
                         separator.MetricPadding = metricPadding;
+                    }
 
                     PerformNeedPaint(true);
                 }
@@ -791,7 +793,9 @@ namespace ComponentFactory.Krypton.Workspace
             while (cell != null)
             {
                 foreach (KryptonPage page in cell.Pages)
+                {
                     pages.Add(page);
+                }
 
                 cell = NextCell(cell);
             }
@@ -811,8 +815,12 @@ namespace ComponentFactory.Krypton.Workspace
             while (cell != null)
             {
                 foreach (KryptonPage page in cell.Pages)
+                {
                     if (page.LastVisibleSet)
+                    {
                         pages.Add(page);
+                    }
+                }
 
                 cell = NextVisibleCell(cell);
             }
@@ -894,13 +902,16 @@ namespace ComponentFactory.Krypton.Workspace
         public KryptonWorkspaceCell NextCell(KryptonWorkspaceCell current)
         {
             // Get parent of the provided cell
-            KryptonWorkspaceSequence sequence = current.WorkspaceParent as KryptonWorkspaceSequence;
 
             // Must have a valid parent sequence
-            if (sequence != null)
+            if (current.WorkspaceParent is KryptonWorkspaceSequence sequence)
+            {
                 return RecursiveFindCellInSequence(sequence, current, true, false);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -911,13 +922,16 @@ namespace ComponentFactory.Krypton.Workspace
         public KryptonWorkspaceCell PreviousCell(KryptonWorkspaceCell current)
         {
             // Get parent of the provided cell
-            KryptonWorkspaceSequence sequence = current.WorkspaceParent as KryptonWorkspaceSequence;
 
             // Must have a valid parent sequence
-            if (sequence != null)
+            if (current.WorkspaceParent is KryptonWorkspaceSequence sequence)
+            {
                 return RecursiveFindCellInSequence(sequence, current, false, false);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -955,13 +969,16 @@ namespace ComponentFactory.Krypton.Workspace
         public KryptonWorkspaceCell NextVisibleCell(KryptonWorkspaceCell current)
         {
             // Get parent of the provided cell
-            KryptonWorkspaceSequence sequence = current.WorkspaceParent as KryptonWorkspaceSequence;
 
             // Must have a valid parent sequence
-            if (sequence != null)
+            if (current.WorkspaceParent is KryptonWorkspaceSequence sequence)
+            {
                 return RecursiveFindCellInSequence(sequence, current, true, true);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -972,13 +989,16 @@ namespace ComponentFactory.Krypton.Workspace
         public KryptonWorkspaceCell PreviousVisibleCell(KryptonWorkspaceCell current)
         {
             // Get parent of the provided cell
-            KryptonWorkspaceSequence sequence = current.WorkspaceParent as KryptonWorkspaceSequence;
 
             // Must have a valid parent sequence
-            if (sequence != null)
+            if (current.WorkspaceParent is KryptonWorkspaceSequence sequence)
+            {
                 return RecursiveFindCellInSequence(sequence, current, false, true);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -1031,8 +1051,12 @@ namespace ComponentFactory.Krypton.Workspace
                 while (cell != null)
                 {
                     foreach (KryptonPage page in cell.Pages)
+                    {
                         if (uniqueName == page.UniqueName)
+                        {
                             return cell;
+                        }
+                    }
 
                     // Move to next cell in sequence
                     cell = NextCell(cell);
@@ -1057,8 +1081,12 @@ namespace ComponentFactory.Krypton.Workspace
                 while (cell != null)
                 {
                     foreach (KryptonPage page in cell.Pages)
+                    {
                         if (uniqueName == page.UniqueName)
+                        {
                             return page;
+                        }
+                    }
 
                     // Move to next cell in sequence
                     cell = NextCell(cell);
@@ -1117,7 +1145,9 @@ namespace ComponentFactory.Krypton.Workspace
                 return (cellForPage.Button.CloseButtonAction != CloseButtonAction.None);
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1130,9 +1160,13 @@ namespace ComponentFactory.Krypton.Workspace
             // If we can find a cell in our workspace that contains the page...
             KryptonWorkspaceCell cellForPage = CellForPage(page);
             if (cellForPage != null)
+            {
                 return (NextCell(cellForPage) != null);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1145,9 +1179,13 @@ namespace ComponentFactory.Krypton.Workspace
             // If we can find a cell in our workspace that contains the page...
             KryptonWorkspaceCell cellForPage = CellForPage(page);
             if (cellForPage != null)
+            {
                 return (PreviousCell(cellForPage) != null);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1174,11 +1212,13 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Attempt a close of all pages except the provided one
             foreach (KryptonPage closePage in pages)
+            {
                 if ((closePage != page) && CanClosePage(closePage))
                 {
                     KryptonWorkspaceCell cellForPage = CellForPage(closePage);
                     cellForPage.PerformCloseAction(closePage);
                 }
+            }
         }
 
         /// <summary>
@@ -1206,18 +1246,24 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Remove any maximized cell setting
                 if (MaximizedCell != null)
+                {
                     MaximizedCell = null;
+                }
 
                 // If requested we can ensure the page is selected in the new cell 
                 // but only if the target cell is allowed to have selected tabs
                 if (selectPage && nextCell.AllowTabSelect)
+                {
                     nextCell.SelectedPage = page;
+                }
 
                 ResumeActivePageChangedEvent();
 
                 // If the cell that the page was moved from had the focus then set focus to follow the page
                 if (selectPage && nextCell.AllowTabSelect && hadFocus)
+                {
                     CellForPage(page).Select();
+                }
             }
         }
 
@@ -1247,17 +1293,23 @@ namespace ComponentFactory.Krypton.Workspace
                 // If requested we can ensure the page is selected in the new cell 
                 // but only if the target cell is allowed to have selected tabs
                 if (selectPage && previousCell.AllowTabSelect)
+                {
                     previousCell.SelectedPage = page;
+                }
 
                 // Remove any maximized cell setting
                 if (MaximizedCell != null)
+                {
                     MaximizedCell = null;
+                }
 
                 ResumeActivePageChangedEvent();
 
                 // If the cell that the page was moved from had the focus then set focus to follow the page
                 if (selectPage && previousCell.AllowTabSelect && hadFocus)
+                {
                     CellForPage(page).Select();
+                }
             }
         }
 
@@ -1289,11 +1341,10 @@ namespace ComponentFactory.Krypton.Workspace
             foreach (Component c in sequence.Children)
             {
                 // We can only modify items with the expected interface
-                IWorkspaceItem item = c as IWorkspaceItem;
-                if (item != null)
+                if (c is IWorkspaceItem item)
                 {
                     StarSize itemSize = item.WorkspaceStarSize;
-                    
+
                     // Should the new width be applied?
                     if ((itemSize.StarWidth.UsingStar && applyStar) ||
                         (!itemSize.StarWidth.UsingStar && applyFixed))
@@ -1328,7 +1379,9 @@ namespace ComponentFactory.Krypton.Workspace
             }
 
             if (needLayout)
+            {
                 PerformNeedPaint(true);
+            }
         }
 
         /// <summary>
@@ -1354,7 +1407,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Remove any maximized cell setting
             if (MaximizedCell != null)
+            {
                 MaximizedCell = null;
+            }
 
             // Remember the active page before we rearrange
             KryptonPage activePage = ActivePage;
@@ -1373,7 +1428,9 @@ namespace ComponentFactory.Krypton.Workspace
                 // Make sure the same page is active as it was before the change
                 // but only if the target cell is allowed to have selected tabs
                 if ((activePage != null) && cell.AllowTabSelect)
+                {
                     cell.SelectedPage = activePage;
+                }
 
                 // Put focus back to the active page that had it before hand
                 if (hasFocus)
@@ -1383,9 +1440,13 @@ namespace ComponentFactory.Krypton.Workspace
                     
                     // Do we set focus back to the control that had it before?
                     if (activePageFocus != null)
+                    {
                         activePageFocus.Select();
+                    }
                     else
+                    {
                         cell.Select();
+                    }
                 }
             }
 
@@ -1444,7 +1505,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Remove any maximized cell setting
             if (MaximizedCell != null)
+            {
                 MaximizedCell = null;
+            }
 
             // Remember the active cell before we rearrange
             KryptonWorkspaceCell activeCell = ActiveCell;
@@ -1465,7 +1528,9 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // If no cells then do we need to create a new empty cell?
                     if (createCellIfEmpty)
+                    {
                         Root.Children.Add(new KryptonWorkspaceCell());
+                    }
                 }
                 else
                 {
@@ -1486,7 +1551,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                                 // If there are no more cells then create one now
                                 if (cells.Count == 0)
+                                {
                                     sequence.Children.Add(new KryptonWorkspaceCell());
+                                }
                                 else
                                 {
                                     cell = cells[0];
@@ -1512,9 +1579,13 @@ namespace ComponentFactory.Krypton.Workspace
                 if (hasFocus)
                 {
                     if (activePageFocus != null)
+                    {
                         activePageFocus.Select();
+                    }
                     else
+                    {
                         ActiveCell.Select();
+                    }
                 }
             }
 
@@ -1573,7 +1644,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Remove any maximized cell setting
             if (MaximizedCell != null)
+            {
                 MaximizedCell = null;
+            }
 
             // Remember the active page before we rearrange
             KryptonPage activePage = ActivePage;
@@ -1595,7 +1668,9 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // If no pages then do we need to create a cell?
                     if (createCellIfNoPages)
+                    {
                         Root.Children.Add(new KryptonWorkspaceCell());
+                    }
                 }
                 else
                 {
@@ -1622,7 +1697,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                                     // Note the new cell that has the previously active page
                                     if (cell.Pages.Contains(activePage))
+                                    {
                                         newActiveCell = cell;
+                                    }
                                 }
 
                                 sequence.Children.Add(cell);
@@ -1645,9 +1722,13 @@ namespace ComponentFactory.Krypton.Workspace
                 if (hasFocus)
                 {
                     if (activePageFocus != null)
+                    {
                         activePageFocus.Select();
+                    }
                     else
+                    {
                         ActiveCell.Select();
+                    }
                 }
             }
 
@@ -1820,10 +1901,12 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="encoding">Required encoding.</param>
         public void SaveLayoutToStream(Stream stream, Encoding encoding)
         {
-            XmlTextWriter xmlWriter = new XmlTextWriter(stream, encoding);
+            XmlTextWriter xmlWriter = new XmlTextWriter(stream, encoding)
+            {
 
-            // Use indenting for readability
-            xmlWriter.Formatting = Formatting.Indented;
+                // Use indenting for readability
+                Formatting = Formatting.Indented
+            };
             xmlWriter.WriteStartDocument();
             SaveLayoutToXml(xmlWriter);
             xmlWriter.WriteEndDocument();
@@ -1848,9 +1931,13 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Remember which page was the active one
                 if (ActivePage != null)
+                {
                     xmlWriter.WriteAttributeString("A", ActivePage.UniqueName);
+                }
                 else
+                {
                     xmlWriter.WriteAttributeString("A", "(null)");
+                }
 
                 // Give event handlers chance to embed custom data
                 xmlWriter.WriteStartElement("CGD");
@@ -1908,8 +1995,10 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <param name="stream">Stream object.</param>
         public void LoadLayoutFromStream(Stream stream)
         {
-            XmlTextReader xmlReader = new XmlTextReader(stream);
-            xmlReader.WhitespaceHandling = WhitespaceHandling.None;
+            XmlTextReader xmlReader = new XmlTextReader(stream)
+            {
+                WhitespaceHandling = WhitespaceHandling.None
+            };
             xmlReader.MoveToContent();
 
             // Use existing method to load from xml
@@ -1940,7 +2029,9 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Double check this has the correct element name
                 if (xmlReader.Name != "KW")
+                {
                     throw new ArgumentException("Root element must be named 'KW'");
+                }
 
                 // Load the format version number
                 string version = xmlReader.GetAttribute("V");
@@ -1951,7 +2042,9 @@ namespace ComponentFactory.Krypton.Workspace
                 
                 // We can only load 1 upward version formats
                 if (formatVersion < 1)
+                {
                     throw new ArgumentException("Can only load Version 1 and upwards of KryptonWorkspace persisted data.");
+                }
 
                 ScreenObscurer obscurer = new ScreenObscurer();
 
@@ -1974,10 +2067,14 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Read to custom data element
                     if (!xmlReader.Read())
+                    {
                         throw new ArgumentException("An element was expected but could not be read in.");
+                    }
 
                     if (xmlReader.Name != "CGD")
+                    {
                         throw new ArgumentException("Expected 'CGD' element was not found.");
+                    }
 
                     bool finished = xmlReader.IsEmptyElement;
 
@@ -1989,33 +2086,45 @@ namespace ComponentFactory.Krypton.Workspace
                     {
                         // Check it has the expected name
                         if (xmlReader.NodeType == XmlNodeType.EndElement)
+                        {
                             finished = (xmlReader.Name == "CGD");
+                        }
 
                         if (!finished)
                         {
                             if (!xmlReader.Read())
+                            {
                                 throw new ArgumentException("An element was expected but could not be read in.");
+                            }
                         }
                     }
 
                     // Read the next well known element
                     if (!xmlReader.Read())
+                    {
                         throw new ArgumentException("An element was expected but could not be read in.");
+                    }
 
                     // Is it the expected element?
                     if (xmlReader.Name != "WS")
+                    {
                         throw new ArgumentException("Element 'WS' was expected but not found.");
+                    }
 
                     // Reload the root sequence
                     Root.LoadFromXml(this, xmlReader, existingPages);
 
                     // Move past the end element
                     if (!xmlReader.Read())
+                    {
                         throw new ArgumentException("Could not read in next expected node.");
+                    }
 
                     // Check it has the expected name
                     if (xmlReader.NodeType != XmlNodeType.EndElement)
+                    {
                         throw new ArgumentException("EndElement expected but not found.");
+                    }
 
                     // Are there any unmatched pages?
                     if (existingPages.Count > 0)
@@ -2023,7 +2132,9 @@ namespace ComponentFactory.Krypton.Workspace
                         // Create list of the pages unmatched with loaded info
                         List<KryptonPage> unmatched = new List<KryptonPage>();
                         foreach (KryptonPage page in existingPages.Values)
+                        {
                             unmatched.Add(page);
+                        }
 
                         // Allow the unmatched pages to be processed by event handlers
                         OnPagesUnmatched(new PagesUnmatchedEventArgs(this, unmatched));                    
@@ -2031,8 +2142,12 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Update incoming collection with new entries because of RecreateLoadingPage events
                     foreach (KryptonPage page in existingPages.Values)
+                    {
                         if (!availablePages.Contains(page))
+                        {
                             availablePages.Add(page);
+                        }
+                    }
                 }
                 finally
                 {
@@ -2042,7 +2157,9 @@ namespace ComponentFactory.Krypton.Workspace
                     // Restore active cell
                     KryptonWorkspaceCell activeCell = CellForUniqueName(activePageUniqueName);
                     if (activeCell != null)
+                    {
                         ActiveCell = activeCell;
+                    }
 
                     // Turn back on change events now that everything has settled down
                     ResumeActivePageChangedEvent();
@@ -2084,9 +2201,13 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Remember which page was the active one
             if (cell.SelectedPage != null)
+            {
                 xmlWriter.WriteAttributeString("SP", cell.SelectedPage.UniqueName);
+            }
             else
+            {
                 xmlWriter.WriteAttributeString("SP", "(null)");
+            }
         }
 
         /// <summary>
@@ -2181,9 +2302,10 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // If a matching page with the unique name already exists then use it, 
             // otherwise we need to create an entirely new page instance.
-            KryptonPage page;
-            if (existingPages.TryGetValue(uniqueName, out page))
+            if (existingPages.TryGetValue(uniqueName, out KryptonPage page))
+            {
                 existingPages.Remove(uniqueName);
+            }
             else
             {
                 // Use event to try and get a newly created page for use
@@ -2195,7 +2317,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Add recreated page to the looking dictionary
                     if ((page != null) && !existingPages.ContainsKey(page.UniqueName))
+                    {
                         existingPages.Add(page.UniqueName, page);
+                    }
                 }
             }
 
@@ -2220,7 +2344,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Read the next Element
             if (!xmlReader.Read())
+            {
                 throw new ArgumentException("An element was expected but could not be read in.");
+            }
 
             if (page != null)
             {
@@ -2248,8 +2374,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnGlobalSaving(XmlSavingEventArgs e)
         {
-            if (GlobalSaving != null)
-                GlobalSaving(this, e);
+            GlobalSaving?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2258,8 +2383,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnGlobalLoading(XmlLoadingEventArgs e)
         {
-            if (GlobalLoading != null)
-                GlobalLoading(this, e);
+            GlobalLoading?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2268,8 +2392,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnPageSaving(PageSavingEventArgs e)
         {
-            if (PageSaving != null)
-                PageSaving(this, e);
+            PageSaving?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2278,8 +2401,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnPageLoading(PageLoadingEventArgs e)
         {
-            if (PageLoading != null)
-                PageLoading(this, e);
+            PageLoading?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2288,8 +2410,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnRecreateLoadingPage(RecreateLoadingPageEventArgs e)
         {
-            if (RecreateLoadingPage != null)
-                RecreateLoadingPage(this, e);
+            RecreateLoadingPage?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2298,8 +2419,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event data.</param>
         public virtual void OnPagesUnmatched(PagesUnmatchedEventArgs e)
         {
-            if (PagesUnmatched != null)
-                PagesUnmatched(this, e);
+            PagesUnmatched?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2353,13 +2473,16 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Arguments associated with the event.</param>
         protected void OnChildrenMaximizeRestoreClicked(object sender, EventArgs e)
         {
-            KryptonWorkspaceCell cell = sender as KryptonWorkspaceCell;
-            if (cell != null)
+            if (sender is KryptonWorkspaceCell cell)
             {
                 if (MaximizedCell == cell)
+                {
                     MaximizedCell = null;
+                }
                 else
+                {
                     MaximizedCell = cell;
+                }
             }
         }
         #endregion
@@ -2392,11 +2515,12 @@ namespace ComponentFactory.Krypton.Workspace
         {
             if (!directed)
             {
-                if (ActiveCell != null)
-                    ActiveCell.Select();
+                ActiveCell?.Select();
             }
             else
+            {
                 base.Select(directed, forward);
+            }
         }
 
 		/// <summary>
@@ -2455,9 +2579,13 @@ namespace ComponentFactory.Krypton.Workspace
                 else if (keyData.Equals(ContextMenus.ShortcutMaximizeRestore))
                 {
                     if (MaximizedCell != null)
+                    {
                         MaximizedCell = null;
+                    }
                     else if (ActiveCell != null)
+                    {
                         MaximizedCell = ActiveCell;
+                    }
                     return true;
                 }
             }
@@ -2473,8 +2601,7 @@ namespace ComponentFactory.Krypton.Workspace
         protected override void OnGotFocus(EventArgs e)
         {
             // If we have an active cell then shift focus to it
-            if (ActiveCell != null)
-                ActiveCell.Select();
+            ActiveCell?.Select();
 
             base.OnGotFocus(e);
         }
@@ -2487,15 +2614,21 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // Push correct palettes into the view
             if (Enabled)
+            {
                 _drawPanel.SetPalettes(_stateNormal.Back);
+            }
             else
+            {
                 _drawPanel.SetPalettes(_stateDisabled.Back);
+            }
 
             _drawPanel.Enabled = Enabled;
 
             // Update all the separators to match control state
             foreach (ViewDrawWorkspaceSeparator separator in _drawPanel)
+            {
                 separator.Enabled = Enabled;
+            }
 
             // Change in enabled state requires a layout and repaint
             PerformNeedPaint(true);
@@ -2525,7 +2658,9 @@ namespace ComponentFactory.Krypton.Workspace
                     {
                         // Do not enforce the flag at design time
                         if (!DesignMode)
+                        {
                             CompactAtLeastOneVisibleCell();
+                        }
                     }
                 }
 
@@ -2533,9 +2668,13 @@ namespace ComponentFactory.Krypton.Workspace
                 if (MaximizedCell != null)
                 {
                     if (!MaximizedCell.WorkspaceVisible || !IsCellPresent(MaximizedCell))
+                    {
                         MaximizedCell = null;
+                    }
                     else
+                    {
                         SetActiveCell(MaximizedCell);
+                    }
                 }
 
                 // Lists for the layout processing to populate with instances still needed
@@ -2546,9 +2685,13 @@ namespace ComponentFactory.Krypton.Workspace
                 using (ViewLayoutContext layoutContext = new ViewLayoutContext(this, Renderer))
                 {
                     if (MaximizedCell != null)
+                    {
                         LayoutSequenceMaximized(Root, ClientRectangle, controls, layoutContext);
+                    }
                     else
+                    {
                         LayoutSequenceNonMaximized(Root, ClientRectangle, controls, separators, layoutContext);
+                    }
                 }
 
                 // Remove all view separators no longer needed
@@ -2564,18 +2707,20 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Remove all controls no longer needed
                 for (int i = Controls.Count - 1; i >= 0; i--)
+                {
                     if (!controls.Contains(Controls[i]))
                     {
                         Control c = Controls[i];
                         ((KryptonReadOnlyControls)Controls).RemoveInternal(c);
 
                         // If the control has the expected interface
-                        IWorkspaceItem item = c as IWorkspaceItem;
-                        if (item != null)
+                        if (c is IWorkspaceItem item)
                         {
                             // Does the item want to be disposed on removal?
                             if (item.DisposeOnRemove)
+                            {
                                 c.Dispose();
+                            }
                         }
 
                         // Generate event so users can reverse actions taken when cell was added
@@ -2586,6 +2731,7 @@ namespace ComponentFactory.Krypton.Workspace
                             cell.DragPageNotify = null;
                         }
                     }
+                }
 
                 int cellCount = 0;
                 int cellVisibleCount = 0;
@@ -2593,7 +2739,9 @@ namespace ComponentFactory.Krypton.Workspace
                 while (order != null)
                 {
                     if (order.LastVisibleSet)
+                    {
                         cellVisibleCount++;
+                    }
 
                     // Tabbing order should match ordering from the workspace hierarchy
                     // (the order within the Controls collection might not match the workspace hierarchy ordering)
@@ -2608,12 +2756,16 @@ namespace ComponentFactory.Krypton.Workspace
                     // We need to find a new active cell if we do not currently have a setting or if we have a 
                     // setting but that cell is no longer present or the cell is present but not actually visible
                     if ((ActiveCell == null) || !Controls.Contains(ActiveCell) || !ActiveCell.WorkspaceVisible)
+                    {
                         SetActiveCellRaw(FirstVisibleCell());
+                    }
                 }
 
                 // If we have a maximized cell then ensure it has focus and not some other cell
                 if ((MaximizedCell != null) && !MaximizedCell.ContainsFocus && ContainsFocus)
+                {
                     MaximizedCell.Select();
+                }
 
                 // Fire event if number of cells has changed
                 if (cellCount != _cacheCellCount)
@@ -2643,11 +2795,15 @@ namespace ComponentFactory.Krypton.Workspace
                 // We never allow our ContextMenuStrip/KryptonContextMenu to show if there are cells 
                 // displayed, we only want the context menus showing if there are no cells at all displayed
                 if (CellVisibleCount > 0)
+                {
                     return;
+                }
             }
 
             if (!IsDisposed)
+            {
                 base.WndProc(ref m);
+            }
         }
 
         /// <summary>
@@ -2671,8 +2827,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCellCountChanged(EventArgs e)
         {
-            if (CellCountChanged != null)
-                CellCountChanged(this, e);
+            CellCountChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2681,8 +2836,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCellVisibleCountChanged(EventArgs e)
         {
-            if (CellVisibleCountChanged != null)
-                CellVisibleCountChanged(this, e);
+            CellVisibleCountChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2692,9 +2846,8 @@ namespace ComponentFactory.Krypton.Workspace
         protected virtual void OnWorkspaceCellAdding(WorkspaceCellEventArgs e)
         {
             NewCellInitialize(e.Cell);
-            
-            if (WorkspaceCellAdding != null)
-                WorkspaceCellAdding(this, e);
+
+            WorkspaceCellAdding?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2703,8 +2856,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">An WorkspaceCellEventArgs containing the event data.</param>
         protected virtual void OnWorkspaceCellRemoved(WorkspaceCellEventArgs e)
         {
-            if (WorkspaceCellRemoved != null)
-                WorkspaceCellRemoved(this, e);
+            WorkspaceCellRemoved?.Invoke(this, e);
 
             ExistingCellDetach(e.Cell);
         }
@@ -2715,8 +2867,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">An ActiveCellChangedEventArgs containing the event data.</param>
         protected virtual void OnActiveCellChanged(ActiveCellChangedEventArgs e)
         {
-            if (ActiveCellChanged != null)
-                ActiveCellChanged(this, e);
+            ActiveCellChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2728,8 +2879,7 @@ namespace ComponentFactory.Krypton.Workspace
             // Do not generate event when its firing is suspended
             if (!IsActivePageChangedEventSuspended)
             {
-                if (ActivePageChanged != null)
-                    ActivePageChanged(this, e);
+                ActivePageChanged?.Invoke(this, e);
             }
         }
 
@@ -2739,8 +2889,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnMaximizedCellChanged(EventArgs e)
         {
-            if (MaximizedCellChanged != null)
-                MaximizedCellChanged(this, e);
+            MaximizedCellChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2749,8 +2898,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="de">A PageDragCancelEventArgs containing event details.</param>
         protected virtual void OnBeforePageDrag(PageDragCancelEventArgs de)
         {
-            if (BeforePageDrag != null)
-                BeforePageDrag(this, de);
+            BeforePageDrag?.Invoke(this, de);
         }
 
         /// <summary>
@@ -2759,8 +2907,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">A PageDragEndEventArgs containing event details.</param>
         protected virtual void OnAfterPageDrag(PageDragEndEventArgs e)
         {
-            if (AfterPageDrag != null)
-                AfterPageDrag(this, e);
+            AfterPageDrag?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2769,8 +2916,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">A v containing event details.</param>
         internal protected virtual void OnPageDrop(PageDropEventArgs e)
         {
-            if (PageDrop != null)
-                PageDrop(this, e);
+            PageDrop?.Invoke(this, e);
         }
 
         /// <summary>
@@ -2804,32 +2950,32 @@ namespace ComponentFactory.Krypton.Workspace
             // If layout is suspended then we cannot access the hierarchy of 
             // items so just return true for the duration of suspension
             if (_suspendWorkspace > 0)
+            {
                 return true;
+            }
 
             // The global setting takes priority
             if (!AllowResizing)
+            {
                 return false;
-
-            // Find the items before and after the separator
-            IWorkspaceItem after;
-            IWorkspaceItem before;
-            SeparatorToItems(separator, out after, out before);
+            }
+            SeparatorToItems(separator, out IWorkspaceItem after, out IWorkspaceItem before);
 
             // Are both items allowed to be resized by the user?
             // (at design time we can get null references)
             if ((after == null) || (before == null) || 
                 !before.WorkspaceAllowResizing || 
                 !after.WorkspaceAllowResizing)
+            {
                 return false;
-
-            // How far can the separator move before and after the current position
-            int moveBefore;
-            int moveAfter;
-            SeparatorToMovement(separator, after, before, out moveBefore, out moveAfter);
+            }
+            SeparatorToMovement(separator, after, before, out int moveBefore, out int moveAfter);
 
             // If there is no movement allowed before or after then cannot move separator
             if ((moveBefore == 0) && (moveAfter == 0))
+            {
                 return false;
+            }
 
             // Not excluded so allow it to occur
             return true;
@@ -2837,26 +2983,25 @@ namespace ComponentFactory.Krypton.Workspace
 
         internal Rectangle SeparatorMoveBox(ViewDrawWorkspaceSeparator separator)
         {
-            // Find the items before and after the separator
-            IWorkspaceItem after;
-            IWorkspaceItem before;
-            SeparatorToItems(separator, out after, out before);
+            SeparatorToItems(separator, out IWorkspaceItem after, out IWorkspaceItem before);
 
             // At design time we can get null references
             if ((after == null) || (before == null))
+            {
                 return Rectangle.Empty;
-
-            // How far can the separator move before and after the current position
-            int moveBefore;
-            int moveAfter;
-            SeparatorToMovement(separator, after, before, out moveBefore, out moveAfter);
+            }
+            SeparatorToMovement(separator, after, before, out int moveBefore, out int moveAfter);
 
             if (separator.Orientation == Orientation.Horizontal)
+            {
                 return new Rectangle(separator.ClientLocation.X, separator.ClientLocation.Y - moveBefore, 
-                                     separator.ClientWidth, moveBefore + moveAfter);
+                    separator.ClientWidth, moveBefore + moveAfter);
+            }
             else
+            {
                 return new Rectangle(separator.ClientLocation.X - moveBefore, separator.ClientLocation.Y, 
-                                     moveBefore + moveAfter, separator.ClientHeight);
+                    moveBefore + moveAfter, separator.ClientHeight);
+            }
         }
 
         internal void SeparatorMoved(ViewDrawWorkspaceSeparator separator,
@@ -2865,11 +3010,7 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // Get the sequence that contains the items moved
             KryptonWorkspaceSequence parentSequence = (KryptonWorkspaceSequence)separator.WorkspaceItem.WorkspaceParent;
-
-            // Find the items before and after the separator
-            IWorkspaceItem after;
-            IWorkspaceItem before;
-            SeparatorToItems(separator, out after, out before);
+            SeparatorToItems(separator, out IWorkspaceItem after, out IWorkspaceItem before);
 
             // At design time we can get null references
             if ((after != null) && (before != null))
@@ -2877,9 +3018,13 @@ namespace ComponentFactory.Krypton.Workspace
                 // Find the direction dependant change
                 int offset;
                 if (separator.Orientation == Orientation.Vertical)
+                {
                     offset = splitter.X - separator.ClientLocation.X;
+                }
                 else
+                {
                     offset = splitter.Y - separator.ClientLocation.Y;
+                }
 
                 // Only need to process if a change has occured
                 if (offset != 0)
@@ -2888,8 +3033,7 @@ namespace ComponentFactory.Krypton.Workspace
                     for (int i = 0; i < parentSequence.Children.Count; i++)
                     {
                         // Can only process IWorkspaceItem items
-                        IWorkspaceItem item = parentSequence.Children[i] as IWorkspaceItem;
-                        if (item != null)
+                        if (parentSequence.Children[i] is IWorkspaceItem item)
                         {
                             // Get direction specific numbers
                             int directionActualSize;
@@ -2910,15 +3054,23 @@ namespace ComponentFactory.Krypton.Workspace
 
                             // The before and after items are adjusted by the splitter offset
                             if (item == before)
+                            {
                                 newStar += offset;
+                            }
                             if (item == after)
+                            {
                                 newStar -= offset;
+                            }
 
                             // Is this a fixed size item?
                             if (!directionStarSize.UsingStar)
+                            {
                                 directionStarSize.Value = newStar.ToString();
+                            }
                             else
+                            {
                                 directionStarSize.Value = newStar.ToString() + "*";
+                            }
                         }
                     }
                 }
@@ -2938,11 +3090,15 @@ namespace ComponentFactory.Krypton.Workspace
                 // Update with any changes made by the event
                 List<KryptonPage> list = new List<KryptonPage>();
                 foreach (KryptonPage p in e.Pages)
+                {
                     list.Add(p);
+                }
                 _dragPages = list.ToArray();
 
                 if (DragPageNotify != null)
+                {
                     DragPageNotify.PageDragStart(sender, navigator, e);
+                }
                 else
                 {
                     // Create drag mananager the first time it is needed
@@ -2961,9 +3117,13 @@ namespace ComponentFactory.Krypton.Workspace
         internal void InternalPageDragMove(KryptonNavigator sender, PointEventArgs e)
         {
             if (DragPageNotify != null)
+            {
                 DragPageNotify.PageDragMove(sender, e);
-            else if (_dragManager != null)
-                _dragManager.DragMove(e.Point);
+            }
+            else
+            {
+                _dragManager?.DragMove(e.Point);
+            }
         }
 
         internal bool InternalPageDragEnd(KryptonNavigator sender, PointEventArgs e)
@@ -2973,9 +3133,13 @@ namespace ComponentFactory.Krypton.Workspace
 
             bool ret = false;
             if (DragPageNotify != null)
+            {
                 ret = DragPageNotify.PageDragEnd(sender, e);
+            }
             else if (_dragManager != null)
+            {
                 ret = _dragManager.DragEnd(e.Point);
+            }
 
             // Now all changes are made we allow the changes to occur
             ResumeActivePageChangedEvent();
@@ -2987,9 +3151,13 @@ namespace ComponentFactory.Krypton.Workspace
         internal void InternalPageDragQuit(KryptonNavigator sender)
         {
             if (DragPageNotify != null)
+            {
                 DragPageNotify.PageDragQuit(sender);
-            else if (_dragManager != null)
-                _dragManager.DragQuit();
+            }
+            else
+            {
+                _dragManager?.DragQuit();
+            }
 
             OnAfterPageDrag(new PageDragEndEventArgs(false, _dragPages));
             _dragPages = null;
@@ -3015,9 +3183,13 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // The target cell takes up all the space and all others are make zero sized so they are hidden
                 if (cell == MaximizedCell)
-                    cell.SetBounds(0, 0, client.Size.Width, client.Size.Height);                    
+                {
+                    cell.SetBounds(0, 0, client.Size.Width, client.Size.Height);
+                }
                 else
+                {
                     cell.SetBounds(0, 0, 0, 0);
+                }
 
                 // If not already a child control then it should be!
                 if (!Controls.Contains(cell))
@@ -3087,7 +3259,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                         // Ensure the maximum is never less than the minimum
                         if ((info[i].CacheMaxSize > 0) && (info[i].CacheMinSize > 0))
+                        {
                             info[i].CacheMaxSize = Math.Max(info[i].CacheMaxSize, info[i].CacheMinSize);
+                        }
 
                         // Need to total up the star values
                         if (info[i].CacheStarSize.UsingStar)
@@ -3117,14 +3291,20 @@ namespace ComponentFactory.Krypton.Workspace
                         // If the fixed size is positive then use the value itself
                         int displaySpace;
                         if (info[i].CacheStarSize.FixedSize >= 0)
+                        {
                             displaySpace = info[i].CacheStarSize.FixedSize;
+                        }
                         else
                         {
                             // Otherwise we get the preferred size of the item in sequence orientation
                             if (seq.Orientation == Orientation.Vertical)
+                            {
                                 displaySpace = info[i].WorkspaceItem.WorkspacePreferredSize.Height;
+                            }
                             else
+                            {
                                 displaySpace = info[i].WorkspaceItem.WorkspacePreferredSize.Width;
+                            }
                         }
 
                         info[i].DisplaySpace = displaySpace;
@@ -3136,8 +3316,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Update the maximize/restore button spec per-cell
-                KryptonWorkspaceCell cell = seq.Children[i] as KryptonWorkspaceCell;
-                if (cell != null)
+                if (seq.Children[i] is KryptonWorkspaceCell cell)
                 {
                     cell.MaximizeRestoreButton.Visible = displayMaximizeButton;
                     cell.MaximizeRestoreButton.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
@@ -3161,7 +3340,9 @@ namespace ComponentFactory.Krypton.Workspace
                                 // Calculate space based on the items star setting
                                 int itemSpace = availableSpace;
                                 if (visibleStarChildren > 1)
+                                {
                                     itemSpace = (int)(availableSpace / starTotal * info[i].CacheStarSize.StarSize);
+                                }
 
                                 // If the calculation is less than the minimum
                                 if ((info[i].CacheMinSize > 0) && (itemSpace < info[i].CacheMinSize))
@@ -3236,12 +3417,13 @@ namespace ComponentFactory.Krypton.Workspace
                 if (info[i].WorkspaceItem != null)
                 {
                     // If no separator is associated with workspace, then create one now
-                    ViewDrawWorkspaceSeparator viewSeparator;
-                    if (!_workspaceToSeparator.TryGetValue(info[i].WorkspaceItem, out viewSeparator))
+                    if (!_workspaceToSeparator.TryGetValue(info[i].WorkspaceItem, out ViewDrawWorkspaceSeparator viewSeparator))
                     {
                         // Create a view for the separator area
-                        viewSeparator = new ViewDrawWorkspaceSeparator(this, info[i].WorkspaceItem, seq.Orientation);
-                        viewSeparator.Enabled = Enabled;
+                        viewSeparator = new ViewDrawWorkspaceSeparator(this, info[i].WorkspaceItem, seq.Orientation)
+                        {
+                            Enabled = Enabled
+                        };
 
                         // Need a controller that operates the movement
                         SeparatorController separatorController = new SeparatorController(viewSeparator, viewSeparator, true, true, _separatorNeedPaint);
@@ -3292,16 +3474,22 @@ namespace ComponentFactory.Krypton.Workspace
 
                         // Calculate the display rect for the item
                         if (seq.Orientation == Orientation.Vertical)
+                        {
                             info[i].DisplayRect = new Rectangle(client.X, client.Y + offset, client.Width, info[i].DisplaySpace);
+                        }
                         else
+                        {
                             info[i].DisplayRect = new Rectangle(client.X + offset, client.Y, info[i].DisplaySpace, client.Height);
+                        }
 
                         // Move over the cell
                         offset += info[i].DisplaySpace;
                         first = false;
                     }
                     else
+                    {
                         viewSeparator.Visible = false;
+                    }
                 }
             }
 
@@ -3312,8 +3500,7 @@ namespace ComponentFactory.Krypton.Workspace
                 if (info[i].WorkspaceItem != null)
                 {
                     // Is the child an actual control
-                    Control control = seq.Children[i] as Control;
-                    if (control != null)
+                    if (seq.Children[i] is Control control)
                     {
                         // If not already a child control then it should be!
                         if (!Controls.Contains(control))
@@ -3349,11 +3536,13 @@ namespace ComponentFactory.Krypton.Workspace
                         {
                             // If the item is a sequence, then position its contents inside the allocated area
                             if (seq.Children[i] is KryptonWorkspaceSequence)
+                            {
                                 LayoutSequenceNonMaximized(seq.Children[i] as KryptonWorkspaceSequence,
-                                                           info[i].DisplayRect,
-                                                           controls,
-                                                           separators,
-                                                           layoutContext);
+                                    info[i].DisplayRect,
+                                    controls,
+                                    separators,
+                                    layoutContext);
+                            }
                         }
                         else
                         {
@@ -3372,20 +3561,16 @@ namespace ComponentFactory.Krypton.Workspace
             for (int i = 0; i < sequence.Children.Count; i++)
             {
                 // Is the child an actual control
-                Control control = sequence.Children[i] as Control;
-                if (control != null)
+                switch (sequence.Children[i])
                 {
-                    // Note that this control is still needed
-                    controls.Add(control);
-                }
-                else
-                {
-                    // If not a control then it must be a sequence
-                    if (sequence.Children[i] is KryptonWorkspaceSequence)
-                    {
+                    case Control control:
+                        // Note that this control is still needed
+                        controls.Add(control);
+                        break;
+                    case KryptonWorkspaceSequence sequenceChild:
                         // Ensure we mark all the controls contained in the sequence as still needed
-                        LayoutSequenceIsHidden(sequence.Children[i] as KryptonWorkspaceSequence, controls);
-                    }
+                        LayoutSequenceIsHidden(sequenceChild, controls);
+                        break;
                 }
             }
         }
@@ -3398,12 +3583,15 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // If we find the target, then done
                 if (sequence.Children[i] == target)
+                {
                     return true;
+                }
 
                 // If child is a sequence then recurse into it
-                KryptonWorkspaceSequence child = sequence.Children[i] as KryptonWorkspaceSequence;
-                if ((child != null) && RecursiveSearchCellInSequence(child, target))
+                if ((sequence.Children[i] is KryptonWorkspaceSequence child) && RecursiveSearchCellInSequence(child, target))
+                {
                     return true;
+                }
             }
 
             return false;
@@ -3422,19 +3610,23 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 for (int i = index + 1; i < count; i++)
                 {
-                    if (sequence.Children[i] is KryptonWorkspaceCell)
+                    switch (sequence.Children[i])
                     {
-                        // Check that the visible state of the cell matches the find requirements
-                        KryptonWorkspaceCell cell = sequence.Children[i] as KryptonWorkspaceCell;
-                        if (!onlyVisible || cell.WorkspaceVisible)
-                            return cell;
-                    }
-                    else if (sequence.Children[i] is KryptonWorkspaceSequence)
-                    {
-                        // Search inside the sequence for the first leaf in the specified direction
-                        KryptonWorkspaceCell ret = RecursiveFindCellInSequence(sequence.Children[i] as KryptonWorkspaceSequence, forwards, onlyVisible);
-                        if (ret != null)
-                            return ret;
+                        case KryptonWorkspaceCell cell:
+                            // Check that the visible state of the cell matches the find requirements
+                            if (!onlyVisible || cell.WorkspaceVisible)
+                            {
+                                return cell;
+                            }
+                            break;
+                        case KryptonWorkspaceSequence child:
+                            // Search inside the sequence for the first leaf in the specified direction
+                            KryptonWorkspaceCell ret = RecursiveFindCellInSequence(child, forwards, onlyVisible);
+                            if (ret != null)
+                            {
+                                return ret;
+                            }
+                            break;
                     }
                 }
             }
@@ -3443,28 +3635,36 @@ namespace ComponentFactory.Krypton.Workspace
                 // Now try each entry before that given
                 for (int i = index - 1; i >= 0; i--)
                 {
-                    if (sequence.Children[i] is KryptonWorkspaceCell)
+                    switch (sequence.Children[i])
                     {
-                        // Check that the visible state of the cell matches the find requirements
-                        KryptonWorkspaceCell cell = sequence.Children[i] as KryptonWorkspaceCell;
-                        if (!onlyVisible || cell.WorkspaceVisible)
-                            return cell;
-                    }
-                    else if (sequence.Children[i] is KryptonWorkspaceSequence)
-                    {
-                        // Search inside the sequence for the first leaf in the specified direction
-                        KryptonWorkspaceCell ret = RecursiveFindCellInSequence(sequence.Children[i] as KryptonWorkspaceSequence, forwards, onlyVisible);
-                        if (ret != null)
-                            return ret;
+                        case KryptonWorkspaceCell cell:
+                            // Check that the visible state of the cell matches the find requirements
+                            if (!onlyVisible || cell.WorkspaceVisible)
+                            {
+                                return cell;
+                            }
+                            break;
+                        case KryptonWorkspaceSequence child:
+                            // Search inside the sequence for the first leaf in the specified direction
+                            KryptonWorkspaceCell ret = RecursiveFindCellInSequence(child, forwards, onlyVisible);
+                            if (ret != null)
+                            {
+                                return ret;
+                            }
+                            break;
                     }
                 }
             }
 
             // Still no luck, try our own parent
             if (sequence.WorkspaceParent != null)
+            {
                 return RecursiveFindCellInSequence(sequence.WorkspaceParent as KryptonWorkspaceSequence, sequence, forwards, onlyVisible);
+            }
             else
+            {
                 return null;
+            }
         }
 
         private KryptonWorkspaceCell RecursiveFindCellInSequence(KryptonWorkspaceSequence sequence, 
@@ -3476,21 +3676,25 @@ namespace ComponentFactory.Krypton.Workspace
             for (int i = 0; i < count; i++)
             {
                 // Index depends on which direction we are processing
-                int index = (forwards == true) ? i : (sequence.Children.Count - i - 1);
+                int index = forwards ? i : (sequence.Children.Count - i - 1);
 
-                if (sequence.Children[index] is KryptonWorkspaceCell)
+                switch (sequence.Children[index])
                 {
-                    // Check that the visible state of the cell matches the find requirements
-                    KryptonWorkspaceCell cell = sequence.Children[index] as KryptonWorkspaceCell;
-                    if (!onlyVisible || cell.WorkspaceVisible)
-                        return cell;
-                }
-                else if (sequence.Children[index] is KryptonWorkspaceSequence)
-                {
-                    // Search inside the sequence 
-                    KryptonWorkspaceCell ret = RecursiveFindCellInSequence(sequence.Children[index] as KryptonWorkspaceSequence, forwards, onlyVisible);
-                    if (ret != null)
-                        return ret;
+                    case KryptonWorkspaceCell cell:
+                        // Check that the visible state of the cell matches the find requirements
+                        if (!onlyVisible || cell.WorkspaceVisible)
+                        {
+                            return cell;
+                        }
+                        break;
+                    case KryptonWorkspaceSequence child:
+                        // Search inside the sequence 
+                        KryptonWorkspaceCell ret = RecursiveFindCellInSequence(child, forwards, onlyVisible);
+                        if (ret != null)
+                        {
+                            return ret;
+                        }
+                        break;
                 }
             }
 
@@ -3512,8 +3716,7 @@ namespace ComponentFactory.Krypton.Workspace
             before = null;
             for (int i = beforeSequence.Children.IndexOf(after) - 1; i >= 0; i--)
             {
-                IWorkspaceItem item = beforeSequence.Children[i] as IWorkspaceItem;
-                if ((item != null) && item.WorkspaceVisible)
+                if ((beforeSequence.Children[i] is IWorkspaceItem item) && item.WorkspaceVisible)
                 {
                     before = item;
                     break;
@@ -3540,12 +3743,16 @@ namespace ComponentFactory.Krypton.Workspace
             // How far can the separator move to shrink the before item
             moveBefore = beforeSize - beforeMin;
             if (afterMax > 0)
+            {
                 moveBefore = Math.Min(moveBefore, afterMax - afterSize);
+            }
 
             // How far can the separator move to shrink the after item
             moveAfter = afterSize - afterMin;
             if (beforeMax > 0)
+            {
                 moveAfter = Math.Min(moveAfter, beforeMax - beforeSize);
+            }
         }
 
         private CellList CopyToCellList()
@@ -3595,7 +3802,9 @@ namespace ComponentFactory.Krypton.Workspace
             while (cell != null)
             {
                 foreach(KryptonPage page in cell.Pages)
+                {
                     pages.Add(page);
+                }
 
                 cell = NextCell(cell);
             }
@@ -3628,9 +3837,13 @@ namespace ComponentFactory.Krypton.Workspace
             while (cell != null)
             {
                 if (visible)
+                {
                     cell.ShowAllPages(excludeType);
+                }
                 else
+                {
                     cell.HideAllPages(excludeType);
+                }
 
                 cell = NextCell(cell);
             }
@@ -3678,7 +3891,9 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // If there are no visible cells found in entire hierarchy
             if (!Root.Children.ContainsVisibleCell)
+            {
                 Root.Children.Add(new KryptonWorkspaceCell());
+            }
         }
 
         private void SetActiveCell(KryptonWorkspaceCell newCell)
@@ -3697,7 +3912,9 @@ namespace ComponentFactory.Krypton.Workspace
                 // If there is a maximized cell and it is no longer the active cell then we need 
                 // to remove the maximized cell setting to the newly active cell can be seen
                 if ((MaximizedCell != null) && (MaximizedCell != newCell))
+                {
                     MaximizedCell = null;
+                }
 
                 KryptonWorkspaceCell oldCell = _activeCell;
                 _activeCell = newCell;
@@ -3706,7 +3923,9 @@ namespace ComponentFactory.Krypton.Workspace
                 // Find the new active page
                 KryptonPage page = ActivePage;
                 if (_activeCell != null)
+                {
                     page = _activeCell.SelectedPage;
+                }
 
                 if (_activePage != page)
                 {
@@ -3783,7 +4002,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Ensure we have a krypton context menu if not already present
                 if (e.KryptonContextMenu == null)
+                {
                     e.KryptonContextMenu = new KryptonContextMenu();
+                }
 
                 // Update the individual menu options
                 _menuClose.Visible = CanClosePage(_menuPage);
@@ -3807,7 +4028,9 @@ namespace ComponentFactory.Krypton.Workspace
                 _menuSeparator5.Visible = (_menuClose.Visible || _menuSeparator2.Visible || _menuSeparator3.Visible) && _menuRebalance.Visible;
 
                 if (!e.KryptonContextMenu.Items.Contains(_menuItems))
+                {
                     e.KryptonContextMenu.Items.AddRange(new KryptonContextMenuItemBase[] { _menuSeparator1, _menuItems });
+                }
 
                 // Need to know when menu is removed so we can undo our actions
                 e.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnCellClosedContextMenu);
@@ -3829,7 +4052,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Must unreference the page/cell so they can be gargabe collected
             if (e.CloseReason != ToolStripDropDownCloseReason.ItemClicked)
+            {
                 ClearContextMenuCache();
+            }
         }
 
         private void OnCellCtrlTabWrap(object sender, CtrlTabCancelEventArgs e)
@@ -3851,11 +4076,15 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Do we need to wrap around?
                     if (next == null)
+                    {
                         next = (e.Forward ? FirstVisibleCell() : LastVisibleCell());
+                    }
 
                     // There should always be a valid cell to find, but just in case!
                     if (next == null)
+                    {
                         break;
+                    }
 
                     // If we manage to select a page then make its cell active and we are done
                     if ((e.Forward && next.SelectNextPage(null, false)) ||
@@ -3873,9 +4102,13 @@ namespace ComponentFactory.Krypton.Workspace
         private void OnSeparatorNeedsPaint(object sender, NeedLayoutEventArgs e)
         {
             if (e.InvalidRect.IsEmpty)
+            {
                 PerformNeedPaint(false);
+            }
             else
+            {
                 Invalidate(e.InvalidRect, false);
+            }
         }
 
         private void OnPageClose(object sender, EventArgs e)
@@ -3915,9 +4148,13 @@ namespace ComponentFactory.Krypton.Workspace
         private void OnPageMaximizeRestore(object sender, EventArgs e)
         {
             if (MaximizedCell != null)
+            {
                 MaximizedCell = null;
+            }
             else
+            {
                 MaximizedCell = _menuCell;
+            }
         }
 
         private void OnPageRebalance(object sender, EventArgs e)
@@ -3935,8 +4172,7 @@ namespace ComponentFactory.Krypton.Workspace
             SuspendActivePageChangedEvent();
 
             // Get the parent sequence the cell is inside
-            KryptonWorkspaceSequence parentSequence = cell.WorkspaceParent as KryptonWorkspaceSequence;
-            if (parentSequence != null)
+            if (cell.WorkspaceParent is KryptonWorkspaceSequence parentSequence)
             {
                 // Find position of cell inside its parent sequence
                 int index = parentSequence.Children.IndexOf(cell);
@@ -3958,10 +4194,12 @@ namespace ComponentFactory.Krypton.Workspace
                 else
                 {
                     // Split is in opposite direction so create a new sequence to replace the existing cell
-                    KryptonWorkspaceSequence newSequence = new KryptonWorkspaceSequence(orientation);
+                    KryptonWorkspaceSequence newSequence = new KryptonWorkspaceSequence(orientation)
+                    {
 
-                    // Put the same size into the sequence as was in the original cell
-                    newSequence.StarSize = cell.StarSize;
+                        // Put the same size into the sequence as was in the original cell
+                        StarSize = cell.StarSize
+                    };
 
                     // Move the existing cell and the new cell into the new sequence
                     parentSequence.Children.Remove(cell);
@@ -4008,22 +4246,32 @@ namespace ComponentFactory.Krypton.Workspace
         private Control GetActiverPageControlWithFocus()
         {
             if (ActivePage != null)
+            {
                 return GetControlWithFocus(ActivePage);
+            }
             else
+            {
                 return null;
+            }
         }
 
         private Control GetControlWithFocus(Control control)
         {
             // Does the provided control have the focus?
             if (control.Focused)
+            {
                 return control;
+            }
             else
             {
                 // Check each child hierarchy in turn
                 foreach (Control child in control.Controls)
+                {
                     if (child.ContainsFocus)
+                    {
                         return GetControlWithFocus(child);
+                    }
+                }
 
                 return null;
             }
@@ -4035,9 +4283,13 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Add each page that has a non-null unique name but only add the same unique name once
             foreach (KryptonPage page in pages)
+            {
                 if (!string.IsNullOrEmpty(page.UniqueName) && 
                     !dict.ContainsKey(page.UniqueName))
+                {
                     dict.Add(page.UniqueName, page);
+                }
+            }
 
             return dict;
         }
@@ -4051,14 +4303,18 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Move to the contained CData element
                 if (!xmlReader.Read())
+                {
                     throw new ArgumentException("An element was expected but could not be read in.");
+                }
 
                 // Load the image from the elements contained data
                 retImage = CommonHelper.XmlCDataToImage(xmlReader);
 
                 // Read past the end of optional element                   
                 if (!xmlReader.Read())
+                {
                     throw new ArgumentException("An element was expected but could not be read in.");
+                }
             }
 
             return retImage;

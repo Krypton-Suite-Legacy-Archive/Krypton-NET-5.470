@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteTextTrimConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteTextTrim.Inherit,              "Inherit"),
+        private Pair[] _pairs = { new Pair(PaletteTextTrim.Inherit,              "Inherit"),
                                              new Pair(PaletteTextTrim.Hide,                 "Hide"),
                                              new Pair(PaletteTextTrim.Character,            "Character"),
                                              new Pair(PaletteTextTrim.Word,                 "Word"),

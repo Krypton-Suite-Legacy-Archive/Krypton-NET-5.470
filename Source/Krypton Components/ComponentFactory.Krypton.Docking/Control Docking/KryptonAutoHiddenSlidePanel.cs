@@ -9,18 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Security;
 using System.Security.Permissions;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
@@ -38,11 +30,13 @@ namespace ComponentFactory.Krypton.Docking
                                                IMessageFilter
     {
         #region Static Fields
-        private static readonly int SLIDE_MINIMUM = 27;
-        private static readonly int SLIDE_DISTANCE = 16;
-        private static readonly int SLIDE_INTERVAL = 15;
-        private static readonly int CLIENT_MINIMUM = 22;
-        private static readonly int DISMISS_INTERVAL = 300;
+
+        private const int SLIDE_MINIMUM = 27;
+        private const int SLIDE_DISTANCE = 16;
+        private const int SLIDE_INTERVAL = 15;
+        private const int CLIENT_MINIMUM = 22;
+        private const int DISMISS_INTERVAL = 300;
+
         #endregion
 
         #region Instance Fields
@@ -132,20 +126,26 @@ namespace ComponentFactory.Krypton.Docking
             _checkMakeHidden = new EventHandler(OnCheckMakeHidden);
 
             // We need to a timer to automate sliding in and out
-            _slideTimer = new Timer();
-            _slideTimer.Interval = SLIDE_INTERVAL;
+            _slideTimer = new Timer
+            {
+                Interval = SLIDE_INTERVAL
+            };
             _slideTimer.Tick += new EventHandler(OnSlideTimerTick);
 
             // Timer used to delay between notification of need to slide inwards and performing actual slide
-            _dismissTimer = new Timer();
-            _dismissTimer.Interval = DISMISS_INTERVAL;
+            _dismissTimer = new Timer
+            {
+                Interval = DISMISS_INTERVAL
+            };
             _dismissTimer.Tick += new EventHandler(OnDismissTimerTick);
             _dismissRunning = false;
 
             // Create inner panel that holds the actual dockspace and separator
-            _dockspaceSlide = new KryptonDockspaceSlide();
-            _dockspaceSlide.Dock = DockStyle.Fill;
-            _dockspaceSlide.AutoHiddenHost = true;
+            _dockspaceSlide = new KryptonDockspaceSlide
+            {
+                Dock = DockStyle.Fill,
+                AutoHiddenHost = true
+            };
             _dockspaceSlide.PageCloseClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageCloseClicked);
             _dockspaceSlide.PageAutoHiddenClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
             _dockspaceSlide.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnDockspacePageDropDownClicked);
@@ -163,9 +163,11 @@ namespace ComponentFactory.Krypton.Docking
             Visible = false;
 
             // Add a Button that is not showing and used to push focus away from the dockspace
-            _dummyTarget = new Button();
-            _dummyTarget.Location = new Point(-200, -200);
-            _dummyTarget.Size = new Size(100, 100);
+            _dummyTarget = new Button
+            {
+                Location = new Point(-200, -200),
+                Size = new Size(100, 100)
+            };
             Controls.Add(_dummyTarget);
             
             // Add ourself into the target control for docking
@@ -266,7 +268,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // If we are processing any page then instantly remove it
             if (_page != null)
+            {
                 MakeHidden();
+            }
         }
 
         /// <summary>
@@ -277,7 +281,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // If we are processing the provided page then instantly remove it
             if ((_page != null) && (_page.UniqueName == uniqueName))
+            {
                 MakeHidden();
+            }
         }
 
         /// <summary>
@@ -290,7 +296,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Check to see if we allowed to perform operations
             if (Disposing || IsDisposed)
+            {
                 return;
+            }
 
             // Move to the hidden state
             switch (_state)
@@ -391,7 +399,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Check to see if we allowed to perform operations
             if (Disposing || IsDisposed)
+            {
                 return;
+            }
 
             // Action to take depends on current state
             switch (_state)
@@ -431,7 +441,10 @@ namespace ComponentFactory.Krypton.Docking
 
                         // Update the page with the new size to use in the future
                         if (_page != null)
+                        {
                             _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width + width, _page.AutoHiddenSlideSize.Height);
+                        }
+
                         break;
                     case DockingEdge.Right:
                         _endRect.X += width;
@@ -441,7 +454,10 @@ namespace ComponentFactory.Krypton.Docking
 
                         // Update the page with the new size to use in the future
                         if (_page != null)
+                        {
                             _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width - width, _page.AutoHiddenSlideSize.Height);
+                        }
+
                         break;
                     case DockingEdge.Top:
                         _endRect.Height += width;
@@ -450,7 +466,10 @@ namespace ComponentFactory.Krypton.Docking
 
                         // Update the page with the new size to use in the future
                         if (_page != null)
+                        {
                             _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width, _page.AutoHiddenSlideSize.Height + height);
+                        }
+
                         break;
                     case DockingEdge.Bottom:
                         _endRect.Y += height;
@@ -460,7 +479,10 @@ namespace ComponentFactory.Krypton.Docking
 
                         // Update the page with the new size to use in the future
                         if (_page != null)
+                        {
                             _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width, _page.AutoHiddenSlideSize.Height - height);
+                        }
+
                         break;
                 }
             }
@@ -475,7 +497,7 @@ namespace ComponentFactory.Krypton.Docking
         public bool PreFilterMessage(ref Message msg)
         {
             Form parentForm = this.FindForm();
-            Form parentMdi = (parentForm != null ? parentForm.MdiParent : null);
+            Form parentMdi = (parentForm?.MdiParent);
 
             // Only interested in snooping messages if....
             //    The Form we are inside is the active form                             AND
@@ -538,13 +560,15 @@ namespace ComponentFactory.Krypton.Docking
                         if (_mouseTrackWindow != msg.HWnd)
                         {
                             _mouseTrackWindow = msg.HWnd;
-                            
+
                             // This structure needs to know its own size in bytes
-                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS();
-                            tme.cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS));
-                            tme.dwHoverTime = 100;
-                            tme.dwFlags = (int)(PI.TME_LEAVE);
-                            tme.hWnd = Handle;
+                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS
+                            {
+                                cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
+                                dwHoverTime = 100,
+                                dwFlags = (int)(PI.TME_LEAVE),
+                                hWnd = Handle
+                            };
 
                             // Call Win32 API to start tracking
                             PI.TrackMouseEvent(ref tme);
@@ -569,7 +593,9 @@ namespace ComponentFactory.Krypton.Docking
             // that is the cause of the leave event. Plus the focus might enter here again before the
             // next windows message.
             if (IsHandleCreated)
+            {
                 BeginInvoke(_checkMakeHidden);
+            }
 
             base.OnLeave(e);
         }
@@ -710,7 +736,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Do we still need to make ourself hidden?
             if (!ContainsFocus)
+            {
                 MakeHidden();
+            }
         }
 
         private void OnSlideTimerTick(object sender, EventArgs e)
@@ -820,7 +848,9 @@ namespace ComponentFactory.Krypton.Docking
                         SetBounds(newSlideLocation.X, newSlideLocation.Y, newSlideSize.Width, newSlideSize.Height);
 
                         if (finished)
+                        {
                             MakeHidden();
+                        }
                     }
                     break;
             }
@@ -871,7 +901,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Check to see if we allowed to perform operations
             if (Disposing || IsDisposed)
+            {
                 return;
+            }
 
             // No longer need the lose focus because we have been notified
             DockspaceControl.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
@@ -898,14 +930,12 @@ namespace ComponentFactory.Krypton.Docking
 
         private void OnDockspaceSeparatorMoving(object sender, SplitterCancelEventArgs e)
         {
-            if (SplitterMoving != null)
-                SplitterMoving(sender, e);
+            SplitterMoving?.Invoke(sender, e);
         }
 
         private void OnDockspaceSeparatorMoved(object sender, SplitterEventArgs e)
         {
-            if (SplitterMoved != null)
-                SplitterMoved(sender, e);
+            SplitterMoved?.Invoke(sender, e);
         }
 
         private void OnDockspaceSeparatorMoveRect(object sender, SplitterMoveRectMenuArgs e)
@@ -916,37 +946,31 @@ namespace ComponentFactory.Krypton.Docking
                 Application.DoEvents();
             }
 
-            if (SplitterMoveRect != null)
-                SplitterMoveRect(sender, e);
+            SplitterMoveRect?.Invoke(sender, e);
         }
 
         private void OnDockspacePageCloseClicked(object sender, UniqueNameEventArgs e)
         {
-            if (PageCloseClicked != null)
-                PageCloseClicked(sender, e);
+            PageCloseClicked?.Invoke(sender, e);
         }
 
         private void OnDockspacePageAutoHiddenClicked(object sender, UniqueNameEventArgs e)
         {
-            if (PageAutoHiddenClicked != null)
-                PageAutoHiddenClicked(sender, e);
+            PageAutoHiddenClicked?.Invoke(sender, e);
         }
 
         private void OnDockspacePageDropDownClicked(object sender, CancelDropDownEventArgs e)
         {
             // Click the drop down button should cause the slide out to be focused so that it
             // does not slide back again if you move the mouse away from the slide out area
-            if (_dockspaceSlide != null)
-                _dockspaceSlide.Select();
+            _dockspaceSlide?.Select();
 
-            if (PageDropDownClicked != null)
-                PageDropDownClicked(sender, e);
+            PageDropDownClicked?.Invoke(sender, e);
         }
 
         private void OnAutoHiddenShowingStateChanged(AutoHiddenShowingStateEventArgs e)
         {
-            if (AutoHiddenShowingStateChanged != null)
-                AutoHiddenShowingStateChanged(this, e);
+            AutoHiddenShowingStateChanged?.Invoke(this, e);
         }
         #endregion
     }

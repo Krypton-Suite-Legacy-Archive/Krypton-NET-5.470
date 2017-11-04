@@ -10,9 +10,7 @@
 
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -58,9 +56,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Add(Control value)
         {
             if (AllowRemoveInternal)
+            {
                 base.Add(value);
+            }
             else
+            {
                 throw new NotSupportedException("ReadOnly controls collection");
+            }
         }
 
         /// <summary>
@@ -70,9 +72,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void AddRange(Control[] controls)
         {
             if (AllowRemoveInternal)
+            {
                 base.AddRange(controls);
+            }
             else
+            {
                 throw new NotSupportedException("ReadOnly controls collection");
+            }
         }
 
         /// <summary>
@@ -82,11 +88,15 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Remove(Control value)
         {
             if (AllowRemoveInternal)
+            {
                 base.Remove(value);
+            }
             else
             {
                 if (Contains(value))
+                {
                     throw new NotSupportedException("ReadOnly controls collection");
+                }
             }
         }
 
@@ -97,11 +107,15 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void RemoveByKey(string key)
         {
             if (AllowRemoveInternal)
+            {
                 base.RemoveByKey(key);
+            }
             else
             {
                 if (ContainsKey(key))
+                {
                     throw new NotSupportedException("ReadOnly controls collection");
+                }
             }
         }
 
@@ -111,11 +125,15 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Clear()
         {
             if (AllowRemoveInternal)
+            {
                 base.Clear();
+            }
             else
             {
                 if (Count > 0)
+                {
                     throw new NotSupportedException("ReadOnly controls collection");
+                }
             }
         }
         #endregion

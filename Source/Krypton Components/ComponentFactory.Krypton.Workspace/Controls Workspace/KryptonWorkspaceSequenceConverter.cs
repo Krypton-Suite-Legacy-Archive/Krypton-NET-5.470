@@ -9,14 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Workspace
 {
@@ -35,7 +28,9 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // Can always convert to a string representation
             if (destinationType == typeof(string))
+            {
                 return true;
+            }
 
             // Let base class do standard processing
             return base.CanConvertTo(context, destinationType);

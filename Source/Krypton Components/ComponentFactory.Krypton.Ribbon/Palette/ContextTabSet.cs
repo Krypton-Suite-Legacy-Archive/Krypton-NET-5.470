@@ -8,9 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -103,7 +101,9 @@ namespace ComponentFactory.Krypton.Ribbon
             Point ret = new Point(_firstTab.ClientLocation.X - 1, _firstTab.ClientLocation.Y);
 
             if (_firstTab.OwningControl != null)
+            {
                 ret = _firstTab.OwningControl.PointToScreen(ret);
+            }
 
             return ret;
         }
@@ -117,7 +117,9 @@ namespace ComponentFactory.Krypton.Ribbon
             Point ret = new Point(_lastTab.ClientRectangle.Right + 1, _lastTab.ClientLocation.Y);
 
             if (_lastTab.OwningControl != null)
+            {
                 ret = _lastTab.OwningControl.PointToScreen(ret);
+            }
 
             return ret;
         }
@@ -173,8 +175,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Search for a context with the same name as that requested.
                 foreach (ContextTabSet context in this)
+                {
                     if (context.ContextName == name)
+                    {
                         return context;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[name];

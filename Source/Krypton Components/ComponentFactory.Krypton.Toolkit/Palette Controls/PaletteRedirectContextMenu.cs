@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -56,7 +50,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetContextMenuCheckedImage();
+            }
 
             return retImage;
         }
@@ -71,7 +67,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetContextMenuIndeterminateImage();
+            }
 
             return retImage;
         }
@@ -86,7 +84,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = Target.GetContextMenuSubMenuImage();
+            }
 
             return retImage;
         }

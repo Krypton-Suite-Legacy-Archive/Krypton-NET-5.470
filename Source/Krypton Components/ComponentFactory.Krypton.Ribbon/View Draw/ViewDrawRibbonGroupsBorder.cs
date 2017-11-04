@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -97,7 +94,9 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_ribbon == null)
+                {
                     return Padding.Empty;
+                }
 
                 switch (_ribbon.RibbonShape)
                 {
@@ -227,7 +226,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -243,7 +244,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -259,7 +262,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -275,7 +280,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -291,7 +298,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If empty then try and recover the context specific color
             if (retColor == Color.Empty)
+            {
                 retColor = CheckForContextColor(state);
+            }
 
             return retColor;
         }
@@ -319,20 +328,17 @@ namespace ComponentFactory.Krypton.Ribbon
         private Color CheckForContextColor(PaletteState state)
         {
             // We need an associated ribbon tab
-            if (Ribbon.SelectedTab != null)
+            // Does the ribbon tab have a context setting?
+            if (!string.IsNullOrEmpty(Ribbon.SelectedTab?.ContextName))
             {
-                // Does the ribbon tab have a context setting?
-                if (!string.IsNullOrEmpty(Ribbon.SelectedTab.ContextName))
-                {
-                    // Find the context definition for this context
-                    KryptonRibbonContext ribbonContext = Ribbon.RibbonContexts[Ribbon.SelectedTab.ContextName];
+                // Find the context definition for this context
+                KryptonRibbonContext ribbonContext = Ribbon.RibbonContexts[Ribbon.SelectedTab.ContextName];
 
-                    // Should always work, but you never know!
-                    if (ribbonContext != null)
-                    {
-                        // Return the context specific color
-                        return ribbonContext.ContextColor;
-                    }
+                // Should always work, but you never know!
+                if (ribbonContext != null)
+                {
+                    // Return the context specific color
+                    return ribbonContext.ContextColor;
                 }
             }
 

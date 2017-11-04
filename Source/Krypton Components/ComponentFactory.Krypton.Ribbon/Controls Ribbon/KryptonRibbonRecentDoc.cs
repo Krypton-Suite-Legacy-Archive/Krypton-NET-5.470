@@ -9,14 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -78,10 +72,14 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "Recent Document";
+                }
 
                 if (value != _text)
+                {
                     _text = value;
+                }
             }
         }
 
@@ -101,7 +99,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (value != _extraText)
+                {
                     _extraText = value;
+                }
             }
         }
 
@@ -121,7 +121,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (_image != value)
+                {
                     _image = value;
+                }
             }
         }
 
@@ -140,7 +142,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (value != _imageTransparentColor)
+                {
                     _imageTransparentColor = value;
+                }
             }
         }
 
@@ -158,7 +162,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (value != _tag)
+                {
                     _tag = value;
+                }
             }
         }
 
@@ -188,8 +194,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnClick(EventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
         #endregion
     }

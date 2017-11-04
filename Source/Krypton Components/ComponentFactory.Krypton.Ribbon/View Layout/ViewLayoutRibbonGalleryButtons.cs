@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -77,9 +73,12 @@ namespace ComponentFactory.Krypton.Ribbon
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
-            // We take on all the available display area
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+		    // We take on all the available display area
 			ClientRectangle = context.DisplayRectangle;
 
             // Layout children from top to bottom with equal height and the total width

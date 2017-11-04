@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -54,8 +50,10 @@ namespace ComponentFactory.Krypton.Toolkit
             bool enabled = provider.ProviderEnabled;
 
             // Always assume there is a first row of colors
-            ViewLayoutStack fillStack = new ViewLayoutStack(false);
-            fillStack.Add(CreateColumns(provider, colorColumns, colors, 0, 1, enabled));
+            ViewLayoutStack fillStack = new ViewLayoutStack(false)
+            {
+                CreateColumns(provider, colorColumns, colors, 0, 1, enabled)
+            };
 
             // If there are other rows to show
             if (rows > 1)
@@ -85,9 +83,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _innerDocker.Add(new ViewLayoutSeparator(2), ViewDockStyle.Right);
 
             // Use outer docker so that any extra space not needed is used by the null
-            _outerDocker = new ViewLayoutDocker();
-            _outerDocker.Add(_innerDocker, ViewDockStyle.Top);
-            _outerDocker.Add(new ViewLayoutNull(), ViewDockStyle.Fill);
+            _outerDocker = new ViewLayoutDocker
+            {
+                { _innerDocker, ViewDockStyle.Top },
+                { new ViewLayoutNull(), ViewDockStyle.Fill }
+            };
 
             // Add docker as the composite content
             Add(_outerDocker);
@@ -140,15 +140,19 @@ namespace ComponentFactory.Krypton.Toolkit
                                               bool enabled)
         {
             // Create a horizontal stack of columns
-            ViewLayoutStack columns = new ViewLayoutStack(true);
-            columns.FillLastChild = false;
-            
+            ViewLayoutStack columns = new ViewLayoutStack(true)
+            {
+                FillLastChild = false
+            };
+
             // Add each color column
             for (int i = 0; i < colors.Length; i++)
             {
                 // Use a separator between each column
                 if (i > 0)
+                {
                     columns.Add(new ViewLayoutSeparator(4));
+                }
 
                 // Add container for the column, this draws the background
                 ViewDrawMenuColorColumn colorColumn = new ViewDrawMenuColorColumn(provider, colorColumns, colors[i], start, end, enabled);

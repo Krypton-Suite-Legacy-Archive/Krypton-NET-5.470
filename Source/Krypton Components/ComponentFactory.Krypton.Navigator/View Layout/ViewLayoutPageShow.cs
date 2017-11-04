@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -81,13 +76,17 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Grab the selected pages minimum size
                 if (_navigator.SelectedPage != null)
+                {
                     ret = _navigator.SelectedPage.MinimumSize;
+                }
             }
             else
             {
                 // Is there a selected page?
                 if (_navigator.SelectedPage != null)
+                {
                     ret = _navigator.SelectedPage.GetPreferredSize(Size.Empty);
+                }
             }
 
             return ret;

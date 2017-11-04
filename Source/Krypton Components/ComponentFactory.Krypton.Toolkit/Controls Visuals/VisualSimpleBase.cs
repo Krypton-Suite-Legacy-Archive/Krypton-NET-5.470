@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -57,8 +54,10 @@ namespace ComponentFactory.Krypton.Toolkit
 					// Only perform an immediate layout if
 					// currently performing auto size operations
 					if (AutoSize)
-						PerformNeedPaint(true);
-				}
+                    {
+                        PerformNeedPaint(true);
+                    }
+                }
 			}
 		}
 
@@ -76,12 +75,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0) retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0) retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
 			}

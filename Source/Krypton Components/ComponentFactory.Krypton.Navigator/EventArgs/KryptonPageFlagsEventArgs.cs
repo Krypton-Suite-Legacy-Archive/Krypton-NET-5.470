@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Navigator
 {

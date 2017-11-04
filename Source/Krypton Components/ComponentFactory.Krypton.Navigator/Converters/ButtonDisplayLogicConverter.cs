@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -21,7 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class ButtonDisplayLogicConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(ButtonDisplayLogic.None,                  "None"),
+        private Pair[] _pairs = { new Pair(ButtonDisplayLogic.None,                  "None"),
                                              new Pair(ButtonDisplayLogic.Context,               "Context"),
                                              new Pair(ButtonDisplayLogic.NextPrevious,          "Next/Previous"),
                                              new Pair(ButtonDisplayLogic.ContextNextPrevious,   "Context & Next/Previous") };

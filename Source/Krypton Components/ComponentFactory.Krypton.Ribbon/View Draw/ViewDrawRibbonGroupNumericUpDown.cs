@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -27,7 +24,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                                       IRibbonViewGroupItemView
     {
         #region Static Fields
-        private static readonly int NULL_CONTROL_WIDTH = 50;
+
+        private const int NULL_CONTROL_WIDTH = 50;
+
         #endregion
 
         #region Instance Fields
@@ -166,9 +165,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 (_ribbonNumericUpDown.LastNumericUpDown != null) &&
                 (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown != null) &&
                 (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
+            {
                 return this;
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -183,9 +186,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 (_ribbonNumericUpDown.LastNumericUpDown != null) &&
                 (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown != null) &&
                 (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
+            {
                 return this;
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -298,12 +305,18 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
             else
+            {
                 preferredSize.Width = NULL_CONTROL_WIDTH;
+            }
 
             if (_currentSize == GroupItemSize.Large)
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
+            }
             else
+            {
                 preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
+            }
 
             return preferredSize;
         }
@@ -323,13 +336,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!context.ViewManager.DoNotLayoutControls)
             {
                 // If we have an actual control, position it with a pixel padding all around
-                if (LastNumericUpDown != null)
-                {
-                    LastNumericUpDown.SetBounds(ClientLocation.X + 1,
-                                                ClientLocation.Y + 1,
-                                                ClientWidth - 2,
-                                                ClientHeight - 2);
-                }
+                LastNumericUpDown?.SetBounds(ClientLocation.X + 1,
+                    ClientLocation.Y + 1,
+                    ClientWidth - 2,
+                    ClientHeight - 2);
             }
 
             // Let child elements layout in given space
@@ -387,7 +397,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -401,7 +413,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnNumericUpDownPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             bool updateLayout = false;
-            bool updatePaint = false;
+            const bool UPDATE_PAINT = false;
 
             switch (e.PropertyName)
             {
@@ -428,7 +440,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
 
-            if (updatePaint)
+            if (UPDATE_PAINT)
+#pragma warning disable 162
             {
                 // If this button is actually defined as visible...
                 if (_ribbonNumericUpDown.Visible || _ribbon.InDesignMode)
@@ -442,6 +455,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
             }
+#pragma warning restore 162
         }
 
         private Control LastParentControl
@@ -555,7 +569,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only visible if on the currently selected page
                     if ((_ribbonNumericUpDown.RibbonTab == null) ||
                         (_ribbon.SelectedTab != _ribbonNumericUpDown.RibbonTab))
+                    {
                         visible = false;
+                    }
                     else
                     {
                         // Check the owning group is visible
@@ -563,14 +579,18 @@ namespace ComponentFactory.Krypton.Ribbon
                             (_ribbonNumericUpDown.RibbonContainer.RibbonGroup != null) &&
                             !_ribbonNumericUpDown.RibbonContainer.RibbonGroup.Visible &&
                             !_ribbon.InDesignMode)
+                        {
                             visible = false;
+                        }
                         else
                         {
                             // Check that the group is not collapsed
                             if ((_ribbonNumericUpDown.RibbonContainer.RibbonGroup.IsCollapsed) &&
                                 ((_ribbon.GetControllerControl(_ribbonNumericUpDown.NumericUpDown) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(_ribbonNumericUpDown.NumericUpDown) is VisualPopupMinimized)))
+                            {
                                 visible = false;
+                            }
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
@@ -619,9 +639,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Keep going till we get to the top or find a group
             while (parent != null)
             {
-                if (parent is ViewDrawRibbonGroup)
+                if (parent is ViewDrawRibbonGroup ribGroup)
                 {
-                    _activeGroup = (ViewDrawRibbonGroup)parent;
+                    _activeGroup = ribGroup;
                     break;
                 }
 

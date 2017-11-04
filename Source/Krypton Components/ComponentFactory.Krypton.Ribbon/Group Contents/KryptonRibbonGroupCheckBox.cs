@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -138,7 +134,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We never allow an empty text value
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "CheckBox";
+                }
 
                 if (value != _textLine1)
                 {
@@ -186,7 +184,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "C";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -276,7 +276,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Generate events
                     if (checkedChanged)
+                    {
                         OnCheckedChanged(EventArgs.Empty);
+                    }
 
                     OnCheckStateChanged(EventArgs.Empty);
                 }
@@ -459,13 +461,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_command != value)
                 {
                     if (_command != null)
+                    {
                         _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     _command = value;
                     OnPropertyChanged("KryptonCommand");
 
                     if (_command != null)
+                    {
                         _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
                 }
             }
         }
@@ -616,9 +622,13 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Find current state
                         CheckState checkState = CheckState.Unchecked;
                         if (KryptonCommand != null)
+                        {
                             checkState = KryptonCommand.CheckState;
+                        }
                         else
+                        {
                             checkState = CheckState;
+                        }
 
                         // Find new state based on the current state
                         switch (checkState)
@@ -636,9 +646,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // Push back the change to the attached command
                         if (KryptonCommand != null)
+                        {
                             KryptonCommand.CheckState = checkState;
+                        }
                         else
+                        {
                             CheckState = checkState;
+                        }
                     }
 
                     // In showing a popup we fire the delegate before the click so that the
@@ -647,25 +661,27 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (VisualPopupManager.Singleton.CurrentPopup != null)
                     {
                         // Do we need to fire a delegate stating the click processing has finished?
-                        if (fireDelegate && (finishDelegate != null))
-                            finishDelegate(this, EventArgs.Empty);
+                        if (fireDelegate)
+                        {
+                            finishDelegate?.Invoke(this, EventArgs.Empty);
+                        }
 
                         fireDelegate = false;
                     }
 
                     // Generate actual click event
-                    if (Click != null)
-                        Click(this, EventArgs.Empty);
+                    Click?.Invoke(this, EventArgs.Empty);
 
                     // Clicking the button should execute the associated command
-                    if (KryptonCommand != null)
-                        KryptonCommand.PerformExecute();
+                    KryptonCommand?.PerformExecute();
                 }
             }
 
             // Do we need to fire a delegate stating the click processing has finished?
-            if (fireDelegate && (finishDelegate != null))
-                finishDelegate(this, EventArgs.Empty);
+            if (fireDelegate)
+            {
+                finishDelegate?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -674,8 +690,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -684,8 +699,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckStateChanged(EventArgs e)
         {
-            if (CheckStateChanged != null)
-                CheckStateChanged(this, e);
+            CheckStateChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -694,16 +708,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)

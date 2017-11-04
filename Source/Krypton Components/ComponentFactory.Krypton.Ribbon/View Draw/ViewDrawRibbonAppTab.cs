@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -78,8 +74,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_mementos != null)
                 {
                     foreach (IDisposable memento in _mementos)
-                        if (memento != null)
-                            memento.Dispose();
+                    {
+                        memento?.Dispose();
+                    }
 
                     _mementos = null;
                 }

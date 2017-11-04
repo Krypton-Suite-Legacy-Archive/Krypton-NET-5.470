@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -78,14 +75,20 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // If the current target no longer matches the new point, we need a new target.
             if ((target != null) && !target.IsMatch(screenPt, PageDragEndData))
+            {
                 target = null;
+            }
 
             // Only find a new target if we do not already have a target
             if (target == null)
+            {
                 target = FindTarget(screenPt, PageDragEndData);
+            }
 
             if (_solid != null)
+            {
                 _solid.SolidRect = (target != null) ? target.DrawRect : Rectangle.Empty;
+            }
 
             return target;
         }
@@ -116,8 +119,12 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Ask each target in turn if they are a match for the given screen point
             foreach (DragTarget target in DragTargets)
+            {
                 if (target.IsMatch(screenPt, dragEndData))
+                {
                     return target;
+                }
+            }
 
             // Nothing matches
             return null;

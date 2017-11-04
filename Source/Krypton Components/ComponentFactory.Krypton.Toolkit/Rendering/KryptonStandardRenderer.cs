@@ -8,15 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -40,15 +32,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ToolStripItemTextRenderEventArgs that contains the event data.</param>
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
-            if (e.ToolStrip is MenuStrip)
-                e.TextColor = KCT.MenuStripText;
-            else if (e.ToolStrip is StatusStrip)
-                e.TextColor = KCT.StatusStripText;
-            else if ((e.ToolStrip is ContextMenuStrip) ||
-                     (e.ToolStrip is ToolStripDropDown))
-                e.TextColor = KCT.MenuItemText;
-            else if (e.ToolStrip is ToolStrip)
-                e.TextColor = KCT.ToolStripText;
+            switch (e.ToolStrip)
+            {
+                case MenuStrip _:
+                    e.TextColor = KCT.MenuStripText;
+                    break;
+                case StatusStrip _:
+                    e.TextColor = KCT.StatusStripText;
+                    break;
+                case ContextMenuStrip _:
+                case ToolStripDropDown _:
+                    e.TextColor = KCT.MenuItemText;
+                    break;
+                case ToolStrip _:
+                    e.TextColor = KCT.ToolStripText;
+                    break;
+            }
 
             base.OnRenderItemText(e);
         }
@@ -62,22 +61,28 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
         {
             // Make sure the font is current
-            if ((e.ToolStrip is MenuStrip) ||
-                (e.ToolStrip is ContextMenuStrip) ||
-                (e.ToolStrip is ToolStripDropDown))
+            switch (e.ToolStrip)
             {
-                if (e.ToolStrip.Font != KCT.MenuStripFont)
-                    e.ToolStrip.Font = KCT.MenuStripFont;
-            }
-            else if (e.ToolStrip is StatusStrip)
-            {
-                if (e.ToolStrip.Font != KCT.StatusStripFont)
-                    e.ToolStrip.Font = KCT.StatusStripFont;
-            }
-            else if (e.ToolStrip is ToolStrip)
-            {
-                if (e.ToolStrip.Font != KCT.ToolStripFont)
-                    e.ToolStrip.Font = KCT.ToolStripFont;
+                case MenuStrip _:
+                case ContextMenuStrip _:
+                case ToolStripDropDown _:
+                    if (e.ToolStrip.Font != KCT.MenuStripFont)
+                    {
+                        e.ToolStrip.Font = KCT.MenuStripFont;
+                    }
+                    break;
+                case StatusStrip _:
+                    if (e.ToolStrip.Font != KCT.StatusStripFont)
+                    {
+                        e.ToolStrip.Font = KCT.StatusStripFont;
+                    }
+                    break;
+                case ToolStrip _:
+                    if (e.ToolStrip.Font != KCT.ToolStripFont)
+                    {
+                        e.ToolStrip.Font = KCT.ToolStripFont;
+                    }
+                    break;
             }
 
             base.OnRenderToolStripBackground(e);

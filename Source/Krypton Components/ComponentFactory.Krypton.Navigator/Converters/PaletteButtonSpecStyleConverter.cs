@@ -8,8 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -20,7 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class PaletteNavButtonSpecStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteNavButtonSpecStyle.Generic,            "Generic"),
+        private Pair[] _pairs = { new Pair(PaletteNavButtonSpecStyle.Generic,            "Generic"),
                                              new Pair(PaletteNavButtonSpecStyle.ArrowLeft,          "Arrow Left"),
                                              new Pair(PaletteNavButtonSpecStyle.ArrowRight,         "Arrow Right"),
                                              new Pair(PaletteNavButtonSpecStyle.ArrowUp,            "Arrow Up"),

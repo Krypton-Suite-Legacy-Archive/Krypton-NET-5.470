@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -57,8 +56,14 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             switch (e.KeyCode)
             {
@@ -100,8 +105,14 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             _viewManager.KeyMnemonic(e.KeyChar);
         }

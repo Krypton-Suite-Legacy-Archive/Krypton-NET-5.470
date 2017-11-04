@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -124,9 +120,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Font GetContentShortTextFont(PaletteState state)
         {
             if (_cellStyle != null)
+            {
                 return _cellStyle.Font;
+            }
             else
+            {
                 return SystemFonts.DefaultFont;
+            }
         }
 
         /// <summary>
@@ -137,9 +137,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Font GetContentShortTextNewFont(PaletteState state)
         {
             if (_cellStyle != null)
+            {
                 return _cellStyle.Font;
+            }
             else
+            {
                 return SystemFonts.DefaultFont;
+            }
         }
 
 		/// <summary>

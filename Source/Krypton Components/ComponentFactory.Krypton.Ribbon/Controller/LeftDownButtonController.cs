@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -61,8 +60,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _target = target;
             _needPaint = needPaint;
 
-            _updateTimer = new Timer();
-            _updateTimer.Interval = 1;
+            _updateTimer = new Timer
+            {
+                Interval = 1
+            };
             _updateTimer.Tick += new EventHandler(OnUpdateTimer);
         }
 		#endregion
@@ -157,7 +158,9 @@ namespace ComponentFactory.Krypton.Ribbon
                       (CommonHelper.ActiveFloatingWindow != null);
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
 
         /// <summary>
@@ -233,7 +236,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _mouseOver = false;
 
             if (!_fixedPressed)
+            {
                 _updateTimer.Start();
+            }
         }
 
         /// <summary>
@@ -267,14 +272,20 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Are we showing with the fixed state?
                 if (_fixedPressed)
+                {
                     newState = PaletteState.Pressed;
+                }
                 else
                 {
                     // If being pressed
                     if (_mouseDown)
+                    {
                         newState = PaletteState.Pressed;
+                    }
                     else if (_mouseOver && _active)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                 }
             }
 
@@ -289,7 +300,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Get the repaint to happen immediately
                 if (!_ribbon.InKeyboardMode)
+                {
                     Application.DoEvents();
+                }
             }
         }
 
@@ -301,8 +314,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected virtual void OnNeedPaint(bool needLayout,
                                            Rectangle invalidRect)
         {
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout, invalidRect));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, invalidRect));
         }
 
         /// <summary>
@@ -311,8 +323,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnClick(MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
         #endregion
 

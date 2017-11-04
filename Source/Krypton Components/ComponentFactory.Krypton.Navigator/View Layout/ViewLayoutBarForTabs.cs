@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -129,9 +124,13 @@ namespace ComponentFactory.Krypton.Navigator
             
             // Use tab style to decide what order the children are drawn in
             if (context.Renderer.RenderTabBorder.GetTabBorderLeftDrawing(TabBorderStyle))
+            {
                 orderedChildren = this;
+            }
             else
+            {
                 orderedChildren = this.Reverse();
+            }
 
             // Ask each child to render in turn
             foreach (ViewBase child in orderedChildren)
@@ -140,25 +139,26 @@ namespace ComponentFactory.Krypton.Navigator
                 if (child.Visible && child.ClientRectangle.IntersectsWith(context.ClipRect))
                 {
                     // If this is a page representation that can overlap group border
-                    if ((child is ViewDrawNavCheckButtonBar) ||
-                        (child is ViewDrawNavRibbonTab))
+                    ViewDrawNavCheckButtonBar buttonBar = child as ViewDrawNavCheckButtonBar;
+                    ViewDrawNavRibbonTab tab = child as ViewDrawNavRibbonTab;
+                    if ((buttonBar != null) ||
+                        (tab != null))
                     {
-                        bool itemChecked;
-
-                        if (child is ViewDrawNavCheckButtonBar)
-                            itemChecked = ((ViewDrawNavCheckButtonBar)child).Checked;
-                        else
-                            itemChecked = ((ViewDrawNavRibbonTab)child).Checked;
+                        bool itemChecked = buttonBar?.Checked ?? tab.Checked;
 
                         // Are we allowed to draw the checked item?
                         if ((!itemChecked && !drawChecked) ||
                             (itemChecked && drawChecked))
+                        {
                             child.Render(context);
+                        }
                     }
                     else
                     {
                         if (!drawChecked)
+                        {
                             child.Render(context);
+                        }
                     }
                 }
             }

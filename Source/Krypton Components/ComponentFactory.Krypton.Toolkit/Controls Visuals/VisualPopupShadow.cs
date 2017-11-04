@@ -9,17 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Collections.Generic;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -29,7 +21,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class VisualPopupShadow : Form
     {
         #region Static Fields
-        private static readonly int SHADOW_SIZE = 3;
+
+        private const int SHADOW_SIZE = 3;
         private static readonly Brush[] _brushes;
         #endregion
 
@@ -72,7 +65,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 ClearPaths();
+            }
 
             base.Dispose(disposing);
         }
@@ -153,9 +148,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnPaint(PaintEventArgs e)
         {
             if ((_path1 != null) && (_path2 != null) && (_path3 != null))
+            {
                 DrawPaths(e.Graphics);
+            }
             else
+            {
                 DrawShadow(e.Graphics, ClientRectangle);
+            }
         }
         #endregion
 

@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -84,8 +78,7 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     _pageButtonSpecInset = value;
 
-                    if (_navigator != null)
-                        _navigator.OnViewBuilderPropertyChanged("PageButtonSpecInset");
+                    _navigator?.OnViewBuilderPropertyChanged("PageButtonSpecInset");
                 }
             }
         }
@@ -116,8 +109,7 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     _pageButtonSpecPadding = value;
 
-                    if (_navigator != null)
-                        _navigator.OnViewBuilderPropertyChanged("PageButtonSpecPadding");
+                    _navigator?.OnViewBuilderPropertyChanged("PageButtonSpecPadding");
                 }
             }
         }

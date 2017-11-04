@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -127,14 +123,16 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the last visible child
             ViewBase lastVisible = null;
             foreach(ViewBase child in this.Reverse())
+            {
                 if (child.Visible)
                 {
                     lastVisible = child;
                     break;
                 }
+            }
 
             // Position each entry, with last entry filling remaining of space
-			foreach (ViewBase child in this)
+            foreach (ViewBase child in this)
 			{
                 if (child.Visible)
 				{

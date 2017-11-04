@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -68,12 +65,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _monthCalendar.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create view that is used by standalone control as well as this context menu element
-            _layoutMonths = new ViewLayoutMonths(provider, monthCalendar, provider.ProviderViewManager, this, provider.ProviderRedirector, provider.ProviderNeedPaintDelegate);
-            _layoutMonths.CloseOnTodayClick = _monthCalendar.CloseOnTodayClick;
-            _layoutMonths.ShowWeekNumbers = _monthCalendar.ShowWeekNumbers;
-            _layoutMonths.ShowTodayCircle = _monthCalendar.ShowTodayCircle;
-            _layoutMonths.ShowToday = _monthCalendar.ShowToday;
-            _layoutMonths.Enabled = _itemEnabled;
+            _layoutMonths = new ViewLayoutMonths(provider, monthCalendar, provider.ProviderViewManager, this, provider.ProviderRedirector, provider.ProviderNeedPaintDelegate)
+            {
+                CloseOnTodayClick = _monthCalendar.CloseOnTodayClick,
+                ShowWeekNumbers = _monthCalendar.ShowWeekNumbers,
+                ShowTodayCircle = _monthCalendar.ShowTodayCircle,
+                ShowToday = _monthCalendar.ShowToday,
+                Enabled = _itemEnabled
+            };
 
             Add(_layoutMonths);
         }

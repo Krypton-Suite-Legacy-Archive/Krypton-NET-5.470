@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -134,11 +130,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawCanvas = new ViewDrawSplitCanvas(_paletteNormal.PaletteBack, _paletteNormal.PaletteBorder, paletteMetric, PaletteMetricPadding.None, orientation);
 
             // Use a docker layout to organize the contents of the canvas
-            _layoutDocker = new ViewLayoutDocker();
-            _layoutDocker.Add(_drawContent, ViewDockStyle.Fill);
-            _layoutDocker.Add(_drawSplitBorder, ViewDockStyle.Right);
-            _layoutDocker.Add(_drawDropDown, ViewDockStyle.Right);
-            _layoutDocker.Add(_drawOuterSeparator, ViewDockStyle.Right);
+            _layoutDocker = new ViewLayoutDocker
+            {
+                { _drawContent, ViewDockStyle.Fill },
+                { _drawSplitBorder, ViewDockStyle.Right },
+                { _drawDropDown, ViewDockStyle.Right },
+                { _drawOuterSeparator, ViewDockStyle.Right }
+            };
             _layoutDocker.Tag = this;
 
 			// Pass the mnemonic default to the content view
@@ -340,9 +338,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (Enabled && (ElementState == PaletteState.Disabled))
                 {
                     if (Checked)
+                    {
                         ElementState = PaletteState.CheckedNormal;
+                    }
                     else
+                    {
                         ElementState = PaletteState.Normal;
+                    }
                 }
 
 				// Pass on the new state to the child elements
@@ -529,10 +531,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
 			// Ensure that child elements have correct palette state
 			CheckPaletteState(context);
@@ -543,9 +548,14 @@ namespace ComponentFactory.Krypton.Toolkit
             // Extend the split border so it is not restricted by the content size
             Rectangle splitClientRect = _drawSplitBorder.ClientRectangle;
             if (_drawSplitBorder.Orientation == System.Windows.Forms.Orientation.Vertical)
+            {
                 splitClientRect = new Rectangle(splitClientRect.X, ClientRectangle.Y, splitClientRect.Width, ClientHeight);
+            }
             else
+            {
                 splitClientRect = new Rectangle(ClientRectangle.X, splitClientRect.Y, ClientWidth, splitClientRect.Height);
+            }
+
             _drawSplitBorder.ClientRectangle = splitClientRect;
 
             // Calculate the split and non-split area
@@ -582,7 +592,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
             else
+            {
                 _splitRectangle = CommonHelper.NullRectangle;
+            }
 
             // Update canvas with the rectangle to use for drawing the split area and the non-split area
             _drawCanvas.SplitRectangle = _splitRectangle;
@@ -619,7 +631,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the actual control is not enabled, force to disabled state
             if (!IsFixed && !context.Control.Enabled)
+            {
                 buttonState = PaletteState.Disabled;
+            }
 
             // Apply the checked state if not fixed
             if (!IsFixed && Checked)

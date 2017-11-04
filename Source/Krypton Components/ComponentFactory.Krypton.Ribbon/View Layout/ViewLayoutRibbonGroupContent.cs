@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -30,7 +28,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Static Fields
-        private static readonly int EMPTY_WIDTH = 48;
+
+        private const int EMPTY_WIDTH = 48;
         private static readonly Padding _padding = new Padding(1, 0, 1, 1);
         #endregion
 
@@ -117,11 +116,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // Ask the container to add key tips for its contents
                         container.GetGroupKeyTips(keyTipList);
@@ -146,23 +144,26 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // If it can provide a view, then use it
                         view = container.GetFirstFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
 
             // If still nothing, then we can go to the dialog box
             if ((view == null) && _ribbonGroup.Visible)
+            {
                 view = DialogView.GetFocusView();
+            }
 
             return view;
         }
@@ -190,26 +191,27 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Only interested in visible children!
                         if (child.Visible)
                         {
+                            // Cast to correct type
                             // Is this a container item
-                            if (child is IRibbonViewGroupContainerView)
+                            if (child is IRibbonViewGroupContainerView container)
                             {
-                                // Cast to correct type
-                                IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                                 // If it can provide a view, then use it
                                 view = container.GetLastFocusItem();
                                 if (view != null)
+                                {
                                     break;
+                                }
                             }
-                            else if (child is IRibbonViewGroupItemView)
+                            else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                             {
-                                // Cast to correct type
-                                IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                                 // If it can provide a view, then use it
                                 view = item.GetLastFocusItem();
                                 if (view != null)
+                                {
                                     break;
+                                }
                             }
                         }
                     }
@@ -237,36 +239,45 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
                         if (matched)
+                        {
                             view = container.GetFirstFocusItem();
+                        }
                         else
+                        {
                             view = container.GetNextFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
                         if (matched)
+                        {
                             view = item.GetFirstFocusItem();
+                        }
                         else
+                        {
                             view = item.GetNextFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -278,10 +289,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (matched)
                 {
                     if (_ribbonGroup.Visible)
+                    {
                         view = DialogView.GetFocusView();
+                    }
                 }
                 else
+                {
                     matched = (DialogView.GetFocusView() == current);
+                }
             }
 
             return view;
@@ -303,10 +318,14 @@ namespace ComponentFactory.Krypton.Ribbon
             if (matched)
             {
                 if (_ribbonGroup.Visible)
+                {
                     view = DialogView.GetFocusView();
+                }
             }
             else
+            {
                 matched = (DialogView.GetFocusView() == current);
+            }
 
             // Scan all the children, which must be containers
             foreach (ViewBase child in this.Reverse())
@@ -314,36 +333,45 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
                         if (matched)
+                        {
                             view = container.GetLastFocusItem();
+                        }
                         else
+                        {
                             view = container.GetPreviousFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
                         if (matched)
+                        {
                             view = item.GetLastFocusItem();
+                        }
                         else
+                        {
                             view = item.GetPreviousFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -381,7 +409,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Track how many extra pixels are needed for inter container gaps
                     if (_listWidths.Count > 0)
+                    {
                         pixelGaps++;
+                    }
 
                     // Add into list of all container values
                     _listWidths.Add(widths);
@@ -433,7 +463,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only add this as a new permutation if the first entry added or if a smaller 
                 // size than the last entry. Permutations should be getting progressively smaller
                 if ((retSizes.Count == 0) || (retSizes[retSizes.Count - 1].Width != permTotalWidth))
+                {
                     retSizes.Add(new GroupSizeWidth(permTotalWidth, permSize.ToArray()));
+                }
 
                 // Do a full cycle looking for a tagged entry to consume
                 breakOut = false;
@@ -460,15 +492,21 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Move cycle around one place
                         cycleCurrent--;
                         if (cycleCurrent < 0)
+                        {
                             cycleCurrent = cycleMax;
+                        }
 
                         if (breakOut)
+                        {
                             break;
+                        }
                     }
 
                     // If no tag based permutation found then turn off processing tags
                     if (!breakOut)
+                    {
                         tags = false;
+                    }
                 }
 
                 // If no perm found yet...
@@ -489,10 +527,14 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Move cycle around one place
                         cycleCurrent--;
                         if (cycleCurrent < 0)
+                        {
                             cycleCurrent = cycleMax;
+                        }
 
                         if (breakOut)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -501,7 +543,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // If we have produced nothing then we add a single 
             // entry which is the minimum width of a group
             if (retSizes.Count == 0)
+            {
                 retSizes.Add(new GroupSizeWidth(EMPTY_WIDTH, new ItemSizeWidth[] { }));
+            }
 
             // If adding the extra design time entry
             if (_ribbon.InDesignHelperMode)
@@ -511,7 +555,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Add it onto each permutation
                 foreach (GroupSizeWidth retSize in retSizes)
+                {
                     retSize.Width += viewAddWidth;
+                }
             }
 
             return retSizes.ToArray();
@@ -528,11 +574,13 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Look for visible child containers
                 for (int i = 0; i < Count; i++)
+                {
                     if (this[i].Visible && (this[i] is IRibbonViewGroupContainerView))
                     {
                         IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)this[i];
                         container.ResetSolutionSize();
                     }
+                }
 
                 _containerWidths = null;
             }
@@ -543,6 +591,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Look for visible child containers
                 for (int i = 0, j = 0; i < Count; i++)
+                {
                     if (this[i].Visible && (this[i] is IRibbonViewGroupContainerView))
                     {
                         // Get the width returned for this container
@@ -554,6 +603,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         // Push the solution size into the actual container
                         container.SetSolutionSize(size[j++]);
                     }
+                }
             }
         }
 
@@ -579,9 +629,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     Size childSize;
 
                     if ((_containerWidths != null) && (child is IRibbonViewGroupContainerView))
+                    {
                         childSize = new Size(_containerWidths[j++], _ribbon.CalculatedValues.GroupTripleHeight);
+                    }
                     else
+                    {
                         childSize = child.GetPreferredSize(context);
+                    }
 
                     // Only need extra processing for children that have some width
                     if (childSize.Width > 0)
@@ -636,9 +690,13 @@ namespace ComponentFactory.Krypton.Ribbon
                         Size childSize;
 
                         if ((_containerWidths != null) && (child is IRibbonViewGroupContainerView))
+                        {
                             childSize = new Size(_containerWidths[j++], _ribbon.CalculatedValues.GroupTripleHeight);
+                        }
                         else
+                        {
                             childSize = child.GetPreferredSize(context);
+                        }
 
                         // Only interested in items with some width
                         if (childSize.Width > 0)
@@ -676,7 +734,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Do we already have a view for this container definition
                 if (_containerToView.ContainsKey(container))
+                {
                     containerView = _containerToView[container];
+                }
                 else
                 {
                     // Ask the container definition to return an appropriate view
@@ -697,7 +757,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the design time 'Add Container' first time it is needed
                 if (_viewAddContainer == null)
+                {
                     _viewAddContainer = new ViewDrawRibbonDesignGroupContainer(_ribbon, _ribbonGroup, _needPaint);
+                }
 
                 // Always add at end of the list of tabs
                 Add(_viewAddContainer);

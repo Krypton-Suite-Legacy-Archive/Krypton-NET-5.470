@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -112,10 +106,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image value.</returns>
         public override Image GetImage(PaletteState state)
         {
-            if (Page != null)
-                return Page.GetImageMapping(Navigator.Outlook.Mini.MiniMapImage);
-            else
-                return null;
+            return Page?.GetImageMapping(Navigator.Outlook.Mini.MiniMapImage);
         }
 
         /// <summary>
@@ -125,9 +116,13 @@ namespace ComponentFactory.Krypton.Navigator
         public override string GetShortText()
         {
             if (Page != null)
+            {
                 return Page.GetTextMapping(Navigator.Outlook.Mini.MiniMapText);
+            }
             else
+            {
                 return string.Empty;
+            }
         }
 
         /// <summary>
@@ -137,9 +132,13 @@ namespace ComponentFactory.Krypton.Navigator
         public override string GetLongText()
         {
             if (Page != null)
+            {
                 return Page.GetTextMapping(Navigator.Outlook.Mini.MiniMapExtraText);
+            }
             else
+            {
                 return string.Empty;
+            }
         }
         #endregion
 

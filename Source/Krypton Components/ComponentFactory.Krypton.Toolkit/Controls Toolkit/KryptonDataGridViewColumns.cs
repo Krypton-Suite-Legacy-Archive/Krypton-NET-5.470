@@ -9,22 +9,14 @@
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Drawing.Drawing2D;
-using System.Data;
 using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Globalization;
-using System.Threading;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -154,7 +146,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -184,7 +178,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (TextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewTextBoxColumn cell template required");
+                }
 
                 return TextBoxCellTemplate.MaxInputLength;
             }
@@ -200,9 +196,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            DataGridViewTextBoxCell cell = rows.SharedRow(i).Cells[Index] as DataGridViewTextBoxCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is DataGridViewTextBoxCell cell)
+                            {
                                 cell.MaxInputLength = value;
+                            }
                         }
                     }
                 }
@@ -231,7 +228,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if ((value != null) && !(value is KryptonDataGridViewTextBoxCell))
+                {
                     throw new InvalidCastException("Can only assign a object of type KryptonDataGridViewTextBoxCell");
+                }
 
                 base.CellTemplate = value;
             }
@@ -259,8 +258,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -336,7 +334,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
+                }
 
                 return _defaultValueType;
             }
@@ -349,23 +349,26 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonTextBox kryptonTextBox = dataGridView.EditingControl as KryptonTextBox;
-            if (kryptonTextBox != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewTextBoxColumn textBoxColumn = OwningColumn as KryptonDataGridViewTextBoxColumn;
-                if (textBoxColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonTextBox kryptonTextBox)
+            {
+                if (OwningColumn is KryptonDataGridViewTextBoxColumn textBoxColumn)
                 {
                     foreach (ButtonSpec bs in kryptonTextBox.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
-                    
+                    }
+
                     kryptonTextBox.ButtonSpecs.Clear();
 
-                    TextBox textBox = kryptonTextBox.Controls[0] as TextBox;
-                    if (textBox != null)
+                    if (kryptonTextBox.Controls[0] is TextBox textBox)
+                    {
                         textBox.ClearUndo();
+                    }
                 }
             }
 
@@ -383,11 +386,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonTextBox textBox = DataGridView.EditingControl as KryptonTextBox;
-            if (textBox != null)
+            if (DataGridView.EditingControl is KryptonTextBox textBox)
             {
-                KryptonDataGridViewTextBoxColumn textBoxColumn = OwningColumn as KryptonDataGridViewTextBoxColumn;
-                if (textBoxColumn != null)
+                if (OwningColumn is KryptonDataGridViewTextBoxColumn textBoxColumn)
                 {
                     // Set this cell as the owner of the buttonspecs
                     textBox.ButtonSpecs.Clear();
@@ -399,15 +400,20 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if (!(initialFormattedValue is string initialFormattedValueStr))
+                {
                     textBox.Text = string.Empty;
+                }
                 else
+                {
                     textBox.Text = initialFormattedValueStr;
+                }
 
                 DataGridViewTriState wrapMode = this.Style.WrapMode;
                 if (wrapMode == DataGridViewTriState.NotSet)
+                {
                     wrapMode = this.OwningColumn.DefaultCellStyle.WrapMode;
+                }
 
                 textBox.WordWrap = textBox.Multiline = (wrapMode == DataGridViewTriState.True);
             }
@@ -448,9 +454,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -461,7 +471,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -515,22 +527,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingTextBox(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewTextBoxEditingControl control = DataGridView.EditingControl as KryptonDataGridViewTextBoxEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewTextBoxEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -639,12 +657,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Right:
                     {
-                        TextBox textBox = Controls[0] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0] is TextBox textBox)
                         {
                             // If the end of the selection is at the end of the string, let the DataGridView treat the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
                             {
                                 return true;
                             }
@@ -653,13 +670,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case Keys.Left:
                     {
-                        TextBox textBox = Controls[0] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0] is TextBox textBox)
                         {
                             // If the end of the selection is at the begining of the string or if the entire text is selected 
                             // and we did not start editing, send this character to the dataGridView, else process the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
                             {
                                 return true;
                             }
@@ -673,8 +689,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.End:
                     {
                         // Let the grid handle the key if the entire text is selected.
-                        TextBox textBox = Controls[0] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0] is TextBox textBox)
                         {
                             if (textBox.SelectionLength != textBox.Text.Length)
                             {
@@ -686,11 +701,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Delete:
                     {
                         // Let the grid handle the key if the carret is at the end of the text.
-                        TextBox textBox = Controls[0] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0] is TextBox textBox)
                         {
-                            if (textBox.SelectionLength > 0 ||
-                                textBox.SelectionStart < textBox.Text.Length)
+                            if ((textBox.SelectionLength > 0) ||
+                                (textBox.SelectionStart < textBox.Text.Length))
                             {
                                 return true;
                             }
@@ -715,13 +729,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual void PrepareEditingControlForEdit(bool selectAll)
         {
-            TextBox textBox = Controls[0] as TextBox;
-            if (textBox != null)
+            if (Controls[0] is TextBox textBox)
             {
                 if (selectAll)
+                {
                     textBox.SelectAll();
+                }
                 else
+                {
                     textBox.SelectionStart = textBox.Text.Length;
+                }
             }
         }
         #endregion
@@ -735,7 +752,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnTextChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -744,8 +763,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override bool ProcessKeyEventArgs(ref Message m)
         {
-            TextBox textBox = Controls[0] as TextBox;
-            if (textBox != null)
+            if (Controls[0] is TextBox textBox)
             {
                 PI.SendMessage(textBox.Handle, m.Msg, m.WParam, m.LParam);
                 return true;
@@ -789,12 +807,19 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewCheckBoxColumn(bool threeState)
             : base(new KryptonDataGridViewCheckBoxCell(threeState))
         {
-            DataGridViewCellStyle style = new DataGridViewCellStyle();
-            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DataGridViewCellStyle style = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleCenter
+            };
             if (threeState)
+            {
                 style.NullValue = CheckState.Indeterminate;
+            }
             else
+            {
                 style.NullValue = false;
+            }
+
             DefaultCellStyle = style;
         }
 
@@ -827,7 +852,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if ((value != null) && !(value is KryptonDataGridViewCheckBoxCell))
+                {
                     throw new InvalidCastException("Can only assign a object of type KryptonDataGridViewCheckBoxCell");
+                }
 
                 base.CellTemplate = value;
             }
@@ -844,7 +871,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CheckBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewCheckBoxColumn cell template required");
+                }
 
                 return CheckBoxCellTemplate.FalseValue;
             }
@@ -861,7 +890,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             DataGridViewCheckBoxCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewCheckBoxCell;
                             if (cell != null)
+                            {
                                 cell.FalseValue = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -880,8 +911,10 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CheckBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewCheckBoxColumn cell template required");
-                
+                }
+
                 return CheckBoxCellTemplate.IndeterminateValue;
             }
             set
@@ -897,7 +930,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             DataGridViewCheckBoxCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewCheckBoxCell;
                             if (cell != null)
+                            {
                                 cell.IndeterminateValue = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -916,8 +951,10 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CheckBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewCheckBoxColumn cell template required");
-                
+                }
+
                 return CheckBoxCellTemplate.TrueValue;
             }
             set
@@ -933,7 +970,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             DataGridViewCheckBoxCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewCheckBoxCell;
                             if (cell != null)
+                            {
                                 cell.TrueValue = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -951,7 +990,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CheckBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewCheckBoxColumn cell template required");
+                }
 
                 return CheckBoxCellTemplate.ThreeState;
             }
@@ -968,15 +1009,21 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             DataGridViewCheckBoxCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewCheckBoxCell;
                             if (cell != null)
+                            {
                                 cell.ThreeState = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
 
                     if ((value && (DefaultCellStyle.NullValue is bool)) && !((bool)DefaultCellStyle.NullValue))
+                    {
                         DefaultCellStyle.NullValue = CheckState.Indeterminate;
+                    }
                     else if ((!value && (DefaultCellStyle.NullValue is CheckState)) && (((CheckState)DefaultCellStyle.NullValue) == CheckState.Indeterminate))
+                    {
                         DefaultCellStyle.NullValue = false;
+                    }
                 }
             }
         }
@@ -995,16 +1042,24 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 object indeterminate;
                 if (cellTemplate.ThreeState)
+                {
                     indeterminate = CheckState.Indeterminate;
+                }
                 else
+                {
                     indeterminate = false;
+                }
 
                 if (!base.HasDefaultCellStyle)
+                {
                     return false;
+                }
 
                 DataGridViewCellStyle defaultCellStyle = DefaultCellStyle;
                 if ((((defaultCellStyle.BackColor.IsEmpty && defaultCellStyle.ForeColor.IsEmpty) && (defaultCellStyle.SelectionBackColor.IsEmpty && defaultCellStyle.SelectionForeColor.IsEmpty)) && (((defaultCellStyle.Font == null) && defaultCellStyle.NullValue.Equals(indeterminate)) && (defaultCellStyle.IsDataSourceNullValueDefault && string.IsNullOrEmpty(defaultCellStyle.Format)))) && ((defaultCellStyle.FormatProvider.Equals(CultureInfo.CurrentCulture) && (defaultCellStyle.Alignment == DataGridViewContentAlignment.MiddleCenter)) && ((defaultCellStyle.WrapMode == DataGridViewTriState.NotSet) && (defaultCellStyle.Tag == null))))
+                {
                     return !defaultCellStyle.Padding.Equals(Padding.Empty);
+                }
             }
             return true;
         }
@@ -1152,13 +1207,19 @@ namespace ComponentFactory.Krypton.Toolkit
                     CheckState checkState = CheckState.Unchecked;
 
                     if ((formattedValue != null) && (formattedValue is CheckState))
+                    {
                         checkState = (CheckState)formattedValue;
+                    }
                     else if ((formattedValue != null) && (formattedValue is bool))
                     {
                         if ((bool)formattedValue)
+                        {
                             checkState = CheckState.Checked;
+                        }
                         else
+                        {
                             checkState = CheckState.Unchecked;
+                        }
                     }
 
                     // Is this cell the currently active cell
@@ -1180,12 +1241,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Find out the requested size of the check box drawing
                         using (ViewLayoutContext viewContent = new ViewLayoutContext(kDGV, kDGV.Renderer))
+                        {
                             checkBoxSize = renderContext.Renderer.RenderGlyph.GetCheckBoxPreferredSize(viewContent, 
                                                                                                        kDGV.Redirector,
                                                                                                        kDGV.Enabled,
                                                                                                        checkState,
                                                                                                        tracking,
                                                                                                        pressed);
+                        }
                         // Remember the original cell bounds
                         Rectangle startBounds = cellBounds;
 
@@ -1335,8 +1398,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewButtonColumn()
             : base(new KryptonDataGridViewButtonCell())
         {
-            DataGridViewCellStyle style = new DataGridViewCellStyle();
-            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DataGridViewCellStyle style = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleCenter
+            };
             DefaultCellStyle = style;
         }
 
@@ -1381,7 +1446,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if ((value != null) && !(value is KryptonDataGridViewButtonCell))
+                {
                     throw new InvalidCastException("Can only assign a object of type KryptonDataGridViewButtonCell");
+                }
 
                 base.CellTemplate = value;
             }
@@ -1414,15 +1481,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (DataGridView != null)
                     {
                         if (UseColumnTextForButtonValue)
+                        {
                             ColumnCommonChange(Index);
+                        }
                         else
                         {
                             DataGridViewRowCollection rows = DataGridView.Rows;
                             int count = rows.Count;
                             for (int i = 0; i < count; i++)
                             {
-                                KryptonDataGridViewButtonCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewButtonCell;
-                                if ((cell != null) && cell.UseColumnTextForButtonValue)
+                                if ((rows.SharedRow(i).Cells[Index] is KryptonDataGridViewButtonCell cell) && cell.UseColumnTextForButtonValue)
                                 {
                                     ColumnCommonChange(Index);
                                     return;
@@ -1445,7 +1513,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewButtonColumn cell template required");
+                }
 
                 return ((KryptonDataGridViewButtonCell)CellTemplate).UseColumnTextForButtonValue;
             }
@@ -1463,7 +1533,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             DataGridViewButtonCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewButtonCell;
                             if (cell != null)
+                            {
                                 SetUseColumnTextForButtonValueInternal(cell, value);
+                            }
                         }
                         ColumnCommonChange(Index);
                     }
@@ -1481,7 +1553,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewButtonColumn cell template required");
+                }
 
                 return ((KryptonDataGridViewButtonCell)CellTemplate).ButtonStyle;
             }
@@ -1497,9 +1571,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            KryptonDataGridViewButtonCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewButtonCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is KryptonDataGridViewButtonCell cell)
+                            {
                                 cell.ButtonStyleInternal = value;
+                            }
                         }
                         ColumnCommonChange(Index);
                     }
@@ -1512,7 +1587,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeDefaultCellStyle()
         {
             if (!HasDefaultCellStyle)
+            {
                 return false;
+            }
 
             DataGridViewCellStyle defaultCellStyle = DefaultCellStyle;
             if ((((defaultCellStyle.BackColor.IsEmpty && defaultCellStyle.ForeColor.IsEmpty) && 
@@ -1676,20 +1753,31 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Update the button state to reflect the tracking/pressed values
                 if (pressed)
+                {
                     _viewButton.ElementState = PaletteState.Pressed;
+                }
                 else if (tracking)
+                {
                     _viewButton.ElementState = PaletteState.Tracking;
+                }
                 else
+                {
                     _viewButton.ElementState = PaletteState.Normal;
+                }
 
                 // Update the display text
-                KryptonDataGridViewButtonColumn col = kDGV.Columns[ColumnIndex] as KryptonDataGridViewButtonColumn;
-                if ((col != null) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                {
                     _shortTextValue.ShortText = col.Text;
+                }
                 else if ((FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                {
                     _shortTextValue.ShortText = FormattedValue.ToString();
+                }
                 else
+                {
                     _shortTextValue.ShortText = string.Empty;
+                }
 
                 // Position the button element inside the available cell area
                 using (ViewLayoutContext layoutContext = new ViewLayoutContext(kDGV, kDGV.Renderer))
@@ -1770,20 +1858,31 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Update the button state to reflect the tracking/pressed values
                         if (pressed)
+                        {
                             _viewButton.ElementState = PaletteState.Pressed;
+                        }
                         else if (tracking)
+                        {
                             _viewButton.ElementState = PaletteState.Tracking;
+                        }
                         else
+                        {
                             _viewButton.ElementState = PaletteState.Normal;
+                        }
 
                         // Update the display text
-                        KryptonDataGridViewButtonColumn col = kDGV.Columns[ColumnIndex] as KryptonDataGridViewButtonColumn;
-                        if ((col != null) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                        if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                        {
                             _shortTextValue.ShortText = col.Text;
+                        }
                         else if ((FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                        {
                             _shortTextValue.ShortText = FormattedValue.ToString();
+                        }
                         else
+                        {
                             _shortTextValue.ShortText = string.Empty;
+                        }
 
                         // Prevent button overlapping the bottom/right border
                         cellBounds.Width--;
@@ -1791,9 +1890,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Apply the padding
                         if (kDGV.RightToLeftInternal)
+                        {
                             cellBounds.Offset(cellStyle.Padding.Right, cellStyle.Padding.Bottom);
+                        }
                         else
+                        {
                             cellBounds.Offset(cellStyle.Padding.Left, cellStyle.Padding.Top);
+                        }
 
                         cellBounds.Width -= cellStyle.Padding.Horizontal;
                         cellBounds.Height -= cellStyle.Padding.Vertical;
@@ -1858,7 +1961,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (!_styleSet)
+                {
                     _buttonStyle = value;
+                }
             }
         }
 
@@ -1990,7 +2095,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if ((value != null) && !(value is KryptonDataGridViewLinkCell))
+                {
                     throw new InvalidCastException("Can only assign a object of type KryptonDataGridViewLinkCell");
+                }
 
                 base.CellTemplate = value;
             }
@@ -2012,15 +2119,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (DataGridView != null)
                     {
                         if (UseColumnTextForLinkValue)
+                        {
                             ColumnCommonChange(Index);
+                        }
                         else
                         {
                             DataGridViewRowCollection rows = DataGridView.Rows;
                             int count = rows.Count;
                             for (int i = 0; i < count; i++)
                             {
-                                KryptonDataGridViewLinkCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewLinkCell;
-                                if ((cell != null) && cell.UseColumnTextForLinkValue)
+                                if ((rows.SharedRow(i).Cells[Index] is KryptonDataGridViewLinkCell cell) && cell.UseColumnTextForLinkValue)
                                 {
                                     ColumnCommonChange(Index);
                                     return;
@@ -2053,9 +2161,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            KryptonDataGridViewLinkCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewLinkCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is KryptonDataGridViewLinkCell cell)
+                            {
                                 cell.LabelStyleInternal = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -2073,7 +2182,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewLinkCell cell template required");
+                }
 
                 return ((KryptonDataGridViewLinkCell)CellTemplate).LinkBehavior;
             }
@@ -2088,9 +2199,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            KryptonDataGridViewLinkCell cell = rows.SharedRow(i).Cells[Index] as KryptonDataGridViewLinkCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is KryptonDataGridViewLinkCell cell)
+                            {
                                 cell.LinkBehaviorInternal = value;
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -2108,7 +2220,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewLinkCell cell template required");
+                }
 
                 return ((KryptonDataGridViewLinkCell)CellTemplate).TrackVisitedState;
             }
@@ -2123,9 +2237,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            DataGridViewLinkCell cell = rows.SharedRow(i).Cells[Index] as DataGridViewLinkCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is DataGridViewLinkCell cell)
+                            {
                                 TrackVisitedStateInternal(cell, value);
+                            }
                         }
                         DataGridView.InvalidateColumn(Index);
                     }
@@ -2143,7 +2258,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CellTemplate == null)
+                {
                     throw new InvalidOperationException("KryptonDataGridViewLinkCell cell template required");
+                }
 
                 return ((KryptonDataGridViewLinkCell)CellTemplate).UseColumnTextForLinkValue;
             }
@@ -2159,9 +2276,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         int count = rows.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            DataGridViewLinkCell cell = rows.SharedRow(i).Cells[Index] as DataGridViewLinkCell;
-                            if (cell != null)
+                            if (rows.SharedRow(i).Cells[Index] is DataGridViewLinkCell cell)
+                            {
                                 SetUseColumnTextForLinkValueInternal(cell, value);
+                            }
                         }
                         ColumnCommonChange(Index);
                     }
@@ -2333,14 +2451,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Update the display text
                 if ((rowIndex >= 0) && (FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                {
                     _shortTextValue.ShortText = FormattedValue.ToString();
+                }
                 else
                 {
-                    KryptonDataGridViewButtonColumn col = kDGV.Columns[ColumnIndex] as KryptonDataGridViewButtonColumn;
-                    if ((col != null) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                    if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                    {
                         _shortTextValue.ShortText = col.Text;
+                    }
                     else
+                    {
                         _shortTextValue.ShortText = string.Empty;
+                    }
                 }
 
                 // Position the button element inside the available cell area
@@ -2412,14 +2535,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Update the display text
                         if ((formattedValue != null) && !string.IsNullOrEmpty(formattedValue.ToString()))
+                        {
                             _shortTextValue.ShortText = formattedValue.ToString();
+                        }
                         else
                         {
-                            KryptonDataGridViewButtonColumn col = kDGV.Columns[ColumnIndex] as KryptonDataGridViewButtonColumn;
-                            if ((col != null) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                            if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                            {
                                 _shortTextValue.ShortText = col.Text;
+                            }
                             else
+                            {
                                 _shortTextValue.ShortText = string.Empty;
+                            }
                         }
 
                         // Prevent button overlapping the bottom/right border
@@ -2428,9 +2556,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Apply the padding
                         if (kDGV.RightToLeftInternal)
+                        {
                             cellBounds.Offset(cellStyle.Padding.Right, cellStyle.Padding.Bottom);
+                        }
                         else
+                        {
                             cellBounds.Offset(cellStyle.Padding.Left, cellStyle.Padding.Top);
+                        }
 
                         cellBounds.Width -= cellStyle.Padding.Horizontal;
                         cellBounds.Height -= cellStyle.Padding.Vertical;
@@ -2510,7 +2642,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (!_linkDefined)
+                {
                     base.LinkBehavior = value;
+                }
             }
         }
 
@@ -2519,7 +2653,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (!_labelStyleDefined)
+                {
                     _labelStyle = value;
+                }
             }
         }
         #endregion
@@ -2550,17 +2686,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Has the item been visited
             if (LinkVisited)
+            {
                 _overrideVisited.OverrideState = PaletteState.LinkVisitedOverride;
+            }
             else
+            {
                 _overrideVisited.OverrideState = PaletteState.LinkNotVisitedOverride;
+            }
 
             // Is the item being pressed?
             _overridePressed.Apply = ((linkState & LinkState.Active) == LinkState.Active);
 
             if ((linkState & LinkState.Hover) == LinkState.Hover)
+            {
                 _viewLabel.ElementState = PaletteState.Tracking;
+            }
             else
+            {
                 _viewLabel.ElementState = PaletteState.Normal;
+            }
 
             // Update with latest cell setting for the link behavior
             switch (base.LinkBehavior)
@@ -2654,7 +2798,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -2671,10 +2817,11 @@ namespace ComponentFactory.Krypton.Toolkit
             get { return base.CellTemplate;}
             set
             {
-                KryptonDataGridViewNumericUpDownCell cell = value as KryptonDataGridViewNumericUpDownCell;
-                if ((value != null) && (cell == null))
+                if ((value != null) && (!(value is KryptonDataGridViewNumericUpDownCell cell)))
+                {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewNumericUpDownCell or derive from it.");
-                
+                }
+
                 base.CellTemplate = value;
             }
         }
@@ -2701,14 +2848,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.DecimalPlaces;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 NumericUpDownCellTemplate.DecimalPlaces = value;
@@ -2722,9 +2873,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetDecimalPlaces(rowIndex, value);
+                        }
                     }
                     
                     DataGridView.InvalidateColumn(Index);
@@ -2743,14 +2895,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.Hexadecimal;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 NumericUpDownCellTemplate.Hexadecimal = value;
@@ -2764,9 +2920,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetHexadecimal(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -2784,14 +2941,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.Increment;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 NumericUpDownCellTemplate.Increment = value;
                 if (DataGridView != null)
@@ -2801,9 +2962,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetIncrement(rowIndex, value);
+                        }
                     }
                 }
             }
@@ -2826,14 +2988,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.Maximum;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 NumericUpDownCellTemplate.Maximum = value;
                 if (DataGridView != null)
@@ -2843,9 +3009,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMaximum(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -2870,14 +3037,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.Minimum;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 NumericUpDownCellTemplate.Minimum = value;
                 if (DataGridView != null)
@@ -2887,9 +3058,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMinimum(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -2914,14 +3086,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return NumericUpDownCellTemplate.ThousandsSeparator;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 NumericUpDownCellTemplate.ThousandsSeparator = value;
                 if (DataGridView != null)
@@ -2931,9 +3107,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewNumericUpDownCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetThousandsSeparator(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -2955,8 +3132,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -2969,8 +3145,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         [ThreadStatic]
         private static KryptonNumericUpDown _paintingNumericUpDown;
-        private static readonly DataGridViewContentAlignment _anyRight = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
-        private static readonly DataGridViewContentAlignment _anyCenter = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
+
+        private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
+        private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewNumericUpDownEditingControl);
         private static readonly Type _defaultValueType = typeof(System.Decimal);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
@@ -3040,8 +3217,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             set
             {
-                if (value < 0 || value > 99)
+                if ((value < 0) || (value > 99))
+                {
                     throw new ArgumentOutOfRangeException("The DecimalPlaces property cannot be smaller than 0 or larger than 99.");
+                }
 
                 if (_decimalPlaces != value)
                 {
@@ -3078,7 +3257,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value < (Decimal)0.0)
+                {
                     throw new ArgumentOutOfRangeException("The Increment property cannot be smaller than 0.");
+                }
 
                 SetIncrement(RowIndex, value);
             }
@@ -3146,8 +3327,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
-                
+                }
+
                 return _defaultValueType;
             }
         }
@@ -3177,22 +3360,26 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonNumericUpDown numericUpDown = dataGridView.EditingControl as KryptonNumericUpDown;
-            if (numericUpDown != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewNumericUpDownColumn numericColumn = OwningColumn as KryptonDataGridViewNumericUpDownColumn;
-                if (numericColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonNumericUpDown numericUpDown)
+            {
+                if (OwningColumn is KryptonDataGridViewNumericUpDownColumn numericColumn)
                 {
                     foreach (ButtonSpec bs in numericUpDown.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
+                    }
+
                     numericUpDown.ButtonSpecs.Clear();
 
-                    TextBox textBox = numericUpDown.Controls[0].Controls[1] as TextBox;
-                    if (textBox != null)
+                    if (numericUpDown.Controls[0].Controls[1] is TextBox textBox)
+                    {
                         textBox.ClearUndo();
+                    }
                 }
             }
 
@@ -3210,8 +3397,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonNumericUpDown numericUpDown = DataGridView.EditingControl as KryptonNumericUpDown;
-            if (numericUpDown != null)
+            if (DataGridView.EditingControl is KryptonNumericUpDown numericUpDown)
             {
                 numericUpDown.DecimalPlaces = DecimalPlaces;
                 numericUpDown.Increment = Increment;
@@ -3220,8 +3406,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 numericUpDown.ThousandsSeparator = ThousandsSeparator;
                 numericUpDown.Hexadecimal = Hexadecimal;
 
-                KryptonDataGridViewNumericUpDownColumn numericColumn = OwningColumn as KryptonDataGridViewNumericUpDownColumn;
-                if (numericColumn != null)
+                if (OwningColumn is KryptonDataGridViewNumericUpDownColumn numericColumn)
                 {
                     // Set this cell as the owner of the buttonspecs
                     numericUpDown.ButtonSpecs.Clear();
@@ -3233,11 +3418,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if (!(initialFormattedValue is string initialFormattedValueStr))
+                {
                     numericUpDown.Text = string.Empty;
+                }
                 else
+                {
                     numericUpDown.Text = initialFormattedValueStr;
+                }
             }
         }
 
@@ -3251,13 +3439,15 @@ namespace ComponentFactory.Krypton.Toolkit
             NumberFormatInfo numberFormatInfo = CultureInfo.CurrentCulture.NumberFormat;
             Keys negativeSignKey = Keys.None;
             string negativeSignStr = numberFormatInfo.NegativeSign;
-            if (!string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1)
+            if (!string.IsNullOrEmpty(negativeSignStr) && (negativeSignStr.Length == 1))
+            {
                 negativeSignKey = (Keys)(PI.VkKeyScan(negativeSignStr[0]));
+            }
 
             if ((char.IsDigit((char)e.KeyCode) ||
-                 (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
-                 negativeSignKey == e.KeyCode ||
-                 Keys.Subtract == e.KeyCode) &&
+                 ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9)) ||
+                 (negativeSignKey == e.KeyCode) ||
+                 (Keys.Subtract == e.KeyCode)) &&
                 !e.Shift && !e.Alt && !e.Control)
             {
                 return true;
@@ -3301,9 +3491,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -3322,7 +3516,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // By default, the base implementation converts the Decimal 1234.5 into the string "1234.5"
             object formattedValue = base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter, formattedValueTypeConverter, context);
             string formattedNumber = formattedValue as string;
-            if (!string.IsNullOrEmpty(formattedNumber) && value != null)
+            if (!string.IsNullOrEmpty(formattedNumber) && (value != null))
             {
                 Decimal unformattedDecimal = System.Convert.ToDecimal(value);
                 Decimal formattedDecimal = System.Convert.ToDecimal(formattedNumber);
@@ -3343,7 +3537,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -3373,10 +3569,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private Decimal Constrain(Decimal value)
         {
             if (value < _minimum)
+            {
                 value = _minimum;
+            }
 
             if (value > _maximum)
+            {
                 value = _maximum;
+            }
 
             return value;
         }
@@ -3408,22 +3608,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingNumericUpDown(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewNumericUpDownEditingControl control = DataGridView.EditingControl as KryptonDataGridViewNumericUpDownEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewNumericUpDownEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -3437,28 +3643,36 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _decimalPlaces = value;
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.DecimalPlaces = value;
+            }
         }
 
         internal void SetHexadecimal(int rowIndex, bool value)
         {
             _hexadecimal = value;
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.Hexadecimal = value;
+            }
         }
 
         internal void SetIncrement(int rowIndex, Decimal value)
         {
             _increment = value;
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.Increment = value;
+            }
         }
 
         internal void SetMaximum(int rowIndex, Decimal value)
         {
             _maximum = value;
             if (_minimum > _maximum)
+            {
                 _minimum = _maximum;
+            }
 
             object cellValue = GetValue(rowIndex);
             if (cellValue != null)
@@ -3466,18 +3680,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 Decimal currentValue = System.Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
                 if (constrainedValue != currentValue)
+                {
                     SetValue(rowIndex, constrainedValue);
+                }
             }
 
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.Maximum = value;
+            }
         }
 
         internal void SetMinimum(int rowIndex, Decimal value)
         {
             _minimum = value;
             if (_minimum > _maximum)
+            {
                 _maximum = value;
+            }
 
             object cellValue = GetValue(rowIndex);
             if (cellValue != null)
@@ -3485,28 +3705,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 Decimal currentValue = System.Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
                 if (constrainedValue != currentValue)
+                {
                     SetValue(rowIndex, constrainedValue);
+                }
             }
 
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.Minimum = value;
+            }
         }
 
         internal void SetThousandsSeparator(int rowIndex, bool value)
         {
             _thousandsSeparator = value;
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.ThousandsSeparator = value;
+            }
         }
 
         internal static HorizontalAlignment TranslateAlignment(DataGridViewContentAlignment align)
         {
-            if ((align & _anyRight) != 0)
+            if ((align & ANY_RIGHT) != 0)
+            {
                 return HorizontalAlignment.Right;
-            else if ((align & _anyCenter) != 0)
+            }
+            else if ((align & ANY_CENTER) != 0)
+            {
                 return HorizontalAlignment.Center;
+            }
             else
+            {
                 return HorizontalAlignment.Left;
+            }
         }
         #endregion
     }
@@ -3610,12 +3842,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Right:
                     {
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             // If the end of the selection is at the end of the string, let the DataGridView treat the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
                             {
                                 return true;
                             }
@@ -3624,13 +3855,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case Keys.Left:
                     {
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             // If the end of the selection is at the begining of the string or if the entire text is selected 
                             // and we did not start editing, send this character to the dataGridView, else process the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
                             {
                                 return true;
                             }
@@ -3639,18 +3869,23 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case Keys.Down:
                     if (Value > Minimum)
+                    {
                         return true;
+                    }
+
                     break;
                 case Keys.Up:
                     if (Value < Maximum)
+                    {
                         return true;
+                    }
+
                     break;
                 case Keys.Home:
                 case Keys.End:
                     {
                         // Let the grid handle the key if the entire text is selected.
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             if (textBox.SelectionLength != textBox.Text.Length)
                             {
@@ -3662,11 +3897,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Delete:
                     {
                         // Let the grid handle the key if the carret is at the end of the text.
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            if (textBox.SelectionLength > 0 ||
-                                textBox.SelectionStart < textBox.Text.Length)
+                            if ((textBox.SelectionLength > 0) ||
+                                (textBox.SelectionStart < textBox.Text.Length))
                             {
                                 return true;
                             }
@@ -3701,13 +3935,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual void PrepareEditingControlForEdit(bool selectAll)
         {
-            TextBox textBox = Controls[0].Controls[1] as TextBox;
-            if (textBox != null)
+            if (Controls[0].Controls[1] is TextBox textBox)
             {
                 if (selectAll)
+                {
                     textBox.SelectAll();
+                }
                 else
+                {
                     textBox.SelectionStart = textBox.Text.Length;
+                }
             }
         }
         #endregion
@@ -3722,7 +3959,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             bool notifyValueChange = false;
             if (char.IsDigit(e.KeyChar))
+            {
                 notifyValueChange = true;
+            }
             else
             {
                 NumberFormatInfo numberFormatInfo = CultureInfo.CurrentCulture.NumberFormat;
@@ -3730,18 +3969,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 string groupSeparatorStr = numberFormatInfo.NumberGroupSeparator;
                 string negativeSignStr = numberFormatInfo.NegativeSign;
 
-                if (!string.IsNullOrEmpty(decimalSeparatorStr) && decimalSeparatorStr.Length == 1)
+                if (!string.IsNullOrEmpty(decimalSeparatorStr) && (decimalSeparatorStr.Length == 1))
+                {
                     notifyValueChange = decimalSeparatorStr[0] == e.KeyChar;
+                }
 
-                if (!notifyValueChange && !string.IsNullOrEmpty(groupSeparatorStr) && groupSeparatorStr.Length == 1)
+                if (!notifyValueChange && !string.IsNullOrEmpty(groupSeparatorStr) && (groupSeparatorStr.Length == 1))
+                {
                     notifyValueChange = groupSeparatorStr[0] == e.KeyChar;
+                }
 
-                if (!notifyValueChange && !string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1)
+                if (!notifyValueChange && !string.IsNullOrEmpty(negativeSignStr) && (negativeSignStr.Length == 1))
+                {
                     notifyValueChange = negativeSignStr[0] == e.KeyChar;
+                }
             }
 
             if (notifyValueChange)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -3752,7 +3999,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnValueChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -3761,8 +4010,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override bool ProcessKeyEventArgs(ref Message m)
         {
-            TextBox textBox = Controls[0].Controls[1] as TextBox;
-            if (textBox != null)
+            if (Controls[0].Controls[1] is TextBox textBox)
             {
                 PI.SendMessage(textBox.Handle, m.Msg, m.WParam, m.LParam);
                 return true;
@@ -3839,13 +4087,17 @@ namespace ComponentFactory.Krypton.Toolkit
             // Convert collection of strings to an array
             string[] strings = new string[Items.Count];
             for (int i = 0; i < strings.Length; i++)
+            {
                 strings[i] = Items[i];
+            }
 
             cloned.Items.AddRange(strings);
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -3862,9 +4114,10 @@ namespace ComponentFactory.Krypton.Toolkit
             get { return base.CellTemplate; }
             set
             {
-                KryptonDataGridViewDomainUpDownCell cell = value as KryptonDataGridViewDomainUpDownCell;
-                if ((value != null) && (cell == null))
+                if ((value != null) && (!(value is KryptonDataGridViewDomainUpDownCell cell)))
+                {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewDomainUpDownCell or derive from it.");
+                }
 
                 base.CellTemplate = value;
             }
@@ -3907,8 +4160,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -3921,8 +4173,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         [ThreadStatic]
         private static KryptonDomainUpDown _paintingDomainUpDown;
-        private static readonly DataGridViewContentAlignment _anyRight = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
-        private static readonly DataGridViewContentAlignment _anyCenter = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
+
+        private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
+        private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewDomainUpDownEditingControl);
         private static readonly Type _defaultValueType = typeof(System.String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
@@ -3973,7 +4226,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
+                }
 
                 return _defaultValueType;
             }
@@ -3986,24 +4241,28 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonDomainUpDown domainUpDown = dataGridView.EditingControl as KryptonDomainUpDown;
-            if (domainUpDown != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewDomainUpDownColumn domainColumn = OwningColumn as KryptonDataGridViewDomainUpDownColumn;
-                if (domainColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonDomainUpDown domainUpDown)
+            {
+                if (OwningColumn is KryptonDataGridViewDomainUpDownColumn domainColumn)
                 {
                     domainUpDown.Items.Clear();
 
                     foreach (ButtonSpec bs in domainUpDown.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
+                    }
+
                     domainUpDown.ButtonSpecs.Clear();
 
-                    TextBox textBox = domainUpDown.Controls[0].Controls[1] as TextBox;
-                    if (textBox != null)
+                    if (domainUpDown.Controls[0].Controls[1] is TextBox textBox)
+                    {
                         textBox.ClearUndo();
+                    }
                 }
             }
 
@@ -4021,14 +4280,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonDomainUpDown domainUpDown = DataGridView.EditingControl as KryptonDomainUpDown;
-            if (domainUpDown != null)
+            if (DataGridView.EditingControl is KryptonDomainUpDown domainUpDown)
             {
                 domainUpDown.Items.Clear();
                 domainUpDown.ButtonSpecs.Clear();
 
-                KryptonDataGridViewDomainUpDownColumn domainColumn = OwningColumn as KryptonDataGridViewDomainUpDownColumn;
-                if (domainColumn != null)
+                if (OwningColumn is KryptonDataGridViewDomainUpDownColumn domainColumn)
                 {
                     domainUpDown.Items.InsertRange(0, domainColumn.Items);
 
@@ -4041,11 +4298,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if (!(initialFormattedValue is string initialFormattedValueStr))
+                {
                     domainUpDown.Text = string.Empty;
+                }
                 else
+                {
                     domainUpDown.Text = initialFormattedValueStr;
+                }
             }
         }
 
@@ -4084,9 +4344,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -4097,7 +4361,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -4151,22 +4417,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingDomainUpDown(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewDomainUpDownEditingControl control = DataGridView.EditingControl as KryptonDataGridViewDomainUpDownEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewDomainUpDownEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -4178,12 +4450,18 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal static HorizontalAlignment TranslateAlignment(DataGridViewContentAlignment align)
         {
-            if ((align & _anyRight) != 0)
+            if ((align & ANY_RIGHT) != 0)
+            {
                 return HorizontalAlignment.Right;
-            else if ((align & _anyCenter) != 0)
+            }
+            else if ((align & ANY_CENTER) != 0)
+            {
                 return HorizontalAlignment.Center;
+            }
             else
+            {
                 return HorizontalAlignment.Left;
+            }
         }
         #endregion
     }
@@ -4287,12 +4565,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Right:
                     {
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             // If the end of the selection is at the end of the string, let the DataGridView treat the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
                             {
                                 return true;
                             }
@@ -4301,13 +4578,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case Keys.Left:
                     {
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             // If the end of the selection is at the begining of the string or if the entire text is selected 
                             // and we did not start editing, send this character to the dataGridView, else process the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
                             {
                                 return true;
                             }
@@ -4321,8 +4597,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.End:
                     {
                         // Let the grid handle the key if the entire text is selected.
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
                             if (textBox.SelectionLength != textBox.Text.Length)
                             {
@@ -4334,11 +4609,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Delete:
                     {
                         // Let the grid handle the key if the carret is at the end of the text.
-                        TextBox textBox = Controls[0].Controls[1] as TextBox;
-                        if (textBox != null)
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            if (textBox.SelectionLength > 0 ||
-                                textBox.SelectionStart < textBox.Text.Length)
+                            if ((textBox.SelectionLength > 0) ||
+                                (textBox.SelectionStart < textBox.Text.Length))
                             {
                                 return true;
                             }
@@ -4363,13 +4637,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual void PrepareEditingControlForEdit(bool selectAll)
         {
-            TextBox textBox = Controls[0].Controls[1] as TextBox;
-            if (textBox != null)
+            if (Controls[0].Controls[1] is TextBox textBox)
             {
                 if (selectAll)
+                {
                     textBox.SelectAll();
+                }
                 else
+                {
                     textBox.SelectionStart = textBox.Text.Length;
+                }
             }
         }
         #endregion
@@ -4383,7 +4660,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnTextChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -4392,8 +4671,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override bool ProcessKeyEventArgs(ref Message m)
         {
-            TextBox textBox = Controls[0].Controls[1] as TextBox;
-            if (textBox != null)
+            if (Controls[0].Controls[1] is TextBox textBox)
             {
                 PI.SendMessage(textBox.Handle, m.Msg, m.WParam, m.LParam);
                 return true;
@@ -4472,21 +4750,27 @@ namespace ComponentFactory.Krypton.Toolkit
             // Convert collection of strings to an array
             string[] strings = new string[Items.Count];
             for (int i = 0; i < strings.Length; i++)
+            {
                 strings[i] = Items[i];
+            }
 
             cloned.Items.AddRange(strings);
 
             // Convert collection of strings to an array
             strings = new string[AutoCompleteCustomSource.Count];
             for (int i = 0; i < strings.Length; i++)
+            {
                 strings[i] = AutoCompleteCustomSource[i];
+            }
 
             cloned.AutoCompleteCustomSource.AddRange(strings);
 
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -4504,9 +4788,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             set
             {
-                KryptonDataGridViewComboBoxCell cell = value as KryptonDataGridViewComboBoxCell;
-                if ((value != null) && (cell == null))
+                if ((value != null) && (!(value is KryptonDataGridViewComboBoxCell cell)))
+                {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewComboBoxCell or derive from it.");
+                }
 
                 base.CellTemplate = value;
             }
@@ -4553,7 +4838,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.DropDownStyle;
             }
@@ -4561,7 +4848,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.DropDownStyle = value;
@@ -4575,9 +4864,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetDropDownStyle(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4597,7 +4887,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.MaxDropDownItems;
             }
@@ -4605,7 +4897,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.MaxDropDownItems = value;
@@ -4619,9 +4913,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMaxDropDownItems(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4642,7 +4937,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.DropDownHeight;
             }
@@ -4650,7 +4947,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.DropDownHeight = value;
@@ -4664,9 +4963,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMaxDropDownItems(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4686,7 +4986,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.DropDownWidth;
             }
@@ -4694,7 +4996,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.DropDownWidth = value;
@@ -4708,9 +5012,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetDropDownWidth(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4749,7 +5054,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.AutoCompleteMode;
             }
@@ -4757,7 +5064,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.AutoCompleteMode = value;
@@ -4771,9 +5080,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetAutoCompleteMode(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4793,7 +5103,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.AutoCompleteSource;
             }
@@ -4801,7 +5113,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.AutoCompleteSource = value;
@@ -4815,9 +5129,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetAutoCompleteSource(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4838,7 +5153,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return ComboBoxCellTemplate.DisplayMember;
             }
@@ -4846,7 +5163,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (ComboBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 ComboBoxCellTemplate.DisplayMember = value;
@@ -4860,9 +5179,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewComboBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetDisplayMember(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -4885,8 +5205,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -4969,7 +5288,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
+                }
 
                 return _defaultValueType;
             }
@@ -5005,7 +5326,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == ComboBoxStyle.Simple)
+                {
                     throw new ArgumentOutOfRangeException("The DropDownStyle property does not support the Simple style.");
+                }
 
                 if (_dropDownStyle != value)
                 {
@@ -5147,17 +5470,20 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonComboBox comboBox = dataGridView.EditingControl as KryptonComboBox;
-            if (comboBox != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewComboBoxColumn comboColumn = OwningColumn as KryptonDataGridViewComboBoxColumn;
-                if (comboColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonComboBox comboBox)
+            {
+                if (OwningColumn is KryptonDataGridViewComboBoxColumn comboColumn)
                 {
                     foreach (ButtonSpec bs in comboBox.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
+                    }
+
                     comboBox.ButtonSpecs.Clear();
                 }
             }
@@ -5176,23 +5502,25 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonComboBox comboBox = DataGridView.EditingControl as KryptonComboBox;
-            if (comboBox != null)
+            if (DataGridView.EditingControl is KryptonComboBox comboBox)
             {
-                KryptonDataGridViewComboBoxColumn comboColumn = OwningColumn as KryptonDataGridViewComboBoxColumn;
-                if (comboColumn != null)
+                if (OwningColumn is KryptonDataGridViewComboBoxColumn comboColumn)
                 {
                     // Convert collection of strings to an array
                     object[] strings = new object[comboColumn.Items.Count];
                     for (int i = 0; i < strings.Length; i++)
+                    {
                         strings[i] = comboColumn.Items[i];
+                    }
 
                     comboBox.Items.Clear();
                     comboBox.Items.AddRange(strings);
 
                     string[] autoAppend = new string[comboColumn.AutoCompleteCustomSource.Count];
                     for (int j = 0; j < autoAppend.Length; j++)
+                    {
                         autoAppend[j] = comboColumn.AutoCompleteCustomSource[j];
+                    }
 
                     comboBox.AutoCompleteCustomSource.Clear();
                     comboBox.AutoCompleteCustomSource.AddRange(autoAppend);
@@ -5216,11 +5544,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 comboBox.DisplayMember = DisplayMember;
                 comboBox.ValueMember = ValueMember;
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if (!(initialFormattedValue is string initialFormattedValueStr))
+                {
                     comboBox.Text = string.Empty;
+                }
                 else
+                {
                     comboBox.Text = initialFormattedValueStr;
+                }
             }
         }
 
@@ -5259,9 +5590,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -5272,7 +5607,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -5326,22 +5663,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingComboBox(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewComboBoxEditingControl control = DataGridView.EditingControl as KryptonDataGridViewComboBoxEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewComboBoxEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -5355,56 +5698,72 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _dropDownStyle = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.DropDownStyle = value;
+            }
         }
 
         internal void SetMaxDropDownItems(int rowIndex, int value)
         {
             _maxDropDownItems = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.MaxDropDownItems = value;
+            }
         }
 
         internal void SetDropDownHeight(int rowIndex, int value)
         {
             _dropDownHeight = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.DropDownHeight = value;
+            }
         }
 
         internal void SetDropDownWidth(int rowIndex, int value)
         {
             _dropDownWidth = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.DropDownWidth = value;
+            }
         }
 
         internal void SetAutoCompleteMode(int rowIndex, AutoCompleteMode value)
         {
             _autoCompleteMode = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.AutoCompleteMode = value;
+            }
         }
 
         internal void SetAutoCompleteSource(int rowIndex, AutoCompleteSource value)
         {
             _autoCompleteSource = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.AutoCompleteSource = value;
+            }
         }
 
         internal void SetDisplayMember(int rowIndex, string value)
         {
             _displayMember = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.DisplayMember = value;
+            }
         }
 
         internal void SetValueMember(int rowIndex, string value)
         {
             _valueMember = value;
             if (OwnsEditingComboBox(rowIndex))
+            {
                 EditingComboBox.ValueMember = value;
+            }
         }
         #endregion
     }
@@ -5542,7 +5901,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnTextChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -5552,7 +5913,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.OnSelectedIndexChanged(e);
             if (SelectedIndex != -1)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -5639,7 +6002,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -5657,9 +6022,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             set
             {
-                KryptonDataGridViewDateTimePickerCell cell = value as KryptonDataGridViewDateTimePickerCell;
-                if ((value != null) && (cell == null))
+                if ((value != null) && (!(value is KryptonDataGridViewDateTimePickerCell cell)))
+                {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewDateTimePickerCell or derive from it.");
+                }
 
                 base.CellTemplate = value;
             }
@@ -5687,14 +6053,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.ShowCheckBox;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.ShowCheckBox = value;
@@ -5708,9 +6078,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetShowCheckBox(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5729,14 +6100,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.ShowUpDown;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.ShowUpDown = value;
@@ -5750,9 +6125,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetShowUpDown(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5772,14 +6148,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.Format;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.Format = value;
@@ -5793,9 +6173,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetFormat(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5814,14 +6195,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.AutoShift;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.AutoShift = value;
@@ -5835,9 +6220,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetAutoShift(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5856,14 +6242,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.Checked;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.Checked = value;
@@ -5877,9 +6267,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetChecked(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5898,14 +6289,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CustomFormat;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CustomFormat = value;
@@ -5919,9 +6314,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCustomFormat(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5940,14 +6336,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CustomNullText;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CustomNullText = value;
@@ -5961,9 +6361,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCustomNullText(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -5981,14 +6382,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.MaxDate;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.MaxDate = value;
@@ -6002,9 +6407,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMaxDate(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6036,14 +6442,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.MinDate;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.MinDate = value;
@@ -6057,9 +6467,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMinDate(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6092,14 +6503,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarDimensions;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarDimensions = value;
@@ -6113,9 +6528,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarDimensions(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6134,14 +6550,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarTodayText;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarTodayText = value;
@@ -6155,9 +6575,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarTodayText(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6184,14 +6605,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarFirstDayOfWeek;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarFirstDayOfWeek = value;
@@ -6205,9 +6630,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarFirstDayOfWeek(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6226,14 +6652,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarShowToday;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarShowToday = value;
@@ -6247,9 +6677,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarShowToday(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6268,14 +6699,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarCloseOnTodayClick;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarCloseOnTodayClick = value;
@@ -6289,9 +6724,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarCloseOnTodayClick(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6310,14 +6746,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarShowTodayCircle;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarShowTodayCircle = value;
@@ -6331,9 +6771,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarShowTodayCircle(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6352,14 +6793,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarShowWeekNumbers;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarShowWeekNumbers = value;
@@ -6373,9 +6818,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarShowWeekNumbers(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6393,14 +6839,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return DateTimePickerCellTemplate.CalendarTodayDate;
             }
             set
             {
                 if (DateTimePickerCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 DateTimePickerCellTemplate.CalendarTodayDate = value;
@@ -6414,9 +6864,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewDateTimePickerCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewDateTimePickerCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewDateTimePickerCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCalendarTodayDate(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -6447,7 +6898,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _annualDates.Clear();
                 _annualDates.AddRange(value);
@@ -6481,7 +6934,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _monthlyDates.Clear();
                 _monthlyDates.AddRange(value);
@@ -6515,7 +6970,9 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (value == null)
+                {
                     value = new DateTime[0];
+                }
 
                 _dates.Clear();
                 _dates.AddRange(value);
@@ -6550,8 +7007,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -6599,8 +7055,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create a thread specific KryptonDateTimePicker control used for the painting of the non-edited cells
             if (_paintingDateTime == null)
             {
-                _paintingDateTime = new KryptonDateTimePicker();
-                _paintingDateTime.ShowBorder = false;
+                _paintingDateTime = new KryptonDateTimePicker
+                {
+                    ShowBorder = false
+                };
                 _paintingDateTime.StateCommon.Border.Width = 0;
                 _paintingDateTime.StateCommon.Border.Draw = InheritBool.False;
             }
@@ -6654,7 +7112,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
+                }
 
                 return _defaultValueType;
             }
@@ -7039,17 +7499,20 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonDateTimePicker dateTimePicker = dataGridView.EditingControl as KryptonDateTimePicker;
-            if (dateTimePicker != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewDateTimePickerColumn dateTimeColumn = OwningColumn as KryptonDataGridViewDateTimePickerColumn;
-                if (dateTimeColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonDateTimePicker dateTimePicker)
+            {
+                if (OwningColumn is KryptonDataGridViewDateTimePickerColumn dateTimeColumn)
                 {
                     foreach (ButtonSpec bs in dateTimePicker.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
+                    }
+
                     dateTimePicker.ButtonSpecs.Clear();
                 }
             }
@@ -7068,11 +7531,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonDateTimePicker dateTime = DataGridView.EditingControl as KryptonDateTimePicker;
-            if (dateTime != null)
+            if (DataGridView.EditingControl is KryptonDateTimePicker dateTime)
             {
-                KryptonDataGridViewDateTimePickerColumn dateTimeColumn = OwningColumn as KryptonDataGridViewDateTimePickerColumn;
-                if (dateTimeColumn != null)
+                if (OwningColumn is KryptonDataGridViewDateTimePickerColumn dateTimeColumn)
                 {
                     dateTime.ShowCheckBox = ShowCheckBox;
                     dateTime.ShowUpDown = ShowUpDown;
@@ -7105,16 +7566,21 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if ((initialFormattedValueStr == null) || string.IsNullOrEmpty(initialFormattedValueStr))
+                if ((!(initialFormattedValue is string initialFormattedValueStr)) || string.IsNullOrEmpty(initialFormattedValueStr))
+                {
                     dateTime.ValueNullable = null;
+                }
                 else
                 {
                     DateTime dt = (DateTime)_dtc.ConvertFromInvariantString(initialFormattedValueStr);
                     if (dt != null)
+                    {
                         dateTime.Value = dt;
+                    }
                     else
+                    {
                         dateTime.Text = initialFormattedValueStr;
+                    }
                 }
             }
         }
@@ -7136,12 +7602,16 @@ namespace ComponentFactory.Krypton.Toolkit
                                                     DataGridViewDataErrorContexts context)
         {
             if ((value == null) || (value == DBNull.Value))
+            {
                 return string.Empty;
+            }
             else
             {
                 DateTime dt = (DateTime)value;
                 if (dt != null)
+                {
                     return _dtc.ConvertToInvariantString(dt);
+                }
             }
 
             return base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter, formattedValueTypeConverter, context);
@@ -7161,14 +7631,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    TypeConverter valueTypeConverter)
         {
             if (formattedValue == null)
+            {
                 return DBNull.Value;
+            }
             else
             {
                 string stringValue = (string)formattedValue;
                 if (string.IsNullOrEmpty(stringValue))
+                {
                     return DBNull.Value;
+                }
                 else
+                {
                     return _dtc.ConvertFromInvariantString(stringValue);
+                }
             }
         }
 
@@ -7207,9 +7683,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -7220,7 +7700,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -7253,7 +7735,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                       DataGridViewPaintParts paintParts)
         {
             if (DataGridView == null)
+            {
                 return;
+            }
 
             _paintingDateTime.RightToLeft = DataGridView.RightToLeft;
             _paintingDateTime.Format = Format;
@@ -7321,22 +7805,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingDateTimePicker(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewDateTimePickerEditingControl control = DataGridView.EditingControl as KryptonDataGridViewDateTimePickerEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewDateTimePickerEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -7350,119 +7840,153 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _showCheckBox = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.ShowCheckBox = value;
+            }
         }
 
         internal void SetShowUpDown(int rowIndex, bool value)
         {
             _showUpDown = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.ShowUpDown = value;
+            }
         }
 
         internal void SetAutoShift(int rowIndex, bool value)
         {
             _autoShift = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.AutoShift = value;
+            }
         }
 
         internal void SetChecked(int rowIndex, bool value)
         {
             _checked = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.Checked = value;
+            }
         }
 
         internal void SetCustomFormat(int rowIndex, string value)
         {
             _customFormat = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CustomFormat = value;
+            }
         }
 
         internal void SetCustomNullText(int rowIndex, string value)
         {
             _customNullText = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CustomNullText = value;
+            }
         }
 
         internal void SetMaxDate(int rowIndex, DateTime value)
         {
             _maxDate = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.MaxDate = value;
+            }
         }
 
         internal void SetMinDate(int rowIndex, DateTime value)
         {
             _minDate = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.MinDate = value;
+            }
         }
 
         internal void SetFormat(int rowIndex, DateTimePickerFormat value)
         {
             _format = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.Format = value;
+            }
         }
 
         internal void SetCalendarCloseOnTodayClick(int rowIndex, bool value)
         {
             _calendarCloseOnTodayClick = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarCloseOnTodayClick = value;
+            }
         }
 
         internal void SetCalendarDimensions(int rowIndex, Size value)
         {
             _calendarDimensions = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarDimensions = value;
+            }
         }
 
         internal void SetCalendarFirstDayOfWeek(int rowIndex, Day value)
         {
             _calendarFirstDayOfWeek = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarFirstDayOfWeek = value;
+            }
         }
 
         internal void SetCalendarShowToday(int rowIndex, bool value)
         {
             _calendarShowToday = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarShowToday = value;
+            }
         }
 
         internal void SetCalendarShowTodayCircle(int rowIndex, bool value)
         {
             _calendarShowTodayCircle = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarShowTodayCircle = value;
+            }
         }
 
         internal void SetCalendarShowWeekNumbers(int rowIndex, bool value)
         {
             _calendarShowWeekNumbers = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarShowWeekNumbers = value;
+            }
         }
 
         internal void SetCalendarTodayText(int rowIndex, string value)
         {
             _calendarTodayText = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarTodayText = value;
+            }
         }
 
         internal void SetCalendarTodayDate(int rowIndex, DateTime value)
         {
             _calendarTodayDate = value;
             if (OwnsEditingDateTimePicker(rowIndex))
+            {
                 EditingDateTimePicker.CalendarTodayDate = value;
+            }
         }
         #endregion
     }
@@ -7517,14 +8041,20 @@ namespace ComponentFactory.Krypton.Toolkit
             set 
             {
                 if ((value == null) || (value == DBNull.Value))
+                {
                     ValueNullable = value;
+                }
                 else
                 {
                     string formattedValue = value as string;
                     if (string.IsNullOrEmpty(formattedValue))
+                    {
                         ValueNullable = (formattedValue == string.Empty) ? null : value;
+                    }
                     else
+                    {
                         Value = (DateTime)_dtc.ConvertFromInvariantString(formattedValue);
+                    }
                 }
             }
         }
@@ -7605,9 +8135,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
         {
             if ((ValueNullable == null) || (ValueNullable == DBNull.Value))
+            {
                 return String.Empty;
+            }
             else
+            {
                 return _dtc.ConvertToInvariantString(Value);
+            }
         }
         #endregion
 
@@ -7620,7 +8154,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnValueNullableChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
         #endregion
 
@@ -7688,7 +8224,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move the button specs over to the new clone
             foreach (ButtonSpec bs in ButtonSpecs)
+            {
                 cloned.ButtonSpecs.Add(bs.Clone());
+            }
 
             return cloned;
         }
@@ -7705,9 +8243,10 @@ namespace ComponentFactory.Krypton.Toolkit
             get { return base.CellTemplate; }
             set
             {
-                KryptonDataGridViewMaskedTextBoxCell cell = value as KryptonDataGridViewMaskedTextBoxCell;
-                if ((value != null) && (cell == null))
+                if ((value != null) && (!(value is KryptonDataGridViewMaskedTextBoxCell cell)))
+                {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewMaskedTextBoxCell or derive from it.");
+                }
 
                 base.CellTemplate = value;
             }
@@ -7735,14 +8274,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.PromptChar;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.PromptChar = value;
@@ -7756,9 +8299,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetPromptChar(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7777,14 +8321,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.AllowPromptAsInput;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.AllowPromptAsInput = value;
@@ -7798,9 +8346,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetAllowPromptAsInput(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7819,14 +8368,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.AsciiOnly;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.AsciiOnly = value;
@@ -7840,9 +8393,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetAsciiOnly(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7861,14 +8415,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.BeepOnError;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.BeepOnError = value;
@@ -7882,9 +8440,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetBeepOnError(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7903,14 +8462,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.CutCopyMaskFormat;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.CutCopyMaskFormat = value;
@@ -7924,9 +8487,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetCutCopyMaskFormat(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7945,14 +8509,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.HidePromptOnLeave;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.HidePromptOnLeave = value;
@@ -7966,9 +8534,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetHidePromptOnLeave(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -7987,14 +8556,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.HideSelection;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.HideSelection = value;
@@ -8008,9 +8581,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetHideSelection(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8029,14 +8603,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.InsertKeyMode;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.InsertKeyMode = value;
@@ -8050,9 +8628,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetInsertKeyMode(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8071,14 +8650,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.Mask;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.Mask = value;
@@ -8092,9 +8675,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetMask(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8113,14 +8697,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.PasswordChar;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.PasswordChar = value;
@@ -8134,9 +8722,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetPasswordChar(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8155,14 +8744,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.RejectInputOnFirstFailure;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.RejectInputOnFirstFailure = value;
@@ -8176,9 +8769,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetRejectInputOnFirstFailure(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8197,14 +8791,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.ResetOnPrompt;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.ResetOnPrompt = value;
@@ -8218,9 +8816,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetResetOnPrompt(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8239,14 +8838,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.ResetOnSpace;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.ResetOnSpace = value;
@@ -8260,9 +8863,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetResetOnSpace(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8281,14 +8885,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.SkipLiterals;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.SkipLiterals = value;
@@ -8302,9 +8910,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetSkipLiterals(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8323,14 +8932,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.TextMaskFormat;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.TextMaskFormat = value;
@@ -8344,9 +8957,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetTextMaskFormat(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8365,14 +8979,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 return MaskedTextBoxCellTemplate.UseSystemPasswordChar;
             }
             set
             {
                 if (MaskedTextBoxCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 MaskedTextBoxCellTemplate.UseSystemPasswordChar = value;
@@ -8386,9 +9004,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        KryptonDataGridViewMaskedTextBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewMaskedTextBoxCell;
-                        if (dataGridViewCell != null)
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewMaskedTextBoxCell dataGridViewCell)
+                        {
                             dataGridViewCell.SetUseSystemPasswordChar(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -8410,8 +9029,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
-            if (ButtonSpecClick != null)
-                ButtonSpecClick(this, args);
+            ButtonSpecClick?.Invoke(this, args);
         }
         #endregion
     }
@@ -8424,8 +9042,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         [ThreadStatic]
         private static KryptonMaskedTextBox _paintingMaskedTextBox;
-        private static readonly DataGridViewContentAlignment _anyRight = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
-        private static readonly DataGridViewContentAlignment _anyCenter = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
+
+        private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
+        private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewMaskedTextBoxEditingControl);
         private static readonly Type _defaultValueType = typeof(System.String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
@@ -8514,7 +9133,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Type valueType = base.ValueType;
 
                 if (valueType != null)
+                {
                     return valueType;
+                }
 
                 return _defaultValueType;
             }
@@ -8843,22 +9464,26 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
-                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
-
-            KryptonMaskedTextBox maskedTextBox = dataGridView.EditingControl as KryptonMaskedTextBox;
-            if (maskedTextBox != null)
+            if ((dataGridView == null) || (dataGridView.EditingControl == null))
             {
-                KryptonDataGridViewMaskedTextBoxColumn maskedTextBoxColumn = OwningColumn as KryptonDataGridViewMaskedTextBoxColumn;
-                if (maskedTextBoxColumn != null)
+                throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
+            }
+
+            if (dataGridView.EditingControl is KryptonMaskedTextBox maskedTextBox)
+            {
+                if (OwningColumn is KryptonDataGridViewMaskedTextBoxColumn maskedTextBoxColumn)
                 {
                     foreach (ButtonSpec bs in maskedTextBox.ButtonSpecs)
+                    {
                         bs.Click -= new EventHandler(OnButtonClick);
+                    }
+
                     maskedTextBox.ButtonSpecs.Clear();
 
-                    TextBox textBox = maskedTextBox.Controls[0] as TextBox;
-                    if (textBox != null)
+                    if (maskedTextBox.Controls[0] is TextBox textBox)
+                    {
                         textBox.ClearUndo();
+                    }
                 }
             }
 
@@ -8876,8 +9501,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
-            KryptonMaskedTextBox maskedTextBox = DataGridView.EditingControl as KryptonMaskedTextBox;
-            if (maskedTextBox != null)
+            if (DataGridView.EditingControl is KryptonMaskedTextBox maskedTextBox)
             {
                 maskedTextBox.PromptChar = PromptChar;
                 maskedTextBox.AllowPromptAsInput = AllowPromptAsInput;
@@ -8896,8 +9520,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 maskedTextBox.TextMaskFormat = TextMaskFormat;
                 maskedTextBox.UseSystemPasswordChar = UseSystemPasswordChar;
 
-                KryptonDataGridViewMaskedTextBoxColumn maskedTextBoxColumn = OwningColumn as KryptonDataGridViewMaskedTextBoxColumn;
-                if (maskedTextBoxColumn != null)
+                if (OwningColumn is KryptonDataGridViewMaskedTextBoxColumn maskedTextBoxColumn)
                 {
                     // Set this cell as the owner of the buttonspecs
                     maskedTextBox.ButtonSpecs.Clear();
@@ -8909,11 +9532,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
 
-                string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if (!(initialFormattedValue is string initialFormattedValueStr))
+                {
                     maskedTextBox.Text = string.Empty;
+                }
                 else
+                {
                     maskedTextBox.Text = initialFormattedValueStr;
+                }
             }
         }
 
@@ -8952,9 +9578,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
+            {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+            }
             else
+            {
                 errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+            }
 
             return errorIconBounds;
         }
@@ -8965,7 +9595,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
             if (DataGridView == null)
+            {
                 return new Size(-1, -1);
+            }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
@@ -9019,22 +9651,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCommonChange()
         {
-            if (DataGridView != null && !DataGridView.IsDisposed && !DataGridView.Disposing)
+            if ((DataGridView != null) && !DataGridView.IsDisposed && !DataGridView.Disposing)
             {
                 if (RowIndex == -1)
+                {
                     DataGridView.InvalidateColumn(ColumnIndex);
+                }
                 else
+                {
                     DataGridView.UpdateCellValue(ColumnIndex, RowIndex);
+                }
             }
         }
 
         private bool OwnsEditingMaskedTextBox(int rowIndex)
         {
-            if (rowIndex == -1 || DataGridView == null)
+            if ((rowIndex == -1) || (DataGridView == null))
+            {
                 return false;
+            }
 
-            KryptonDataGridViewMaskedTextBoxEditingControl control = DataGridView.EditingControl as KryptonDataGridViewMaskedTextBoxEditingControl;
-            return (control != null) && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
+            return (DataGridView.EditingControl is KryptonDataGridViewMaskedTextBoxEditingControl control) 
+                && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
@@ -9048,122 +9686,160 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _promptChar = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.PromptChar = value;
+            }
         }
 
         internal void SetAllowPromptAsInput(int rowIndex, bool value)
         {
             _allowPromptAsInput = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.AllowPromptAsInput = value;
+            }
         }
 
         internal void SetAsciiOnly(int rowIndex, bool value)
         {
             _asciiOnly = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.AsciiOnly = value;
+            }
         }
 
         internal void SetBeepOnError(int rowIndex, bool value)
         {
             _beepOnError = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.BeepOnError = value;
+            }
         }
 
         internal void SetCutCopyMaskFormat(int rowIndex, MaskFormat value)
         {
             _cutCopyMaskFormat = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.CutCopyMaskFormat = value;
+            }
         }
 
         internal void SetHidePromptOnLeave(int rowIndex, bool value)
         {
             _hidePromptOnLeave = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.HidePromptOnLeave = value;
+            }
         }
 
         internal void SetHideSelection(int rowIndex, bool value)
         {
             _hideSelection = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.HideSelection = value;
+            }
         }
 
         internal void SetInsertKeyMode(int rowIndex, InsertKeyMode value)
         {
             _insertKeyMode = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.InsertKeyMode = value;
+            }
         }
 
         internal void SetMask(int rowIndex, string value)
         {
             _mask = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.Mask = value;
+            }
         }
 
         internal void SetPasswordChar(int rowIndex, char value)
         {
             _passwordChar = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.PasswordChar = value;
+            }
         }
 
         internal void SetRejectInputOnFirstFailure(int rowIndex, bool value)
         {
             _rejectInputOnFirstFailure = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.RejectInputOnFirstFailure = value;
+            }
         }
 
         internal void SetResetOnPrompt(int rowIndex, bool value)
         {
             _resetOnPrompt = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.ResetOnPrompt = value;
+            }
         }
 
         internal void SetResetOnSpace(int rowIndex, bool value)
         {
             _resetOnSpace = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.ResetOnSpace = value;
+            }
         }
 
         internal void SetSkipLiterals(int rowIndex, bool value)
         {
             _skipLiterals = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.SkipLiterals = value;
+            }
         }
 
         internal void SetTextMaskFormat(int rowIndex, MaskFormat value)
         {
             _textMaskFormat = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.TextMaskFormat = value;
+            }
         }
 
         internal void SetUseSystemPasswordChar(int rowIndex, bool value)
         {
             _useSystemPasswordChar = value;
             if (OwnsEditingMaskedTextBox(rowIndex))
+            {
                 EditingMaskedTextBox.UseSystemPasswordChar = value;
+            }
         }
 
         internal static HorizontalAlignment TranslateAlignment(DataGridViewContentAlignment align)
         {
-            if ((align & _anyRight) != 0)
+            if ((align & ANY_RIGHT) != 0)
+            {
                 return HorizontalAlignment.Right;
-            else if ((align & _anyCenter) != 0)
+            }
+            else if ((align & ANY_CENTER) != 0)
+            {
                 return HorizontalAlignment.Center;
+            }
             else
+            {
                 return HorizontalAlignment.Left;
+            }
         }
         #endregion
     }
@@ -9267,12 +9943,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Right:
                     {
-                        MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-                        if (textBox != null)
+                        if (Controls[0] is MaskedTextBox textBox)
                         {
                             // If the end of the selection is at the end of the string, let the DataGridView treat the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
                             {
                                 return true;
                             }
@@ -9281,13 +9956,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case Keys.Left:
                     {
-                        MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-                        if (textBox != null)
+                        if (Controls[0] is MaskedTextBox textBox)
                         {
                             // If the end of the selection is at the begining of the string or if the entire text is selected 
                             // and we did not start editing, send this character to the dataGridView, else process the key message
-                            if ((RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)) ||
-                                (RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)))
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
                             {
                                 return true;
                             }
@@ -9301,8 +9975,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.End:
                     {
                         // Let the grid handle the key if the entire text is selected.
-                        MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-                        if (textBox != null)
+                        if (Controls[0] is MaskedTextBox textBox)
                         {
                             if (textBox.SelectionLength != textBox.Text.Length)
                             {
@@ -9314,11 +9987,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Delete:
                     {
                         // Let the grid handle the key if the carret is at the end of the text.
-                        MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-                        if (textBox != null)
+                        if (Controls[0] is MaskedTextBox textBox)
                         {
-                            if (textBox.SelectionLength > 0 ||
-                                textBox.SelectionStart < textBox.Text.Length)
+                            if ((textBox.SelectionLength > 0) ||
+                                (textBox.SelectionStart < textBox.Text.Length))
                             {
                                 return true;
                             }
@@ -9343,13 +10015,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual void PrepareEditingControlForEdit(bool selectAll)
         {
-            MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-            if (textBox != null)
+            if (Controls[0] is MaskedTextBox textBox)
             {
                 if (selectAll)
+                {
                     textBox.SelectAll();
+                }
                 else
+                {
                     textBox.SelectionStart = textBox.Text.Length;
+                }
             }
         }
         #endregion
@@ -9363,7 +10038,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnTextChanged(e);
 
             if (Focused)
+            {
                 NotifyDataGridViewOfValueChange();
+            }
         }
 
         /// <summary>
@@ -9372,8 +10049,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override bool ProcessKeyEventArgs(ref Message m)
         {
-            MaskedTextBox textBox = Controls[0] as MaskedTextBox;
-            if (textBox != null)
+            if (Controls[0] is MaskedTextBox textBox)
             {
                 PI.SendMessage(textBox.Handle, m.Msg, m.WParam, m.LParam);
                 return true;

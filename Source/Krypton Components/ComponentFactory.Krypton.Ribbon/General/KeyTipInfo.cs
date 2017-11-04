@@ -8,12 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -102,8 +98,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         public void KeyTipSelect(KryptonRibbon ribbon)
         {
-            if (_target != null)
-                _target.KeyTipSelect(ribbon);
+            _target?.KeyTipSelect(ribbon);
         }
         #endregion
     }

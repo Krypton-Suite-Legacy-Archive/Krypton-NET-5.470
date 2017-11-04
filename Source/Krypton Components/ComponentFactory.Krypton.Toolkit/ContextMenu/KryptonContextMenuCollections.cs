@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -26,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonContextMenuCollection : TypedRestrictCollection<KryptonContextMenuItemBase>
     {
         #region Static Fields
-        private static readonly Type[] _types = new Type[] { typeof(KryptonContextMenuItems),
+        private static readonly Type[] _types = { typeof(KryptonContextMenuItems),
                                                              typeof(KryptonContextMenuSeparator),
                                                              typeof(KryptonContextMenuHeading),
                                                              typeof(KryptonContextMenuLinkLabel),
@@ -58,8 +54,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ask each individual item if it has a shortcut to be processed
             foreach (KryptonContextMenuItemBase item in this)
+            {
                 if (item.ProcessShortcut(keyData))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -89,10 +89,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (item.Visible)
                 {
                     // Special handling of separator items
-                    if (item is KryptonContextMenuSeparator)
+                    if (item is KryptonContextMenuSeparator separator)
                     {
                         // Cast to correct type
-                        KryptonContextMenuSeparator separator = (KryptonContextMenuSeparator)item;
 
                         // If vertical break....
                         if (!separator.Horizontal)
@@ -129,9 +128,10 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnInserted(e);
 
             // We monitor changes to the checked state of radio buttons
-            KryptonContextMenuRadioButton radioButton = e.Item as KryptonContextMenuRadioButton;
-            if (radioButton != null)
+            if (e.Item is KryptonContextMenuRadioButton radioButton)
+            {
                 radioButton.CheckedChanged += new EventHandler(OnRadioButtonCheckedChanged);
+            }
         }
 
         /// <summary>
@@ -141,9 +141,10 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnRemoving(TypedCollectionEventArgs<KryptonContextMenuItemBase> e)
         {
             // Must unhook from the change event to prevent memory leak
-            KryptonContextMenuRadioButton radioButton = e.Item as KryptonContextMenuRadioButton;
-            if (radioButton != null)
+            if (e.Item is KryptonContextMenuRadioButton radioButton)
+            {
                 radioButton.CheckedChanged -= new EventHandler(OnRadioButtonCheckedChanged);
+            }
 
             base.OnRemoving(e);
         }
@@ -179,15 +180,21 @@ namespace ComponentFactory.Krypton.Toolkit
                     
                     // Exit as soon as a non-radio button is encountered
                     if (radioButton == null)
+                    {
                         break;
+                    }
 
                     // Set the radio button to unchecked
                     if (radioButton.Checked)
+                    {
                         radioButton.Checked = false;
+                    }
 
                     // Keep going until we reach the end item
                     if (start == end)
+                    {
                         break;
+                    }
 
                     // Moved to next index
                     start += change;
@@ -211,7 +218,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonContextMenuItemCollection : TypedRestrictCollection<KryptonContextMenuItemBase>
     {
         #region Static Fields
-        private static readonly Type[] _types = new Type[] { typeof(KryptonContextMenuItem),
+        private static readonly Type[] _types = { typeof(KryptonContextMenuItem),
                                                              typeof(KryptonContextMenuSeparator),
                                                              typeof(KryptonContextMenuHeading) };
         #endregion
@@ -236,8 +243,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ask each individual item if it has a shortcut to be processed
             foreach (KryptonContextMenuItemBase item in this)
+            {
                 if (item.ProcessShortcut(keyData))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -260,10 +271,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (item.Visible)
                 {
                     // Special handling of separator items
-                    if (item is KryptonContextMenuSeparator)
+                    if (item is KryptonContextMenuSeparator separator)
                     {
                         // Cast to correct type
-                        KryptonContextMenuSeparator separator = (KryptonContextMenuSeparator)item;
 
                         // If vertical break....
                         if (!separator.Horizontal)

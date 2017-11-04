@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -109,14 +104,18 @@ namespace ComponentFactory.Krypton.Ribbon
                 retColor = _ribbonLabelTextDisabled.GetRibbonTextColor(state);
 
                 if (retColor == Color.Empty)
+                {
                     retColor = _ribbonGroupTextDisabled.GetRibbonTextColor(state);
+                }
             }
             else
             {
                 retColor = _ribbonLabelTextNormal.GetRibbonTextColor(state);
 
                 if (retColor == Color.Empty)
+                {
                     retColor = _ribbonGroupTextNormal.GetRibbonTextColor(state);
+                }
             }
 
             return retColor;

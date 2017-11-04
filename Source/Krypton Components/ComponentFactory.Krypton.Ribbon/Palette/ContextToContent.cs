@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -100,9 +94,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override PaletteTextHint GetContentShortTextHint(PaletteState state)
         {
             if (_overrideTextHint != PaletteTextHint.Inherit)
+            {
                 return _overrideTextHint;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonTextHint(state);
+            }
         }
 
         /// <summary>
@@ -113,9 +111,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentShortTextColor1(PaletteState state)
         {
             if (_overrideTextColor != Color.Empty)
+            {
                 return _overrideTextColor;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonContextTextColor(state);
+            }
         }
 
         /// <summary>
@@ -126,9 +128,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentShortTextColor2(PaletteState state)
         {
             if (_overrideTextColor != Color.Empty)
+            {
                 return _overrideTextColor;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonContextTextColor(state);
+            }
         }
 
         /// <summary>
@@ -159,9 +165,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override PaletteTextHint GetContentLongTextHint(PaletteState state)
         {
             if (_overrideTextHint != PaletteTextHint.Inherit)
+            {
                 return _overrideTextHint;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonTextHint(state);
+            }
         }
 
         /// <summary>
@@ -172,9 +182,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentLongTextColor1(PaletteState state)
         {
             if (_overrideTextColor != Color.Empty)
+            {
                 return _overrideTextColor;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonContextTextColor(state);
+            }
         }
 
         /// <summary>
@@ -185,9 +199,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Color GetContentLongTextColor2(PaletteState state)
         {
             if (_overrideTextColor != Color.Empty)
+            {
                 return _overrideTextColor;
+            }
             else
+            {
                 return RibbonGeneral.GetRibbonContextTextColor(state);
+            }
         }
         #endregion
     }

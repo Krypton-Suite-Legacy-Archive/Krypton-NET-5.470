@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class HeaderStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(HeaderStyle.Primary,      "Primary"),
+        private Pair[] _pairs = { new Pair(HeaderStyle.Primary,      "Primary"),
                                              new Pair(HeaderStyle.Secondary,    "Secondary"), 
                                              new Pair(HeaderStyle.DockInactive, "Dock - Inactive"), 
                                              new Pair(HeaderStyle.DockActive,   "Dock - Active"), 

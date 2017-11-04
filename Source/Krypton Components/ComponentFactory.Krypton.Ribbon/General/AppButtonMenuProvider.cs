@@ -9,8 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -124,8 +122,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         public void OnDispose(EventArgs e)
         {
-            if (Dispose != null)
-                Dispose(this, e);
+            Dispose?.Invoke(this, e);
         }
 
         /// <summary>
@@ -135,9 +132,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public void OnClosing(CancelEventArgs cea)
         {
             if (_parent != null)
+            {
                 _parent.OnClosing(cea);
-            else if (Closing != null)
-                Closing(this, cea);
+            }
+            else
+            {
+                Closing?.Invoke(this, cea);
+            }
         }
 
         /// <summary>
@@ -147,7 +148,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void OnClose(CloseReasonEventArgs e)
         {
             if (_parent != null)
+            {
                 _parent.OnClose(e);
+            }
             else if (Close != null)
             {
                 _closeReason = e.CloseReason;
@@ -205,7 +208,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 return screenRect;
             }
             else
+            {
                 return Rectangle.Empty;
+            }
         }
 
         /// <summary>
@@ -216,17 +221,25 @@ namespace ComponentFactory.Krypton.Ribbon
             get 
             {
                 if (_parent != null)
+                {
                     return _parent.ProviderCloseReason;
+                }
                 else
+                {
                     return _closeReason;
+                }
             }
             
             set
             {
                 if (_parent != null)
+                {
                     _parent.ProviderCloseReason = value;
+                }
                 else
+                {
                     _closeReason = value;
+                }
             }
         }
 

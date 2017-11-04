@@ -8,14 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -37,8 +29,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Search for a gallery range with the same heading as that requested.
                 foreach (KryptonGalleryRange range in this)
+                {
                     if (range.Heading == heading)
+                    {
                         return range;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[heading];

@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -132,7 +129,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Draw the border shadow
                     using (AntiAlias aa = new AntiAlias(context.Graphics))
                        using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(16, Color.Black)))
-                            context.Graphics.FillPath(shadowBrush, shadowPath);
+                       {
+                           context.Graphics.FillPath(shadowBrush, shadowPath);
+                       }
                 }
 
                 // Are we allowed to draw a background?
@@ -162,7 +161,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Draw the border last to overlap the background
                     using (AntiAlias aa = new AntiAlias(context.Graphics))
                         using (Pen borderPen = new Pen(borderColor))
+                        {
                             context.Graphics.DrawPath(borderPen, borderPath);
+                        }
                 }
             }
         }
@@ -217,7 +218,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Create path that describes the arrow in orientation needed
             using (GraphicsPath arrowPath = CreateArrowPath(rect))
                 using (SolidBrush arrowBrush = new SolidBrush(textColor))
+                {
                     g.FillPath(arrowBrush, arrowPath);
+                }
         }
 
         private GraphicsPath CreateArrowPath(Rectangle rect)

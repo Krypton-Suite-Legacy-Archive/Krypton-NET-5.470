@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -81,7 +74,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetInherit(IPaletteRibbonText inheritText)
         {
             if (_inheritText != null)
+            {
                 _inheritText = inheritText;
+            }
         }
         #endregion
 
@@ -135,13 +130,19 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonTextColor(PaletteState state)
         {
             if (TextColor != Color.Empty)
+            {
                 return TextColor;
+            }
             else
             {
                 if (_inheritText != null)
+                {
                     return _inheritText.GetRibbonTextColor(state);
+                }
                 else
+                {
                     return Color.Empty;
+                }
             }
         }
         #endregion

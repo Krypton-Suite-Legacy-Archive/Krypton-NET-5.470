@@ -20,7 +20,11 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
     /// </summary>
     public static class PaletteImageScaler
     {
-        // scales the custom KryptonPalette images using the current Dpi
+        /// <summary>
+        /// scales the custom KryptonPalette images using the current Dpi
+        /// </summary>
+        /// <param name="frm">Form</param>
+        /// <param name="pal">KryptonPalette</param>
         public static void ScalePalette(Form frm, KryptonPalette pal)
         {
             SizeF dpi = new SizeF();
@@ -28,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
 
             // Get System Dpi setting. Note this does not handle per monitor Dpi
             // but should be the same Dpi as AutoScaleFont
-            using (var g = frm.CreateGraphics())
+            using (Graphics g = frm.CreateGraphics())
             {
                 dpi.Width = g.DpiX;
                 dpi.Height = g.DpiY;
@@ -39,14 +43,16 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
             scaleFactor.Height = dpi.Height / 96.0F;
 
             // if the scale is the same then no further processing needed (we are at 96 dpi).
-            if (scaleFactor.Width == 1.0F && scaleFactor.Height == 1.0F)
+            if ((scaleFactor.Width == 1.0F) && (scaleFactor.Height == 1.0F))
+            {
                 return;
+            }
 
             // suspend palette updates
             pal.SuspendUpdates();
 
             // scale buttonspec images
-            var bs = pal.ButtonSpecs;
+            KryptonPaletteButtonSpecs bs = pal.ButtonSpecs;
             bs.PopulateFromBase(); // populate images first so we can scale them
             ScaleButtonSpecImageType(bs.ArrowDown, scaleFactor);
             ScaleButtonSpecImageType(bs.ArrowLeft, scaleFactor);
@@ -76,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
             // scale images
             pal.Images.PopulateFromBase(); //populate images first so we can scale them
             // CheckBox
-            var cb = pal.Images.CheckBox;
+            KryptonPaletteImagesCheckBox cb = pal.Images.CheckBox;
             cb.CheckedDisabled = GetScaledImage(cb.CheckedDisabled, scaleFactor);
             cb.CheckedNormal = GetScaledImage(cb.CheckedNormal, scaleFactor);
             cb.CheckedPressed = GetScaledImage(cb.CheckedPressed, scaleFactor);
@@ -86,12 +92,12 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
             cb.UncheckedPressed = GetScaledImage(cb.UncheckedPressed, scaleFactor);
             cb.UncheckedTracking = GetScaledImage(cb.UncheckedTracking, scaleFactor);
             // ContextMenu
-            var cm = pal.Images.ContextMenu;
+            KryptonPaletteImagesContextMenu cm = pal.Images.ContextMenu;
             cm.Checked = GetScaledImage(cm.Checked, scaleFactor);
             cm.Indeterminate = GetScaledImage(cm.Indeterminate, scaleFactor);
             cm.SubMenu = GetScaledImage(cm.SubMenu, scaleFactor);
             // DropDownButton
-            var ddb = pal.Images.DropDownButton;
+            KryptonPaletteImagesDropDownButton ddb = pal.Images.DropDownButton;
             ddb.Disabled = GetScaledImage(ddb.Disabled, scaleFactor);
             ddb.Normal = GetScaledImage(ddb.Normal, scaleFactor);
             ddb.Pressed = GetScaledImage(ddb.Pressed, scaleFactor);
@@ -99,7 +105,7 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
             // GalleryButtons
             // I'm not using these so I'm skipping it
             // Radio Buttons
-            var rb = pal.Images.RadioButton;
+            KryptonPaletteImagesRadioButton rb = pal.Images.RadioButton;
             rb.CheckedDisabled = GetScaledImage(rb.CheckedDisabled, scaleFactor);
             rb.CheckedNormal = GetScaledImage(rb.CheckedNormal, scaleFactor);
             rb.CheckedPressed = GetScaledImage(rb.CheckedPressed, scaleFactor);
@@ -117,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
         private static void ScaleButtonSpecImageType(KryptonPaletteButtonSpecTyped bst, SizeF scaleFactor)
         {
             bst.Image = GetScaledImage(bst.Image, scaleFactor);
-            var imgState = bst.ImageStates;
+            CheckButtonImageStates imgState = bst.ImageStates;
             imgState.ImageCheckedNormal = GetScaledImage(imgState.ImageCheckedNormal, scaleFactor);
             imgState.ImageCheckedPressed = GetScaledImage(imgState.ImageCheckedPressed, scaleFactor);
             imgState.ImageCheckedTracking = GetScaledImage(imgState.ImageCheckedTracking, scaleFactor);
@@ -131,16 +137,21 @@ namespace ComponentFactory.Krypton.Toolkit.Utilities
         private static Image GetScaledImage(Image img, SizeF scaleFactor)
         {
             if (img == null)
+            {
                 return null;
-            if (scaleFactor.Width == 1 && scaleFactor.Height == 1)
+            }
+
+            if ((scaleFactor.Width == 1) && (scaleFactor.Height == 1))
+            {
                 return img;
+            }
 
             Bitmap bmp = new Bitmap((int)(img.Width * scaleFactor.Width), (int)(img.Height * scaleFactor.Height), System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
 
-            using (var tmpBmp = new Bitmap(img))
+            using (Bitmap tmpBmp = new Bitmap(img))
             {
                 tmpBmp.MakeTransparent(Color.Magenta);
-                using (var g = Graphics.FromImage(bmp))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                     g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;

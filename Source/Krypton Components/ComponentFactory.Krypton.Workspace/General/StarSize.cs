@@ -64,14 +64,18 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Validate the incoming value
                 if (value == null)
+                {
                     throw new ArgumentNullException("Cannot be assigned a null value.");
+                }
 
                 // Split the string into comma separated parts
                 string[] parts = value.Split(',');
 
                 // Must consist of two values
                 if (parts.Length != 2)
+                {
                     throw new ArgumentNullException("Value must have two values separated by a comma.");
+                }
 
                 // Parse both halfs, exceptions are thrown if a problem occurs
                 StarNumber width = new StarNumber(parts[0]);

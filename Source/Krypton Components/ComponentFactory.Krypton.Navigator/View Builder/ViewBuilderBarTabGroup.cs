@@ -8,12 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -44,11 +38,12 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void CreateCheckItemView()
         {
             // Create a canvas for containing the selected page and put old root inside it
-            _drawGroup = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back, 
-                                            Navigator.StateNormal.HeaderGroup.Border, 
-                                            VisualOrientation.Top);
-
-            _drawGroup.Add(_oldRoot);
+            _drawGroup = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back,
+                                            Navigator.StateNormal.HeaderGroup.Border,
+                                            VisualOrientation.Top)
+            {
+                _oldRoot
+            };
 
             // Create the view element that lays out the check/tab buttons
             ViewLayoutBarForTabs layoutBar = new ViewLayoutBarForTabs(Navigator.Bar.ItemSizing,
@@ -67,12 +62,16 @@ namespace ComponentFactory.Krypton.Navigator
                                                         PaletteMetricInt.CheckButtonGap,
                                                         Navigator.Bar.BarOrientation,
                                                         Navigator.Bar.ItemAlignment,
-                                                        Navigator.Bar.BarAnimation);
-            _layoutBarViewport.Add(_layoutBar);
+                                                        Navigator.Bar.BarAnimation)
+            {
+                _layoutBar
+            };
 
             // Create the button bar area docker
-            _layoutBarDocker = new ViewLayoutDocker();
-            _layoutBarDocker.Add(_layoutBarViewport, ViewDockStyle.Fill);
+            _layoutBarDocker = new ViewLayoutDocker
+            {
+                { _layoutBarViewport, ViewDockStyle.Fill }
+            };
 
             // Add a separators for insetting items
             _layoutBarSeparatorFirst = new ViewLayoutSeparator(0);
@@ -81,17 +80,23 @@ namespace ComponentFactory.Krypton.Navigator
             _layoutBarDocker.Add(_layoutBarSeparatorLast, ViewDockStyle.Right);
 
             // Create the layout that insets the contents to allow for rounding of the group border
-            _layoutOverlap = new ViewLayoutInsetOverlap(_drawGroup);
-            _layoutOverlap.Add(_layoutBarDocker);
+            _layoutOverlap = new ViewLayoutInsetOverlap(_drawGroup)
+            {
+                _layoutBarDocker
+            };
 
             // Create the docker used to layout contents of main panel and fill with group
-            _layoutPanelDocker = new ViewLayoutDockerOverlap(_drawGroup, _layoutOverlap, layoutBar);
-            _layoutPanelDocker.Add(_layoutOverlap, ViewDockStyle.Top);
-            _layoutPanelDocker.Add(_drawGroup, ViewDockStyle.Fill);
+            _layoutPanelDocker = new ViewLayoutDockerOverlap(_drawGroup, _layoutOverlap, layoutBar)
+            {
+                { _layoutOverlap, ViewDockStyle.Top },
+                { _drawGroup, ViewDockStyle.Fill }
+            };
 
             // Create the top level panel and put a layout docker inside it
-            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back);
-            _drawPanel.Add(_layoutPanelDocker);
+            _drawPanel = new ViewDrawPanel(Navigator.StateNormal.Back)
+            {
+                _layoutPanelDocker
+            };
             _newRoot = _drawPanel;
 
             // Set the correct tab style

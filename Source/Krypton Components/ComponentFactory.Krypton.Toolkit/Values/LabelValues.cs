@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -191,9 +187,8 @@ namespace ComponentFactory.Krypton.Toolkit
 				{
 					_text = value;
 					PerformNeedPaint(true);
-                    if (TextChanged != null)
-                        TextChanged(this, EventArgs.Empty);
-				}
+                    TextChanged?.Invoke(this, EventArgs.Empty);
+                }
 			}
 		}
 

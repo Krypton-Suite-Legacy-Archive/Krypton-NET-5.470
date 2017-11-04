@@ -8,11 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -91,17 +88,27 @@ namespace ComponentFactory.Krypton.Navigator
             int xHalf = _dragData.DockWindowSize.Width / 2;
 
             if (_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 Location = new Point(screenRect.Left + 10, yMid - yHalf);
+            }
             else if (!_dragData.ShowLeft && _dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 Location = new Point(screenRect.Right - _dragData.DockWindowSize.Width - 10, yMid - yHalf);
+            }
             else if (!_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && _dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 Location = new Point(xMid - xHalf, screenRect.Top + 10);
+            }
             else if (!_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && _dragData.ShowBottom)
+            {
                 Location = new Point(xMid - xHalf, screenRect.Bottom - _dragData.DockWindowSize.Height - 10);
+            }
             else
+            {
                 Location = new Point(xMid - xHalf, yMid - yHalf);
-            
-			// Show the window without activating it (i.e. do not take focus)
+            }
+
+		    // Show the window without activating it (i.e. do not take focus)
 			PI.ShowWindow(this.Handle, (short)PI.SW_SHOWNOACTIVATE);
 		}
 
@@ -122,20 +129,36 @@ namespace ComponentFactory.Krypton.Navigator
             _dragData.ClearActive();
 
 			// Find new active area
-            if (_dragData.ShowLeft && _dragData.RectLeft.Contains(pt))      _dragData.ActiveLeft = true;
-            if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))    _dragData.ActiveRight = true;
-            if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))        _dragData.ActiveTop = true;
-            if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))  _dragData.ActiveBottom = true;
-			
-			// Only consider the middle if the others do not match
+            if (_dragData.ShowLeft && _dragData.RectLeft.Contains(pt))
+            {
+                _dragData.ActiveLeft = true;
+            }
+		    if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))
+		    {
+		        _dragData.ActiveRight = true;
+		    }
+		    if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))
+		    {
+		        _dragData.ActiveTop = true;
+		    }
+		    if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))
+		    {
+		        _dragData.ActiveBottom = true;
+		    }
+
+		    // Only consider the middle if the others do not match
             if ((_dragData.ActiveFlags == 0) && _dragData.ShowMiddle && _dragData.RectMiddle.Contains(pt))
+            {
                 _dragData.ActiveMiddle = true;
+            }
 
-			// Do we need to update the display?
+		    // Do we need to update the display?
             if (_dragData.ActiveFlags != activeBefore)
-				Invalidate();
+            {
+                Invalidate();
+            }
 
-            return _dragData.ActiveFlags;
+		    return _dragData.ActiveFlags;
 		}
 
 		/// <summary>
@@ -156,15 +179,19 @@ namespace ComponentFactory.Krypton.Navigator
         private void DropIndicators_Paint(object sender, PaintEventArgs e)
 		{
             using(RenderContext context = new RenderContext(this, e.Graphics, e.ClipRectangle, _renderer))
+            {
                 _renderer.RenderGlyph.DrawDragDropDockingGlyph(context, _dragData, _paletteDragDrop, PaletteDragFeedback.Square);
+            }
 		}
 
 		private void DrawPath(Graphics g, Color baseColor, GraphicsPath path)
 		{
 			// Draw a smooth outline around the circle
 			using(Pen outline = new Pen(baseColor))
-				g.DrawPath(outline, path);
-        }
+			{
+			    g.DrawPath(outline, path);
+			}
+		}
         #endregion
     }
 }

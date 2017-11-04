@@ -9,14 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Workspace
@@ -36,7 +33,10 @@ namespace ComponentFactory.Krypton.Workspace
         public override void Initialize(IComponent component)
         {
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -66,7 +66,9 @@ namespace ComponentFactory.Krypton.Workspace
                 ArrayList compound = new ArrayList();
 
                 if (_workspace != null)
+                {
                     compound.AddRange(_workspace.Root.Children);
+                }
 
                 return compound;
             }
@@ -80,10 +82,12 @@ namespace ComponentFactory.Krypton.Workspace
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the navigator specific list
-                actionLists.Add(new KryptonWorkspaceActionList(this));
+                    // Add the navigator specific list
+                    new KryptonWorkspaceActionList(this)
+                };
 
                 return actionLists;
             }

@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -22,7 +20,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class VisualPopupGroup : VisualPopup
     {
         #region Static Fields
-        private static readonly int BOTTOMRIGHT_GAP = 4;
+
+        private const int BOTTOMRIGHT_GAP = 4;
+
         #endregion
 
         #region Instance Fields
@@ -54,19 +54,25 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGroup = ribbonGroup;
 
             // Create a view element for drawing the group
-            _viewGroup = new ViewDrawRibbonGroup(ribbon, ribbonGroup, NeedPaintDelegate);
-            _viewGroup.Collapsed = false;
+            _viewGroup = new ViewDrawRibbonGroup(ribbon, ribbonGroup, NeedPaintDelegate)
+            {
+                Collapsed = false
+            };
 
             // Create the background that will contain the actual group instance
-            _viewBackground = new ViewDrawRibbonGroupsBorder(ribbon, true, NeedPaintDelegate);
-            _viewBackground.Add(_viewGroup);
+            _viewBackground = new ViewDrawRibbonGroupsBorder(ribbon, true, NeedPaintDelegate)
+            {
+                _viewGroup
+            };
 
             // Attach the root to the view manager instance
             ViewManager = new ViewRibbonPopupGroupManager(this, ribbon, _viewBackground, _viewGroup, NeedPaintDelegate);
 
             // Create and add a hidden button to act as the focus target
-            _hiddenFocusTarget = new Button();
-            _hiddenFocusTarget.TabStop = false;
+            _hiddenFocusTarget = new Button
+            {
+                TabStop = false
+            };
             _hiddenFocusTarget.Location = new Point(-_hiddenFocusTarget.Width, -_hiddenFocusTarget.Height);
             CommonHelper.AddControlToParent(this, _hiddenFocusTarget);
         }
@@ -84,14 +90,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Do we need to restore the previous focus from the ribbon
                 if (_restorePreviousFocus)
+                {
                     _ribbon.RestorePreviousFocus();
+                }
 
                 // Mark the group as no longer showing as a popup
                 _ribbonGroup.ShowingAsPopup = false;
 
                 // Remove all child controls so they do not become disposed
                 for (int i = Controls.Count - 1; i >= 0; i--)
+                {
                     Controls.RemoveAt(0);
+                }
 
                 // If this group is being dismissed with key tips showing
                 if (_ribbon.InKeyboardMode &&_ribbon.KeyTipMode == KeyTipMode.PopupGroup)
@@ -164,7 +174,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the first item
             if (view == null)
+            {
                 SetFirstFocusItem();
+            }
             else
             {
                 ViewPopupManager.FocusView = view;
@@ -185,7 +197,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Rotate around to the last item
             if (view == null)
+            {
                 SetLastFocusItem();
+            }
             else
             {
                 ViewPopupManager.FocusView = view;
@@ -217,7 +231,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Find the size the group requests to be
                 using (ViewLayoutContext context = new ViewLayoutContext(this, Renderer))
+                {
                     popupSize = _viewGroup.GetPreferredSize(context);
+                }
 
                 // Override the height to enforce the correct group height
                 popupSize.Height = _ribbon.CalculatedValues.GroupHeight;
@@ -281,19 +297,27 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Place it in the area with the most space
                     if (spareAbove > spareBelow)
+                    {
                         popupLocation.Y = workingArea.Top;
+                    }
                     else
+                    {
                         popupLocation.Y = parentScreenRect.Bottom;
+                    }
                 }
             }
 
             // Prevent the popup from being off the left side of the screen
             if (popupLocation.X < workingArea.Left)
+            {
                 popupLocation.X = workingArea.Left;
+            }
 
             // Preven the popup from being off the right size of the screen
             if ((popupLocation.X + popupSize.Width) > workingArea.Right)
+            {
                 popupLocation.X = workingArea.Right - popupSize.Width;
+            }
 
             return new Rectangle(popupLocation, popupSize);
         }
@@ -345,7 +369,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the region of the popup to be the border path
             using (GraphicsPath roundPath = CommonHelper.RoundedRectanglePath(ClientRectangle, borderRounding))
+            {
                 Region = new Region(roundPath);
+            }
         }
 
         /// <summary>
@@ -356,7 +382,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If in keyboard mode then pass character onto the key tips
             if (_ribbon.InKeyboardMode && _ribbon.InKeyTipsMode)
+            {
                 _ribbon.AppendKeyTipPress(char.ToUpper(e.KeyChar));
+            }
 
             base.OnKeyPress(e);
         }

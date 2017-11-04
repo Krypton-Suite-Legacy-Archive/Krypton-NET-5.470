@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 
@@ -57,22 +53,28 @@ namespace ComponentFactory.Krypton.Toolkit
             linkLabel.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            _drawContent = new ViewDrawContent(linkLabel.OverrideFocusNotVisited, _contentValues, VisualOrientation.Top);
-            _drawContent.UseMnemonic = true;
-            _drawContent.Enabled = _itemEnabled;
+            _drawContent = new ViewDrawContent(linkLabel.OverrideFocusNotVisited, _contentValues, VisualOrientation.Top)
+            {
+                UseMnemonic = true,
+                Enabled = _itemEnabled
+            };
 
             // Place label link in the center of the area but inside some separator to add spacing
-            _innerDocker = new ViewLayoutDocker();
-            _innerDocker.Add(_drawContent, ViewDockStyle.Fill);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Right);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Left);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Top);
-            _innerDocker.Add(new ViewLayoutSeparator(1), ViewDockStyle.Bottom);
+            _innerDocker = new ViewLayoutDocker
+            {
+                { _drawContent, ViewDockStyle.Fill },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Right },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Left },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Top },
+                { new ViewLayoutSeparator(1), ViewDockStyle.Bottom }
+            };
 
             // Use outer docker so that any extra space not needed is used by the null
-            _outerDocker = new ViewLayoutDocker();
-            _outerDocker.Add(_innerDocker, ViewDockStyle.Top);
-            _outerDocker.Add(new ViewLayoutNull(), ViewDockStyle.Fill);
+            _outerDocker = new ViewLayoutDocker
+            {
+                { _innerDocker, ViewDockStyle.Top },
+                { new ViewLayoutNull(), ViewDockStyle.Fill }
+            };
 
             // Use context menu specific version of the link label controller
             MenuLinkLabelController mllc = new MenuLinkLabelController(provider.ProviderViewManager, _drawContent, this, provider.ProviderNeedPaintDelegate);
@@ -134,9 +136,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ImageSmall;
+                }
                 else
+                {
                     return _linkLabel.Image;
+                }
             }
         }
         #endregion
@@ -150,9 +156,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ImageTransparentColor;
+                }
                 else
+                {
                     return _linkLabel.ImageTransparentColor;
+                }
             }
         }
         #endregion
@@ -166,9 +176,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.Text;
+                }
                 else
+                {
                     return _linkLabel.Text;
+                }
             }
         }
         #endregion
@@ -182,9 +196,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_cachedCommand != null)
+                {
                     return _cachedCommand.ExtraText;
+                }
                 else
+                {
                     return _linkLabel.ExtraText;
+                }
             }
         }
         #endregion
@@ -292,10 +310,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
 			// Let base class perform usual processing
 			base.Layout(context);
@@ -317,12 +338,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 case "KryptonCommand":
                     // Unhook from any existing command
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Hook into the new command
                     _cachedCommand = _linkLabel.KryptonCommand;
                     if (_cachedCommand != null)
+                    {
                         _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    }
 
                     // Update to show new state
                     _provider.ProviderNeedPaintDelegate(this, new NeedLayoutEventArgs(true));

@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -106,9 +104,14 @@ namespace ComponentFactory.Krypton.Toolkit
 				case PaletteRectangleAlign.Control:
                     Rectangle clientRect = Rectangle.Empty;
                     if (AlignControl == Control)
-                         clientRect = Control.ClientRectangle;
+                    {
+                        clientRect = Control.ClientRectangle;
+                    }
                     else
+                    {
                         clientRect = Control.RectangleToClient(AlignControl.RectangleToScreen(AlignControl.ClientRectangle));
+                    }
+
                     clientRect.Inflate(2, 2);
                     return clientRect;
 				case PaletteRectangleAlign.Form:

@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -39,20 +35,30 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteDrawBorders ret = PaletteDrawBorders.None;
 
                 if (checkBoxInherit.Checked)
+                {
                     ret = PaletteDrawBorders.Inherit;
+                }
                 else
                 {
                     if (checkBoxTop.Checked)
+                    {
                         ret |= PaletteDrawBorders.Top;
+                    }
 
                     if (checkBoxBottom.Checked)
+                    {
                         ret |= PaletteDrawBorders.Bottom;
+                    }
 
                     if (checkBoxLeft.Checked)
+                    {
                         ret |= PaletteDrawBorders.Left;
+                    }
 
                     if (checkBoxRight.Checked)
+                    {
                         ret |= PaletteDrawBorders.Right;
+                    }
                 }
 
                 return ret;
@@ -61,20 +67,30 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if ((value & PaletteDrawBorders.Inherit) == PaletteDrawBorders.Inherit)
+                {
                     checkBoxInherit.Checked = true;
+                }
                 else
                 {
                     if ((value & PaletteDrawBorders.Top) == PaletteDrawBorders.Top)
+                    {
                         checkBoxTop.Checked = true;
+                    }
 
                     if ((value & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom)
+                    {
                         checkBoxBottom.Checked = true;
+                    }
 
                     if ((value & PaletteDrawBorders.Left) == PaletteDrawBorders.Left)
+                    {
                         checkBoxLeft.Checked = true;
+                    }
 
                     if ((value & PaletteDrawBorders.Right) == PaletteDrawBorders.Right)
+                    {
                         checkBoxRight.Checked = true;
+                    }
                 }
             }
         }

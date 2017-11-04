@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -141,12 +137,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _keyTip = "X";
 
             // Create the actual domain up-down control and set initial settings
-            _domainUpDown = new KryptonDomainUpDown();
-            _domainUpDown.InputControlStyle = InputControlStyle.Ribbon;
-            _domainUpDown.AlwaysActive = false;
-            _domainUpDown.MinimumSize = new Size(121, 0);
-            _domainUpDown.MaximumSize = new Size(121, 0);
-            _domainUpDown.TabStop = false;
+            _domainUpDown = new KryptonDomainUpDown
+            {
+                InputControlStyle = InputControlStyle.Ribbon,
+                AlwaysActive = false,
+                MinimumSize = new Size(121, 0),
+                MaximumSize = new Size(121, 0),
+                TabStop = false
+            };
 
             // Hook into events to expose via this container
             _domainUpDown.Scroll += new ScrollEventHandler(OnDomainUpDownScroll);
@@ -317,7 +315,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     value = "X";
+                }
 
                 _keyTip = value.ToUpper();
             }
@@ -605,8 +605,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnGotFocus(EventArgs e)
         {
-            if (GotFocus != null)
-                GotFocus(this, e);
+            GotFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -615,8 +614,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnLostFocus(EventArgs e)
         {
-            if (LostFocus != null)
-                LostFocus(this, e);
+            LostFocus?.Invoke(this, e);
         }
 
         /// <summary>
@@ -625,8 +623,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyEventArgs containing the event data.</param>
         protected virtual void OnKeyDown(KeyEventArgs e)
         {
-            if (KeyDown != null)
-                KeyDown(this, e);
+            KeyDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -635,8 +632,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyEventArgs containing the event data.</param>
         protected virtual void OnKeyUp(KeyEventArgs e)
         {
-            if (KeyUp != null)
-                KeyUp(this, e);
+            KeyUp?.Invoke(this, e);
         }
 
         /// <summary>
@@ -645,8 +641,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An KeyPressEventArgs containing the event data.</param>
         protected virtual void OnKeyPress(KeyPressEventArgs e)
         {
-            if (KeyPress != null)
-                KeyPress(this, e);
+            KeyPress?.Invoke(this, e);
         }
 
         /// <summary>
@@ -655,8 +650,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An PreviewKeyDownEventArgs containing the event data.</param>
         protected virtual void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
         {
-            if (PreviewKeyDown != null)
-                PreviewKeyDown(this, e);
+            PreviewKeyDown?.Invoke(this, e);
         }
 
         /// <summary>
@@ -665,8 +659,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectedItemChanged(EventArgs e)
         {
-            if (SelectedItemChanged != null)
-                SelectedItemChanged(this, e);
+            SelectedItemChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -675,8 +668,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A EventArgs that contains the event data.</param>
         protected virtual void OnTextChanged(EventArgs e)
         {
-            if (TextChanged != null)
-                TextChanged(this, e);
+            TextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -685,8 +677,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A ScrollEventArgs that contains the event data.</param>
         protected virtual void OnScroll(ScrollEventArgs e)
         {
-            if (Scroll != null)
-                Scroll(this, e);
+            Scroll?.Invoke(this, e);
         }
 
         /// <summary>
@@ -695,8 +686,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -721,8 +711,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -739,7 +728,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Can the domain up-down take the focus
                         if ((LastDomainUpDown != null) && (LastDomainUpDown.CanFocus))
+                        {
                             LastDomainUpDown.DomainUpDown.Focus();
+                        }
 
                         return true;
                     }
@@ -769,21 +760,18 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnControlEnter(object sender, EventArgs e)
         {
-            if (MouseEnterControl != null)
-                MouseEnterControl(this, e);
+            MouseEnterControl?.Invoke(this, e);
         }
 
         private void OnControlLeave(object sender, EventArgs e)
         {
-            if (MouseLeaveControl != null)
-                MouseLeaveControl(this, e);
+            MouseLeaveControl?.Invoke(this, e);
         }
 
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            if (_viewPaintDelegate != null)
-                _viewPaintDelegate(this, e);
+            _viewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnDomainUpDownScroll(object sender, ScrollEventArgs e)

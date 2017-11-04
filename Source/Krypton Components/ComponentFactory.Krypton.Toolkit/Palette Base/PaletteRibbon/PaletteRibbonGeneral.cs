@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -202,9 +196,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteRelativeAlign GetRibbonContextTextAlign(PaletteState state)
         {
             if (ContextTextAlign != PaletteRelativeAlign.Inherit)
+            {
                 return ContextTextAlign;
+            }
             else
+            {
                 return _inherit.GetRibbonContextTextAlign(state);
+            }
         }
         #endregion
 
@@ -247,9 +245,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Font GetRibbonContextTextFont(PaletteState state)
         {
             if (ContextTextFont != null)
+            {
                 return ContextTextFont;
+            }
             else
+            {
                 return _inherit.GetRibbonContextTextFont(state);
+            }
         }
         #endregion
 
@@ -292,9 +294,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonContextTextColor(PaletteState state)
         {
             if (DisabledDark != Color.Empty)
+            {
                 return ContextTextColor;
+            }
             else
+            {
                 return _inherit.GetRibbonContextTextColor(state);
+            }
         }
         #endregion
 
@@ -337,9 +343,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonDisabledDark(PaletteState state)
         {
             if (DisabledDark != Color.Empty)
+            {
                 return DisabledDark;
+            }
             else
+            {
                 return _inherit.GetRibbonDisabledDark(state);
+            }
         }
         #endregion
 
@@ -382,9 +392,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonDisabledLight(PaletteState state)
         {
             if (DisabledLight != Color.Empty)
+            {
                 return DisabledLight;
+            }
             else
+            {
                 return _inherit.GetRibbonDisabledLight(state);
+            }
         }
         #endregion
 
@@ -427,9 +441,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonGroupDialogDark(PaletteState state)
         {
             if (GroupDialogDark != Color.Empty)
+            {
                 return GroupDialogDark;
+            }
             else
+            {
                 return _inherit.GetRibbonGroupDialogDark(state);
+            }
         }
         #endregion
 
@@ -472,9 +490,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonGroupDialogLight(PaletteState state)
         {
             if (GroupDialogLight != Color.Empty)
+            {
                 return GroupDialogLight;
+            }
             else
+            {
                 return _inherit.GetRibbonGroupDialogLight(state);
+            }
         }
         #endregion
 
@@ -517,9 +539,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonDropArrowDark(PaletteState state)
         {
             if (DropArrowDark != Color.Empty)
+            {
                 return DropArrowDark;
+            }
             else
+            {
                 return _inherit.GetRibbonDropArrowDark(state);
+            }
         }
         #endregion
 
@@ -562,9 +588,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonDropArrowLight(PaletteState state)
         {
             if (DropArrowLight != Color.Empty)
+            {
                 return DropArrowLight;
+            }
             else
+            {
                 return _inherit.GetRibbonDropArrowLight(state);
+            }
         }
         #endregion
 
@@ -607,9 +637,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonGroupSeparatorDark(PaletteState state)
         {
             if (GroupSeparatorDark != Color.Empty)
+            {
                 return GroupSeparatorDark;
+            }
             else
+            {
                 return _inherit.GetRibbonGroupSeparatorDark(state);
+            }
         }
         #endregion
 
@@ -652,9 +686,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonGroupSeparatorLight(PaletteState state)
         {
             if (GroupSeparatorLight != Color.Empty)
+            {
                 return GroupSeparatorLight;
+            }
             else
+            {
                 return _inherit.GetRibbonGroupSeparatorLight(state);
+            }
         }
         #endregion
 
@@ -697,9 +735,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonMinimizeBarDark(PaletteState state)
         {
             if (MinimizeBarDarkColor != Color.Empty)
+            {
                 return MinimizeBarDarkColor;
+            }
             else
+            {
                 return _inherit.GetRibbonMinimizeBarDark(state);
+            }
         }
         #endregion
 
@@ -742,9 +784,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonMinimizeBarLight(PaletteState state)
         {
             if (MinimizeBarLightColor != Color.Empty)
+            {
                 return MinimizeBarLightColor;
+            }
             else
+            {
                 return _inherit.GetRibbonMinimizeBarLight(state);
+            }
         }
         #endregion
 
@@ -785,9 +831,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteRibbonShape GetRibbonShape()
         {
             if (RibbonShape != PaletteRibbonShape.Inherit)
+            {
                 return RibbonShape;
+            }
             else
+            {
                 return _inherit.GetRibbonShape();
+            }
         }
         #endregion
 
@@ -830,9 +880,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonTabSeparatorColor(PaletteState state)
         {
             if (TabSeparatorColor != Color.Empty)
+            {
                 return TabSeparatorColor;
+            }
             else
+            {
                 return _inherit.GetRibbonTabSeparatorColor(state);
+            }
         }
         #endregion
 
@@ -875,9 +929,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonTabSeparatorContextColor(PaletteState state)
         {
             if (TabSeparatorColor != Color.Empty)
+            {
                 return TabSeparatorContextColor;
+            }
             else
+            {
                 return _inherit.GetRibbonTabSeparatorContextColor(state);
+            }
         }
         #endregion
 
@@ -920,9 +978,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Font GetRibbonTextFont(PaletteState state)
         {
             if (TextFont != null)
+            {
                 return TextFont;
+            }
             else
+            {
                 return _inherit.GetRibbonTextFont(state);
+            }
         }
         #endregion
 
@@ -965,9 +1027,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteTextHint GetRibbonTextHint(PaletteState state)
         {
             if (TextHint != PaletteTextHint.Inherit)
+            {
                 return TextHint;
+            }
             else
+            {
                 return _inherit.GetRibbonTextHint(state);
+            }
         }
         #endregion
 
@@ -1010,9 +1076,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonQATButtonDark(PaletteState state)
         {
             if (QATButtonDarkColor != Color.Empty)
+            {
                 return QATButtonDarkColor;
+            }
             else
+            {
                 return _inherit.GetRibbonQATButtonDark(state);
+            }
         }
         #endregion
 
@@ -1055,9 +1125,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonQATButtonLight(PaletteState state)
         {
             if (QATButtonLightColor != Color.Empty)
+            {
                 return QATButtonLightColor;
+            }
             else
+            {
                 return _inherit.GetRibbonQATButtonLight(state);
+            }
         }
         #endregion
     }

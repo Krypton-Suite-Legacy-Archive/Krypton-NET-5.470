@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -71,9 +69,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (_textBox != null)
+                {
                     return _textBox.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -92,7 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // With multiline and autosize we prevent the user changing the height
                 if (!textBox.Multiline && textBox.AutoSize)
+                {
                     rules &= ~(SelectionRules.TopSizeable | SelectionRules.BottomSizeable);
+                }
 
                 return rules;
             }
@@ -106,10 +110,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the label specific list
-                actionLists.Add(new KryptonTextBoxActionList(this));
+                    // Add the label specific list
+                    new KryptonTextBoxActionList(this)
+                };
 
                 return actionLists;
             }
@@ -130,7 +136,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _textBox.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -138,7 +146,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -146,8 +156,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_textBox != null)
-                _textBox.DesignerMouseLeave();
+            _textBox?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -167,8 +176,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _textBox.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }
@@ -176,19 +187,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnTextBoxDoubleClick(object sender, Point pt)
         {
-            if (_textBox != null)
+            // Get any component associated with the current mouse position
+            Component component = _textBox?.DesignerComponentFromPoint(pt);
+
+            if (component != null)
             {
-                // Get any component associated with the current mouse position
-                Component component = _textBox.DesignerComponentFromPoint(pt);
+                // Get the designer for the component
+                IDesigner designer = _designerHost.GetDesigner(component);
 
-                if (component != null)
-                {
-                    // Get the designer for the component
-                    IDesigner designer = _designerHost.GetDesigner(component);
-
-                    // Request code for the default event be generated
-                    designer.DoDefaultAction();
-                }
+                // Request code for the default event be generated
+                designer.DoDefaultAction();
             }
         }
 

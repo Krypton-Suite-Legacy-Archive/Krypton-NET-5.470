@@ -11,7 +11,6 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -58,7 +57,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -112,7 +114,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Add all the objects for each tab
                 foreach (KryptonRibbonTab ribbonTab in _ribbon.RibbonTabs)
+                {
                     compound.Add(ribbonTab);
+                }
 
                 return compound;
             }
@@ -126,10 +130,12 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the ribbon specific list
-                actionLists.Add(new KryptonRibbonActionList(this));
+                    // Add the ribbon specific list
+                    new KryptonRibbonActionList(this)
+                };
 
                 return actionLists;
             }
@@ -200,7 +206,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // If the ribbon does not want the mouse point then make sure the 
             // tracking element is informed that the mouse has left the control
             if (!ret && _lastHitTest)
+            {
                 _ribbon.DesignerMouseLeave();
+            }
 
             // Cache the last answer recovered
             _lastHitTest = ret;
@@ -257,7 +265,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private void UpdateVerbStatus()
         {
             if (_verbs != null)
+            {
                 _clearTabsVerb.Enabled = (_ribbon.RibbonTabs.Count > 0);
+            }
         }
 
         private void OnToggleHelpers(object sender, EventArgs e)
@@ -287,8 +297,7 @@ namespace ComponentFactory.Krypton.Ribbon
             finally
             {
                 // If we managed to create the transaction, then do it
-                if (transaction != null)
-                    transaction.Commit();
+                transaction?.Commit();
 
                 UpdateVerbStatus();
             }
@@ -322,8 +331,7 @@ namespace ComponentFactory.Krypton.Ribbon
             finally
             {
                 // If we managed to create the transaction, then do it
-                if (transaction != null)
-                    transaction.Commit();
+                transaction?.Commit();
 
                 UpdateVerbStatus();
             }
@@ -337,8 +345,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (component != null)
             {
                 // Select the component
-                ArrayList selectionList = new ArrayList();
-                selectionList.Add(component);
+                ArrayList selectionList = new ArrayList
+                {
+                    component
+                };
                 _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
 
                 // Force the layout to be update for any change in selection

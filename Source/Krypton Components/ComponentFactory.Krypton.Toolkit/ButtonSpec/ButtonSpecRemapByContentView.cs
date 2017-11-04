@@ -8,15 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -60,10 +51,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_foreground != null)
-                    return _foreground.GetPalette();
-                else
-                    return null;
+                return _foreground?.GetPalette();
             }
         }
         #endregion

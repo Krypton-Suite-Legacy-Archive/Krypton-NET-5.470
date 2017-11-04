@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 
@@ -149,7 +145,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             return _blockSize;
         }
@@ -163,7 +162,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
@@ -180,7 +182,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // Start with the full client rectangle
             Rectangle drawRect = ClientRectangle;
@@ -198,11 +203,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Do we need to prevent drawing over last line?
             if (_last)
+            {
                 drawRect.Height -= 1;
+            }
 
             // Draw ourself in the designated color
-            using(SolidBrush brush = new SolidBrush(_color))
+            using (SolidBrush brush = new SolidBrush(_color))
+            {
                 context.Graphics.FillRectangle(brush, drawRect);
+            }
         }
 
         /// <summary>
@@ -214,7 +223,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
 
             // If not in normal state, then need to adorn display
             Color outside = Color.Empty;

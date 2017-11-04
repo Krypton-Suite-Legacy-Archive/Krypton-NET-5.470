@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -26,9 +20,11 @@ namespace ComponentFactory.Krypton.Ribbon
     public class RibbonShortcuts : Storage
     {
         #region Static Fields
-        private static readonly Keys _defaultToggleMinimizeMode = (Keys.Control | Keys.F1);
-        private static readonly Keys _defaultToggleKeyboardAccess1 = (Keys.RButton | Keys.ShiftKey | Keys.Alt);
-        private static readonly Keys _defaultToggleKeyboardAccess2 = Keys.F10;
+
+        private const Keys DEFAULT_TOGGLE_MINIMIZE_MODE = (Keys.Control | Keys.F1);
+        private const Keys DEFAULT_TOGGLE_KEYBOARD_ACCESS1 = (Keys.RButton | Keys.ShiftKey | Keys.Alt);
+        private const Keys DEFAULT_TOGGLE_KEYBOARD_ACCESS2 = Keys.F10;
+
         #endregion
 
         #region Instance Fields
@@ -44,9 +40,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public RibbonShortcuts()
 		{
             // Default values
-            _toggleMinimizeMode = _defaultToggleMinimizeMode;
-            _toggleKeyboardAccess1 = _defaultToggleKeyboardAccess1;
-            _toggleKeyboardAccess2 = _defaultToggleKeyboardAccess2;
+            _toggleMinimizeMode = DEFAULT_TOGGLE_MINIMIZE_MODE;
+            _toggleKeyboardAccess1 = DEFAULT_TOGGLE_KEYBOARD_ACCESS1;
+            _toggleKeyboardAccess2 = DEFAULT_TOGGLE_KEYBOARD_ACCESS2;
         }
 		#endregion
 
@@ -59,9 +55,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get
             {
-                return ((ToggleMinimizeMode == _defaultToggleMinimizeMode) &&
-                        (ToggleKeyboardAccess1 == _defaultToggleKeyboardAccess1) &&
-                        (ToggleKeyboardAccess2 == _defaultToggleKeyboardAccess2));
+                return ((ToggleMinimizeMode == DEFAULT_TOGGLE_MINIMIZE_MODE) &&
+                        (ToggleKeyboardAccess1 == DEFAULT_TOGGLE_KEYBOARD_ACCESS1) &&
+                        (ToggleKeyboardAccess2 == DEFAULT_TOGGLE_KEYBOARD_ACCESS2));
             }
         }
         #endregion
@@ -83,7 +79,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeToggleMinimizeMode()
         {
-            return (ToggleMinimizeMode != _defaultToggleMinimizeMode);
+            return (ToggleMinimizeMode != DEFAULT_TOGGLE_MINIMIZE_MODE);
         }
 
         /// <summary>
@@ -91,7 +87,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetToggleMinimizeMode()
         {
-            ToggleMinimizeMode = _defaultToggleMinimizeMode;
+            ToggleMinimizeMode = DEFAULT_TOGGLE_MINIMIZE_MODE;
         }
         #endregion
 
@@ -112,7 +108,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeToggleKeyboardAccess1()
         {
-            return (ToggleKeyboardAccess1 != _defaultToggleKeyboardAccess1);
+            return (ToggleKeyboardAccess1 != DEFAULT_TOGGLE_KEYBOARD_ACCESS1);
         }
 
         /// <summary>
@@ -120,7 +116,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetToggleKeyboardAccess1()
         {
-            ToggleKeyboardAccess1 = _defaultToggleKeyboardAccess1;
+            ToggleKeyboardAccess1 = DEFAULT_TOGGLE_KEYBOARD_ACCESS1;
         }
         #endregion
 
@@ -141,7 +137,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeToggleKeyboardAccess2()
         {
-            return (ToggleKeyboardAccess2 != _defaultToggleKeyboardAccess2);
+            return (ToggleKeyboardAccess2 != DEFAULT_TOGGLE_KEYBOARD_ACCESS2);
         }
 
         /// <summary>
@@ -149,7 +145,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetToggleKeyboardAccess2()
         {
-            ToggleKeyboardAccess2 = _defaultToggleKeyboardAccess2;
+            ToggleKeyboardAccess2 = DEFAULT_TOGGLE_KEYBOARD_ACCESS2;
         }
         #endregion
     }

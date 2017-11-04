@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -73,10 +69,12 @@ namespace ComponentFactory.Krypton.Navigator
                                                                      new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
                                                                      NeedPaintDelegate,
                                                                      GetRemappingPaletteContent(),
-                                                                     GetRemappingPaletteState());
+                                                                     GetRemappingPaletteState())
+            {
 
-            // Hook up the tooltip manager so that tooltips can be generated
-            _buttonManager.ToolTipManager = Navigator.ToolTipManager;
+                // Hook up the tooltip manager so that tooltips can be generated
+                ToolTipManager = Navigator.ToolTipManager
+            };
         }
 
         /// <summary>
@@ -103,14 +101,20 @@ namespace ComponentFactory.Krypton.Navigator
             if (Navigator.SelectedPage == null)
             {
                 if (Navigator.Enabled)
+                {
                     paletteState = Navigator.StateNormal;
+                }
                 else
+                {
                     paletteState = Navigator.StateDisabled;
+                }
             }
             else
             {
                 if (Navigator.SelectedPage.Enabled)
+                {
                     paletteState = Navigator.SelectedPage.StateNormal;
+                }
                 else
                 {
                     paletteState = Navigator.SelectedPage.StateDisabled;
@@ -152,8 +156,7 @@ namespace ComponentFactory.Krypton.Navigator
                 case "HeaderPositionBar":
                     UpdateOrientation();
                     UpdateItemOrientation();
-                    if (_buttonManager != null)
-                        _buttonManager.RecreateButtons();
+                    _buttonManager?.RecreateButtons();
                     Navigator.PerformNeedPaint(true);
                     break;
                 default:
@@ -240,17 +243,25 @@ namespace ComponentFactory.Krypton.Navigator
         private IPaletteContent GetRemappingPaletteContent()
         {
             if (Navigator.Enabled)
+            {
                 return Navigator.StateNormal.HeaderGroup.HeaderBar.Content;
+            }
             else
+            {
                 return Navigator.StateDisabled.HeaderGroup.HeaderBar.Content;
+            }
         }
 
         private PaletteState GetRemappingPaletteState()
         {
             if (Navigator.Enabled)
+            {
                 return PaletteState.Normal;
+            }
             else
+            {
                 return PaletteState.Disabled;
+            }
         }
 
         private void OnEnabledChanged(object sender, EventArgs e)

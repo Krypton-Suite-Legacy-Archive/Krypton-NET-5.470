@@ -8,9 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteImageEffectConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = new Pair[] { new Pair(PaletteImageEffect.Inherit,           "Inherit"),
+        private Pair[] _pairs = { new Pair(PaletteImageEffect.Inherit,           "Inherit"),
                                              new Pair(PaletteImageEffect.Light,             "Light"),
                                              new Pair(PaletteImageEffect.LightLight,        "LightLight"),
                                              new Pair(PaletteImageEffect.Normal,            "Normal"),

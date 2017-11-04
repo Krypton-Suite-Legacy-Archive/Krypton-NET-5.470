@@ -8,8 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -268,9 +266,13 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Control c)
         {
             if ((c == null) || c.IsDisposed)
+            {
                 UpdateTargetState(new Point(int.MaxValue, int.MaxValue));
+            }
             else
+            {
                 UpdateTargetState(c.PointToClient(Control.MousePosition));
+            }
         }
 
         /// <summary>
@@ -284,7 +286,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
+            {
                 newState = PaletteState.Disabled;
+            }
             else
             {
                 newState = PaletteState.Normal;
@@ -296,9 +300,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (IsOnlyPressedWhenOver)
                     {
                         if (_target.ClientRectangle.Contains(pt))
+                        {
                             newState = PaletteState.Pressed;
+                        }
                         else
+                        {
                             newState = PaletteState.Normal;
+                        }
                     }
                     else
                     {
@@ -311,9 +319,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     // If the mouse is over us and we are inside an active form then
                     // show as hot tracking, otherwise stick to just the normal appearance
                     if (_mouseOver && _active)
+                    {
                         newState = PaletteState.Tracking;
+                    }
                     else
+                    {
                         newState = PaletteState.Normal;
+                    }
                 }
             }
 
@@ -334,9 +346,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-			if (Click != null)
-				Click(_target, e);
-		}
+            Click?.Invoke(_target, e);
+        }
 
 		/// <summary>
 		/// Raises the NeedPaint event.
@@ -344,9 +355,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-			if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
+        }
 		#endregion
 	}
 }

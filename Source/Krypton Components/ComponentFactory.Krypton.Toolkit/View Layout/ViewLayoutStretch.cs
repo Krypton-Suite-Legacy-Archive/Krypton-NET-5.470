@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -58,8 +55,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
             Rectangle original = context.DisplayRectangle;
             ClientRectangle = original;
@@ -75,15 +75,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Size child to our relevant dimension
                     if (_orientation == Orientation.Vertical)
+                    {
                         context.DisplayRectangle = new Rectangle(ClientRectangle.X,
                                                                  ClientRectangle.Y,
                                                                  childPreferred.Width,
                                                                  ClientRectangle.Height);
+                    }
                     else
+                    {
                         context.DisplayRectangle = new Rectangle(ClientRectangle.X,
                                                                  ClientRectangle.Y,
                                                                  childPreferred.Width,
                                                                  ClientRectangle.Height);
+                    }
 
                     // Finally ask the child to layout
                     child.Layout(context);

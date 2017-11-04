@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -38,14 +35,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             Debug.Assert(verb != null);
             Debug.Assert(category != null);
-        
-            // Validate parameters
-            if (verb == null) throw new ArgumentNullException("verb");
-            if (category == null) throw new ArgumentNullException("category");
 
             // Remember details
-            _verb = verb;
-            _category = category;
+            _verb = verb ?? throw new ArgumentNullException("verb");
+            _category = category ?? throw new ArgumentNullException("category");
         }
         #endregion
 

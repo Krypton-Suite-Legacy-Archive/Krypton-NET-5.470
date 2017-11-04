@@ -11,12 +11,10 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Windows.Forms.Design.Behavior;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -64,7 +62,9 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Make sure that all the pages in control can be designed
             foreach (KryptonPage page in _navigator.Pages)
+            {
                 EnableDesignMode(page, page.Name);
+            }
 
             // Monitor navigator events
             _navigator.GetViewManager().MouseDownProcessed += new MouseEventHandler(OnNavigatorMouseUp);
@@ -114,10 +114,12 @@ namespace ComponentFactory.Krypton.Navigator
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the navigator specific list
-                actionLists.Add(new KryptonNavigatorActionList(this));
+                    // Add the navigator specific list
+                    new KryptonNavigatorActionList(this)
+                };
 
                 return actionLists;
             }
@@ -269,7 +271,9 @@ namespace ComponentFactory.Krypton.Navigator
             // If the navigator does not want the mouse point then make sure the 
             // tracking element is informed that the mouse has left the control
             if (!ret && _lastHitTest)
+            {
                 _navigator.DesignerMouseLeave();
+            }
 
             // Cache the last answer recovered
             _lastHitTest = ret;
@@ -372,7 +376,9 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Do we need to raise the changing notification?
                 if (!_ignoreOnAddPage)
+                {
                     RaiseComponentChanging(propertyPages);
+                }
 
                 // Get designer to create the new page component
                 KryptonPage page = (KryptonPage)_designerHost.CreateComponent(typeof(KryptonPage));
@@ -401,13 +407,14 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Do we need to raise the changed notification?
                 if (!_ignoreOnAddPage)
+                {
                     RaiseComponentChanged(propertyPages, null, null);
+                }
             }
             finally
             {
                 // If we managed to create the transaction, then do it
-                if (transaction != null)
-                    transaction.Commit();
+                transaction?.Commit();
             }
         }
 
@@ -435,8 +442,7 @@ namespace ComponentFactory.Krypton.Navigator
             finally
             {
                 // If we managed to create the transaction, then do it
-                if (transaction != null)
-                    transaction.Commit();
+                transaction?.Commit();
             }
         }
 
@@ -460,15 +466,16 @@ namespace ComponentFactory.Krypton.Navigator
 
                     // Get the designer to destroy each page in turn
                     for(int i=_navigator.Pages.Count; i>0; i--)
+                    {
                         _designerHost.DestroyComponent(_navigator.Pages[0]);
+                    }
 
                     RaiseComponentChanged(propertyPages, null, null);
                 }
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -509,8 +516,10 @@ namespace ComponentFactory.Krypton.Navigator
                     _navigator.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }

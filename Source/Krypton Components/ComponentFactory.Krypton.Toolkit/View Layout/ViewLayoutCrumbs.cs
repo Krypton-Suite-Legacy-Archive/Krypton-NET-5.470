@@ -9,17 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -74,7 +67,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Release each cached child control just once
             foreach (ViewBase child in _crumbToButton.Values)
+            {
                 child.Dispose();
+            }
 
             // Prevent another call to dispose from trying to dispose them again
             _crumbToButton.Clear();
@@ -185,7 +180,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Decide if the crumb (not the overflow button) can be visible
                     if (i > 0)
+                    {
                         this[i].Visible = (overflowed <= 0);
+                    }
 
                     if (this[i].Visible)
                     {
@@ -205,9 +202,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Adjust overflow space depending on if we are positioning crumb or overflow
                     if (i != 0)
+                    {
                         overflowed -= this[i].ClientWidth;
+                    }
                     else
+                    {
                         overflowed += this[i].ClientWidth;
+                    }
                 }
             }
             else
@@ -237,15 +238,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     ViewDrawButton crumbButton = child as ViewDrawButton;
 
                     // That are associated with crumb items
-                    KryptonBreadCrumbItem crumbItem;
-                    if (_buttonToCrumb.TryGetValue(crumbButton, out crumbItem))
+                    if (_buttonToCrumb.TryGetValue(crumbButton, out KryptonBreadCrumbItem crumbItem))
                     {
                         // If the button is pressed then point button downwards, 
                         // otherwise we point in the direction the buttons layed out.
                         if (crumbButton.ElementState == PaletteState.Pressed)
+                        {
                             crumbButton.DropDownOrientation = VisualOrientation.Top;
+                        }
                         else
+                        {
                             crumbButton.DropDownOrientation = VisualOrientation.Left;
+                        }
                     }
                 }
             }
@@ -279,7 +283,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         first = false;
                     }
                     else
+                    {
                         redirect.Left = false;
+                    }
 
                     this[i].Render(context);
                 }
@@ -339,16 +345,19 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  _kryptonBreadCrumb.StateTracking.BreadCrumb,
                                                  _kryptonBreadCrumb.StatePressed.BreadCrumb,
                                                  _kryptonBreadCrumb.GetStateCommon(),
-                                                 this, VisualOrientation.Top, false);
-
-            _overflowButton.Splitter = true;
-            _overflowButton.TestForFocusCues = true;
-            _overflowButton.DropDownPalette = _kryptonBreadCrumb.GetRedirector();
+                                                 this, VisualOrientation.Top, false)
+            {
+                Splitter = true,
+                TestForFocusCues = true,
+                DropDownPalette = _kryptonBreadCrumb.GetRedirector()
+            };
 
             // Create controller for operating the button
-            ButtonController crumbButtonController = new ButtonController(_overflowButton, _needPaintDelegate);
-            crumbButtonController.Tag = this;
-            crumbButtonController.BecomesFixed = true;
+            ButtonController crumbButtonController = new ButtonController(_overflowButton, _needPaintDelegate)
+            {
+                Tag = this,
+                BecomesFixed = true
+            };
             crumbButtonController.Click += new MouseEventHandler(OnOverflowButtonClick);
             _overflowButton.MouseController = crumbButtonController;
         }
@@ -362,35 +371,37 @@ namespace ComponentFactory.Krypton.Toolkit
             KryptonBreadCrumbItem item = _kryptonBreadCrumb.SelectedItem;
             while (item != null)
             {
-                ViewDrawButton crumbButton;
-  
+
                 // If we do not have a button to represent this crumb...
-                if (!_crumbToButton.TryGetValue(item, out crumbButton))
+                if (!_crumbToButton.TryGetValue(item, out ViewDrawButton crumbButton))
                 {
                     // Setup the button for drawing as a drop down button if required
                     crumbButton = new ViewDrawButton(_kryptonBreadCrumb.StateDisabled.BreadCrumb,
                                                      _kryptonBreadCrumb.StateNormal.BreadCrumb,
                                                      _kryptonBreadCrumb.StateTracking.BreadCrumb,
                                                      _kryptonBreadCrumb.StatePressed.BreadCrumb,
-                                                     _kryptonBreadCrumb.GetStateCommon(), 
-                                                     item, VisualOrientation.Top, false);
-
-                    crumbButton.Splitter = true;
-                    crumbButton.TestForFocusCues = true;
-                    crumbButton.DropDownPalette = _kryptonBreadCrumb.GetRedirector();
+                                                     _kryptonBreadCrumb.GetStateCommon(),
+                                                     item, VisualOrientation.Top, false)
+                    {
+                        Splitter = true,
+                        TestForFocusCues = true,
+                        DropDownPalette = _kryptonBreadCrumb.GetRedirector()
+                    };
 
                     // Create controller for operating the button
-                    ButtonController crumbButtonController = new ButtonController(crumbButton, _needPaintDelegate);
-                    crumbButtonController.Tag = item;
-                    crumbButtonController.BecomesFixed = true;
+                    ButtonController crumbButtonController = new ButtonController(crumbButton, _needPaintDelegate)
+                    {
+                        Tag = item,
+                        BecomesFixed = true
+                    };
                     crumbButtonController.Click += new MouseEventHandler(OnButtonClick);
                     crumbButton.MouseController = crumbButtonController;
-                   
+
                     // Add to cache for future use
                     _crumbToButton.Add(item, crumbButton);
                     _buttonToCrumb.Add(crumbButton, item);
                 }
-                
+
                 // Only show a drop down button if we have some children to choose from
                 crumbButton.DropDown = _kryptonBreadCrumb.DropDownNavigation && (item.Items.Count > 0);
 
@@ -419,12 +430,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (viewButton.DropDown && viewButton.SplitRectangle.Contains(e.Location))
                 {
                     // Create a context menu with a items collection
-                    KryptonContextMenu kcm = new KryptonContextMenu();
-                    
-                    // Use same palette settings for context menu as the main control
-                    kcm.Palette = _kryptonBreadCrumb.Palette;
+                    KryptonContextMenu kcm = new KryptonContextMenu
+                    {
+
+                        // Use same palette settings for context menu as the main control
+                        Palette = _kryptonBreadCrumb.Palette
+                    };
                     if (kcm.Palette == null)
+                    {
                         kcm.PaletteMode = _kryptonBreadCrumb.PaletteMode;
+                    }
 
                     // Add an items collection as the root item of the context menu
                     KryptonContextMenuItems items = new KryptonContextMenuItems();
@@ -529,12 +544,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ButtonController controller = viewButton.MouseController as ButtonController;
 
                 // Create a context menu with a items collection
-                KryptonContextMenu kcm = new KryptonContextMenu();
+                KryptonContextMenu kcm = new KryptonContextMenu
+                {
 
-                // Use same palette settings for context menu as the main control
-                kcm.Palette = _kryptonBreadCrumb.Palette;
+                    // Use same palette settings for context menu as the main control
+                    Palette = _kryptonBreadCrumb.Palette
+                };
                 if (kcm.Palette == null)
+                {
                     kcm.PaletteMode = _kryptonBreadCrumb.PaletteMode;
+                }
 
                 // Add an items collection as the root item of the context menu
                 KryptonContextMenuItems items = new KryptonContextMenuItems();
@@ -577,7 +596,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Add a separator if entries already exist
                         if (items.Items.Count > 0)
+                        {
                             items.Items.Add(new KryptonContextMenuSeparator());
+                        }
 
                         firstRoot = false;
                     }

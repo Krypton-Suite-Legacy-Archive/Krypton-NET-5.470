@@ -9,16 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -92,9 +87,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
+                        {
                             OnTrackMouseLeave(EventArgs.Empty);
+                        }
                     }
                 }
             }
@@ -111,9 +110,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case PI.WM_NCHITTEST:
                         if (_kryptonDomainUpDown.InTransparentDesignMode)
+                        {
                             m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        }
                         else
+                        {
                             base.WndProc(ref m);
+                        }
+
                         break;
                     case PI.WM_MOUSELEAVE:
                         // Mouse is not over the control
@@ -140,9 +144,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to BeginPaint or just take the given HDC?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 hdc = PI.BeginPaint(Handle, ref ps);
+                            }
                             else
+                            {
                                 hdc = m.WParam;
+                            }
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
@@ -153,7 +161,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 // Drawn entire client area in the background color
                                 using (SolidBrush backBrush = new SolidBrush(BackColor))
+                                {
                                     g.FillRectangle(backBrush, new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top));
+                                }
 
                                 // Create rect for the text area
                                 Size borderSize = SystemInformation.BorderSize;
@@ -170,7 +180,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                         m.WParam = IntPtr.Zero;
                                     }
                                     else
+                                    {
                                         DefWndProc(ref m);
+                                    }
                                 }
                                 else
                                 {
@@ -180,24 +192,36 @@ namespace ComponentFactory.Krypton.Toolkit
                                     g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(_kryptonDomainUpDown.StateDisabled.PaletteContent.GetContentShortTextHint(PaletteState.Disabled));
 
                                     // Define the string formatting requirements
-                                    StringFormat stringFormat = new StringFormat();
-                                    stringFormat.LineAlignment = StringAlignment.Near;
-                                    stringFormat.FormatFlags = StringFormatFlags.NoWrap;
-                                    stringFormat.Trimming = StringTrimming.None;
+                                    StringFormat stringFormat = new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Near,
+                                        FormatFlags = StringFormatFlags.NoWrap,
+                                        Trimming = StringTrimming.None
+                                    };
 
                                     switch (_kryptonDomainUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
                                             if (RightToLeft == RightToLeft.Yes)
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Far;
+                                            }
                                             else
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Near;
+                                            }
+
                                             break;
                                         case HorizontalAlignment.Right:
                                             if (RightToLeft == RightToLeft.Yes)
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Near;
+                                            }
                                             else
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Far;
+                                            }
+
                                             break;
                                         case HorizontalAlignment.Center:
                                             stringFormat.Alignment = StringAlignment.Center;
@@ -211,16 +235,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                     try
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
+                                        {
                                             g.DrawString(Text, Font, foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                     catch (ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
+                                        {
                                             g.DrawString(Text, _kryptonDomainUpDown.GetTripleState().PaletteContent.GetContentShortTextFont(PaletteState.Disabled), foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                 }
 
@@ -230,7 +258,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to match the original BeginPaint?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 PI.EndPaint(Handle, ref ps);
+                            }
                         }
                         break;
                     case PI.WM_CONTEXTMENU:
@@ -242,7 +272,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // If keyboard activated, the menu position is centered
                             if (((int)((long)m.LParam)) == -1)
+                            {
                                 mousePt = PointToScreen(new Point(Width / 2, Height / 2));
+                            }
 
                             // Show the context menu
                             _kryptonDomainUpDown.KryptonContextMenu.Show(_kryptonDomainUpDown, mousePt);
@@ -264,8 +296,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -274,8 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
 
@@ -351,9 +381,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Generate appropriate change event
                         if (_mouseOver)
+                        {
                             OnTrackMouseEnter(EventArgs.Empty);
+                        }
                         else
+                        {
                             OnTrackMouseLeave(EventArgs.Empty);
+                        }
                     }
                 }
             }
@@ -401,9 +435,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case PI.WM_NCHITTEST:
                         if (DomainUpDown.InTransparentDesignMode)
+                        {
                             m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        }
                         else
+                        {
                             base.WndProc(ref m);
+                        }
+
                         break;
                     case PI.WM_MOUSELEAVE:
                         // Mouse is not over the control
@@ -419,17 +458,19 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Mouse is over the control
                         if (!MouseOver)
                         {
-                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS();
+                            PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS
+                            {
 
-                            // This structure needs to know its own size in bytes
-                            tme.cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS));
-                            tme.dwHoverTime = 100;
+                                // This structure needs to know its own size in bytes
+                                cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
+                                dwHoverTime = 100,
 
-                            // We need to know then the mouse leaves the client window area
-                            tme.dwFlags = (int)(PI.TME_LEAVE);
+                                // We need to know then the mouse leaves the client window area
+                                dwFlags = (int)(PI.TME_LEAVE),
 
-                            // We want to track our own window
-                            tme.hWnd = Handle;
+                                // We want to track our own window
+                                hWnd = Handle
+                            };
 
                             // Call Win32 API to start tracking
                             PI.TrackMouseEvent(ref tme);
@@ -447,9 +488,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to BeginPaint or just take the given HDC?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 hdc = PI.BeginPaint(Handle, ref ps);
+                            }
                             else
+                            {
                                 hdc = m.WParam;
+                            }
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
@@ -460,7 +505,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 // Drawn entire client area in the background color
                                 using (SolidBrush backBrush = new SolidBrush(_internalDomainUpDown.BackColor))
+                                {
                                     g.FillRectangle(backBrush, new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top));
+                                }
 
                                 // If enabled then let the combo draw the text area
                                 if (_kryptonDomainUpDown.Enabled)
@@ -473,7 +520,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                         m.WParam = IntPtr.Zero;
                                     }
                                     else
+                                    {
                                         DefWndProc(ref m);
+                                    }
                                 }
                                 else
                                 {
@@ -483,24 +532,36 @@ namespace ComponentFactory.Krypton.Toolkit
                                     g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(_kryptonDomainUpDown.StateDisabled.PaletteContent.GetContentShortTextHint(PaletteState.Disabled));
 
                                     // Define the string formatting requirements
-                                    StringFormat stringFormat = new StringFormat();
-                                    stringFormat.LineAlignment = StringAlignment.Center;
-                                    stringFormat.FormatFlags = StringFormatFlags.NoWrap;
-                                    stringFormat.Trimming = StringTrimming.None;
+                                    StringFormat stringFormat = new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        FormatFlags = StringFormatFlags.NoWrap,
+                                        Trimming = StringTrimming.None
+                                    };
 
                                     switch (_kryptonDomainUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
                                             if (_kryptonDomainUpDown.RightToLeft == RightToLeft.Yes)
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Far;
+                                            }
                                             else
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Near;
+                                            }
+
                                             break;
                                         case HorizontalAlignment.Right:
                                             if (_kryptonDomainUpDown.RightToLeft == RightToLeft.Yes)
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Far;
+                                            }
                                             else
+                                            {
                                                 stringFormat.Alignment = StringAlignment.Far;
+                                            }
+
                                             break;
                                         case HorizontalAlignment.Center:
                                             stringFormat.Alignment = StringAlignment.Center;
@@ -514,16 +575,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                     try
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(_internalDomainUpDown.ForeColor))
+                                        {
                                             g.DrawString(_internalDomainUpDown.Text, _internalDomainUpDown.Font, foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                     catch (ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(_internalDomainUpDown.ForeColor))
+                                        {
                                             g.DrawString(_internalDomainUpDown.Text, _kryptonDomainUpDown.GetTripleState().PaletteContent.GetContentShortTextFont(PaletteState.Disabled), foreBrush,
                                                          new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
                                                          stringFormat);
+                                        }
                                     }
                                 }
 
@@ -533,7 +598,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Do we need to match the original BeginPaint?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 PI.EndPaint(Handle, ref ps);
+                            }
                         }
                         break;
                     case PI.WM_CONTEXTMENU:
@@ -546,8 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // If keyboard activated, the menu position is centered
                             if (((int)((long)m.LParam)) == -1)
                             {
-                                PI.RECT clientRect;
-                                PI.GetClientRect(Handle, out clientRect);
+                                PI.GetClientRect(Handle, out PI.RECT clientRect);
                                 mousePt = DomainUpDown.PointToScreen(new Point((clientRect.right - clientRect.left) / 2,
                                                                                (clientRect.bottom - clientRect.top) / 2));
                             }
@@ -572,8 +638,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
-                if (TrackMouseEnter != null)
-                    TrackMouseEnter(this, e);
+                TrackMouseEnter?.Invoke(this, e);
             }
 
             /// <summary>
@@ -582,8 +647,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e)
             {
-                if (TrackMouseLeave != null)
-                    TrackMouseLeave(this, e);
+                TrackMouseLeave?.Invoke(this, e);
             }
             #endregion
         }
@@ -700,9 +764,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Do we need to BeginPaint or just take the given HDC?
                         if (m.WParam == IntPtr.Zero)
+                        {
                             hdc = PI.BeginPaint(Handle, ref ps);
+                        }
                         else
+                        {
                             hdc = m.WParam;
+                        }
 
                         // Grab the client area of the control
                         PI.RECT rect = new PI.RECT();
@@ -728,7 +796,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         // Drawn entire client area in the background color
                                         using (SolidBrush backBrush = new SolidBrush(DomainUpDown.DomainUpDown.BackColor))
+                                        {
                                             g.FillRectangle(backBrush, clientRect);
+                                        }
 
                                         // Draw the actual up and down buttons split inside the client rectangle
                                         DrawUpDownButtons(g, new Rectangle(clientRect.X, clientRect.Y, clientRect.Width, clientRect.Height - 1));
@@ -748,7 +818,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Do we need to match the original BeginPaint?
                             if (m.WParam == IntPtr.Zero)
+                            {
                                 PI.EndPaint(Handle, ref ps);
+                            }
                         }
 
                         break;
@@ -812,23 +884,35 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (MouseOver && buttonRect.Contains(MousePoint))
                     {
                         if (buttonRect.Contains(_mousePressed))
+                        {
                             return PaletteState.Pressed;
+                        }
                         else if (_mousePressed.X == -int.MaxValue)
+                        {
                             return PaletteState.Tracking;
+                        }
                     }
 
                     if (DomainUpDown.IsActive || (DomainUpDown.IsFixedActive && (DomainUpDown.InputControlStyle == InputControlStyle.Standalone)))
                     {
                         if (DomainUpDown.InputControlStyle == InputControlStyle.Standalone)
+                        {
                             return PaletteState.CheckedNormal;
+                        }
                         else
+                        {
                             return PaletteState.CheckedTracking;
+                        }
                     }
                     else
+                    {
                         return PaletteState.Normal;
+                    }
                 }
                 else
+                {
                     return PaletteState.Disabled;
+                }
             }
             #endregion
         }
@@ -993,16 +1077,22 @@ namespace ComponentFactory.Krypton.Toolkit
             _domainUpDown.Validated += new EventHandler(OnDomainUpDownValidated);
 
             // Create the element that fills the remainder space and remembers fill rectange
-            _layoutFill = new ViewLayoutFill(_domainUpDown);
-            _layoutFill.DisplayPadding = new Padding(1, 1, 1, 0);
+            _layoutFill = new ViewLayoutFill(_domainUpDown)
+            {
+                DisplayPadding = new Padding(1, 1, 1, 0)
+            };
 
             // Create inner view for placing inside the drawing docker
-            _drawDockerInner = new ViewLayoutDocker();
-            _drawDockerInner.Add(_layoutFill, ViewDockStyle.Fill);
+            _drawDockerInner = new ViewLayoutDocker
+            {
+                { _layoutFill, ViewDockStyle.Fill }
+            };
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border);
-            _drawDockerOuter.Add(_drawDockerInner, ViewDockStyle.Fill);
+            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            {
+                { _drawDockerInner, ViewDockStyle.Fill }
+            };
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDockerOuter);
@@ -1041,8 +1131,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _buttonManager.Destruct();
 
                 // Tell the buttons class to cleanup resources
-                if (_subclassButtons != null)
-                    _subclassButtons.Dispose();
+                _subclassButtons?.Dispose();
             }
 
             base.Dispose(disposing);
@@ -1496,12 +1585,16 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_fixedActive != null)
+                {
                     return _fixedActive.Value;
+                }
                 else
+                {
                     return (DesignMode || AlwaysActive ||
                             ContainsFocus || _mouseOver || _domainUpDown.MouseOver ||
                            ((_subclassEdit != null) && (_subclassEdit.MouseOver)) ||
                            ((_subclassButtons != null) && (_subclassButtons.MouseOver)));
+                }
             }
         }
 
@@ -1512,9 +1605,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public new bool Focus()
         {
             if (DomainUpDown != null)
+            {
                 return DomainUpDown.Focus();
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1522,8 +1619,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public new void Select()
         {
-            if (DomainUpDown != null)
-                DomainUpDown.Select();
+            DomainUpDown?.Select();
         }
 
         /// <summary>
@@ -1540,12 +1636,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
-                if (MaximumSize.Width > 0)  retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
-                if (MaximumSize.Height > 0) retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                if (MaximumSize.Width > 0)
+                {
+                    retSize.Width = Math.Min(MaximumSize.Width, retSize.Width);
+                }
+
+                if (MaximumSize.Height > 0)
+                {
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                }
 
                 // Apply the minimum sizing
-                if (MinimumSize.Width > 0)  retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
-                if (MinimumSize.Height > 0) retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                if (MinimumSize.Width > 0)
+                {
+                    retSize.Width = Math.Max(MinimumSize.Width, retSize.Width);
+                }
+
+                if (MinimumSize.Height > 0)
+                {
+                    retSize.Height = Math.Max(MinimumSize.Height, retSize.Height);
+                }
 
                 return retSize;
             }
@@ -1590,13 +1700,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return false;
+            }
 
             // Check if any of the button specs want the point
             if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -1609,7 +1725,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Ignore call as view builder is already destructed
             if (IsDisposed)
+            {
                 return null;
+            }
 
             // Ask the current view for a decision
             return ViewManager.ComponentFromPoint(pt);
@@ -1659,8 +1777,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnSelectedItemChanged(EventArgs e)
         {
-            if (SelectedItemChanged != null)
-                SelectedItemChanged(this, e);
+            SelectedItemChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1669,8 +1786,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ScrollEventArgs that contains the event data.</param>
         protected virtual void OnScroll(ScrollEventArgs e)
         {
-            if (Scroll != null)
-                Scroll(this, e);
+            Scroll?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1679,8 +1795,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseEnter(EventArgs e)
         {
-            if (TrackMouseEnter != null)
-                TrackMouseEnter(this, e);
+            TrackMouseEnter?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1689,8 +1804,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e)
         {
-            if (TrackMouseLeave != null)
-                TrackMouseLeave(this, e);
+            TrackMouseLeave?.Invoke(this, e);
         }
         #endregion
 
@@ -1780,8 +1894,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            if (BackColorChanged != null)
-                BackColorChanged(this, e);
+            BackColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1790,8 +1903,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
-            if (BackgroundImageChanged != null)
-                BackgroundImageChanged(this, e);
+            BackgroundImageChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1800,8 +1912,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnBackgroundImageLayoutChanged(EventArgs e)
         {
-            if (BackgroundImageLayoutChanged != null)
-                BackgroundImageLayoutChanged(this, e);
+            BackgroundImageLayoutChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1810,8 +1921,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
-            if (ForeColorChanged != null)
-                ForeColorChanged(this, e);
+            ForeColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1906,7 +2016,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // First time the height is set, remember it
                 if (_cachedHeight == -1)
+                {
                     _cachedHeight = height;
+                }
 
                 // Override the actual height used
                 height = PreferredHeight;
@@ -1914,7 +2026,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If setting the actual height then cache it for later
             if ((specified & BoundsSpecified.Height) == BoundsSpecified.Height)
+            {
                 _cachedHeight = height;
+            }
 
             base.SetBoundsCore(x, y, width, height, specified);
         }
@@ -1935,9 +2049,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             if (IsHandleCreated && !e.NeedLayout)
+            {
                 InvalidateChildren();
+            }
             else
+            {
                 ForceControlLayout();
+            }
 
             if (!IsDisposed && !Disposing)
             {
@@ -1951,7 +2069,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Only set the font if the domain up down has been created
                 Font font = triple.PaletteContent.GetContentShortTextFont(state);
                 if ((_domainUpDown.Handle != IntPtr.Zero) && !_domainUpDown.Font.Equals(font))
+                {
                     _domainUpDown.Font = font;
+                }
             }
             
             base.OnNeedPaint(sender, e);
@@ -1963,8 +2083,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected override void OnPaddingChanged(EventArgs e)
         {
-            if (PaddingChanged != null)
-                PaddingChanged(this, e);
+            PaddingChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -1997,9 +2116,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PI.WM_NCHITTEST:
                     if (InTransparentDesignMode)
+                    {
                         m.Result = (IntPtr)PI.HTTRANSPARENT;
+                    }
                     else
+                    {
                         base.WndProc(ref m);
+                    }
+
                     break;
                 default:
                     base.WndProc(ref m);
@@ -2102,9 +2226,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the new state of the main view element
             PaletteState state;
             if (IsActive)
+            {
                 state = PaletteState.Tracking;
+            }
             else
+            {
                 state = PaletteState.Normal;
+            }
 
             _drawDockerOuter.ElementState = state;
         }
@@ -2114,12 +2242,18 @@ namespace ComponentFactory.Krypton.Toolkit
             if (Enabled)
             {
                 if (IsActive)
+                {
                     return _stateActive;
+                }
                 else
+                {
                     return _stateNormal;
+                }
             }
             else
+            {
                 return _stateDisabled;
+            }
         }
 
         private int PreferredHeight
@@ -2202,7 +2336,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -2234,8 +2370,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -2257,8 +2392,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
@@ -2286,9 +2420,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Raise appropriate event
                 if (_trackingMouseEnter)
+                {
                     OnTrackMouseEnter(EventArgs.Empty);
+                }
                 else
+                {
                     OnTrackMouseLeave(EventArgs.Empty);
+                }
             }
         }
         #endregion

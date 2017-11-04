@@ -9,15 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Workspace
 {
@@ -31,7 +24,7 @@ namespace ComponentFactory.Krypton.Workspace
         #endregion
 
         #region Static Fields
-        private static readonly Type[] _types = new Type[] { typeof(KryptonWorkspaceCell),
+        private static readonly Type[] _types = { typeof(KryptonWorkspaceCell),
                                                              typeof(KryptonWorkspaceSequence)};
         #endregion
 
@@ -86,15 +79,17 @@ namespace ComponentFactory.Krypton.Workspace
                 foreach (Component c in this)
                 {
                     // If we have a cell and that cell wants to be visible then we are done
-                    KryptonWorkspaceCell cell = c as KryptonWorkspaceCell;
-                    if ((cell != null) && cell.WorkspaceVisible)
+                    if ((c is KryptonWorkspaceCell cell) && cell.WorkspaceVisible)
+                    {
                         return true;
+                    }
                     else
                     {
                         // If we have a sequence and it is visible and contains a visible cell then we are done
-                        KryptonWorkspaceSequence sequence = c as KryptonWorkspaceSequence;
-                        if ((sequence != null) && sequence.WorkspaceVisible && sequence.Children.ContainsVisibleCell)
+                        if ((c is KryptonWorkspaceSequence sequence) && sequence.WorkspaceVisible && sequence.Children.ContainsVisibleCell)
+                        {
                             return true;
+                        }
                     }
                 }
 
@@ -112,18 +107,21 @@ namespace ComponentFactory.Krypton.Workspace
         {
             base.OnInserted(e);
             
-            if (e.Item is IWorkspaceItem)
+            if (e.Item is IWorkspaceItem workspaceItem)
             {
-                IWorkspaceItem workspaceItem = e.Item as IWorkspaceItem;
                 workspaceItem.PropertyChanged += new PropertyChangedEventHandler(OnChildPropertyChanged);
                 workspaceItem.MaximizeRestoreClicked += new EventHandler(OnChildMaximizeRestoreClicked);
             }
 
-            if (e.Item is KryptonWorkspaceCell)
-                ((KryptonWorkspaceCell)e.Item).WorkspaceParent = _sequence;
+            if (e.Item is KryptonWorkspaceCell cell)
+            {
+                cell.WorkspaceParent = _sequence;
+            }
 
-            if (e.Item is KryptonWorkspaceSequence)
-                ((KryptonWorkspaceSequence)e.Item).WorkspaceParent = _sequence;
+            if (e.Item is KryptonWorkspaceSequence sequence)
+            {
+                sequence.WorkspaceParent = _sequence;
+            }
 
             OnPropertyChanged("Children");
         }
@@ -136,18 +134,21 @@ namespace ComponentFactory.Krypton.Workspace
         {
             base.OnRemoved(e);
 
-            if (e.Item is IWorkspaceItem)
+            if (e.Item is IWorkspaceItem workspaceItem)
             {
-                IWorkspaceItem workspaceItem = e.Item as IWorkspaceItem;
                 workspaceItem.PropertyChanged -= new PropertyChangedEventHandler(OnChildPropertyChanged);
                 workspaceItem.MaximizeRestoreClicked -= new EventHandler(OnChildMaximizeRestoreClicked);
             }
 
-            if (e.Item is KryptonWorkspaceCell)
-                ((KryptonWorkspaceCell)e.Item).WorkspaceParent = null;
+            if (e.Item is KryptonWorkspaceCell cell)
+            {
+                cell.WorkspaceParent = null;
+            }
 
-            if (e.Item is KryptonWorkspaceSequence)
-                ((KryptonWorkspaceSequence)e.Item).WorkspaceParent = null;
+            if (e.Item is KryptonWorkspaceSequence sequence)
+            {
+                sequence.WorkspaceParent = null;
+            }
 
             OnPropertyChanged("Children");
         }
@@ -163,18 +164,21 @@ namespace ComponentFactory.Krypton.Workspace
             // Unhook from monitoring the child items
             foreach (Component c in this)
             {
-                if (c is IWorkspaceItem)
+                if (c is IWorkspaceItem workspaceItem)
                 {
-                    IWorkspaceItem workspaceItem = c as IWorkspaceItem;
                     workspaceItem.PropertyChanged -= new PropertyChangedEventHandler(OnChildPropertyChanged);
                     workspaceItem.MaximizeRestoreClicked -= new EventHandler(OnChildMaximizeRestoreClicked);
                 }
 
-                if (c is KryptonWorkspaceCell)
-                    ((KryptonWorkspaceCell)c).WorkspaceParent = null;
+                if (c is KryptonWorkspaceCell cell)
+                {
+                    cell.WorkspaceParent = null;
+                }
 
-                if (c is KryptonWorkspaceSequence)
-                    ((KryptonWorkspaceSequence)c).WorkspaceParent = null;
+                if (c is KryptonWorkspaceSequence sequence)
+                {
+                    sequence.WorkspaceParent = null;
+                }
             }
         }
 
@@ -205,8 +209,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event arguments associated with the event.</param>
         protected void OnChildMaximizeRestoreClicked(object sender, EventArgs e)
         {
-            if (MaximizeRestoreClicked != null)
-                MaximizeRestoreClicked(sender, e);
+            MaximizeRestoreClicked?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -224,8 +227,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">Event arguments associated with the event.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
     }

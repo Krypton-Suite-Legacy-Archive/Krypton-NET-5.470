@@ -9,15 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms.VisualStyles;
 using System.Reflection;
@@ -36,7 +32,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                        IKryptonDebug
     {
         #region Static Fields
-        private static readonly int DEFAULT_COMPOSITION_HEIGHT = 30;
+
+        private const int DEFAULT_COMPOSITION_HEIGHT = 30;
         private static bool _themedApp;
         #endregion
 
@@ -162,11 +159,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
 
-            if (ViewManager != null)
-                ViewManager.Dispose();
+            ViewManager?.Dispose();
 
             if (_screenDC != IntPtr.Zero)
+            {
                 PI.DeleteDC(_screenDC);
+            }
         }
         #endregion
 
@@ -288,7 +286,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If custom chrome is not enabled, then no need to make changes
                     if (ApplyCustomChrome)
+                    {
                         UpdateComposition();
+                    }
                 }
             }
         }
@@ -703,7 +703,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 using (Region invalidRegion = new Region(invalidRect))
                 {
                     if (excludeClientArea)
+                    {
                         invalidRegion.Exclude(ClientRectangle);
+                    }
 
                     using (Graphics g = Graphics.FromHwnd(Handle))
                     {
@@ -783,7 +785,9 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnResize(e);
 
             if (ApplyCustomChrome && !((MdiParent != null) && CommonHelper.IsFormMaximized(this)))
+            {
                 PerformNeedPaint(true);
+            }
 
             // Reverse the resume from earlier
             SuspendPaint();
@@ -803,8 +807,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // With the Aero glass appearance we need to reduce height by the top border, 
             // otherwise each time the window is maximized and restored it grows in size
-            if (ApplyComposition && FormBorderStyle != FormBorderStyle.None)
+            if (ApplyComposition && (FormBorderStyle != FormBorderStyle.None))
+            {
                 updatedHeight = height - this.RealWindowBorders.Top;
+            }
 
             base.SetBoundsCore(x, y, width, updatedHeight, specified);
         }
@@ -860,7 +866,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Under Windows7 a modal window with custom chrome under the DWM
             // will sometimes not be drawn when first shown.
             if (Environment.OSVersion.Version.Major >= 6)
+            {
                 PerformNeedPaint(true);
+            }
 
             base.OnShown(e);
         }
@@ -913,8 +921,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
-            if (PaletteChanged != null)
-                PaletteChanged(this, e);
+            PaletteChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -923,8 +930,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnApplyCustomChromeChanged(EventArgs e)
         {
-            if (ApplyCustomChromeChanged != null)
-                ApplyCustomChromeChanged(this, e);
+            ApplyCustomChromeChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -946,7 +952,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Do nothing unless we are applying custom chrome
             if (ApplyCustomChrome)
@@ -961,7 +970,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Do we need to recalc the border size as well as invalidate?
                     if (e.NeedLayout)
+                    {
                         _needLayout = true;
+                    }
 
                     InvalidateNonClient();
                 }
@@ -980,7 +991,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // LayoutMdi call on the parent from working and cascading/tiling the children
             if ((m.Msg == (int)PI.WM_NCCALCSIZE) && _themedApp &&
                 ((MdiParent == null) || ApplyCustomChrome))
+            {
                 processed = OnWM_NCCALCSIZE(ref m);
+            }
 
             // Do we need to override message processing?
             if (ApplyCustomChrome && !IsDisposed && !Disposing)
@@ -991,16 +1004,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (!ApplyComposition)
                         {
                             if (_ignoreCount <= 0)
+                            {
                                 processed = OnWM_NCPAINT(ref m);
+                            }
                             else
+                            {
                                 processed = true;
+                            }
                         }
                         break;
                     case PI.WM_NCHITTEST:
                         if (ApplyComposition)
+                        {
                             processed = OnCompWM_NCHITTEST(ref m);
+                        }
                         else
+                        {
                             processed = OnWM_NCHITTEST(ref m);
+                        }
+
                         break;
                     case PI.WM_NCACTIVATE:
                         processed = OnWM_NCACTIVATE(ref m);
@@ -1016,15 +1038,23 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case PI.WM_MOUSEMOVE:
                         if (_captured)
+                        {
                             processed = OnWM_MOUSEMOVE(ref m);
+                        }
+
                         break;
                     case PI.WM_LBUTTONUP:
                         if (_captured)
+                        {
                             processed = OnWM_LBUTTONUP(ref m);
+                        }
+
                         break;
                     case PI.WM_NCMOUSELEAVE:
                         if (!_captured)
+                        {
                             processed = OnWM_NCMOUSELEAVE(ref m);
+                        }
 
                         if (ApplyComposition)
                         {
@@ -1049,7 +1079,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         if ((int)m.WParam.ToInt64() != 61696)
+                        {
                             processed = OnPaintNonClient(ref m);
+                        }
+
                         break;
                     case PI.WM_INITMENU:
                     case PI.WM_SETTEXT:
@@ -1073,7 +1106,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the message has not been handled, let base class process it
             if (!processed)
+            {
                 base.WndProc(ref m);
+            }
         }
 
         /// <summary>
@@ -1090,9 +1125,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Get the border sizing needed around the client area
                 if (FormBorderStyle == FormBorderStyle.None)
+                {
                     borders = Padding.Empty;
+                }
                 else
+                {
                     borders = RealWindowBorders;
+                }
 
                 // Extract the Win32 NCCALCSIZE_PARAMS structure from LPARAM
                 PI.NCCALCSIZE_PARAMS calcsize = (PI.NCCALCSIZE_PARAMS)m.GetLParam(typeof(PI.NCCALCSIZE_PARAMS));
@@ -1129,7 +1168,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Perform actual paint operation
             if (!_disposing)
+            {
                 OnNonClientPaint(m.HWnd);
+            }
 
             // We have handled the message
             m.Result = (IntPtr)(1);
@@ -1166,13 +1207,14 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual bool OnCompWM_NCHITTEST(ref Message m)
         {
             // Let the desktop window manager process it first
-            IntPtr result;
-            PI.DwmDefWindowProc(m.HWnd, m.Msg, m.WParam, m.LParam, out result);
+            PI.DwmDefWindowProc(m.HWnd, m.Msg, m.WParam, m.LParam, out IntPtr result);
             m.Result = result;
 
             // If no result returned then let the base window routine process it
             if (m.Result == (IntPtr)PI.HTNOWHERE)
+            {
                 DefWndProc(ref m);
+            }
 
             // If the window proc has decided it is in the CAPTION or CLIENT areas
             // then we might have something of our own in that area that we want to
@@ -1208,7 +1250,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // The first time an MDI child gets an WM_NCACTIVATE, let it process as normal
                 if ((MdiParent != null) && !_activated)
+                {
                     _activated = true;
+                }
                 else
                 {
                     // Allow default processing of activation change
@@ -1254,7 +1298,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // In composition we need to adjust for the left window border
             if (ApplyComposition)
+            {
                 windowPoint.X -= RealWindowBorders.Left;
+            }
 
             // Perform actual mouse movement actions
             WindowChromeNonClientMouseMove(windowPoint);
@@ -1262,17 +1308,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // If we are not tracking when the mouse leaves the non-client window
             if (!_trackingMouse)
             {
-                PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS();
+                PI.TRACKMOUSEEVENTS tme = new PI.TRACKMOUSEEVENTS
+                {
 
-                // This structure needs to know its own size in bytes
-                tme.cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS));
-                tme.dwHoverTime = 100;
+                    // This structure needs to know its own size in bytes
+                    cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
+                    dwHoverTime = 100,
 
-                // We need to know then the mouse leaves the non client window area
-                tme.dwFlags = (int)(PI.TME_LEAVE | PI.TME_NONCLIENT);
+                    // We need to know then the mouse leaves the non client window area
+                    dwFlags = (int)(PI.TME_LEAVE | PI.TME_NONCLIENT),
 
-                // We want to track our own window
-                tme.hWnd = Handle;
+                    // We want to track our own window
+                    hWnd = Handle
+                };
 
                 // Call Win32 API to start tracking
                 PI.TrackMouseEvent(ref tme);
@@ -1303,7 +1351,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // In composition we need to adjust for the left window border
             if (ApplyComposition)
+            {
                 windowPoint.X -= RealWindowBorders.Left;
+            }
 
             // Perform actual mouse down processing
             return WindowChromeLeftMouseDown(windowPoint);
@@ -1324,7 +1374,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // In composition we need to adjust for the left window border
             if (ApplyComposition)
+            {
                 windowPoint.X -= RealWindowBorders.Left;
+            }
 
             // Perform actual mouse up processing
             return WindowChromeLeftMouseUp(windowPoint);
@@ -1429,14 +1481,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the view element under the mouse
             ViewBase pointView = ViewManager.Root.ViewFromPoint(windowPoint);
 
-            if (pointView != null)
-            {
-                // Try and find a mouse controller for the active view
-                IMouseController controller = pointView.FindMouseController();
+            // Try and find a mouse controller for the active view
+            IMouseController controller = pointView?.FindMouseController();
 
-                // Eat the message
-                if (controller != null)
-                    return true;
+            // Eat the message
+            if (controller != null)
+            {
+                return true;
             }
 
             return false;
@@ -1471,7 +1522,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         bool minimized = CommonHelper.IsFormMinimized(this);
 
                         // After excluding the client area, is there anything left to draw?
-                        if (minimized || (clipClientRect.Width > 0) && (clipClientRect.Height > 0))
+                        if (minimized || ((clipClientRect.Width > 0) && (clipClientRect.Height > 0)))
                         {
                             // If not minimized we need to clip the client area
                             if (!minimized)
@@ -1495,7 +1546,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Drawing is easier when using a Graphics instance
                                     using (Graphics g = Graphics.FromHdc(_screenDC))
+                                    {
                                         WindowChromePaint(g, windowBounds);
+                                    }
 
                                     // Now blit from the bitmap to the screen
                                     PI.BitBlt(hDC, 0, 0, windowBounds.Width, windowBounds.Height, _screenDC, 0, 0, PI.SRCCOPY);
@@ -1510,7 +1563,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 // Drawing is easier when using a Graphics instance
                                 using (Graphics g = Graphics.FromHdc(hDC))
+                                {
                                     WindowChromePaint(g, windowBounds);
+                                }
                             }
                         }
                     }
@@ -1531,8 +1586,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual void OnWindowActiveChanged()
         {
-            if (WindowActiveChanged != null)
-                WindowActiveChanged(this, EventArgs.Empty);
+            WindowActiveChanged?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -1599,15 +1653,9 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager.MouseDown(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0), pt);
 
             // If we moused down on a active view element
-            if (ViewManager.ActiveView != null)
-            {
-                // Ask the controller if the mouse down should be ignored by wnd proc processing
-                IMouseController controller = ViewManager.ActiveView.FindMouseController();
-                if (controller != null)
-                    return controller.IgnoreVisualFormLeftButtonDown;
-            }
-
-            return false;
+            // Ask the controller if the mouse down should be ignored by wnd proc processing
+            IMouseController controller = ViewManager.ActiveView?.FindMouseController();
+            return (controller != null) && controller.IgnoreVisualFormLeftButtonDown;
         }
 
         /// <summary>
@@ -1661,7 +1709,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         _compositionHeight = Composition.CompHeight;
                     }
                     else
+                    {
                         _compositionHeight = DEFAULT_COMPOSITION_HEIGHT;
+                    }
 
                     // With composition we extend the top into the client area
                     DWM.ExtendFrameIntoClientArea(Handle, new Padding(0, (_applyComposition ? _compositionHeight : 0), 0, 0));
@@ -1678,7 +1728,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     int newCompHeight = DEFAULT_COMPOSITION_HEIGHT;
                     if (Composition != null)
+                    {
                         newCompHeight = Composition.CompHeight;
+                    }
 
                     // Check if there is a change in the composition height
                     if (newCompHeight != _compositionHeight)

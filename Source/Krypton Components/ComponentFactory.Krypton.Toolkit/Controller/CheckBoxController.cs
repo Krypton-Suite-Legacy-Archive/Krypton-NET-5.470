@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -124,7 +123,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Take the focus if allowed
                 if (c.CanFocus)
+                {
                     c.Focus();
+                }
             }
 
 			return _captured;
@@ -154,7 +155,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Can only click if enabled
                             if (_target.Enabled)
+                            {
                                 OnClick(EventArgs.Empty);
+                            }
                         }
                     }
 
@@ -217,8 +220,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             if (e.KeyCode == Keys.Space)
             {
@@ -253,8 +263,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // If the user pressed the escape key
             if ((e.KeyCode == Keys.Escape) || (e.KeyCode == Keys.Space))
@@ -276,7 +293,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Can only click if enabled
                         if (_target.Enabled)
+                        {
                             OnClick(EventArgs.Empty);
+                        }
                     }
 
                     PerformNeedPaint();
@@ -348,8 +367,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnClick(EventArgs e)
         {
-            if (Click != null)
-                Click(_target, e);
+            Click?.Invoke(_target, e);
         }
 
 		/// <summary>
@@ -358,9 +376,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(needLayout));
-		}
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
+        }
 		#endregion
 	}
 }

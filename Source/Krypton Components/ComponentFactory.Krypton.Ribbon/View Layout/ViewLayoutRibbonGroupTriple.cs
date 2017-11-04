@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -131,15 +129,16 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
-                    if (child is IRibbonViewGroupItemView)
+                    // Cast to correct type
+                    if (child is IRibbonViewGroupItemView item)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // If it can provide a view, then use it
                         view = item.GetFirstFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -163,15 +162,16 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
-                    if (child is IRibbonViewGroupItemView)
+                    // Cast to correct type
+                    if (child is IRibbonViewGroupItemView item)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // If it can provide a view, then use it
                         view = item.GetLastFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -197,20 +197,25 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
-                    if (child is IRibbonViewGroupItemView)
+                    // Cast to correct type
+                    if (child is IRibbonViewGroupItemView item)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
                         if (matched)
+                        {
                             view = item.GetFirstFocusItem();
+                        }
                         else
+                        {
                             view = item.GetNextFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -236,20 +241,25 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
-                    if (child is IRibbonViewGroupItemView)
+                    // Cast to correct type
+                    if (child is IRibbonViewGroupItemView item)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
                         if (matched)
+                        {
                             view = item.GetLastFocusItem();
+                        }
                         else
+                        {
                             view = item.GetPreviousFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -271,9 +281,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
-                    if (child is IRibbonViewGroupItemView)
+                    if (child is IRibbonViewGroupItemView item)
                     {
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
                         item.GetGroupKeyTips(keyTipList, this.IndexOf(child) + 1);
                     }
                 }
@@ -314,14 +323,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only add if we are the first calculation, as in design mode we
                     // always provide a single possible size which is the largest item
                     if (results.Count == 0)
+                    {
                         results.Add(mediumWidth);
+                    }
                 }
                 else
                 {
                     // Only add the medium size if there is no other entry or we are
                     // smaller than the existing size and so represent a useful shrinkage
                     if ((results.Count == 0) || (results[0].Width > mediumWidth.Width))
+                    {
                         results.Add(mediumWidth);
+                    }
                 }
             }
 
@@ -336,14 +349,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only add if we are the first calculation, as in design mode we
                     // always provide a single possible size which is the largest item
                     if (results.Count == 0)
+                    {
                         results.Add(smallWidth);
+                    }
                 }
                 else
                 {
                     // Only add the small size if there is no other entry or we are
                     // smaller than the existing size and so represent a useful shrinkage
                     if ((results.Count == 0) || (results[results.Count - 1].Width > smallWidth.Width))
+                    {
                         results.Add(smallWidth);
+                    }
                 }
             }
 
@@ -459,7 +476,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // At design time we add space for the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 preferredSize.Width += DesignTimeDraw.FlapWidth + DesignTimeDraw.SepWidth;
+            }
 
             return preferredSize;
         }
@@ -487,7 +506,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // At design time we reserve space at the left side for the selection flap
                 if (_ribbon.InDesignHelperMode)
+                {
                     x += DesignTimeDraw.FlapWidth;
+                }
 
                 // Position each item from left/top to right/bottom 
                 int width = ClientRectangle.Right - x;
@@ -564,7 +585,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // At design time we draw the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 DesignTimeDraw.DrawFlapArea(_ribbon, context, ClientRectangle, State);
+            }
 
             // Let base class draw contained items
             base.RenderBefore(context);
@@ -583,7 +606,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -593,9 +618,10 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             foreach (ViewBase item in this)
             {
-                IRibbonViewGroupItemView viewItem = item as IRibbonViewGroupItemView;
-                if (viewItem != null)
+                if (item is IRibbonViewGroupItemView viewItem)
+                {
                     viewItem.SetGroupItemSize(size);
+                }
             }
 
             SetCurrentSize(size);
@@ -605,9 +631,10 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             foreach (ViewBase item in this)
             {
-                IRibbonViewGroupItemView viewItem = item as IRibbonViewGroupItemView;
-                if (viewItem != null)
+                if (item is IRibbonViewGroupItemView viewItem)
+                {
                     viewItem.ResetGroupItemSize();
+                }
             }
 
             SetCurrentSize(_ribbonTriple.ItemSizeCurrent);
@@ -618,7 +645,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = size;
 
             if (_viewAddItem != null)
+            {
                 _viewAddItem.CurrentSize = size;
+            }
         }
 
         private void SyncChildrenToRibbonGroupItems()
@@ -661,10 +690,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the design time 'Add Tab' first time it is needed
                 if (_viewAddItem == null)
+                {
                     _viewAddItem = new ViewDrawRibbonDesignGroupTriple(_ribbon, 
-                                                                       _ribbonTriple, 
-                                                                       _currentSize,
-                                                                       _needPaint);
+                        _ribbonTriple, 
+                        _currentSize,
+                        _needPaint);
+                }
 
                 // Always add at end of the list of items
                 Add(_viewAddItem);
@@ -672,7 +703,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Dispose of all the items no longer needed
             foreach (ViewBase view in _itemToView.Values)
+            {
                 view.Dispose();
+            }
 
             // Use the latest hashtable
             _itemToView = regenerate;
@@ -712,7 +745,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnContextClick(object sender, MouseEventArgs e)
         {
             if (_ribbon.InDesignMode)
+            {
                 _ribbonTriple.OnDesignTimeContextMenu(e);
+            }
         }
         #endregion
     }

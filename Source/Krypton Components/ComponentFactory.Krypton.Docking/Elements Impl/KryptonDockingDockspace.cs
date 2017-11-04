@@ -9,14 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 using ComponentFactory.Krypton.Navigator;
 
@@ -88,8 +85,7 @@ namespace ComponentFactory.Krypton.Docking
             get
             {
                 // Scan up the parent chain to get the edge we are expected to be inside
-                KryptonDockingEdge dockingEdge = GetParentType(typeof(KryptonDockingEdge)) as KryptonDockingEdge;
-                if (dockingEdge != null)
+                if (GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge dockingEdge)
                 {
                     // Extract the expected fixed name of the auto hidden edge element
                     return dockingEdge["AutoHidden"] as KryptonDockingEdgeAutoHidden;
@@ -123,7 +119,9 @@ namespace ComponentFactory.Krypton.Docking
 
                                 // Insert before the last auto hidden panel/slidepanel (this handles the Order=0 case)
                                 if ((c is KryptonAutoHiddenPanel) || (c is KryptonAutoHiddenSlidePanel))
+                                {
                                     indexInsert = i;
+                                }
 
                                 // Insert before the 'order' found dockspace separator (this handles the Order>0 cases)
                                 if (c is KryptonDockspaceSeparator)
@@ -186,8 +184,12 @@ namespace ComponentFactory.Krypton.Docking
                 // Create list of the pages that are allowed to be dropped into this dockspace
                 KryptonPageCollection pages = new KryptonPageCollection();
                 foreach (KryptonPage page in dragData.Pages)
+                {
                     if (page.AreFlagsSet(KryptonPageFlags.DockingAllowDocked))
+                    {
                         pages.Add(page);
+                    }
+                }
 
                 // Do we have any pages left for dragging?
                 if (pages.Count > 0)
@@ -207,9 +209,13 @@ namespace ComponentFactory.Krypton.Docking
         {
             KryptonPage page = DockspaceControl.PageForUniqueName(uniqueName);
             if ((page != null) && !(page is KryptonStorePage))
+            {
                 return DockingLocation.Docked;
+            }
             else
+            {
                 return DockingLocation.None;
+            }
         }
 
         /// <summary>
@@ -221,9 +227,13 @@ namespace ComponentFactory.Krypton.Docking
         {
             KryptonPage page = DockspaceControl.PageForUniqueName(uniqueName);
             if ((page != null) && !(page is KryptonStorePage))
+            {
                 return this;
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -238,7 +248,9 @@ namespace ComponentFactory.Krypton.Docking
             {
                 KryptonPage page = DockspaceControl.PageForUniqueName(uniqueName);
                 if ((page != null) && (page is KryptonStorePage))
+                {
                     return this;
+                }
             }
 
             return null;
@@ -326,8 +338,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnHasVisibleCells(EventArgs e)
         {
-            if (HasVisibleCells != null)
-                HasVisibleCells(this, e);
+            HasVisibleCells?.Invoke(this, e);
         }
 
         /// <summary>
@@ -336,8 +347,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnHasNoVisibleCells(EventArgs e)
         {
-            if (HasNoVisibleCells != null)
-                HasNoVisibleCells(this, e);
+            HasNoVisibleCells?.Invoke(this, e);
         }
 
         /// <summary>
@@ -365,9 +375,13 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     Control child = parent.Controls[i];
                     if (child == DockspaceControl)
+                    {
                         break;
+                    }
                     else if (child is KryptonDockspace)
+                    {
                         numDockspace++;
+                    }
                 }
 
                 Order = numDockspace;
@@ -417,7 +431,9 @@ namespace ComponentFactory.Krypton.Docking
 
             // If loading did not create any pages then kill ourself as not needed
             if (DockspaceControl.PageCount == 0)
+            {
                 DockspaceControl.Dispose();
+            }
         }
         #endregion
 
@@ -446,31 +462,30 @@ namespace ComponentFactory.Krypton.Docking
         {
             // When all the cells (and so pages) have been removed we kill ourself
             if (DockspaceControl.CellCount == 0)
+            {
                 DockspaceControl.Dispose();
+            }
         }
 
         private void OnDockspacePageCloseClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the close action is handled for the named page
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.CloseRequest(new string[] { e.UniqueName });
+            dockingManager?.CloseRequest(new string[] { e.UniqueName });
         }
 
         private void OnDockspacePageAutoHiddenClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the switch from docked to auto hidden is handled for cell that contains the named page
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.SwitchDockedCellToAutoHiddenGroupRequest(e.UniqueName);
+            dockingManager?.SwitchDockedCellToAutoHiddenGroupRequest(e.UniqueName);
         }
 
         private void OnDockspacePagesDoubleClicked(object sender, UniqueNamesEventArgs e)
         {
             // Generate event so that the switch from docked to floating is handled for the provided list of named pages
             KryptonDockingManager dockingManager = DockingManager;
-            if (dockingManager != null)
-                dockingManager.SwitchDockedToFloatingWindowRequest(e.UniqueNames);
+            dockingManager?.SwitchDockedToFloatingWindowRequest(e.UniqueNames);
         }
 
         private void OnDockspaceDropDownClicked(object sender, CancelDropDownEventArgs e)
@@ -478,7 +493,9 @@ namespace ComponentFactory.Krypton.Docking
             // Generate event so that the appropriate context menu options are preseted and actioned
             KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
+            {
                 e.Cancel = !dockingManager.ShowPageContextMenuRequest(e.Page, e.KryptonContextMenu);
+            }
         }
 
         private void OnDockspaceBeforePageDrag(object sender, PageDragCancelEventArgs e)
@@ -486,16 +503,19 @@ namespace ComponentFactory.Krypton.Docking
             // Validate the list of names to those that are still present in the dockspace
             List<KryptonPage> pages = new List<KryptonPage>();
             foreach (KryptonPage page in e.Pages)
+            {
                 if (!(page is KryptonStorePage) && (DockspaceControl.CellForPage(page) != null))
+                {
                     pages.Add(page);
+                }
+            }
 
             // Only need to start docking dragging if we have some valid pages
             if (pages.Count != 0)
             {
                 // Ask the docking manager for a IDragPageNotify implementation to handle the dragging operation
                 KryptonDockingManager dockingManager = DockingManager;
-                if (dockingManager != null)
-                    dockingManager.DoDragDrop(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages);
+                dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages);
             }
 
             // Always take over docking

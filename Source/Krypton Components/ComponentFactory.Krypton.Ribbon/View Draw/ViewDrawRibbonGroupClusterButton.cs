@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -184,9 +181,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Only take focus if we are visible and enabled
             if (_ribbonButton.Visible && _ribbonButton.Enabled)
+            {
                 return _viewMediumSmall;
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -199,9 +200,13 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Only take focus if we are visible and enabled
             if (_ribbonButton.Visible && _ribbonButton.Enabled)
+            {
                 return _viewMediumSmall;
+            }
             else
+            {
                 return null;
+            }
         }
         #endregion
 
@@ -315,7 +320,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _viewMediumSmall.SplitRectangle = new Rectangle(smallSplitRight, ClientLocation.Y, ClientRectangle.Right - smallSplitRight, ClientHeight);
             }
             else
+            {
                 _viewMediumSmall.SplitRectangle = Rectangle.Empty;
+            }
         }
         #endregion
 
@@ -341,7 +348,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -354,34 +363,44 @@ namespace ComponentFactory.Krypton.Ribbon
             _borderForced = new PaletteBorderInheritForced(_ribbon.StateCommon.RibbonGroupClusterButton.PaletteBorder);
 
             // Create the background and border view
-            _viewMediumSmall = new ViewDrawRibbonGroupButtonBackBorder(_ribbon, _ribbonButton, _backForced,  _borderForced, true, _needPaint);
-            _viewMediumSmall.SplitVertical = false;
+            _viewMediumSmall = new ViewDrawRibbonGroupButtonBackBorder(_ribbon, _ribbonButton, _backForced, _borderForced, true, _needPaint)
+            {
+                SplitVertical = false
+            };
             _viewMediumSmall.Click += new EventHandler(OnSmallButtonClick);
             _viewMediumSmall.DropDown += new EventHandler(OnSmallButtonDropDown);
 
             if (_ribbon.InDesignMode)
+            {
                 _viewMediumSmall.ContextClick += new MouseEventHandler(OnContextClick);
+            }
 
             // Create the layout docker for the contents of the button
             ViewLayoutDocker contentLayout = new ViewLayoutDocker();
 
             // Create the image and drop down content
             _viewMediumSmallImage = new ViewDrawRibbonGroupClusterButtonImage(_ribbon, _ribbonButton);
-            _viewMediumSmallText1 = new ViewDrawRibbonGroupClusterButtonText(_ribbon, _ribbonButton);
-            _viewMediumSmallText1.Visible = (_currentSize != GroupItemSize.Small);
+            _viewMediumSmallText1 = new ViewDrawRibbonGroupClusterButtonText(_ribbon, _ribbonButton)
+            {
+                Visible = (_currentSize != GroupItemSize.Small)
+            };
             _viewMediumSmallDropArrow = new ViewDrawRibbonDropArrow(_ribbon);
             _viewMediumSmallText2Sep1 = new ViewLayoutRibbonSeparator(3, false);
             _viewMediumSmallText2Sep2 = new ViewLayoutRibbonSeparator(3, false);
-            ViewLayoutRibbonCenterPadding imagePadding = new ViewLayoutRibbonCenterPadding(_smallImagePadding);
-            imagePadding.Add(_viewMediumSmallImage);
+            ViewLayoutRibbonCenterPadding imagePadding = new ViewLayoutRibbonCenterPadding(_smallImagePadding)
+            {
+                _viewMediumSmallImage
+            };
 
             // Layout the content in the center of a row
-            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter();
-            _viewMediumSmallCenter.Add(imagePadding);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText1);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText2Sep1);
-            _viewMediumSmallCenter.Add(_viewMediumSmallDropArrow);
-            _viewMediumSmallCenter.Add(_viewMediumSmallText2Sep2);
+            _viewMediumSmallCenter = new ViewLayoutRibbonRowCenter
+            {
+                imagePadding,
+                _viewMediumSmallText1,
+                _viewMediumSmallText2Sep1,
+                _viewMediumSmallDropArrow,
+                _viewMediumSmallText2Sep2
+            };
 
             // Use content as only fill item
             contentLayout.Add(_viewMediumSmallCenter, ViewDockStyle.Fill);
@@ -417,7 +436,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the correct enabled state from the button definition
             bool buttonEnabled = _ribbonButton.Enabled;
             if (_ribbonButton.KryptonCommand != null)
+            {
                 buttonEnabled = _ribbonButton.KryptonCommand.Enabled;
+            }
 
             // Take into account the ribbon state and mode
             bool enabled = _ribbon.InDesignHelperMode || (buttonEnabled && _ribbon.Enabled);
@@ -436,9 +457,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton.ButtonType == GroupButtonType.Check)
             {
                 if (_ribbonButton.KryptonCommand != null)
+                {
                     checkedState = _ribbonButton.KryptonCommand.Checked;
+                }
                 else
+                {
                     checkedState = _ribbonButton.Checked;
+                }
             }
 
             _viewMediumSmall.Checked = checkedState;

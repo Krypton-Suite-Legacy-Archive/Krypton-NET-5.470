@@ -10,7 +10,6 @@
 
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 
@@ -286,9 +285,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style)
         {
             if (Style != PaletteButtonStyle.Inherit)
+            {
                 return Style;
+            }
             else
+            {
                 return _redirector.GetButtonSpecStyle(style);
+            }
         }
 
         /// <summary>
@@ -309,9 +312,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style)
         {
             if (Edge != PaletteRelativeEdgeAlign.Inherit)
+            {
                 return Edge;
+            }
             else
+            {
                 return _redirector.GetButtonSpecEdge(style);
+            }
         }
 
         /// <summary>
@@ -322,9 +329,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style)
         {
             if (Orientation != PaletteButtonOrientation.Inherit)
+            {
                 return Orientation;
+            }
             else
+            {
                 return _redirector.GetButtonSpecOrientation(style);
+            }
         }
         #endregion
 
@@ -336,8 +347,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
         {
-            if (ButtonSpecChanged != null)
-                ButtonSpecChanged(this, e);
+            ButtonSpecChanged?.Invoke(this, e);
         }
         #endregion
     }

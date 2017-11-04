@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -122,10 +117,12 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Create the top level group view
             _viewGroup = new ViewDrawDocker(Navigator.StateNormal.HeaderGroup.Back,
-                                            Navigator.StateNormal.HeaderGroup.Border);
+                                            Navigator.StateNormal.HeaderGroup.Border)
+            {
 
-            // Fill the group with the scrolling viewport
-            _viewGroup.Add(_viewScrollViewport, ViewDockStyle.Fill);
+                // Fill the group with the scrolling viewport
+                { _viewScrollViewport, ViewDockStyle.Fill }
+            };
 
             // Put the old root as the filler inside the group
             _viewLayout.Add(_oldRoot, ViewDockStyle.Fill);

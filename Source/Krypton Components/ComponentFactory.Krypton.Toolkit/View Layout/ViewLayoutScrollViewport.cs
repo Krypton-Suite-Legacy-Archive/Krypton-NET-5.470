@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -84,13 +81,15 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the child viewport
             _viewport = new ViewLayoutViewport(paletteMetrics, metricPadding,
                                                metricOvers, ViewportOrientation(_viewportVertical),
-                                               alignment, animateChange);
+                                               alignment, animateChange)
+            {
 
-            // Default to same alignment for both directions
-            _viewport.CounterAlignment = alignment;
+                // Default to same alignment for both directions
+                CounterAlignment = alignment,
 
-            // We always want the viewport to fill any remainder space
-            _viewport.FillSpace = true;
+                // We always want the viewport to fill any remainder space
+                FillSpace = true
+            };
 
             // Put the provided element inside the viewport
             _viewport.Add(viewportFiller);
@@ -101,8 +100,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // To prevent the contents of the viewport from being able to draw outside
             // the viewport (such as having child controls) we use a ViewLayoutControl
             // that uses a child control to restrict the drawing region.
-            _viewControl = new ViewLayoutControl(rootControl, _viewport);
-            _viewControl.InDesignMode = rootControl.InDesignMode;
+            _viewControl = new ViewLayoutControl(rootControl, _viewport)
+            {
+                InDesignMode = rootControl.InDesignMode
+            };
 
             // Create the scrollbar and matching border edge
             _scrollbarV = new ViewDrawScrollBar(true);
@@ -232,9 +233,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public void BringIntoView(Rectangle rect)
         {
             if (VerticalViewport)
+            {
                 rect.Width = Viewport.ClientWidth;
+            }
             else
+            {
                 rect.Height = Viewport.ClientHeight;
+            }
 
             // Ask the actual viewport to perform the action
             Viewport.BringIntoView(rect);
@@ -333,15 +338,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Do we need to update the vertical scrolling values?
             if (canScrollV)
+            {
                 ScrollbarV.SetScrollValues(0, Viewport.ScrollExtent.Height - 1,
                                            1, Viewport.ClientSize.Height,
                                            Viewport.ScrollOffset.Y);
+            }
 
             // Do we need to update the horizontal scrolling values?
             if (canScrollH)
+            {
                 ScrollbarH.SetScrollValues(0, Viewport.ScrollExtent.Width - 1,
                                            1, Viewport.ClientSize.Width,
                                            Viewport.ScrollOffset.X);
+            }
         }
 		#endregion
 
@@ -418,8 +427,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected void NeedPaint(bool needLayout)
         {
             // Request a layout be performed immediately
-            if (_needPaintDelegate != null)
-                _needPaintDelegate(this, new NeedLayoutEventArgs(needLayout));
+            _needPaintDelegate?.Invoke(this, new NeedLayoutEventArgs(needLayout));
         }
         #endregion
 
@@ -427,9 +435,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private VisualOrientation ViewportOrientation(bool vertical)
         {
             if (vertical)
+            {
                 return VisualOrientation.Left;
+            }
             else
+            {
                 return VisualOrientation.Top;
+            }
         }
 
         private void OnScrollVChanged(object sender, EventArgs e)
@@ -466,8 +478,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnAnimateStep(object sender, EventArgs e)
         {
-            if (AnimateStep != null)
-                AnimateStep(sender, e);
+            AnimateStep?.Invoke(sender, e);
         }
         #endregion
     }

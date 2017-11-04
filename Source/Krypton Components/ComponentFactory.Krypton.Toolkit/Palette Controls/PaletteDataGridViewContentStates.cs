@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -173,10 +170,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public InheritBool GetContentDraw(PaletteState state)
 		{
 			if (Draw != InheritBool.Inherit)
-				return Draw;
-			else
-				return _inherit.GetContentDraw(state);
-		}
+            {
+                return Draw;
+            }
+            else
+            {
+                return _inherit.GetContentDraw(state);
+            }
+        }
 		#endregion
 
         #region DrawFocus
@@ -296,10 +297,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteTextHint GetContentShortTextHint(PaletteState state)
 		{
 			if (_hint != PaletteTextHint.Inherit)
-				return _hint;
-			else
-				return _inherit.GetContentShortTextHint(state);
-		}
+            {
+                return _hint;
+            }
+            else
+            {
+                return _inherit.GetContentShortTextHint(state);
+            }
+        }
 
         #endregion
 
@@ -346,10 +351,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteTextTrim GetContentShortTextTrim(PaletteState state)
 		{
 			if (_trim != PaletteTextTrim.Inherit)
-				return _trim;
-			else
-				return _inherit.GetContentShortTextTrim(state);
-		}
+            {
+                return _trim;
+            }
+            else
+            {
+                return _inherit.GetContentShortTextTrim(state);
+            }
+        }
         #endregion
 
         #region TextH
@@ -407,10 +416,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state)
 		{
             if (_multiLineH != PaletteRelativeAlign.Inherit)
+            {
                 return _multiLineH;
+            }
             else
-    			return _inherit.GetContentShortTextMultiLineH(state);
-		}
+            {
+                return _inherit.GetContentShortTextMultiLineH(state);
+            }
+        }
         #endregion
 
         #region MultiLine
@@ -444,10 +457,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public InheritBool GetContentShortTextMultiLine(PaletteState state)
 		{
             if (_multiLine != InheritBool.Inherit)
+            {
                 return _multiLine;
+            }
             else
-    			return _inherit.GetContentShortTextMultiLine(state);
-		}
+            {
+                return _inherit.GetContentShortTextMultiLine(state);
+            }
+        }
         #endregion
 
         #region Color1
@@ -482,9 +499,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetContentShortTextColor1(PaletteState state)
         {
             if (_color1 != Color.Empty)
+            {
                 return _color1;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColor1(state);
+            }
         }
         #endregion
 
@@ -519,9 +540,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetContentShortTextColor2(PaletteState state)
         {
             if (_color2 != Color.Empty)
+            {
                 return _color2;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColor2(state);
+            }
         }
         #endregion
 
@@ -556,9 +581,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteColorStyle GetContentShortTextColorStyle(PaletteState state)
         {
             if (_colorStyle != PaletteColorStyle.Inherit)
+            {
                 return _colorStyle;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColorStyle(state);
+            }
         }
         #endregion
 
@@ -593,9 +622,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state)
         {
             if (_colorAlign != PaletteRectangleAlign.Inherit)
+            {
                 return _colorAlign;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColorAlign(state);
+            }
         }
         #endregion
 
@@ -630,9 +663,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public float GetContentShortTextColorAngle(PaletteState state)
         {
             if (_colorAngle != -1)
+            {
                 return _colorAngle;
+            }
             else
+            {
                 return _inherit.GetContentShortTextColorAngle(state);
+            }
         }
         #endregion
 
@@ -667,9 +704,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetContentShortTextImage(PaletteState state)
         {
             if (_image != null)
+            {
                 return _image;
+            }
             else
+            {
                 return _inherit.GetContentShortTextImage(state);
+            }
         }
         #endregion
 
@@ -704,9 +745,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteImageStyle GetContentShortTextImageStyle(PaletteState state)
         {
             if (_imageStyle != PaletteImageStyle.Inherit)
+            {
                 return _imageStyle;
+            }
             else
+            {
                 return _inherit.GetContentShortTextImageStyle(state);
+            }
         }
         #endregion
 
@@ -741,9 +786,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state)
         {
             if (_imageAlign != PaletteRectangleAlign.Inherit)
+            {
                 return _imageAlign;
+            }
             else
+            {
                 return _inherit.GetContentShortTextImageAlign(state);
+            }
         }
         #endregion
 
@@ -969,8 +1018,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnSyncPropertyChanged(EventArgs e)
         {
-            if (SyncPropertyChanged != null)
-                SyncPropertyChanged(this, e);
+            SyncPropertyChanged?.Invoke(this, e);
         }
         #endregion
     }

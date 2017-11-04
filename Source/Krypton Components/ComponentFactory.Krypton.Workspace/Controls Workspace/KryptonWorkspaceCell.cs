@@ -9,18 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
 
@@ -94,8 +87,10 @@ namespace ComponentFactory.Krypton.Workspace
             _events = true;
 
             // Add a button spec used to handle maximize/restore functionality
-            _maxamizeRestoreButton = new ButtonSpecNavigator();
-            _maxamizeRestoreButton.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            _maxamizeRestoreButton = new ButtonSpecNavigator
+            {
+                Type = PaletteButtonSpecStyle.WorkspaceMaximize
+            };
             _maxamizeRestoreButton.Click += new EventHandler(OnMaximizeRestoreButtonClicked);
             Button.ButtonSpecs.Add(_maxamizeRestoreButton);
         }
@@ -246,9 +241,13 @@ namespace ComponentFactory.Krypton.Workspace
             get 
             {
                 if (IsDisposed)
+                {
                     return Size.Empty;
+                }
                 else
+                {
                     return GetPreferredSize(Size.Empty);
+                }
             }
         }
 
@@ -332,9 +331,13 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     _parent = value;
                     if (_parent != null)
+                    {
                         AttachGlobalEvents();
+                    }
                     else
+                    {
                         UnattachGlobalEvents();
+                    }
                 }
             }
         }
@@ -469,11 +472,15 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // Read the next Element
                     if (!xmlReader.Read())
+                    {
                         throw new ArgumentException("An element was expected but could not be read in.");
+                    }
 
                     // Is this the end of the cell
                     if (xmlReader.NodeType == XmlNodeType.EndElement)
+                    {
                         break;
+                    }
 
                     if (xmlReader.Name == "KP")
                     {
@@ -482,7 +489,9 @@ namespace ComponentFactory.Krypton.Workspace
                         KryptonPage page = workspace.ReadPageElement(xmlReader, uniqueName, existingPages);
 
                         if (xmlReader.Name != "CPD")
+                        {
                             throw new ArgumentException("Expected 'CPD' element was not found");
+                        }
 
                         bool finished = xmlReader.IsEmptyElement;
 
@@ -496,22 +505,30 @@ namespace ComponentFactory.Krypton.Workspace
                         {
                             // Check it has the expected name
                             if (xmlReader.NodeType == XmlNodeType.EndElement)
+                            {
                                 finished = (xmlReader.Name == "CPD");
+                            }
 
                             if (!finished)
                             {
                                 if (!xmlReader.Read())
+                                {
                                     throw new ArgumentException("An element was expected but could not be read in.");
+                                }
                             }
                         }
 
                         // Read past the end of page element                    
                         if (!xmlReader.Read())
+                        {
                             throw new ArgumentException("An element was expected but could not be read in.");
+                        }
 
                         // Check it has the expected name
                         if (xmlReader.NodeType != XmlNodeType.EndElement)
+                        {
                             throw new ArgumentException("End of 'KP' element expected but missing.");
+                        }
 
                         // PageLoading event might have nulled the page value to prevent it being added
                         if (page != null)
@@ -521,14 +538,18 @@ namespace ComponentFactory.Krypton.Workspace
                             {
                                 // Can only selected a visible page
                                 if (page.LastVisibleSet)
+                                {
                                     selectedPage = page;
+                                }
                             }
 
                             Pages.Add(page);
                         }
                     }
                     else
+                    {
                         throw new ArgumentException("Unknown element was encountered.");
+                    }
                 }
                 while (true);
             }
@@ -536,7 +557,9 @@ namespace ComponentFactory.Krypton.Workspace
             // Did we find a matching page that should become selected?
             // (and we are allowed to have selected tabs)
             if ((selectedPage != null) && AllowTabSelect)
+            {
                 SelectedPage = selectedPage;
+            }
         }
 
         /// <summary>
@@ -562,7 +585,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             string prefix = new string(' ', indent * 2);
             foreach (KryptonPage page in Pages)
+            {
                 Console.WriteLine("{0}Page Text:{1} Visible:{2} Type:{3}", prefix, page.Text, page.LastVisibleSet, page.GetType().Name);
+            }
         }
         #endregion
 
@@ -641,8 +666,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="e">A PropertyChangedEventArgs containing the event data.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
+            PropertyChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -652,13 +676,14 @@ namespace ComponentFactory.Krypton.Workspace
             // Need to raise property changed so that the owning workspace will layout as 
             // a change in pages might cause compacting to perform extra actions.
             if (_events)
+            {
                 OnPropertyChanged("Pages");
+            }
         }
 
         private void OnMaximizeRestoreButtonClicked(object sender, EventArgs e)
         {
-            if (MaximizeRestoreClicked != null)
-                MaximizeRestoreClicked(this, EventArgs.Empty);
+            MaximizeRestoreClicked?.Invoke(this, EventArgs.Empty);
         }
         #endregion
     }

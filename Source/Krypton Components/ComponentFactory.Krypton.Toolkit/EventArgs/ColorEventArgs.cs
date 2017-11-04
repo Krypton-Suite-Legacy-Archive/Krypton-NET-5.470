@@ -10,7 +10,6 @@
 
 using System;
 using System.Drawing;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {

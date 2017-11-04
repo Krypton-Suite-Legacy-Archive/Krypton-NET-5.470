@@ -9,7 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -177,8 +176,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void MouseMove(Control c, Point pt)
 		{
             if (_menuColorBlock.ItemEnabled)
+            {
                 _mouseReallyOver = true;
-		}
+            }
+        }
 
 		/// <summary>
 		/// Mouse button has been pressed in the view.
@@ -262,8 +263,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             switch (e.KeyCode)
             {
@@ -271,7 +279,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case Keys.Space:
                     // Only interested in enabled items
                     if (_menuColorBlock.ItemEnabled)
+                    {
                         PressColorBlock();
+                    }
+
                     break;
                 case Keys.Tab:
                     _viewManager.KeyTab(e.Shift);
@@ -308,8 +319,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             _viewManager.KeyMnemonic(e.KeyChar);
         }
@@ -326,8 +344,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming references
-            if (c == null) throw new ArgumentNullException("c");
-            if (e == null) throw new ArgumentNullException("e");
+            if (c == null)
+            {
+                throw new ArgumentNullException("c");
+            }
+
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             return false;
         }
@@ -386,8 +411,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void PressColorBlock()
         {
-            if (Click != null)
-                Click(this, EventArgs.Empty);
+            Click?.Invoke(this, EventArgs.Empty);
 
             // Should we automatically try and close the context menu stack
             if (_menuColorBlock.KryptonContextMenuColorColumns.AutoClose)
@@ -413,8 +437,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnNeedPaint()
         {
-            if (_needPaint != null)
-                _needPaint(this, new NeedLayoutEventArgs(false));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(false));
         }
 
         private void HighlightState()
@@ -437,12 +460,18 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_mouseOver || _highlight)
             {
                 if (_mouseDown)
+                {
                     state = PaletteState.Pressed;
+                }
                 else
+                {
                     state = PaletteState.Tracking;
+                }
             }
             else
+            {
                 state = PaletteState.Normal;
+            }
 
             _menuColorBlock.ElementState = state;
 

@@ -9,13 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -57,7 +51,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // If the ribbon is showing in office 2010 style and using glass
                 if (_ribbon.CaptionArea.DrawCaptionOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+                {
                     return LightBackground(base.GetContentShortTextColor1(style, state));
+                }
             }
 
             return base.GetContentShortTextColor1(style, state);
@@ -76,7 +72,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // If the ribbon is showing in office 2010 style and using glass
                 if (_ribbon.CaptionArea.DrawCaptionOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+                {
                     return LightBackground(base.GetContentShortTextColor2(style, state));
+                }
             }
 
             return base.GetContentShortTextColor2(style, state);
@@ -97,7 +95,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // If the ribbon is showing in office 2010 style and using glass
                 if (_ribbon.CaptionArea.DrawCaptionOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+                {
                     return LightBackground(base.GetContentLongTextColor1(style, state));
+                }
             }
 
             return base.GetContentLongTextColor1(style, state);
@@ -116,7 +116,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // If the ribbon is showing in office 2010 style and using glass
                 if (_ribbon.CaptionArea.DrawCaptionOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+                {
                     return LightBackground(base.GetContentLongTextColor2(style, state));
+                }
             }
 
             return base.GetContentLongTextColor2(style, state);

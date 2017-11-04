@@ -9,20 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -413,7 +402,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Generate events
                     if (checkedChanged)
+                    {
                         OnCheckedChanged(EventArgs.Empty);
+                    }
 
                     OnCheckStateChanged(EventArgs.Empty);
                     OnPropertyChanged(new PropertyChangedEventArgs("CheckState"));
@@ -568,12 +559,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         protected virtual void OnClick(EventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
 
             // If we have an attached command then execute it
-            if (KryptonCommand != null)
-                KryptonCommand.PerformExecute();
+            KryptonCommand?.PerformExecute();
         }
 
         /// <summary>
@@ -582,8 +571,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckedChanged(EventArgs e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(this, e);
+            CheckedChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -592,8 +580,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnCheckStateChanged(EventArgs e)
         {
-            if (CheckStateChanged != null)
-                CheckStateChanged(this, e);
+            CheckStateChanged?.Invoke(this, e);
         }
         #endregion
 

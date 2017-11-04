@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -30,10 +27,11 @@ namespace ComponentFactory.Krypton.Ribbon
         private static readonly Padding _fullbarBorderPadding_2007 = new Padding(1, 3, 2, 2);
         private static readonly Padding _fullbarBorderPadding_2010 = new Padding(2);
         private static readonly Padding _noBorderPadding = new Padding(1, 0, 1, 0);
-        private static readonly int QAT_BUTTON_WIDTH = 22;
-        private static readonly int QAT_HEIGHT_MINI = 26;
-        private static readonly int QAT_HEIGHT_FULL = 27;
-        private static readonly int QAT_MINIBAR_LEFT = 6;
+        private const int QAT_BUTTON_WIDTH = 22;
+        private const int QAT_HEIGHT_MINI = 26;
+        private const int QAT_HEIGHT_FULL = 27;
+        private const int QAT_MINIBAR_LEFT = 6;
+
         #endregion
 
         #region Instance Fields
@@ -197,7 +195,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // We never draw the background/border for Office 2010 shape QAT
             if (_minibar && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010))
+            {
                 return;
+            }
 
             IPaletteRibbonBack palette;
             PaletteState state = PaletteState.Normal;
@@ -210,7 +210,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     palette = _ribbon.StateCommon.RibbonQATMinibarActive;
                     if (!OverlapAppButton)
+                    {
                         state = PaletteState.CheckedNormal;
+                    }
                 }
                 else
                 {
@@ -232,7 +234,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
             else
+            {
                 palette = _ribbon.StateCommon.RibbonQATFullbar;
+            }
 
             // Decide if we need to draw onto a composition area
             bool composition = (OwnerForm != null) ? OwnerForm.ApplyComposition && OwnerForm.ApplyCustomChrome : false;
@@ -248,9 +252,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (OwnerForm != null)
+                {
                     return OwnerForm.WindowActive;
+                }
                 else
+                {
                     return true;
+                }
             }
         }
 
@@ -261,21 +269,31 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_minibar)
                 {
                     if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010)
+                    {
                         return _noBorderPadding;
+                    }
                     else
                     {
                         if (OverlapAppButton)
+                        {
                             return _minibarBorderPaddingOverlap;
+                        }
                         else
+                        {
                             return _minibarBorderPaddingNoOverlap;
+                        }
                     }
                 }
                 else
                 {
                     if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010)
+                    {
                         return _fullbarBorderPadding_2010;
+                    }
                     else
+                    {
                         return _fullbarBorderPadding_2007;
+                    }
                 }
             }
         }
@@ -285,9 +303,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_minibar)
+                {
                     return QAT_HEIGHT_MINI;
+                }
                 else
+                {
                     return QAT_HEIGHT_FULL;
+                }
             }
         }
         #endregion

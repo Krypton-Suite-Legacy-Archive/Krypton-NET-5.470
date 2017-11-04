@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -116,7 +112,7 @@ namespace ComponentFactory.Krypton.Navigator
                         (ItemOrientation == ButtonOrientation.Auto) &&
                         (ItemAlignment == RelativePositionAlign.Near) &&
                         (BarMinimumHeight == _defaultBarMinimumHeight) &&
-                        (BarAnimation == true) &&
+                        BarAnimation &&
                         (BarMultiline == BarMultiline.Singleline));
             }
         }
@@ -422,12 +418,24 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_itemMinimumSize != value)
                 {
                     // None of the minimum values can be less than 1
-                    if (value.Width < 1) throw new ArgumentException("Width cannot be less than 1", "ItemMinimumSize");
-                    if (value.Height < 1) throw new ArgumentException("Height cannot be less than 1", "ItemMinimumSize");
+                    if (value.Width < 1)
+                    {
+                        throw new ArgumentException("Width cannot be less than 1", "ItemMinimumSize");
+                    }
+                    if (value.Height < 1)
+                    {
+                        throw new ArgumentException("Height cannot be less than 1", "ItemMinimumSize");
+                    }
 
                     // Minimum value must be less than or equal to the maximum
-                    if (value.Width > ItemMaximumSize.Width) throw new ArgumentException("Width cannot be greater than the ItemMaximumSize.Width", "ItemMinimumSize");
-                    if (value.Height > ItemMaximumSize.Height) throw new ArgumentException("Height cannot be greater than the ItemMaximumSize.Height", "ItemMinimumSize");
+                    if (value.Width > ItemMaximumSize.Width)
+                    {
+                        throw new ArgumentException("Width cannot be greater than the ItemMaximumSize.Width", "ItemMinimumSize");
+                    }
+                    if (value.Height > ItemMaximumSize.Height)
+                    {
+                        throw new ArgumentException("Height cannot be greater than the ItemMaximumSize.Height", "ItemMinimumSize");
+                    }
 
                     _itemMinimumSize = value;
                     _navigator.OnViewBuilderPropertyChanged("ItemMinimumSize");
@@ -461,12 +469,24 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_itemMaximumSize != value)
                 {
                     // None of the maximum values can be less than 1
-                    if (value.Width < 1) throw new ArgumentException("Width cannot be less than 1", "ItemMaximumSize");
-                    if (value.Height < 1) throw new ArgumentException("Height cannot be less than 1", "ItemMaximumSize");
+                    if (value.Width < 1)
+                    {
+                        throw new ArgumentException("Width cannot be less than 1", "ItemMaximumSize");
+                    }
+                    if (value.Height < 1)
+                    {
+                        throw new ArgumentException("Height cannot be less than 1", "ItemMaximumSize");
+                    }
 
                     // Maximum value must be greater than or equal to the minimum
-                    if (value.Width < ItemMinimumSize.Width) throw new ArgumentException("Width cannot be less than the ItemMinimumSize.Width", "ItemMaximumSize");
-                    if (value.Height < ItemMinimumSize.Height) throw new ArgumentException("Height cannot be less than the ItemMinimumSize.Width", "ItemMaximumSize");
+                    if (value.Width < ItemMinimumSize.Width)
+                    {
+                        throw new ArgumentException("Width cannot be less than the ItemMinimumSize.Width", "ItemMaximumSize");
+                    }
+                    if (value.Height < ItemMinimumSize.Height)
+                    {
+                        throw new ArgumentException("Height cannot be less than the ItemMinimumSize.Width", "ItemMaximumSize");
+                    }
 
                     _itemMaximumSize = value;
                     _navigator.OnViewBuilderPropertyChanged("ItemMaximumSize");

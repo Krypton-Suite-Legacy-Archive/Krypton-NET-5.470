@@ -9,14 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -28,19 +22,24 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         private static readonly Blend _rounded1Blend;
         private static readonly Blend _rounded2Blend;
-        private static readonly float _itemCut = 1.7f;
+        private const float ITEM_CUT = 1.7f;
+
         #endregion
 
         #region Identity
         static RenderExpertHelpers()
         {
-            _rounded1Blend = new Blend();
-            _rounded1Blend.Positions = new float[] { 0.0f, 0.1f, 1.0f };
-            _rounded1Blend.Factors = new float[] { 0.0f, 1.0f, 1.0f };
+            _rounded1Blend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.1f, 1.0f },
+                Factors = new float[] { 0.0f, 1.0f, 1.0f }
+            };
 
-            _rounded2Blend = new Blend();
-            _rounded2Blend.Positions = new float[] { 0.0f, 0.50f, 0.75f, 1.0f };
-            _rounded2Blend.Factors = new float[] { 0.0f, 1.0f, 1.0f, 1.0f };
+            _rounded2Blend = new Blend
+            {
+                Positions = new float[] { 0.0f, 0.50f, 0.75f, 1.0f },
+                Factors = new float[] { 0.0f, 1.0f, 1.0f, 1.0f }
+            };
         }
         #endregion
 
@@ -67,16 +66,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 cache.first = DrawBackExpert(rect, 
                                              CommonHelper.MergeColors(backColor1, 0.35f, Color.White, 0.65f),
@@ -116,10 +116,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     MementoBackExpertShadow cache;
 
                     // Access a cache instance and decide if cache resources need generating
-                    if ((memento == null) || !(memento is MementoBackExpertShadow))
+                    if (!(memento is MementoBackExpertShadow))
                     {
-                        if (memento != null)
-                            memento.Dispose();
+                        memento?.Dispose();
 
                         cache = new MementoBackExpertShadow(rect, backColor1, backColor2);
                         memento = cache;
@@ -140,9 +139,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Dispose of existing values
                         cache.Dispose();
-                        cache.path1 = CreateBorderPath(rect, _itemCut);
-                        cache.path2 = CreateBorderPath(new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2), _itemCut);
-                        cache.path3 = CreateBorderPath(new Rectangle(rect.X + 2, rect.Y + 2, rect.Width - 4, rect.Height - 4), _itemCut);
+                        cache.path1 = CreateBorderPath(rect, ITEM_CUT);
+                        cache.path2 = CreateBorderPath(new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2), ITEM_CUT);
+                        cache.path3 = CreateBorderPath(new Rectangle(rect.X + 2, rect.Y + 2, rect.Width - 4, rect.Height - 4), ITEM_CUT);
                         cache.brush1 = new SolidBrush(CommonHelper.MergeColors(backColor2, 0.4f, backColor1, 0.6f));
                         cache.brush2 = new SolidBrush(CommonHelper.MergeColors(backColor2, 0.2f, backColor1, 0.8f));
                         cache.brush3 = new SolidBrush(backColor1);
@@ -208,16 +207,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 MementoDouble cache;
 
-                if ((memento == null) || !(memento is MementoDouble))
+                if (!(memento is MementoDouble))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoDouble();
                     memento = cache;
                 }
                 else
+                {
                     cache = (MementoDouble)memento;
+                }
 
                 cache.first = DrawBackExpert(rect,
                                              CommonHelper.MergeColors(backColor1, 0.5f, Color.White, 0.5f),
@@ -259,10 +259,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     MementoBackExpertSquareHighlight cache;
 
                     // Access a cache instance and decide if cache resources need generating
-                    if ((memento == null) || !(memento is MementoBackExpertSquareHighlight))
+                    if (!(memento is MementoBackExpertSquareHighlight))
                     {
-                        if (memento != null)
-                            memento.Dispose();
+                        memento?.Dispose();
 
                         cache = new MementoBackExpertSquareHighlight(rect, backColor1, backColor2, orientation);
                         memento = cache;
@@ -315,11 +314,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         cache.innerBrush.SetSigmaBellShape(0.5f);
                         cache.ellipsePath = new GraphicsPath();
                         cache.ellipsePath.AddEllipse(ellipseRect);
-                        cache.insideLighten = new PathGradientBrush(cache.ellipsePath);
-                        cache.insideLighten.CenterPoint = ellipseCenter;
-                        cache.insideLighten.CenterColor = (light ? Color.FromArgb(64, Color.White) : Color.FromArgb(128, Color.White));
-                        cache.insideLighten.Blend = _rounded2Blend;
-                        cache.insideLighten.SurroundColors = new Color[] { Color.Transparent };
+                        cache.insideLighten = new PathGradientBrush(cache.ellipsePath)
+                        {
+                            CenterPoint = ellipseCenter,
+                            CenterColor = (light ? Color.FromArgb(64, Color.White) : Color.FromArgb(128, Color.White)),
+                            Blend = _rounded2Blend,
+                            SurroundColors = new Color[] { Color.Transparent }
+                        };
                     }
 
                     context.Graphics.FillRectangle(cache.backBrush, rect);
@@ -345,10 +346,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackSolid cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackSolid))
+                if (!(memento is MementoBackSolid))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackSolid(drawRect, color1);
                     memento = cache;
@@ -368,7 +368,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 if (cache.solidBrush != null)
+                {
                     g.FillRectangle(cache.solidBrush, drawRect);
+                }
             }
 
             return memento;
@@ -390,10 +392,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 MementoBackExpertChecked cache;
 
                 // Access a cache instance and decide if cache resources need generating
-                if ((memento == null) || !(memento is MementoBackExpertChecked))
+                if (!(memento is MementoBackExpertChecked))
                 {
-                    if (memento != null)
-                        memento.Dispose();
+                    memento?.Dispose();
 
                     cache = new MementoBackExpertChecked(drawRect, color1, color2, orientation);
                     memento = cache;
@@ -440,8 +441,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     if ((gradientRect.Width > 0) && (gradientRect.Height > 0))
                     {
                         // Draw entire area in a gradient color effect
-                        cache.entireBrush = new LinearGradientBrush(gradientRect, CommonHelper.WhitenColor(color1, 0.92f, 0.92f, 0.92f), color1, AngleFromOrientation(orientation));
-                        cache.entireBrush.Blend = _rounded1Blend;
+                        cache.entireBrush = new LinearGradientBrush(gradientRect, CommonHelper.WhitenColor(color1, 0.92f, 0.92f, 0.92f), color1, AngleFromOrientation(orientation))
+                        {
+                            Blend = _rounded1Blend
+                        };
                     }
 
                     RectangleF ellipseRect;
@@ -454,30 +457,32 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         default:
                         case VisualOrientation.Top:
-                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Bottom - ellipseHeight, drawRect.Width + ellipseWidth * 2, ellipseHeight * 2);
+                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Bottom - ellipseHeight, drawRect.Width + (ellipseWidth * 2), ellipseHeight * 2);
                             ellipseCenter = new PointF(ellipseRect.Left + (ellipseRect.Width / 2), ellipseRect.Bottom);
                             break;
                         case VisualOrientation.Bottom:
-                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Top - ellipseHeight, drawRect.Width + ellipseWidth * 2, ellipseHeight * 2);
+                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Top - ellipseHeight, drawRect.Width + (ellipseWidth * 2), ellipseHeight * 2);
                             ellipseCenter = new PointF(ellipseRect.Left + (ellipseRect.Width / 2), ellipseRect.Top);
                             break;
                         case VisualOrientation.Left:
-                            ellipseRect = new RectangleF(drawRect.Right - ellipseWidth, drawRect.Top - ellipseHeight, ellipseWidth * 2, drawRect.Height + ellipseHeight * 2);
+                            ellipseRect = new RectangleF(drawRect.Right - ellipseWidth, drawRect.Top - ellipseHeight, ellipseWidth * 2, drawRect.Height + (ellipseHeight * 2));
                             ellipseCenter = new PointF(ellipseRect.Right, ellipseRect.Top + (ellipseRect.Height / 2));
                             break;
                         case VisualOrientation.Right:
-                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Top - ellipseHeight, ellipseWidth * 2, drawRect.Height + ellipseHeight * 2);
+                            ellipseRect = new RectangleF(drawRect.Left - ellipseWidth, drawRect.Top - ellipseHeight, ellipseWidth * 2, drawRect.Height + (ellipseHeight * 2));
                             ellipseCenter = new PointF(ellipseRect.Left, ellipseRect.Top + (ellipseRect.Height / 2));
                             break;
                     }
 
                     cache.ellipsePath = new GraphicsPath();
                     cache.ellipsePath.AddEllipse(ellipseRect);
-                    cache.insideLighten = new PathGradientBrush(cache.ellipsePath);
-                    cache.insideLighten.CenterPoint = ellipseCenter;
-                    cache.insideLighten.CenterColor = color2;
-                    cache.insideLighten.Blend = _rounded2Blend;
-                    cache.insideLighten.SurroundColors = new Color[] { Color.Transparent };
+                    cache.insideLighten = new PathGradientBrush(cache.ellipsePath)
+                    {
+                        CenterPoint = ellipseCenter,
+                        CenterColor = color2,
+                        Blend = _rounded2Blend,
+                        SurroundColors = new Color[] { Color.Transparent }
+                    };
                 }
 
                 if (cache.entireBrush != null)

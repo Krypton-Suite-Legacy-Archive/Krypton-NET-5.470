@@ -8,10 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -37,18 +35,17 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             // Unhook from events
-            if (_header != null)
+            ViewManager vm = _header?.GetViewManager();
+            if (vm != null)
             {
-                ViewManager vm = _header.GetViewManager();
-                if (vm != null)
-                {
-                    vm.MouseUpProcessed -= new MouseEventHandler(OnHeaderMouseUp);
-                    vm.DoubleClickProcessed -= new PointHandler(OnHeaderDoubleClick);
-                }
+                vm.MouseUpProcessed -= new MouseEventHandler(OnHeaderMouseUp);
+                vm.DoubleClickProcessed -= new PointHandler(OnHeaderDoubleClick);
             }
 
             if (_changeService != null)
+            {
                 _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+            }
 
             // Must let base class do standard stuff
             base.Dispose(disposing);
@@ -97,9 +94,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 if (_header != null)
+                {
                     return _header.ButtonSpecs;
+                }
                 else
+                {
                     return base.AssociatedComponents;
+                }
             }
         }
 
@@ -111,10 +112,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the header specific list
-                actionLists.Add(new KryptonHeaderActionList(this));
+                    // Add the header specific list
+                    new KryptonHeaderActionList(this)
+                };
 
                 return actionLists;
             }
@@ -137,7 +140,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _header.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -145,7 +150,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -153,8 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_header != null)
-                _header.DesignerMouseLeave();
+            _header?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -174,8 +180,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _header.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }
@@ -183,19 +191,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnHeaderDoubleClick(object sender, Point pt)
         {
-            if (_header != null)
+            // Get any component associated with the current mouse position
+            Component component = _header?.DesignerComponentFromPoint(pt);
+
+            if (component != null)
             {
-                // Get any component associated with the current mouse position
-                Component component = _header.DesignerComponentFromPoint(pt);
+                // Get the designer for the component
+                IDesigner designer = _designerHost.GetDesigner(component);
 
-                if (component != null)
-                {
-                    // Get the designer for the component
-                    IDesigner designer = _designerHost.GetDesigner(component);
-
-                    // Request code for the default event be generated
-                    designer.DoDefaultAction();
-                }
+                // Request code for the default event be generated
+                designer.DoDefaultAction();
             }
         }
 

@@ -9,12 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
@@ -61,8 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (e.Item.GetType().ToString() == "System.Windows.Forms.MdiControlStrip+ControlBoxMenuItem")
             {
                 // Get access to the owning form of the mdi control strip
-                Form f = e.ToolStrip.Parent.TopLevelControl as Form;
-                if (f != null)
+                if (e.ToolStrip.Parent.TopLevelControl is Form f)
                 {
                     // Get the mdi control strip instance
                     PropertyInfo piMCS = typeof(Form).GetProperty("MdiControlStrip", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.GetField);
@@ -86,11 +81,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                     // Compare the event provided image with the internal cached ones to discover the type of pendant button we are drawing
                                     PaletteButtonSpecStyle specStyle = PaletteButtonSpecStyle.Generic;
                                     if (m.Image == e.Image)
+                                    {
                                         specStyle = PaletteButtonSpecStyle.PendantMin;
+                                    }
                                     else if (r.Image == e.Image)
+                                    {
                                         specStyle = PaletteButtonSpecStyle.PendantRestore;
+                                    }
                                     else if (c.Image == e.Image)
+                                    {
                                         specStyle = PaletteButtonSpecStyle.PendantClose;
+                                    }
 
                                     // A match, means we have a known pendant button
                                     if (specStyle != PaletteButtonSpecStyle.Generic)
@@ -105,9 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                             using (ImageAttributes attribs = new ImageAttributes())
                                             {
                                                 // Setup mapping to make required color transparent
-                                                ColorMap remap = new ColorMap();
-                                                remap.OldColor = transparentColor;
-                                                remap.NewColor = Color.Transparent;
+                                                ColorMap remap = new ColorMap
+                                                {
+                                                    OldColor = transparentColor,
+                                                    NewColor = Color.Transparent
+                                                };
                                                 attribs.SetRemapTable(new ColorMap[] { remap });
 
                                                 // Phew, actually draw the darn thing
@@ -140,7 +143,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // D0 not draw the annoying status strip single line that is not needed
             if (!(e.ToolStrip is StatusStrip))
+            {
                 base.OnRenderToolStripBorder(e);
+            }
         }
         #endregion
     }

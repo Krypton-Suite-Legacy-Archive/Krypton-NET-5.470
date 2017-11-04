@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -130,13 +126,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 InheritBool ret = _primary.GetContentDraw(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetContentDraw(state);
+                {
+                    ret = _backup.GetContentDraw(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentDraw(state);
-		}
+            {
+                return _backup.GetContentDraw(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets a value indicating if content should be drawn with focus indication.
@@ -150,13 +150,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 InheritBool ret = _primary.GetContentDrawFocus(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetContentDrawFocus(state);
+                {
+                    ret = _backup.GetContentDrawFocus(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentDrawFocus(state);
-		}
+            {
+                return _backup.GetContentDrawFocus(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the horizontal relative alignment of the image.
@@ -170,13 +174,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentImageH(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentImageH(state);
+                {
+                    ret = _backup.GetContentImageH(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentImageH(state);
-		}
+            {
+                return _backup.GetContentImageH(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the vertical relative alignment of the image.
@@ -190,13 +198,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentImageV(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentImageV(state);
+                {
+                    ret = _backup.GetContentImageV(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentImageV(state);
-		}
+            {
+                return _backup.GetContentImageV(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the effect applied to drawing of the image.
@@ -210,13 +222,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteImageEffect ret = _primary.GetContentImageEffect(_override ? _state : state);
 
 				if (ret == PaletteImageEffect.Inherit)
-					ret = _backup.GetContentImageEffect(state);
+                {
+                    ret = _backup.GetContentImageEffect(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentImageEffect(state);
-		}
+            {
+                return _backup.GetContentImageEffect(state);
+            }
+        }
 
         /// <summary>
         /// Gets the image color to remap into another color.
@@ -230,12 +246,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentImageColorMap(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentImageColorMap(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentImageColorMap(state);
+            }
         }
 
         /// <summary>
@@ -250,12 +270,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentImageColorTo(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentImageColorTo(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentImageColorTo(state);
+            }
         }
 
 		/// <summary>
@@ -270,13 +294,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Font ret = _primary.GetContentShortTextFont(_override ? _state : state);
 
 				if (ret == null)
-					ret = _backup.GetContentShortTextFont(state);
+                {
+                    ret = _backup.GetContentShortTextFont(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextFont(state);
-		}
+            {
+                return _backup.GetContentShortTextFont(state);
+            }
+        }
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
@@ -290,13 +318,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Font ret = _primary.GetContentShortTextNewFont(_override ? _state : state);
 
 				if (ret == null)
+                {
                     ret = _backup.GetContentShortTextNewFont(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
+            {
                 return _backup.GetContentShortTextNewFont(state);
-		}
+            }
+        }
 
 		/// <summary>
 		/// Gets the rendering hint for the short text.
@@ -310,13 +342,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextHint ret = _primary.GetContentShortTextHint(_override ? _state : state);
 
 				if (ret == PaletteTextHint.Inherit)
-					ret = _backup.GetContentShortTextHint(state);
+                {
+                    ret = _backup.GetContentShortTextHint(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextHint(state);
-		}
+            {
+                return _backup.GetContentShortTextHint(state);
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for short text.
@@ -330,12 +366,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextHotkeyPrefix ret = _primary.GetContentShortTextPrefix(_override ? _state : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
+                {
                     ret = _backup.GetContentShortTextPrefix(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextPrefix(state);
+            }
         }
 
 		/// <summary>
@@ -350,13 +390,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 InheritBool ret = _primary.GetContentShortTextMultiLine(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetContentShortTextMultiLine(state);
+                {
+                    ret = _backup.GetContentShortTextMultiLine(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextMultiLine(state);
-		}
+            {
+                return _backup.GetContentShortTextMultiLine(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the text trimming to use for short text.
@@ -370,13 +414,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextTrim ret = _primary.GetContentShortTextTrim(_override ? _state : state);
 
 				if (ret == PaletteTextTrim.Inherit)
-					ret = _backup.GetContentShortTextTrim(state);
+                {
+                    ret = _backup.GetContentShortTextTrim(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextTrim(state);
-		}
+            {
+                return _backup.GetContentShortTextTrim(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the horizontal relative alignment of the short text.
@@ -390,13 +438,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentShortTextH(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentShortTextH(state);
+                {
+                    ret = _backup.GetContentShortTextH(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextH(state);
-		}
+            {
+                return _backup.GetContentShortTextH(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the vertical relative alignment of the short text.
@@ -410,13 +462,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentShortTextV(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentShortTextV(state);
+                {
+                    ret = _backup.GetContentShortTextV(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextV(state);
-		}
+            {
+                return _backup.GetContentShortTextV(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the vertical relative alignment of the short text.
@@ -430,13 +486,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentShortTextMultiLineH(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentShortTextMultiLineH(state);
+                {
+                    ret = _backup.GetContentShortTextMultiLineH(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentShortTextMultiLineH(state);
-		}
+            {
+                return _backup.GetContentShortTextMultiLineH(state);
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the short text.
@@ -450,12 +510,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentShortTextColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentShortTextColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -470,12 +534,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentShortTextColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentShortTextColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextColor2(state);
+            }
         }
 
         /// <summary>
@@ -490,12 +558,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteColorStyle ret = _primary.GetContentShortTextColorStyle(_override ? _state : state);
 
                 if (ret == PaletteColorStyle.Inherit)
+                {
                     ret = _backup.GetContentShortTextColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -510,12 +582,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetContentShortTextColorAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backup.GetContentShortTextColorAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextColorAlign(state);
+            }
         }
 
         /// <summary>
@@ -530,12 +606,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 float ret = _primary.GetContentShortTextColorAngle(_override ? _state : state);
 
                 if (ret == -1f)
+                {
                     ret = _backup.GetContentShortTextColorAngle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextColorAngle(state);
+            }
         }
 
         /// <summary>
@@ -550,12 +630,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Image ret = _primary.GetContentShortTextImage(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backup.GetContentShortTextImage(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextImage(state);
+            }
         }
 
         /// <summary>
@@ -570,12 +654,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteImageStyle ret = _primary.GetContentShortTextImageStyle(_override ? _state : state);
 
                 if (ret == PaletteImageStyle.Inherit)
+                {
                     ret = _backup.GetContentShortTextImageStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextImageStyle(state);
+            }
         }
 
         /// <summary>
@@ -590,12 +678,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetContentShortTextImageAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backup.GetContentShortTextImageAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentShortTextImageAlign(state);
+            }
         }
 
 		/// <summary>
@@ -610,13 +702,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Font ret = _primary.GetContentLongTextFont(_override ? _state : state);
 
 				if (ret == null)
-					ret = _backup.GetContentLongTextFont(state);
+                {
+                    ret = _backup.GetContentLongTextFont(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextFont(state);
-		}
+            {
+                return _backup.GetContentLongTextFont(state);
+            }
+        }
 
         /// <summary>
         /// Gets the font for the long text by generating a new font instance.
@@ -630,13 +726,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Font ret = _primary.GetContentLongTextNewFont(_override ? _state : state);
 
 				if (ret == null)
+                {
                     ret = _backup.GetContentLongTextNewFont(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
+            {
                 return _backup.GetContentLongTextNewFont(state);
-		}
+            }
+        }
 
 		/// <summary>
 		/// Gets the rendering hint for the long text.
@@ -650,13 +750,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextHint ret = _primary.GetContentLongTextHint(_override ? _state : state);
 
 				if (ret == PaletteTextHint.Inherit)
-					ret = _backup.GetContentLongTextHint(state);
+                {
+                    ret = _backup.GetContentLongTextHint(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextHint(state);
-		}
+            {
+                return _backup.GetContentLongTextHint(state);
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for long text.
@@ -670,12 +774,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextHotkeyPrefix ret = _primary.GetContentLongTextPrefix(_override ? _state : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
+                {
                     ret = _backup.GetContentLongTextPrefix(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextPrefix(state);
+            }
         }
         
         /// <summary>
@@ -690,13 +798,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 InheritBool ret = _primary.GetContentLongTextMultiLine(_override ? _state : state);
 
 				if (ret == InheritBool.Inherit)
-					ret = _backup.GetContentLongTextMultiLine(state);
+                {
+                    ret = _backup.GetContentLongTextMultiLine(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextMultiLine(state);
-		}
+            {
+                return _backup.GetContentLongTextMultiLine(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the text trimming to use for long text.
@@ -710,13 +822,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteTextTrim ret = _primary.GetContentLongTextTrim(_override ? _state : state);
 
 				if (ret == PaletteTextTrim.Inherit)
-					ret = _backup.GetContentLongTextTrim(state);
+                {
+                    ret = _backup.GetContentLongTextTrim(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextTrim(state);
-		}
+            {
+                return _backup.GetContentLongTextTrim(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the horizontal relative alignment of the long text.
@@ -730,13 +846,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentLongTextH(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentLongTextH(state);
+                {
+                    ret = _backup.GetContentLongTextH(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextH(state);
-		}
+            {
+                return _backup.GetContentLongTextH(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the vertical relative alignment of the long text.
@@ -750,13 +870,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentLongTextV(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentLongTextV(state);
+                {
+                    ret = _backup.GetContentLongTextV(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextV(state);
-		}
+            {
+                return _backup.GetContentLongTextV(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the vertical relative alignment of the long text.
@@ -770,13 +894,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign ret = _primary.GetContentLongTextMultiLineH(_override ? _state : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
-					ret = _backup.GetContentLongTextMultiLineH(state);
+                {
+                    ret = _backup.GetContentLongTextMultiLineH(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentLongTextMultiLineH(state);
-		}
+            {
+                return _backup.GetContentLongTextMultiLineH(state);
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the long text.
@@ -790,12 +918,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentLongTextColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentLongTextColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextColor1(state);
+            }
         }
 
         /// <summary>
@@ -810,12 +942,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primary.GetContentLongTextColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backup.GetContentLongTextColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextColor2(state);
+            }
         }
 
         /// <summary>
@@ -830,12 +966,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteColorStyle ret = _primary.GetContentLongTextColorStyle(_override ? _state : state);
 
                 if (ret == PaletteColorStyle.Inherit)
+                {
                     ret = _backup.GetContentLongTextColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -850,12 +990,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetContentLongTextColorAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backup.GetContentLongTextColorAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextColorAlign(state);
+            }
         }
 
         /// <summary>
@@ -870,12 +1014,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 float ret = _primary.GetContentLongTextColorAngle(_override ? _state : state);
 
                 if (ret == -1f)
+                {
                     ret = _backup.GetContentLongTextColorAngle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextColorAngle(state);
+            }
         }
 
         /// <summary>
@@ -890,12 +1038,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Image ret = _primary.GetContentLongTextImage(_override ? _state : state);
 
                 if (ret == null)
+                {
                     ret = _backup.GetContentLongTextImage(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextImage(state);
+            }
         }
 
         /// <summary>
@@ -910,12 +1062,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteImageStyle ret = _primary.GetContentLongTextImageStyle(_override ? _state : state);
 
                 if (ret == PaletteImageStyle.Inherit)
+                {
                     ret = _backup.GetContentLongTextImageStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextImageStyle(state);
+            }
         }
 
         /// <summary>
@@ -930,12 +1086,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRectangleAlign ret = _primary.GetContentLongTextImageAlign(_override ? _state : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
+                {
                     ret = _backup.GetContentLongTextImageAlign(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backup.GetContentLongTextImageAlign(state);
+            }
         }
 
 		/// <summary>
@@ -950,13 +1110,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 Padding ret = _primary.GetContentPadding(_override ? _state : state);
 
 				if (ret.All == -1)
-					ret = _backup.GetContentPadding(state);
+                {
+                    ret = _backup.GetContentPadding(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentPadding(state);
-		}
+            {
+                return _backup.GetContentPadding(state);
+            }
+        }
 
 		/// <summary>
 		/// Gets the padding between adjacent content items.
@@ -970,13 +1134,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 int ret = _primary.GetContentAdjacentGap(_override ? _state : state);
 
 				if (ret == -1)
-					ret = _backup.GetContentAdjacentGap(state);
+                {
+                    ret = _backup.GetContentAdjacentGap(state);
+                }
 
-				return ret;
+                return ret;
 			}
 			else
-				return _backup.GetContentAdjacentGap(state);
-		}
+            {
+                return _backup.GetContentAdjacentGap(state);
+            }
+        }
 
         /// <summary>
         /// Gets the style appropriate for this content.
@@ -985,9 +1153,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override PaletteContentStyle GetContentStyle()
         {
             if (_apply)
+            {
                 return _primary.GetContentStyle();
+            }
             else
+            {
                 return _backup.GetContentStyle();
+            }
         }
         #endregion
 	}

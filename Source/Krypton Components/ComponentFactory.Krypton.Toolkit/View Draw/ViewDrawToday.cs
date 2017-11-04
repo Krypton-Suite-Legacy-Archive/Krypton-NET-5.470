@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Globalization;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -123,8 +119,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Implementation
         private void OnClick(object sender, MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, EventArgs.Empty);
+            Click?.Invoke(this, EventArgs.Empty);
         }
         #endregion
 

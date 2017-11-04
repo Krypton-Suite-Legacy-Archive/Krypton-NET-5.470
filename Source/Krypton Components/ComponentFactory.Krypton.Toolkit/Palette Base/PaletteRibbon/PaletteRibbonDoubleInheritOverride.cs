@@ -8,14 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -114,12 +107,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(_override ? _state : state);
 
                 if (ret == PaletteRibbonColorStyle.Inherit)
+                {
                     ret = _backupBack.GetRibbonBackColorStyle(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColorStyle(state);
+            }
         }
 
         /// <summary>
@@ -134,12 +131,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryBack.GetRibbonBackColor1(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor1(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor1(state);
+            }
         }
 
         /// <summary>
@@ -154,12 +155,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryBack.GetRibbonBackColor2(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor2(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor2(state);
+            }
         }
 
         /// <summary>
@@ -174,12 +179,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryBack.GetRibbonBackColor3(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor3(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor3(state);
+            }
         }
 
         /// <summary>
@@ -194,12 +203,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryBack.GetRibbonBackColor4(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor4(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor4(state);
+            }
         }
 
         /// <summary>
@@ -214,12 +227,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryBack.GetRibbonBackColor5(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupBack.GetRibbonBackColor5(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupBack.GetRibbonBackColor5(state);
+            }
         }
         #endregion
 
@@ -236,12 +253,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 Color ret = _primaryText.GetRibbonTextColor(_override ? _state : state);
 
                 if (ret == Color.Empty)
+                {
                     ret = _backupText.GetRibbonTextColor(state);
+                }
 
                 return ret;
             }
             else
+            {
                 return _backupText.GetRibbonTextColor(state);
+            }
         }
         #endregion
     }

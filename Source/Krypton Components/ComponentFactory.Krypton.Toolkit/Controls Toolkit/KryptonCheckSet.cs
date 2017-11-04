@@ -9,13 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Collections;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -69,10 +66,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 Debug.Assert(checkButton != null);
 
                 if (checkButton == null)
+                {
                     throw new ArgumentNullException("checkButton");
+                }
 
                 if (Contains(checkButton))
+                {
                     throw new ArgumentException("Reference already exists in the collection");
+                }
 
                 base.List.Add(checkButton);
 
@@ -109,13 +110,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 Debug.Assert(checkButton != null);
 
                 if (checkButton == null)
+                {
                     throw new ArgumentNullException("checkButton");
+                }
 
                 if ((index < 0) || (index > Count))
+                {
                     throw new ArgumentOutOfRangeException("index");
+                }
 
                 if (Contains(checkButton))
+                {
                     throw new ArgumentException("Reference already in collection");
+                }
 
                 base.List.Insert(index, checkButton);
             }
@@ -129,10 +136,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 Debug.Assert(checkButton != null);
 
                 if (checkButton == null)
+                {
                     throw new ArgumentNullException("checkButton");
+                }
 
                 if (!Contains(checkButton))
+                {
                     throw new ArgumentException("No matching reference to remove");
+                }
 
                 base.List.Remove(checkButton);
             }
@@ -147,7 +158,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 get
                 {
                     if ((index < 0) || (index > Count))
+                    {
                         throw new ArgumentOutOfRangeException("index");
+                    }
 
                     return (KryptonCheckButton)base.List[index];
                 }
@@ -161,7 +174,9 @@ namespace ComponentFactory.Krypton.Toolkit
             protected override void OnClear()
             {
                 foreach(KryptonCheckButton checkButton in base.List)
+                {
                     _owner.CheckButtonRemoved(checkButton);
+                }
 
                 base.OnClear();
             }
@@ -241,7 +256,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(container != null);
 
             // Validate reference parameter
-            if (container == null) throw new ArgumentNullException("container");
+            if (container == null)
+            {
+                throw new ArgumentNullException("container");
+            }
 
             container.Add(this);
         }
@@ -278,7 +296,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _initializing = false;
 
             if (_checkedChanged)
+            {
                 OnCheckedButtonChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -312,18 +332,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Check the new target is associated with us already
                     if ((value != null) && !CheckButtons.Contains(value))
+                    {
                         throw new ArgumentOutOfRangeException("value", "Provided value is not a KryptonCheckButton associated with this set.");
+                    }
 
                     // Prevent processing events caused by ourself
                     _ignoreEvents = true;
 
                     if (_checkedButton != null)
+                    {
                         _checkedButton.Checked = false;
+                    }
 
                     _checkedButton = value;
 
                     if (_checkedButton != null)
+                    {
                         _checkedButton.Checked = true;
+                    }
 
                     _ignoreEvents = false;
 
@@ -347,22 +373,32 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (CheckedButton == null)
+                {
                     return -1;
+                }
                 else
+                {
                     return CheckButtons.IndexOf(CheckedButton);
+                }
             }
 
             set
             {
                 // Check for a value outside of limits
                 if ((value < -1) || (value >= CheckButtons.Count))
+                {
                     throw new ArgumentOutOfRangeException("value");
+                }
 
                 // Special case the value of -1 as requesting nothing checked
                 if (value == -1)
+                {
                     CheckedButton = null;
+                }
                 else
+                {
                     CheckedButton = CheckButtons[value];
+                }
             }
         }
 
@@ -389,11 +425,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (!_initializing)
             {
-                if (CheckedButtonChanged != null)
-                    CheckedButtonChanged(this, e);
+                CheckedButtonChanged?.Invoke(this, e);
             }
             else
+            {
                 _checkedChanged = true;
+            }
         }
         #endregion
 

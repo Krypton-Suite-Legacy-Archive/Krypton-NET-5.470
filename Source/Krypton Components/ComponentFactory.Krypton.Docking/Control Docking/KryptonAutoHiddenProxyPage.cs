@@ -9,19 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -43,11 +34,9 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public KryptonAutoHiddenProxyPage(KryptonPage page)
         {
-            if (page == null)
-                throw new ArgumentNullException("page");
 
             // We are a proxy for this cached page reference
-            _page = page;
+            _page = page ?? throw new ArgumentNullException("page");
 
             // Text property was updated by the base class constructor, so now we update the actual referenced class
             _page.Text = Text;
@@ -59,8 +48,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (_page != null)
-                _page.Dispose();
+            _page?.Dispose();
 
             base.Dispose(disposing);
         }
@@ -83,16 +71,22 @@ namespace ComponentFactory.Krypton.Docking
             get 
             {
                 if (Page != null)
+                {
                     return Page.Text;
+                }
                 else
+                {
                     return base.Text;
+                }
             }
             
             set 
             {
                 base.Text = value;
                 if (Page != null)
-                    Page.Text = value; 
+                {
+                    Page.Text = value;
+                }
             }
         }
 

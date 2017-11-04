@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
@@ -51,7 +46,9 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 _navigator = null;
+            }
 
             base.Dispose(disposing);
         }
@@ -72,18 +69,24 @@ namespace ComponentFactory.Krypton.Navigator
                 // Search for any pages that are not from this navigator
                 _notDraggedPagesFromNavigator = 0;
                 foreach (KryptonPage page in dragEndData.Pages)
+                {
                     if (!_navigator.Pages.Contains(page))
                     {
                         _notDraggedPagesFromNavigator = 1;
                         break;
                     }
+                }
             }
 
             // If 1 or more pages are not from this navigator then allow transfer into the target
             if (_notDraggedPagesFromNavigator > 0)
+            {
                 return base.IsMatch(screenPt, dragEndData);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -102,7 +105,9 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // If the navigator is allowed to have a selected page then select it
                 if (_navigator.AllowTabSelect)
+                {
                     _navigator.SelectedPage = page;
+                }
 
                 // Need to layout so the new cell has been added as a child control and 
                 // therefore can receive the focus we want to give it immediately afterwards

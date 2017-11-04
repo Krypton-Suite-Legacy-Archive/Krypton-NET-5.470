@@ -8,14 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -49,9 +41,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // The ribbon caption area should only ever draw a bottom border as the maximum
             if ((paletteBorder & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom)
+            {
                 return PaletteDrawBorders.Bottom;
+            }
             else
+            {
                 return PaletteDrawBorders.None;
+            }
         }
         #endregion
     }

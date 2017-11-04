@@ -8,20 +8,10 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -66,7 +56,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Add any initial set of item
             if (children != null)
+            {
                 _items.AddRange(children);
+            }
 
             // Create the redirector that can get values from the krypton context menu
             _redirectImageColumn = new PaletteRedirectDouble();

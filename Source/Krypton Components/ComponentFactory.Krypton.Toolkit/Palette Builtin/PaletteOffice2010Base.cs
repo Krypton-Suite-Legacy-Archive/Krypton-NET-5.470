@@ -9,24 +9,19 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides a base for Office 2010 palettes.
-	/// </summary>
-	public abstract class PaletteOffice2010Base : PaletteBase
+    /// <summary>
+    /// Provides a base for Office 2010 palettes.
+    /// </summary>
+    public abstract class PaletteOffice2010Base : PaletteBase
     {
-		#region Static Fields
+        #region Static Fields
         private static readonly Padding _contentPaddingGrid = new Padding(2, 1, 2, 1);
         private static readonly Padding _contentPaddingHeader1 = new Padding(2, 1, 2, 1);
         private static readonly Padding _contentPaddingHeader2 = new Padding(2, 1, 2, 1);
@@ -62,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Padding _metricPaddingBarTabs = new Padding(0);
         private static readonly Padding _metricPaddingBarOutside = new Padding(0, 0, 0, 3);
         private static readonly Padding _metricPaddingPageButtons = new Padding(1, 3, 1, 3);
-        
+
         private static readonly Image _disabledDropDown = Properties.Resources.DisabledDropDownButton;
         private static readonly Image _buttonSpecClose = Properties.Resources.ProfessionalCloseButton;
         private static readonly Image _buttonSpecContext = Properties.Resources.ProfessionalContextButton;
@@ -86,7 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _contextMenuIndeterminate = Properties.Resources.Office2007Indeterminate;
         private static readonly Image _treeExpandWhite = Properties.Resources.TreeExpandWhite;
         private static readonly Image _treeCollapseBlack = Properties.Resources.TreeCollapseBlack;
-        
+
         private static readonly Color _gridTextColor = Color.Black;
         private static readonly Color _disabledText2 = Color.FromArgb(128, 128, 128);
         private static readonly Color _disabledText = Color.FromArgb(167, 167, 167);
@@ -121,10 +116,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Color _formCloseChecked2 = Color.FromArgb(255, 132, 130);
         private static readonly Color _formCloseCheckedTracking1 = Color.FromArgb(255, 132, 130);
         private static readonly Color _formCloseCheckedTracking2 = Color.FromArgb(255, 132, 130);
-        private static readonly Color[] _appButtonNormal = new Color[] { Color.FromArgb(243, 245, 248), Color.FromArgb(214, 220, 231), Color.FromArgb(188, 198, 211), Color.FromArgb(254, 254, 255), Color.FromArgb(206, 213, 225) };
-        private static readonly Color[] _appButtonTrack = new Color[] { Color.FromArgb(255, 251, 230), Color.FromArgb(248, 230, 143), Color.FromArgb(238, 213, 126), Color.FromArgb(254, 247, 129), Color.FromArgb(240, 201, 41) };
-        private static readonly Color[] _appButtonPressed = new Color[] { Color.FromArgb(235, 227, 196), Color.FromArgb(228, 198, 149), Color.FromArgb(166, 97, 7), Color.FromArgb(242, 155, 57), Color.FromArgb(236, 136, 9) };
-        private static readonly Color[] _buttonBorderColors = new Color[]{ Color.FromArgb(180, 180, 180), // Button, Disabled, Border
+        private static readonly Color[] _appButtonNormal = { Color.FromArgb(243, 245, 248), Color.FromArgb(214, 220, 231), Color.FromArgb(188, 198, 211), Color.FromArgb(254, 254, 255), Color.FromArgb(206, 213, 225) };
+        private static readonly Color[] _appButtonTrack = { Color.FromArgb(255, 251, 230), Color.FromArgb(248, 230, 143), Color.FromArgb(238, 213, 126), Color.FromArgb(254, 247, 129), Color.FromArgb(240, 201, 41) };
+        private static readonly Color[] _appButtonPressed = { Color.FromArgb(235, 227, 196), Color.FromArgb(228, 198, 149), Color.FromArgb(166, 97, 7), Color.FromArgb(242, 155, 57), Color.FromArgb(236, 136, 9) };
+        private static readonly Color[] _buttonBorderColors = { Color.FromArgb(180, 180, 180), // Button, Disabled, Border
                                                                            Color.FromArgb(237, 201, 88),  // Button, Tracking, Border 1
                                                                            Color.FromArgb(243, 213, 73),  // Button, Tracking, Border 2
                                                                            Color.FromArgb(194, 118, 43),  // Button, Pressed, Border 1
@@ -132,7 +127,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                            Color.FromArgb(194, 138, 48),  // Button, Checked, Border 1
                                                                            Color.FromArgb(194, 164, 77)   // Button, Checked, Border 2
                                                                          };
-        private static readonly Color[] _buttonBackColors = new Color[]{ Color.FromArgb(250, 250, 250), // Button, Disabled, Back 1
+        private static readonly Color[] _buttonBackColors = { Color.FromArgb(250, 250, 250), // Button, Disabled, Back 1
                                                                          Color.FromArgb(250, 250, 250), // Button, Disabled, Back 2
                                                                          Color.FromArgb(248, 225, 135), // Button, Tracking, Back 1
                                                                          Color.FromArgb(251, 248, 224), // Button, Tracking, Back 2
@@ -145,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                        };
         #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private KryptonColorTable2010 _table;
         private Color[] _ribbonColors;
         private Color[] _trackBarColors;
@@ -173,10 +168,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _baseFontName;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteOffice2010Base class.
-		/// </summary>
+        /// </summary>
         /// <param name="schemeColors">Array of palette specific colors.</param>
         /// <param name="checkBoxList">List of images for check box.</param>
         /// <param name="galleryButtonList">List of images for gallery buttons.</param>
@@ -187,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      ImageList galleryButtonList,
                                      Image[] radioButtonArray,
                                      Color[] trackBarColors)
-		{
+        {
             Debug.Assert(schemeColors != null);
             Debug.Assert(checkBoxList != null);
             Debug.Assert(galleryButtonList != null);
@@ -203,7 +198,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the font settings from the system
             DefineFonts();
         }
-		#endregion
+        #endregion
 
         #region AllowFormChrome
         /// <summary>
@@ -236,10 +231,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
             switch (style)
             {
@@ -277,26 +274,33 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ButtonInputControl:
                     if ((state == PaletteState.Disabled) ||
                         (state == PaletteState.Normal))
+                    {
                         return InheritBool.False;
+                    }
                     else
+                    {
                         return InheritBool.True;
+                    }
+
                 default:
                     // Default to drawing the background
                     return InheritBool.True;
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the graphics drawing hint for the background.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public override PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the graphics drawing hint for the background.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public override PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteGraphicsHint.Inherit;
+            {
+                return PaletteGraphicsHint.Inherit;
+            }
 
             switch (style)
             {
@@ -380,22 +384,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the first background color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBackColor1(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the first background color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBackColor1(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
-				return Color.Empty;
+            {
+                return Color.Empty;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
                 case PaletteBackStyle.GridHeaderRowList:
@@ -444,14 +450,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.GridDataCellSelected];
+                    }
                     else
+                    {
                         return SystemColors.Window;
+                    }
+
                 case PaletteBackStyle.GridDataCellSheet:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return _buttonBackColors[6];
+                    }
                     else
+                    {
                         return SystemColors.Window;
+                    }
+
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -463,41 +479,63 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Disabled:
                             if (style == PaletteBackStyle.TabLowProfile)
-                                return Color.Empty;
-                            else
-                                return _disabledBack;
-                        case PaletteState.Normal:
-                            if (style == PaletteBackStyle.TabLowProfile)
-                                return Color.Empty;
-                            else
-                                return SystemColors.Window;
-                        case PaletteState.Pressed:
-                        case PaletteState.Tracking:
-                            if (style == PaletteBackStyle.TabLowProfile)
-                                return Color.Empty;
-                            else if (style == PaletteBackStyle.TabHighProfile)
                             {
-                                if (state == PaletteState.Tracking)
-                                    return _buttonBackColors[2];
-                                else
-                                    return _buttonBackColors[4];
+                                return Color.Empty;
                             }
                             else
+                            {
+                                return _disabledBack;
+                            }
+
+                        case PaletteState.Normal:
+                            if (style == PaletteBackStyle.TabLowProfile)
+                            {
+                                return Color.Empty;
+                            }
+                            else
+                            {
                                 return SystemColors.Window;
+                            }
+
+                        case PaletteState.Pressed:
+                        case PaletteState.Tracking:
+                            switch (style)
+                            {
+                                case PaletteBackStyle.TabLowProfile:
+                                    return Color.Empty;
+                                case PaletteBackStyle.TabHighProfile:
+                                    if (state == PaletteState.Tracking)
+                                    {
+                                        return _buttonBackColors[2];
+                                    }
+                                    else
+                                    {
+                                        return _buttonBackColors[4];
+                                    }
+                                default:
+                                    return SystemColors.Window;
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedPressed:
                         case PaletteState.CheckedTracking:
                             if (style == PaletteBackStyle.TabHighProfile)
                             {
-                                if (state == PaletteState.CheckedNormal)
-                                    return _buttonBackColors[6];
-                                else if (state == PaletteState.CheckedPressed)
-                                    return _buttonBackColors[4];
-                                else
-                                    return _buttonBackColors[8];
+                                switch (state)
+                                {
+                                    case PaletteState.CheckedNormal:
+                                        return _buttonBackColors[6];
+                                    case PaletteState.CheckedPressed:
+                                        return _buttonBackColors[4];
+                                    default:
+                                        return _buttonBackColors[8];
+                                }
                             }
                             else
+                            {
                                 return SystemColors.Window;
+                            }
+
                         default:
                             throw new ArgumentOutOfRangeException("state");
                     }
@@ -519,46 +557,86 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderInactive1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderActive1];
+                    }
+
                 case PaletteBackStyle.HeaderCalendar:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack2];
+                    }
+
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack1];
+                    }
+
                 case PaletteBackStyle.HeaderDockInactive:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderDockInactiveBack1];
+                    }
+
                 case PaletteBackStyle.HeaderDockActive:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _buttonBackColors[6];
+                    }
+
                 case PaletteBackStyle.HeaderSecondary:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderSecondaryBack1];
+                    }
+
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.SeparatorHighInternalBorder1];
+                    }
+
                 case PaletteBackStyle.SeparatorHighProfile:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.SeparatorHighBorder1];
+                    }
+
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
                 case PaletteBackStyle.PanelClient:
@@ -575,9 +653,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderInactiveLight];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderActiveLight];
+                    }
+
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlCustom1:
@@ -586,13 +669,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBackDisabled];
+                    }
                     else
                     {
-                        if ((state == PaletteState.Tracking) ||(style == PaletteBackStyle.InputControlStandalone))
+                        if ((state == PaletteState.Tracking) || (style == PaletteBackStyle.InputControlStandalone))
+                        {
                             return _ribbonColors[(int)SchemeOfficeColors.InputControlBackNormal];
+                        }
                         else
+                        {
                             return _ribbonColors[(int)SchemeOfficeColors.InputControlBackInactive];
+                        }
                     }
                 case PaletteBackStyle.ControlRibbon:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected4];
@@ -607,7 +696,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     switch (state)
                     {
                         case PaletteState.Tracking:
-                                return _buttonBackColors[2];
+                            return _buttonBackColors[2];
                         default:
                             return _contextMenuBack;
                     }
@@ -673,38 +762,53 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ButtonInputControl:
                 case PaletteBackStyle.ContextMenuItemHighlight:
                     switch (state)
-					{
-	                    case PaletteState.Disabled:
+                    {
+                        case PaletteState.Disabled:
                             if (style == PaletteBackStyle.ButtonGallery)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBack1];
+                            }
                             else
+                            {
                                 return _disabledBack;
+                            }
+
                         case PaletteState.Normal:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
                         case PaletteState.NormalDefaultOverride:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalDefaultBack1];
                         case PaletteState.CheckedNormal:
                             if (style == PaletteBackStyle.ButtonInputControl)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
+                            }
                             else
+                            {
                                 return _buttonBackColors[6];
+                            }
+
                         case PaletteState.Tracking:
-                                return _buttonBackColors[2];
+                            return _buttonBackColors[2];
                         case PaletteState.Pressed:
                         case PaletteState.CheckedPressed:
                             return _buttonBackColors[4];
                         case PaletteState.CheckedTracking:
                             if (style == PaletteBackStyle.ButtonInputControl)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
+                            }
                             else
+                            {
                                 return _buttonBackColors[8];
-						default:
-							throw new ArgumentOutOfRangeException("state");
-					}
+                            }
+
+                        default:
+                            throw new ArgumentOutOfRangeException("state");
+                    }
                 case PaletteBackStyle.ButtonNavigatorStack:
                 case PaletteBackStyle.ButtonNavigatorOverflow:
                 case PaletteBackStyle.ButtonNavigatorMini:
-                    switch(state)
+                    switch (state)
                     {
                         case PaletteState.Disabled:
                             return _buttonBackColors[1];
@@ -720,24 +824,26 @@ namespace ComponentFactory.Krypton.Toolkit
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalNavigatorBack1];
                     }
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBackColor2(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBackColor2(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
-				return Color.Empty;
+            {
+                return Color.Empty;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
                 case PaletteBackStyle.GridHeaderRowList:
@@ -786,14 +892,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.GridDataCellSelected];
+                    }
                     else
+                    {
                         return SystemColors.Window;
+                    }
+
                 case PaletteBackStyle.GridDataCellSheet:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return _buttonBackColors[7];
+                    }
                     else
+                    {
                         return SystemColors.Window;
+                    }
+
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -805,20 +921,35 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Disabled:
                             if (style == PaletteBackStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _disabledBack;
+                            }
+
                         case PaletteState.Normal:
                             if (style == PaletteBackStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack2];
+                            }
+
                         case PaletteState.Tracking:
                         case PaletteState.Pressed:
                             if (style == PaletteBackStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return SystemColors.Window;
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedPressed:
                         case PaletteState.CheckedTracking:
@@ -861,46 +992,86 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderInactive2];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderActive2];
+                    }
+
                 case PaletteBackStyle.HeaderCalendar:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack2];
+                    }
+
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack2];
+                    }
+
                 case PaletteBackStyle.HeaderDockInactive:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderDockInactiveBack2];
+                    }
+
                 case PaletteBackStyle.HeaderDockActive:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _buttonBackColors[7];
+                    }
+
                 case PaletteBackStyle.HeaderSecondary:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderSecondaryBack2];
+                    }
+
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.SeparatorHighInternalBorder2];
+                    }
+
                 case PaletteBackStyle.SeparatorHighProfile:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBack;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.SeparatorHighBorder2];
+                    }
+
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
                 case PaletteBackStyle.PanelClient:
@@ -917,9 +1088,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderInactiveDark];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderActiveDark];
+                    }
+
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlCustom1:
@@ -928,13 +1104,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBackDisabled];
+                    }
                     else
                     {
                         if ((state == PaletteState.Tracking) || (style == PaletteBackStyle.InputControlStandalone))
+                        {
                             return _ribbonColors[(int)SchemeOfficeColors.InputControlBackNormal];
+                        }
                         else
+                        {
                             return _ribbonColors[(int)SchemeOfficeColors.InputControlBackInactive];
+                        }
                     }
                 case PaletteBackStyle.ControlRibbon:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected4];
@@ -1018,9 +1200,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Disabled:
                             if (style == PaletteBackStyle.ButtonGallery)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBack1];
+                            }
                             else
+                            {
                                 return _buttonBackColors[1];
+                            }
+
                         case PaletteState.Normal:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack2];
                         case PaletteState.NormalDefaultOverride:
@@ -1030,27 +1217,42 @@ namespace ComponentFactory.Krypton.Toolkit
                                 (style == PaletteBackStyle.ButtonCommand) ||
                                 (style == PaletteBackStyle.ButtonButtonSpec) ||
                                 (style == PaletteBackStyle.ContextMenuItemHighlight))
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalDefaultBack2];
+                            }
+
                         case PaletteState.CheckedNormal:
                             if (style == PaletteBackStyle.ButtonInputControl)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack2];
+                            }
                             else
+                            {
                                 return _buttonBackColors[7];
+                            }
+
                         case PaletteState.Tracking:
-                                return _buttonBackColors[3];
+                            return _buttonBackColors[3];
                         case PaletteState.Pressed:
                         case PaletteState.CheckedPressed:
                             return _buttonBackColors[5];
                         case PaletteState.CheckedTracking:
                             if (style == PaletteBackStyle.ButtonInputControl)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
+                            }
                             else
+                            {
                                 return _buttonBackColors[9];
+                            }
+
                         default:
                             throw new ArgumentOutOfRangeException("state");
-					}
+                    }
                 case PaletteBackStyle.ButtonNavigatorStack:
                 case PaletteBackStyle.ButtonNavigatorOverflow:
                 case PaletteBackStyle.ButtonNavigatorMini:
@@ -1070,24 +1272,26 @@ namespace ComponentFactory.Krypton.Toolkit
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalNavigatorBack2];
                     }
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color background drawing style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public override PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color background drawing style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteColorStyle.Inherit;
+            {
+                return PaletteColorStyle.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.HeaderForm:
                     return PaletteColorStyle.Rounding5;
                 case PaletteBackStyle.GridHeaderColumnList:
@@ -1167,9 +1371,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ContextMenuSeparator:
                 case PaletteBackStyle.ContextMenuItemSplit:
                     if (state == PaletteState.Tracking)
+                    {
                         return PaletteColorStyle.GlassTrackingFull;
+                    }
                     else
+                    {
                         return PaletteColorStyle.Solid;
+                    }
+
                 case PaletteBackStyle.ControlToolTip:
                     return PaletteColorStyle.Linear;
                 case PaletteBackStyle.FormMain:
@@ -1240,7 +1449,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ButtonNavigatorStack:
                 case PaletteBackStyle.ButtonNavigatorOverflow:
                 case PaletteBackStyle.ButtonNavigatorMini:
-                    switch(state)
+                    switch (state)
                     {
                         case PaletteState.Tracking:
                         case PaletteState.Pressed:
@@ -1253,24 +1462,26 @@ namespace ComponentFactory.Krypton.Toolkit
                             return PaletteColorStyle.Solid;
                     }
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public override PaletteRectangleAlign GetBackColorAlign(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetBackColorAlign(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRectangleAlign.Inherit;
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -1349,25 +1560,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ContextMenuItemSplit:
                 case PaletteBackStyle.ContextMenuItemImageColumn:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color background angle.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public override float GetBackColorAngle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color background angle.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetBackColorAngle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return -1f;
+            {
+                return -1f;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
@@ -1445,25 +1658,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
                     return 90f;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets a background image.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public override Image GetBackImage(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets a background image.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetBackImage(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return null;
+            {
+                return null;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
@@ -1541,25 +1756,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
                     return null;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the background image style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public override PaletteImageStyle GetBackImageStyle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetBackImageStyle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteImageStyle.Inherit;
+            {
+                return PaletteImageStyle.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
@@ -1637,25 +1854,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
                     return PaletteImageStyle.Tile;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the image alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public override PaletteRectangleAlign GetBackImageAlign(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the image alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetBackImageAlign(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRectangleAlign.Inherit;
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
@@ -1733,32 +1952,38 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
         #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets a value indicating if border should be drawn.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBorderDraw(PaletteBorderStyle style, PaletteState state)
-		{
+        #region Border
+        /// <summary>
+        /// Gets a value indicating if border should be drawn.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetBorderDraw(PaletteBorderStyle style, PaletteState state)
+        {
             // Check for the calendar day today override
             if (state == PaletteState.TodayOverride)
+            {
                 if (style == PaletteBorderStyle.ButtonCalendarDay)
+                {
                     return InheritBool.True;
-            
+                }
+            }
+
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -1847,10 +2072,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         default:
                             return InheritBool.True;
                     }
-                default:	
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating which borders to draw.
@@ -1862,7 +2087,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteDrawBorders.Inherit;
+            }
 
             switch (style)
             {
@@ -1946,18 +2173,20 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentOutOfRangeException("style");
             }
         }
-        
+
         /// <summary>
-		/// Gets the graphics drawing hint for the border.
-		/// </summary>
+        /// Gets the graphics drawing hint for the border.
+        /// </summary>
         /// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteGraphicsHint.Inherit;
+            {
+                return PaletteGraphicsHint.Inherit;
+            }
 
             switch (style)
             {
@@ -2034,33 +2263,39 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the first border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the first border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
             {
                 // Check for the calendar day today override
                 if (state == PaletteState.TodayOverride)
+                {
                     if (style == PaletteBorderStyle.ButtonCalendarDay)
                     {
                         if (state == PaletteState.Disabled)
+                        {
                             return _disabledBorder;
+                        }
                         else
+                        {
                             return _todayBorder;
+                        }
                     }
+                }
 
                 return Color.Empty;
             }
-            
-			switch (style)
-			{
+
+            switch (style)
+            {
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -2072,16 +2307,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Disabled:
                             if (style == PaletteBorderStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _disabledBorder;
+                            }
+
                         case PaletteState.Normal:
                         case PaletteState.Tracking:
                         case PaletteState.Pressed:
                             if (style == PaletteBorderStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedPressed:
                         case PaletteState.CheckedTracking:
@@ -2124,14 +2369,24 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBorderStyle.HeaderCalendar:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack2];
+                    }
+
                 case PaletteBorderStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderActive];
+                    }
+
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -2153,9 +2408,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ControlBorder];
+                    }
+
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuItemImageColumn:
                     return _contextMenuHeadingBorder;
@@ -2176,41 +2436,71 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBorderDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBorderNormal];
+                    }
+
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.GridDataCellBorder];
+                    }
+
                 case PaletteBorderStyle.ControlRibbon:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea1];
+                    }
+
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.AppButtonBorder];
+                    }
+
                 case PaletteBorderStyle.ContextMenuOuter:
                     return _contextMenuBorder;
                 case PaletteBorderStyle.ContextMenuInner:
                     return _contextMenuBack;
                 case PaletteBorderStyle.ControlToolTip:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _toolTipBorder;
+                    }
+
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderActive];
+                    }
+
                 case PaletteBorderStyle.ButtonForm:
                     switch (state)
                     {
@@ -2261,12 +2551,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ButtonCustom3:
                 case PaletteBorderStyle.ContextMenuItemHighlight:
                     switch (state)
-					{
-						case PaletteState.Disabled:
+                    {
+                        case PaletteState.Disabled:
                             if (style == PaletteBorderStyle.ButtonGallery)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBack2];
+                            }
                             else
+                            {
                                 return _buttonBorderColors[0];
+                            }
+
                         case PaletteState.Normal:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
                         case PaletteState.NormalDefaultOverride:
@@ -2276,21 +2571,26 @@ namespace ComponentFactory.Krypton.Toolkit
                                 (style == PaletteBorderStyle.ButtonCommand) ||
                                 (style == PaletteBorderStyle.ButtonButtonSpec) ||
                                 (style == PaletteBorderStyle.ContextMenuItemHighlight))
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalDefaultBorder];
+                            }
+
                         case PaletteState.CheckedNormal:
                             return _buttonBorderColors[5];
                         case PaletteState.Tracking:
                             return _buttonBorderColors[1];
-						case PaletteState.Pressed:
+                        case PaletteState.Pressed:
                         case PaletteState.CheckedPressed:
                             return _buttonBorderColors[3];
                         case PaletteState.CheckedTracking:
                             return _buttonBorderColors[3];
-						default:
-							throw new ArgumentOutOfRangeException("state");
-					}
+                        default:
+                            throw new ArgumentOutOfRangeException("state");
+                    }
                 case PaletteBorderStyle.ButtonInputControl:
                     switch (state)
                     {
@@ -2334,35 +2634,41 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ButtonNavigatorMini:
                     return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorBorder];
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the second border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor2(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the second border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor2(PaletteBorderStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 // Check for the calendar day today override
                 if (state == PaletteState.TodayOverride)
+                {
                     if (style == PaletteBorderStyle.ButtonCalendarDay)
                     {
                         if (state == PaletteState.Disabled)
+                        {
                             return _disabledBorder;
+                        }
                         else
+                        {
                             return _todayBorder;
+                        }
                     }
-                
+                }
+
                 return Color.Empty;
             }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -2374,16 +2680,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Disabled:
                             if (style == PaletteBorderStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _disabledBorder;
+                            }
+
                         case PaletteState.Normal:
                         case PaletteState.Tracking:
                         case PaletteState.Pressed:
                             if (style == PaletteBorderStyle.TabLowProfile)
+                            {
                                 return Color.Empty;
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedPressed:
                         case PaletteState.CheckedTracking:
@@ -2426,9 +2742,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBorderStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderHeaderActive];
+                    }
+
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -2450,14 +2771,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ControlBorder];
+                    }
+
                 case PaletteBorderStyle.HeaderCalendar:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.HeaderPrimaryBack2];
+                    }
+
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuItemImageColumn:
                     return _contextMenuHeadingBorder;
@@ -2478,41 +2809,71 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBorderDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlBorderNormal];
+                    }
+
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.GridDataCellBorder];
+                    }
+
                 case PaletteBorderStyle.ControlRibbon:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea1];
+                    }
+
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.AppButtonBorder];
+                    }
+
                 case PaletteBorderStyle.ContextMenuOuter:
                     return _contextMenuBorder;
                 case PaletteBorderStyle.ContextMenuInner:
                     return _contextMenuBack;
                 case PaletteBorderStyle.ControlToolTip:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledBorder;
+                    }
                     else
+                    {
                         return _toolTipBorder;
+                    }
+
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormBorderActive];
+                    }
+
                 case PaletteBorderStyle.ButtonForm:
                     switch (state)
                     {
@@ -2563,13 +2924,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ButtonCustom3:
                 case PaletteBorderStyle.ContextMenuItemHighlight:
                     switch (state)
-					{
-						case PaletteState.Disabled:
+                    {
+                        case PaletteState.Disabled:
                             if (style == PaletteBorderStyle.ButtonGallery)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBack2];
+                            }
                             else
+                            {
                                 return _buttonBorderColors[0];
-						case PaletteState.Normal:
+                            }
+
+                        case PaletteState.Normal:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
                         case PaletteState.NormalDefaultOverride:
                             return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalDefaultBorder];
@@ -2582,9 +2948,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             return _buttonBorderColors[4];
                         case PaletteState.CheckedTracking:
                             return _buttonBorderColors[4];
-						default:
-							throw new ArgumentOutOfRangeException("state");
-					}
+                        default:
+                            throw new ArgumentOutOfRangeException("state");
+                    }
                 case PaletteBorderStyle.ButtonInputControl:
                     switch (state)
                     {
@@ -2628,24 +2994,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ButtonNavigatorMini:
                     return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorBorder];
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border drawing style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public override PaletteColorStyle GetBorderColorStyle(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the color border drawing style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetBorderColorStyle(PaletteBorderStyle style, PaletteState state)
+        {
             // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
+            {
                 return PaletteColorStyle.Inherit;
-            
-			switch (style)
-			{
+            }
+
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -2716,9 +3084,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteColorStyle.Solid;
                 case PaletteBorderStyle.ContextMenuItemSplit:
                     if (state == PaletteState.Tracking)
+                    {
                         return PaletteColorStyle.Sigma;
+                    }
                     else
+                    {
                         return PaletteColorStyle.Solid;
+                    }
+
                 case PaletteBorderStyle.ContextMenuSeparator:
                     return PaletteColorStyle.Dashed;
                 case PaletteBorderStyle.ButtonStandalone:
@@ -2752,24 +3125,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ButtonFormClose:
                     return PaletteColorStyle.Solid;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderColorAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderColorAlign(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRectangleAlign.Inherit;
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -2841,25 +3216,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ContextMenuSeparator:
                 case PaletteBorderStyle.ContextMenuItemSplit:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border angle.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public override float GetBorderColorAngle(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color border angle.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetBorderColorAngle(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return -1f;
+            {
+                return -1f;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -2930,25 +3307,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return 90f;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the border width.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer width.</returns>
-		public override int GetBorderWidth(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border width.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer width.</returns>
+        public override int GetBorderWidth(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return -1;
+            {
+                return -1;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -3020,25 +3399,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return 1;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the border corner rounding.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer rounding.</returns>
-		public override int GetBorderRounding(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border corner rounding.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer rounding.</returns>
+        public override int GetBorderRounding(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return -1;
+            {
+                return -1;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.ButtonInputControl:
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
@@ -3114,24 +3495,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.FormCustom1:
                     return 5;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets a border image.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public override Image GetBorderImage(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets a border image.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetBorderImage(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return null;
+            {
+                return null;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -3202,25 +3585,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return null;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the border image style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public override PaletteImageStyle GetBorderImageStyle(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border image style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetBorderImageStyle(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteImageStyle.Inherit;
+            {
+                return PaletteImageStyle.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -3291,25 +3676,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return PaletteImageStyle.Tile;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the image border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderImageAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the image border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderImageAlign(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRectangleAlign.Inherit;
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -3380,64 +3767,72 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
         #endregion
 
-		#region Content
-		/// <summary>
-		/// Gets a value indicating if content should be drawn.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentDraw(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
-			if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
-
-			// Always draw everything
-			return InheritBool.True;
-		}
-
-		/// <summary>
-		/// Gets a value indicating if content should be drawn with focus indication.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentDrawFocus(PaletteContentStyle style, PaletteState state)
-		{
-			// By default the focus override shows the focus!
-			if (state == PaletteState.FocusOverride)
-				return InheritBool.True;
-
-			// We do not override the other override states
+        #region Content
+        /// <summary>
+        /// Gets a value indicating if content should be drawn.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDraw(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
-			// By default, never show the focus indication, we let individual controls
-			// override this functionality as required by the controls requirements
-			return InheritBool.False;
-		}
+            // Always draw everything
+            return InheritBool.True;
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentImageH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets a value indicating if content should be drawn with focus indication.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDrawFocus(PaletteContentStyle style, PaletteState state)
+        {
+            // By default the focus override shows the focus!
+            if (state == PaletteState.FocusOverride)
+            {
+                return InheritBool.True;
+            }
+
+            // We do not override the other override states
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
-			switch (style)
-			{
+            // By default, never show the focus indication, we let individual controls
+            // override this functionality as required by the controls requirements
+            return InheritBool.False;
+        }
+
+        /// <summary>
+        /// Gets the horizontal relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
+
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -3509,25 +3904,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom3:
                 case PaletteContentStyle.ButtonInputControl:
                     return PaletteRelativeAlign.Center;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentImageV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -3597,25 +3994,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteRelativeAlign.Center;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the effect applied to drawing of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteImageEffect value.</returns>
-		public override PaletteImageEffect GetContentImageEffect(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the effect applied to drawing of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteImageEffect value.</returns>
+        public override PaletteImageEffect GetContentImageEffect(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteImageEffect.Inherit;
+            {
+                return PaletteImageEffect.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
@@ -3685,13 +4084,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     if (state == PaletteState.Disabled)
-						return PaletteImageEffect.Disabled;
-					else
-						return PaletteImageEffect.Normal;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    {
+                        return PaletteImageEffect.Disabled;
+                    }
+                    else
+                    {
+                        return PaletteImageEffect.Normal;
+                    }
+
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the image color to remap into another color.
@@ -3703,7 +4107,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -3791,7 +4197,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -3879,7 +4287,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -3957,20 +4367,24 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the font for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-		public override Font GetContentShortTextFont(PaletteContentStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the font for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentShortTextFont(PaletteContentStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
+                {
                     return _calendarBoldFont;
+                }
                 else
+                {
                     return null;
+                }
             }
 
             switch (style)
@@ -4068,7 +4482,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
-		}
+        }
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
@@ -4082,20 +4496,22 @@ namespace ComponentFactory.Krypton.Toolkit
             return GetContentShortTextFont(style, state);
         }
 
-		/// <summary>
-		/// Gets the rendering hint for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
-		public override PaletteTextHint GetContentShortTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the rendering hint for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentShortTextHint(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteTextHint.Inherit;
+            {
+                return PaletteTextHint.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4165,10 +4581,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteTextHint.ClearTypeGridFit;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for short text.
@@ -4180,7 +4596,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteTextHotkeyPrefix.Inherit;
+            }
 
             switch (style)
             {
@@ -4259,20 +4677,22 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentShortTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentShortTextMultiLine(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4343,24 +4763,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellCustom1:
                     return InheritBool.True;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
-		public override PaletteTextTrim GetContentShortTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the text trimming to use for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentShortTextTrim(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteTextTrim.Inherit;
+            {
+                return PaletteTextTrim.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4430,25 +4852,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteTextTrim.EllipsisCharacter;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
@@ -4522,24 +4946,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ContextMenuItemShortcutText:
                     return PaletteRelativeAlign.Far;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4611,24 +5037,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.LabelSuperTip:
                     return PaletteRelativeAlign.Near;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4699,9 +5127,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteRelativeAlign.Near;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the short text.
@@ -4751,19 +5179,23 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                     default:
                         return Color.Empty;
-                    }
+                }
             }
 
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortActive];
+                    }
             }
 
-            if ((state == PaletteState.Disabled) && 
+            if ((state == PaletteState.Disabled) &&
                 (style != PaletteContentStyle.LabelToolTip) &&
                 (style != PaletteContentStyle.LabelSuperTip) &&
                 (style != PaletteContentStyle.LabelKeyTip) &&
@@ -4772,7 +5204,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlCustom1) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
+            {
                 return _disabledText;
+            }
 
             switch (style)
             {
@@ -4799,9 +5233,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
+
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -4842,16 +5281,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonCalendarDay:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledText2;
+                    }
                     else
+                    {
                         return Color.Black;
+                    }
+
                 case PaletteContentStyle.ButtonListItem:
                 case PaletteContentStyle.ButtonCommand:
                 case PaletteContentStyle.ButtonLowProfile:
@@ -4861,9 +5310,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Normal:
                             if (style == PaletteContentStyle.ButtonListItem)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedTracking:
                         case PaletteState.CheckedPressed:
@@ -4887,16 +5341,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
+                    }
+
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
@@ -4912,15 +5376,21 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortActive];
+                    }
             }
 
             if ((state == PaletteState.Disabled) &&
@@ -4932,7 +5402,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlCustom1) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
+            {
                 return _disabledText;
+            }
 
             switch (style)
             {
@@ -4959,9 +5431,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
+
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -5002,16 +5479,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonCalendarDay:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledText2;
+                    }
                     else
+                    {
                         return Color.Black;
+                    }
+
                 case PaletteContentStyle.ButtonListItem:
                 case PaletteContentStyle.ButtonCommand:
                 case PaletteContentStyle.ButtonLowProfile:
@@ -5021,9 +5508,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Normal:
                             if (style == PaletteContentStyle.ButtonListItem)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedTracking:
                         case PaletteState.CheckedPressed:
@@ -5046,16 +5538,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
+                    }
+
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
@@ -5071,7 +5573,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteColorStyle.Inherit;
+            }
 
             switch (style)
             {
@@ -5159,7 +5663,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteRectangleAlign.Inherit;
+            }
 
             switch (style)
             {
@@ -5247,7 +5753,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return -1f;
+            }
 
             switch (style)
             {
@@ -5335,7 +5843,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return null;
+            }
 
             switch (style)
             {
@@ -5423,7 +5933,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteImageStyle.Inherit;
+            }
 
             switch (style)
             {
@@ -5511,7 +6023,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteRectangleAlign.Inherit;
+            }
 
             switch (style)
             {
@@ -5589,24 +6103,28 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the font for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-		public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the font for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
+                {
                     return _calendarBoldFont;
+                }
                 else
+                {
                     return null;
+                }
             }
-            
-			switch (style)
-			{
+
+            switch (style)
+            {
                 case PaletteContentStyle.ButtonCalendarDay:
                     return _calendarFont;
                 case PaletteContentStyle.GridHeaderColumnList:
@@ -5651,7 +6169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
                 case PaletteContentStyle.HeaderSecondary:
-					return _header2LongFont;
+                    return _header2LongFont;
                 case PaletteContentStyle.TabLowProfile:
                 case PaletteContentStyle.TabDock:
                 case PaletteContentStyle.TabDockAutoHidden:
@@ -5691,9 +6209,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonInputControl:
                     return _buttonFont;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the font for the long text by generating a new font instance.
@@ -5706,21 +6224,23 @@ namespace ComponentFactory.Krypton.Toolkit
             DefineFonts();
             return GetContentLongTextFont(style, state);
         }
-        
-        /// <summary>
-		/// Gets the rendering hint for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
-		public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
-            if (CommonHelper.IsOverrideState(state))
-				return PaletteTextHint.Inherit;
 
-			switch (style)
-			{
+        /// <summary>
+        /// Gets the rendering hint for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteTextHint.Inherit;
+            }
+
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -5790,25 +6310,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteTextHint.ClearTypeGridFit;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return InheritBool.Inherit;
+            {
+                return InheritBool.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -5878,25 +6400,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return InheritBool.True;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
-		public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the text trimming to use for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteTextTrim.Inherit;
+            {
+                return PaletteTextTrim.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -5966,10 +6490,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
                     return PaletteTextTrim.EllipsisCharacter;
-				default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for long text.
@@ -5981,7 +6505,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteTextHotkeyPrefix.Inherit;
+            }
 
             switch (style)
             {
@@ -6059,21 +6585,23 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentOutOfRangeException("style");
             }
         }
-        
+
         /// <summary>
-		/// Gets the horizontal relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// Gets the horizontal relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.LabelSuperTip:
                 case PaletteContentStyle.LabelToolTip:
                 case PaletteContentStyle.LabelKeyTip:
@@ -6147,24 +6675,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCalendarDay:
                     return PaletteRelativeAlign.Far;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6237,24 +6767,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.LabelSuperTip:
                     return PaletteRelativeAlign.Center;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return PaletteRelativeAlign.Inherit;
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6327,9 +6859,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ContextMenuItemShortcutText:
                     return PaletteRelativeAlign.Far;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the long text.
@@ -6341,15 +6873,21 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
+                    }
             }
 
             if ((state == PaletteState.Disabled) &&
@@ -6360,7 +6898,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
                 (style != PaletteContentStyle.ButtonInputControl))
+            {
                 return _disabledText;
+            }
 
             switch (style)
             {
@@ -6387,9 +6927,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
+
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -6430,9 +6975,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonLowProfile:
@@ -6445,9 +6995,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Normal:
                             if (style == PaletteContentStyle.ButtonListItem)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedTracking:
                         case PaletteState.CheckedPressed:
@@ -6470,16 +7025,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
+                    }
+
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
@@ -6495,15 +7060,21 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
+                    }
             }
 
             if ((state == PaletteState.Disabled) &&
@@ -6514,7 +7085,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
                 (style != PaletteContentStyle.ButtonInputControl))
+            {
                 return _disabledText;
+            }
 
             switch (style)
             {
@@ -6541,9 +7114,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
                     if (state == PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
+
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -6584,9 +7162,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonLowProfile:
@@ -6599,9 +7182,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         case PaletteState.Normal:
                             if (style == PaletteContentStyle.ButtonListItem)
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
                             else
+                            {
                                 return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
+
                         case PaletteState.CheckedNormal:
                         case PaletteState.CheckedTracking:
                         case PaletteState.CheckedPressed:
@@ -6624,16 +7212,26 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
+                    }
+
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException("style");
             }
@@ -6649,7 +7247,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteColorStyle.Inherit;
+            }
 
             switch (style)
             {
@@ -6737,7 +7337,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteRectangleAlign.Inherit;
+            }
 
             switch (style)
             {
@@ -6825,7 +7427,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return -1f;
+            }
 
             switch (style)
             {
@@ -6913,7 +7517,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return null;
+            }
 
             switch (style)
             {
@@ -7001,7 +7607,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteImageStyle.Inherit;
+            }
 
             switch (style)
             {
@@ -7089,7 +7697,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteRectangleAlign.Inherit;
+            }
 
             switch (style)
             {
@@ -7166,21 +7776,23 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentOutOfRangeException("style");
             }
         }
-        
-        /// <summary>
-		/// Gets the padding between the border and content drawing.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Padding value.</returns>
-		public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
-            if (CommonHelper.IsOverrideState(state))
-                return CommonHelper.InheritPadding;
 
-			switch (style)
-			{
+        /// <summary>
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return CommonHelper.InheritPadding;
+            }
+
+            switch (style)
+            {
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
@@ -7201,7 +7813,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderDockActive:
                     return _contentPaddingDock;
                 case PaletteContentStyle.HeaderSecondary:
-					return _contentPaddingHeader2;
+                    return _contentPaddingHeader2;
                 case PaletteContentStyle.HeaderCalendar:
                     return _contentPaddingCalendar;
                 case PaletteContentStyle.LabelNormalControl:
@@ -7277,24 +7889,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _contentPaddingButton7;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
 
-		/// <summary>
-		/// Gets the padding between adjacent content items.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer value.</returns>
-		public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the padding between adjacent content items.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer value.</returns>
+        public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
-				return -1;
+            {
+                return -1;
+            }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -7366,12 +7980,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.LabelSuperTip:
                     return 5;
                 default:
-					throw new ArgumentOutOfRangeException("style");
-			}
-		}
-		#endregion
+                    throw new ArgumentOutOfRangeException("style");
+            }
+        }
+        #endregion
 
-		#region Metric
+        #region Metric
         /// <summary>
         /// Gets an integer metric value.
         /// </summary>
@@ -7411,15 +8025,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             return -1;
         }
-        
+
         /// <summary>
-		/// Gets a boolean metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
-		{
+        /// Gets a boolean metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
+        {
             switch (metric)
             {
                 case PaletteMetricBool.HeaderGroupOverlay:
@@ -7435,16 +8049,16 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return InheritBool.Inherit;
-		}
+        }
 
-		/// <summary>
-		/// Gets a padding metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>Padding value.</returns>
-		public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
-		{
+        /// <summary>
+        /// Gets a padding metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
+        {
             switch (metric)
             {
                 case PaletteMetricPadding.PageButtonPadding:
@@ -7492,8 +8106,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return Padding.Empty;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>
@@ -7504,9 +8118,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Image GetTreeViewImage(bool expanded)
         {
             if (expanded)
+            {
                 return _treeCollapseBlack;
+            }
             else
+            {
                 return _treeExpandWhite;
+            }
         }
 
         /// <summary>
@@ -7524,31 +8142,57 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                 case CheckState.Unchecked:
                     if (!enabled)
+                    {
                         return _checkBoxList.Images[0];
+                    }
                     else if (pressed)
+                    {
                         return _checkBoxList.Images[3];
+                    }
                     else if (tracking)
+                    {
                         return _checkBoxList.Images[2];
+                    }
                     else
+                    {
                         return _checkBoxList.Images[1];
+                    }
+
                 case CheckState.Checked:
                     if (!enabled)
+                    {
                         return _checkBoxList.Images[4];
+                    }
                     else if (pressed)
+                    {
                         return _checkBoxList.Images[7];
+                    }
                     else if (tracking)
+                    {
                         return _checkBoxList.Images[6];
+                    }
                     else
+                    {
                         return _checkBoxList.Images[5];
+                    }
+
                 case CheckState.Indeterminate:
                     if (!enabled)
+                    {
                         return _checkBoxList.Images[8];
+                    }
                     else if (pressed)
+                    {
                         return _checkBoxList.Images[11];
+                    }
                     else if (tracking)
+                    {
                         return _checkBoxList.Images[10];
+                    }
                     else
+                    {
                         return _checkBoxList.Images[9];
+                    }
             }
         }
 
@@ -7565,24 +8209,40 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!checkState)
             {
                 if (!enabled)
+                {
                     return _radioButtonArray[0];
+                }
                 else if (pressed)
+                {
                     return _radioButtonArray[3];
+                }
                 else if (tracking)
+                {
                     return _radioButtonArray[2];
+                }
                 else
+                {
                     return _radioButtonArray[1];
+                }
             }
             else
             {
                 if (!enabled)
+                {
                     return _radioButtonArray[4];
+                }
                 else if (pressed)
+                {
                     return _radioButtonArray[7];
+                }
                 else if (tracking)
+                {
                     return _radioButtonArray[6];
+                }
                 else
+                {
                     return _radioButtonArray[5];
+                }
             }
         }
 
@@ -7620,8 +8280,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State of the button to fetch.</param>
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetGalleryButtonImage(PaletteRibbonGalleryButton button, PaletteState state)
-        {         
-            switch(button)
+        {
+            switch (button)
             {
                 default:
                 case PaletteRibbonGalleryButton.Down:
@@ -8307,7 +8967,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteRibbonBackStyle value.</returns>
         public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteRibbonBackStyle style, PaletteState state)
         {
-            switch(style)
+            switch (style)
             {
                 case PaletteRibbonBackStyle.RibbonAppMenuDocs:
                     return PaletteRibbonColorStyle.Solid;
@@ -8317,9 +8977,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteRibbonColorStyle.RibbonAppMenuOuter;
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.CheckedNormal)
+                    {
                         return PaletteRibbonColorStyle.RibbonQATMinibarDouble;
+                    }
                     else
+                    {
                         return PaletteRibbonColorStyle.RibbonQATMinibarSingle;
+                    }
+
                 case PaletteRibbonBackStyle.RibbonQATFullbar:
                     return PaletteRibbonColorStyle.RibbonQATFullbarSquare;
                 case PaletteRibbonBackStyle.RibbonQATOverflow:
@@ -8328,9 +8993,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteRibbonColorStyle.LinearBorder;
                 case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
                     if (state == PaletteState.Pressed)
+                    {
                         return PaletteRibbonColorStyle.Empty;
+                    }
                     else
-                    return PaletteRibbonColorStyle.Linear;
+                    {
+                        return PaletteRibbonColorStyle.Linear;
+                    }
+
                 case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
                 case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
                     switch (state)
@@ -8439,9 +9109,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter1];
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1I];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonQATFullbar:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar1];
                 case PaletteRibbonBackStyle.RibbonQATOverflow:
@@ -8487,9 +9162,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PaletteRibbonBackStyle.RibbonGroupArea:
                     if (state == PaletteState.ContextCheckedNormal)
+                    {
                         return Color.Empty;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea1];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonTab:
                     switch (state)
                     {
@@ -8538,9 +9218,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter2];
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2I];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonQATFullbar:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar2];
                 case PaletteRibbonBackStyle.RibbonQATOverflow:
@@ -8650,9 +9335,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter3];
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3I];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonQATFullbar:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar3];
                 case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
@@ -8729,9 +9419,14 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4I];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
                 case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder4];
@@ -8823,9 +9518,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder5];
                 case PaletteRibbonBackStyle.RibbonQATMinibar:
                     if (state == PaletteState.Normal)
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5];
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5I];
+                    }
+
                 case PaletteRibbonBackStyle.RibbonAppButton:
                     switch (state)
                     {
@@ -8920,9 +9620,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteRibbonTextStyle.RibbonGroupCheckBoxText:
                 case PaletteRibbonTextStyle.RibbonGroupRadioButtonText:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledText;
+                    }
                     else
+                    {
                         return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupCollapsedText];
+                    }
+
                 default:
                     // Should never happen!
                     Debug.Assert(false);
@@ -8944,7 +9649,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (element)
             {
@@ -8978,7 +9685,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Color GetElementColor2(PaletteElement element, PaletteState state)
         {
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (element)
             {
@@ -9019,7 +9728,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Color GetElementColor3(PaletteElement element, PaletteState state)
         {
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (element)
             {
@@ -9063,17 +9774,23 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteElement.TrackBarTick:
                     if (CommonHelper.IsOverrideState(state))
+                    {
                         return Color.Empty;
+                    }
 
                     return _trackBarColors[0];
                 case PaletteElement.TrackBarTrack:
                     if (CommonHelper.IsOverrideState(state))
+                    {
                         return Color.Empty;
+                    }
 
                     return _trackBarColors[3];
                 case PaletteElement.TrackBarPosition:
                     if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
+                    {
                         return Color.Empty;
+                    }
 
                     switch (state)
                     {
@@ -9110,19 +9827,25 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteElement.TrackBarTick:
                     if (CommonHelper.IsOverrideState(state))
+                    {
                         return Color.Empty;
+                    }
 
                     return _trackBarColors[0];
                 case PaletteElement.TrackBarTrack:
                     if (CommonHelper.IsOverrideState(state))
+                    {
                         return Color.Empty;
+                    }
 
                     return _trackBarColors[3];
                 case PaletteElement.TrackBarPosition:
                     if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
+                    {
                         return Color.Empty;
+                    }
 
-                switch (state)
+                    switch (state)
                     {
                         case PaletteState.Disabled:
                             return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
@@ -9155,9 +9878,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (string.IsNullOrEmpty(_baseFontName))
+                {
                     return "Segoe UI";
+                }
                 else
+                {
                     return _baseFontName;
+                }
             }
 
             set
@@ -9186,25 +9913,42 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void DefineFonts()
         {
             // Release existing resources
-            if (_header1ShortFont != null) _header1ShortFont.Dispose();
-            if (_header2ShortFont != null) _header2ShortFont.Dispose();
-            if (_headerFormFont != null) _headerFormFont.Dispose();
-            if (_header1LongFont != null) _header1LongFont.Dispose();
-            if (_header2LongFont != null) _header2LongFont.Dispose();
-            if (_buttonFont != null) _buttonFont.Dispose();
-            if (_buttonFontNavigatorStack != null) _buttonFontNavigatorStack.Dispose();
-            if (_buttonFontNavigatorMini != null) _buttonFontNavigatorMini.Dispose();
-            if (_tabFontSelected != null) _tabFontSelected.Dispose();
-            if (_tabFontNormal != null) _tabFontNormal.Dispose();
-            if (_ribbonTabFont != null) _ribbonTabFont.Dispose();
-            if (_ribbonTabContextFont != null) _ribbonTabContextFont.Dispose();
-            if (_gridFont != null) _gridFont.Dispose();
-            if (_calendarFont != null) _calendarFont.Dispose();
-            if (_calendarBoldFont != null) _calendarBoldFont.Dispose();
-            if (_superToolFont != null) _superToolFont.Dispose();
-            if (_boldFont != null) _boldFont.Dispose();
-            if (_italicFont != null) _italicFont.Dispose();
+            _header1ShortFont?.Dispose();
 
+            _header2ShortFont?.Dispose();
+
+            _headerFormFont?.Dispose();
+
+            _header1LongFont?.Dispose();
+
+            _header2LongFont?.Dispose();
+
+            _buttonFont?.Dispose();
+
+            _buttonFontNavigatorStack?.Dispose();
+
+            _buttonFontNavigatorMini?.Dispose();
+
+            _tabFontSelected?.Dispose();
+
+            _tabFontNormal?.Dispose();
+
+            _ribbonTabFont?.Dispose();
+
+            _ribbonTabContextFont?.Dispose();
+
+            _gridFont?.Dispose();
+
+            _calendarFont?.Dispose();
+
+            _calendarBoldFont?.Dispose();
+
+            _superToolFont?.Dispose();
+
+            _boldFont?.Dispose();
+
+            _italicFont?.Dispose();
+            
             float baseFontSize = BaseFontSize;
             string baseFontName = BaseFontName;
             _header1ShortFont = new Font(baseFontName, baseFontSize + 4.5f, FontStyle.Bold);
@@ -9225,7 +9969,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _calendarBoldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
             _boldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
             _italicFont = new Font(baseFontName, baseFontSize, FontStyle.Italic);
-        }   
+        }
         #endregion
 
         #region ColorTable
@@ -9234,10 +9978,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override KryptonColorTable ColorTable
         {
-            get 
+            get
             {
                 if (_table == null)
+                {
                     _table = new KryptonColorTable2010(_ribbonColors, InheritBool.True, this);
+                }
 
                 return _table;
             }

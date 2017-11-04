@@ -8,11 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -97,7 +93,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void Track()
         {
             if (_gallery.TrackingIndex != _imageIndex)
+            {
                 _gallery.SetTrackingIndex(_imageIndex, false);
+            }
         }
         #endregion
 
@@ -108,7 +106,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void Untrack()
         {
             if (_gallery.TrackingIndex == _imageIndex)
+            {
                 _gallery.SetTrackingIndex(-1, false);
+            }
         }
         #endregion
 
@@ -197,7 +197,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
            // Cache image so we do not copy it every time it is requested
            if ((_image == null) && (_imageList != null) && (_imageIndex >= 0))
-                _image = _imageList.Images[_imageIndex];
+           {
+               _image = _imageList.Images[_imageIndex];
+           }
 
             return _image;
         }

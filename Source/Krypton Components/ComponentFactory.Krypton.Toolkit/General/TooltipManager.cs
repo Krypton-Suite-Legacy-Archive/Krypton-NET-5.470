@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -48,12 +45,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ToolTipManager()
         {
-            _startTimer = new Timer();
-            _startTimer.Interval = 1200;
+            _startTimer = new Timer
+            {
+                Interval = 1200
+            };
             _startTimer.Tick += new EventHandler(OnStartTimerTick);
 
-            _stopTimer = new Timer();
-            _stopTimer.Interval = 100;
+            _stopTimer = new Timer
+            {
+                Interval = 100
+            };
             _stopTimer.Tick += new EventHandler(OnStopTimerTick);
         }
         #endregion
@@ -70,7 +71,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Cannot have an interval less than 1ms
                 if (value < 0)
+                {
                     value = 1;
+                }
 
                 _startTimer.Interval = value;
             }
@@ -87,7 +90,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Cannot have an interval less than 1ms
                 if (value < 0)
+                {
                     value = 1;
+                }
 
                 _stopTimer.Interval = value;
             }
@@ -228,8 +233,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A TooltipEventArgs that contains the event data.</param>
         protected virtual void OnShowToolTip(ToolTipEventArgs e)
         {
-            if (ShowToolTip != null)
-                ShowToolTip(this, e);
+            ShowToolTip?.Invoke(this, e);
         }
 
         /// <summary>
@@ -237,8 +241,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual void OnCancelToolTip()
         {
-            if (CancelToolTip != null)
-                CancelToolTip(this, EventArgs.Empty);
+            CancelToolTip?.Invoke(this, EventArgs.Empty);
         }
         #endregion
 

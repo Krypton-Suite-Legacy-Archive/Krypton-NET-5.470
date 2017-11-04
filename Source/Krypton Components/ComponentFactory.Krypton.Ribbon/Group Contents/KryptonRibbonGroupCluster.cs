@@ -9,14 +9,10 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Collections;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -110,7 +106,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
                 foreach (KryptonRibbonGroupItem item in _ribbonClusterItems)
+                {
                     item.Ribbon = value;
+                }
             }
         }
 
@@ -131,7 +129,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
                 foreach (KryptonRibbonGroupItem item in _ribbonClusterItems)
+                {
                     item.RibbonTab = value;
+                }
             }
         }
 
@@ -189,18 +189,24 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMax != value)
                 {
                     _itemSizeMax = value;
 
                     if (_itemSizeMax == GroupItemSize.Small)
+                    {
                         _itemSizeMin = GroupItemSize.Small;
+                    }
 
                     // Update all contained elements to reflect the same sizing
                     foreach (IRibbonGroupItem item in Items)
+                    {
                         item.ItemSizeMaximum = _itemSizeMax;
+                    }
 
                     OnPropertyChanged("ItemSizeMaximum");
                 }
@@ -221,18 +227,24 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // We can never be bigger than medium
                 if (value == GroupItemSize.Large)
+                {
                     value = GroupItemSize.Medium;
+                }
 
                 if (_itemSizeMin != value)
                 {
                     _itemSizeMin = value;
 
                     if (_itemSizeMin == GroupItemSize.Medium)
+                    {
                         _itemSizeMax = GroupItemSize.Medium;
+                    }
 
                     // Update all contained elements to reflect the same sizing
                     foreach (IRibbonGroupItem item in Items)
+                    {
                         item.ItemSizeMinimum = _itemSizeMin;
+                    }
 
                     OnPropertyChanged("ItemSizeMinimum");
                 }
@@ -328,36 +340,36 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="propertyName">Name of property that has changed.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Internal
         internal void OnDesignTimeAddButton()
         {
-            if (DesignTimeAddButton != null)
-                DesignTimeAddButton(this, EventArgs.Empty);
+            DesignTimeAddButton?.Invoke(this, EventArgs.Empty);
         }
 
         internal void OnDesignTimeAddColorButton()
         {
-            if (DesignTimeAddColorButton != null)
-                DesignTimeAddColorButton(this, EventArgs.Empty);
+            DesignTimeAddColorButton?.Invoke(this, EventArgs.Empty);
         }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
-            if (DesignTimeContextMenu != null)
-                DesignTimeContextMenu(this, e);
+            DesignTimeContextMenu?.Invoke(this, e);
         }
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // Ask the containers to check for command key processing
             foreach (KryptonRibbonGroupItem item in Items)
+            {
                 if (item.Visible && item.ProcessCmdKey(ref msg, keyData))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -379,7 +391,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Only need to update display if this tab is selected
             if ((Ribbon != null) && (RibbonTab != null) && (Ribbon.SelectedTab == RibbonTab))
+            {
                 Ribbon.PerformNeedPaint(true);
+            }
         }
 
         private void OnRibbonGroupClusterInserted(object sender, TypedCollectionEventArgs<KryptonRibbonGroupItem> e)
@@ -396,7 +410,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Only need to update display if this tab is selected and the group is visible
             if ((Ribbon != null) && (RibbonTab != null) && (Ribbon.SelectedTab == RibbonTab))
+            {
                 Ribbon.PerformNeedPaint(true);
+            }
         }
 
         private void OnRibbonGroupClusterRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonGroupItem> e)
@@ -408,7 +424,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Only need to update display if this tab is selected and the group was visible
             if ((Ribbon != null) && (RibbonTab != null) && (Ribbon.SelectedTab == RibbonTab))
+            {
                 Ribbon.PerformNeedPaint(true);
+            }
         }
         #endregion
     }

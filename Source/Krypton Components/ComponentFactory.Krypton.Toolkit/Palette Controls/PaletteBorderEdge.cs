@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -90,9 +85,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public int GetBorderWidth(PaletteState state)
         {
             if (Width != -1)
+            {
                 return Width;
+            }
             else
+            {
                 return _inherit.GetBorderWidth(state);
+            }
         }
         #endregion
     }

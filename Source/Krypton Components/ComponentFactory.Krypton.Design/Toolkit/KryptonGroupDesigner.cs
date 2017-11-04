@@ -9,9 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -37,7 +34,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -55,7 +55,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Let the internal panel in the container be designable
             if (_group != null)
+            {
                 EnableDesignMode(_group.Panel, "Panel");
+            }
         }
 
         /// <summary>
@@ -78,9 +80,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Get the control designer for the requested indexed child control
             if ((internalControlIndex == 0) && (_group != null))
+            {
                 return (ControlDesigner)_designerHost.GetDesigner(_group.Panel);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
@@ -90,9 +96,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override int NumberOfInternalControlDesigners()
         {
             if (_group != null)
+            {
                 return 1;
+            }
             else
+            {
                 return 0;
+            }
         }
 
         /// <summary>
@@ -103,10 +113,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the group specific list
-                actionLists.Add(new KryptonGroupActionList(this));
+                    // Add the group specific list
+                    new KryptonGroupActionList(this)
+                };
 
                 return actionLists;
             }

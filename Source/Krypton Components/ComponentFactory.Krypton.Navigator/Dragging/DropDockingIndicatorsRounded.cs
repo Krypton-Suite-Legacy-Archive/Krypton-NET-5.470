@@ -11,9 +11,6 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -61,25 +58,27 @@ namespace ComponentFactory.Krypton.Navigator
             _showRect = new Rectangle(Point.Empty, _dragData.DockWindowSize);
 
             // Any old title will do as it will not be shown
-            CreateParams cp = new CreateParams();
-            cp.Caption = "DropDockingIndicatorsRounded";
+            CreateParams cp = new CreateParams
+            {
+                Caption = "DropDockingIndicatorsRounded",
 
-            // Define the screen position/size
-            cp.X = _showRect.X;
-            cp.Y = _showRect.Y;
-            cp.Height = _showRect.Width;
-            cp.Width = _showRect.Height;
+                // Define the screen position/size
+                X = _showRect.X,
+                Y = _showRect.Y,
+                Height = _showRect.Width,
+                Width = _showRect.Height,
 
-            // As a top-level window it has no parent
-            cp.Parent = IntPtr.Zero;
+                // As a top-level window it has no parent
+                Parent = IntPtr.Zero,
 
-            // Appear as a top-level window
-            cp.Style = unchecked((int)(uint)PI.WS_POPUP);
+                // Appear as a top-level window
+                Style = unchecked((int)(uint)PI.WS_POPUP),
 
-            // Set styles so that it does not have a caption bar and is above all other 
-            // windows in the ZOrder, i.e. TOPMOST
-            cp.ExStyle = (int)PI.WS_EX_TOPMOST +
-                         (int)PI.WS_EX_TOOLWINDOW;
+                // Set styles so that it does not have a caption bar and is above all other 
+                // windows in the ZOrder, i.e. TOPMOST
+                ExStyle = (int)PI.WS_EX_TOPMOST +
+                         (int)PI.WS_EX_TOOLWINDOW
+            };
 
             // We are going to use per-pixrl alpha blending and so need a layered window
             cp.ExStyle += (int)PI.WS_EX_LAYERED;
@@ -114,17 +113,27 @@ namespace ComponentFactory.Krypton.Navigator
 
             Point location;
             if (_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 location = new Point(screenRect.Left + 10, yMid - yHalf);
+            }
             else if (!_dragData.ShowLeft && _dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 location = new Point(screenRect.Right - _dragData.DockWindowSize.Width - 10, yMid - yHalf);
+            }
             else if (!_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && _dragData.ShowTop && !_dragData.ShowBottom)
+            {
                 location = new Point(xMid - xHalf, screenRect.Top + 10);
+            }
             else if (!_dragData.ShowLeft && !_dragData.ShowRight && !_dragData.ShowMiddle && !_dragData.ShowTop && _dragData.ShowBottom)
+            {
                 location = new Point(xMid - xHalf, screenRect.Bottom - _dragData.DockWindowSize.Height - 10);
+            }
             else
+            {
                 location = new Point(xMid - xHalf, yMid - yHalf);
+            }
 
-            // Update the image for display
+		    // Update the image for display
             UpdateLayeredWindow(new Rectangle(location, _showRect.Size));
             
 			// Show the window without activating it (i.e. do not take focus)
@@ -156,20 +165,36 @@ namespace ComponentFactory.Krypton.Navigator
             _dragData.ClearActive();
 
 			// Find new active area
-            if (_dragData.ShowLeft && _dragData.RectLeft.Contains(pt))      _dragData.ActiveLeft = true;
-            if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))    _dragData.ActiveRight = true;
-            if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))        _dragData.ActiveTop = true;
-            if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))  _dragData.ActiveBottom = true;
-			
-			// Only consider the middle if the others do not match
+            if (_dragData.ShowLeft && _dragData.RectLeft.Contains(pt))
+            {
+                _dragData.ActiveLeft = true;
+            }
+		    if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))
+		    {
+		        _dragData.ActiveRight = true;
+		    }
+		    if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))
+		    {
+		        _dragData.ActiveTop = true;
+		    }
+		    if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))
+		    {
+		        _dragData.ActiveBottom = true;
+		    }
+
+		    // Only consider the middle if the others do not match
             if ((_dragData.ActiveFlags == 0) && _dragData.ShowMiddle && _dragData.RectMiddle.Contains(pt))
+            {
                 _dragData.ActiveMiddle = true;
+            }
 
-			// Do we need to update the display?
+		    // Do we need to update the display?
             if (_dragData.ActiveFlags != activeBefore)
+            {
                 UpdateLayeredWindow(_showRect);
+            }
 
-            return _dragData.ActiveFlags;
+		    return _dragData.ActiveFlags;
 		}
 
 		/// <summary>
@@ -202,7 +227,9 @@ namespace ComponentFactory.Krypton.Navigator
                     // Perform actual painting onto the bitmap
                     Rectangle area = new Rectangle(0, 0, rect.Width, rect.Height);
                     using (RenderContext context = new RenderContext(null, g, area, _renderer))
+                    {
                         _renderer.RenderGlyph.DrawDragDropDockingGlyph(context, _dragData, _paletteDragDrop, PaletteDragFeedback.Rounded);
+                    }
 
                     // Get hold of the screen DC
                     IntPtr hDC = PI.GetDC(IntPtr.Zero);
@@ -232,11 +259,13 @@ namespace ComponentFactory.Krypton.Navigator
                     pointSource.y = 0;
 
                     // We want to make the entire bitmap opaque 
-                    PI.BLENDFUNCTION blend = new PI.BLENDFUNCTION();
-                    blend.BlendOp = (byte)PI.AC_SRC_OVER;
-                    blend.BlendFlags = 0;
-                    blend.SourceConstantAlpha = 255;
-                    blend.AlphaFormat = (byte)PI.AC_SRC_ALPHA;
+                    PI.BLENDFUNCTION blend = new PI.BLENDFUNCTION
+                    {
+                        BlendOp = (byte)PI.AC_SRC_OVER,
+                        BlendFlags = 0,
+                        SourceConstantAlpha = 255,
+                        AlphaFormat = (byte)PI.AC_SRC_ALPHA
+                    };
 
                     // Tell operating system to use our bitmap for painting
                     PI.UpdateLayeredWindow(Handle, hDC, ref topPos, ref ulwsize,

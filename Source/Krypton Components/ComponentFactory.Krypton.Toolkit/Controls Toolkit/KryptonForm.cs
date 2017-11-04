@@ -9,16 +9,12 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -71,7 +67,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Static Fields
         private static readonly Size CAPTION_ICON_SIZE = new Size(16, 16);
-        private static readonly int _htCorner = 8;
+        private const int HT_CORNER = 8;
+
         #endregion
 
         #region Instance Fields
@@ -150,11 +147,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                               _stateActive.Header,
                                               PaletteMetricBool.None,
                                               PaletteMetricPadding.None,
-                                              VisualOrientation.Top);
+                                              VisualOrientation.Top)
+            {
 
-            // We need the border drawn before content to allow any injected elements
-            // such as the application button for the ribbon to draw over borders.
-            _drawHeading.ForceBorderFirst = true;
+                // We need the border drawn before content to allow any injected elements
+                // such as the application button for the ribbon to draw over borders.
+                ForceBorderFirst = true
+            };
 
             // Content draws the text and icon inside the title bar
             _drawContent = new ViewDrawContent(_stateActive.Header.Content, this, VisualOrientation.Top);
@@ -167,9 +166,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutNull = new ViewLayoutNull();
 
             // Create the root element that contains the title bar and null filler
-            _drawDocker = new ViewDrawForm(_stateActive.Back, _stateActive.Border);
-            _drawDocker.Add(_headingFixedSize, ViewDockStyle.Top);
-            _drawDocker.Add(_layoutNull, ViewDockStyle.Fill);
+            _drawDocker = new ViewDrawForm(_stateActive.Back, _stateActive.Border)
+            {
+                { _headingFixedSize, ViewDockStyle.Top },
+                { _layoutNull, ViewDockStyle.Fill }
+            };
 
             // Create button specification collection manager
             _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, _buttonSpecsFixed,
@@ -294,8 +295,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _allowStatusStripMerge = value;
 
-                    if (_statusStrip != null)
-                        _statusStrip.Invalidate();
+                    _statusStrip?.Invalidate();
 
                     PerformNeedPaint(false);
                 }
@@ -582,11 +582,17 @@ namespace ComponentFactory.Krypton.Toolkit
             uint style = PI.GetWindowLong(Handle, PI.GWL_STYLE);
 
             if ((style & PI.WS_MINIMIZE) != 0)
+            {
                 return FormWindowState.Minimized;
+            }
             else if ((style & PI.WS_MAXIMIZE) != 0)
+            {
                 return FormWindowState.Maximized;
+            }
             else
+            {
                 return FormWindowState.Normal;
+            }
         }
         #endregion
 
@@ -703,7 +709,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Convert to a bitmap for use in drawing (get the 16x16 version if available)
                     using (Icon temp = new Icon(_cacheIcon, new Size(16, 16)))
+                    {
                         _cacheBitmap = temp.ToBitmap();
+                    }
                 }
                 catch
                 {
@@ -838,7 +846,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Recreate all the button specs with new values
             _buttonManager.RecreateButtons();
@@ -869,7 +880,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Only need to redraw if showing custom chrome
             if (ApplyCustomChrome)
+            {
                 PerformNeedPaint(false);
+            }
 
             base.OnWindowActiveChanged();
         }
@@ -940,7 +953,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Point originalPt = pt;
 
             if ((CustomCaptionArea != null) && CustomCaptionArea.Contains(pt))
+            {
                 return (IntPtr)PI.HTCAPTION;
+            }
 
             if (!composition)
             {
@@ -952,17 +967,20 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Get the mouse controller for this button
                     ViewBase viewBase = ViewManager.Root.ViewFromPoint(pt);
                     IMouseController controller = viewBase.FindMouseController();
-                    ButtonController buttonController = controller as ButtonController;
 
                     // Ensure the button shows as 'normal' state when mouse not over and pressed
-                    if (buttonController != null)
+                    if (controller is ButtonController buttonController)
+                    {
                         buttonController.NonClientAsNormal = true;
+                    }
                 }
             }
 
             // Do not allow the caption to be moved or the border resized
             if (InertForm)
+            {
                 return (IntPtr)PI.HTCLIENT;
+            }
 
             using (ViewLayoutContext context = new ViewLayoutContext(this, Renderer))
             {
@@ -971,7 +989,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Is the mouse over the image area
                     if (_drawContent.ImageRectangle(context).Contains(pt))
+                    {
                         return (IntPtr)PI.HTMENU;
+                    }
                 }
             }
 
@@ -990,9 +1010,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     // When maximized we do not have any borders around the client
                     if (WindowState == FormWindowState.Maximized)
+                    {
                         borders = Padding.Empty;
+                    }
                     else
+                    {
                         borders = RealWindowBorders;
+                    }
+
                     break;
             }
 
@@ -1000,7 +1025,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // the values for the size of the border hit testing for resizing the window
             // and not the size of the border for drawing purposes.
             if (borders.Top > borders.Left)
+            {
                 borders.Top = borders.Left;
+            }
 
             // Get the elements that contains the mouse point
             ViewBase mouseView = ViewManager.Root.ViewFromPoint(pt);
@@ -1016,7 +1043,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         (pt.X < (Width - borders.Right)) &&
                         (pt.Y > borders.Top) &&
                         (pt.Y < (Height - borders.Bottom)))
+                    {
                         return (IntPtr)PI.HTCAPTION;
+                    }
                 }
 
                 // Is mouse over one of the borders?
@@ -1025,11 +1054,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is point over the left border?
                     if ((borders.Left > 0) && (pt.X <= borders.Left))
                     {
-                        if (pt.Y <= _htCorner)
+                        if (pt.Y <= HT_CORNER)
+                        {
                             return (IntPtr)PI.HTTOPLEFT;
+                        }
 
-                        if (pt.Y >= (Height - _htCorner))
+                        if (pt.Y >= (Height - HT_CORNER))
+                        {
                             return (IntPtr)PI.HTBOTTOMLEFT;
+                        }
 
                         return (IntPtr)PI.HTLEFT;
                     }
@@ -1037,11 +1070,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is point over the right border?
                     if ((borders.Right > 0) && (pt.X >= (Width - borders.Right)))
                     {
-                        if (pt.Y <= _htCorner)
+                        if (pt.Y <= HT_CORNER)
+                        {
                             return (IntPtr)PI.HTTOPRIGHT;
+                        }
 
-                        if (pt.Y >= (Height - _htCorner))
+                        if (pt.Y >= (Height - HT_CORNER))
+                        {
                             return (IntPtr)PI.HTBOTTOMRIGHT;
+                        }
 
                         return (IntPtr)PI.HTRIGHT;
                     }
@@ -1049,11 +1086,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is point over the bottom border?
                     if ((borders.Bottom > 0) && (pt.Y >= (Height - borders.Bottom)))
                     {
-                        if (pt.X <= _htCorner)
+                        if (pt.X <= HT_CORNER)
+                        {
                             return (IntPtr)PI.HTBOTTOMLEFT;
+                        }
 
-                        if (pt.X >= (Width - _htCorner))
+                        if (pt.X >= (Width - HT_CORNER))
+                        {
                             return (IntPtr)PI.HTBOTTOMRIGHT;
+                        }
 
                         return (IntPtr)PI.HTBOTTOM;
                     }
@@ -1061,11 +1102,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is point over the top border?
                     if ((borders.Top > 0) && (pt.Y <= borders.Top))
                     {
-                        if (pt.X <= _htCorner)
+                        if (pt.X <= HT_CORNER)
+                        {
                             return (IntPtr)PI.HTTOPLEFT;
+                        }
 
-                        if (pt.X >= (Width - _htCorner))
+                        if (pt.X >= (Width - HT_CORNER))
+                        {
                             return (IntPtr)PI.HTTOPRIGHT;
+                        }
 
                         return (IntPtr)PI.HTTOP;
                     }
@@ -1124,7 +1169,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     case FormBorderStyle.FixedSingle:
                         // Only show icon if Form properties allow it
                         if (ShowIcon && ControlBox)
+                        {
                             return Icon;
+                        }
+
                         break;
                 }
             }
@@ -1197,9 +1245,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Make sure the max/restore setting is correct
                     if (WindowState == FormWindowState.Maximized)
+                    {
                         _buttonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
+                    }
                     else
+                    {
                         _buttonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormMax;
+                    }
 
                     // Make sure the min/restore setting is correct
                     if (WindowState == FormWindowState.Minimized)
@@ -1255,13 +1307,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         bool notNormal = false;
                         foreach(ButtonSpecView bsv in _buttonManager.ButtonSpecViews)
-                            switch(bsv.ViewButton.State)
+                        {
+                            switch (bsv.ViewButton.State)
                             {
                                 case PaletteState.Tracking:
                                 case PaletteState.Pressed:
                                     notNormal = true;
                                     break;
                             }
+                        }
 
                         if (_lastNotNormal != notNormal)
                         {
@@ -1287,7 +1341,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // If in the maximized state we manually create the region
                         if (GetWindowState() == FormWindowState.Maximized)
+                        {
                             UpdateRegionForMaximized();
+                        }
                         else
                         {
                             // Track the window state at the time the region is created
@@ -1299,15 +1355,23 @@ namespace ComponentFactory.Krypton.Toolkit
                                 using (GraphicsPath path = _drawDocker.GetOuterBorderPath(context))
                                 {
                                     if (!_firstCheckView)
+                                    {
                                         SuspendPaint();
-                                    
+                                    }
+
                                     if (path != null)
+                                    {
                                         UpdateBorderRegion(new Region(path));
+                                    }
                                     else
+                                    {
                                         UpdateBorderRegion(null);
-                                    
+                                    }
+
                                     if (!_firstCheckView)
+                                    {
                                         ResumePaint();
+                                    }
                                 }
                             }
                         }
@@ -1331,7 +1395,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // the maximized state then we need to update the region ourself right now
                 if ((GetWindowState() == FormWindowState.Maximized) &&
                     (_regionWindowState != FormWindowState.Maximized))
+                {
                     UpdateRegionForMaximized();
+                }
 
                 // We draw the main form and header background
                 _drawDocker.DrawCanvas = true;
@@ -1376,8 +1442,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Region = newRegion;
 
             // Cleanup old region gracefully
-            if (oldRegion != null)
-                oldRegion.Dispose();
+            oldRegion?.Dispose();
         }
 
         private void UpdateCustomChromeDecision()
@@ -1422,7 +1487,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private void MonitorStatusStrip(StatusStrip statusStrip)
         {
             if (_statusStrip != null)
+            {
                 UnmonitorStatusStrip();
+            }
 
             // Hook into event handlers
             _statusStrip = statusStrip;
@@ -1448,7 +1515,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
+                {
                     return;
+                }
 
                 // Never show tooltips are design time
                 if (!DesignMode)
@@ -1469,15 +1538,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // Is there actually anything to show for the tooltip
                             if (buttonSpecMapping.HasContent)
+                            {
                                 sourceContent = buttonSpecMapping;
+                            }
                         }
                     }
 
                     if (sourceContent != null)
                     {
                         // Remove any currently showing tooltip
-                        if (_visualPopupToolTip != null)
-                            _visualPopupToolTip.Dispose();
+                        _visualPopupToolTip?.Dispose();
 
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -1499,8 +1569,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCancelToolTip(object sender, EventArgs e)
         {
             // Remove any currently showing tooltip
-            if (_visualPopupToolTip != null)
-                _visualPopupToolTip.Dispose();
+            _visualPopupToolTip?.Dispose();
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
@@ -1516,9 +1585,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnButtonManagerNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Only interested in optimizing specific button spec changes
-            if (sender is ButtonSpecView)
+            if (sender is ButtonSpecView bsView)
             {
-                ButtonSpecView bsView = (ButtonSpecView)sender;
                 ButtonSpec bs = bsView.ButtonSpec;
 
                 // Only interest in the three form level buttons, as we know 
@@ -1545,13 +1613,17 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnStatusDockChanged(object sender, EventArgs e)
         {
             if (StatusStripMerging)
+            {
                 PerformNeedPaint(false);
+            }
         }
 
         private void OnStatusVisibleChanged(object sender, EventArgs e)
         {
             if (StatusStripMerging)
+            {
                 PerformNeedPaint(false);
+            }
         }
 
         private void OnGlobalAllowFormChromeChanged(object sender, EventArgs e)
@@ -1563,7 +1635,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We only care if we are using the global palette
             if (PaletteMode == PaletteMode.Global)
+            {
                 UpdateCustomChromeDecision();
+            }
         }
         #endregion
     }

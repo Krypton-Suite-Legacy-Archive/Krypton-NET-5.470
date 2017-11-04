@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -694,8 +691,10 @@ namespace ComponentFactory.Krypton.Navigator
             actions.Add(new DesignerActionHeaderItem("Bar"));
             
             if (includeBarOrientation)
+            {
                 actions.Add(new DesignerActionPropertyItem("BarOrientation", "Bar Orientation", "Bar", "Orientation of the bar."));
-            
+            }
+
             actions.Add(new DesignerActionPropertyItem("ItemOrientationBar", "Item Orientation", "Bar", "Orientation of the bar items."));
             actions.Add(new DesignerActionPropertyItem("ItemAlignment", "Item Alignment", "Bar", "Alignment of items on the bar."));
             actions.Add(new DesignerActionPropertyItem("ItemSizing", "Item Sizing", "Bar", "Sizing algorithm for bar items."));
@@ -703,7 +702,9 @@ namespace ComponentFactory.Krypton.Navigator
             if (!ignore)
             {
                 if (checkButton)
+                {
                     actions.Add(new DesignerActionPropertyItem("CheckButtonStyleBar", "Item Style", "Bar", "Style of items on the bar."));
+                }
                 else
                 {
                     actions.Add(new DesignerActionPropertyItem("TabBorderStyle", "Tab Border Style", "Bar", "Border style for tabs on the bar."));
@@ -802,11 +803,15 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Can only remove a page if one if selected
             if (_navigator.SelectedPage != null)
+            {
                 actions.Add(new DesignerActionMethodItem(this, "RemovePage", "Remove Page", "Actions"));
+            }
 
             // Are there any pages to be removed
             if (_navigator.Pages.Count > 0)
+            {
                 actions.Add(new DesignerActionMethodItem(this, "ClearPages", "Clear Pages", "Actions"));
+            }
         }
 
         private void OnVisibleClick(object sender, EventArgs e)

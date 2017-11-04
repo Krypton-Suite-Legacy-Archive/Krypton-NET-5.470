@@ -8,12 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Text;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -357,8 +354,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void MouseEnter()
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.MouseEnter();
+            Parent?.MouseEnter();
         }
 
         /// <summary>
@@ -368,8 +364,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void MouseMove(Point pt)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.MouseMove(pt);
+            Parent?.MouseMove(pt);
         }
 
         /// <summary>
@@ -382,9 +377,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Bubble event up to the parent
             if (Parent != null)
+            {
                 return Parent.MouseDown(pt, button);
+            }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -396,7 +395,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Bubble event up to the parent
             if (Parent != null)
+            {
                 Parent.MouseUp(pt, button);
+            }
         }
 
         /// <summary>
@@ -406,8 +407,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void MouseLeave(ViewBase next)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.MouseLeave(next);
+            Parent?.MouseLeave(next);
         }
         #endregion
 
@@ -419,8 +419,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void KeyDown(KeyEventArgs e)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.KeyDown(e);
+            Parent?.KeyDown(e);
         }
 
         /// <summary>
@@ -430,8 +429,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void KeyPress(KeyPressEventArgs e)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.KeyPress(e);
+            Parent?.KeyPress(e);
         }
 
         /// <summary>
@@ -443,9 +441,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Bubble event up to the parent
             if (Parent != null)
+            {
                 return Parent.KeyUp(e);
+            }
             else
+            {
                 return false;
+            }
         }
         #endregion
 
@@ -457,8 +459,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void GotFocus(Control c)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.GotFocus(c);
+            Parent?.GotFocus(c);
         }
 
         /// <summary>
@@ -468,8 +469,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void LostFocus(Control c)
         {
             // Bubble event up to the parent
-            if (Parent != null)
-                Parent.LostFocus(c);
+            Parent?.LostFocus(c);
         }
         #endregion
 

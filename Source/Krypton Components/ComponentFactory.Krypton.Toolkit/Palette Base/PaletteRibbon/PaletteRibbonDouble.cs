@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -167,9 +161,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonBackColor1(PaletteState state)
         {
             if (BackColor1 != Color.Empty)
+            {
                 return BackColor1;
+            }
             else
+            {
                 return _inheritBack.GetRibbonBackColor1(state);
+            }
         }
         #endregion
 
@@ -212,9 +210,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonBackColor2(PaletteState state)
         {
             if (BackColor2 != Color.Empty)
+            {
                 return BackColor2;
+            }
             else
+            {
                 return _inheritBack.GetRibbonBackColor2(state);
+            }
         }
         #endregion
 
@@ -257,9 +259,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonBackColor3(PaletteState state)
         {
             if (BackColor3 != Color.Empty)
+            {
                 return BackColor3;
+            }
             else
+            {
                 return _inheritBack.GetRibbonBackColor3(state);
+            }
         }
         #endregion
 
@@ -302,9 +308,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonBackColor4(PaletteState state)
         {
             if (BackColor4 != Color.Empty)
+            {
                 return BackColor4;
+            }
             else
+            {
                 return _inheritBack.GetRibbonBackColor4(state);
+            }
         }
         #endregion
 
@@ -347,9 +357,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonBackColor5(PaletteState state)
         {
             if (BackColor5 != Color.Empty)
+            {
                 return BackColor5;
+            }
             else
+            {
                 return _inheritBack.GetRibbonBackColor5(state);
+            }
         }
         #endregion
 
@@ -392,9 +406,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetRibbonTextColor(PaletteState state)
         {
             if (TextColor != Color.Empty)
+            {
                 return TextColor;
+            }
             else
+            {
                 return _inheritText.GetRibbonTextColor(state);
+            }
         }
         #endregion
     }

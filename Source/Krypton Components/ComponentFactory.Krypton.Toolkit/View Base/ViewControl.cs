@@ -9,19 +9,11 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Reflection;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -110,18 +102,18 @@ namespace ComponentFactory.Krypton.Toolkit
             while (parent != null)
             {
                 // We can hook into a visual control derived class
-                if (parent is VisualControl)
+                if (parent is VisualControl control)
                 {
-                    _rootControl = (VisualControl)parent;
+                    _rootControl = control;
                     _rootPopup = null;
                     break;
                 }
 
                 // We can hook into a visual popup derived class
-                if (parent is VisualPopup)
+                if (parent is VisualPopup popup)
                 {
                     _rootControl = null;
-                    _rootPopup = (VisualPopup)parent;
+                    _rootPopup = popup;
                     break;
                 }
 
@@ -176,11 +168,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Do we need to paint the background as the foreground of the parent
                 if (TransparentBackground)
+                {
                     PaintTransparentBackground(e);
+                }
 
                 // Give handles a change to draw the background
-                if (PaintBackground != null)
-                    PaintBackground(this, e);
+                PaintBackground?.Invoke(this, e);
 
                 // Create a render context for drawing the view
                 using (RenderContext context = new RenderContext(GetViewManager(),
@@ -275,7 +268,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Do not change focus at design time because 
                     if (!InDesignMode)
+                    {
                         RootInstance.Focus();
+                    }
                 }
             }
 
@@ -344,7 +339,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we have a manager for processing mouse messages?
                 if (GetViewManager() != null)
+                {
                     GetViewManager().KeyDown(e);
+                }
             }
 
             // Let base class fire events
@@ -362,7 +359,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we have a manager for processing mouse messages?
                 if (GetViewManager() != null)
+                {
                     GetViewManager().KeyPress(e);
+                }
             }
 
             // Let base class fire events
@@ -380,7 +379,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Do we have a manager for processing mouse messages?
                 if (GetViewManager() != null)
+                {
                     GetViewManager().KeyUp(e);
+                }
             }
 
             // Let base class fire events
@@ -397,15 +398,22 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             if (IsHandleCreated)
             {
                 // Always request the repaint immediately
                 if (e.InvalidRect.IsEmpty)
+                {
                     Invalidate(true);
+                }
                 else
+                {
                     Invalidate(e.InvalidRect, true);
+                }
             }
         }
 
@@ -441,8 +449,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ViewControlHitTestArgs containing the event data.</param>
         protected virtual void OnWndProcHitTest(ViewControlHitTestArgs e)
         {
-            if (WndProcHitTest != null)
-                WndProcHitTest(this, e);
+            WndProcHitTest?.Invoke(this, e);
         }
         #endregion
 
@@ -452,9 +459,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_rootControl != null)
+                {
                     return _rootControl;
+                }
                 else if (_rootPopup != null)
+                {
                     return _rootPopup;
+                }
                 else
                 {
                     Debug.Assert(false);
@@ -466,9 +477,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewManager GetViewManager()
         {
             if (_rootControl != null)
+            {
                 return _rootControl.GetViewManager();
+            }
             else if (_rootPopup != null)
+            {
                 return _rootPopup.GetViewManager();
+            }
             else
             {
                 Debug.Assert(false);
@@ -481,9 +496,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_rootControl != null)
+                {
                     return _rootControl.Renderer;
+                }
                 else if (_rootPopup != null)
+                {
                     return _rootPopup.Renderer;
+                }
                 else
                 {
                     Debug.Assert(false);

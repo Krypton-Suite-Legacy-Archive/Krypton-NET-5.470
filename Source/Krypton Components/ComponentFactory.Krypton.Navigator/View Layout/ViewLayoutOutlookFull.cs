@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -193,19 +188,25 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Do we need to update the vertical scrolling values?
             if (canScrollV)
+            {
                 ScrollbarV.SetScrollValues(0, Viewport.ScrollExtent.Height - 1,
-                                           1, Viewport.ClientSize.Height,
-                                           Viewport.ScrollOffset.Y);
+                    1, Viewport.ClientSize.Height,
+                    Viewport.ScrollOffset.Y);
+            }
 
             // Do we need to update the horizontal scrolling values?
             if (canScrollH)
+            {
                 ScrollbarH.SetScrollValues(0, Viewport.ScrollExtent.Width - 1,
-                                           1, Viewport.ClientSize.Width,
-                                           Viewport.ScrollOffset.X);
+                    1, Viewport.ClientSize.Width,
+                    Viewport.ScrollOffset.X);
+            }
 
             // If visible state of an overflow button has changed, need to relayout
             if (!beforeOverflowState.Equals(_viewBuilder.GetOverflowButtonStates()))
+            {
                 NeedPaint(true);
+            }
         }
         #endregion
     }

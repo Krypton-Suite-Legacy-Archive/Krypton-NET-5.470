@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -164,9 +159,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return InheritBool.Inherit;
+                }
                 else
-                    return _storage.BackDraw; 
+                {
+                    return _storage.BackDraw;
+                }
             }
 
 			set
@@ -184,8 +183,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != InheritBool.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackDraw = value;
+                        _storage = new InternalStorage
+                        {
+                            BackDraw = value
+                        };
                         OnPropertyChanged("Draw");
                         PerformNeedPaint();
                     }
@@ -201,10 +202,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public InheritBool GetBackDraw(PaletteState state)
 		{
 			if (Draw != InheritBool.Inherit)
-				return Draw;
-			else
-				return _inherit.GetBackDraw(state);
-		}
+            {
+                return Draw;
+            }
+            else
+            {
+                return _inherit.GetBackDraw(state);
+            }
+        }
 		#endregion
 
 		#region GraphicsHint
@@ -221,9 +226,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteGraphicsHint.Inherit;
+                }
                 else
-                    return _storage.BackGraphicsHint; 
+                {
+                    return _storage.BackGraphicsHint;
+                }
             }
 
 			set
@@ -241,8 +250,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteGraphicsHint.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackGraphicsHint = value;
+                        _storage = new InternalStorage
+                        {
+                            BackGraphicsHint = value
+                        };
                         OnPropertyChanged("GraphicsHint");
                         PerformNeedPaint();
                     }
@@ -258,10 +269,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
 		{
 			if (GraphicsHint != PaletteGraphicsHint.Inherit)
-				return GraphicsHint;
-			else
-				return _inherit.GetBackGraphicsHint(state);
-		}
+            {
+                return GraphicsHint;
+            }
+            else
+            {
+                return _inherit.GetBackGraphicsHint(state);
+            }
+        }
 		#endregion
 
 		#region Color1
@@ -278,9 +293,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
-                    return _storage.BackColor1; 
+                {
+                    return _storage.BackColor1;
+                }
             }
 			
 			set 
@@ -298,8 +317,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackColor1 = value;
+                        _storage = new InternalStorage
+                        {
+                            BackColor1 = value
+                        };
                         OnPropertyChanged("Color1");
                         PerformNeedPaint();
                     }
@@ -315,10 +336,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Color GetBackColor1(PaletteState state)
 		{
 			if (Color1 != Color.Empty)
-				return Color1;
-			else
-				return _inherit.GetBackColor1(state);
-		}
+            {
+                return Color1;
+            }
+            else
+            {
+                return _inherit.GetBackColor1(state);
+            }
+        }
 		#endregion
 
 		#region Color2
@@ -335,9 +360,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
-                    return _storage.BackColor2; 
+                {
+                    return _storage.BackColor2;
+                }
             }
 
 			set
@@ -355,8 +384,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackColor2 = value;
+                        _storage = new InternalStorage
+                        {
+                            BackColor2 = value
+                        };
                         OnPropertyChanged("Color2");
                         PerformNeedPaint();
                     }
@@ -372,10 +403,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Color GetBackColor2(PaletteState state)
 		{
 			if (Color2 != Color.Empty)
-				return Color2;
-			else
-				return _inherit.GetBackColor2(state);
-		}
+            {
+                return Color2;
+            }
+            else
+            {
+                return _inherit.GetBackColor2(state);
+            }
+        }
 		#endregion
 
 		#region ColorStyle
@@ -392,9 +427,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteColorStyle.Inherit;
+                }
                 else
-                    return _storage.BackColorStyle; 
+                {
+                    return _storage.BackColorStyle;
+                }
             }
 
 			set
@@ -412,8 +451,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteColorStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackColorStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            BackColorStyle = value
+                        };
                         OnPropertyChanged("ColorStyle");
                         PerformNeedPaint();
                     }
@@ -429,10 +470,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteColorStyle GetBackColorStyle(PaletteState state)
 		{
 			if (ColorStyle != PaletteColorStyle.Inherit)
-				return ColorStyle;
-			else
-				return _inherit.GetBackColorStyle(state);
-		}
+            {
+                return ColorStyle;
+            }
+            else
+            {
+                return _inherit.GetBackColorStyle(state);
+            }
+        }
 		#endregion
 
 		#region ColorAlign
@@ -449,9 +494,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
-                    return _storage.BackColorAlign; 
+                {
+                    return _storage.BackColorAlign;
+                }
             }
 
 			set
@@ -469,8 +518,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackColorAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            BackColorAlign = value
+                        };
                         OnPropertyChanged("ColorAlign");
                         PerformNeedPaint();
                     }
@@ -486,10 +537,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteRectangleAlign GetBackColorAlign(PaletteState state)
 		{
 			if (ColorAlign != PaletteRectangleAlign.Inherit)
-				return ColorAlign;
-			else
-				return _inherit.GetBackColorAlign(state);
-		}
+            {
+                return ColorAlign;
+            }
+            else
+            {
+                return _inherit.GetBackColorAlign(state);
+            }
+        }
 		#endregion
 
 		#region ColorAngle
@@ -506,9 +561,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return -1;
+                }
                 else
-                    return _storage.BackColorAngle; 
+                {
+                    return _storage.BackColorAngle;
+                }
             }
 
 			set
@@ -526,8 +585,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != -1)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackColorAngle = value;
+                        _storage = new InternalStorage
+                        {
+                            BackColorAngle = value
+                        };
                         OnPropertyChanged("ColorAngle");
                         PerformNeedPaint();
                     }
@@ -543,10 +604,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public float GetBackColorAngle(PaletteState state)
 		{
 			if (ColorAngle != -1)
-				return ColorAngle;
-			else
-				return _inherit.GetBackColorAngle(state);
-		}
+            {
+                return ColorAngle;
+            }
+            else
+            {
+                return _inherit.GetBackColorAngle(state);
+            }
+        }
 		#endregion
 
 		#region Image
@@ -560,13 +625,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get 
-            {
-                if (_storage == null)
-                    return null;
-                else
-                    return _storage.BackImage; 
-            }
+			get
+			{
+			    return _storage?.BackImage;
+			}
 
 			set
 			{
@@ -583,8 +645,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != null)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackImage = value;
+                        _storage = new InternalStorage
+                        {
+                            BackImage = value
+                        };
                         OnPropertyChanged("Image");
                         PerformNeedPaint();
                     }
@@ -600,10 +664,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Image GetBackImage(PaletteState state)
 		{
 			if (Image != null)
-				return Image;
-			else
-				return _inherit.GetBackImage(state);
-		}
+            {
+                return Image;
+            }
+            else
+            {
+                return _inherit.GetBackImage(state);
+            }
+        }
 		#endregion
 
 		#region ImageStyle
@@ -620,9 +688,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteImageStyle.Inherit;
+                }
                 else
-                    return _storage.BackImageStyle; 
+                {
+                    return _storage.BackImageStyle;
+                }
             }
 
 			set
@@ -640,8 +712,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteImageStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackImageStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            BackImageStyle = value
+                        };
                         OnPropertyChanged("ImageStyle");
                         PerformNeedPaint();
                     }
@@ -657,10 +731,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteImageStyle GetBackImageStyle(PaletteState state)
 		{
 			if (ImageStyle != PaletteImageStyle.Inherit)
-				return ImageStyle;
-			else
-				return _inherit.GetBackImageStyle(state);
-		}
+            {
+                return ImageStyle;
+            }
+            else
+            {
+                return _inherit.GetBackImageStyle(state);
+            }
+        }
 		#endregion
 
 		#region ImageAlign
@@ -677,9 +755,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
-                    return _storage.BackImageAlign; 
+                {
+                    return _storage.BackImageAlign;
+                }
             }
 
 			set
@@ -697,8 +779,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BackImageAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            BackImageAlign = value
+                        };
                         OnPropertyChanged("ImageAlign");
                         PerformNeedPaint();
                     }
@@ -714,10 +798,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteRectangleAlign GetBackImageAlign(PaletteState state)
 		{
 			if (ImageAlign != PaletteRectangleAlign.Inherit)
-				return ImageAlign;
-			else
-				return _inherit.GetBackImageAlign(state);
-		}
+            {
+                return ImageAlign;
+            }
+            else
+            {
+                return _inherit.GetBackImageAlign(state);
+            }
+        }
 		#endregion
 
         #region Protected
@@ -727,8 +815,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="property">Name of the property changed.</param>
         protected virtual void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
         #endregion
     }

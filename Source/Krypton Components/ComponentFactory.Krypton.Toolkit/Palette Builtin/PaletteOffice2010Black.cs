@@ -8,16 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -43,14 +35,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _buttonSpecRibbonMinimize = Properties.Resources.RibbonUp2010Black;
         private static readonly Image _buttonSpecRibbonExpand = Properties.Resources.RibbonDown2010Black;
         private static readonly Color _disabledRibbonText = Color.FromArgb(205, 205, 205);
-        private static readonly Color[] _trackBarColors = new Color[] { Color.FromArgb( 17,  17,  17),      // Tick marks
+        private static readonly Color[] _trackBarColors = { Color.FromArgb( 17,  17,  17),      // Tick marks
                                                                         Color.FromArgb( 37,  37,  37),      // Top track
                                                                         Color.FromArgb(174, 174, 174),      // Bottom track
                                                                         Color.FromArgb(131, 132, 132),      // Fill track
                                                                         Color.FromArgb(64, Color.White),    // Outside position
                                                                         Color.FromArgb(35, 35, 35)          // Border (normal) position
                                                                       };
-        private static readonly Color[] _schemeColors = new Color[] { Color.FromArgb( 76,  83,  92),    // TextLabelControl
+        private static readonly Color[] _schemeColors = { Color.FromArgb( 76,  83,  92),    // TextLabelControl
                                                                       Color.Black,                      // TextButtonNormal
                                                                       Color.Black,                      // TextButtonChecked
                                                                       Color.FromArgb(106, 106, 106),    // ButtonNormalBorder1
@@ -282,14 +274,18 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Identity
         static PaletteOffice2010Black()
         {
-            _checkBoxList = new ImageList();
-            _checkBoxList.ImageSize = new Size(13, 13);
-            _checkBoxList.ColorDepth = ColorDepth.Depth24Bit;
+            _checkBoxList = new ImageList
+            {
+                ImageSize = new Size(13, 13),
+                ColorDepth = ColorDepth.Depth24Bit
+            };
             _checkBoxList.Images.AddStrip(Properties.Resources.CB2010Black);
-            _galleryButtonList = new ImageList();
-            _galleryButtonList.ImageSize = new Size(13, 7);
-            _galleryButtonList.ColorDepth = ColorDepth.Depth24Bit;
-            _galleryButtonList.TransparentColor = Color.Magenta;
+            _galleryButtonList = new ImageList
+            {
+                ImageSize = new Size(13, 7),
+                ColorDepth = ColorDepth.Depth24Bit,
+                TransparentColor = Color.Magenta
+            };
             _galleryButtonList.Images.AddStrip(Properties.Resources.Gallery2010);
             _radioButtonArray = new Image[]{Properties.Resources.RB2010BlueD,
                                             Properties.Resources.RB2010SilverN,
@@ -325,7 +321,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return PaletteColorStyle.Inherit;
+            }
 
             switch (style)
             {
@@ -433,20 +431,31 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state == PaletteState.NormalDefaultOverride)
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
+
                     break;
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state == PaletteState.NormalDefaultOverride)
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderCalendar:
                     if (state != PaletteState.Disabled)
+                    {
                         return Color.White;
+                    }
+
                     break;
             }
         
@@ -463,7 +472,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -471,14 +482,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state == PaletteState.NormalDefaultOverride)
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderCalendar:
                     if (state != PaletteState.Disabled)
+                    {
                         return Color.White;
+                    }
+
                     break;
             }
         
@@ -495,7 +514,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -503,14 +524,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state == PaletteState.NormalDefaultOverride)
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderCalendar:
                     if (state != PaletteState.Disabled)
+                    {
                         return Color.White;
+                    }
+
                     break;
             }
 
@@ -527,7 +556,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
+            {
                 return Color.Empty;
+            }
 
             switch (style)
             {
@@ -535,14 +566,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state == PaletteState.NormalDefaultOverride)
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
                     else
+                    {
                         return _schemeColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderCalendar:
                     if (state != PaletteState.Disabled)
+                    {
                         return Color.White;
+                    }
+
                     break;
             }
 
@@ -558,9 +597,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Image GetDropDownButtonImage(PaletteState state)
         {
             if (state != PaletteState.Disabled)
+            {
                 return _blackDropDownButton;
+            }
             else
+            {
                 return base.GetDropDownButtonImage(state);
+            }
         }
 
         /// <summary>
@@ -629,14 +672,20 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteRibbonTextStyle.RibbonGroupNormalTitle:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledRibbonText;
-                        break;
+                    }
+
+                    break;
                 case PaletteRibbonTextStyle.RibbonGroupButtonText:
                 case PaletteRibbonTextStyle.RibbonGroupLabelText:
                 case PaletteRibbonTextStyle.RibbonGroupCheckBoxText:
                 case PaletteRibbonTextStyle.RibbonGroupRadioButtonText:
                     if (state == PaletteState.Disabled)
+                    {
                         return _disabledRibbonText;
+                    }
+
                     break;
             }
 

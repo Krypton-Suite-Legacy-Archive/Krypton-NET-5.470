@@ -9,11 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -47,9 +44,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Decide on the next action to take given the current setting
                     if ((bool)checkedProp.GetValue(_checkButton))
+                    {
                         _action = "Uncheck the button";
+                    }
                     else
+                    {
                         _action = "Check the button";
+                    }
                 }
             }
 
@@ -111,36 +112,37 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnCheckedClick(object sender, EventArgs e)
         {
             // Cast to the correct type
-            DesignerVerb verb = sender as DesignerVerb;
 
             // Double check the source is the expected type
-            if (verb != null)
+            if (sender is DesignerVerb verb)
             {
                 // Decide on the new orientation required
                 bool isChecked = verb.Text.Equals("Uncheck the button");
 
                 // Decide on the next action to take given the new setting
                 if (isChecked)
+                {
                     _action = "Uncheck the button";
+                }
                 else
+                {
                     _action = "Check the button";
+                }
 
                 // Get access to the actual Orientation propertry
                 PropertyDescriptor checkedProp = TypeDescriptor.GetProperties(_checkButton)["Checked"];
 
                 // If we succeeded in getting the property
-                if (checkedProp != null)
-                {
-                    // Update the actual property with the new value
-                    checkedProp.SetValue(_checkButton, !isChecked);
-                }
+                // Update the actual property with the new value
+                checkedProp?.SetValue(_checkButton, !isChecked);
 
                 // Get the user interface service associated with actions
-                DesignerActionUIService service = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
 
                 // If we managed to get it then request it update to reflect new action setting
-                if (service != null)
+                if (GetService(typeof(DesignerActionUIService)) is DesignerActionUIService service)
+                {
                     service.Refresh(_checkButton);
+                }
             }
         }
         #endregion

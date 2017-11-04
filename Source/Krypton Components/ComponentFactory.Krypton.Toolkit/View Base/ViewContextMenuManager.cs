@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -44,8 +40,10 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(control, root)
 		{
             // Create timer to notify targets when the standard delay expires
-            _itemDelayTimer = new Timer();
-            _itemDelayTimer.Interval = Math.Max(1, SystemInformation.MenuShowDelay);
+            _itemDelayTimer = new Timer
+            {
+                Interval = Math.Max(1, SystemInformation.MenuShowDelay)
+            };
             _itemDelayTimer.Tick += new EventHandler(OnDelayTimerExpire);
 		}
 
@@ -98,9 +96,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Shift the active view to the new target
                 if (target != null)
+                {
                     ActiveView = target.GetActiveView();
+                }
                 else
+                {
                     ActiveView = null;
+                }
 
                 _target = target;
 
@@ -110,7 +112,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     _itemDelayTimer.Stop();
 
                     if (startTimer)
+                    {
                         _itemDelayTimer.Start();
+                    }
 
                     _target.ShowTarget();
                 }
@@ -123,8 +127,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetTargetSubMenu(IContextMenuTarget target)
         {
             // Kill any running timer
-            if (_itemDelayTimer != null)
-                _itemDelayTimer.Stop();
+            _itemDelayTimer?.Stop();
 
             // If the currently showing sub menu is not for the new target
             if (_targetSubMenu != target)
@@ -151,8 +154,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _target = target;
 
             // Tell new target to draw as highlighted and start delay timer
-            if (_target != null)
-                _target.ShowTarget();
+            _target?.ShowTarget();
         }
 
         /// <summary>
@@ -205,13 +207,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the next appropriate target
             IContextMenuTarget newTarget = null;
             if (_target == null)
+            {
                 newTarget = FindBottomLeftTarget(targets);
+            }
             else
+            {
                 newTarget = FindUpTarget(targets, _target);
+            }
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
+            {
                 SetTarget(newTarget, false);
+            }
         }
 
         /// <summary>
@@ -224,13 +232,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the next appropriate target
             IContextMenuTarget newTarget = null;
             if (_target == null)
+            {
                 newTarget = FindTopLeftTarget(targets);
+            }
             else
+            {
                 newTarget = FindDownTarget(targets, _target);
+            }
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
+            {
                 SetTarget(newTarget, false);
+            }
         }
 
         /// <summary>
@@ -246,13 +260,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the next appropriate target
             IContextMenuTarget newTarget = null;
             if (_target == null)
+            {
                 newTarget = FindTopRightTarget(targets);
+            }
             else
+            {
                 newTarget = FindLeftTarget(targets, _target, wrap, ref hitEdge);
+            }
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
+            {
                 SetTarget(newTarget, false);
+            }
 
             return hitEdge;
         }
@@ -267,13 +287,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the next appropriate target
             IContextMenuTarget newTarget = null;
             if (_target == null)
+            {
                 newTarget = FindTopLeftTarget(targets);
+            }
             else
+            {
                 newTarget = FindRightTarget(targets, _target);
+            }
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
+            {
                 SetTarget(newTarget, false);
+            }
         }
 
         /// <summary>
@@ -286,21 +312,30 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If nothing currently selected, then start at end
                 if (_target == null)
+                {
                     KeyEnd();
+                }
                 else
                 {
                     // Find the currently selected target
                     TargetList targets = ConstructKeyboardTargets(Root);
                     for (int i = targets.Count - 1; i >= 0; i--)
+                    {
                         if (targets[i] == _target)
                         {
                             // If at the first item then wrap to the last
                             if (i == 0)
+                            {
                                 KeyEnd();
+                            }
                             else
+                            {
                                 SetTarget(targets[i - 1], false);
+                            }
+
                             return;
                         }
+                    }
 
                     // Should never happen!
                     KeyEnd();
@@ -310,21 +345,30 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If nothing currently selected, then start at home
                 if (_target == null)
+                {
                     KeyHome();
+                }
                 else
                 {
                     // Find the currently selected target
                     TargetList targets = ConstructKeyboardTargets(Root);
                     for(int i=0; i<targets.Count; i++)
+                    {
                         if (targets[i] == _target)
                         {
                             // If at the last item then wrap to the first
                             if (i == (targets.Count - 1))
+                            {
                                 KeyHome();
+                            }
                             else
+                            {
                                 SetTarget(targets[i + 1], false);
+                            }
+
                             return;
                         }
+                    }
 
                     // Should never happen!
                     KeyHome();
@@ -341,7 +385,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move to the first target found
             if (targets.Count > 0)
+            {
                 SetTarget(targets[0], false);
+            }
         }
 
         /// <summary>
@@ -353,7 +399,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Move to the last target found
             if (targets.Count > 0)
+            {
                 SetTarget(targets[targets.Count - 1], false);
+            }
         }
 
         /// <summary>
@@ -369,7 +417,9 @@ namespace ComponentFactory.Krypton.Toolkit
             for (int i = 0; i < targets.Count; i++)
             {
                 if (!found)
+                {
                     found = (_target == targets[i]);
+                }
                 else
                 {
                     if (targets[i].MatchMnemonic(charCode))
@@ -385,7 +435,9 @@ namespace ComponentFactory.Krypton.Toolkit
             for (int i = 0; i < targets.Count; i++)
             {
                 if (_target == targets[i])
+                {
                     break;
+                }
                 else
                 {
                     if (targets[i].MatchMnemonic(charCode))
@@ -410,9 +462,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Do we have a current target we can ask?
             if (_target != null)
+            {
                 return _target.DoesStackedClientMouseDownBecomeCurrent(pt);
+            }
             else
+            {
                 return true;
+            }
         }
         #endregion
 
@@ -430,17 +486,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Any target interface will be implemented on a controller instance
             if (parent.KeyController != null)
+            {
                 target = parent.KeyController as IContextMenuTarget;
+            }
             else if (parent.MouseController != null)
+            {
                 target = parent.MouseController as IContextMenuTarget;
+            }
 
             // Did we find a target associated with the view element?
             if (target != null)
+            {
                 targets.Add(target);
+            }
 
             // Recurse into each of the child elements
             foreach (ViewBase child in parent)
+            {
                 FindKeyboardTargets(child, targets);
+            }
         }
 
         private IContextMenuTarget FindTopLeftTarget(TargetList targets)
@@ -755,7 +819,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     newTarget = FindLeftTarget(targets, currentRect);
                 }
                 else
+                {
                     hitEdge = true;
+                }
             }
 
             return newTarget;

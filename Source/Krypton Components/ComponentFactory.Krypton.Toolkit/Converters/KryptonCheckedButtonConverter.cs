@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -37,16 +34,17 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override bool IsValueAllowed(ITypeDescriptorContext context, object value)
         {
             // Get access to the check set component that owns the property
-            KryptonCheckSet checkSet = context.Instance as KryptonCheckSet;
 
             // Just in case the converter is used on a different type of component
-            if (checkSet != null)
+            if (context.Instance is KryptonCheckSet checkSet)
             {
                 // We only allow check buttons inside the check set definition
                 return checkSet.CheckButtons.Contains(value as KryptonCheckButton);
             }
             else
+            {
                 return false;
+            }
         }
         #endregion
     }

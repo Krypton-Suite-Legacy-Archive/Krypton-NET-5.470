@@ -8,14 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -409,19 +403,31 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteMetricInt.BarButtonEdgeInside:
                     if (ButtonEdgeInside != -1)
+                    {
                         return ButtonEdgeInside;
+                    }
+
                     break;
                 case PaletteMetricInt.BarButtonEdgeOutside:
                     if (ButtonEdgeOutside != -1)
+                    {
                         return ButtonEdgeOutside;
+                    }
+
                     break;
                 case PaletteMetricInt.CheckButtonGap:
                     if (CheckButtonGap != -1)
+                    {
                         return CheckButtonGap;
+                    }
+
                     break;
                 case PaletteMetricInt.RibbonTabGap:
                     if (RibbonTabGap != -1)
+                    {
                         return RibbonTabGap;
+                    }
+
                     break;
             }
 
@@ -453,23 +459,38 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteMetricPadding.BarPaddingTabs:
                     if (!BarPaddingTabs.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingTabs;
+                    }
+
                     break;
                 case PaletteMetricPadding.BarPaddingInside:
                     if (!BarPaddingInside.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingInside;
+                    }
+
                     break;
                 case PaletteMetricPadding.BarPaddingOutside:
                     if (!BarPaddingOutside.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingOutside;
+                    }
+
                     break;
                 case PaletteMetricPadding.BarPaddingOnly:
                     if (!BarPaddingOnly.Equals(CommonHelper.InheritPadding))
+                    {
                         return BarPaddingOnly;
+                    }
+
                     break;
                 case PaletteMetricPadding.BarButtonPadding:
                     if (!ButtonPadding.Equals(CommonHelper.InheritPadding))
+                    {
                         return ButtonPadding;
+                    }
+
                     break;
             }
 

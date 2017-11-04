@@ -8,12 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -26,9 +21,11 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorOutlook : Storage
     {
         #region Static Fields
-        private static readonly string _defaultMoreButtons = "Show &More Buttons";
-        private static readonly string _defaultFewerButtons = "Show Fe&wer Buttons";
-        private static readonly string _defaultAddRemoveButtons = "&Add or Remove Buttons";
+
+        private const string DEFAULT_MORE_BUTTONS = "Show &More Buttons";
+        private const string DEFAULT_FEWER_BUTTONS = "Show Fe&wer Buttons";
+        private const string DEFAULT_ADD_REMOVE_BUTTONS = "&Add or Remove Buttons";
+
         #endregion
 
         #region Instance Fields
@@ -75,9 +72,9 @@ namespace ComponentFactory.Krypton.Navigator
             _orientation = Orientation.Vertical;
             _itemOrientation = ButtonOrientation.Auto;
             _headerSecondaryVisible = InheritBool.False;
-            _textMoreButtons = _defaultMoreButtons;
-            _textFewerButtons = _defaultFewerButtons;
-            _textAddRemoveButtons = _defaultAddRemoveButtons;
+            _textMoreButtons = DEFAULT_MORE_BUTTONS;
+            _textFewerButtons = DEFAULT_FEWER_BUTTONS;
+            _textAddRemoveButtons = DEFAULT_ADD_REMOVE_BUTTONS;
             _showDropDownButton = true;
         }
 		#endregion
@@ -99,10 +96,10 @@ namespace ComponentFactory.Krypton.Navigator
                         (Orientation == Orientation.Vertical) &&
                         (ItemOrientation == ButtonOrientation.Auto) &&
                         (HeaderSecondaryVisible == InheritBool.False) &&
-                        (TextMoreButtons.Equals(_defaultMoreButtons)) &&
-                        (TextFewerButtons.Equals(_defaultFewerButtons)) &&
-                        (TextAddRemoveButtons.Equals(_defaultAddRemoveButtons)) &&
-                        (ShowDropDownButton == true));
+                        (TextMoreButtons.Equals(DEFAULT_MORE_BUTTONS)) &&
+                        (TextFewerButtons.Equals(DEFAULT_FEWER_BUTTONS)) &&
+                        (TextAddRemoveButtons.Equals(DEFAULT_ADD_REMOVE_BUTTONS)) &&
+                        ShowDropDownButton);
             }
         }
         #endregion
@@ -322,7 +319,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetTextMoreButtons()
         {
-            TextMoreButtons = _defaultMoreButtons;
+            TextMoreButtons = DEFAULT_MORE_BUTTONS;
         }
         #endregion
 
@@ -346,7 +343,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetTextFewerButtons()
         {
-            TextFewerButtons = _defaultFewerButtons;
+            TextFewerButtons = DEFAULT_FEWER_BUTTONS;
         }
         #endregion
 
@@ -370,7 +367,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void ResetTextAddRemoveButtons()
         {
-            TextAddRemoveButtons = _defaultAddRemoveButtons;
+            TextAddRemoveButtons = DEFAULT_ADD_REMOVE_BUTTONS;
         }
         #endregion
 

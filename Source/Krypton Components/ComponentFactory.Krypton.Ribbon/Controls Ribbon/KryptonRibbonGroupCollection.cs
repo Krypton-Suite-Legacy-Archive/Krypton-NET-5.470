@@ -8,14 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -37,10 +29,14 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Search for a group with the same text as that requested.
                 foreach (KryptonRibbonGroup group in this)
-                    if ((group.TextLine1 == name) ||
-                        (group.TextLine2 == name) ||
-                        ((group.TextLine1 + " " + group.TextLine2) == name))
-                        return group;
+                {
+                    if ((@group.TextLine1 == name) ||
+                        (@group.TextLine2 == name) ||
+                        ((@group.TextLine1 + " " + @group.TextLine2) == name))
+                    {
+                        return @group;
+                    }
+                }
 
                 // Let base class perform standard processing
                 return base[name];

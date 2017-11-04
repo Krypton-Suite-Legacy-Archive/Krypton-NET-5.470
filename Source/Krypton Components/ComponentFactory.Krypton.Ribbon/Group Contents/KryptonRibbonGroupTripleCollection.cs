@@ -9,13 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -26,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class KryptonRibbonGroupTripleCollection : TypedRestrictCollection<KryptonRibbonGroupItem>
     {
         #region Static Fields
-        private static readonly Type[] _types = new Type[] { typeof(KryptonRibbonGroupButton),
+        private static readonly Type[] _types = { typeof(KryptonRibbonGroupButton),
                                                              typeof(KryptonRibbonGroupColorButton),
                                                              typeof(KryptonRibbonGroupCheckBox),
                                                              typeof(KryptonRibbonGroupComboBox),
@@ -63,7 +56,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Restrict contents to three items max
             if (Count == 3)
+            {
                 throw new ArgumentException("Collection can only contain 3 entries.");
+            }
 
             return base.Add(value);
         }
@@ -77,7 +72,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Restrict contents to three items max
             if (Count == 3)
+            {
                 throw new ArgumentException("Collection can only contain 3 entries.");
+            }
 
             base.Insert(index, value);
         }
@@ -93,7 +90,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Restrict contents to three items max
             if (Count == 3)
+            {
                 throw new ArgumentException("Collection can only contain 3 entries.");
+            }
 
             base.Insert(index, item);
         }
@@ -108,7 +107,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Restrict contents to three items max
             if (Count == 3)
+            {
                 throw new ArgumentException("Collection can only contain 3 entries.");
+            }
 
             base.Add(item);
         }

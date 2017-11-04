@@ -36,7 +36,9 @@ namespace ComponentFactory.Krypton.Navigator
             _pages = new KryptonPageCollection();
 
             if (pages != null)
+            {
                 _pages.AddRange(pages);
+            }
 		}
 
         /// <summary>

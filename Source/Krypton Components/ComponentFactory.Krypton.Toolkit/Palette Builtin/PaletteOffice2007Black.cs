@@ -8,16 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -46,14 +38,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Image _blackRibbonMinimize = Properties.Resources.BlackButtonCollapse;
         private static readonly Image _blackRibbonExpand = Properties.Resources.BlackButtonExpand;
         private static readonly Image _contextMenuSubMenu = Properties.Resources.BlackContextMenuSub;
-        private static readonly Color[] _trackBarColors = new Color[] { Color.FromArgb(170, 170, 170),      // Tick marks
+        private static readonly Color[] _trackBarColors = { Color.FromArgb(170, 170, 170),      // Tick marks
                                                                         Color.FromArgb( 37,  37,  37),      // Top track
                                                                         Color.FromArgb(174, 174, 174),      // Bottom track
                                                                         Color.FromArgb(131, 132, 132),      // Fill track
                                                                         Color.Empty,                        // Outside position
                                                                         Color.FromArgb(35, 35, 35)          // Border (normal) position
                                                                       };
-        private static readonly Color[] _schemeColors = new Color[] { Color.FromArgb( 76,  83,  92),    // TextLabelControl
+        private static readonly Color[] _schemeColors = { Color.FromArgb( 76,  83,  92),    // TextLabelControl
                                                                       Color.FromArgb( 70,  70,  70),    // TextButtonNormal
                                                                       Color.Black,                      // TextButtonChecked
                                                                       Color.FromArgb(137, 135, 133),    // ButtonNormalBorder1
@@ -272,14 +264,18 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Identity
         static PaletteOffice2007Black()
         {
-            _checkBoxList = new ImageList();
-            _checkBoxList.ImageSize = new Size(13, 13);
-            _checkBoxList.ColorDepth = ColorDepth.Depth24Bit;
+            _checkBoxList = new ImageList
+            {
+                ImageSize = new Size(13, 13),
+                ColorDepth = ColorDepth.Depth24Bit
+            };
             _checkBoxList.Images.AddStrip(Properties.Resources.CB2007Black);
-            _galleryButtonList = new ImageList();
-            _galleryButtonList.ImageSize = new Size(13, 7);
-            _galleryButtonList.ColorDepth = ColorDepth.Depth24Bit;
-            _galleryButtonList.TransparentColor = Color.Magenta;
+            _galleryButtonList = new ImageList
+            {
+                ImageSize = new Size(13, 7),
+                ColorDepth = ColorDepth.Depth24Bit,
+                TransparentColor = Color.Magenta
+            };
             _galleryButtonList.Images.AddStrip(Properties.Resources.GallerySilverBlack);
             _radioButtonArray = new Image[]{Properties.Resources.RB2007BlueD,
                                             Properties.Resources.RB2007BlackN,
@@ -496,9 +492,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Image GetDropDownButtonImage(PaletteState state)
         {
             if (state != PaletteState.Disabled)
+            {
                 return _blackDropDownButton;
+            }
             else
+            {
                 return base.GetDropDownButtonImage(state);
+            }
         }
 
         /// <summary>
@@ -524,33 +524,49 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (style)
             {
                 case PaletteButtonSpecStyle.FormClose:
-                    if (state == PaletteState.Disabled)
-                        return _blackCloseI;
-                    else if (state == PaletteState.Tracking)
-                        return _blackCloseAH;
-                    else
-                        return _blackCloseA;
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _blackCloseI;
+                        case PaletteState.Tracking:
+                            return _blackCloseAH;
+                        default:
+                            return _blackCloseA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMin:
-                    if (state == PaletteState.Disabled)
-                        return _blackMinI;
-                    else if (state == PaletteState.Tracking)
-                        return _blackMinAH;
-                    else
-                        return _blackMinA;
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _blackMinI;
+                        case PaletteState.Tracking:
+                            return _blackMinAH;
+                        default:
+                            return _blackMinA;
+                    }
+
                 case PaletteButtonSpecStyle.FormMax:
-                    if (state == PaletteState.Disabled)
-                        return _blackMaxI;
-                    else if (state == PaletteState.Tracking)
-                        return _blackMaxAH;
-                    else
-                        return _blackMaxA;
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _blackMaxI;
+                        case PaletteState.Tracking:
+                            return _blackMaxAH;
+                        default:
+                            return _blackMaxA;
+                    }
+
                 case PaletteButtonSpecStyle.FormRestore:
-                    if (state == PaletteState.Disabled)
-                        return _blackRestoreI;
-                    else if (state == PaletteState.Tracking)
-                        return _blackRestoreAH;
-                    else
-                        return _blackRestoreA;
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _blackRestoreI;
+                        case PaletteState.Tracking:
+                            return _blackRestoreAH;
+                        default:
+                            return _blackRestoreA;
+                    }
+
                 case PaletteButtonSpecStyle.RibbonMinimize:
                     return _blackRibbonMinimize;
                 case PaletteButtonSpecStyle.RibbonExpand:

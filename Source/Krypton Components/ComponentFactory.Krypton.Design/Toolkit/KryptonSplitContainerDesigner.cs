@@ -9,9 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -41,7 +38,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -83,8 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (disposing)
                 {
                     // Remove adorners
-                    if (_behaviorService != null)
-                        _behaviorService.Adorners.Remove(_adorner);
+                    _behaviorService?.Adorners.Remove(_adorner);
                 }
             }
             finally
@@ -116,9 +115,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Get the control designer for the requested indexed child control
                 if (internalControlIndex == 0)
+                {
                     return (ControlDesigner)_designerHost.GetDesigner(_splitContainer.Panel1);
+                }
                 else if (internalControlIndex == 1)
+                {
                     return (ControlDesigner)_designerHost.GetDesigner(_splitContainer.Panel2);
+                }
             }
 
             return null;
@@ -131,9 +134,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override int NumberOfInternalControlDesigners()
         {
             if (_splitContainer != null)
+            {
                 return 2;
+            }
             else
+            {
                 return 0;
+            }
         }
 
         /// <summary>
@@ -144,10 +151,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the orientation list
-                actionLists.Add(new KryptonSplitContainerActionList(this));
+                    // Add the orientation list
+                    new KryptonSplitContainerActionList(this)
+                };
 
                 return actionLists;
             }

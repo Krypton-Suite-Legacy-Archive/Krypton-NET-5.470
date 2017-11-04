@@ -9,13 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
 using System.Drawing;
 using System.ComponentModel;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -395,8 +391,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnLayout(LayoutEventArgs levent)
         {
             // Inform anyone interested that we are performing a layout call
-            if (_layoutHandler != null)
-                _layoutHandler(this, new NeedLayoutEventArgs(true));
+            _layoutHandler?.Invoke(this, new NeedLayoutEventArgs(true));
 
             base.OnLayout(levent);
         }
@@ -423,11 +418,15 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Just in case there is not a parent yet
                 if (Parent == null)
+                {
                     return null;
+                }
 
                 // Just in case the parent does not have a parent
                 if (Parent.Parent == null)
+                {
                     return Parent;
+                }
 
                 // The KryptonGroupPanel is always a child within another 
                 // Krypton control that should be considered the actual 
@@ -442,8 +441,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnAutoSizeChanged(EventArgs e)
 		{
-			if (AutoSizeChanged != null)
-				AutoSizeChanged(this, e);
+            AutoSizeChanged?.Invoke(this, e);
 
             base.OnAutoSizeChanged(e);
 		}
@@ -454,8 +452,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnDockChanged(EventArgs e)
 		{
-			if (DockChanged != null)
-				DockChanged(this, e);
+            DockChanged?.Invoke(this, e);
 
             base.OnDockChanged(e);
         }
@@ -466,8 +463,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnLocationChanged(EventArgs e)
 		{
-			if (LocationChanged != null)
-				LocationChanged(this, e);
+            LocationChanged?.Invoke(this, e);
 
             base.OnLocationChanged(e);
         }
@@ -478,8 +474,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnTabIndexChanged(EventArgs e)
 		{
-			if (TabIndexChanged != null)
-				TabIndexChanged(this, e);
+            TabIndexChanged?.Invoke(this, e);
 
             base.OnTabIndexChanged(e);
         }
@@ -490,8 +485,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnTabStopChanged(EventArgs e)
 		{
-			if (TabStopChanged != null)
-				TabStopChanged(this, e);
+            TabStopChanged?.Invoke(this, e);
 
             base.OnTabStopChanged(e);
         }
@@ -502,8 +496,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">An EventArgs containing the event data.</param>
 		protected override void OnVisibleChanged(EventArgs e)
 		{
-            if (VisibleChanged != null)
-				VisibleChanged(this, e);
+            VisibleChanged?.Invoke(this, e);
 
             base.OnVisibleChanged(e);
         }

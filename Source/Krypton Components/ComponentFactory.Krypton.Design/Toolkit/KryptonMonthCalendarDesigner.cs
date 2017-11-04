@@ -11,7 +11,6 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
@@ -37,7 +36,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void Initialize(IComponent component)
         {
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -79,7 +81,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If no button specs then nothing more to do
                 if ((_monthCalendar == null) || (_monthCalendar.ButtonSpecs.Count == 0))
+                {
                     return baseComponents;
+                }
                 else
                 {
                     // Create a new collection for both values
@@ -101,10 +105,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Create a collection of action lists
-                DesignerActionListCollection actionLists = new DesignerActionListCollection();
+                DesignerActionListCollection actionLists = new DesignerActionListCollection
+                {
 
-                // Add the bread crumb specific list
-                actionLists.Add(new KryptonMonthCalendarActionList(this));
+                    // Add the bread crumb specific list
+                    new KryptonMonthCalendarActionList(this)
+                };
 
                 return actionLists;
             }
@@ -158,7 +164,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the navigator does not want the mouse point then make sure the 
                 // tracking element is informed that the mouse has left the control
                 if (!ret && _lastHitTest)
+                {
                     _monthCalendar.DesignerMouseLeave();
+                }
 
                 // Cache the last answer recovered
                 _lastHitTest = ret;
@@ -166,7 +174,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 return ret;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -174,8 +184,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override void OnMouseLeave()
         {
-            if (_monthCalendar != null)
-                _monthCalendar.DesignerMouseLeave();
+            _monthCalendar?.DesignerMouseLeave();
 
             base.OnMouseLeave();
         }
@@ -195,8 +204,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     _monthCalendar.PerformLayout();
 
                     // Select the component
-                    ArrayList selectionList = new ArrayList();
-                    selectionList.Add(component);
+                    ArrayList selectionList = new ArrayList
+                    {
+                        component
+                    };
                     _selectionService.SetSelectedComponents(selectionList, SelectionTypes.Auto);
                 }
             }

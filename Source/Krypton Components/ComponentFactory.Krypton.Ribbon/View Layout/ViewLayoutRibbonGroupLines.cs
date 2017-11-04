@@ -9,9 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -27,7 +25,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                                 IRibbonViewGroupContainerView
     {
         #region Static Definitions
-        private static readonly int DEFAULT_GAP = 2;
+
+        private const int DEFAULT_GAP = 2;
+
         #endregion
 
         #region Type Definitions
@@ -155,7 +155,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _currentSize = value;
 
                 if (_viewAddItem != null)
+                {
                     _viewAddItem.CurrentSize = value;
+                }
             }
         }
         #endregion
@@ -175,26 +177,27 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // If it can provide a view, then use it
                         view = container.GetFirstFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // If it can provide a view, then use it
                         view = item.GetFirstFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -218,26 +221,27 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // If it can provide a view, then use it
                         view = container.GetLastFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // If it can provide a view, then use it
                         view = item.GetLastFocusItem();
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -263,36 +267,45 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
                         if (matched)
+                        {
                             view = container.GetFirstFocusItem();
+                        }
                         else
+                        {
                             view = container.GetNextFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
                         if (matched)
+                        {
                             view = item.GetFirstFocusItem();
+                        }
                         else
+                        {
                             view = item.GetNextFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -318,36 +331,45 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible children!
                 if (child.Visible)
                 {
+                    // Cast to correct type
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
                         if (matched)
+                        {
                             view = container.GetLastFocusItem();
+                        }
                         else
+                        {
                             view = container.GetPreviousFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-                        // Cast to correct type
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
 
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
                         if (matched)
+                        {
                             view = item.GetLastFocusItem();
+                        }
                         else
+                        {
                             view = item.GetPreviousFocusItem(current, ref matched);
+                        }
 
                         if (view != null)
+                        {
                             break;
+                        }
                     }
                 }
             }
@@ -373,14 +395,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (child.Visible)
                 {
                     // Is this a container item
-                    if (child is IRibbonViewGroupContainerView)
+                    if (child is IRibbonViewGroupContainerView container)
                     {
-                        IRibbonViewGroupContainerView container = (IRibbonViewGroupContainerView)child;
                         container.GetGroupKeyTips(keyTipList);
                     }
-                    else if (child is IRibbonViewGroupItemView)
+                    else if (child is IRibbonViewGroupItemView item)
                     {
-                        IRibbonViewGroupItemView item = (IRibbonViewGroupItemView)child;
                         item.GetGroupKeyTips(keyTipList, lineHint);
 
                         // Depending on size we check to adjust the lint hint
@@ -388,17 +408,25 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             case GroupItemSize.Large:
                                 if (visibleIndex == _split1Large)
+                                {
                                     lineHint = 5;
+                                }
                                 break;
                             case GroupItemSize.Medium:
                                 if (visibleIndex == _split1Medium)
+                                {
                                     lineHint = 5;
+                                }
                                 break;
                             case GroupItemSize.Small:
                                 if (visibleIndex == _split1Small)
+                                {
                                     lineHint = 2;
+                                }
                                 else if (visibleIndex == _split2Small)
+                                {
                                     lineHint = 3;
+                                }
                                 break;
                         }
                     }
@@ -444,14 +472,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only add if we are the first calculation, as in design mode we
                     // always provide a single possible size which is the largest item
                     if (results.Count == 0)
+                    {
                         results.Add(mediumWidth);
+                    }
                 }
                 else
                 {
                     // Only add the medium size if there is no other entry or we are
                     // smaller than the existing size and so represent a useful shrinkage
                     if ((results.Count == 0) || (results[0].Width > mediumWidth.Width))
+                    {
                         results.Add(mediumWidth);
+                    }
                 }
             }
 
@@ -466,14 +498,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Only add if we are the first calculation, as in design mode we
                     // always provide a single possible size which is the largest item
                     if (results.Count == 0)
+                    {
                         results.Add(smallWidth);
+                    }
                 }
                 else
                 {
                     // Only add the small size if there is no other entry or we are
                     // smaller than the existing size and so represent a useful shrinkage
                     if ((results.Count == 0) || (results[results.Count - 1].Width > smallWidth.Width))
+                    {
                         results.Add(smallWidth);
+                    }
                 }
             }
 
@@ -530,11 +566,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Only interested in visible items
                 if (child.Visible)
                 {
+                    // Inform cluster if it is immediatley after another cluster (and so potentially needs a separator)
                     // Are we positioning a cluster?
-                    if (child is ViewLayoutRibbonGroupCluster)
+                    if (child is ViewLayoutRibbonGroupCluster clusterChild)
                     {
-                        // Inform cluster if it is immediatley after another cluster (and so potentially needs a separator)
-                        ViewLayoutRibbonGroupCluster clusterChild = (ViewLayoutRibbonGroupCluster)child;
                         clusterChild.StartSeparator = (previousChild != null) && !(previousChild is ViewLayoutRibbonGroupCluster);
                         clusterChild.EndSeparator = true;
                     }
@@ -637,7 +672,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // At design time we draw the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 DesignTimeDraw.DrawFlapArea(_ribbon, context, ClientRectangle, State);
+            }
 
             // Let base class draw contained items
             base.RenderBefore(context);
@@ -656,7 +693,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint(this, new NeedLayoutEventArgs(needLayout));
 
                 if (needLayout)
+                {
                     _ribbon.PerformLayout();
+                }
             }
         }
         #endregion
@@ -695,9 +734,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             foreach (ViewBase item in this)
             {
-                IRibbonViewGroupItemView viewItem = item as IRibbonViewGroupItemView;
-                if (viewItem != null)
+                if (item is IRibbonViewGroupItemView viewItem)
+                {
                     viewItem.SetGroupItemSize(itemSize);
+                }
             }
         }
 
@@ -705,9 +745,10 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             foreach (ViewBase item in this)
             {
-                IRibbonViewGroupItemView viewItem = item as IRibbonViewGroupItemView;
-                if (viewItem != null)
+                if (item is IRibbonViewGroupItemView viewItem)
+                {
                     viewItem.ResetGroupItemSize();
+                }
             }
 
             CurrentSize = _ribbonLines.ItemSizeCurrent;
@@ -755,10 +796,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Create the design time 'Add Tab' first time it is needed
                 if (_viewAddItem == null)
+                {
                     _viewAddItem = new ViewDrawRibbonDesignGroupLines(_ribbon,
-                                                                      _ribbonLines,
-                                                                      _currentSize,
-                                                                      _needPaint);
+                        _ribbonLines,
+                        _currentSize,
+                        _needPaint);
+                }
 
                 // Always add at end of the list of items
                 Add(_viewAddItem);
@@ -766,7 +809,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Dispose of all the items no longer needed
             foreach (ViewBase view in _itemToView.Values)
+            {
                 view.Dispose();
+            }
 
             // Use the latest hashtable
             _itemToView = regenItemToView;
@@ -834,7 +879,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // At design time we add space for the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 preferredSize.Width += DesignTimeDraw.FlapWidth + DesignTimeDraw.SepWidth;
+            }
 
             return preferredSize;
         }
@@ -939,7 +986,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // At design time we add space for the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 preferredSize.Width += DesignTimeDraw.FlapWidth + DesignTimeDraw.SepWidth;
+            }
 
             return preferredSize;
         }
@@ -951,7 +1000,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // At design time we reserve space at the left side for the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 x += DesignTimeDraw.FlapWidth;
+            }
 
             ViewBase previousChild = null;
 
@@ -964,28 +1015,28 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (child.Visible)
                 {
                     // Are we positioning a cluster?
-                    if (child is ViewLayoutRibbonGroupCluster)
+                    if (child is ViewLayoutRibbonGroupCluster clusterChild1)
                     {
                         // Inform cluster if it is immediatley after another cluster (and so potentially needs a separator)
-                        ViewLayoutRibbonGroupCluster clusterChild = (ViewLayoutRibbonGroupCluster)child;
-                        clusterChild.StartSeparator = (previousChild != null) && !(previousChild is ViewLayoutRibbonGroupCluster);
-                        clusterChild.EndSeparator = false;
+                        clusterChild1.StartSeparator = (previousChild != null) && !(previousChild is ViewLayoutRibbonGroupCluster);
+                        clusterChild1.EndSeparator = false;
                     }
 
-                    if ((previousChild != null) && (previousChild is ViewLayoutRibbonGroupCluster))
+                    if (previousChild is ViewLayoutRibbonGroupCluster clusterChild)
                     {
                         // Inform cluster if it is before another item and so needs an end separator
-                        ViewLayoutRibbonGroupCluster clusterChild = (ViewLayoutRibbonGroupCluster)previousChild;
                         clusterChild.EndSeparator = true;
 
                         // Need to layout the item again with the new setting
-                        context.DisplayRectangle = new Rectangle(previousChild.ClientLocation.X, previousChild.ClientLocation.Y, previousChild.ClientWidth, previousChild.ClientHeight);
-                        previousChild.Layout(context);
+                        context.DisplayRectangle = new Rectangle(clusterChild.ClientLocation.X, clusterChild.ClientLocation.Y, clusterChild.ClientWidth, clusterChild.ClientHeight);
+                        clusterChild.Layout(context);
                     }
 
                     // If not the first item on the line, then get the pixel gap between them
                     if ((previousChild != null) && _viewToGap.ContainsKey(child))
+                    {
                         x += _viewToGap[child];
+                    }
 
                     // Get the size of the child item
                     Size childSize = _sizeList[visibleIndex];
@@ -1004,7 +1055,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // At design time we reserve space at the left side for the selection flap
                         if (_ribbon.InDesignHelperMode)
+                        {
                             x += DesignTimeDraw.FlapWidth;
+                        }
 
                         y += _ribbon.CalculatedValues.GroupLineHeight +
                              _ribbon.CalculatedValues.GroupLineGapHeight;
@@ -1034,7 +1087,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // At design time we reserve space at the left side for the selection flap
             if (_ribbon.InDesignHelperMode)
+            {
                 x += DesignTimeDraw.FlapWidth;
+            }
 
             ViewBase previousChild = null;
 
@@ -1047,12 +1102,11 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (child.Visible)
                 {
                     // Are we positioning a cluster?
-                    if (child is ViewLayoutRibbonGroupCluster)
+                    if (child is ViewLayoutRibbonGroupCluster clusterChild1)
                     {
                         // Inform cluster if it is immediatley after another item and so needs a start separator
-                        ViewLayoutRibbonGroupCluster clusterChild = (ViewLayoutRibbonGroupCluster)child;
-                        clusterChild.StartSeparator = (previousChild != null) && !(previousChild is ViewLayoutRibbonGroupCluster);
-                        clusterChild.EndSeparator = false;
+                        clusterChild1.StartSeparator = (previousChild != null) && !(previousChild is ViewLayoutRibbonGroupCluster);
+                        clusterChild1.EndSeparator = false;
                     }
 
                     if ((previousChild != null) && (previousChild is ViewLayoutRibbonGroupCluster))
@@ -1068,7 +1122,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // If not the first item on the line, then get the pixel gap between them
                     if ((previousChild != null) && _viewToGap.ContainsKey(child))
+                    {
                         x += _viewToGap[child];
+                    }
 
                     // Get the size of the child item
                     Size childSize = _sizeList[visibleIndex];
@@ -1087,7 +1143,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // At design time we reserve space at the left side for the selection flap
                         if (_ribbon.InDesignHelperMode)
+                        {
                             x += DesignTimeDraw.FlapWidth;
+                        }
 
                         y += _ribbon.CalculatedValues.GroupLineHeight;
 
@@ -1115,7 +1173,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Only interested in gaps after the first item
             for (int i = start + 1; i <= end; i++)
+            {
                 gapTotal += _viewToGap[_viewList[i]];
+            }
 
             return gapTotal;
         }
@@ -1153,7 +1213,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnContextClick(object sender, MouseEventArgs e)
         {
             if (_ribbon.InDesignMode)
+            {
                 _ribbonLines.OnDesignTimeContextMenu(e);
+            }
         }
         #endregion
     }

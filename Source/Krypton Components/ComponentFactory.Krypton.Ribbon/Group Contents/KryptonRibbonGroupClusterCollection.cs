@@ -9,13 +9,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -26,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class KryptonRibbonGroupClusterCollection : TypedRestrictCollection<KryptonRibbonGroupItem>
     {
         #region Static Fields
-        private static readonly Type[] _types = new Type[] { typeof(KryptonRibbonGroupClusterButton),
+        private static readonly Type[] _types = { typeof(KryptonRibbonGroupClusterButton),
                                                              typeof(KryptonRibbonGroupClusterColorButton)};
         #endregion
 

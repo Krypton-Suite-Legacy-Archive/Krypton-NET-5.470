@@ -8,15 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -74,9 +67,13 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 if (_large)
+                {
                     return _largeSize;
+                }
                 else
+                {
                     return _smallSize;
+                }
             }
         }
 
@@ -90,16 +87,24 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_ribbonButton.KryptonCommand != null)
                 {
                     if (_large)
+                    {
                         return _ribbonButton.KryptonCommand.ImageLarge;
+                    }
                     else
+                    {
                         return _ribbonButton.KryptonCommand.ImageSmall;
+                    }
                 }
                 else
                 {
                     if (_large)
+                    {
                         return _ribbonButton.ImageLarge;
+                    }
                     else
+                    {
                         return _ribbonButton.ImageSmall;
+                    }
                 }
             }
         }

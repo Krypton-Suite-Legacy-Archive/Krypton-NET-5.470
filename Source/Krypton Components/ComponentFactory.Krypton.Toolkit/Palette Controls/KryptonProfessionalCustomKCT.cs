@@ -8,10 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -49,9 +46,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin] == Color.Empty)
+                {
                     return base.ButtonCheckedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin];
+                }
             }
         }
         #endregion
@@ -65,9 +66,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd] == Color.Empty)
+                {
                     return base.ButtonCheckedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd];
+                }
             }
         }
         #endregion
@@ -81,9 +86,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle] == Color.Empty)
+                {
                     return base.ButtonCheckedGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle];
+                }
             }
         }
         #endregion
@@ -97,9 +106,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonCheckedHighlight] == Color.Empty)
+                {
                     return base.ButtonCheckedHighlight;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonCheckedHighlight];
+                }
             }
         }
         #endregion
@@ -113,9 +126,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder] == Color.Empty)
+                {
                     return base.ButtonCheckedHighlightBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder];
+                }
             }
         }
         #endregion
@@ -129,9 +146,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedBorder] == Color.Empty)
+                {
                     return base.ButtonPressedBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedBorder];
+                }
             }
         }
         #endregion
@@ -145,9 +166,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedGradientBegin] == Color.Empty)
+                {
                     return base.ButtonPressedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedGradientBegin];
+                }
             }
         }
         #endregion
@@ -161,9 +186,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedGradientEnd] == Color.Empty)
+                {
                     return base.ButtonPressedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd];
+                }
             }
         }
         #endregion
@@ -177,9 +206,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle] == Color.Empty)
+                {
                     return base.ButtonPressedGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle];
+                }
             }
         }
         #endregion
@@ -193,9 +226,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedHighlight] == Color.Empty)
+                {
                     return base.ButtonPressedHighlight;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedHighlight];
+                }
             }
         }
         #endregion
@@ -209,9 +246,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder] == Color.Empty)
+                {
                     return base.ButtonPressedHighlightBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder];
+                }
             }
         }
         #endregion
@@ -225,9 +266,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedBorder] == Color.Empty)
+                {
                     return base.ButtonSelectedBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedBorder];
+                }
             }
         }
         #endregion
@@ -241,9 +286,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin] == Color.Empty)
+                {
                     return base.ButtonSelectedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin];
+                }
             }
         }
         #endregion
@@ -257,9 +306,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd] == Color.Empty)
+                {
                     return base.ButtonSelectedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd];
+                }
             }
         }
         #endregion
@@ -273,9 +326,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle] == Color.Empty)
+                {
                     return base.ButtonSelectedGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle];
+                }
             }
         }
         #endregion
@@ -289,9 +346,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedHighlight] == Color.Empty)
+                {
                     return base.ButtonSelectedHighlight;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedHighlight];
+                }
             }
         }
         #endregion
@@ -305,9 +366,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder] == Color.Empty)
+                {
                     return base.ButtonSelectedHighlightBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder];
+                }
             }
         }
         #endregion
@@ -323,9 +388,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.CheckBackground] == Color.Empty)
+                {
                     return base.CheckBackground;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.CheckBackground];
+                }
             }
         }
         #endregion
@@ -339,9 +408,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.CheckPressedBackground] == Color.Empty)
+                {
                     return base.CheckPressedBackground;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.CheckPressedBackground];
+                }
             }
         }
         #endregion
@@ -355,9 +428,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.CheckSelectedBackground] == Color.Empty)
+                {
                     return base.CheckSelectedBackground;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.CheckSelectedBackground];
+                }
             }
         }
         #endregion
@@ -373,9 +450,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.GripDark] == Color.Empty)
+                {
                     return base.GripDark;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.GripDark];
+                }
             }
         }
         #endregion
@@ -389,9 +470,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.GripLight] == Color.Empty)
+                {
                     return base.GripLight;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.GripLight];
+                }
             }
         }
         #endregion
@@ -407,9 +492,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginGradientBegin] == Color.Empty)
+                {
                     return base.ImageMarginGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginGradientBegin];
+                }
             }
         }
         #endregion
@@ -423,9 +512,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginGradientEnd] == Color.Empty)
+                {
                     return base.ImageMarginGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginGradientEnd];
+                }
             }
         }
         #endregion
@@ -439,9 +532,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginGradientMiddle] == Color.Empty)
+                {
                     return base.ImageMarginGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle];
+                }
             }
         }
         #endregion
@@ -455,9 +552,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin] == Color.Empty)
+                {
                     return base.ImageMarginRevealedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin];
+                }
             }
         }
         #endregion
@@ -471,9 +572,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd] == Color.Empty)
+                {
                     return base.ImageMarginRevealedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd];
+                }
             }
         }
         #endregion
@@ -487,9 +592,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle] == Color.Empty)
+                {
                     return base.ImageMarginRevealedGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle];
+                }
             }
         }
         #endregion
@@ -505,9 +614,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuBorder] == Color.Empty)
+                {
                     return base.MenuBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuBorder];
+                }
             }
         }
         #endregion
@@ -521,9 +634,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemText] == Color.Empty)
+                {
                     return base.MenuItemText;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemText];
+                }
             }
         }
         #endregion
@@ -537,9 +654,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemBorder] == Color.Empty)
+                {
                     return base.MenuItemBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemBorder];
+                }
             }
         }
         #endregion
@@ -553,9 +674,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin] == Color.Empty)
+                {
                     return base.MenuItemPressedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin];
+                }
             }
         }
         #endregion
@@ -569,9 +694,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd] == Color.Empty)
+                {
                     return base.MenuItemPressedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd];
+                }
             }
         }
         #endregion
@@ -585,9 +714,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle] == Color.Empty)
+                {
                     return base.MenuItemPressedGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle];
+                }
             }
         }
         #endregion
@@ -601,9 +734,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemSelected] == Color.Empty)
+                {
                     return base.MenuItemSelected;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemSelected];
+                }
             }
         }
         #endregion
@@ -617,9 +754,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin] == Color.Empty)
+                {
                     return base.MenuItemSelectedGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin];
+                }
             }
         }
         #endregion
@@ -633,9 +774,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd] == Color.Empty)
+                {
                     return base.MenuItemSelectedGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd];
+                }
             }
         }
         #endregion
@@ -649,9 +794,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuStripText] == Color.Empty)
+                {
                     return base.MenuStripText;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuStripText];
+                }
             }
         }
         #endregion
@@ -665,9 +814,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuStripGradientBegin] == Color.Empty)
+                {
                     return base.MenuStripGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuStripGradientBegin];
+                }
             }
         }
         #endregion
@@ -681,9 +834,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.MenuStripGradientEnd] == Color.Empty)
+                {
                     return base.MenuStripGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.MenuStripGradientEnd];
+                }
             }
         }
         #endregion
@@ -699,9 +856,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.OverflowButtonGradientBegin] == Color.Empty)
+                {
                     return base.OverflowButtonGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin];
+                }
             }
         }
         #endregion
@@ -715,9 +876,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.OverflowButtonGradientEnd] == Color.Empty)
+                {
                     return base.OverflowButtonGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd];
+                }
             }
         }
         #endregion
@@ -731,9 +896,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle] == Color.Empty)
+                {
                     return base.OverflowButtonGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle];
+                }
             }
         }
         #endregion
@@ -749,9 +918,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.RaftingContainerGradientBegin] == Color.Empty)
+                {
                     return base.RaftingContainerGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin];
+                }
             }
         }
         #endregion
@@ -765,9 +938,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.RaftingContainerGradientEnd] == Color.Empty)
+                {
                     return base.RaftingContainerGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.RaftingContainerGradientEnd];
+                }
             }
         }
         #endregion
@@ -783,9 +960,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.SeparatorDark] == Color.Empty)
+                {
                     return base.SeparatorDark;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.SeparatorDark];
+                }
             }
         }
         #endregion
@@ -799,9 +980,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.SeparatorLight] == Color.Empty)
+                {
                     return base.SeparatorLight;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.SeparatorLight];
+                }
             }
         }
         #endregion
@@ -817,9 +1002,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.StatusStripText] == Color.Empty)
+                {
                     return base.StatusStripText;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.StatusStripText];
+                }
             }
         }
         #endregion
@@ -833,9 +1022,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.StatusStripGradientBegin] == Color.Empty)
+                {
                     return base.StatusStripGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.StatusStripGradientBegin];
+                }
             }
         }
         #endregion
@@ -849,9 +1042,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.StatusStripGradientEnd] == Color.Empty)
+                {
                     return base.StatusStripGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.StatusStripGradientEnd];
+                }
             }
         }
         #endregion
@@ -867,9 +1064,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripText] == Color.Empty)
+                {
                     return base.ToolStripText;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripText];
+                }
             }
         }
         #endregion
@@ -883,9 +1084,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripBorder] == Color.Empty)
+                {
                     return base.ToolStripBorder;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripBorder];
+                }
             }
         }
         #endregion
@@ -899,9 +1104,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin] == Color.Empty)
+                {
                     return base.ToolStripContentPanelGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin];
+                }
             }
         }
         #endregion
@@ -915,9 +1124,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd] == Color.Empty)
+                {
                     return base.ToolStripContentPanelGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd];
+                }
             }
         }
         #endregion
@@ -931,9 +1144,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripDropDownBackground] == Color.Empty)
+                {
                     return base.ToolStripDropDownBackground;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripDropDownBackground];
+                }
             }
         }
         #endregion
@@ -947,9 +1164,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripGradientBegin] == Color.Empty)
+                {
                     return base.ToolStripGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripGradientBegin];
+                }
             }
         }
         #endregion
@@ -963,9 +1184,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripGradientEnd] == Color.Empty)
+                {
                     return base.ToolStripGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripGradientEnd];
+                }
             }
         }
         #endregion
@@ -979,9 +1204,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripGradientMiddle] == Color.Empty)
+                {
                     return base.ToolStripGradientMiddle;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripGradientMiddle];
+                }
             }
         }
         #endregion
@@ -995,9 +1224,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin] == Color.Empty)
+                {
                     return base.ToolStripPanelGradientBegin;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin];
+                }
             }
         }
         #endregion
@@ -1011,9 +1244,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd] == Color.Empty)
+                {
                     return base.ToolStripPanelGradientEnd;
+                }
                 else
+                {
                     return _colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd];
+                }
             }
         }
         #endregion

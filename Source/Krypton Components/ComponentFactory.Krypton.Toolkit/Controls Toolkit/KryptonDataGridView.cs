@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -663,14 +662,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If control is disabled, then draw cell as disabled
             if (!Enabled)
+            {
                 retState = PaletteState.Disabled;
+            }
             else
             {
                 retState = PaletteState.Normal;
 
                 // If the cell is selected, then use the checked state
                 if ((state & DataGridViewElementStates.Selected) == DataGridViewElementStates.Selected)
+                {
                     retState = PaletteState.CheckedNormal;
+                }
                 else
                 {
                     // A data cell cannot become tracking or pressed
@@ -692,7 +695,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             // Cell not pressed, but if mouse over the cell anyway
                             if (cellIndex.Equals(_cellOver))
+                            {
                                 retState = PaletteState.Tracking;
+                            }
                         }
                     }
                 }
@@ -857,14 +862,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // Change in setting means we need to evaluate transparent painting
             _evalTransparent = true;
 
             // If required, layout the control
             if (e.NeedLayout)
+            {
                 _layoutDirty = true;
+            }
 
             if (IsHandleCreated && (!_refreshAll || !e.InvalidRect.IsEmpty))
             {
@@ -875,11 +885,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     Invalidate();
                 }
                 else
+                {
                     Invalidate(e.InvalidRect);
+                }
 
                 // Do we need to use an Invoke to force repaint?
                 if (!_refresh && EvalInvokePaint)
+                {
                     BeginInvoke(_refreshCall);
+                }
 
                 // A refresh is outstanding
                 _refresh = true;
@@ -920,8 +934,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
-            if (PaletteChanged != null)
-                PaletteChanged(this, e);
+            PaletteChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -976,7 +989,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate incoming reference
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
         }
         #endregion
 
@@ -1011,7 +1027,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             byte oldLocation = CurrentMouseLocation(cell);
             if ((cell is DataGridViewRowHeaderCell) && (_oldCell == cell))
+            {
                 oldLocation = _oldLocation;
+            }
 
             base.OnCellMouseMove(e);
             
@@ -1022,14 +1040,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 _oldCell = cell;
             }
             else
+            {
                 _oldCell = null;
+            }
 
             // Use the cached value from before the call to base class
-            switch(oldLocation)
+            switch (oldLocation)
             {
                 case 0:
                     if (newLocation != 1)
+                    {
                         CellErrorAreaMouseEnterInternal(cell);
+                    }
 
                     CellDataAreaMouseEnterInternal(cell);
                     break;
@@ -1081,7 +1103,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // an XOR painting technique to draw the resizing bar and double buffering causes
             // the painting to fail.
             if ((_cellDown.X == -1) || (_cellDown.Y == -1))
+            {
                 DoubleBuffered = false;
+            }
 
             base.OnCellMouseDown(e);
         }
@@ -1096,7 +1120,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Put back double buffered if it was turned off in the OnCellMouseDown
             if (!DoubleBuffered)
+            {
                 DoubleBuffered = true;
+            }
 
             base.OnCellMouseUp(e);
         }
@@ -1118,17 +1144,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A DataGridViewCellPaintingEventArgs that contains the event data.</param>
         protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
         {
-            IPaletteBack paletteBack;
-            IPaletteBorder paletteBorder;
-            IPaletteContent paletteContent;
 
             // Get the palette and state values for this cell
-            PaletteState state = GetCellTriple(e.State, 
-                                               e.RowIndex, 
+            PaletteState state = GetCellTriple(e.State,
+                                               e.RowIndex,
                                                e.ColumnIndex,
-                                               out paletteBack, 
-                                               out paletteBorder, 
-                                               out paletteContent);
+                                               out IPaletteBack paletteBack,
+                                               out IPaletteBorder paletteBorder,
+                                               out IPaletteContent paletteContent);
 
             try
             {
@@ -1205,21 +1228,35 @@ namespace ComponentFactory.Krypton.Toolkit
                                     if (VirtualMode)
                                     {
                                         if (IsCurrentRowDirty && ShowEditingIcon)
+                                        {
                                             glpyh = GridRowGlyph.Pencil;
+                                        }
                                         else if (NewRowIndex == e.RowIndex)
+                                        {
                                             glpyh = GridRowGlyph.ArrowStar;
+                                        }
                                         else
+                                        {
                                             glpyh = GridRowGlyph.Arrow;
+                                        }
                                     }
                                     else if (IsCurrentCellDirty && ShowEditingIcon)
+                                    {
                                         glpyh = GridRowGlyph.Pencil;
+                                    }
                                     else if (NewRowIndex == e.RowIndex)
+                                    {
                                         glpyh = GridRowGlyph.ArrowStar;
+                                    }
                                     else
+                                    {
                                         glpyh = GridRowGlyph.Arrow;
+                                    }
                                 }
                                 else if (NewRowIndex == e.RowIndex)
+                                {
                                     glpyh = GridRowGlyph.Star;
+                                }
 
                                 // Do we need to draw an image?
                                 if (glpyh != GridRowGlyph.None)
@@ -1242,15 +1279,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Cache the icon area
                                     if (_rowCache.ContainsKey(e.RowIndex))
+                                    {
                                         _rowCache[e.RowIndex] = iconBounds;
+                                    }
                                     else
+                                    {
                                         _rowCache.Add(e.RowIndex, iconBounds);
+                                    }
                                 }
                                 else
                                 {
                                     // Remove any cache entry
                                     if (_rowCache.ContainsKey(e.RowIndex))
+                                    {
                                         _rowCache.Remove(e.RowIndex);
+                                    }
                                 }
                             }
                             else
@@ -1305,9 +1348,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                             // Cache if the column cell can display all the content
                                             if (_columnCache.ContainsKey(e.ColumnIndex))
+                                            {
                                                 _columnCache[e.ColumnIndex] = contentsFit;
+                                            }
                                             else
+                                            {
                                                 _columnCache.Add(e.ColumnIndex, contentsFit);
+                                            }
                                         }
 
                                         // Find the correct layout for the header content
@@ -1355,7 +1402,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // If RTL then need to shift from left edge instead of right
                             if (rtl)
+                            {
                                 focusCellBounds.X++;
+                            }
 
                             ControlPaint.DrawFocusRectangle(e.Graphics, focusCellBounds, Color.Empty, paletteContent.GetContentShortTextColor1(state));
                         }
@@ -1387,7 +1436,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // If the layout is dirty, or the size of the control has changed 
                     // without a layout being performed, then perform a layout now
                     if (_layoutDirty && (!Size.Equals(_lastLayoutSize)))
+                    {
                         ViewManagerLayout();
+                    }
 
                     // Do not currently clip because it causes issues when the scroll bars are not showing and the user
                     // scrolls by using the keyboard or by sorting the columns. So it does cause a little flicker
@@ -1398,7 +1449,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Use the view manager to paint the view panel that fills the entire areas as the background
                         using (RenderContext context = new RenderContext(this, graphics, clipBounds, Renderer))
+                        {
                             ViewManager.Paint(context);
+                        }
                     }
 
                     // Request for a refresh has been serviced
@@ -1537,8 +1590,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _gridSyles = new DataGridViewStyles(this);
             _columnCache = new ColumnHeaderCache();
             _rowCache = new RowHeaderCache();
-            _showTimer = new Timer();
-            _showTimer.Interval = 500;
+            _showTimer = new Timer
+            {
+                Interval = 500
+            };
             _showTimer.Tick += new EventHandler(OnTimerTick);
 
             // Default internal fields
@@ -1634,7 +1689,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If not found, get it from the inheritance palette
                 if (_columnFont == null)
+                {
                     _columnFont = StateCommon.HeaderColumn.Content.GetContentShortTextFont(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.Font = _columnFont;
             }
@@ -1644,7 +1701,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _rowFont = StateCommon.HeaderRow.Content.Font;
                 if (_rowFont == null)
+                {
                     _rowFont = StateCommon.HeaderRow.Content.GetContentShortTextFont(state);
+                }
 
                 RowHeadersDefaultCellStyle.Font = _rowFont;
             }
@@ -1654,7 +1713,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _dataCellFont = StateCommon.DataCell.Content.Font;
                 if (_dataCellFont == null)
+                {
                     _dataCellFont = StateCommon.DataCell.Content.GetContentShortTextFont(state);
+                }
 
                 DefaultCellStyle.Font = _dataCellFont;
             }
@@ -1668,7 +1729,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _columnPadding = StateCommon.HeaderColumn.Content.Padding;
                 if (_columnPadding.Equals(CommonHelper.InheritPadding))
+                {
                     _columnPadding = StateCommon.HeaderColumn.Content.GetContentPadding(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.Padding = _columnPadding;
             }
@@ -1677,7 +1740,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _rowPadding = StateCommon.HeaderRow.Content.Padding;
                 if (_rowPadding.Equals(CommonHelper.InheritPadding))
+                {
                     _rowPadding = StateCommon.HeaderRow.Content.GetContentPadding(state);
+                }
 
                 RowHeadersDefaultCellStyle.Padding = _rowPadding;
             }
@@ -1686,7 +1751,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _dataCellPadding = StateCommon.DataCell.Content.Padding;
                 if (_dataCellPadding.Equals(CommonHelper.InheritPadding))
+                {
                     _dataCellPadding = StateCommon.DataCell.Content.GetContentPadding(state);
+                }
 
                 DefaultCellStyle.Padding = _dataCellPadding;
             }
@@ -1702,10 +1769,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign textV = StateCommon.HeaderColumn.Content.TextV;
 
                 if (textH == PaletteRelativeAlign.Inherit)
+                {
                     textH = StateCommon.HeaderColumn.Content.GetContentShortTextH(state);
+                }
 
                 if (textV == PaletteRelativeAlign.Inherit)
+                {
                     textV = StateCommon.HeaderColumn.Content.GetContentShortTextV(state);
+                }
 
                 _columnAlign = RelativeToAlign(textH, textV);
                 ColumnHeadersDefaultCellStyle.Alignment = _columnAlign;
@@ -1717,10 +1788,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign textV = StateCommon.HeaderRow.Content.TextV;
 
                 if (textH == PaletteRelativeAlign.Inherit)
+                {
                     textH = StateCommon.HeaderRow.Content.GetContentShortTextH(state);
+                }
 
                 if (textV == PaletteRelativeAlign.Inherit)
+                {
                     textV = StateCommon.HeaderRow.Content.GetContentShortTextV(state);
+                }
 
                 _rowAlign = RelativeToAlign(textH, textV);
                 RowHeadersDefaultCellStyle.Alignment = _rowAlign;
@@ -1732,10 +1807,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteRelativeAlign textV = StateCommon.DataCell.Content.TextV;
 
                 if (textH == PaletteRelativeAlign.Inherit)
+                {
                     textH = StateCommon.DataCell.Content.GetContentShortTextH(state);
+                }
 
                 if (textV == PaletteRelativeAlign.Inherit)
+                {
                     textV = StateCommon.DataCell.Content.GetContentShortTextV(state);
+                }
 
                 _dataCellAlign = RelativeToAlign(textH, textV);
                 DefaultCellStyle.Alignment = _dataCellAlign;
@@ -1752,7 +1831,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _columnBackColor = StateNormal.HeaderColumn.Back.Color1;
 
                 if (_columnBackColor == Color.Empty)
+                {
                     _columnBackColor = StateNormal.HeaderColumn.Back.GetBackColor1(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.BackColor = _columnBackColor;
             }
@@ -1763,7 +1844,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _rowBackColor = StateNormal.HeaderRow.Back.Color1;
 
                 if (_rowBackColor == Color.Empty)
+                {
                     _rowBackColor = StateNormal.HeaderRow.Back.GetBackColor1(state);
+                }
 
                 RowHeadersDefaultCellStyle.BackColor = _rowBackColor;
             }
@@ -1774,7 +1857,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _dataCellBackColor = StateNormal.DataCell.Back.Color1;
 
                 if (_dataCellBackColor == Color.Empty)
+                {
                     _dataCellBackColor = StateNormal.DataCell.Back.GetBackColor1(state);
+                }
 
                 DefaultCellStyle.BackColor = _dataCellBackColor;
             }
@@ -1790,7 +1875,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _columnSelBackColor = StateSelected.HeaderColumn.Back.Color1;
 
                 if (_columnSelBackColor == Color.Empty)
+                {
                     _columnSelBackColor = StateSelected.HeaderColumn.Back.GetBackColor1(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.SelectionBackColor = _columnSelBackColor;
             }
@@ -1801,7 +1888,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _rowSelBackColor = StateSelected.HeaderRow.Back.Color1;
 
                 if (_rowSelBackColor == Color.Empty)
+                {
                     _rowSelBackColor = StateSelected.HeaderRow.Back.GetBackColor1(state);
+                }
 
                 RowHeadersDefaultCellStyle.SelectionBackColor = _rowSelBackColor;
             }
@@ -1812,7 +1901,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _dataCellSelBackColor = StateSelected.DataCell.Back.Color1;
 
                 if (_dataCellSelBackColor == Color.Empty)
+                {
                     _dataCellSelBackColor = StateSelected.DataCell.Back.GetBackColor1(state);
+                }
 
                 DefaultCellStyle.SelectionBackColor = _dataCellSelBackColor;
             }
@@ -1828,7 +1919,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _columnForeColor = StateNormal.HeaderColumn.Content.Color1;
 
                 if (_columnForeColor == Color.Empty)
+                {
                     _columnForeColor = StateNormal.HeaderColumn.Content.GetContentShortTextColor1(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.ForeColor = _columnForeColor;
             }
@@ -1839,7 +1932,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _rowForeColor = StateNormal.HeaderRow.Content.Color1;
 
                 if (_rowForeColor == Color.Empty)
+                {
                     _rowForeColor = StateNormal.HeaderRow.Content.GetContentShortTextColor1(state);
+                }
 
                 RowHeadersDefaultCellStyle.ForeColor = _rowForeColor;
             }
@@ -1850,7 +1945,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _dataCellForeColor = StateNormal.DataCell.Content.Color1;
 
                 if (_dataCellForeColor == Color.Empty)
+                {
                     _dataCellForeColor = StateNormal.DataCell.Content.GetContentShortTextColor1(state);
+                }
 
                 DefaultCellStyle.ForeColor = _dataCellForeColor;
             }
@@ -1866,7 +1963,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _columnSelForeColor = StateSelected.HeaderColumn.Content.Color1;
 
                 if (_columnSelForeColor == Color.Empty)
+                {
                     _columnSelForeColor = StateSelected.HeaderColumn.Content.GetContentShortTextColor1(state);
+                }
 
                 ColumnHeadersDefaultCellStyle.SelectionForeColor = _columnSelForeColor;
             }
@@ -1877,7 +1976,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _rowSelForeColor = StateSelected.HeaderRow.Content.Color1;
 
                 if (_rowSelForeColor == Color.Empty)
+                {
                     _rowSelForeColor = StateSelected.HeaderRow.Content.GetContentShortTextColor1(state);
+                }
 
                 RowHeadersDefaultCellStyle.SelectionForeColor = _rowSelForeColor;
             }
@@ -1888,7 +1989,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _dataCellSelForeColor = StateSelected.DataCell.Content.Color1;
 
                 if (_dataCellSelForeColor == Color.Empty)
+                {
                     _dataCellSelForeColor = StateSelected.DataCell.Content.GetContentShortTextColor1(state);
+                }
 
                 DefaultCellStyle.SelectionForeColor = _dataCellSelForeColor;
             }
@@ -1906,7 +2009,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Mark as location=2 which is over icon bounds
                     if (_rowCache[e.RowIndex].Contains(new Point(e.X, e.Y)))
+                    {
                         location = 2;
+                    }
                 }
             }
 
@@ -1969,12 +2074,16 @@ namespace ComponentFactory.Krypton.Toolkit
                                             
             // Do we need a top border
             if (!HideOuterBorders && ((row == -1) || ((row == 0) && !ColumnHeadersVisible)))
+            {
                 maxBorders |= PaletteDrawBorders.Top;
+            }
 
             // Do we need a left/right border
             if (!HideOuterBorders && ((column == -1) || ((column == 0) && !RowHeadersVisible)))
+            {
                 maxBorders |= (RightToLeftInternal ? PaletteDrawBorders.Right : 
                                                      PaletteDrawBorders.Left);
+            }
 
             // Check if the cell is hard against the far or bottom edges, if so do not need to draw 
             // border that is hard against the edge as it will then look like it has double borders
@@ -1984,18 +2093,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (RightToLeftInternal)
                 {
                     if (cellBounds.Left == 0)
+                    {
                         maxBorders &= ~PaletteDrawBorders.Left;
+                    }
                 }
                 else
                 {
                     // Check the right border
                     if (cellBounds.Right == Width)
+                    {
                         maxBorders &= ~PaletteDrawBorders.Right;
+                    }
                 }
 
                 // Check the bottom border
                 if (cellBounds.Bottom == Height)
+                {
                     maxBorders &= ~PaletteDrawBorders.Bottom;
+                }
             }
 
             return maxBorders;
@@ -2056,7 +2171,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 {
                                     string editedValue = cell.GetEditedFormattedValue(cell.RowIndex, DataGridViewDataErrorContexts.Display) as string;
                                     if (!string.IsNullOrEmpty(editedValue))
+                                    {
                                         _toolTipText = TruncateToolTipText(editedValue);
+                                    }
                                 }
                             }
                             else if ((cell.RowIndex == -1) && (cell.ColumnIndex != -1) && _columnCache.ContainsKey(cell.ColumnIndex))
@@ -2068,7 +2185,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         string editedValue = cell.GetEditedFormattedValue(cell.RowIndex, DataGridViewDataErrorContexts.Display) as string;
                                         if (!string.IsNullOrEmpty(editedValue))
+                                        {
                                             _toolTipText = TruncateToolTipText(editedValue);
+                                        }
                                     }
                                     catch { }
                                 }
@@ -2084,7 +2203,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
                 else
+                {
                     CellAreaMouseLeaveInternal();
+                }
             }
         }
 
@@ -2104,12 +2225,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private void CellAreaMouseLeaveInternal()
         {
             // Stop the timer from showing a tooltip
-            if (_showTimer != null)
-                _showTimer.Stop();
+            _showTimer?.Stop();
 
             // If there is a popup tooltip showing
             if (_visualPopupToolTip != null)
+            {
                 VisualPopupManager.Singleton.EndPopupTracking(_visualPopupToolTip);
+            }
         }
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
@@ -2135,8 +2257,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     DismissBaseToolTips();
 
                     // Remove any currently showing tooltip
-                    if (_visualPopupToolTip != null)
-                        _visualPopupToolTip.Dispose();
+                    _visualPopupToolTip?.Dispose();
 
                     // Create the actual tooltip popup object
                     _visualPopupToolTip = new VisualPopupToolTip(Redirector,
@@ -2335,10 +2456,15 @@ namespace ComponentFactory.Krypton.Toolkit
             int rowsHeight = Rows.GetRowsHeight(DataGridViewElementStates.Visible);
 
             // Add on the width/height from showing the optional headers
-            if (columnHeadersVisible) rowsHeight += columnHeaders.Height;
+            if (columnHeadersVisible)
+            {
+                rowsHeight += columnHeaders.Height;
+            }
 
             if (rowHeadersVisible)
+            {
                 columnsWidth += rowHeaders.Width;
+            }
             else
             {
                 // Seems to be a bug in the base implementation such that without the row
@@ -2360,7 +2486,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Adjust the rectangle if using right to left setting
                 if (RightToLeft == RightToLeft.Yes)
+                {
                     cellsRect.X = (Width - columnsWidth) + HorizontalScrollingOffset;
+                }
             }
 
             return cellsRect;

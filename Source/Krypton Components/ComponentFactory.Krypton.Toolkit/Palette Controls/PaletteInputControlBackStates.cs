@@ -8,13 +8,8 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -143,9 +138,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetBackColor1(PaletteState state)
         {
             if (Color1 != Color.Empty)
+            {
                 return Color1;
+            }
             else
+            {
                 return _inherit.GetBackColor1(state);
+            }
         }
         #endregion
 

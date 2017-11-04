@@ -9,12 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -1110,7 +1105,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Rounded feedback uses a per-pixel alpha blending and so we need to be on a machine that supports
                     // more than 256 colors and also allows the layered windows feature. If not then revert to sqaures
                     if ((OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) == null) || (CommonHelper.ColorDepth() <= 8))
+                    {
                         _dragFeedback = PaletteDragFeedback.Square;
+                    }
                 }
             }
 
@@ -1190,22 +1187,30 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (!_baseFontSize.HasValue)
+                {
                     return SystemFonts.MenuFont.SizeInPoints;
+                }
                 else
+                {
                     return _baseFontSize.Value;
+                }
             }
 
             set
             {
                 // Is there a change in value?
                 if (((value <= 0) && _baseFontSize.HasValue) ||
-                    (value > 0) && (!_baseFontSize.HasValue || _baseFontSize.Value != value))
+                    ((value > 0) && (!_baseFontSize.HasValue || (_baseFontSize.Value != value))))
                 {
                     // Cache new value
                     if (value <= 0)
+                    {
                         _baseFontSize = null;
+                    }
                     else
+                    {
                         _baseFontSize = value;
+                    }
 
                     // Update fonts to reflect change
                     DefineFonts();
@@ -1273,11 +1278,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Color FadedColor(Color baseColor)
         {
             // Conver to HSL space
-            ColorHSL hsl = new ColorHSL(baseColor);
+            ColorHSL hsl = new ColorHSL(baseColor)
+            {
 
-            // Remove saturation and fix luminance
-            hsl.Saturation = 0.0f;
-            hsl.Luminance = 0.55f;
+                // Remove saturation and fix luminance
+                Saturation = 0.0f,
+                Luminance = 0.55f
+            };
 
             return hsl.Color;
         }
@@ -1294,8 +1301,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!_inputControlPadding.HasValue)
                 {
                     // Find size of a input control with and without a border
-                    TextBox tb = new TextBox();
-                    tb.BorderStyle = BorderStyle.None;
+                    TextBox tb = new TextBox
+                    {
+                        BorderStyle = BorderStyle.None
+                    };
                     Size sn = tb.GetPreferredSize(new Size(int.MaxValue, int.MaxValue));
                     tb.BorderStyle = BorderStyle.FixedSingle;
                     Size ss = tb.GetPreferredSize(new Size(int.MaxValue, int.MaxValue));
@@ -1309,10 +1318,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (Environment.OSVersion.Version.Major == 6)
                     {
                         // Under Aero we need to reduce by 2, otherwise in Classic and reduce by 1
-                        if (PI.IsAppThemed() && PI.IsThemeActive())        
+                        if (PI.IsAppThemed() && PI.IsThemeActive())
+                        {
                             yDiff = Math.Max(0, yDiff - 3);
+                        }
                         else
+                        {
                             yDiff = Math.Max(0, yDiff - 2);
+                        }
                     }
 
                     // Allocate the difference between the border edges
@@ -1362,8 +1375,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An PaletteLayoutEventArgs containing event data.</param>
         protected virtual void OnPalettePaint(object sender, PaletteLayoutEventArgs e)
         {
-            if (PalettePaint != null)
-                PalettePaint(this, e);
+            PalettePaint?.Invoke(this, e);
         }
         #endregion
 
@@ -1375,8 +1387,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnAllowFormChromeChanged(object sender, EventArgs e)
         {
-            if (AllowFormChromeChanged != null)
-                AllowFormChromeChanged(this, e);
+            AllowFormChromeChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1388,8 +1399,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnBasePaletteChanged(object sender, EventArgs e)
         {
-            if (BasePaletteChanged != null)
-                BasePaletteChanged(this, e);
+            BasePaletteChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1401,8 +1411,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnBaseRendererChanged(object sender, EventArgs e)
         {
-            if (BaseRendererChanged != null)
-                BaseRendererChanged(this, e);
+            BaseRendererChanged?.Invoke(this, e);
         }
         #endregion
 
@@ -1414,8 +1423,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing event data.</param>
         protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
         {
-            if (ButtonSpecChanged != null)
-                ButtonSpecChanged(this, e);
+            ButtonSpecChanged?.Invoke(this, e);
         }
         #endregion
     }

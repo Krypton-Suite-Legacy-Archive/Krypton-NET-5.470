@@ -11,11 +11,9 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -65,7 +63,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(component != null);
 
             // Validate the parameter reference
-            if (component == null) throw new ArgumentNullException("component");
+            if (component == null)
+            {
+                throw new ArgumentNullException("component");
+            }
 
             // Let base class do standard stuff
             base.Initialize(component);
@@ -157,14 +158,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Setup the array of properties we override
             Attribute[] attributes = new Attribute[0];
-            string[] strArray = new string[] { "Visible", "Enabled" };
+            string[] strArray = { "Visible", "Enabled" };
 
             // Adjust our list of properties
             for (int i = 0; i < strArray.Length; i++)
             {
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
+                {
                     properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupCustomControlDesigner), descrip, attributes);
+                }
             }
         }
         #endregion
@@ -244,7 +247,9 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Invert the current toggle helper mode
             if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            {
                 _ribbonCustomControl.Ribbon.InDesignHelperMode = !_ribbonCustomControl.Ribbon.InDesignHelperMode;
+            }
         }
 
         private void OnMoveFirst(object sender, EventArgs e)
@@ -274,8 +279,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -309,8 +313,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -345,7 +348,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // If we managed to create the transaction, then do it
                     if (transaction != null)
+                    {
                         transaction.Commit();
+                    }
                 }
             }
         }
@@ -377,8 +382,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -414,8 +418,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 finally
                 {
                     // If we managed to create the transaction, then do it
-                    if (transaction != null)
-                        transaction.Commit();
+                    transaction?.Commit();
                 }
             }
         }
@@ -494,21 +497,16 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get
             {
-                if (_ribbonCustomControl.RibbonContainer is KryptonRibbonGroupTriple)
+                switch (_ribbonCustomControl.RibbonContainer)
                 {
-                    KryptonRibbonGroupTriple triple = (KryptonRibbonGroupTriple)_ribbonCustomControl.RibbonContainer;
-                    return triple.Items;
-                }
-                else if (_ribbonCustomControl.RibbonContainer is KryptonRibbonGroupLines)
-                {
-                    KryptonRibbonGroupLines lines = (KryptonRibbonGroupLines)_ribbonCustomControl.RibbonContainer;
-                    return lines.Items;
-                }
-                else
-                {
-                    // Should never happen!
-                    Debug.Assert(false);
-                    return null;
+                    case KryptonRibbonGroupTriple triple:
+                        return triple.Items;
+                    case KryptonRibbonGroupLines lines:
+                        return lines.Items;
+                    default:
+                        // Should never happen!
+                        Debug.Assert(false);
+                        return null;
                 }
             }
         }

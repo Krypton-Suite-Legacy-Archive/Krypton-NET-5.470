@@ -9,10 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -58,8 +55,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(context != null);
 
             // Validate incoming reference
-            if (context == null) throw new ArgumentNullException("context");
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
             // We take on all the available display area
             Rectangle original = context.DisplayRectangle;
             ClientRectangle = original;
@@ -76,7 +76,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // If this is the last item then it takes the remaining space
                 if (i == (Count - 1))
+                {
                     length = space;
+                }
                 else
                 {
                     // Give this item an equal portion of the remainder
@@ -88,15 +90,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Size child to our relevant dimension
                 if (_orientation == Orientation.Vertical)
+                {
                     context.DisplayRectangle = new Rectangle(ClientRectangle.X,
                                                              ClientRectangle.Y + offset,
                                                              childPreferred.Width,
                                                              length);
+                }
                 else
+                {
                     context.DisplayRectangle = new Rectangle(ClientRectangle.X + offset,
                                                              ClientRectangle.Y,
                                                              length,
                                                              ClientRectangle.Height);
+                }
 
                 // Ask the child to layout
                 child.Layout(context);

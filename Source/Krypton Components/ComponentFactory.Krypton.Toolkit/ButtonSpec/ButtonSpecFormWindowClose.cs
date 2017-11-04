@@ -9,14 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -48,11 +42,15 @@ namespace ComponentFactory.Krypton.Toolkit
             // We do not show if the custom chrome is combined with composition,
             // in which case the form buttons are handled by the composition
             if (KryptonForm.ApplyComposition && KryptonForm.ApplyCustomChrome)
+            {
                 return false;
+            }
 
             // Have all buttons been turned off?
             if (!KryptonForm.ControlBox)
+            {
                 return false;
+            }
 
             return true;
         }

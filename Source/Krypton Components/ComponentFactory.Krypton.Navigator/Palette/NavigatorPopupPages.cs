@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -26,10 +20,12 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorPopupPages : Storage
     {
         #region Static Fields
-        private static readonly int _defaultBorder = 3;
-        private static readonly int _defaultGap = 3;
-        private static readonly PopupPageElement _defaultElement = PopupPageElement.Item;
-        private static readonly PopupPagePosition _defaultPosition = PopupPagePosition.ModeAppropriate;
+
+        private const int DEFAULT_BORDER = 3;
+        private const int DEFAULT_GAP = 3;
+        private const PopupPageElement DEFAULT_ELEMENT = PopupPageElement.Item;
+        private const PopupPagePosition DEFAULT_POSITION = PopupPagePosition.ModeAppropriate;
+
         #endregion
 
         #region Instance Fields
@@ -61,10 +57,10 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Default values
             _allowPopupPages = PopupPageAllow.OnlyOutlookMiniMode;
-            _gap = _defaultGap;
-            _border = _defaultGap;
-            _element = _defaultElement;
-            _position = _defaultPosition;
+            _gap = DEFAULT_GAP;
+            _border = DEFAULT_GAP;
+            _element = DEFAULT_ELEMENT;
+            _position = DEFAULT_POSITION;
         }
 		#endregion
 
@@ -78,10 +74,10 @@ namespace ComponentFactory.Krypton.Navigator
             get
             {
                 return ((AllowPopupPages == PopupPageAllow.OnlyOutlookMiniMode) &&
-                        (Border == _defaultBorder) &&
-                        (Element == _defaultElement) &&
-                        (Gap == _defaultGap) &&
-                        (Position == _defaultPosition));
+                        (Border == DEFAULT_BORDER) &&
+                        (Element == DEFAULT_ELEMENT) &&
+                        (Gap == DEFAULT_GAP) &&
+                        (Position == DEFAULT_POSITION));
             }
         }
         #endregion

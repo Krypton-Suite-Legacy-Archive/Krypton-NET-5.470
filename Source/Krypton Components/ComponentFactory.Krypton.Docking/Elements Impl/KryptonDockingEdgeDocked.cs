@@ -9,16 +9,13 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -57,10 +54,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingEdgeDocked(string name, Control control, DockingEdge edge)
             : base(name)
         {
-            if (control == null)
-                throw new ArgumentNullException("control");
-
-            _control = control;
+            _control = control ?? throw new ArgumentNullException("control");
             _edge = edge;
             _lookupSeparator = new SeparatorToDockspace();
             _lookupDockspace = new DockspaceToSeparator();
@@ -180,7 +174,9 @@ namespace ComponentFactory.Krypton.Docking
                                                         IDockingElement child)
         {
             if (child != null)
+            {
                 child.LoadElementFromXml(xmlReader, pages);
+            }
             else
             {
                 Size dockspaceSize = _defaultDockspaceSize;
@@ -188,7 +184,9 @@ namespace ComponentFactory.Krypton.Docking
 
                 // Cache the loading size
                 if (!string.IsNullOrEmpty(elementSize))
+                {
                     dockspaceSize = CommonHelper.StringToSize(elementSize);
+                }
 
                 // Create a new dockspace and then reload it
                 KryptonDockingDockspace dockspace = AppendDockspace(xmlReader.GetAttribute("N"), dockspaceSize);
@@ -276,8 +274,7 @@ namespace ComponentFactory.Krypton.Docking
                 e.MoveRect = dockspaceResizeRectArgs.ResizeRect;
             }
 
-            KryptonDockingControl c = GetParentType(typeof(KryptonDockingControl)) as KryptonDockingControl;
-            if (c != null)
+            if (GetParentType(typeof(KryptonDockingControl)) is KryptonDockingControl c)
             {
                 // Inform our owning control that an update is starting, this will prevent drawing of the control area
                 c.PropogateAction(DockingPropogateAction.StartUpdate, (string[])null);
@@ -353,7 +350,9 @@ namespace ComponentFactory.Krypton.Docking
             // Ensure the matching separator is also disposed
             KryptonDockspaceSeparator separatorControl = _lookupDockspace[dockspaceElement];
             if (!separatorControl.IsDisposed)
+            {
                 separatorControl.Dispose();
+            }
 
             // Remove lookup association
             _lookupDockspace.Remove(dockspaceElement);
@@ -393,9 +392,10 @@ namespace ComponentFactory.Krypton.Docking
 
             // Get the minimum size requested for the inner area of the control
             Size innerMinimum = Size.Empty;
-            KryptonDockingControl dockingControl = GetParentType(typeof(KryptonDockingControl)) as KryptonDockingControl;
-            if (dockingControl != null)
+            if (GetParentType(typeof(KryptonDockingControl)) is KryptonDockingControl dockingControl)
+            {
                 innerMinimum = dockingControl.InnerMinimum;
+            }
 
             // How much can we expand the width/height of the dockspace to reach the inner minimum
             int expandWidth = Math.Max(innerRect.Width - innerMinimum.Width, 0);
@@ -403,8 +403,15 @@ namespace ComponentFactory.Krypton.Docking
 
             // Limit check we are not growing bigger than the maximum allowed
             Size dockspaceMaximum = dockspaceElement.DockspaceControl.MaximumSize;
-            if (dockspaceMaximum.Width > 0) expandWidth = Math.Min(expandWidth, dockspaceMaximum.Width);
-            if (dockspaceMaximum.Height > 0) expandHeight = Math.Min(expandHeight, dockspaceMaximum.Height);
+            if (dockspaceMaximum.Width > 0)
+            {
+                expandWidth = Math.Min(expandWidth, dockspaceMaximum.Width);
+            }
+
+            if (dockspaceMaximum.Height > 0)
+            {
+                expandHeight = Math.Min(expandHeight, dockspaceMaximum.Height);
+            }
 
             // Allow movement rectangle to extend inwards according to inner rectangle and outwards according to dockspace size
             Rectangle retRect = Rectangle.Empty;
@@ -459,7 +466,9 @@ namespace ComponentFactory.Krypton.Docking
             {
                 Control test = Control.Controls[i];
                 if (test is KryptonDockspace)
+                {
                     insertIndex = i + 1;
+                }
 
                 if ((test is KryptonAutoHiddenPanel) || ((test is KryptonAutoHiddenSlidePanel) && !test.Visible))
                 {

@@ -8,13 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -158,9 +152,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderDraw(state);
+            }
             else
+            {
                 return Target.GetBorderDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -174,9 +172,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderDrawBorders(state);
+            }
             else
+            {
                 return Target.GetBorderDrawBorders(style, state);
+            }
         }
 
         /// <summary>
@@ -190,9 +192,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderGraphicsHint(state);
+            }
             else
+            {
                 return Target.GetBorderGraphicsHint(style, state);
+            }
         }
 
         /// <summary>
@@ -206,9 +212,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderColor1(state);
+            }
             else
+            {
                 return Target.GetBorderColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -222,9 +232,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderColor2(state);
+            }
             else
+            {
                 return Target.GetBorderColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -238,9 +252,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderColorStyle(state);
+            }
             else
+            {
                 return Target.GetBorderColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -254,9 +272,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderColorAlign(state);
+            }
             else
+            {
                 return Target.GetBorderColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -270,9 +292,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderColorAngle(state);
+            }
             else
+            {
                 return Target.GetBorderColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -286,9 +312,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderWidth(state);
+            }
             else
+            {
                 return Target.GetBorderWidth(style, state);
+            }
         }
 
         /// <summary>
@@ -302,9 +332,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderRounding(state);
+            }
             else
+            {
                 return Target.GetBorderRounding(style, state);
+            }
         }
 
         /// <summary>
@@ -318,9 +352,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderImage(state);
+            }
             else
+            {
                 return Target.GetBorderImage(style, state);
+            }
         }
 
         /// <summary>
@@ -334,9 +372,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderImageStyle(state);
+            }
             else
+            {
                 return Target.GetBorderImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -350,9 +392,13 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteBorder inherit = GetInherit(state);
 
             if (inherit != null)
+            {
                 return inherit.GetBorderImageAlign(state);
+            }
             else
+            {
                 return Target.GetBorderImageAlign(style, state);
+            }
         }    
         #endregion
 

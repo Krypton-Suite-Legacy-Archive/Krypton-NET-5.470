@@ -8,15 +8,7 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Collections;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Text;
-using System.Diagnostics;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -73,8 +65,12 @@ namespace ComponentFactory.Krypton.Docking
                 if (name != null)
                 {
                     foreach (IDockingElement element in this)
+                    {
                         if (element.Name.Equals(name))
+                        {
                             return element;
+                        }
+                    }
                 }
 
                 return null; 
@@ -144,7 +140,9 @@ namespace ComponentFactory.Krypton.Docking
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
         /// <summary>
@@ -154,7 +152,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Remove the parent relationships
             foreach (IDockingElement element in this)
+            {
                 element.Parent = null;
+            }
 
             _elements.Clear();
         }

@@ -8,13 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -179,9 +175,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return InheritBool.Inherit;
+                }
                 else
+                {
                     return _storage.BorderDraw;
+                }
             }
 			
 			set 
@@ -199,8 +199,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != InheritBool.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderDraw = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderDraw = value
+                        };
                         OnPropertyChanged("Draw");
                         PerformNeedPaint();
                     }
@@ -216,10 +218,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public InheritBool GetBorderDraw(PaletteState state)
 		{
 			if (Draw != InheritBool.Inherit)
-				return Draw;
-			else
-				return _inherit.GetBorderDraw(state);
-		}
+            {
+                return Draw;
+            }
+            else
+            {
+                return _inherit.GetBorderDraw(state);
+            }
+        }
 		#endregion
 
         #region DrawBorders
@@ -237,9 +243,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (_storage == null)
+                {
                     return PaletteDrawBorders.Inherit;
+                }
                 else
+                {
                     return _storage.BorderDrawBorders;
+                }
             }
 
             set
@@ -257,8 +267,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteDrawBorders.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderDrawBorders = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderDrawBorders = value
+                        };
                         OnPropertyChanged("DrawBorders");
                         PerformNeedPaint(true);
                     }
@@ -279,9 +291,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
         {
             if (DrawBorders != PaletteDrawBorders.Inherit)
+            {
                 return DrawBorders;
+            }
             else
+            {
                 return _inherit.GetBorderDrawBorders(state);
+            }
         }
         #endregion
 
@@ -299,9 +315,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteGraphicsHint.Inherit;
+                }
                 else
-                    return _storage.BorderGraphicsHint; 
+                {
+                    return _storage.BorderGraphicsHint;
+                }
             }
 
 			set
@@ -319,8 +339,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteGraphicsHint.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderGraphicsHint = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderGraphicsHint = value
+                        };
                         OnPropertyChanged("GraphicsHint");
                         PerformNeedPaint();
                     }
@@ -336,10 +358,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
 		{
 			if (GraphicsHint != PaletteGraphicsHint.Inherit)
-				return GraphicsHint;
-			else
-				return _inherit.GetBorderGraphicsHint(state);
-		}
+            {
+                return GraphicsHint;
+            }
+            else
+            {
+                return _inherit.GetBorderGraphicsHint(state);
+            }
+        }
 		#endregion
 
 		#region Color1
@@ -356,9 +382,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
-                    return _storage.BorderColor1; 
+                {
+                    return _storage.BorderColor1;
+                }
             }
 			
 			set 
@@ -376,8 +406,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderColor1 = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderColor1 = value
+                        };
                         OnPropertyChanged("Color1");
                         PerformNeedPaint();
                     }
@@ -393,10 +425,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Color GetBorderColor1(PaletteState state)
 		{
             if (Color1 != Color.Empty)
+            {
                 return Color1;
+            }
             else
+            {
                 return _inherit.GetBorderColor1(state);
-		}
+            }
+        }
 		#endregion
 
 		#region Color2
@@ -413,9 +449,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return Color.Empty;
+                }
                 else
-                    return _storage.BorderColor2; 
+                {
+                    return _storage.BorderColor2;
+                }
             }
 
 			set
@@ -433,8 +473,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != Color.Empty)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderColor2 = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderColor2 = value
+                        };
                         OnPropertyChanged("Color2");
                         PerformNeedPaint();
                     }
@@ -450,10 +492,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Color GetBorderColor2(PaletteState state)
 		{
 			if (Color2 != Color.Empty)
-				return Color2;
-			else
-				return _inherit.GetBorderColor2(state);
-		}
+            {
+                return Color2;
+            }
+            else
+            {
+                return _inherit.GetBorderColor2(state);
+            }
+        }
 		#endregion
 
 		#region ColorStyle
@@ -470,9 +516,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteColorStyle.Inherit;
+                }
                 else
-                    return _storage.BorderColorStyle; 
+                {
+                    return _storage.BorderColorStyle;
+                }
             }
 
 			set
@@ -490,8 +540,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteColorStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderColorStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderColorStyle = value
+                        };
                         OnPropertyChanged("ColorStyle");
                         PerformNeedPaint();
                     }
@@ -507,10 +559,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteColorStyle GetBorderColorStyle(PaletteState state)
 		{
 			if (ColorStyle != PaletteColorStyle.Inherit)
-				return ColorStyle;
-			else
-				return _inherit.GetBorderColorStyle(state);
-		}
+            {
+                return ColorStyle;
+            }
+            else
+            {
+                return _inherit.GetBorderColorStyle(state);
+            }
+        }
 		#endregion
 
 		#region ColorAlign
@@ -527,9 +583,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
-                    return _storage.BorderColorAlign; 
+                {
+                    return _storage.BorderColorAlign;
+                }
             }
 
 			set
@@ -547,8 +607,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderColorAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderColorAlign = value
+                        };
                         OnPropertyChanged("ColorAlign");
                         PerformNeedPaint();
                     }
@@ -564,10 +626,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteRectangleAlign GetBorderColorAlign(PaletteState state)
 		{
 			if (ColorAlign != PaletteRectangleAlign.Inherit)
-				return ColorAlign;
-			else
-				return _inherit.GetBorderColorAlign(state);
-		}
+            {
+                return ColorAlign;
+            }
+            else
+            {
+                return _inherit.GetBorderColorAlign(state);
+            }
+        }
 		#endregion
 
 		#region ColorAngle
@@ -584,9 +650,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return -1;
+                }
                 else
-                    return _storage.BorderColorAngle; 
+                {
+                    return _storage.BorderColorAngle;
+                }
             }
 
 			set
@@ -604,8 +674,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != -1f)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderColorAngle = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderColorAngle = value
+                        };
                         OnPropertyChanged("ColorAngle");
                         PerformNeedPaint();
                     }
@@ -621,10 +693,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public float GetBorderColorAngle(PaletteState state)
 		{
 			if (ColorAngle != -1)
-				return ColorAngle;
-			else
-				return _inherit.GetBorderColorAngle(state);
-		}
+            {
+                return ColorAngle;
+            }
+            else
+            {
+                return _inherit.GetBorderColorAngle(state);
+            }
+        }
 		#endregion
 
 		#region Width
@@ -641,9 +717,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return -1;
+                }
                 else
-                    return _storage.BorderWidth; 
+                {
+                    return _storage.BorderWidth;
+                }
             }
 
 			set
@@ -661,8 +741,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != -1)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderWidth = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderWidth = value
+                        };
                         OnPropertyChanged("Width");
                         PerformNeedPaint(true);
                     }
@@ -678,10 +760,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public int GetBorderWidth(PaletteState state)
 		{
 			if (Width != -1)
-				return Width;
-			else
-				return _inherit.GetBorderWidth(state);
-		}
+            {
+                return Width;
+            }
+            else
+            {
+                return _inherit.GetBorderWidth(state);
+            }
+        }
 		#endregion
 
 		#region Rounding
@@ -698,9 +784,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return -1;
+                }
                 else
-                    return _storage.BorderRounding; 
+                {
+                    return _storage.BorderRounding;
+                }
             }
 
 			set
@@ -718,8 +808,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != -1)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderRounding = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderRounding = value
+                        };
                         OnPropertyChanged("Rounding");
                         PerformNeedPaint(true);
                     }
@@ -735,10 +827,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public int GetBorderRounding(PaletteState state)
 		{
 			if (Rounding != -1)
-				return Rounding;
-			else
-				return _inherit.GetBorderRounding(state);
-		}
+            {
+                return Rounding;
+            }
+            else
+            {
+                return _inherit.GetBorderRounding(state);
+            }
+        }
 		#endregion
 
 		#region Image
@@ -752,13 +848,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get 
-            {
-                if (_storage == null)
-                    return null;
-                else
-                    return _storage.BorderImage; 
-            }
+			get
+			{
+			    return _storage?.BorderImage;
+			}
 
 			set
 			{
@@ -775,8 +868,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != null)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderImage = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderImage = value
+                        };
                         OnPropertyChanged("Image");
                         PerformNeedPaint();
                     }
@@ -792,10 +887,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public Image GetBorderImage(PaletteState state)
 		{
 			if (Image != null)
-				return Image;
-			else
-				return _inherit.GetBorderImage(state);
-		}
+            {
+                return Image;
+            }
+            else
+            {
+                return _inherit.GetBorderImage(state);
+            }
+        }
 		#endregion
 
 		#region ImageStyle
@@ -812,9 +911,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteImageStyle.Inherit;
+                }
                 else
-                    return _storage.BorderImageStyle; 
+                {
+                    return _storage.BorderImageStyle;
+                }
             }
 
 			set
@@ -832,8 +935,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteImageStyle.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderImageStyle = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderImageStyle = value
+                        };
                         OnPropertyChanged("ImageStyle");
                         PerformNeedPaint();
                     }
@@ -854,10 +959,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteImageStyle GetBorderImageStyle(PaletteState state)
 		{
 			if (ImageStyle != PaletteImageStyle.Inherit)
-				return ImageStyle;
-			else
-				return _inherit.GetBorderImageStyle(state);
-		}
+            {
+                return ImageStyle;
+            }
+            else
+            {
+                return _inherit.GetBorderImageStyle(state);
+            }
+        }
 		#endregion
 
 		#region ImageAlign
@@ -874,9 +983,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			get 
             {
                 if (_storage == null)
+                {
                     return PaletteRectangleAlign.Inherit;
+                }
                 else
-                    return _storage.BorderImageAlign; 
+                {
+                    return _storage.BorderImageAlign;
+                }
             }
 
 			set
@@ -894,8 +1007,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value != PaletteRectangleAlign.Inherit)
                     {
-                        _storage = new InternalStorage();
-                        _storage.BorderImageAlign = value;
+                        _storage = new InternalStorage
+                        {
+                            BorderImageAlign = value
+                        };
                         OnPropertyChanged("ImageAlign");
                         PerformNeedPaint();
                     }
@@ -911,10 +1026,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		public PaletteRectangleAlign GetBorderImageAlign(PaletteState state)
 		{
 			if (ImageAlign != PaletteRectangleAlign.Inherit)
-				return ImageAlign;
-			else
-				return _inherit.GetBorderImageAlign(state);
-		}
+            {
+                return ImageAlign;
+            }
+            else
+            {
+                return _inherit.GetBorderImageAlign(state);
+            }
+        }
         #endregion
 
         #region Protected
@@ -924,8 +1043,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="property">Name of the property changed.</param>
         protected virtual void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
         #endregion
     }

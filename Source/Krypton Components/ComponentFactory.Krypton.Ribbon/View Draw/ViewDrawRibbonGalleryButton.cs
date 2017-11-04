@@ -9,10 +9,8 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
@@ -160,9 +158,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If disabled then we need to reflect that immediately
             if (!Enabled)
+            {
                 ElementState = PaletteState.Disabled;
+            }
             else if (ElementState == PaletteState.Disabled)
+            {
                 ElementState = PaletteState.Normal;
+            }
 
             // Create border paths
             using (GraphicsPath borderPath = CreateBorderPath(ClientRectangle))
@@ -191,7 +193,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Draw the border last to overlap the background
                     using (AntiAlias aa = new AntiAlias(context.Graphics))
                         using (Pen borderPen = new Pen(borderColor))
+                        {
                             context.Graphics.DrawPath(borderPen, borderPath);
+                        }
                 }
             }
         }
@@ -285,13 +289,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If no image then get the common image
             if (image == null)
+            {
                 image = images.Common;
+            }
 
             // If still no image then get is from the palette
             if (image == null)
+            {
                 return _palette.GetGalleryButtonImage(_button, State);
+            }
             else
+            {
                 return image;
+            }
         }
 
         /// <summary>
@@ -324,8 +334,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Private
         private void OnButtonClick(object sender, MouseEventArgs e)
         {
-            if (Click != null)
-                Click(this, e);
+            Click?.Invoke(this, e);
         }
         #endregion
     }

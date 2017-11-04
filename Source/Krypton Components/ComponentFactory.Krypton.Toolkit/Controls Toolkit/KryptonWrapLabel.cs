@@ -9,18 +9,9 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Design;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using Microsoft.Win32;
@@ -507,7 +498,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 font = _stateCommon.Font;
                 if (font == null)
+                {
                     font = _redirector.GetContentShortTextFont(_labelContentStyle, ps);
+                }
             }
 
             // Recover text color from state common or as last resort the inherited palette
@@ -515,7 +508,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 textColor = _stateCommon.TextColor;
                 if (textColor == Color.Empty)
+                {
                     textColor = _redirector.GetContentShortTextColor1(_labelContentStyle, ps);
+                }
             }
 
             // Recover text hint from state common or as last resort the inherited palette
@@ -523,12 +518,16 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 hint = _stateCommon.Hint;
                 if (hint == PaletteTextHint.Inherit)
+                {
                     hint = _redirector.GetContentShortTextHint(_labelContentStyle, ps);
+                }
             }
 
             // Only update the font when the control is created
             if (Handle != IntPtr.Zero)
+            {
                 Font = font;
+            }
         }
 
         /// <summary>
@@ -573,8 +572,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Layout and repaint with new settings
             NeedPaint(true);
 
-            if (PaletteChanged != null)
-                PaletteChanged(this, e);
+            PaletteChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -608,7 +606,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 font = _stateCommon.Font;
                 if (font == null)
+                {
                     font = _redirector.GetContentShortTextFont(_labelContentStyle, ps);
+                }
             }
 
             // Recover text color from state common or as last resort the inherited palette
@@ -616,7 +616,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 textColor = _stateCommon.TextColor;
                 if (textColor == Color.Empty)
+                {
                     textColor = _redirector.GetContentShortTextColor1(_labelContentStyle, ps);
+                }
             }
 
             // Recover text hint from state common or as last resort the inherited palette
@@ -624,12 +626,16 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 hint = _stateCommon.Hint;
                 if (hint == PaletteTextHint.Inherit)
+                {
                     hint = _redirector.GetContentShortTextHint(_labelContentStyle, ps);
+                }
             }
 
             // Only update the font when the control is created
             if (Handle != IntPtr.Zero)
+            {
                 Font = font;
+            }
 
             ForeColor = textColor;
             e.Graphics.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(hint);
@@ -660,7 +666,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _miPTB.Invoke(this, new object[] { pevent, ClientRectangle, null });
             }
             else
+            {
                 base.OnPaintBackground(pevent);
+            }
         }
         
         /// <summary>
@@ -709,8 +717,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If we have a defined context menu then need to check for matching shortcut
             if (KryptonContextMenu != null)
+            {
                 if (KryptonContextMenu.ProcessShortcut(keyData))
+                {
                     return true;
+                }
+            }
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -732,7 +744,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // If keyboard activated, the menu position is centered
                     if (((int)((long)m.LParam)) == -1)
+                    {
                         mousePt = new Point(Width / 2, Height / 2);
+                    }
                     else
                     {
                         mousePt = PointToClient(mousePt);
@@ -859,7 +873,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private void NeedPaint(NeedLayoutEventArgs e)
         {
             if (e.NeedLayout)
+            {
                 PerformLayout();
+            }
 
             Invalidate();
         }

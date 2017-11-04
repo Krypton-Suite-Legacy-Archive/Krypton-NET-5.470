@@ -8,7 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
@@ -46,7 +45,9 @@ namespace ComponentFactory.Krypton.Navigator
             _pages = new KryptonPageCollection();
 
             if (pages != null)
+            {
                 _pages.AddRange(pages);
+            }
 		}
 
         /// <summary>

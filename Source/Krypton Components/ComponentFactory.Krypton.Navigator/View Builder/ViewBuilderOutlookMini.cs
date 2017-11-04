@@ -8,14 +8,9 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.IO;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Reflection;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -84,9 +79,13 @@ namespace ComponentFactory.Krypton.Navigator
         public override PopupPagePosition GetPopupPagePosition()
         {
             if (Navigator.Outlook.Orientation == Orientation.Vertical)
+            {
                 return PopupPagePosition.FarTop;
+            }
             else
+            {
                 return PopupPagePosition.BelowNear;
+            }
         }
 
         /// <summary>
@@ -189,16 +188,18 @@ namespace ComponentFactory.Krypton.Navigator
         protected override ViewBase CreateView()
         {
             // Create the button used as the filler for the main area
-            _selectedButton = new ViewDrawNavOutlookMini(Navigator, 
-                                                         Navigator.SelectedPage, 
-                                                         VisualOrientation.Left);
+            _selectedButton = new ViewDrawNavOutlookMini(Navigator,
+                                                         Navigator.SelectedPage,
+                                                         VisualOrientation.Left)
+            {
 
-            // Set the correct initial orientation of the selected mini button
-            _selectedButton.Orientation = (Navigator.Outlook.Orientation == Orientation.Vertical ?
-                                           VisualOrientation.Left : VisualOrientation.Top);
+                // Set the correct initial orientation of the selected mini button
+                Orientation = (Navigator.Outlook.Orientation == Orientation.Vertical ?
+                                           VisualOrientation.Left : VisualOrientation.Top),
 
-            // Need to know when check button needs repainting
-            _selectedButton.NeedPaint = NeedPaintDelegate;
+                // Need to know when check button needs repainting
+                NeedPaint = NeedPaintDelegate
+            };
 
             return base.CreateView();
         }
@@ -210,8 +211,10 @@ namespace ComponentFactory.Krypton.Navigator
         protected override ViewBase CreateMainLayout()
         {
             // Layout contains all the stack elements
-            _viewLayout = new ViewLayoutOutlookMini(this);
-            _viewLayout.PreferredSizeAll = true;
+            _viewLayout = new ViewLayoutOutlookMini(this)
+            {
+                PreferredSizeAll = true
+            };
             return _viewLayout;
         }
 
@@ -247,8 +250,12 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Is there a visible overflow button that can be placed onto the stack?
             foreach (KryptonPage page in Navigator.Pages)
+            {
                 if (page.LastVisibleSet && page.AreFlagsSet(KryptonPageFlags.PageInOverflowBarForOutlookMode))
+                {
                     return true;
+                }
+            }
 
             return false;
         }
@@ -261,8 +268,12 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Find first visible page that is flagged for the overflow area
             foreach (KryptonPage page in Navigator.Pages)
+            {
                 if (page.LastVisibleSet && page.AreFlagsSet(KryptonPageFlags.PageInOverflowBarForOutlookMode))
+                {
                     return (ViewDrawNavOutlookOverflow)_pageOverflowLookup[page];
+                }
+            }
 
             return null;
         }

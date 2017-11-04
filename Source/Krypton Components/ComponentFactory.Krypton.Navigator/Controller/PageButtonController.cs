@@ -8,11 +8,6 @@
 //  Version 4.5.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Text;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -48,13 +43,14 @@ namespace ComponentFactory.Krypton.Navigator
                 // Climb the view chain and stop when we get to the target itself
                 while((next != null) && (next != Target))
                 {
+                    // If this is a button then we return 'false' cause the mouse is no longer in the target button
                     // Search for a layout docker as that is always the top of any button
-                    if (next is ViewLayoutDocker)
+                    if (next is ViewLayoutDocker docker)
                     {
-                        // If this is a button then we return 'false' cause the mouse is no longer in the target button
-                        ViewLayoutDocker docker = (ViewLayoutDocker)next;
                         if ((docker.Tag != null) && (docker.Tag is ViewDrawButton))
+                        {
                             return false;
+                        }
                     }
 
 

@@ -9,11 +9,7 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -64,11 +60,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Dispose of the mementos to prevent memory leak
             for(int i=0; i<_dayMementos.Length; i++)
+            {
                 if (_dayMementos[i] != null)
                 {
                     _dayMementos[i].Dispose();
                     _dayMementos[i] = null;
                 }
+            }
 
             base.Dispose(disposing);
         }
@@ -116,7 +114,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 _drawText = _months.DayNames[day % 7];
 
                 if (_dayMementos[i] != null)
+                {
                     _dayMementos[i].Dispose();
+                }
 
                 _dayMementos[i] = context.Renderer.RenderStandardContent.LayoutContent(context, layoutRect, _calendar.StateNormal.DayOfWeek.Content, this, 
                                                                                        VisualOrientation.Top, state, false);
@@ -148,9 +148,11 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Draw using memento cached from the layout call
                 if (_dayMementos[day % 7] != null)
+                {
                     context.Renderer.RenderStandardContent.DrawContent(context, drawRect, _calendar.StateNormal.DayOfWeek.Content, _dayMementos[day % 7], 
                                                                        VisualOrientation.Top, state, false, true);
-                
+                }
+
                 // Move across to next day
                 drawRect.X += _months.SizeDays.Width;
             }
