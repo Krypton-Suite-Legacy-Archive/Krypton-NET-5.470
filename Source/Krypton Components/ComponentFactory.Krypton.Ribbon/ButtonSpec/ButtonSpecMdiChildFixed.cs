@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public abstract class ButtonSpecMdiChildFixed : ButtonSpec
     {
         #region Instance Fields
-        private Form _mdiChild;
+
         #endregion
 
         #region Identity
@@ -41,21 +41,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool AllowComponent
-        {
-            get { return false; }
-        }
+        public override bool AllowComponent => false;
+
         #endregion
 
         #region MdiChild
         /// <summary>
         /// Gets access to the owning krypton form.
         /// </summary>
-        public Form MdiChild
-        {
-            get { return _mdiChild; }
-            set { _mdiChild = value; }
-        }
+        public Form MdiChild { get; set; }
+
         #endregion
 
         #region ButtonSpecStype
@@ -64,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public PaletteButtonSpecStyle ButtonSpecType
         {
-            get { return ProtectedType; }
-            set { ProtectedType = value; }
+            get => ProtectedType;
+            set => ProtectedType = value;
         }
         #endregion
 

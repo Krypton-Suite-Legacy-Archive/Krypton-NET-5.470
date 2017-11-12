@@ -19,10 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteInputControls : Storage
     {
         #region Instance Fields
-        private KryptonPaletteInputControl _inputControlCommon;
-        private KryptonPaletteInputControl _inputControlStandalone;
-        private KryptonPaletteInputControl _inputControlRibbon;
-        private KryptonPaletteInputControl _inputControlCustom1;
+
         #endregion
 
         #region Identity
@@ -37,18 +34,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the input control style specific and common palettes
-            _inputControlCommon = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, needPaint);
-            _inputControlStandalone = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, needPaint);
-            _inputControlRibbon = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlRibbon, PaletteBorderStyle.InputControlRibbon, PaletteContentStyle.InputControlRibbon, needPaint);
-            _inputControlCustom1 = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlCustom1, PaletteBorderStyle.InputControlCustom1, PaletteContentStyle.InputControlCustom1, needPaint);
+            InputControlCommon = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, needPaint);
+            InputControlStandalone = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, needPaint);
+            InputControlRibbon = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlRibbon, PaletteBorderStyle.InputControlRibbon, PaletteContentStyle.InputControlRibbon, needPaint);
+            InputControlCustom1 = new KryptonPaletteInputControl(redirector, PaletteBackStyle.InputControlCustom1, PaletteBorderStyle.InputControlCustom1, PaletteContentStyle.InputControlCustom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectTriple redirectCommon = new PaletteRedirectTriple(redirector, _inputControlCommon.StateDisabled, _inputControlCommon.StateNormal, _inputControlCommon.StateActive);
+            PaletteRedirectTriple redirectCommon = new PaletteRedirectTriple(redirector, InputControlCommon.StateDisabled, InputControlCommon.StateNormal, InputControlCommon.StateActive);
 
             // Inform the input control style to use the new redirector
-            _inputControlStandalone.SetRedirector(redirectCommon);
-            _inputControlRibbon.SetRedirector(redirectCommon);
-            _inputControlCustom1.SetRedirector(redirectCommon);
+            InputControlStandalone.SetRedirector(redirectCommon);
+            InputControlRibbon.SetRedirector(redirectCommon);
+            InputControlCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -56,16 +53,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _inputControlCommon.IsDefault &&
-                       _inputControlStandalone.IsDefault &&
-                       _inputControlRibbon.IsDefault &&
-                       _inputControlCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => InputControlCommon.IsDefault &&
+                                          InputControlStandalone.IsDefault &&
+                                          InputControlRibbon.IsDefault &&
+                                          InputControlCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -79,11 +71,11 @@ namespace ComponentFactory.Krypton.Toolkit
             common.StateCommon.BackStyle = PaletteBackStyle.InputControlStandalone;
             common.StateCommon.BorderStyle = PaletteBorderStyle.InputControlStandalone;
             common.StateCommon.ContentStyle = PaletteContentStyle.InputControlStandalone;
-            _inputControlStandalone.PopulateFromBase();
+            InputControlStandalone.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.InputControlRibbon;
             common.StateCommon.BorderStyle = PaletteBorderStyle.InputControlRibbon;
             common.StateCommon.ContentStyle = PaletteContentStyle.InputControlRibbon;
-            _inputControlRibbon.PopulateFromBase();
+            InputControlRibbon.PopulateFromBase();
         }
         #endregion
 
@@ -95,14 +87,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteInputControl InputControlCommon
-        {
-            get { return _inputControlCommon; }
-        }
+        public KryptonPaletteInputControl InputControlCommon { get; }
 
         private bool ShouldSerializeInputControlCommon()
         {
-            return !_inputControlCommon.IsDefault;
+            return !InputControlCommon.IsDefault;
         }
         #endregion
 
@@ -114,14 +103,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining standalone input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteInputControl InputControlStandalone
-        {
-            get { return _inputControlStandalone; }
-        }
+        public KryptonPaletteInputControl InputControlStandalone { get; }
 
         private bool ShouldSerializeInputControlStandalone()
         {
-            return !_inputControlStandalone.IsDefault;
+            return !InputControlStandalone.IsDefault;
         }
         #endregion
 
@@ -133,14 +119,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining input control ribbon style appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteInputControl InputControlRibbon
-        {
-            get { return _inputControlRibbon; }
-        }
+        public KryptonPaletteInputControl InputControlRibbon { get; }
 
         private bool ShouldSerializeInputControlRibbon()
         {
-            return !_inputControlRibbon.IsDefault;
+            return !InputControlRibbon.IsDefault;
         }
         #endregion
 
@@ -152,14 +135,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the custom input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteInputControl InputControlCustom1
-        {
-            get { return _inputControlCustom1; }
-        }
+        public KryptonPaletteInputControl InputControlCustom1 { get; }
 
         private bool ShouldSerializeInputControlCustom1()
         {
-            return !_inputControlCustom1.IsDefault;
+            return !InputControlCustom1.IsDefault;
         }
         #endregion
     }

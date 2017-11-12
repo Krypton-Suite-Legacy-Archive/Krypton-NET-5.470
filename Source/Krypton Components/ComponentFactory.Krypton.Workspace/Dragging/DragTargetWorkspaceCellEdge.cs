@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Workspace
     public class DragTargetWorkspaceCellEdge : DragTargetWorkspaceEdge
     {
         #region Instance Fields
-        private KryptonWorkspaceCell _cell;
+
         private int _visibleNotDraggedPages;
         #endregion
 
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Workspace
                                            KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, hint, workspace, allowFlags)
         {
-            _cell = cell;
+            Cell = cell;
             _visibleNotDraggedPages = -1;
         }
 
@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Workspace
         {
             if (disposing)
             {
-                _cell = null;
+                Cell = null;
             }
 
             base.Dispose(disposing);
@@ -68,10 +68,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the target workspace cell.
         /// </summary>
-        public KryptonWorkspaceCell Cell
-        {
-            get { return _cell; }
-        }
+        public KryptonWorkspaceCell Cell { get; private set; }
 
         /// <summary>
         /// Is this target a match for the provided screen position.
@@ -85,11 +82,11 @@ namespace ComponentFactory.Krypton.Workspace
             if (_visibleNotDraggedPages == -1)
             {
                 // If pages are being dragged from this cell
-                if (dragEndData.Navigator == _cell)
+                if (dragEndData.Navigator == Cell)
                 {
                     // Create list of all the visible pages in the cell
                     KryptonPageCollection visiblePages = new KryptonPageCollection();
-                    foreach (KryptonPage page in _cell.Pages)
+                    foreach (KryptonPage page in Cell.Pages)
                     {
                         if (page.LastVisibleSet)
                         {
@@ -164,9 +161,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                         // Create a new sequence and transfer the target cell into it
                         KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence(sequenceOrientation);
-                        int index = parent.Children.IndexOf(_cell);
+                        int index = parent.Children.IndexOf(Cell);
                         parent.Children.RemoveAt(index);
-                        sequence.Children.Add(_cell);
+                        sequence.Children.Add(Cell);
 
                         // Put the sequence into the place where the target cell used to be
                         parent.Children.Insert(index, sequence);
@@ -184,7 +181,7 @@ namespace ComponentFactory.Krypton.Workspace
                     else
                     {
                         // Find position of the target cell
-                        int index = parent.Children.IndexOf(_cell);
+                        int index = parent.Children.IndexOf(Cell);
 
                         // Add new cell before or after the target cell?
                         if ((Edge == VisualOrientation.Left) || (Edge == VisualOrientation.Top))

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorOtherEx : PaletteNavigatorOther
     {
         #region Instance Fields
-        private PaletteSeparatorPadding _paletteSeparator;
+
         #endregion
 
         #region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Navigator
             : base(redirect, needPaint)
 		{
             // Create the palette storage
-            _paletteSeparator = new PaletteSeparatorPadding(redirect.Separator, redirect.Separator, needPaint);
+            Separator = new PaletteSeparatorPadding(redirect.Separator, redirect.Separator, needPaint);
         }
         #endregion
 
@@ -42,15 +42,10 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return base.IsDefault && 
-                       _paletteSeparator.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => base.IsDefault && 
+		                                  Separator.IsDefault;
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -59,7 +54,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="inheritNavigator">Source for inheriting.</param>
         public override void SetInherit(PaletteNavigator inheritNavigator)
         {
-            _paletteSeparator.SetInherit(inheritNavigator.Separator);
+            Separator.SetInherit(inheritNavigator.Separator);
             base.SetInherit(inheritNavigator);
         }
         #endregion
@@ -71,14 +66,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding Separator
-        {
-            get { return _paletteSeparator; }
-        }
+        public PaletteSeparatorPadding Separator { get; }
 
         private bool ShouldSerializeSeparator()
         {
-            return !_paletteSeparator.IsDefault;
+            return !Separator.IsDefault;
         }
         #endregion
     }

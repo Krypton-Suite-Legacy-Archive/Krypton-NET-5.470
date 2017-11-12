@@ -74,8 +74,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Enabled
         {
-            get { return _drawRadioButton.Enabled; }
-            set { _drawRadioButton.Enabled = value; }
+            get => _drawRadioButton.Enabled;
+            set => _drawRadioButton.Enabled = value;
         }
         #endregion
 
@@ -85,8 +85,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Checked
         {
-            get { return _drawRadioButton.CheckState; }
-            set { _drawRadioButton.CheckState = value; }
+            get => _drawRadioButton.CheckState;
+            set => _drawRadioButton.CheckState = value;
         }
         #endregion
 
@@ -96,8 +96,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Tracking
         {
-            get { return _drawRadioButton.Tracking; }
-            set { _drawRadioButton.Tracking = value; }
+            get => _drawRadioButton.Tracking;
+            set => _drawRadioButton.Tracking = value;
         }
         #endregion
 
@@ -107,8 +107,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Pressed
         {
-            get { return _drawRadioButton.Pressed; }
-            set { _drawRadioButton.Pressed = value; }
+            get => _drawRadioButton.Pressed;
+            set => _drawRadioButton.Pressed = value;
         }
         #endregion
 
@@ -145,14 +145,14 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_large)
             {
                 // Place horizontal centered at the bottom of area
-                radioButtonRect.X = ClientLocation.X + (ClientWidth - radioButtonRect.Width) / 2;
+                radioButtonRect.X = ClientLocation.X + ((ClientWidth - radioButtonRect.Width) / 2);
                 radioButtonRect.Y = ClientRectangle.Bottom - radioButtonRect.Height;
             }
             else
             {
                 // Place vertically centered at the right of area
                 radioButtonRect.X = ClientRectangle.Right - radioButtonRect.Width;
-                radioButtonRect.Y = ClientLocation.Y + (ClientHeight - radioButtonRect.Height) / 2;
+                radioButtonRect.Y = ClientLocation.Y + ((ClientHeight - radioButtonRect.Height) / 2);
             }
 
             // Layout the radio button draw element

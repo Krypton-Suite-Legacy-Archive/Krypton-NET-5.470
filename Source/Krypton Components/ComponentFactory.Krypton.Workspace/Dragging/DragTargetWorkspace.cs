@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Workspace
     public abstract class DragTargetWorkspace : DragTarget
     {
         #region Instance Fields
-        private KryptonWorkspace _workspace;
+
         #endregion
 
         #region Identity
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Workspace
                                    KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, hint, allowFlags)
         {
-            _workspace = workspace;
+            Workspace = workspace;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Workspace
         {
             if (disposing)
             {
-                _workspace = null;
+                Workspace = null;
             }
 
             base.Dispose(disposing);
@@ -62,10 +62,8 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the target workspace control.
         /// </summary>
-        public KryptonWorkspace Workspace
-        {
-            get { return _workspace; }
-        }
+        public KryptonWorkspace Workspace { get; private set; }
+
         #endregion
 
         #region Protected

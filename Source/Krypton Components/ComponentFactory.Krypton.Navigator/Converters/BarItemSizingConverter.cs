@@ -18,10 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class BarItemSizingConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(BarItemSizing.Individual,           "Individual Sizing"),
-                                             new Pair(BarItemSizing.SameHeight,           "All Same Height"),
-                                             new Pair(BarItemSizing.SameWidth,            "All Same Width"),
-                                             new Pair(BarItemSizing.SameWidthAndHeight,   "All Same Width & Height") };
+
         #endregion
                                              
         #region Identity
@@ -38,10 +35,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(BarItemSizing.Individual,           "Individual Sizing"),
+            new Pair(BarItemSizing.SameHeight,           "All Same Height"),
+            new Pair(BarItemSizing.SameWidth,            "All Same Width"),
+            new Pair(BarItemSizing.SameWidthAndHeight,   "All Same Width & Height") };
+
         #endregion
     }
 }

@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPaletteContent _inherit;
-        private KryptonLinkBehavior _linkBehavior;
+
         #endregion
 
         #region Identity
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             Debug.Assert(inherit != null);
             _inherit = inherit;
-            _linkBehavior = linkBehavior;
+            LinkBehavior = linkBehavior;
         }
         #endregion
 
@@ -40,11 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the link behavior.
         /// </summary>
-        public KryptonLinkBehavior LinkBehavior
-        {
-            get { return _linkBehavior; }
-            set { _linkBehavior = value; }
-        }
+        public KryptonLinkBehavior LinkBehavior { get; set; }
+
         #endregion
 
         #region IPaletteContent
@@ -516,7 +513,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 bool underline = false;
 
                 // Action to take depends on the link behavior setting
-                switch (_linkBehavior)
+                switch (LinkBehavior)
                 {
                     case KryptonLinkBehavior.AlwaysUnderline:
                         underline = true;

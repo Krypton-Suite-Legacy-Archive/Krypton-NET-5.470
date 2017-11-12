@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private int _offset;
         private int _beginLine;
         private int _bringIntoView;
-        private bool _scrollIntoView;
+
         #endregion
 
         #region Identity
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _buttonDown = buttonDown;
             _buttonContext = buttonContext;
             _bringIntoView = -1;
-            _scrollIntoView = true;
+            ScrollIntoView = true;
 
             // Need to know when any button is clicked
             _buttonUp.Click += new MouseEventHandler(OnButtonUp);
@@ -115,19 +115,12 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the scrolling into view setting.
         /// </summary>
-        public bool ScrollIntoView
-        {
-            get { return _scrollIntoView; }
-            set { _scrollIntoView = value; }
-        }
+        public bool ScrollIntoView { get; set; }
 
         /// <summary>
         /// Gets the number of items currently displayed on a line.
         /// </summary>
-        public int ActualLineItems
-        {
-            get { return Math.Max(1, _lineItems); }
-        }
+        public int ActualLineItems => Math.Max(1, _lineItems);
 
         /// <summary>
         /// Move tracking to the first item.
@@ -269,18 +262,12 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Is there a next line that can be displayed.
         /// </summary>
-        public bool CanNextLine
-        {
-            get { return (_topLine < _endLine); }
-        }
+        public bool CanNextLine => (_topLine < _endLine);
 
         /// <summary>
         /// Is there a previous line that can be displayed.
         /// </summary>
-        public bool CanPrevLine
-        {
-            get { return (_topLine > 0); }
-        }
+        public bool CanPrevLine => (_topLine > 0);
 
         /// <summary>
         /// Scroll to make the next line visible.
@@ -345,7 +332,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ButtonStyle ButtonStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
@@ -434,7 +421,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _lineItems = Math.Max(1, displayRect.Width / _itemSize.Width);
 
                 // Number of lines needed to show all the items
-                _layoutLines = Math.Max(1, (Count + _lineItems - 1) / _lineItems);
+                _layoutLines = Math.Max(1, ((Count + _lineItems) - 1) / _lineItems);
 
                 // Number of display lines that can be shown at a time
                 _displayLines = Math.Max(1, Math.Min(_layoutLines, displayRect.Height / _itemSize.Height));
@@ -472,7 +459,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         int extraLines = _topLine - _beginLine;
 
                         // Limit check the number of previous lines to show
-                        if (_topLine - extraLines < 0)
+                        if ((_topLine - extraLines) < 0)
                         {
                             extraLines = _topLine;
                         }

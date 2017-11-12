@@ -29,10 +29,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets an array of types that the collection is restricted to contain.
         /// </summary>
-        public override Type[] RestrictTypes 
-        {
-            get { return _types; }
-        }
+        public override Type[] RestrictTypes => _types;
+
         #endregion
     }
 }

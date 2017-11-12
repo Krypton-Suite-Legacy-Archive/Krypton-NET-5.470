@@ -36,22 +36,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private Image _image;
         private Color _imageTransparentColor;
         private ButtonStyle _style;
-        private PaletteTripleRedirect _stateCommon;
-        private PaletteTripleRedirect _stateFocus;
-        private PaletteTriple _stateDisabled;
-        private PaletteTriple _stateNormal;
-        private PaletteTriple _stateTracking;
-        private PaletteTriple _statePressed;
-        private PaletteTriple _stateCheckedNormal;
-        private PaletteTriple _stateCheckedTracking;
-        private PaletteTriple _stateCheckedPressed;
-        private PaletteTripleOverride _overrideCheckedNormal;
-        private PaletteTripleOverride _overrideCheckedTracking;
-        private PaletteTripleOverride _overrideCheckedPressed;
-        private PaletteTripleOverride _overrideNormal;
-        private PaletteTripleOverride _overrideTracking;
-        private PaletteTripleOverride _overridePressed;
-        private PaletteTripleOverride _overrideDisabled;
         private KryptonCommand _command;
         #endregion
 
@@ -98,26 +82,26 @@ namespace ComponentFactory.Krypton.Toolkit
             _style = ButtonStyle.Standalone;
 
             // Create the redirectors
-            _stateCommon = new PaletteTripleRedirect(PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone);
-            _stateFocus = new PaletteTripleRedirect(PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone);
+            StateCommon = new PaletteTripleRedirect(PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone);
+            OverrideFocus = new PaletteTripleRedirect(PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone);
 
             // Create the palette storage
-            _stateDisabled = new PaletteTriple(_stateCommon);
-            _stateNormal = new PaletteTriple(_stateCommon);
-            _stateTracking = new PaletteTriple(_stateCommon);
-            _statePressed = new PaletteTriple(_stateCommon);
-            _stateCheckedNormal = new PaletteTriple(_stateCommon);
-            _stateCheckedTracking = new PaletteTriple(_stateCommon);
-            _stateCheckedPressed = new PaletteTriple(_stateCommon);
+            StateDisabled = new PaletteTriple(StateCommon);
+            StateNormal = new PaletteTriple(StateCommon);
+            StateTracking = new PaletteTriple(StateCommon);
+            StatePressed = new PaletteTriple(StateCommon);
+            StateCheckedNormal = new PaletteTriple(StateCommon);
+            StateCheckedTracking = new PaletteTriple(StateCommon);
+            StateCheckedPressed = new PaletteTriple(StateCommon);
 
             // Create the override handling classes
-            _overrideDisabled = new PaletteTripleOverride(_stateFocus, _stateDisabled, PaletteState.FocusOverride);
-            _overrideNormal = new PaletteTripleOverride(_stateFocus, _stateNormal, PaletteState.FocusOverride);
-            _overrideTracking = new PaletteTripleOverride(_stateFocus, _stateTracking, PaletteState.FocusOverride);
-            _overridePressed = new PaletteTripleOverride(_stateFocus, _statePressed, PaletteState.FocusOverride);
-            _overrideCheckedNormal = new PaletteTripleOverride(_stateFocus, _stateCheckedNormal, PaletteState.FocusOverride);
-            _overrideCheckedTracking = new PaletteTripleOverride(_stateFocus, _stateCheckedTracking, PaletteState.FocusOverride);
-            _overrideCheckedPressed = new PaletteTripleOverride(_stateFocus, _stateCheckedPressed, PaletteState.FocusOverride);
+            OverrideDisabled = new PaletteTripleOverride(OverrideFocus, StateDisabled, PaletteState.FocusOverride);
+            OverrideNormal = new PaletteTripleOverride(OverrideFocus, StateNormal, PaletteState.FocusOverride);
+            OverrideTracking = new PaletteTripleOverride(OverrideFocus, StateTracking, PaletteState.FocusOverride);
+            OverridePressed = new PaletteTripleOverride(OverrideFocus, StatePressed, PaletteState.FocusOverride);
+            OverrideCheckedNormal = new PaletteTripleOverride(OverrideFocus, StateCheckedNormal, PaletteState.FocusOverride);
+            OverrideCheckedTracking = new PaletteTripleOverride(OverrideFocus, StateCheckedTracking, PaletteState.FocusOverride);
+            OverrideCheckedPressed = new PaletteTripleOverride(OverrideFocus, StateCheckedPressed, PaletteState.FocusOverride);
         }
 
         /// <summary>
@@ -136,20 +120,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount 
-        {
-            get { return 0; }
-        }
+        public override int ItemChildCount => 0;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return null; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => null;
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -188,8 +166,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool AutoClose
         {
-            get { return _autoClose; }
-            
+            get => _autoClose;
+
             set 
             {
                 if (_autoClose != value)
@@ -210,8 +188,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string Text
         {
-            get { return _text; }
-            
+            get => _text;
+
             set 
             {
                 if (_text != value)
@@ -232,8 +210,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string ExtraText
         {
-            get { return _extraText; }
-            
+            get => _extraText;
+
             set 
             {
                 if (_extraText != value)
@@ -254,8 +232,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Image Image
         {
-            get { return _image; }
-            
+            get => _image;
+
             set 
             {
                 if (_image != value)
@@ -275,8 +253,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
-            
+            get => _imageTransparentColor;
+
             set 
             {
                 if (_imageTransparentColor != value)
@@ -301,7 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ButtonStyle), "Standalone")]
         public ButtonStyle ButtonStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
@@ -324,8 +302,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Enabled
         {
-            get { return _enabled; }
-            
+            get => _enabled;
+
             set 
             { 
                 if (_enabled != value)
@@ -346,7 +324,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -368,8 +346,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool AutoCheck
         {
-            get { return _autoCheck; }
-            
+            get => _autoCheck;
+
             set 
             {
                 if (_autoCheck != value)
@@ -387,14 +365,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common button appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTripleRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -404,14 +379,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTriple StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -421,14 +393,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTriple StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -438,14 +407,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTriple StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -455,14 +421,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTriple StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -472,14 +435,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal checked button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedNormal
-        {
-            get { return _stateCheckedNormal; }
-        }
+        public PaletteTriple StateCheckedNormal { get; }
 
         private bool ShouldSerializeStateCheckedNormal()
         {
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
         }
 
         /// <summary>
@@ -489,14 +449,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking checked button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedTracking
-        {
-            get { return _stateCheckedTracking; }
-        }
+        public PaletteTriple StateCheckedTracking { get; }
 
         private bool ShouldSerializeStateCheckedTracking()
         {
-            return !_stateCheckedTracking.IsDefault;
+            return !StateCheckedTracking.IsDefault;
         }
 
         /// <summary>
@@ -506,14 +463,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed checked button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedPressed
-        {
-            get { return _stateCheckedPressed; }
-        }
+        public PaletteTriple StateCheckedPressed { get; }
 
         private bool ShouldSerializeStateCheckedPressed()
         {
-            return !_stateCheckedPressed.IsDefault;
+            return !StateCheckedPressed.IsDefault;
         }
 
         /// <summary>
@@ -523,14 +477,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining button appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTripleRedirect OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -542,7 +493,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonCommand KryptonCommand
         {
-            get { return _command; }
+            get => _command;
 
             set
             {
@@ -587,53 +538,32 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal PaletteTripleOverride OverrideCheckedNormal
-        {
-            get { return _overrideCheckedNormal; }
-        }
+        internal PaletteTripleOverride OverrideCheckedNormal { get; }
 
-        internal PaletteTripleOverride OverrideCheckedTracking
-        {
-            get { return _overrideCheckedTracking; }
-        }
+        internal PaletteTripleOverride OverrideCheckedTracking { get; }
 
-        internal PaletteTripleOverride OverrideCheckedPressed
-        {
-            get { return _overrideCheckedPressed; }
-        }
+        internal PaletteTripleOverride OverrideCheckedPressed { get; }
 
-        internal PaletteTripleOverride OverrideDisabled
-        {
-            get { return _overrideDisabled; }
-        }
+        internal PaletteTripleOverride OverrideDisabled { get; }
 
-        internal PaletteTripleOverride OverrideNormal
-        {
-            get { return _overrideNormal; }
-        }
+        internal PaletteTripleOverride OverrideNormal { get; }
 
-        internal PaletteTripleOverride OverrideTracking
-        {
-            get { return _overrideTracking; }
-        }
+        internal PaletteTripleOverride OverrideTracking { get; }
 
-        internal PaletteTripleOverride OverridePressed
-        {
-            get { return _overridePressed; }
-        }
+        internal PaletteTripleOverride OverridePressed { get; }
 
         internal void SetPaletteRedirect(PaletteRedirect redirector)
         {
-            _stateCommon.SetRedirector(redirector);
-            _stateFocus.SetRedirector(redirector);
+            StateCommon.SetRedirector(redirector);
+            OverrideFocus.SetRedirector(redirector);
         }
         #endregion
 
         #region Private
         private void SetCheckButtonStyle(ButtonStyle style)
         {
-            _stateCommon.SetStyles(style);
-            _stateFocus.SetStyles(style);
+            StateCommon.SetStyles(style);
+            OverrideFocus.SetStyles(style);
         }
         #endregion
     }

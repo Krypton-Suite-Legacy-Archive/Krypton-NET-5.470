@@ -36,24 +36,19 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalToolStripText == Color.Empty) &&
-                       (InternalKCT.InternalToolStripFont == null) &&
-                       (InternalKCT.InternalToolStripBorder == Color.Empty) &&
-                       (InternalKCT.InternalToolStripContentPanelGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalToolStripContentPanelGradientEnd == Color.Empty) &&
-                       (InternalKCT.InternalToolStripDropDownBackground == Color.Empty) &&
-                       (InternalKCT.InternalToolStripGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalToolStripGradientEnd == Color.Empty) &&
-                       (InternalKCT.InternalToolStripGradientMiddle == Color.Empty) &&
-                       (InternalKCT.InternalToolStripPanelGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalToolStripPanelGradientEnd == Color.Empty);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalToolStripText == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripFont == null) &&
+		                                  (InternalKCT.InternalToolStripBorder == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripContentPanelGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripContentPanelGradientEnd == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripDropDownBackground == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripGradientEnd == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripGradientMiddle == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripPanelGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalToolStripPanelGradientEnd == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -85,7 +80,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripText
         {
-            get { return InternalKCT.InternalToolStripText; }
+            get => InternalKCT.InternalToolStripText;
 
             set
             {
@@ -113,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public Font ToolStripFont
         {
-            get { return InternalKCT.InternalToolStripFont; }
+            get => InternalKCT.InternalToolStripFont;
 
             set
             {
@@ -141,8 +136,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripBorder
         {
-            get { return InternalKCT.InternalToolStripBorder; }
-            
+            get => InternalKCT.InternalToolStripBorder;
+
             set 
             { 
                 InternalKCT.InternalToolStripBorder = value;
@@ -169,8 +164,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripContentPanelGradientBegin
         {
-            get { return InternalKCT.InternalToolStripContentPanelGradientBegin; }
-            
+            get => InternalKCT.InternalToolStripContentPanelGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalToolStripContentPanelGradientBegin = value;
@@ -197,8 +192,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripContentPanelGradientEnd
         {
-            get { return InternalKCT.InternalToolStripContentPanelGradientEnd; }
-            
+            get => InternalKCT.InternalToolStripContentPanelGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalToolStripContentPanelGradientEnd = value;
@@ -225,8 +220,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripDropDownBackground
         {
-            get { return InternalKCT.InternalToolStripDropDownBackground; }
-            
+            get => InternalKCT.InternalToolStripDropDownBackground;
+
             set 
             { 
                 InternalKCT.InternalToolStripDropDownBackground = value;
@@ -253,8 +248,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripGradientBegin
         {
-            get { return InternalKCT.InternalToolStripGradientBegin; }
-            
+            get => InternalKCT.InternalToolStripGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalToolStripGradientBegin = value;
@@ -281,8 +276,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripGradientEnd
         {
-            get { return InternalKCT.InternalToolStripGradientEnd; }
-            
+            get => InternalKCT.InternalToolStripGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalToolStripGradientEnd = value;
@@ -309,8 +304,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripGradientMiddle
         {
-            get { return InternalKCT.InternalToolStripGradientMiddle; }
-            
+            get => InternalKCT.InternalToolStripGradientMiddle;
+
             set 
             { 
                 InternalKCT.InternalToolStripGradientMiddle = value;
@@ -337,8 +332,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripPanelGradientBegin
         {
-            get { return InternalKCT.InternalToolStripPanelGradientBegin; }
-            
+            get => InternalKCT.InternalToolStripPanelGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalToolStripPanelGradientBegin = value;
@@ -365,8 +360,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ToolStripPanelGradientEnd
         {
-            get { return InternalKCT.InternalToolStripPanelGradientEnd; }
-            
+            get => InternalKCT.InternalToolStripPanelGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalToolStripPanelGradientEnd = value;

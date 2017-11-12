@@ -33,14 +33,10 @@ namespace ComponentFactory.Krypton.Workspace
                                             IWorkspaceItem
     {
         #region Instance Fields
-        private IWorkspaceItem _parent;
-        private KryptonWorkspace _workspace;
-        private KryptonWorkspaceCollection _children;
+
         private Orientation _orientation;
         private bool _setVisible;
-        private StarSize _starSize;
-        private Size _actualSize;
-        private string _uniqueName;
+
         #endregion
 
         #region Events
@@ -75,15 +71,15 @@ namespace ComponentFactory.Krypton.Workspace
             _orientation = orientation;
 
             // Create the child collection for holding items
-            _children = new KryptonWorkspaceCollection(this);
-            _children.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
-            _children.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
+            Children = new KryptonWorkspaceCollection(this);
+            Children.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
+            Children.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
 
             // Default properties
             _setVisible = true;
-            _starSize = new StarSize();
-            _actualSize = Size.Empty;
-            _uniqueName = CommonHelper.UniqueString;
+            WorkspaceStarSize = new StarSize();
+            WorkspaceActualSize = Size.Empty;
+            UniqueName = CommonHelper.UniqueString;
         }
 
         /// <summary>
@@ -94,15 +90,15 @@ namespace ComponentFactory.Krypton.Workspace
         {
             if (disposing)
             {
-                if (_children != null)
+                if (Children != null)
                 {
-                    for (int i = _children.Count - 1; i >= 0; i--)
+                    for (int i = Children.Count - 1; i >= 0; i--)
                     {
-                        _children[i].Dispose();
+                        Children[i].Dispose();
                     }
 
-                    _children.PropertyChanged -= new PropertyChangedEventHandler(OnChildrenPropertyChanged);
-                    _children.Clear();
+                    Children.PropertyChanged -= new PropertyChangedEventHandler(OnChildrenPropertyChanged);
+                    Children.Clear();
                 }
             }
 
@@ -128,10 +124,7 @@ namespace ComponentFactory.Krypton.Workspace
         [MergableProperty(false)]
         [Editor("ComponentFactory.Krypton.Workspace.KryptonWorkspaceCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonWorkspaceCollection Children
-        {
-            get { return _children; }
-        }
+        public KryptonWorkspaceCollection Children { get; }
 
         /// <summary>
         /// Gets and sets the orientation for laying out the child entries.
@@ -141,7 +134,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(typeof(Orientation), "Horizontal")]
         public Orientation Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
 
             set
             {
@@ -161,7 +154,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(true)]
         public bool Visible
         {
-            get { return _setVisible; }
+            get => _setVisible;
 
             set
             {
@@ -176,18 +169,12 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Conceals the control from the user.
         /// </summary>
-        public void Hide()
-        {
-            Visible = false;
-        }
+        public void Hide() => Visible = false;
 
         /// <summary>
         /// Displays the control to the user.
         /// </summary>
-        public void Show()
-        {
-            Visible = true;
-        }
+        public void Show() => Visible = true;
 
         /// <summary>
         /// Star notation the describes the sizing of the workspace item.
@@ -197,11 +184,11 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue("50*,50*")]
         public string StarSize
         {
-            get { return _starSize.Value; }
+            get => WorkspaceStarSize.Value;
 
             set
             {
-                _starSize.Value = value;
+                WorkspaceStarSize.Value = value;
                 OnPropertyChanged("StarSize");
             }
         }
@@ -214,10 +201,9 @@ namespace ComponentFactory.Krypton.Workspace
         public string UniqueName
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _uniqueName; }
-
+            get;
             [System.Diagnostics.DebuggerStepThrough]
-            set { _uniqueName = value; }
+            set;
         }
 
         /// <summary>
@@ -225,7 +211,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public void ResetUniqueName()
         {
-            _uniqueName = CommonHelper.UniqueString;
+            UniqueName = CommonHelper.UniqueString;
         }
 
         /// <summary>
@@ -257,22 +243,14 @@ namespace ComponentFactory.Krypton.Workspace
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IWorkspaceItem WorkspaceParent
-        {
-            get { return _parent; }
-            internal set { _parent = value; }
-        }
+        public IWorkspaceItem WorkspaceParent { get; internal set; }
 
         /// <summary>
         /// Current pixel size of the item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Size WorkspaceActualSize
-        {
-            get { return _actualSize; }
-            internal set { _actualSize = value; }
-        }
+        public Size WorkspaceActualSize { get; internal set; }
 
         /// <summary>
         /// Current preferred size of the item.
@@ -322,10 +300,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public StarSize WorkspaceStarSize
-        {
-            get { return _starSize; }
-        }
+        public StarSize WorkspaceStarSize { get; }
 
         /// <summary>
         /// Get the defined minimum size.
@@ -495,12 +470,9 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual bool DisposeOnRemove 
-        {
-            get { return false; }
-        }
+        public virtual bool DisposeOnRemove => false;
 
-		/// <summary>
+        /// <summary>
 		/// Request this sequence save its information about children.
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace instance.</param>
@@ -585,11 +557,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public KryptonWorkspace WorkspaceControl
-        {
-            get { return _workspace; }
-            set { _workspace = value; }
-        }
+        public KryptonWorkspace WorkspaceControl { get; set; }
 
         /// <summary>
         /// Output debug information about the workspace hierarchy.
@@ -598,7 +566,7 @@ namespace ComponentFactory.Krypton.Workspace
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void DebugOutput(int indent)
         {
-            Console.WriteLine("{0}Sequence Count:{1} Visible:{1}", new string(' ', indent * 2), Children.Count, Visible);
+            Console.WriteLine("{0}Sequence Count:{1} Visible:{2}", new string(' ', indent * 2), Children.Count, Visible);
 
             foreach (object child in Children)
             {

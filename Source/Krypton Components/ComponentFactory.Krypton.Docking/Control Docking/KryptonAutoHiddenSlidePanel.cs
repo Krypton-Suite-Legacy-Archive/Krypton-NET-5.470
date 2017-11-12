@@ -45,10 +45,8 @@ namespace ComponentFactory.Krypton.Docking
         private KryptonAutoHiddenPanel _panel;
         private KryptonAutoHiddenGroup _group;
         private KryptonDockspaceSlide _dockspaceSlide;
-        private KryptonDockspaceSeparator _separator;
         private EventHandler _checkMakeHidden; 
         private KryptonPanel _inner;
-        private KryptonPage _page;
         private Button _dummyTarget;
         private DockingAutoHiddenShowState _state;
         private Rectangle _startRect;
@@ -150,13 +148,13 @@ namespace ComponentFactory.Krypton.Docking
             _dockspaceSlide.PageAutoHiddenClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
             _dockspaceSlide.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnDockspacePageDropDownClicked);
             
-            _separator = new KryptonDockspaceSeparator(edge, true);
-            _separator.SplitterMoving += new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
-            _separator.SplitterMoved += new SplitterEventHandler(OnDockspaceSeparatorMoved);
-            _separator.SplitterMoveRect += new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
+            SeparatorControl = new KryptonDockspaceSeparator(edge, true);
+            SeparatorControl.SplitterMoving += new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
+            SeparatorControl.SplitterMoved += new SplitterEventHandler(OnDockspaceSeparatorMoved);
+            SeparatorControl.SplitterMoveRect += new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
 
             _inner = new KryptonPanel();
-            _inner.Controls.AddRange(new Control[] { _dockspaceSlide, _separator });
+            _inner.Controls.AddRange(new Control[] { _dockspaceSlide, SeparatorControl });
             Controls.Add(_inner);
 
             // Do not show ourself until we are needed
@@ -203,7 +201,7 @@ namespace ComponentFactory.Krypton.Docking
                 }
 
                 // Remove cached references that might prevent those objects from being garbage collected
-                _page = null;
+                Page = null;
                 _group = null;
 
                 // Remove ourself from the control we planted outself into
@@ -213,9 +211,9 @@ namespace ComponentFactory.Krypton.Docking
                 _dockspaceSlide.ClearAllPages();
 
                 // Unhook from events/static references to allow garbage collection
-                _separator.SplitterMoving -= new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
-                _separator.SplitterMoved -= new SplitterEventHandler(OnDockspaceSeparatorMoved);
-                _separator.SplitterMoveRect -= new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
+                SeparatorControl.SplitterMoving -= new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
+                SeparatorControl.SplitterMoved -= new SplitterEventHandler(OnDockspaceSeparatorMoved);
+                SeparatorControl.SplitterMoveRect -= new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
                 _dockspaceSlide.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
                 _dockspaceSlide.PageCloseClicked -= new EventHandler<UniqueNameEventArgs>(OnDockspacePageCloseClicked);
                 _dockspaceSlide.PageAutoHiddenClicked -= new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
@@ -231,34 +229,25 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets access to the KryptonDockspace control.
         /// </summary>
-        public KryptonDockspace DockspaceControl
-        {
-            get { return _dockspaceSlide; }
-        }
+        public KryptonDockspace DockspaceControl => _dockspaceSlide;
 
         /// <summary>
         /// Gets access to the KryptonSeparator control.
         /// </summary>
-        public KryptonDockspaceSeparator SeparatorControl
-        {
-            get { return _separator; }
-        }
+        public KryptonDockspaceSeparator SeparatorControl { get; }
 
         /// <summary>
         /// Gets access to the KryptonPage associated with the slide panel.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
+        public KryptonPage Page { get; private set; }
 
         /// <summary>
         /// Gets and sets the drag page notify interface associated with the embedded dockspace.
         /// </summary>
         public IDragPageNotify DragPageNotify
         {
-            get { return _dockspaceSlide.DragPageNotify; }
-            set { _dockspaceSlide.DragPageNotify = value; }
+            get => _dockspaceSlide.DragPageNotify;
+            set => _dockspaceSlide.DragPageNotify = value;
         }
 
         /// <summary>
@@ -267,7 +256,7 @@ namespace ComponentFactory.Krypton.Docking
         public void HideUniqueName()
         {
             // If we are processing any page then instantly remove it
-            if (_page != null)
+            if (Page != null)
             {
                 MakeHidden();
             }
@@ -280,7 +269,7 @@ namespace ComponentFactory.Krypton.Docking
         public void HideUniqueName(string uniqueName)
         {
             // If we are processing the provided page then instantly remove it
-            if ((_page != null) && (_page.UniqueName == uniqueName))
+            if ((Page != null) && (Page.UniqueName == uniqueName))
             {
                 MakeHidden();
             }
@@ -308,7 +297,7 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case DockingAutoHiddenShowState.SlidingIn:
                     // If already showing indicated page (although currently sliding inwards)
-                    if (page == _page)
+                    if (page == Page)
                     {
                         // Switch to sliding out again
                         _state = DockingAutoHiddenShowState.SlidingOut;
@@ -330,7 +319,7 @@ namespace ComponentFactory.Krypton.Docking
                 case DockingAutoHiddenShowState.SlidingOut:
                 case DockingAutoHiddenShowState.Showing:
                     // If already showing indicated page (or in the process of showing) then do nothing
-                    if (page == _page)
+                    if (page == Page)
                     {
                         // Are we requested to set focus to the sliding in dockspace?
                         if (select)
@@ -349,7 +338,7 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Cache information about the page being displayed
-            _page = page;
+            Page = page;
             _group = group;
 
             // Make sure we have a visible cell to update
@@ -378,7 +367,7 @@ namespace ComponentFactory.Krypton.Docking
 
             // Switch to new state and start animation timer
             _state = DockingAutoHiddenShowState.SlidingOut;
-            AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(_page, _state);
+            AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(Page, _state);
             _slideTimer.Start();
 
             // Are we requested to set focus to the sliding in dockspace?
@@ -440,9 +429,9 @@ namespace ComponentFactory.Krypton.Docking
                         SetBounds(Left, Top, Width + width, Height);
 
                         // Update the page with the new size to use in the future
-                        if (_page != null)
+                        if (Page != null)
                         {
-                            _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width + width, _page.AutoHiddenSlideSize.Height);
+                            Page.AutoHiddenSlideSize = new Size(Page.AutoHiddenSlideSize.Width + width, Page.AutoHiddenSlideSize.Height);
                         }
 
                         break;
@@ -453,9 +442,9 @@ namespace ComponentFactory.Krypton.Docking
                         SetBounds(Left + width, Top, Width - width, Height);
 
                         // Update the page with the new size to use in the future
-                        if (_page != null)
+                        if (Page != null)
                         {
-                            _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width - width, _page.AutoHiddenSlideSize.Height);
+                            Page.AutoHiddenSlideSize = new Size(Page.AutoHiddenSlideSize.Width - width, Page.AutoHiddenSlideSize.Height);
                         }
 
                         break;
@@ -465,9 +454,9 @@ namespace ComponentFactory.Krypton.Docking
                         SetBounds(Left, Top, Width, Height + height);
 
                         // Update the page with the new size to use in the future
-                        if (_page != null)
+                        if (Page != null)
                         {
-                            _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width, _page.AutoHiddenSlideSize.Height + height);
+                            Page.AutoHiddenSlideSize = new Size(Page.AutoHiddenSlideSize.Width, Page.AutoHiddenSlideSize.Height + height);
                         }
 
                         break;
@@ -478,9 +467,9 @@ namespace ComponentFactory.Krypton.Docking
                         SetBounds(Left, Top + height, Width, Height - height);
 
                         // Update the page with the new size to use in the future
-                        if (_page != null)
+                        if (Page != null)
                         {
-                            _page.AutoHiddenSlideSize = new Size(_page.AutoHiddenSlideSize.Width, _page.AutoHiddenSlideSize.Height - height);
+                            Page.AutoHiddenSlideSize = new Size(Page.AutoHiddenSlideSize.Width, Page.AutoHiddenSlideSize.Height - height);
                         }
 
                         break;
@@ -505,7 +494,7 @@ namespace ComponentFactory.Krypton.Docking
             //    We are not in the hidden state                                        AND
             //    We have an associated auto hidden group control that is not disposed  AND
             //    We are not disposed
-            if ((parentForm != null) && ((parentForm == Form.ActiveForm) || (parentMdi != null && parentMdi.ActiveMdiChild == parentForm)) &&
+            if ((parentForm != null) && ((parentForm == Form.ActiveForm) || ((parentMdi != null) && (parentMdi.ActiveMdiChild == parentForm))) &&
                 parentForm.ContainsFocus && (_state != DockingAutoHiddenShowState.Hidden) && (_group != null) && !_group.IsDisposed && !IsDisposed)
             {
                 switch (msg.Msg)
@@ -611,10 +600,10 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     // Set state so timer processing does not perform any slide action
                     _state = DockingAutoHiddenShowState.Hidden;
-                    AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(_page, _state);
+                    AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(Page, _state);
 
                     // Remove cached references
-                    _page = null;
+                    Page = null;
                     _group = null;
 
                     // No need for timers to be running or for our display
@@ -649,7 +638,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // Switch to sliding inwards by changing state and starting slide timer
                 _state = DockingAutoHiddenShowState.SlidingIn;
-                AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(_page, _state);
+                AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(Page, _state);
                 _slideTimer.Start();
 
                 // If the dockspace has the focus we need to push focus elsewhere
@@ -667,8 +656,8 @@ namespace ComponentFactory.Krypton.Docking
         private void CalculateStartAndEnd()
         {
             // Find the preferred size of the slider area by combining the separator and dockspace
-            Size dockspacePreferred = _page.AutoHiddenSlideSize;
-            Size separatorPreferred = _separator.GetPreferredSize(_control.Size);
+            Size dockspacePreferred = Page.AutoHiddenSlideSize;
+            Size separatorPreferred = SeparatorControl.GetPreferredSize(_control.Size);
             Size slideSize = new Size(separatorPreferred.Width + dockspacePreferred.Width, 
                                       separatorPreferred.Height + dockspacePreferred.Height);
 
@@ -805,7 +794,7 @@ namespace ComponentFactory.Krypton.Docking
                         {
                             // When finished we no longer need the timer and enter the showing state
                             _state = DockingAutoHiddenShowState.Showing;
-                            AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(_page, _state);
+                            AutoHiddenShowingStateEventArgs args = new AutoHiddenShowingStateEventArgs(Page, _state);
                             OnAutoHiddenShowingStateChanged(args);
                             _slideTimer.Stop();
                         }

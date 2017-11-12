@@ -86,9 +86,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private bool _drawIndicator;
+
         private bool _splitCursors;
-        private bool _moving;
         private Point _downPosition;
         private Point _movementPoint;
         private int _separatorIncrements;
@@ -118,7 +117,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _source = source;
             _splitCursors = splitCursors;
-            _drawIndicator = drawIndicator;
+            DrawMoveIndicator = drawIndicator;
 		}
 
 		/// <summary>
@@ -134,11 +133,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the drawing of the movement indicator.
         /// </summary>
-        public bool DrawMoveIndicator
-        {
-            get { return _drawIndicator; }
-            set { _drawIndicator = value; }
-        }
+        public bool DrawMoveIndicator { get; set; }
+
         #endregion
 
         #region Mouse Notifications
@@ -164,7 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // If we are currently capturing input
-            if (_moving)
+            if (IsMoving)
             {
                 // Update the split indicator to new position
                 Point splitPt = RecalcClient(pt);
@@ -194,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
             bool ret = base.MouseDown(c, pt, button);
 
             // If a change in capturing state has occured
-            if (ret != _moving)
+            if (ret != IsMoving)
             {
                 // If we are now capturing input
                 if (ret)
@@ -203,7 +199,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _downPosition = pt;
 
                     // Remember new capture state
-                    _moving = true;
+                    IsMoving = true;
 
                     // Cache information from the separator
                     _separatorBox = _source.SeparatorMoveBox;
@@ -223,7 +219,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // We must have lost capture
-                    _moving = false;
+                    IsMoving = false;
 
                     // Remove the message filter, as long as it is registered 
                     // it will prevent the class from being garbage collected.
@@ -250,10 +246,10 @@ namespace ComponentFactory.Krypton.Toolkit
             base.MouseUp(c, pt, button);
 
             // If the mouse up has caused a change in capture
-            if (Captured != _moving)
+            if (Captured != IsMoving)
             {
                 // We must have lost capture
-                _moving = false;
+                IsMoving = false;
 
                 // Remove the message filter, as long as it is registered 
                 // it will prevent the class from being garbage collected.
@@ -273,7 +269,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void MouseLeave(Control c, ViewBase next)
 		{
             // If leaving when currently moving, then abort the movement
-            if (_moving)
+            if (IsMoving)
             {
                 AbortMoving();
             }
@@ -317,13 +313,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if (e.KeyCode == Keys.Escape)
             {
                 // If we are capturing mouse input
-                if (_moving)
+                if (IsMoving)
                 {
                     AbortMoving();
                 }
             }
 
-            return _moving;
+            return IsMoving;
         }
         #endregion
 
@@ -335,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void LostFocus(Control c)
         {
             // If we are capturing mouse input
-            if (_moving)
+            if (IsMoving)
             {
                 AbortMoving();
             }
@@ -346,10 +342,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if the separator is moving.
         /// </summary>
-        public bool IsMoving
-        {
-            get { return _moving; }
-        }
+        public bool IsMoving { get; private set; }
 
         /// <summary>
         /// Request that the separator abort moving.
@@ -357,10 +350,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public void AbortMoving()
         {
             // If currently trying to move the splitter
-            if (_moving)
+            if (IsMoving)
             {
                 // Exit the capturing state
-                _moving = false;
+                IsMoving = false;
                 Captured = false;
 
                 // Remove the capturing of mouse input messages
@@ -494,7 +487,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void DrawSplitIndicator(Point newPoint)
         {
-            if (_drawIndicator)
+            if (DrawMoveIndicator)
             {
                 if (_movementPoint == _nullPoint)
                 {

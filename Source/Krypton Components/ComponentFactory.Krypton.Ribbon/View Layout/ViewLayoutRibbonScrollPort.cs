@@ -122,7 +122,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private NeedPaintHandler _needPaintDelegate;
         private Orientation _orientation;
         private ViewBase _viewFiller;
-        private ViewLayoutControl _viewControl;
         private ViewLayoutRibbonScroller _nearScroller;
         private ViewLayoutRibbonScroller _farScroller;
         private ViewLayoutRibbonTabs _ribbonTabs;
@@ -177,13 +176,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // from drawing over the end scrollers.
             _viewControlContent = new RibbonViewControl(ribbon);
             _viewControlContent.PaintBackground += new PaintEventHandler(OnViewControlPaintBackground);
-            _viewControl = new ViewLayoutControl(_viewControlContent, ribbon, _viewFiller);
+            ViewLayoutControl = new ViewLayoutControl(_viewControlContent, ribbon, _viewFiller);
 
             // For ribbon tabs we want to monitor and intercept the WM_NCHITTEST so that the remainder of the 
             // tabs area acts like the application title bar and can be used to manipulate the application
             if (_ribbonTabs != null)
             {
-                _viewControl.ChildControl.WndProcHitTest += new EventHandler<ViewControlHitTestArgs>(OnChildWndProcHitTest);
+                ViewLayoutControl.ChildControl.WndProcHitTest += new EventHandler<ViewControlHitTestArgs>(OnChildWndProcHitTest);
             }
 
             // Create the two scrollers used when not enough space for filler
@@ -195,7 +194,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _farScroller.Click += new EventHandler(OnFarClick);
 
             // Add elements in correct order
-            Add(_viewControl);
+            Add(ViewLayoutControl);
             Add(_nearScroller);
             Add(_farScroller);
         }
@@ -215,10 +214,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the paint delegate to redraw the owning control.
         /// </summary>
-        public NeedPaintHandler ViewControlPaintDelegate
-        {
-            get { return _viewControl.ChildPaintDelegate; }
-        }
+        public NeedPaintHandler ViewControlPaintDelegate => ViewLayoutControl.ChildPaintDelegate;
+
         #endregion
 
         #region TransparentBackground
@@ -227,8 +224,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool TransparentBackground
         {
-            get { return _viewControl.ChildTransparentBackground; }
-            set { _viewControl.ChildTransparentBackground = value; }
+            get => ViewLayoutControl.ChildTransparentBackground;
+            set => ViewLayoutControl.ChildTransparentBackground = value;
         }
         #endregion
 
@@ -236,10 +233,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the actual control instance.
         /// </summary>
-        public ViewLayoutControl ViewLayoutControl
-        {
-            get { return _viewControl; }
-        }
+        public ViewLayoutControl ViewLayoutControl { get; }
+
         #endregion
 
         #region Visible
@@ -248,7 +243,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return base.Visible; }
+            get => base.Visible;
 
             set
             {
@@ -257,7 +252,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     base.Visible = value;
 
                     // Only want the child real control to show when we are
-                    _viewControl.Visible = value;
+                    ViewLayoutControl.Visible = value;
                 }
             }
         }
@@ -269,7 +264,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Enabled
         {
-            get { return base.Enabled; }
+            get => base.Enabled;
 
             set
             {
@@ -278,7 +273,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     base.Enabled = value;
 
                     // Only want the child real control to be enabled when we are
-                    _viewControl.Enabled = value;
+                    ViewLayoutControl.Enabled = value;
                 }
             }
         }
@@ -290,7 +285,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Orientation Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
 
             set
             {
@@ -449,7 +444,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
             // We always want to be the size needed to show the filler completely
-            return _viewControl.GetPreferredSize(context);
+            return ViewLayoutControl.GetPreferredSize(context);
         }
 
         /// <summary>
@@ -470,18 +465,18 @@ namespace ComponentFactory.Krypton.Ribbon
             Rectangle controlRect = new Rectangle(Point.Empty, ClientSize);
 
             // Reset the the view control layout offset to be zero again
-            _viewControl.LayoutOffset = Point.Empty;
+            ViewLayoutControl.LayoutOffset = Point.Empty;
 
             // Ask the view control the size it would like to be, this is the requested filler
             // size of the control. If it wants more than we can give then scroll buttons are
             // needed, otherwise we can give it the requested size and any extra available.
             _ribbon.GetViewManager().DoNotLayoutControls = true;
-            _viewControl.GetPreferredSize(context);
+            ViewLayoutControl.GetPreferredSize(context);
 
             // Ensure context has the correct control
-            if ((_viewControl.ChildControl != null) && !_viewControl.ChildControl.IsDisposed)
+            if ((ViewLayoutControl.ChildControl != null) && !ViewLayoutControl.ChildControl.IsDisposed)
             {
-                using (CorrectContextControl ccc = new CorrectContextControl(context, _viewControl.ChildControl))
+                using (CorrectContextControl ccc = new CorrectContextControl(context, ViewLayoutControl.ChildControl))
                 {
                     _viewFiller.Layout(context);
                 }
@@ -508,7 +503,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _farScroller.Visible = false;
 
                 // We need to layout again but this time we do layout the actual children
-                _viewControl.Layout(context);
+                ViewLayoutControl.Layout(context);
             }
             else
             {
@@ -605,17 +600,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Apply the offset to the display of the view filler
                 if (Orientation == Orientation.Horizontal)
                 {
-                    _viewControl.LayoutOffset = new Point(-_scrollOffset, 0);
+                    ViewLayoutControl.LayoutOffset = new Point(-_scrollOffset, 0);
                 }
                 else
                 {
-                    _viewControl.LayoutOffset = new Point(0, -_scrollOffset);
+                    ViewLayoutControl.LayoutOffset = new Point(0, -_scrollOffset);
                 }
 
                 // Position the filler in the remaining space
                 context.DisplayRectangle = layoutRect;
-                _viewControl.GetPreferredSize(context);
-                _viewControl.Layout(context);
+                ViewLayoutControl.GetPreferredSize(context);
+                ViewLayoutControl.Layout(context);
             }
 
             // Put back the original display value now we have finished

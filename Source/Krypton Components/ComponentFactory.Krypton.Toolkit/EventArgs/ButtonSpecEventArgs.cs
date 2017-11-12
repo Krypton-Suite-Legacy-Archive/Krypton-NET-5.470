@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ButtonSpecEventArgs : EventArgs
 	{
 		#region Instance Fields
-		private ButtonSpec _spec;
-		private int _index;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -35,8 +34,8 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(index >= 0);
 
 			// Remember parameter details
-            _spec = spec;
-			_index = index;
+            ButtonSpec = spec;
+			Index = index;
 		}
 		#endregion
 
@@ -44,18 +43,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the navigator button spec associated with the event.
 		/// </summary>
-		public ButtonSpec ButtonSpec
-		{
-			get { return _spec; }
-		}
+		public ButtonSpec ButtonSpec { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the index of ButtonSpec associated with the event.
 		/// </summary>
-		public int Index
-		{
-			get { return _index; }
-		}
-		#endregion
+		public int Index { get; }
+
+	    #endregion
 	}
 }

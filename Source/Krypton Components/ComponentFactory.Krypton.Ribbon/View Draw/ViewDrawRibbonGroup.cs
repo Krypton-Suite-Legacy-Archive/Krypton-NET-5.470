@@ -67,8 +67,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private IDisposable _mementoStandardBack;
         private Control _container;
         private bool _collapsed;
-        private bool _tracking;
-        private bool _pressed;
         private int _totalBorders;
         #endregion
 
@@ -142,7 +140,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Collapsed
         {
-            get { return _collapsed; }
+            get => _collapsed;
 
             set
             {
@@ -163,22 +161,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets a value indicating if the group is tracking.
         /// </summary>
-        public bool Tracking
-        {
-            get { return _tracking; }
-            set { _tracking = value; }
-        }
+        public bool Tracking { get; set; }
+
         #endregion
 
         #region Pressed
         /// <summary>
         /// Gets and sets a value indicating if the group is tracking.
         /// </summary>
-        public bool Pressed
-        {
-            get { return _pressed; }
-            set { _pressed = value; }
-        }
+        public bool Pressed { get; set; }
+
         #endregion
 
         #region GetGroupKeyTips
@@ -722,7 +714,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Are we a group inside a context tab?
             PaletteState elementState;
-            if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+            if (!string.IsNullOrEmpty(_ribbon.SelectedTab?.ContextName))
             {
                 elementState = Tracking ? PaletteState.ContextTracking : PaletteState.ContextNormal;
             }
@@ -798,7 +790,7 @@ namespace ComponentFactory.Krypton.Ribbon
             else
             {
                 // Are we a group inside a context tab?
-                if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+                if (!string.IsNullOrEmpty(_ribbon.SelectedTab?.ContextName))
                 {
                     ElementState = Tracking ? PaletteState.ContextTracking : PaletteState.ContextNormal;
                 }
@@ -887,7 +879,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         PaletteState state = PaletteState.Pressed;
 
                         // Are we a group inside a context tab?
-                        if ((_ribbon.SelectedTab != null) && !string.IsNullOrEmpty(_ribbon.SelectedTab.ContextName))
+                        if (!string.IsNullOrEmpty(_ribbon.SelectedTab?.ContextName))
                         {
                             state = PaletteState.ContextPressed;
                         }
@@ -933,7 +925,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!_ribbon.InDesignMode)
             {
                 // We are pressed until the popup window is removed
-                _pressed = true;
+                Pressed = true;
                 _container.Refresh();
 
                 // Create the popup window for the group
@@ -951,8 +943,8 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Not pressed any more
             _popupGroup = null;
-            _pressed = false;
-            _tracking = false;
+            Pressed = false;
+            Tracking = false;
             _container.Refresh();
         }
 

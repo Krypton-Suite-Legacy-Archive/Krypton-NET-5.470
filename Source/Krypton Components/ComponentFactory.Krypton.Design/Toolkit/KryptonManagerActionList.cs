@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteModeManager GlobalPaletteMode
         {
-            get { return _manager.GlobalPaletteMode; }
+            get => _manager.GlobalPaletteMode;
 
             set
             {

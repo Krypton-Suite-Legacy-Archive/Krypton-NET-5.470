@@ -62,7 +62,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("Heading")]
         public string Heading
         {
-            get { return _heading; }
+            get => _heading;
 
             set
             {
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int ImageIndexStart
         {
-            get { return _imageIndexStart; }
+            get => _imageIndexStart;
 
             set
             {
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int ImageIndexEnd
         {
-            get { return _imageIndexEnd; }
+            get => _imageIndexEnd;
 
             set
             {

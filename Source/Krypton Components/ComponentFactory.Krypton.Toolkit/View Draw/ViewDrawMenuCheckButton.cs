@@ -19,13 +19,11 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IContextMenuProvider _provider;
-        private KryptonContextMenuCheckButton _checkButton;
         private FixedContentValue _contentValues;
-        private ViewDrawButton _drawButton;
         private ViewLayoutDocker _outerDocker;
         private ViewLayoutDocker _innerDocker;
         private KryptonCommand _cachedCommand;
-        private bool _itemEnabled;
+
         #endregion
 
         #region Identity
@@ -38,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        KryptonContextMenuCheckButton checkButton)
 		{
             _provider = provider;
-            _checkButton = checkButton;
+            KryptonContextMenuCheckButton = checkButton;
 
             // Create fixed storage of the content values
             _contentValues = new FixedContentValue(ResolveText,
@@ -47,13 +45,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    ResolveImageTransparentColor);
 
             // Decide on the enabled state of the display
-            _itemEnabled = provider.ProviderEnabled && ResolveEnabled;
+            ItemEnabled = provider.ProviderEnabled && ResolveEnabled;
 
             // Give the heading object the redirector to use when inheriting values
-            _checkButton.SetPaletteRedirect(provider.ProviderRedirector);
+            KryptonContextMenuCheckButton.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the view button instance
-            _drawButton = new ViewDrawButton(checkButton.OverrideDisabled,
+            ViewDrawButton = new ViewDrawButton(checkButton.OverrideDisabled,
                                              checkButton.OverrideNormal,
                                              checkButton.OverrideTracking,
                                              checkButton.OverridePressed,
@@ -63,17 +61,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                              true);
 
             // Add the checked specific palettes to the existing view button
-            _drawButton.SetCheckedPalettes(checkButton.OverrideCheckedNormal,
+            ViewDrawButton.SetCheckedPalettes(checkButton.OverrideCheckedNormal,
                                            checkButton.OverrideCheckedTracking,
                                            checkButton.OverrideCheckedPressed);
 
-            _drawButton.Enabled = _itemEnabled;
-            _drawButton.Checked = ResolveChecked;
+            ViewDrawButton.Enabled = ItemEnabled;
+            ViewDrawButton.Checked = ResolveChecked;
 
             // Place the check box on the left of the available space but inside separators
             _innerDocker = new ViewLayoutDocker
             {
-                { _drawButton, ViewDockStyle.Fill },
+                { ViewDrawButton, ViewDockStyle.Fill },
                 { new ViewLayoutSeparator(1), ViewDockStyle.Right },
                 { new ViewLayoutSeparator(1), ViewDockStyle.Left },
                 { new ViewLayoutSeparator(1), ViewDockStyle.Top },
@@ -97,13 +95,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
 
             // Want to know when a property changes whilst displayed
-            _checkButton.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            KryptonContextMenuCheckButton.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
 
             // We need to know if a property of the command changes
-            if (_checkButton.KryptonCommand != null)
+            if (KryptonContextMenuCheckButton.KryptonCommand != null)
             {
-                _cachedCommand = _checkButton.KryptonCommand;
-                _checkButton.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                _cachedCommand = KryptonContextMenuCheckButton.KryptonCommand;
+                KryptonContextMenuCheckButton.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
             }
         }
 
@@ -126,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (disposing)
             {
                 // Unhook from events
-                _checkButton.PropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
+                KryptonContextMenuCheckButton.PropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
 
                 if (_cachedCommand != null)
                 {
@@ -143,20 +141,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the enabled state of the item.
         /// </summary>
-        public bool ItemEnabled
-        {
-            get { return _itemEnabled; }
-        }
+        public bool ItemEnabled { get; private set; }
+
         #endregion
 
         #region ItemText
         /// <summary>
         /// Gets the short text value of the check box item.
         /// </summary>
-        public string ItemText
-        {
-            get { return _contentValues.GetShortText(); }
-        }
+        public string ItemText => _contentValues.GetShortText();
+
         #endregion
 
         #region ResolveEnabled
@@ -173,7 +167,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.Enabled;
+                    return KryptonContextMenuCheckButton.Enabled;
                 }
             }
         }
@@ -193,7 +187,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.Image;
+                    return KryptonContextMenuCheckButton.Image;
                 }
             }
         }
@@ -213,7 +207,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.ImageTransparentColor;
+                    return KryptonContextMenuCheckButton.ImageTransparentColor;
                 }
             }
         }
@@ -233,7 +227,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.Text;
+                    return KryptonContextMenuCheckButton.Text;
                 }
             }
         }
@@ -253,7 +247,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.ExtraText;
+                    return KryptonContextMenuCheckButton.ExtraText;
                 }
             }
         }
@@ -273,7 +267,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _checkButton.Checked;
+                    return KryptonContextMenuCheckButton.Checked;
                 }
             }
         }
@@ -283,30 +277,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the actual check button definiton.
         /// </summary>
-        public KryptonContextMenuCheckButton KryptonContextMenuCheckButton
-        {
-            get { return _checkButton; }
-        }
+        public KryptonContextMenuCheckButton KryptonContextMenuCheckButton { get; }
+
         #endregion
 
         #region ViewDrawButton
         /// <summary>
         /// Gets access to the view element that draws the button.
         /// </summary>
-        public ViewDrawButton ViewDrawButton
-        {
-            get { return _drawButton; }
-        }
+        public ViewDrawButton ViewDrawButton { get; }
+
         #endregion
 
         #region CanCloseMenu
         /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
-        public bool CanCloseMenu
-        {
-            get { return _provider.ProviderCanCloseMenu; }
-        }
+        public bool CanCloseMenu => _provider.ProviderCanCloseMenu;
+
         #endregion
 
         #region Closing
@@ -347,13 +335,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _contentValues.ImageTransparentColor = ResolveImageTransparentColor;
 
             // Find new enabled state
-            _itemEnabled = _provider.ProviderEnabled && ResolveEnabled;
+            ItemEnabled = _provider.ProviderEnabled && ResolveEnabled;
 
             // Update with enabled state
-            _drawButton.Enabled = _itemEnabled;
+            ViewDrawButton.Enabled = ItemEnabled;
 
             // Update the checked state
-            _drawButton.Checked = ResolveChecked;
+            ViewDrawButton.Checked = ResolveChecked;
 
             return base.GetPreferredSize(context);
         }
@@ -402,7 +390,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // Hook into the new command
-                    _cachedCommand = _checkButton.KryptonCommand;
+                    _cachedCommand = KryptonContextMenuCheckButton.KryptonCommand;
                     if (_cachedCommand != null)
                     {
                         _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
@@ -432,7 +420,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnClick(object sender, EventArgs e)
         {
-            _checkButton.PerformClick();
+            KryptonContextMenuCheckButton.PerformClick();
         }
         #endregion
     }

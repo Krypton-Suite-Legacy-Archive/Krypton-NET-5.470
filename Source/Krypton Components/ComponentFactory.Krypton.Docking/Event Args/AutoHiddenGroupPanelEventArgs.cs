@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class AutoHiddenGroupPanelEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonAutoHiddenPanel _autoHiddenPanel;
-        private KryptonDockingEdgeAutoHidden _element;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         public AutoHiddenGroupPanelEventArgs(KryptonAutoHiddenPanel autoHiddenPanel,
                                              KryptonDockingEdgeAutoHidden element)
 		{
-            _autoHiddenPanel = autoHiddenPanel;
-            _element = element;
+            AutoHiddenPanelControl = autoHiddenPanel;
+            EdgeAutoHiddenElement = element;
 		}
 		#endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonAutoHiddenPanel control.
         /// </summary>
-        public KryptonAutoHiddenPanel AutoHiddenPanelControl
-        {
-            get { return _autoHiddenPanel; }
-        }
+        public KryptonAutoHiddenPanel AutoHiddenPanelControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingEdgeAutoHidden that is managing the edge.
         /// </summary>
-        public KryptonDockingEdgeAutoHidden EdgeAutoHiddenElement
-        {
-            get { return _element; }
-        }
-        #endregion
+        public KryptonDockingEdgeAutoHidden EdgeAutoHiddenElement { get; }
+
+	    #endregion
 	}
 }

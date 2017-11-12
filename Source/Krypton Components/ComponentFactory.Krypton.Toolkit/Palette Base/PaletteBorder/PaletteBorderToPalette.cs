@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPalette _palette;
-        private PaletteBorderStyle _style;
+
         #endregion
 
 		#region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Remember inheritance
             _palette = palette;
-            _style = style;
+            BorderStyle = style;
         }
 		#endregion
 
@@ -41,11 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the fixed border style.
         /// </summary>
-        public PaletteBorderStyle BorderStyle
-        {
-            get { return _style; }
-            set { _style = value; }
-        }
+        public PaletteBorderStyle BorderStyle { get; set; }
+
         #endregion
 
 		#region Draw
@@ -56,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public InheritBool GetBorderDraw(PaletteState state)
 		{
-            return _palette.GetBorderDraw(_style, state);
+            return _palette.GetBorderDraw(BorderStyle, state);
 		}
 		#endregion
 
@@ -68,7 +65,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteDrawBorders value.</returns>
         public PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
         {
-            return _palette.GetBorderDrawBorders(_style, state);
+            return _palette.GetBorderDrawBorders(BorderStyle, state);
         }
         #endregion
 
@@ -80,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteGraphicsHint value.</returns>
 		public PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
 		{
-            return _palette.GetBorderGraphicsHint(_style, state);
+            return _palette.GetBorderGraphicsHint(BorderStyle, state);
         }
 		#endregion
 
@@ -92,7 +89,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public Color GetBorderColor1(PaletteState state)
 		{
-            return _palette.GetBorderColor1(_style, state);
+            return _palette.GetBorderColor1(BorderStyle, state);
         }
 		#endregion
 
@@ -104,7 +101,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public Color GetBorderColor2(PaletteState state)
 		{
-            return _palette.GetBorderColor2(_style, state);
+            return _palette.GetBorderColor2(BorderStyle, state);
         }
 		#endregion
 
@@ -116,7 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color drawing style.</returns>
 		public PaletteColorStyle GetBorderColorStyle(PaletteState state)
 		{
-            return _palette.GetBorderColorStyle(_style, state);
+            return _palette.GetBorderColorStyle(BorderStyle, state);
         }
 		#endregion
 
@@ -128,7 +125,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color alignment style.</returns>
 		public PaletteRectangleAlign GetBorderColorAlign(PaletteState state)
 		{
-            return _palette.GetBorderColorAlign(_style, state);
+            return _palette.GetBorderColorAlign(BorderStyle, state);
         }
 		#endregion
 
@@ -140,7 +137,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Angle used for color drawing.</returns>
 		public float GetBorderColorAngle(PaletteState state)
 		{
-            return _palette.GetBorderColorAngle(_style, state);
+            return _palette.GetBorderColorAngle(BorderStyle, state);
         }
 		#endregion
 
@@ -152,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Border width.</returns>
 		public int GetBorderWidth(PaletteState state)
 		{
-            return _palette.GetBorderWidth(_style, state);
+            return _palette.GetBorderWidth(BorderStyle, state);
         }
 		#endregion
 
@@ -164,7 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Border rounding.</returns>
 		public int GetBorderRounding(PaletteState state)
 		{
-            return _palette.GetBorderRounding(_style, state);
+            return _palette.GetBorderRounding(BorderStyle, state);
         }
 		#endregion
 
@@ -176,7 +173,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image instance.</returns>
 		public Image GetBorderImage(PaletteState state)
 		{
-            return _palette.GetBorderImage(_style, state);
+            return _palette.GetBorderImage(BorderStyle, state);
         }
 		#endregion
 
@@ -188,7 +185,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image style value.</returns>
 		public PaletteImageStyle GetBorderImageStyle(PaletteState state)
 		{
-            return _palette.GetBorderImageStyle(_style, state);
+            return _palette.GetBorderImageStyle(BorderStyle, state);
         }
 		#endregion
 
@@ -200,7 +197,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image alignment style.</returns>
 		public PaletteRectangleAlign GetBorderImageAlign(PaletteState state)
 		{
-            return _palette.GetBorderImageAlign(_style, state);
+            return _palette.GetBorderImageAlign(BorderStyle, state);
         }
         #endregion
     }

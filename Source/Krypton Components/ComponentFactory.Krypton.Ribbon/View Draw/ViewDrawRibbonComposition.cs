@@ -33,7 +33,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonRibbon _ribbon;
         private VisualForm _ownerForm;
         private NeedPaintHandler _needPaint;
-        private ViewDrawRibbonCompoRightBorder _compRightBorder;
         private Blend _compBlend;
         #endregion
 
@@ -94,21 +93,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the associated right border for composition layout.
         /// </summary>
-        public ViewDrawRibbonCompoRightBorder CompRightBorder
-        {
-            get { return _compRightBorder; }
-            set { _compRightBorder = value; }
-        }
+        public ViewDrawRibbonCompoRightBorder CompRightBorder { get; set; }
+
         #endregion
 
         #region CompHandle
         /// <summary>
         /// Gets the handle of the composition element control.
         /// </summary>
-        public IntPtr CompHandle 
-        {
-            get { return _ribbon.Handle; }
-        }
+        public IntPtr CompHandle => _ribbon.Handle;
+
         #endregion
 
         #region CompVisible
@@ -117,8 +111,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool CompVisible
         {
-            get { return Visible; }
-            set { Visible = value; }
+            get => Visible;
+            set => Visible = value;
         }
         #endregion
 
@@ -128,12 +122,12 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public VisualForm CompOwnerForm
         {
-            get { return _ownerForm; }
-            
+            get => _ownerForm;
+
             set 
             { 
                 _ownerForm = value;
-                _compRightBorder.CompOwnerForm = value;
+                CompRightBorder.CompOwnerForm = value;
             }
         }
         #endregion

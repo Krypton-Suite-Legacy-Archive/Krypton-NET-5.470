@@ -48,8 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawContent _drawContent;
         private ViewDrawMonthDayNames _drawMonthDayNames;
         private ViewDrawBorderEdge _drawBorderEdge;
-        private ViewDrawMonthDays _drawMonthDays;
-        private ViewLayoutWeekCorner _drawWeekCorner;
+	    private ViewLayoutWeekCorner _drawWeekCorner;
         private ViewDrawWeekNumbers _drawWeekNumbers;
         private ViewLayoutStack _numberStack;
         private PaletteBorderEdgeRedirect _borderEdgeRedirect;
@@ -151,8 +150,8 @@ namespace ComponentFactory.Krypton.Toolkit
             daysStack.Add(borderTopDock);
 
             // Add the actual individual days
-            _drawMonthDays = new ViewDrawMonthDays(_calendar, _months);
-            daysStack.Add(_drawMonthDays);
+            ViewDrawMonthDays = new ViewDrawMonthDays(_calendar, _months);
+            daysStack.Add(ViewDrawMonthDays);
 
             // Adding buttons manually means we have to ask for buttons to be created
             _buttonManager.RecreateButtons();
@@ -173,25 +172,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the days draw element.
         /// </summary>
-        public ViewDrawMonthDays ViewDrawMonthDays
-        {
-            get { return _drawMonthDays; }
-        }
+        public ViewDrawMonthDays ViewDrawMonthDays { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the enabled state of the view.
         /// </summary>
         public override bool Enabled
         {
-            get { return base.Enabled; }
-            
-            set
+            get => base.Enabled;
+
+	        set
             {
                 _drawContent.Enabled = value;
                 _drawHeader.Enabled = value;
                 _drawMonthDayNames.Enabled = value;
                 _drawBorderEdge.Enabled = value;
-                _drawMonthDays.Enabled = value;
+                ViewDrawMonthDays.Enabled = value;
                 base.Enabled = value;
             }
         }
@@ -203,7 +199,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             set 
             { 
-                _drawMonthDays.FirstMonth = value;
+                ViewDrawMonthDays.FirstMonth = value;
                 _drawWeekNumbers.FirstMonth = value;
             }
         }
@@ -215,7 +211,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             set 
             {
-                _drawMonthDays.LastMonth = value;
+                ViewDrawMonthDays.LastMonth = value;
                 _drawWeekNumbers.LastMonth = value;
             }
         }
@@ -228,7 +224,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 _header = value.ToString(CultureInfo.CurrentCulture.DateTimeFormat.YearMonthPattern);
-                _drawMonthDays.Month = value;
+                ViewDrawMonthDays.Month = value;
                 _drawWeekNumbers.Month = value;
             }
         }

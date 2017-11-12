@@ -30,11 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private KryptonNavigator _navigator;
-        private PopupPageAllow _allowPopupPages;
-        private PopupPageElement _element;
-        private PopupPagePosition _position;
-        private int _border;
-        private int _gap;
+
         #endregion
 
         #region Identity
@@ -56,11 +52,11 @@ namespace ComponentFactory.Krypton.Navigator
             NeedPaint = needPaint;
 
             // Default values
-            _allowPopupPages = PopupPageAllow.OnlyOutlookMiniMode;
-            _gap = DEFAULT_GAP;
-            _border = DEFAULT_GAP;
-            _element = DEFAULT_ELEMENT;
-            _position = DEFAULT_POSITION;
+            AllowPopupPages = PopupPageAllow.OnlyOutlookMiniMode;
+            Gap = DEFAULT_GAP;
+            Border = DEFAULT_GAP;
+            Element = DEFAULT_ELEMENT;
+            Position = DEFAULT_POSITION;
         }
 		#endregion
 
@@ -69,17 +65,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((AllowPopupPages == PopupPageAllow.OnlyOutlookMiniMode) &&
-                        (Border == DEFAULT_BORDER) &&
-                        (Element == DEFAULT_ELEMENT) &&
-                        (Gap == DEFAULT_GAP) &&
-                        (Position == DEFAULT_POSITION));
-            }
-        }
+        public override bool IsDefault => ((AllowPopupPages == PopupPageAllow.OnlyOutlookMiniMode) &&
+                                           (Border == DEFAULT_BORDER) &&
+                                           (Element == DEFAULT_ELEMENT) &&
+                                           (Gap == DEFAULT_GAP) &&
+                                           (Position == DEFAULT_POSITION));
+
         #endregion
 
         #region AllowPopupPages
@@ -89,11 +80,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Determines if popup pages are displayed.")]
         [DefaultValue(typeof(PopupPageAllow), "Only Outlook Mini Mode")]
-        public PopupPageAllow AllowPopupPages
-        {
-            get { return _allowPopupPages; }
-            set { _allowPopupPages = value; }
-        }
+        public PopupPageAllow AllowPopupPages { get; set; }
+
         #endregion
 
         #region Border
@@ -103,11 +91,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Pixel border width around the popup page.")]
         [DefaultValue(3)]
-        public int Border
-        {
-            get { return _border; }
-            set { _border = value; }
-        }
+        public int Border { get; set; }
+
         #endregion
 
         #region Element
@@ -117,11 +102,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("The relative element to use when calculating size and position of the popup page.")]
         [DefaultValue(typeof(PopupPageElement), "Item")]
-        public PopupPageElement Element
-        {
-            get { return _element; }
-            set { _element = value; }
-        }
+        public PopupPageElement Element { get; set; }
+
         #endregion
 
         #region Gap
@@ -131,11 +113,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Pixel gap between the source element and the popup page.")]
         [DefaultValue(3)]
-        public int Gap
-        {
-            get { return _gap; }
-            set { _gap = value; }
-        }
+        public int Gap { get; set; }
+
         #endregion
 
         #region Position
@@ -145,11 +124,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("How to calculate the size and position of the popup page.")]
         [DefaultValue(typeof(PopupPagePosition), "ModeAppropriate")]
-        public PopupPagePosition Position
-        {
-            get { return _position; }
-            set { _position = value; }
-        }
+        public PopupPagePosition Position { get; set; }
+
         #endregion
     }
 }

@@ -28,12 +28,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         internal IPaletteContent _paletteContent;
         private IDisposable _memento;
-		private IContentValues _values;
-		private VisualOrientation _orientation;
-        private bool _useMnemonic;
-        private bool _drawOnComposition;
-        private bool _testForFocusCues;
-		#endregion
+
+        #endregion
 
 		#region Identity
 		/// <summary>
@@ -48,12 +44,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Cache the starting values
 			_paletteContent = paletteContent;
-			_values = values;
-			_orientation = orientation;
+			Values = values;
+			Orientation = orientation;
 
             // Default other state
-            _drawOnComposition = false;
-            _testForFocusCues = false;
+            DrawContentOnComposition = false;
+            TestForFocusCues = false;
         }
 
 		/// <summary>
@@ -90,33 +86,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the composition value.
         /// </summary>
-        public bool DrawContentOnComposition
-        {
-            get { return _drawOnComposition; }
-            set { _drawOnComposition = value; }
-        }
+        public bool DrawContentOnComposition { get; set; }
+
         #endregion
 
         #region TestForFocusCues
         /// <summary>
         /// Gets and sets the use of focus cues for deciding if focus rects are allowed.
         /// </summary>
-        public bool TestForFocusCues
-        {
-            get { return _testForFocusCues; }
-            set { _testForFocusCues = value; }
-        }
+        public bool TestForFocusCues { get; set; }
+
         #endregion
 
         #region Values
         /// <summary>
         /// Gets and sets the source for values.
         /// </summary>
-        public IContentValues Values
-        {
-            get { return _values; }
-            set { _values = value; }
-        }
+        public IContentValues Values { get; set; }
+
         #endregion
 
         #region Orientation
@@ -124,12 +111,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the visual orientation.
 		/// </summary>
         public VisualOrientation Orientation
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _orientation; }
-			set { _orientation = value; }
-		}
-		#endregion
+            get;
+            set;
+        }
+
+        #endregion
 
 		#region UseMnemonic
 		/// <summary>
@@ -137,11 +125,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public bool UseMnemonic
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _useMnemonic; }
-			set { _useMnemonic = value; }
-		}
-		#endregion
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    set;
+        }
+
+        #endregion
 
 		#region SetPalette
 		/// <summary>
@@ -300,7 +289,7 @@ namespace ComponentFactory.Krypton.Toolkit
 				// Ask the renderer for the contents preferred size
 				preferredSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context,
 																					           _paletteContent,
-																					           _values,
+																					           Values,
 																					           Orientation,
 																					           State,
                                                                                                DrawContentOnComposition);
@@ -341,7 +330,7 @@ namespace ComponentFactory.Krypton.Toolkit
 				_memento = context.Renderer.RenderStandardContent.LayoutContent(context,
 																		        ClientRectangle,
 																		        _paletteContent,
-																		        _values,
+																		        Values,
 																		        Orientation,
 																		        State,
                                                                                 DrawContentOnComposition);
@@ -367,7 +356,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we need to draw the content?
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
 			{
-                bool allowFocusRect = (_testForFocusCues ? ShowFocusCues(context.Control) : true);
+                bool allowFocusRect = (TestForFocusCues ? ShowFocusCues(context.Control) : true);
 
 				// Draw using memento returned from render layout
 				context.Renderer.RenderStandardContent.DrawContent(context, 

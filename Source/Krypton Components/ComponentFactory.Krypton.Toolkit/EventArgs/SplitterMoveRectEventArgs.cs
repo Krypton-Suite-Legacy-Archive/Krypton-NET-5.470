@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class SplitterMoveRectMenuArgs : EventArgs
 	{
 		#region Instance Fields
-        private Rectangle _moveRect;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="moveRect">Initial movement rectangle that limits separator movements.</param>
         public SplitterMoveRectMenuArgs(Rectangle moveRect)
         {
-            _moveRect = moveRect;
+            MoveRect = moveRect;
         }
         #endregion
 
@@ -37,11 +37,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets and sets the movement box for a separator.
 		/// </summary>
-        public Rectangle MoveRect
-		{
-            get { return _moveRect; }
-            set { _moveRect = value; }
-		}
-        #endregion
+        public Rectangle MoveRect { get; set; }
+
+	    #endregion
 	}
 }

@@ -42,8 +42,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ButtonStyle ButtonStyle
         {
-            get { return _colorButton.ButtonStyle; }
-           
+            get => _colorButton.ButtonStyle;
+
             set
             {
                 if (_colorButton.ButtonStyle != value)
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation ButtonOrientation
         {
-            get { return _colorButton.ButtonOrientation; }
-            
+            get => _colorButton.ButtonOrientation;
+
             set 
             {
                 if (_colorButton.ButtonOrientation != value)
@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation DropDownPosition
         {
-            get { return _colorButton.DropDownPosition; }
+            get => _colorButton.DropDownPosition;
 
             set
             {
@@ -93,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation DropDownOrientation
         {
-            get { return _colorButton.DropDownOrientation; }
+            get => _colorButton.DropDownOrientation;
 
             set
             {
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Splitter
         {
-            get { return _colorButton.Splitter; }
+            get => _colorButton.Splitter;
 
             set
             {
@@ -127,8 +127,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Text
         {
-            get { return _colorButton.Values.Text; }
-            
+            get => _colorButton.Values.Text;
+
             set 
             {
                 if (_colorButton.Values.Text != value)
@@ -144,8 +144,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string ExtraText
         {
-            get { return _colorButton.Values.ExtraText; }
-            
+            get => _colorButton.Values.ExtraText;
+
             set 
             {
                 if (_colorButton.Values.ExtraText != value)
@@ -161,7 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Image Image
         {
-            get { return _colorButton.Values.Image; }
+            get => _colorButton.Values.Image;
 
             set
             {
@@ -178,8 +178,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _colorButton.PaletteMode; }
-            
+            get => _colorButton.PaletteMode;
+
             set 
             {
                 if (_colorButton.PaletteMode != value)

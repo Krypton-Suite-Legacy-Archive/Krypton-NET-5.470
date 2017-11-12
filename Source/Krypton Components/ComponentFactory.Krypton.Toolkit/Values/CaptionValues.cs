@@ -69,8 +69,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public override string Description
         {
-            get { return base.Description; }
-            set { base.Description = value; }
+            get => base.Description;
+            set => base.Description = value;
         }
         #endregion
     }

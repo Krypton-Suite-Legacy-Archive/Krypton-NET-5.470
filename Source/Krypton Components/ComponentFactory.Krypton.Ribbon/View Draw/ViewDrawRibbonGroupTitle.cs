@@ -26,7 +26,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonRibbonGroup _ribbonGroup;
         private RibbonGroupTextToContent _contentProvider;
         private IDisposable _memento;
-        private int _height;
         private Rectangle _displayRect;
         private int _dirtyPaletteLayout;
         private PaletteState _cacheState;
@@ -97,8 +96,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public IPaletteRibbonText PaletteRibbonGroup
         {
-            get { return _contentProvider.PaletteRibbonGroup; }
-            set { _contentProvider.PaletteRibbonGroup = value; }
+            get => _contentProvider.PaletteRibbonGroup;
+            set => _contentProvider.PaletteRibbonGroup = value;
         }
         #endregion
 
@@ -106,11 +105,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the height of the title string.
         /// </summary>
-        public int Height
-        {
-            get { return _height; }
-            set { _height = value; }
-        }
+        public int Height { get; set; }
+
         #endregion
 
         #region Layout
@@ -120,7 +116,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="context">Layout context.</param>
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
-            return new Size(0, _height);
+            return new Size(0, Height);
         }
 
         /// <summary>

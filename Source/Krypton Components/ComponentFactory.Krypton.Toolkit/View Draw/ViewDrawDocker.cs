@@ -23,13 +23,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Instance Fields
         private PaletteMetricBool _metricOverlay;
         private ViewDockStyleLookup _childDocking;
-		private Rectangle _fillRectangle;
-        private bool _ignoreBorderSpace;
-        private bool _ignoreAllBorderAndPadding;
-        private bool _removeChildBorders;
-        private bool _preferredSizeAll;
-        private bool _forceBorderFirst;
-		#endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -103,10 +98,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create other state
             _childDocking = new ViewDockStyleLookup();
-            _fillRectangle = Rectangle.Empty;
-            _ignoreBorderSpace = false;
-            _removeChildBorders = false;
-            _preferredSizeAll = false;
+            FillRectangle = Rectangle.Empty;
+            IgnoreBorderSpace = false;
+            RemoveChildBorders = false;
+            PreferredSizeAll = false;
         }
 
 		/// <summary>
@@ -124,56 +119,41 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets a value indicating if border space should be ignored in working out preferred size.
         /// </summary>
-        public bool IgnoreBorderSpace
-        {
-            get { return _ignoreBorderSpace; }
-            set { _ignoreBorderSpace = value; }
-        }
-        #endregion
+        public bool IgnoreBorderSpace { get; set; }
+
+	    #endregion
 
         #region IgnoreAllBorderAndPadding
         /// <summary>
         /// Gets and sets a value indicating if border space should be ignored in working out preferred size.
         /// </summary>
-        public bool IgnoreAllBorderAndPadding
-        {
-            get { return _ignoreAllBorderAndPadding; }
-            set { _ignoreAllBorderAndPadding = value; }
-        }
-        #endregion
+        public bool IgnoreAllBorderAndPadding { get; set; }
+
+	    #endregion
 
         #region RemoveChildBorders
         /// <summary>
         /// Gets and sets a value indicating if borders for dockeding edged children should be removed to prevent double borders.
         /// </summary>
-        public bool RemoveChildBorders
-        {
-            get { return _removeChildBorders; }
-            set { _removeChildBorders = value; }
-        }
-        #endregion
+        public bool RemoveChildBorders { get; set; }
+
+	    #endregion
 
         #region ForceBorderFirst
         /// <summary>
         /// Gets and sets a value indicating if the border should be forced to draw first.
         /// </summary>
-        public bool ForceBorderFirst
-        {
-            get { return _forceBorderFirst; }
-            set { _forceBorderFirst = value; }
-        }
-        #endregion
+        public bool ForceBorderFirst { get; set; }
+
+	    #endregion
 
         #region PreferredSizeAll
         /// <summary>
         /// Gets and sets a value indicating if calculating the preferred size should include visible and invisible children.
         /// </summary>
-        public bool PreferredSizeAll
-        {
-            get { return _preferredSizeAll; }
-            set { _preferredSizeAll = value; }
-        }
-        #endregion
+        public bool PreferredSizeAll { get; set; }
+
+	    #endregion
 
         #region DrawBorderLast
         /// <summary>
@@ -183,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			get
 			{
-                if (_forceBorderFirst)
+                if (ForceBorderFirst)
                 {
                     return false;
                 }
@@ -207,11 +187,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets the fill rectangle left after positioning all children.
 		/// </summary>
-		public Rectangle FillRectangle
-		{
-			get { return _fillRectangle; }
-		}
-		#endregion
+		public Rectangle FillRectangle { get; private set; }
+
+	    #endregion
 
 		#region Dock
 		/// <summary>
@@ -677,7 +655,7 @@ namespace ComponentFactory.Krypton.Toolkit
             context.DisplayRectangle = ClientRectangle;
             
             // The fill rectangle is the space left over after all children are positioned
-			_fillRectangle = fillerRect;
+			FillRectangle = fillerRect;
         }
 
         private void UpdateChildBorders(ViewBase child,

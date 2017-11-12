@@ -146,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
             bool moveNext = false;
             bool moveLast = false;
 
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonButton) > 0);
@@ -164,7 +164,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _ribbonButton.Ribbon.InDesignHelperMode = !_ribbonButton.Ribbon.InDesignHelperMode;
             }
@@ -172,7 +172,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -204,7 +204,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -238,7 +238,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -272,7 +272,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -304,7 +304,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteButton(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -340,7 +340,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnVisible(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.Visible, !_ribbonButton.Visible);
                 _ribbonButton.Visible = !_ribbonButton.Visible;
@@ -349,7 +349,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnEnabled(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.Enabled, !_ribbonButton.Enabled);
                 _ribbonButton.Enabled = !_ribbonButton.Enabled;
@@ -358,7 +358,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnChecked(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.Checked, !_ribbonButton.Checked);
                 _ribbonButton.Checked = !_ribbonButton.Checked;
@@ -367,7 +367,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnTypePush(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.ButtonType, GroupButtonType.Push);
                 _ribbonButton.ButtonType = GroupButtonType.Push;
@@ -376,7 +376,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnTypeCheck(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.ButtonType, GroupButtonType.Check);
                 _ribbonButton.ButtonType = GroupButtonType.Check;
@@ -385,7 +385,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnTypeDropDown(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.ButtonType, GroupButtonType.DropDown);
                 _ribbonButton.ButtonType = GroupButtonType.DropDown;
@@ -394,7 +394,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnTypeSplit(object sender, EventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonButton, null, _ribbonButton.ButtonType, GroupButtonType.Split);
                 _ribbonButton.ButtonType = GroupButtonType.Split;
@@ -408,7 +408,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonButton != null) && (_ribbonButton.Ribbon != null))
+            if (_ribbonButton?.Ribbon != null)
             {
                 // Create the menu strip the first time around
                 if (_cms == null)

@@ -28,7 +28,6 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private PaletteDoubleMetricRedirect _paletteItemHighlight;
         private ViewDrawMenuImageColumn _imageColumn;
-        private ViewLayoutStack _itemStack;
         private ColumnToWidth _columnToWidth;
         #endregion
 
@@ -59,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             imageDocker.Visible = imageColumn;
 
             // Create a vertical stack that contains each individual menu item
-            _itemStack = new ViewLayoutStack(false)
+            ItemStack = new ViewLayoutStack(false)
             {
                 FillLastChild = false
             };
@@ -67,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Use a docker with the item stack as the fill
             ViewLayoutDocker stackDocker = new ViewLayoutDocker
             {
-                { _itemStack, ViewDockStyle.Fill }
+                { ItemStack, ViewDockStyle.Fill }
             };
 
             // Grab the padding for around the item stack
@@ -99,10 +98,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the stack containing individual menu items
         /// </summary>
-        public ViewLayoutStack ItemStack
-        {
-            get { return _itemStack; }
-        }
+        public ViewLayoutStack ItemStack { get; }
+
         #endregion
 
         #region Layout

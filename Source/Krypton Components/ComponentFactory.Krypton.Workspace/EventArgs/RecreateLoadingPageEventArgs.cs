@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Workspace
 	public class RecreateLoadingPageEventArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-        private string _uniqueName;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,7 +30,7 @@ namespace ComponentFactory.Krypton.Workspace
         public RecreateLoadingPageEventArgs(string uniqueName)
             : base(false)
 		{
-            _uniqueName = uniqueName;
+            UniqueName = uniqueName;
 		}
         #endregion
 
@@ -39,19 +38,13 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets and sets the page to be used for the requested unique name.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-            set { _page = value; }
-        }
+        public KryptonPage Page { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the unique name of the page requested to be recreated.
         /// </summary>
-        public string UniqueName
-        {
-            get { return _uniqueName; }
-        }
-        #endregion
+        public string UniqueName { get; }
+
+	    #endregion
 	}
 }

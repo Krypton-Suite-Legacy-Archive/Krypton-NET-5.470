@@ -20,11 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteTrackBarStatesOverride : GlobalId
 	{
 		#region Instance Fields
-        private PaletteBack _back;
-        private PaletteElementColorInheritOverride _overrideTickState;
-        private PaletteElementColorInheritOverride _overrideTrackState;
-        private PaletteElementColorInheritOverride _overridePositionState;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -52,10 +49,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Create the triple override instances
-            _back = normalStates.Back;
-            _overrideTickState = new PaletteElementColorInheritOverride(normalStates.Tick, overrideStates.Tick);
-            _overrideTrackState = new PaletteElementColorInheritOverride(normalStates.Track, overrideStates.Track);
-            _overridePositionState = new PaletteElementColorInheritOverride(normalStates.Position, overrideStates.Position);
+            Back = normalStates.Back;
+            Tick = new PaletteElementColorInheritOverride(normalStates.Tick, overrideStates.Tick);
+            Track = new PaletteElementColorInheritOverride(normalStates.Track, overrideStates.Track);
+            Position = new PaletteElementColorInheritOverride(normalStates.Position, overrideStates.Position);
 
             // Do not apply an override by default
             Apply = false;
@@ -75,9 +72,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetPalettes(PaletteTrackBarRedirect normalStates,
                                 PaletteTrackBarStates overrideStates)
         {
-            _overrideTickState.SetPalettes(normalStates.Tick, overrideStates.Tick);
-            _overrideTrackState.SetPalettes(normalStates.Track, overrideStates.Track);
-            _overridePositionState.SetPalettes(normalStates.Position, overrideStates.Position);
+            Tick.SetPalettes(normalStates.Tick, overrideStates.Tick);
+            Track.SetPalettes(normalStates.Track, overrideStates.Track);
+            Position.SetPalettes(normalStates.Position, overrideStates.Position);
         }
         #endregion
 
@@ -87,13 +84,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public bool Apply
 		{
-            get { return _overrideTickState.Apply; }
+            get => Tick.Apply;
 
-			set
+            set
 			{
-                _overrideTickState.Apply = value;
-                _overrideTrackState.Apply = value;
-                _overridePositionState.Apply = value;
+                Tick.Apply = value;
+                Track.Apply = value;
+                Position.Apply = value;
             }
 		}
 		#endregion
@@ -104,13 +101,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Override
         {
-            get { return _overrideTickState.Override; }
+            get => Tick.Override;
 
             set
             {
-                _overrideTickState.Override = value;
-                _overrideTrackState.Override = value;
-                _overridePositionState.Override = value;
+                Tick.Override = value;
+                Track.Override = value;
+                Position.Override = value;
             }
         }
         #endregion
@@ -121,13 +118,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public PaletteState OverrideState
 		{
-            get { return _overrideTickState.OverrideState; }
+            get => Tick.OverrideState;
 
-            set
+		    set
             {
-                _overrideTickState.OverrideState = value;
-                _overrideTrackState.OverrideState = value;
-                _overridePositionState.OverrideState = value;
+                Tick.OverrideState = value;
+                Track.OverrideState = value;
+                Position.OverrideState = value;
             }
 		}
 		#endregion
@@ -140,11 +137,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining background appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack Back
-        {
-            get { return _back; }
-        }
-        #endregion
+        public PaletteBack Back { get; }
+
+	    #endregion
 
         #region Tick
         /// <summary>
@@ -154,11 +149,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tick appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorInheritOverride Tick
-        {
-            get { return _overrideTickState; }
-        }
-        #endregion
+        public PaletteElementColorInheritOverride Tick { get; }
+
+	    #endregion
 
         #region Track
         /// <summary>
@@ -168,11 +161,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining track appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorInheritOverride Track
-        {
-            get { return _overrideTrackState; }
-        }
-        #endregion
+        public PaletteElementColorInheritOverride Track { get; }
+
+	    #endregion
 
         #region Position
         /// <summary>
@@ -182,10 +173,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining position appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorInheritOverride Position
-        {
-            get { return _overridePositionState; }
-        }
-        #endregion
+        public PaletteElementColorInheritOverride Position { get; }
+
+	    #endregion
     }
 }

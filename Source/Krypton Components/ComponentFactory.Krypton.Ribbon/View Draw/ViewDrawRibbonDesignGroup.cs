@@ -59,26 +59,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the padding to use when calculating the preferred size.
         /// </summary>
-        protected override Padding PreferredPadding
-        {
-            get { return _padding; }
-        }
+        protected override Padding PreferredPadding => _padding;
 
         /// <summary>
         /// Gets the padding to use when laying out the view.
         /// </summary>
-        protected override Padding LayoutPadding
-        {
-            get { return Padding.Empty; }
-        }
+        protected override Padding LayoutPadding => Padding.Empty;
 
         /// <summary>
         /// Gets the padding to shrink the client area by when laying out.
         /// </summary>
-        protected override Padding OuterPadding
-        {
-            get { return _padding; }
-        }
+        protected override Padding OuterPadding => _padding;
 
         /// <summary>
         /// Raises the Click event.

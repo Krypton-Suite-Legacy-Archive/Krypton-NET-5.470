@@ -31,7 +31,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupRadioButton _ribbonRadioButton;
         private ViewLayoutRibbonRadioButton _viewLarge;
         private ViewDrawRibbonGroupRadioButtonImage _viewLargeImage;
         private ViewDrawRibbonGroupRadioButtonText _viewLargeText1;
@@ -66,16 +65,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonRadioButton = ribbonRadioButton;
+            GroupRadioButton = ribbonRadioButton;
             _needPaint = needPaint;
-            _currentSize = _ribbonRadioButton.ItemSizeCurrent;
+            _currentSize = GroupRadioButton.ItemSizeCurrent;
 
             // Create delegate used to process end of click action
             _finishDelegateLarge = new EventHandler(ActionFinishedLarge);
             _finishDelegateMediumSmall = new EventHandler(ActionFinishedMediumSmall);
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonRadioButton;
+            Component = GroupRadioButton;
 
             // Create the different views for different sizes of the radio button
             CreateLargeRadioButtonView();
@@ -87,7 +86,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon radio button definition
-            _ribbonRadioButton.PropertyChanged += new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
+            GroupRadioButton.PropertyChanged += new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
         }
 
 		/// <summary>
@@ -108,14 +107,14 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonRadioButton != null)
+                if (GroupRadioButton != null)
                 {
                     // Must unhook to prevent memory leaks
-                    _ribbonRadioButton.PropertyChanged -= new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
+                    GroupRadioButton.PropertyChanged -= new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
 
                     // Remove association with definition
-                    _ribbonRadioButton.RadioButtonView = null;
-                    _ribbonRadioButton = null;
+                    GroupRadioButton.RadioButtonView = null;
+                    GroupRadioButton = null;
                 }
             }
 
@@ -127,10 +126,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected radio button definition.
         /// </summary>
-        public KryptonRibbonGroupRadioButton GroupRadioButton
-        {
-            get { return _ribbonRadioButton; }
-        }
+        public KryptonRibbonGroupRadioButton GroupRadioButton { get; private set; }
+
         #endregion
 
         #region GetFirstFocusItem
@@ -141,9 +138,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewBase GetFirstFocusItem()
         {
             // Only take focus if we are visible and enabled
-            if (_ribbonRadioButton.Visible && _ribbonRadioButton.Enabled)
+            if (GroupRadioButton.Visible && GroupRadioButton.Enabled)
             {
-                if (_viewLarge == _ribbonRadioButton.RadioButtonView)
+                if (_viewLarge == GroupRadioButton.RadioButtonView)
                 {
                     return _viewLarge;
                 }
@@ -167,9 +164,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewBase GetLastFocusItem()
         {
             // Only take focus if we are visible and enabled
-            if (_ribbonRadioButton.Visible && _ribbonRadioButton.Enabled)
+            if (GroupRadioButton.Visible && GroupRadioButton.Enabled)
             {
-                if (_viewLarge == _ribbonRadioButton.RadioButtonView)
+                if (_viewLarge == GroupRadioButton.RadioButtonView)
                 {
                     return _viewLarge;
                 }
@@ -246,7 +243,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         break;
                 }
 
-                keyTipList.Add(new KeyTipInfo(_ribbonRadioButton.Enabled, _ribbonRadioButton.KeyTip, 
+                keyTipList.Add(new KeyTipInfo(GroupRadioButton.Enabled, GroupRadioButton.KeyTip, 
                                               screenPt, this[0].ClientRectangle, controller));
             }
         }
@@ -348,7 +345,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewLarge = new ViewLayoutRibbonRadioButton();
 
             // Add the large button at the top
-            _viewLargeImage = new ViewDrawRibbonGroupRadioButtonImage(_ribbon, _ribbonRadioButton, true);
+            _viewLargeImage = new ViewDrawRibbonGroupRadioButtonImage(_ribbon, GroupRadioButton, true);
             ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
             {
                 _viewLargeImage
@@ -356,11 +353,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewLarge.Add(largeImagePadding, ViewDockStyle.Top);
 
             // Add the first line of text
-            _viewLargeText1 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, _ribbonRadioButton, true);
+            _viewLargeText1 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, GroupRadioButton, true);
             _viewLarge.Add(_viewLargeText1, ViewDockStyle.Bottom);
 
             // Add the second line of text
-            _viewLargeText2 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, _ribbonRadioButton, false);
+            _viewLargeText2 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, GroupRadioButton, false);
             _viewLarge.Add(_viewLargeText2, ViewDockStyle.Bottom);
 
             // Add a 1 pixel separator at bottom of button before the text
@@ -385,9 +382,9 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewMediumSmall = new ViewLayoutRibbonRadioButton();
 
             // Create the image and drop down content
-            _viewMediumSmallImage = new ViewDrawRibbonGroupRadioButtonImage(_ribbon, _ribbonRadioButton, false);
-            _viewMediumSmallText1 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, _ribbonRadioButton, true);
-            _viewMediumSmallText2 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, _ribbonRadioButton, false);
+            _viewMediumSmallImage = new ViewDrawRibbonGroupRadioButtonImage(_ribbon, GroupRadioButton, false);
+            _viewMediumSmallText1 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, GroupRadioButton, true);
+            _viewMediumSmallText2 = new ViewDrawRibbonGroupRadioButtonText(_ribbon, GroupRadioButton, false);
             ViewLayoutRibbonCenterPadding imagePadding = new ViewLayoutRibbonCenterPadding(_smallImagePadding)
             {
                 _viewMediumSmallImage
@@ -426,12 +423,12 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(view);
 
             // Provide back reference to the radio button definition
-            _ribbonRadioButton.RadioButtonView = view;
+            GroupRadioButton.RadioButtonView = view;
         }
 
         private void UpdateEnabledState()
         {
-            bool enabled = _ribbon.InDesignHelperMode || (_ribbonRadioButton.Enabled && _ribbon.Enabled);
+            bool enabled = _ribbon.InDesignHelperMode || (GroupRadioButton.Enabled && _ribbon.Enabled);
 
             // Update enabled for the large radio button view
             _viewLarge.Enabled = enabled;
@@ -448,13 +445,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void UpdateCheckedState()
         {
-            _viewLargeImage.Checked = _ribbonRadioButton.Checked;
-            _viewMediumSmallImage.Checked = _ribbonRadioButton.Checked;
+            _viewLargeImage.Checked = GroupRadioButton.Checked;
+            _viewMediumSmallImage.Checked = GroupRadioButton.Checked;
         }
 
         private void UpdateItemSizeState()
         {
-            UpdateItemSizeState(_ribbonRadioButton.ItemSizeCurrent);
+            UpdateItemSizeState(GroupRadioButton.ItemSizeCurrent);
         }
 
         private void UpdateItemSizeState(GroupItemSize size)
@@ -545,8 +542,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonRadioButton.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonRadioButton.RibbonTab))
+                if ((GroupRadioButton.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupRadioButton.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -556,11 +553,11 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updatePaint)
             {
                 // If this radio button is actually defined as visible...
-                if (_ribbonRadioButton.Visible || _ribbon.InDesignMode)
+                if (GroupRadioButton.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonRadioButton.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonRadioButton.RibbonTab))
+                    if ((GroupRadioButton.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupRadioButton.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);
@@ -597,7 +594,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns></returns>
         public string GetShortText()
         {
-            return _ribbonRadioButton.TextLine1;
+            return GroupRadioButton.TextLine1;
         }
 
         /// <summary>
@@ -606,7 +603,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns></returns>
         public string GetLongText()
         {
-            return _ribbonRadioButton.TextLine2;
+            return GroupRadioButton.TextLine2;
         }
         #endregion
     }

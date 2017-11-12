@@ -23,7 +23,6 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private VisualOrientation _orientation;
         private IDisposable _mementoBack;
         #endregion
 
@@ -37,7 +36,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                           VisualOrientation orientation)
         {
             _ribbon = ribbon;
-            _orientation = orientation;
+            Orientation = orientation;
         }
 
 		/// <summary>
@@ -73,11 +72,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the visual orientation of the scroller button.
         /// </summary>
-        public VisualOrientation Orientation
-        {
-            get { return _orientation; }
-            set { _orientation = value; }
-        }
+        public VisualOrientation Orientation { get; set; }
+
         #endregion
 
         #region Layout
@@ -231,13 +227,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((Orientation == VisualOrientation.Left) ||
                 (Orientation == VisualOrientation.Right))
             {
-                x = rect.Right - (rect.Width - 4) / 2;
-                y = rect.Y + rect.Height / 2;
+                x = rect.Right - ((rect.Width - 4) / 2);
+                y = rect.Y + (rect.Height / 2);
             }
             else
             {
-                x = rect.X + rect.Width / 2;
-                y = rect.Bottom - (rect.Height - 3) / 2;
+                x = rect.X + (rect.Width / 2);
+                y = rect.Bottom - ((rect.Height - 3) / 2);
             }
 
             // Create triangle using a series of lines

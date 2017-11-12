@@ -43,9 +43,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(typeof(AutoSizeMode), "GrowOnly")]
 		public virtual AutoSizeMode AutoSizeMode
 		{
-			get { return base.GetAutoSizeMode(); }
+			get => base.GetAutoSizeMode();
 
-			set
+		    set
 			{
 				if (value != base.GetAutoSizeMode())
 				{
@@ -112,8 +112,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color BackColor
 		{
-			get { return base.BackColor; }
-			set { base.BackColor = value; }
+			get => base.BackColor;
+		    set => base.BackColor = value;
 		}
 
 		/// <summary>
@@ -123,8 +123,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Font Font
 		{
-			get { return base.Font; }
-			set { base.Font = value; }
+			get => base.Font;
+		    set => base.Font = value;
 		}
 
 		/// <summary>
@@ -134,8 +134,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color ForeColor
 		{
-			get { return base.ForeColor; }
-			set { base.ForeColor = value; }
+			get => base.ForeColor;
+		    set => base.ForeColor = value;
 		}
 		#endregion
 	}

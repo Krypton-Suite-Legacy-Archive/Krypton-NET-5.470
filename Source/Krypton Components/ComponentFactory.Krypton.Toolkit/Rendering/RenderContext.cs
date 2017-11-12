@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class RenderContext : ViewContext
     {
         #region Instance Fields
-        private Rectangle _clipRect;
+
         #endregion
 
         #region Identity
@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Toolkit
 							 IRenderer renderer)
             : base(manager, control, alignControl, graphics, renderer)
 		{
-            _clipRect = clipRect;
+            ClipRect = clipRect;
 		}
 		#endregion
 
@@ -82,12 +82,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the rectangle that needs rendering.
         /// </summary>
-        public Rectangle ClipRect
-        {
-            get { return _clipRect; }
-        }
+        public Rectangle ClipRect { get; }
 
-		/// <summary>
+        /// <summary>
 		/// Calculate a rectangle in control coodinates that is aligned for gradient drawing.
 		/// </summary>
 		/// <param name="align">How to align the gradient.</param>

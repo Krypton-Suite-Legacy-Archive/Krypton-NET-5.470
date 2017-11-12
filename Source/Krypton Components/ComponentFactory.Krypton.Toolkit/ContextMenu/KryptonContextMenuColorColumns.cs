@@ -75,7 +75,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
         private ColorScheme _colorScheme;
-        private Color[][] _colors;
         private Color _selectedColor;
         private Size _blockSize;
         private bool _autoClose;
@@ -137,20 +136,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount 
-        {
-            get { return 0; }
-        }
+        public override int ItemChildCount => 0;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return null; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => null;
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -189,8 +182,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AutoClose
         {
-            get { return _autoClose; }
-            
+            get => _autoClose;
+
             set 
             {
                 if (_autoClose != value)
@@ -210,7 +203,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ColorScheme), "OfficeThemes")]
         public ColorScheme ColorScheme
         {
-            get { return _colorScheme; }
+            get => _colorScheme;
 
             set
             {
@@ -231,7 +224,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Color), "")]
         public Color SelectedColor
         {
-            get { return _selectedColor; }
+            get => _selectedColor;
 
             set
             {
@@ -253,8 +246,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Size), "13,13")]
         public Size BlockSize
         {
-            get { return _blockSize; }
-            
+            get => _blockSize;
+
             set 
             {
                 if (_blockSize != value)
@@ -274,8 +267,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool GroupNonFirstRows
         {
-            get { return _groupNonFirstRows; }
-            
+            get => _groupNonFirstRows;
+
             set 
             {
                 if (_groupNonFirstRows != value)
@@ -324,7 +317,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            _colors = colors;
+            Colors = colors;
         }
 
         /// <summary>
@@ -334,9 +327,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if found; otherwise false.</returns>
         public bool ContainsColor(Color color)
         {
-            if ((_colors != null) && (color != null))
+            if ((Colors != null) && (color != null))
             {
-                foreach (Color[] column in _colors)
+                foreach (Color[] column in Colors)
                 {
                     foreach (Color row in column)
                     {
@@ -373,10 +366,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal Color[][] Colors
-        {
-            get { return _colors; }
-        }
+        internal Color[][] Colors { get; private set; }
+
         #endregion
 
         #region Implementation
@@ -387,22 +378,22 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (scheme)
             {
                 case ColorScheme.None:
-                    _colors = _noneScheme;
+                    Colors = _noneScheme;
                     break;
                 case ColorScheme.Mono2:
-                    _colors = _mono2Scheme;
+                    Colors = _mono2Scheme;
                     break;
                 case ColorScheme.Mono8:
-                    _colors = _mono8Scheme;
+                    Colors = _mono8Scheme;
                     break;
                 case ColorScheme.Basic16:
-                    _colors = _basic16Scheme;
+                    Colors = _basic16Scheme;
                     break;
                 case ColorScheme.OfficeStandard:
-                    _colors = _officeStandardScheme;
+                    Colors = _officeStandardScheme;
                     break;
                 case ColorScheme.OfficeThemes:
-                    _colors = _officeThemeScheme;
+                    Colors = _officeThemeScheme;
                     break;
             }
         }

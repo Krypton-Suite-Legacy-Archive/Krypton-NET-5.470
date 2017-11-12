@@ -307,7 +307,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewBase FocusView
         {
-            get { return _focusView; }
+            get => _focusView;
 
             set
             {

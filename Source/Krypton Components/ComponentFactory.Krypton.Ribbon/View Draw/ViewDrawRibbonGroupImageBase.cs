@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                               
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+
         #endregion
 
         #region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonGroupImageBase(KryptonRibbon ribbon)
         {
             Debug.Assert(ribbon != null);
-            _ribbon = ribbon;
+            Ribbon = ribbon;
         }        
 
 		/// <summary>
@@ -103,10 +103,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon control.
         /// </summary>
-        protected KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-        }
+        protected KryptonRibbon Ribbon { get; }
 
         /// <summary>
         /// Gets the size to draw the image.

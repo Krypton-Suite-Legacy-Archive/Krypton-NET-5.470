@@ -19,15 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRibbonDoubleInheritRedirect _stateInherit;
-        private PaletteRibbonDouble _stateCommon;
-        private PaletteRibbonDouble _stateNormal;
-        private PaletteRibbonDouble _stateTracking;
-        private PaletteRibbonDouble _stateCheckedNormal;
-        private PaletteRibbonDouble _stateCheckedTracking;
-        private PaletteRibbonDouble _stateContextTracking;
-        private PaletteRibbonDouble _stateContextCheckedNormal;
-        private PaletteRibbonDouble _stateContextCheckedTracking;
-        private PaletteRibbonDouble _overrideFocus;
+
         #endregion
 
         #region Identity
@@ -41,15 +33,15 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteRibbonDoubleInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonTab, PaletteRibbonTextStyle.RibbonTab);
-            _stateCommon = new PaletteRibbonDouble(_stateInherit, _stateInherit, needPaint);
-            _stateNormal = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateTracking = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateCheckedNormal = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateCheckedTracking = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateContextTracking = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateContextCheckedNormal = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _stateContextCheckedTracking = new PaletteRibbonDouble(_stateCommon, _stateCommon, needPaint);
-            _overrideFocus = new PaletteRibbonDouble(_stateInherit, _stateInherit, needPaint);
+            StateCommon = new PaletteRibbonDouble(_stateInherit, _stateInherit, needPaint);
+            StateNormal = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateTracking = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateCheckedNormal = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateCheckedTracking = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateContextTracking = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateContextCheckedNormal = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            StateContextCheckedTracking = new PaletteRibbonDouble(StateCommon, StateCommon, needPaint);
+            OverrideFocus = new PaletteRibbonDouble(_stateInherit, _stateInherit, needPaint);
         }
         #endregion
 
@@ -69,22 +61,17 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _stateCheckedNormal.IsDefault &&
-                       _stateCheckedTracking.IsDefault &&
-                       _stateContextTracking.IsDefault &&
-                       _stateContextCheckedNormal.IsDefault &&
-                       _stateContextCheckedTracking.IsDefault &&
-                       _overrideFocus.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StateCheckedNormal.IsDefault &&
+		                                  StateCheckedTracking.IsDefault &&
+		                                  StateContextTracking.IsDefault &&
+		                                  StateContextCheckedNormal.IsDefault &&
+		                                  StateContextCheckedTracking.IsDefault &&
+		                                  OverrideFocus.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -93,14 +80,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _stateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
-            _stateCheckedTracking.PopulateFromBase(PaletteState.CheckedTracking);
-            _stateContextTracking.PopulateFromBase(PaletteState.ContextTracking);
-            _stateContextCheckedNormal.PopulateFromBase(PaletteState.ContextCheckedNormal);
-            _stateContextCheckedTracking.PopulateFromBase(PaletteState.ContextCheckedTracking);
-            _overrideFocus.PopulateFromBase(PaletteState.FocusOverride);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
+            StateCheckedTracking.PopulateFromBase(PaletteState.CheckedTracking);
+            StateContextTracking.PopulateFromBase(PaletteState.ContextTracking);
+            StateContextCheckedNormal.PopulateFromBase(PaletteState.ContextCheckedNormal);
+            StateContextCheckedTracking.PopulateFromBase(PaletteState.ContextCheckedTracking);
+            OverrideFocus.PopulateFromBase(PaletteState.FocusOverride);
         }
         #endregion
 
@@ -112,14 +99,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common ribbon tab appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteRibbonDouble StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     
@@ -131,14 +115,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteRibbonDouble StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -150,14 +131,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteRibbonDouble StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -169,14 +147,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining checked normal ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateCheckedNormal
-        {
-            get { return _stateCheckedNormal; }
-        }
+        public PaletteRibbonDouble StateCheckedNormal { get; }
 
         private bool ShouldSerializeStateCheckedNormal()
         {
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
         }
         #endregion
 
@@ -188,14 +163,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining checked tracking ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateCheckedTracking
-        {
-            get { return _stateCheckedTracking; }
-        }
+        public PaletteRibbonDouble StateCheckedTracking { get; }
 
         private bool ShouldSerializeStateCheckedTracking()
         {
-            return !_stateCheckedTracking.IsDefault;
+            return !StateCheckedTracking.IsDefault;
         }
         #endregion
 
@@ -207,14 +179,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context tracking ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateContextTracking
-        {
-            get { return _stateContextTracking; }
-        }
+        public PaletteRibbonDouble StateContextTracking { get; }
 
         private bool ShouldSerializeStateContextTracking()
         {
-            return !_stateContextTracking.IsDefault;
+            return !StateContextTracking.IsDefault;
         }
         #endregion
 
@@ -226,14 +195,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining checked normal ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateContextCheckedNormal
-        {
-            get { return _stateContextCheckedNormal; }
-        }
+        public PaletteRibbonDouble StateContextCheckedNormal { get; }
 
         private bool ShouldSerializeStateContextCheckedNormal()
         {
-            return !_stateContextCheckedNormal.IsDefault;
+            return !StateContextCheckedNormal.IsDefault;
         }
         #endregion
 
@@ -245,14 +211,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context checked tracking ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble StateContextCheckedTracking
-        {
-            get { return _stateContextCheckedTracking; }
-        }
+        public PaletteRibbonDouble StateContextCheckedTracking { get; }
 
         private bool ShouldSerializeStateContextCheckedTracking()
         {
-            return !_stateContextCheckedTracking.IsDefault;
+            return !StateContextCheckedTracking.IsDefault;
         }
         #endregion
 
@@ -264,14 +227,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining focus ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonDouble OverrideFocus
-        {
-            get { return _overrideFocus; }
-        }
+        public PaletteRibbonDouble OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_overrideFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
         #endregion
     }

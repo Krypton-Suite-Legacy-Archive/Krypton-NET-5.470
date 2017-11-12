@@ -41,18 +41,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color of the gradient used in the Header1.
         /// </summary>
-        public Color Header1Begin
-        {
-            get { return _colors[0]; }
-        }
+        public Color Header1Begin => _colors[0];
 
         /// <summary>
         /// Gets the end color of the gradient used in the Header1.
         /// </summary>
-        public Color Header1End
-        {
-            get { return _colors[1]; }
-        }
+        public Color Header1End => _colors[1];
+
         #endregion
     }
 }

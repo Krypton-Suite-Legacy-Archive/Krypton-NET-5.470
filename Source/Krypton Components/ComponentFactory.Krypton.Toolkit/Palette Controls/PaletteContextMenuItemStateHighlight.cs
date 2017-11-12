@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteContextMenuItemStateHighlight : Storage
 	{
 		#region Instance Fields
-        private PaletteDoubleMetric _paletteItemHighlight;
-        private PaletteDouble _paletteItemSplit;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -49,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteContextMenuItemStateHighlight(PaletteDoubleMetricRedirect redirectItemHighlight,
                                                     PaletteDoubleRedirect redirectItemSplit)
 		{
-            _paletteItemHighlight = new PaletteDoubleMetric(redirectItemHighlight);
-            _paletteItemSplit = new PaletteDouble(redirectItemSplit);
+            ItemHighlight = new PaletteDoubleMetric(redirectItemHighlight);
+            ItemSplit = new PaletteDouble(redirectItemSplit);
         }
 		#endregion
 
@@ -59,15 +58,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return _paletteItemHighlight.IsDefault &&
-                       _paletteItemSplit.IsDefault; 
-			}
-		}
-		#endregion
+		public override bool IsDefault => ItemHighlight.IsDefault &&
+		                                  ItemSplit.IsDefault;
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -80,10 +74,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuItemHighlight;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuItemHighlight;
-            _paletteItemHighlight.PopulateFromBase(state);
+            ItemHighlight.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuSeparator;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuSeparator;
-            _paletteItemSplit.PopulateFromBase(state);
+            ItemSplit.PopulateFromBase(state);
         }
         #endregion
 
@@ -95,14 +89,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item highlight appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleMetric ItemHighlight
-        {
-            get { return _paletteItemHighlight; }
-        }
+        public PaletteDoubleMetric ItemHighlight { get; }
 
-        private bool ShouldSerializeItemHighlight()
+	    private bool ShouldSerializeItemHighlight()
         {
-            return !_paletteItemHighlight.IsDefault;
+            return !ItemHighlight.IsDefault;
         }
         #endregion
 
@@ -114,14 +105,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item split appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDouble ItemSplit
-        {
-            get { return _paletteItemSplit; }
-        }
+        public PaletteDouble ItemSplit { get; }
 
-        private bool ShouldSerializeItemSplit()
+	    private bool ShouldSerializeItemSplit()
         {
-            return !_paletteItemSplit.IsDefault;
+            return !ItemSplit.IsDefault;
         }
         #endregion
     }

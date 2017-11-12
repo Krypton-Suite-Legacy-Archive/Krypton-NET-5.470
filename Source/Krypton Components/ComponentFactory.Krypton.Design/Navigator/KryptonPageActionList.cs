@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public string TextShort
         {
-            get { return _page.Text; }
+            get => _page.Text;
 
             set
             {
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public string TextTitle
         {
-            get { return _page.TextTitle; }
+            get => _page.TextTitle;
 
             set
             {
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public string TextDescription
         {
-            get { return _page.TextDescription; }
+            get => _page.TextDescription;
 
             set
             {
@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public string ToolTipTitle
         {
-            get { return _page.ToolTipTitle; }
+            get => _page.ToolTipTitle;
 
             set
             {
@@ -111,7 +111,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public string ToolTipBody
         {
-            get { return _page.ToolTipBody; }
+            get => _page.ToolTipBody;
 
             set
             {
@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Image ToolTipImage
         {
-            get { return _page.ToolTipImage; }
+            get => _page.ToolTipImage;
 
             set
             {
@@ -145,7 +145,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Image ImageSmall
         {
-            get { return _page.ImageSmall; }
+            get => _page.ImageSmall;
 
             set
             {
@@ -162,7 +162,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Image ImageMedium
         {
-            get { return _page.ImageMedium; }
+            get => _page.ImageMedium;
 
             set
             {
@@ -179,7 +179,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Image ImageLarge
         {
-            get { return _page.ImageLarge; }
+            get => _page.ImageLarge;
 
             set
             {
@@ -196,7 +196,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public bool PageInOverflowBarForOutlookMode
         {
-            get { return _page.AreFlagsSet(KryptonPageFlags.PageInOverflowBarForOutlookMode); }
+            get => _page.AreFlagsSet(KryptonPageFlags.PageInOverflowBarForOutlookMode);
 
             set
             {

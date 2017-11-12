@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class DragStartEventCancelArgs : PointEventCancelArgs
 	{
 		#region Instance Fields
-        private Point _offset;
-        private Control _c;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -33,8 +32,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public DragStartEventCancelArgs(Point point, Point offset, Control c)
             : base(point)
 		{
-            _offset = offset;
-            _c = c;
+            Offset = offset;
+            Control = c;
 		}
 		#endregion
 
@@ -42,21 +41,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets and sets the offset.
 		/// </summary>
-        public Point Offset
-		{
-            get { return _offset; }
-            set { _offset = value; }
-		}
-		#endregion
+        public Point Offset { get; set; }
+
+	    #endregion
 
         #region Point
         /// <summary>
         /// Gets the control starting the drag.
         /// </summary>
-        public Control Control
-        {
-            get { return _c; }
-        }
-        #endregion
+        public Control Control { get; }
+
+	    #endregion
     }
 }

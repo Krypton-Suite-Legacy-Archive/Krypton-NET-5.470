@@ -19,15 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteTMS : Storage
     {
         #region Instance Fields
-        private KryptonInternalKCT _internalKCT;
-        private KryptonPaletteTMSButton _paletteButton;
-        private KryptonPaletteTMSGrip _paletteGrip;
-        private KryptonPaletteTMSMenu _paletteMenu;
-        private KryptonPaletteTMSMenuStrip _paletteMenuStrip;
-        private KryptonPaletteTMSRafting _paletteRafting;
-        private KryptonPaletteTMSSeparator _paletteSeparator;
-        private KryptonPaletteTMSStatusStrip _paletteStatusStrip;
-        private KryptonPaletteTMSToolStrip _paletteToolStrip;
+
         #endregion
 
         #region Identity
@@ -44,37 +36,32 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(baseKCT != null);
 
             // Create actual KCT for storage
-            _internalKCT = new KryptonInternalKCT(baseKCT, palette);
+            InternalKCT = new KryptonInternalKCT(baseKCT, palette);
 
             // Create the set of sub objects that expose the palette properties
-            _paletteButton = new KryptonPaletteTMSButton(_internalKCT, needPaint);
-            _paletteGrip = new KryptonPaletteTMSGrip(_internalKCT, needPaint);
-            _paletteMenu = new KryptonPaletteTMSMenu(_internalKCT, needPaint);
-            _paletteMenuStrip = new KryptonPaletteTMSMenuStrip(_internalKCT, needPaint);
-            _paletteRafting = new KryptonPaletteTMSRafting(_internalKCT, needPaint);
-            _paletteSeparator = new KryptonPaletteTMSSeparator(_internalKCT, needPaint);
-            _paletteStatusStrip = new KryptonPaletteTMSStatusStrip(_internalKCT, needPaint);
-            _paletteToolStrip = new KryptonPaletteTMSToolStrip(_internalKCT, needPaint);
+            Button = new KryptonPaletteTMSButton(InternalKCT, needPaint);
+            Grip = new KryptonPaletteTMSGrip(InternalKCT, needPaint);
+            Menu = new KryptonPaletteTMSMenu(InternalKCT, needPaint);
+            MenuStrip = new KryptonPaletteTMSMenuStrip(InternalKCT, needPaint);
+            Rafting = new KryptonPaletteTMSRafting(InternalKCT, needPaint);
+            Separator = new KryptonPaletteTMSSeparator(InternalKCT, needPaint);
+            StatusStrip = new KryptonPaletteTMSStatusStrip(InternalKCT, needPaint);
+            ToolStrip = new KryptonPaletteTMSToolStrip(InternalKCT, needPaint);
         }
 
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _internalKCT.IsDefault &&
-                       _paletteButton.IsDefault &&
-                       _paletteGrip.IsDefault &&
-                       _paletteMenu.IsDefault &&
-                       _paletteRafting.IsDefault &&
-                       _paletteMenuStrip.IsDefault &&
-                       _paletteSeparator.IsDefault &&
-                       _paletteStatusStrip.IsDefault &&
-                       _paletteToolStrip.IsDefault;
-            }
-        }
+        public override bool IsDefault => InternalKCT.IsDefault &&
+                                          Button.IsDefault &&
+                                          Grip.IsDefault &&
+                                          Menu.IsDefault &&
+                                          Rafting.IsDefault &&
+                                          MenuStrip.IsDefault &&
+                                          Separator.IsDefault &&
+                                          StatusStrip.IsDefault &&
+                                          ToolStrip.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -103,14 +90,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("Button specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSButton Button
-        {
-            get { return _paletteButton; }
-        }
+        public KryptonPaletteTMSButton Button { get; }
 
         private bool ShouldSerializeButton()
         {
-            return !_paletteButton.IsDefault;
+            return !Button.IsDefault;
         }
         #endregion
 
@@ -122,14 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("Grip specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSGrip Grip
-        {
-            get { return _paletteGrip; }
-        }
+        public KryptonPaletteTMSGrip Grip { get; }
 
         private bool ShouldSerializeGrip()
         {
-            return !_paletteGrip.IsDefault;
+            return !Grip.IsDefault;
         }
         #endregion
 
@@ -141,14 +122,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("Menu specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSMenu Menu
-        {
-            get { return _paletteMenu; }
-        }
+        public KryptonPaletteTMSMenu Menu { get; }
 
         private bool ShouldSerializeMenu()
         {
-            return !_paletteMenu.IsDefault;
+            return !Menu.IsDefault;
         }
         #endregion
 
@@ -160,14 +138,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("Rafting specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSRafting Rafting
-        {
-            get { return _paletteRafting; }
-        }
+        public KryptonPaletteTMSRafting Rafting { get; }
 
         private bool ShouldSerializeRafting()
         {
-            return !_paletteRafting.IsDefault;
+            return !Rafting.IsDefault;
         }
         #endregion
 
@@ -179,14 +154,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("MenuStrip specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSMenuStrip MenuStrip
-        {
-            get { return _paletteMenuStrip; }
-        }
+        public KryptonPaletteTMSMenuStrip MenuStrip { get; }
 
         private bool ShouldSerializeMenuStrip()
         {
-            return !_paletteMenuStrip.IsDefault;
+            return !MenuStrip.IsDefault;
         }
         #endregion
 
@@ -198,14 +170,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("Separator specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSSeparator Separator
-        {
-            get { return _paletteSeparator; }
-        }
+        public KryptonPaletteTMSSeparator Separator { get; }
 
         private bool ShouldSerializeSeparator()
         {
-            return !_paletteSeparator.IsDefault;
+            return !Separator.IsDefault;
         }
         #endregion
 
@@ -217,14 +186,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("StatusStrip specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSStatusStrip StatusStrip
-        {
-            get { return _paletteStatusStrip; }
-        }
+        public KryptonPaletteTMSStatusStrip StatusStrip { get; }
 
         private bool ShouldSerializeStatusStrip()
         {
-            return !_paletteStatusStrip.IsDefault;
+            return !StatusStrip.IsDefault;
         }
         #endregion
 
@@ -236,14 +202,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolMenuStatus")]
         [Description("ToolStrip specific colors.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMSToolStrip ToolStrip
-        {
-            get { return _paletteToolStrip; }
-        }
+        public KryptonPaletteTMSToolStrip ToolStrip { get; }
 
         private bool ShouldSerializeToolStrip()
         {
-            return !_paletteToolStrip.IsDefault;
+            return !ToolStrip.IsDefault;
         }
         #endregion
 
@@ -257,7 +220,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(InheritBool), "Inherit")]
         public InheritBool UseRoundedEdges
         {
-            get { return InternalKCT.InternalUseRoundedEdges; }
+            get => InternalKCT.InternalUseRoundedEdges;
 
             set
             {
@@ -278,14 +241,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal KryptonColorTable BaseKCT
         {
-            get { return InternalKCT.BaseKCT; }
-            set { InternalKCT.BaseKCT = value; }
+            get => InternalKCT.BaseKCT;
+            set => InternalKCT.BaseKCT = value;
         }
 
-        internal KryptonInternalKCT InternalKCT
-        {
-            get { return _internalKCT; }
-        }
+        internal KryptonInternalKCT InternalKCT { get; }
+
         #endregion
     }
 }

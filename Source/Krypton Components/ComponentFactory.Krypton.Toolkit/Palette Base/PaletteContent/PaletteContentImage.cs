@@ -43,17 +43,11 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets a value indicating if all values are default.
             /// </summary>
-            public bool IsDefault
-            {
-                get
-                {
-                    return ((ContentImageH == PaletteRelativeAlign.Inherit) &&
-                            (ContentImageV == PaletteRelativeAlign.Inherit) &&
-                            (ContentEffect == PaletteImageEffect.Inherit) &&
-                            (ContentImageColorMap == Color.Empty) &&
-                            (ContentImageColorTo == Color.Empty));
-                }
-            }
+            public bool IsDefault => ((ContentImageH == PaletteRelativeAlign.Inherit) &&
+                                      (ContentImageV == PaletteRelativeAlign.Inherit) &&
+                                      (ContentEffect == PaletteImageEffect.Inherit) &&
+                                      (ContentImageColorMap == Color.Empty) &&
+                                      (ContentImageColorTo == Color.Empty));
         }
         #endregion
 
@@ -87,14 +81,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return ((_storage == null) || _storage.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
+
+	    #endregion
 
 		#region ImageH
 		/// <summary>

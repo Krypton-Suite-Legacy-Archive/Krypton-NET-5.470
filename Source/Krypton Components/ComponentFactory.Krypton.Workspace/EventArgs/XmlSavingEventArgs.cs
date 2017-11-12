@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Workspace
 	public class XmlSavingEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonWorkspace _workspace;
-        private XmlWriter _xmlWriter;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -32,8 +31,8 @@ namespace ComponentFactory.Krypton.Workspace
         public XmlSavingEventArgs(KryptonWorkspace workspace,
                                   XmlWriter xmlWriter)
 		{
-            _workspace = workspace;
-            _xmlWriter = xmlWriter;
+            Workspace = workspace;
+            XmlWriter = xmlWriter;
 		}
 		#endregion
 
@@ -41,18 +40,13 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the workspace reference.
 		/// </summary>
-        public KryptonWorkspace Workspace
-		{
-            get { return _workspace; }
-		}
+        public KryptonWorkspace Workspace { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the xml writer.
         /// </summary>
-        public XmlWriter XmlWriter
-        {
-            get { return _xmlWriter; }
-        }
-        #endregion
+        public XmlWriter XmlWriter { get; }
+
+	    #endregion
 	}
 }

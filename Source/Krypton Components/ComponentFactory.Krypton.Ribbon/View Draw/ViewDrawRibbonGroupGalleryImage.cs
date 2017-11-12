@@ -57,18 +57,13 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize 
-        {
-            get { return _largeSize; }
-        }
+        protected override Size DrawSize => _largeSize;
 
         /// <summary>
         /// Gets the image to be drawn.
         /// </summary>
-        protected override Image DrawImage 
-        {
-            get { return _ribbonGallery.ImageLarge; }
-        }
+        protected override Image DrawImage => _ribbonGallery.ImageLarge;
+
         #endregion
     }
 }

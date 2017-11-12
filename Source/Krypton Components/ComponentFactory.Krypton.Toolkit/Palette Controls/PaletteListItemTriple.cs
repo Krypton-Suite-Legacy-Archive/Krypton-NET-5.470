@@ -46,14 +46,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get 
-            { 
-                return _paletteItem.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => _paletteItem.IsDefault;
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -84,12 +79,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteTriple Item
-        {
-            get { return _paletteItem; }
-        }
+        public virtual PaletteTriple Item => _paletteItem;
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
             return !_paletteItem.IsDefault;
         }

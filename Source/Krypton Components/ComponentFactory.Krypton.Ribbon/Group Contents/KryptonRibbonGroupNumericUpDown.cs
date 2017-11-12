@@ -32,14 +32,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _visible;
         private bool _enabled;
         private string _keyTip;
-        private Keys _shortcutKeys;
         private GroupItemSize _itemSizeCurrent;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonNumericUpDown _numericUpDown;
-        private KryptonNumericUpDown _lastNumericUpDown;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _numericUpDownView;
+
         #endregion
 
         #region Events
@@ -118,11 +112,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _visible = true;
             _enabled = true;
             _itemSizeCurrent = GroupItemSize.Medium;
-            _shortcutKeys = Keys.None;
+            ShortcutKeys = Keys.None;
             _keyTip = "X";
 
             // Create the actual numeric up-down control and set initial settings
-            _numericUpDown = new KryptonNumericUpDown
+            NumericUpDown = new KryptonNumericUpDown
             {
                 InputControlStyle = InputControlStyle.Ribbon,
                 AlwaysActive = false,
@@ -132,16 +126,16 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            _numericUpDown.ValueChanged += new EventHandler(OnNumericUpDownValueChanged);
-            _numericUpDown.GotFocus += new EventHandler(OnNumericUpDownGotFocus);
-            _numericUpDown.LostFocus += new EventHandler(OnNumericUpDownLostFocus);
-            _numericUpDown.KeyDown += new KeyEventHandler(OnNumericUpDownKeyDown);
-            _numericUpDown.KeyUp += new KeyEventHandler(OnNumericUpDownKeyUp);
-            _numericUpDown.KeyPress += new KeyPressEventHandler(OnNumericUpDownKeyPress);
-            _numericUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnNumericUpDownPreviewKeyDown);
+            NumericUpDown.ValueChanged += new EventHandler(OnNumericUpDownValueChanged);
+            NumericUpDown.GotFocus += new EventHandler(OnNumericUpDownGotFocus);
+            NumericUpDown.LostFocus += new EventHandler(OnNumericUpDownLostFocus);
+            NumericUpDown.KeyDown += new KeyEventHandler(OnNumericUpDownKeyDown);
+            NumericUpDown.KeyUp += new KeyEventHandler(OnNumericUpDownKeyUp);
+            NumericUpDown.KeyPress += new KeyPressEventHandler(OnNumericUpDownKeyPress);
+            NumericUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnNumericUpDownPreviewKeyDown);
 
             // Ensure we can track mouse events on the numeric up-down
-            MonitorControl(_numericUpDown);
+            MonitorControl(NumericUpDown);
         }
 
         /// <summary>
@@ -152,11 +146,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_numericUpDown != null)
+                if (NumericUpDown != null)
                 {
-                    UnmonitorControl(_numericUpDown);
-                    _numericUpDown.Dispose();
-                    _numericUpDown = null;
+                    UnmonitorControl(NumericUpDown);
+                    NumericUpDown.Dispose();
+                    NumericUpDown = null;
                 }
             }
 
@@ -181,7 +175,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the same palette in the numeric up-down as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
-                    _numericUpDown.Palette = Ribbon.GetResolvedPalette();
+                    NumericUpDown.Palette = Ribbon.GetResolvedPalette();
                     Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
                 }
             }
@@ -193,11 +187,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         [Category("Behavior")]
         [Description("Shortcut key combination to set focus to the numeric up-down.")]
-        public Keys ShortcutKeys
-        {
-            get { return _shortcutKeys; }
-            set { _shortcutKeys = value; }
-        }
+        public Keys ShortcutKeys { get; set; }
 
         private bool ShouldSerializeShortcutKeys()
         {
@@ -219,10 +209,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonNumericUpDown NumericUpDown
-        {
-            get { return _numericUpDown; }
-        }
+        public KryptonNumericUpDown NumericUpDown { get; private set; }
 
         /// <summary>
         /// Gets and sets the key tip for the ribbon group numeric up-down.
@@ -234,7 +221,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("X")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -255,8 +242,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(0)]
         public int DecimalPlaces
         {
-            get { return _numericUpDown.DecimalPlaces; }
-            set { _numericUpDown.DecimalPlaces = value; }
+            get => NumericUpDown.DecimalPlaces;
+            set => NumericUpDown.DecimalPlaces = value;
         }
 
         /// <summary>
@@ -267,8 +254,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Decimal), "1")]
         public decimal Increment
         {
-            get { return _numericUpDown.Increment; }
-            set { _numericUpDown.Increment = value; }
+            get => NumericUpDown.Increment;
+            set => NumericUpDown.Increment = value;
         }
 
         /// <summary>
@@ -280,8 +267,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Decimal), "100")]
         public decimal Maximum
         {
-            get { return _numericUpDown.Maximum; }
-            set { _numericUpDown.Maximum = value; }
+            get => NumericUpDown.Maximum;
+            set => NumericUpDown.Maximum = value;
         }
 
         /// <summary>
@@ -293,8 +280,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Decimal), "0")]
         public decimal Minimum
         {
-            get { return _numericUpDown.Minimum; }
-            set { _numericUpDown.Minimum = value; }
+            get => NumericUpDown.Minimum;
+            set => NumericUpDown.Minimum = value;
         }
 
         /// <summary>
@@ -306,8 +293,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public bool ThousandsSeparator
         {
-            get { return _numericUpDown.ThousandsSeparator; }
-            set { _numericUpDown.ThousandsSeparator = value; }
+            get => NumericUpDown.ThousandsSeparator;
+            set => NumericUpDown.ThousandsSeparator = value;
         }
 
         /// <summary>
@@ -319,8 +306,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public decimal Value
         {
-            get { return _numericUpDown.Value; }
-            set { _numericUpDown.Value = value; }
+            get => NumericUpDown.Value;
+            set => NumericUpDown.Value = value;
         }
 
         /// <summary>
@@ -332,8 +319,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public HorizontalAlignment TextAlign
         {
-            get { return _numericUpDown.TextAlign; }
-            set { _numericUpDown.TextAlign = value; }
+            get => NumericUpDown.TextAlign;
+            set => NumericUpDown.TextAlign = value;
         }
 
         /// <summary>
@@ -344,8 +331,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool Hexadecimal
         {
-            get { return _numericUpDown.Hexadecimal; }
-            set { _numericUpDown.Hexadecimal = value; }
+            get => NumericUpDown.Hexadecimal;
+            set => NumericUpDown.Hexadecimal = value;
         }
 
         /// <summary>
@@ -357,8 +344,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public LeftRightAlignment UpDownAlign
         {
-            get { return _numericUpDown.UpDownAlign; }
-            set { _numericUpDown.UpDownAlign = value; }
+            get => NumericUpDown.UpDownAlign;
+            set => NumericUpDown.UpDownAlign = value;
         }
 
         /// <summary>
@@ -369,8 +356,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool InterceptArrowKeys
         {
-            get { return _numericUpDown.InterceptArrowKeys; }
-            set { _numericUpDown.InterceptArrowKeys = value; }
+            get => NumericUpDown.InterceptArrowKeys;
+            set => NumericUpDown.InterceptArrowKeys = value;
         }
 
         /// <summary>
@@ -382,8 +369,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool ReadOnly
         {
-            get { return _numericUpDown.ReadOnly; }
-            set { _numericUpDown.ReadOnly = value; }
+            get => NumericUpDown.ReadOnly;
+            set => NumericUpDown.ReadOnly = value;
         }
 
         /// <summary>
@@ -392,10 +379,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonNumericUpDown.NumericUpDownButtonSpecCollection ButtonSpecs
-        {
-            get { return _numericUpDown.ButtonSpecs; }
-        }
+        public KryptonNumericUpDown.NumericUpDownButtonSpecCollection ButtonSpecs => NumericUpDown.ButtonSpecs;
+
         /// <summary>
         /// Gets and sets the visible state of the numeric up-down.
         /// </summary>
@@ -408,7 +393,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -445,7 +430,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -465,8 +450,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MinimumSize
         {
-            get { return _numericUpDown.MinimumSize; }
-            set { _numericUpDown.MinimumSize = value; }
+            get => NumericUpDown.MinimumSize;
+            set => NumericUpDown.MinimumSize = value;
         }
 
         /// <summary>
@@ -477,8 +462,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MaximumSize
         {
-            get { return _numericUpDown.MaximumSize; }
-            set { _numericUpDown.MaximumSize = value; }
+            get => NumericUpDown.MaximumSize;
+            set => NumericUpDown.MaximumSize = value;
         }
 
         /// <summary>
@@ -489,8 +474,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _numericUpDown.ContextMenuStrip; }
-            set { _numericUpDown.ContextMenuStrip = value; }
+            get => NumericUpDown.ContextMenuStrip;
+            set => NumericUpDown.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -501,8 +486,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _numericUpDown.KryptonContextMenu; }
-            set { _numericUpDown.KryptonContextMenu = value; }
+            get => NumericUpDown.KryptonContextMenu;
+            set => NumericUpDown.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -513,8 +498,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool AllowButtonSpecToolTips
         {
-            get { return _numericUpDown.AllowButtonSpecToolTips; }
-            set { _numericUpDown.AllowButtonSpecToolTips = value; }
+            get => NumericUpDown.AllowButtonSpecToolTips;
+            set => NumericUpDown.AllowButtonSpecToolTips = value;
         }
 
         /// <summary>
@@ -524,7 +509,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="length">The number of characters to select.</param>
         public void Select(int start, int length)
         {
-            _numericUpDown.Select(start, length);
+            NumericUpDown.Select(start, length);
         }
 
         /// <summary>
@@ -559,7 +544,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -590,11 +575,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject NumericUpDownDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject NumericUpDownDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.
@@ -602,11 +583,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase NumericUpDownView
-        {
-            get { return _numericUpDownView; }
-            set { _numericUpDownView = value; }
-        }
+        public ViewBase NumericUpDownView { get; set; }
+
         #endregion
 
         #region Protected Virtual
@@ -684,23 +662,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonNumericUpDown LastNumericUpDown
-        {
-            get { return _lastNumericUpDown; }
-            set { _lastNumericUpDown = value; }
-        }
+        internal KryptonNumericUpDown LastNumericUpDown { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
@@ -764,7 +730,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            _viewPaintDelegate?.Invoke(this, e);
+            ViewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnNumericUpDownValueChanged(object sender, EventArgs e)
@@ -804,7 +770,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)
         {
-            _numericUpDown.Palette = Ribbon.GetResolvedPalette();
+            NumericUpDown.Palette = Ribbon.GetResolvedPalette();
         }
         #endregion
     }

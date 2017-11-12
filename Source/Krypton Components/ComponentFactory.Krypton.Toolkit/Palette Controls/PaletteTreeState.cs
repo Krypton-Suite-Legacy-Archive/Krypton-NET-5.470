@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteTreeState : PaletteDouble
 	{
 		#region Instance Fields
-        private PaletteTriple _nodeTriple;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 NeedPaintHandler needPaint)
             : base(inherit, back, border, needPaint)
 		{
-            _nodeTriple = new PaletteTriple(inherit.Node, needPaint);
+            Node = new PaletteTriple(inherit.Node, needPaint);
 		}
 		#endregion
 
@@ -44,14 +44,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (base.IsDefault && _nodeTriple.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault && Node.IsDefault);
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -61,7 +56,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void PopulateFromBase(PaletteState state)
         {
             base.PopulateFromBase(state);
-            _nodeTriple.PopulateFromBase(state);
+            Node.PopulateFromBase(state);
         }
         #endregion
 
@@ -73,14 +68,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining node appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTriple Node
-		{
-			get { return _nodeTriple; }
-		}
+		public PaletteTriple Node { get; }
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
-            return !_nodeTriple.IsDefault;
+            return !Node.IsDefault;
         }
         #endregion
     }

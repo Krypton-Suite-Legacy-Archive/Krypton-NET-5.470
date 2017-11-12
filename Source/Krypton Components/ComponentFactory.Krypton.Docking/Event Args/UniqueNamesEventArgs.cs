@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class UniqueNamesEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private string[] _uniqueNames;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="uniqueNames">Array of unique names.</param>
         public UniqueNamesEventArgs(string[] uniqueNames)
 		{
-            _uniqueNames = uniqueNames;
+            UniqueNames = uniqueNames;
 		}
         #endregion
 
@@ -36,10 +36,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the array of unique names associated with the event.
         /// </summary>
-        public string[] UniqueNames
-        {
-            get { return _uniqueNames; }
-        }
-        #endregion
+        public string[] UniqueNames { get; }
+
+	    #endregion
 	}
 }

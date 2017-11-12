@@ -31,7 +31,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupRichTextBox _ribbonRichTextBox;
         private ViewDrawRibbonGroup _activeGroup;
         private RichTextBoxController _controller;
         private NeedPaintHandler _needPaint;
@@ -55,16 +54,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonRichTextBox = ribbonRichTextBox;
+            GroupRichTextBox = ribbonRichTextBox;
             _needPaint = needPaint;
-            _currentSize = _ribbonRichTextBox.ItemSizeCurrent;
+            _currentSize = GroupRichTextBox.ItemSizeCurrent;
 
             // Hook into the richtextbox events
-            _ribbonRichTextBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            _ribbonRichTextBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupRichTextBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
+            GroupRichTextBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonRichTextBox;
+            Component = GroupRichTextBox;
 
             if (_ribbon.InDesignMode)
             {
@@ -75,7 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Create controller needed for handling focus and key tip actions
-            _controller = new RichTextBoxController(_ribbon, _ribbonRichTextBox, this);
+            _controller = new RichTextBoxController(_ribbon, GroupRichTextBox, this);
             SourceController = _controller;
             KeyController = _controller;
 
@@ -84,13 +83,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
 
             // Define back reference to view for the rich text box definition
-            _ribbonRichTextBox.RichTextBoxView = this;
+            GroupRichTextBox.RichTextBoxView = this;
 
             // Give paint delegate to richtextbox so its palette changes are redrawn
-            _ribbonRichTextBox.ViewPaintDelegate = needPaint;
+            GroupRichTextBox.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            _ribbonRichTextBox.PropertyChanged += new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
+            GroupRichTextBox.PropertyChanged += new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
         }
 
 		/// <summary>
@@ -111,19 +110,19 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonRichTextBox != null)
+                if (GroupRichTextBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    _ribbonRichTextBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    _ribbonRichTextBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
-                    _ribbonRichTextBox.ViewPaintDelegate = null;
-                    _ribbonRichTextBox.PropertyChanged -= new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
+                    GroupRichTextBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
+                    GroupRichTextBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupRichTextBox.ViewPaintDelegate = null;
+                    GroupRichTextBox.PropertyChanged -= new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
                     _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
                     _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
 
                     // Remove association with definition
-                    _ribbonRichTextBox.RichTextBoxView = null;
-                    _ribbonRichTextBox = null;
+                    GroupRichTextBox.RichTextBoxView = null;
+                    GroupRichTextBox = null;
                 }
             }
 
@@ -135,10 +134,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group richtextbox instance.
         /// </summary>
-        public KryptonRibbonGroupRichTextBox GroupRichTextBox
-        {
-            get { return _ribbonRichTextBox; }
-        }
+        public KryptonRibbonGroupRichTextBox GroupRichTextBox { get; private set; }
+
         #endregion
 
         #region LostFocus
@@ -149,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void LostFocus(Control c)
         {
             // Ask ribbon to shift focus to the hidden control
-            _ribbon.HideFocus(_ribbonRichTextBox.RichTextBox);
+            _ribbon.HideFocus(GroupRichTextBox.RichTextBox);
             base.LostFocus(c);
         }
         #endregion
@@ -161,10 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetFirstFocusItem()
         {
-            if ((_ribbonRichTextBox.Visible) &&
-                (_ribbonRichTextBox.LastRichTextBox != null) &&
-                (_ribbonRichTextBox.LastRichTextBox.RichTextBox != null) &&
-                (_ribbonRichTextBox.LastRichTextBox.RichTextBox.CanSelect))
+            if ((GroupRichTextBox.Visible) && (GroupRichTextBox.LastRichTextBox?.RichTextBox != null) && (GroupRichTextBox.LastRichTextBox.RichTextBox.CanSelect))
             {
                 return this;
             }
@@ -182,10 +176,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetLastFocusItem()
         {
-            if ((_ribbonRichTextBox.Visible) &&
-                (_ribbonRichTextBox.LastRichTextBox != null) &&
-                (_ribbonRichTextBox.LastRichTextBox.RichTextBox != null) &&
-                (_ribbonRichTextBox.LastRichTextBox.RichTextBox.CanSelect))
+            if ((GroupRichTextBox.Visible) && (GroupRichTextBox.LastRichTextBox?.RichTextBox != null) && (GroupRichTextBox.LastRichTextBox.RichTextBox.CanSelect))
             {
                 return this;
             }
@@ -255,8 +246,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         break;
                 }
 
-                keyTipList.Add(new KeyTipInfo(_ribbonRichTextBox.Enabled, 
-                                              _ribbonRichTextBox.KeyTip,
+                keyTipList.Add(new KeyTipInfo(GroupRichTextBox.Enabled, 
+                                              GroupRichTextBox.KeyTip,
                                               screenPt, 
                                               ClientRectangle,
                                               _controller));
@@ -279,7 +270,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetGroupItemSize()
         {
-            _currentSize = _ribbonRichTextBox.ItemSizeCurrent;
+            _currentSize = GroupRichTextBox.ItemSizeCurrent;
         }
 
         /// <summary>
@@ -357,7 +348,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // If we do not have a richtextbox
-            if (_ribbonRichTextBox.RichTextBox == null)
+            if (GroupRichTextBox.RichTextBox == null)
             {
                 // And we are in design time
                 if (_ribbon.InDesignMode)
@@ -407,7 +398,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void OnContextClick(object sender, MouseEventArgs e)
         {
-            _ribbonRichTextBox.OnDesignTimeContextMenu(e);
+            GroupRichTextBox.OnDesignTimeContextMenu(e);
         }
 
         private void OnRichTextBoxPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -432,8 +423,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonRichTextBox.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonRichTextBox.RibbonTab))
+                if ((GroupRichTextBox.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupRichTextBox.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -444,11 +435,11 @@ namespace ComponentFactory.Krypton.Ribbon
 #pragma warning disable 162
             {
                 // If this button is actually defined as visible...
-                if (_ribbonRichTextBox.Visible || _ribbon.InDesignMode)
+                if (GroupRichTextBox.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonRichTextBox.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonRichTextBox.RibbonTab))
+                    if ((GroupRichTextBox.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupRichTextBox.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);
@@ -460,14 +451,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private Control LastParentControl
         {
-            get { return _ribbonRichTextBox.LastParentControl; }
-            set { _ribbonRichTextBox.LastParentControl = value; }
+            get => GroupRichTextBox.LastParentControl;
+            set => GroupRichTextBox.LastParentControl = value;
         }
 
         private KryptonRichTextBox LastRichTextBox
         {
-            get { return _ribbonRichTextBox.LastRichTextBox; }
-            set { _ribbonRichTextBox.LastRichTextBox = value; }
+            get => GroupRichTextBox.LastRichTextBox;
+            set => GroupRichTextBox.LastRichTextBox = value;
         }
 
         private void UpdateParent(Control parentControl)
@@ -475,11 +466,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // Is there a change in the richtextbox or a change in 
             // the parent control that is hosting the control...
             if ((parentControl != LastParentControl) ||
-                (LastRichTextBox != _ribbonRichTextBox.RichTextBox))
+                (LastRichTextBox != GroupRichTextBox.RichTextBox))
             {
                 // We only modify the parent and visible state if processing for correct container
-                if ((_ribbonRichTextBox.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
-                    (!_ribbonRichTextBox.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
+                if ((GroupRichTextBox.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
+                    (!GroupRichTextBox.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
                 {
                     // If we have added the custrom control to a parent before
                     if ((LastRichTextBox != null) && (LastParentControl != null))
@@ -493,7 +484,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Remember the current control and new parent
-                    LastRichTextBox = _ribbonRichTextBox.RichTextBox;
+                    LastRichTextBox = GroupRichTextBox.RichTextBox;
                     LastParentControl = parentControl;
 
                     // If we have a new richtextbox and parent
@@ -518,13 +509,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the enabled state of the group element
-                bool enabled = _ribbonRichTextBox.Enabled;
+                bool enabled = GroupRichTextBox.Enabled;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonRichTextBox.RichTextBoxDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupRichTextBox.RichTextBoxDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    enabled = _ribbonRichTextBox.RichTextBoxDesigner.DesignEnabled;
+                    enabled = GroupRichTextBox.RichTextBoxDesigner.DesignEnabled;
                 }
 
                 c.Enabled = enabled;
@@ -536,13 +527,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonRichTextBox.Visible;
+                bool visible = GroupRichTextBox.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonRichTextBox.RichTextBoxDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupRichTextBox.RichTextBoxDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonRichTextBox.RichTextBoxDesigner.DesignVisible;
+                    visible = GroupRichTextBox.RichTextBoxDesigner.DesignVisible;
                 }
 
                 return visible;
@@ -556,46 +547,43 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonRichTextBox.Visible;
+                bool visible = GroupRichTextBox.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonRichTextBox.RichTextBoxDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupRichTextBox.RichTextBoxDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonRichTextBox.RichTextBoxDesigner.DesignVisible;
+                    visible = GroupRichTextBox.RichTextBoxDesigner.DesignVisible;
                 }
 
                 if (visible)
                 {
                     // Only visible if on the currently selected page
-                    if ((_ribbonRichTextBox.RibbonTab == null) ||
-                        (_ribbon.SelectedTab != _ribbonRichTextBox.RibbonTab))
+                    if ((GroupRichTextBox.RibbonTab == null) ||
+                        (_ribbon.SelectedTab != GroupRichTextBox.RibbonTab))
                     {
                         visible = false;
                     }
                     else
                     {
                         // Check the owning group is visible
-                        if ((_ribbonRichTextBox.RibbonContainer != null) &&
-                            (_ribbonRichTextBox.RibbonContainer.RibbonGroup != null) &&
-                            !_ribbonRichTextBox.RibbonContainer.RibbonGroup.Visible &&
-                            !_ribbon.InDesignMode)
+                        if ((GroupRichTextBox.RibbonContainer?.RibbonGroup != null) && !GroupRichTextBox.RibbonContainer.RibbonGroup.Visible && !_ribbon.InDesignMode)
                         {
                             visible = false;
                         }
                         else
                         {
                             // Check that the group is not collapsed
-                            if ((_ribbonRichTextBox.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(_ribbonRichTextBox.RichTextBox) is KryptonRibbon) ||
-                                 (_ribbon.GetControllerControl(_ribbonRichTextBox.RichTextBox) is VisualPopupMinimized)))
+                            if ((GroupRichTextBox.RibbonContainer.RibbonGroup.IsCollapsed) &&
+                                ((_ribbon.GetControllerControl(GroupRichTextBox.RichTextBox) is KryptonRibbon) ||
+                                 (_ribbon.GetControllerControl(GroupRichTextBox.RichTextBox) is VisualPopupMinimized)))
                             {
                                 visible = false;
                             }
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = _ribbonRichTextBox.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupRichTextBox.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)
@@ -622,7 +610,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnLayoutAction(object sender, EventArgs e)
         {
             // If not disposed then we still have a element reference
-            if (_ribbonRichTextBox != null)
+            if (GroupRichTextBox != null)
             {
                 // Change in selected tab requires a retest of the control visibility
                 UpdateVisible(LastRichTextBox);

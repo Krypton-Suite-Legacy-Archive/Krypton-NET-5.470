@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ImageSelectEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private ImageList _imageList;
-        private int _imageIndex;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="imageIndex">Index within the image list.</param>
         public ImageSelectEventArgs(ImageList imageList, int imageIndex)
 		{
-            _imageList = imageList;
-            _imageIndex = imageIndex;
+            ImageList = imageList;
+            ImageIndex = imageIndex;
 		}
 		#endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the image list.
 		/// </summary>
-        public ImageList ImageList
-		{
-            get { return _imageList; }
-		}
+        public ImageList ImageList { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the image index.
         /// </summary>
-        public int ImageIndex
-        {
-            get { return _imageIndex; }
-        }
-        #endregion
+        public int ImageIndex { get; }
+
+	    #endregion
 	}
 }

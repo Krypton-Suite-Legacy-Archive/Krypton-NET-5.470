@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("Heading")]
         public override string Heading
         {
-            get { return base.Heading; }
-            set { base.Heading = value; }
+            get => base.Heading;
+            set => base.Heading = value;
         }    
         #endregion
 	}

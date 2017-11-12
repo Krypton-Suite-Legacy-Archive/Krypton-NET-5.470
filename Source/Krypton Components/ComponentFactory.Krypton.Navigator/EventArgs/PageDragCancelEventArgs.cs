@@ -20,11 +20,8 @@ namespace ComponentFactory.Krypton.Navigator
 	public class PageDragCancelEventArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private Point _screenPoint;
-        private Point _elementOffset;
-        private Control _c;
-        private KryptonPageCollection _pages;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -39,14 +36,14 @@ namespace ComponentFactory.Krypton.Navigator
                                        Control c,
                                        KryptonPage[] pages)
 		{
-            _screenPoint = screenPoint;
-            _elementOffset = elementOffset;
-            _c = c;
-            _pages = new KryptonPageCollection();
+            ScreenPoint = screenPoint;
+            ElementOffset = elementOffset;
+            Control = c;
+            Pages = new KryptonPageCollection();
 
             if (pages != null)
             {
-                _pages.AddRange(pages);
+                Pages.AddRange(pages);
             }
 		}
 
@@ -62,10 +59,10 @@ namespace ComponentFactory.Krypton.Navigator
                                        Control c,
                                        KryptonPageCollection pages)
         {
-            _screenPoint = screenPoint;
-            _elementOffset = elementOffset;
-            _c = c;
-            _pages = pages;
+            ScreenPoint = screenPoint;
+            ElementOffset = elementOffset;
+            Control = c;
+            Pages = pages;
         }
         #endregion
 
@@ -73,40 +70,32 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the associated screen point.
         /// </summary>
-        public Point ScreenPoint
-        {
-            get { return _screenPoint; }
-        }
-        #endregion
+        public Point ScreenPoint { get; }
+
+	    #endregion
 
         #region ElementOffset
         /// <summary>
         /// Gets access to the associated element offset.
         /// </summary>
-        public Point ElementOffset
-        {
-            get { return _elementOffset; }
-        }
-        #endregion
+        public Point ElementOffset { get; }
+
+	    #endregion
 
         #region ElementOffset
         /// <summary>
         /// Gets access to the control that started the drag operation.
         /// </summary>
-        public Control Control
-        {
-            get { return _c; }
-        }
-        #endregion
+        public Control Control { get; }
+
+	    #endregion
 
         #region Pages
         /// <summary>
         /// Gets access to the collection of pages.
         /// </summary>
-        public KryptonPageCollection Pages
-        {
-            get { return _pages; }
-        }
-        #endregion
+        public KryptonPageCollection Pages { get; }
+
+	    #endregion
     }
 }

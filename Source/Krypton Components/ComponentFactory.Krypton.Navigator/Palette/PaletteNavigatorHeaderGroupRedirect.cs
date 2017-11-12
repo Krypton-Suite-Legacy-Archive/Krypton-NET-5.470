@@ -20,9 +20,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorHeaderGroupRedirect : PaletteHeaderGroupRedirect
 	{
 		#region Instance Fields
-		private PaletteHeaderPaddingRedirect _paletteHeaderBar;
-        private PaletteHeaderPaddingRedirect _paletteHeaderOverflow;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -58,8 +57,8 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(redirectHeaderOverflow != null);
 
             // Create the palette storage
-            _paletteHeaderBar = new PaletteHeaderPaddingRedirect(redirectHeaderBar, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
-            _paletteHeaderOverflow = new PaletteHeaderPaddingRedirect(redirectHeaderOverflow, PaletteBackStyle.ButtonNavigatorStack, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
+            HeaderBar = new PaletteHeaderPaddingRedirect(redirectHeaderBar, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
+            HeaderOverflow = new PaletteHeaderPaddingRedirect(redirectHeaderOverflow, PaletteBackStyle.ButtonNavigatorStack, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
         }
 		#endregion
 
@@ -68,16 +67,11 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (base.IsDefault &&
-                        HeaderBar.IsDefault &&
-                        HeaderOverflow.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   HeaderBar.IsDefault &&
+		                                   HeaderOverflow.IsDefault);
+
+	    #endregion
 
         #region HeaderBar
         /// <summary>
@@ -86,14 +80,11 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Overrides for defining bar header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteHeaderPaddingRedirect HeaderBar
-		{
-            get { return _paletteHeaderBar; }
-		}
+        public PaletteHeaderPaddingRedirect HeaderBar { get; }
 
-        private bool ShouldSerializeHeaderBar()
+	    private bool ShouldSerializeHeaderBar()
 		{
-			return !_paletteHeaderBar.IsDefault;
+			return !HeaderBar.IsDefault;
 		}
 		#endregion
 
@@ -104,14 +95,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining overflow header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteHeaderPaddingRedirect HeaderOverflow
-        {
-            get { return _paletteHeaderOverflow; }
-        }
+        public PaletteHeaderPaddingRedirect HeaderOverflow { get; }
 
-        private bool ShouldSerializeHeaderOverflow()
+	    private bool ShouldSerializeHeaderOverflow()
         {
-            return !_paletteHeaderOverflow.IsDefault;
+            return !HeaderOverflow.IsDefault;
         }
         #endregion
     }

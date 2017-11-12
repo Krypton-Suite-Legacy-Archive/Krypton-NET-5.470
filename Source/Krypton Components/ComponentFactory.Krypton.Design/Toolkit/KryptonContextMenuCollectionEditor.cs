@@ -41,8 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
             protected class MenuTreeNode : TreeNode
             {
                 #region Instance Fields
-                private KryptonContextMenuItemBase _item;
-                private object _propertyObject;
+
                 #endregion
 
                 #region Identity
@@ -53,16 +52,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 public MenuTreeNode(KryptonContextMenuItemBase item)
                 {
                     Debug.Assert(item != null);
-                    _item = item;
-                    _propertyObject = item;
+                    Item = item;
+                    PropertyObject = item;
 
                     // Setup the initial starting image and description strings
                     ImageIndex = ImageIndexFromItem();
                     SelectedImageIndex = ImageIndex;
-                    Text = _item.ToString();
+                    Text = Item.ToString();
 
                     // Hook into property changes
-                    _item.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+                    Item.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
                 }
                 #endregion
 
@@ -70,24 +69,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 /// <summary>
                 /// Gets access to the associated item.
                 /// </summary>
-                public KryptonContextMenuItemBase Item
-                {
-                    get { return _item; }
-                }
+                public KryptonContextMenuItemBase Item { get; }
 
                 /// <summary>
                 /// Gets access to object wrapper for use in the property grid.
                 /// </summary>
-                public object PropertyObject
-                {
-                    get { return _propertyObject; }
-                }
+                public object PropertyObject { get; }
+
                 #endregion
 
                 #region Implementation
                 private int ImageIndexFromItem()
                 {
-                    switch (_item)
+                    switch (Item)
                     {
                         case KryptonContextMenuCheckBox _:
                             return 6;
@@ -120,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
                 {
                     // Update with correct string for new state
-                    Text = _item.ToString();
+                    Text = Item.ToString();
                 }
                 #endregion
             }
@@ -131,7 +125,7 @@ namespace ComponentFactory.Krypton.Toolkit
             protected class PropertyGridSite : ISite, IServiceProvider
             {
                 #region Instance Fields
-                private IComponent _component;
+
                 private IServiceProvider _serviceProvider;
                 private bool _inGetService;
                 #endregion
@@ -146,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         IComponent component)
                 {
                     _serviceProvider = servicePovider;
-                    _component = component;
+                    Component = component;
                 }
                 #endregion
 
@@ -177,26 +171,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 /// <summary>
                 /// Gets the component associated with the ISite when implemented by a class.
                 /// </summary>
-                public IComponent Component
-                {
-                    get { return _component; }
-                }
+                public IComponent Component { get; }
 
                 /// <summary>
                 /// Gets the IContainer associated with the ISite when implemented by a class.
                 /// </summary>
-                public IContainer Container
-                {
-                    get { return null; }
-                }
+                public IContainer Container => null;
 
                 /// <summary>
                 /// Determines whether the component is in design mode when implemented by a class.
                 /// </summary>
-                public bool DesignMode
-                {
-                    get { return false; }
-                }
+                public bool DesignMode => false;
 
                 /// <summary>
                 /// Gets or sets the name of the component associated with the ISite when implemented by a class.
@@ -1063,7 +1048,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                     }
 
-                    if ((item != null) && (item is KryptonContextMenuItem))
+                    if (item is KryptonContextMenuItem)
                     {
                         KryptonContextMenuCollection temp2 = new KryptonContextMenuCollection();
                         foreach (Type t in temp2.RestrictTypes)

@@ -59,16 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => _stateCommon.IsDefault &&
+		                                  _stateDisabled.IsDefault &&
+		                                  _stateNormal.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>

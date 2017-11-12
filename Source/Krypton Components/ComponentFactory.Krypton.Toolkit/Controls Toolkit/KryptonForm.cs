@@ -72,21 +72,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private FormButtonSpecCollection _buttonSpecs;
+
         private FormFixedButtonSpecCollection _buttonSpecsFixed;
-        private ButtonSpecFormWindowMin _buttonSpecMin;
-        private ButtonSpecFormWindowMax _buttonSpecMax;
-        private ButtonSpecFormWindowClose _buttonSpecClose;
         private ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ToolTipManager _toolTipManager;
         private ViewDrawForm _drawDocker;
         private ViewDrawDocker _drawHeading;
         private ViewDrawContent _drawContent;
         private ViewDecoratorFixedSize _headingFixedSize;
-        private PaletteFormRedirect _stateCommon;
-        private PaletteForm _stateInactive;
-        private PaletteForm _stateActive;
         private ViewLayoutNull _layoutNull;
         private HeaderStyle _headerStyle;
         private HeaderStyle _headerStylePrev;
@@ -94,18 +87,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private FormWindowState _lastWindowState;
         private string _textExtra;
         private string _oldText;
-        private bool _allowButtonSpecToolTips;
         private bool _allowFormChrome;
         private bool _allowStatusStripMerge;
-        private bool _allowIconDisplay;
-        private bool _inertForm;
         private bool _recreateButtons;
         private bool _firstCheckView;
         private bool _lastNotNormal;
         private StatusStrip _statusStrip;
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
-        private Rectangle _customCaptionArea;
+
         #endregion
 
         #region Identity
@@ -117,34 +107,34 @@ namespace ComponentFactory.Krypton.Toolkit
             // Default properties
             _headerStyle = HeaderStyle.Form;
 		    _headerStylePrev = _headerStyle;
-            _allowButtonSpecToolTips = false;
+            AllowButtonSpecToolTips = false;
             _allowFormChrome = true;
             _allowStatusStripMerge = true;
-            _allowIconDisplay = true;
+            AllowIconDisplay = true;
             _regionWindowState = FormWindowState.Normal;
             _recreateButtons = true;
             _firstCheckView = true;
             _lastNotNormal = false;
 
             // Create storage objects
-            _buttonSpecs = new FormButtonSpecCollection(this);
+            ButtonSpecs = new FormButtonSpecCollection(this);
             _buttonSpecsFixed = new FormFixedButtonSpecCollection(this);
 
             // Add the fixed set of window form buttons
-            _buttonSpecMin = new ButtonSpecFormWindowMin(this);
-            _buttonSpecMax = new ButtonSpecFormWindowMax(this);
-            _buttonSpecClose = new ButtonSpecFormWindowClose(this);
-            _buttonSpecsFixed.AddRange(new ButtonSpecFormFixed[] { _buttonSpecMin, _buttonSpecMax, _buttonSpecClose });
+            ButtonSpecMin = new ButtonSpecFormWindowMin(this);
+            ButtonSpecMax = new ButtonSpecFormWindowMax(this);
+            ButtonSpecClose = new ButtonSpecFormWindowClose(this);
+            _buttonSpecsFixed.AddRange(new ButtonSpecFormFixed[] { ButtonSpecMin, ButtonSpecMax, ButtonSpecClose });
 
             // Create the palette storage
-            _stateCommon = new PaletteFormRedirect(Redirector, NeedPaintDelegate);
-            _stateInactive = new PaletteForm(_stateCommon, _stateCommon.Header, NeedPaintDelegate);
-            _stateActive = new PaletteForm(_stateCommon, _stateCommon.Header, NeedPaintDelegate);
+            StateCommon = new PaletteFormRedirect(Redirector, NeedPaintDelegate);
+            StateInactive = new PaletteForm(StateCommon, StateCommon.Header, NeedPaintDelegate);
+            StateActive = new PaletteForm(StateCommon, StateCommon.Header, NeedPaintDelegate);
 
             // Create a header to act as the form title bar
-            _drawHeading = new ViewDrawDocker(_stateActive.Header.Back,
-                                              _stateActive.Header.Border,
-                                              _stateActive.Header,
+            _drawHeading = new ViewDrawDocker(StateActive.Header.Back,
+                                              StateActive.Header.Border,
+                                              StateActive.Header,
                                               PaletteMetricBool.None,
                                               PaletteMetricPadding.None,
                                               VisualOrientation.Top)
@@ -156,7 +146,7 @@ namespace ComponentFactory.Krypton.Toolkit
             };
 
             // Content draws the text and icon inside the title bar
-            _drawContent = new ViewDrawContent(_stateActive.Header.Content, this, VisualOrientation.Top);
+            _drawContent = new ViewDrawContent(StateActive.Header.Content, this, VisualOrientation.Top);
             _drawHeading.Add(_drawContent, ViewDockStyle.Fill);
 
             // Create a decorator so that the heading has a fixed sized and not based on content
@@ -166,26 +156,26 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutNull = new ViewLayoutNull();
 
             // Create the root element that contains the title bar and null filler
-            _drawDocker = new ViewDrawForm(_stateActive.Back, _stateActive.Border)
+            _drawDocker = new ViewDrawForm(StateActive.Back, StateActive.Border)
             {
                 { _headingFixedSize, ViewDockStyle.Top },
                 { _layoutNull, ViewDockStyle.Fill }
             };
 
             // Create button specification collection manager
-            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, _buttonSpecsFixed,
+            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, ButtonSpecs, _buttonSpecsFixed,
                                                        new ViewDrawDocker[] { _drawHeading },
-                                                       new IPaletteMetric[] { _stateCommon.Header },
+                                                       new IPaletteMetric[] { StateCommon.Header },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetForm },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingForm },
                                                        new GetToolStripRenderer(CreateToolStripRenderer),
                                                        OnButtonManagerNeedPaint);
 
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            _buttonManager.ToolTipManager = ToolTipManager;
 
             // Hook into globalstatic events
             KryptonManager.GlobalAllowFormChromeChanged += new EventHandler(OnGlobalAllowFormChromeChanged);
@@ -220,9 +210,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     _cacheBitmap = null;
                 }
 
-                _buttonSpecMin.Dispose();
-                _buttonSpecMax.Dispose();
-                _buttonSpecClose.Dispose();
+                ButtonSpecMin.Dispose();
+                ButtonSpecMax.Dispose();
+                ButtonSpecClose.Dispose();
             }
 
             base.Dispose(disposing);
@@ -238,8 +228,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string TextExtra
         {
-            get { return _textExtra; }
-            
+            get => _textExtra;
+
             set
             {
                 _textExtra = value;
@@ -253,11 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Should tooltips be displayed for button specs.")]
         [DefaultValue(false)]
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating if custome chrome is allowed.
@@ -267,7 +253,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AllowFormChrome
         {
-            get { return _allowFormChrome; }
+            get => _allowFormChrome;
             set 
             {
                 if (_allowFormChrome != value)
@@ -288,7 +274,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AllowStatusStripMerge
         {
-            get { return _allowStatusStripMerge; }
+            get => _allowStatusStripMerge;
             set
             {
                 if (_allowStatusStripMerge != value)
@@ -310,7 +296,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(HeaderStyle), "Form")]
         public HeaderStyle HeaderStyle
         {
-            get { return _headerStyle; }
+            get => _headerStyle;
 
             set
             {
@@ -330,13 +316,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteBorderStyle), "FormMain")]
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _stateCommon.BorderStyle; }
+            get => StateCommon.BorderStyle;
 
             set
             {
-                if (_stateCommon.BorderStyle != value)
+                if (StateCommon.BorderStyle != value)
                 {
-                    _stateCommon.BorderStyle = value;
+                    StateCommon.BorderStyle = value;
                     PerformNeedPaint(false);
                 }
             }
@@ -350,13 +336,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteBackStyle), "FormMain")]
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
             set
             {
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
                 {
-                    _stateCommon.BackStyle = value;
+                    StateCommon.BackStyle = value;
                     PerformNeedPaint(false);
                 }
             }
@@ -368,14 +354,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common form appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteFormRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteFormRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -384,14 +367,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining inactive form appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteForm StateInactive
-        {
-            get { return _stateInactive; }
-        }
+        public PaletteForm StateInactive { get; }
 
         private bool ShouldSerializeStateInactive()
         {
-            return !_stateInactive.IsDefault;
+            return !StateInactive.IsDefault;
         }
 
         /// <summary>
@@ -400,14 +380,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining active form appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteForm StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteForm StateActive { get; }
 
         private bool ShouldSerializeStateActive()
         {
-            return !_stateActive.IsDefault;
+            return !StateActive.IsDefault;
         }
 
         /// <summary>
@@ -416,10 +393,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public FormButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public FormButtonSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Gets access to the minimize button spec.
@@ -427,10 +401,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ButtonSpecFormWindowMin ButtonSpecMin
-        {
-            get { return _buttonSpecMin; }
-        }
+        public ButtonSpecFormWindowMin ButtonSpecMin { get; }
 
         /// <summary>
         /// Gets access to the minimize button spec.
@@ -438,10 +409,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ButtonSpecFormWindowMax ButtonSpecMax
-        {
-            get { return _buttonSpecMax; }
-        }
+        public ButtonSpecFormWindowMax ButtonSpecMax { get; }
 
         /// <summary>
         /// Gets access to the minimize button spec.
@@ -449,22 +417,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ButtonSpecFormWindowClose ButtonSpecClose
-        {
-            get { return _buttonSpecClose; }
-        }
-        
+        public ButtonSpecFormWindowClose ButtonSpecClose { get; }
+
         /// <summary>
         /// Gets and sets a value indicating if the border should be inert to changes.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool InertForm
-        {
-            get { return _inertForm; }
-            set { _inertForm = value; }
-        }
+        public bool InertForm { get; set; }
 
         /// <summary>
         /// Allow an extra view element to be injected into the caption area.
@@ -545,11 +506,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool AllowIconDisplay
-        {
-            get { return _allowIconDisplay; }
-            set { _allowIconDisplay = value; }
-        }
+        public bool AllowIconDisplay { get; set; }
 
         /// <summary>
         /// Next time a layout occurs the min/max/close buttons need recreating.
@@ -565,10 +522,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; }
 
         /// <summary>
         /// Gets the current state of the window.
@@ -640,7 +594,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if inside the button; otherwise false.</returns>
         public bool HitTestMinButton(Point pt)
         {
-            return (_buttonManager.GetButtonRectangle(_buttonSpecMin).Contains(pt));
+            return (_buttonManager.GetButtonRectangle(ButtonSpecMin).Contains(pt));
         }
 
         /// <summary>
@@ -650,7 +604,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if inside the button; otherwise false.</returns>
         public bool HitTestMaxButton(Point pt)
         {
-            return (_buttonManager.GetButtonRectangle(_buttonSpecMax).Contains(pt));
+            return (_buttonManager.GetButtonRectangle(ButtonSpecMax).Contains(pt));
         }
 
         /// <summary>
@@ -660,7 +614,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if inside the button; otherwise false.</returns>
         public bool HitTestCloseButton(Point pt)
         {
-            return (_buttonManager.GetButtonRectangle(_buttonSpecClose).Contains(pt));
+            return (_buttonManager.GetButtonRectangle(ButtonSpecClose).Contains(pt));
         }
 
         /// <summary>
@@ -668,11 +622,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Rectangle CustomCaptionArea
-        {
-            get { return _customCaptionArea; }
-            set { _customCaptionArea = value; }
-        }
+        public Rectangle CustomCaptionArea { get; set; }
+
         #endregion
 
         #region Public IContentValues
@@ -863,15 +814,15 @@ namespace ComponentFactory.Krypton.Toolkit
             // Update to use the correct state override values
             if (WindowActive)
             {
-                _drawDocker.SetPalettes(_stateActive.Back, _stateActive.Border);
-                _drawHeading.SetPalettes(_stateActive.Header.Back, _stateActive.Header.Border);
-                _drawContent.SetPalette(_stateActive.Header.Content);
+                _drawDocker.SetPalettes(StateActive.Back, StateActive.Border);
+                _drawHeading.SetPalettes(StateActive.Header.Back, StateActive.Header.Border);
+                _drawContent.SetPalette(StateActive.Header.Content);
             }
             else
             {
-                _drawDocker.SetPalettes(_stateInactive.Back, _stateInactive.Border);
-                _drawHeading.SetPalettes(_stateInactive.Header.Back, _stateInactive.Header.Border);
-                _drawContent.SetPalette(_stateInactive.Header.Content);
+                _drawDocker.SetPalettes(StateInactive.Back, StateInactive.Border);
+                _drawHeading.SetPalettes(StateInactive.Header.Back, StateInactive.Header.Border);
+                _drawContent.SetPalette(StateInactive.Header.Content);
             }
 
             _drawDocker.Enabled = WindowActive;
@@ -960,9 +911,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!composition)
             {
                 // Is the mouse over any of the min/max/close buttons?
-                if ((_buttonManager.GetButtonRectangle(_buttonSpecMin).Contains(pt)) ||
-                    (_buttonManager.GetButtonRectangle(_buttonSpecMax).Contains(pt)) ||
-                    (_buttonManager.GetButtonRectangle(_buttonSpecClose).Contains(pt)))
+                if ((_buttonManager.GetButtonRectangle(ButtonSpecMin).Contains(pt)) ||
+                    (_buttonManager.GetButtonRectangle(ButtonSpecMax).Contains(pt)) ||
+                    (_buttonManager.GetButtonRectangle(ButtonSpecClose).Contains(pt)))
                 {
                     // Get the mouse controller for this button
                     ViewBase viewBase = ViewManager.Root.ViewFromPoint(pt);
@@ -1159,7 +1110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Icon GetDefinedIcon()
         {
             // Are we allowed to try and show an icon?
-            if (_allowIconDisplay)
+            if (AllowIconDisplay)
             {
                 // Only some of the border styles show an icon
                 switch (FormBorderStyle)
@@ -1246,22 +1197,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Make sure the max/restore setting is correct
                     if (WindowState == FormWindowState.Maximized)
                     {
-                        _buttonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
+                        ButtonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
                     }
                     else
                     {
-                        _buttonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormMax;
+                        ButtonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormMax;
                     }
 
                     // Make sure the min/restore setting is correct
                     if (WindowState == FormWindowState.Minimized)
                     {
-                        _buttonSpecMin.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
+                        ButtonSpecMin.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
                         _drawDocker.StatusStrip = null;
                     }
                     else
                     {
-                        _buttonSpecMin.ButtonSpecType = PaletteButtonSpecStyle.FormMin;
+                        ButtonSpecMin.ButtonSpecType = PaletteButtonSpecStyle.FormMin;
 
                         // Make sure the top level form docker has the status strip being merged
                         _drawDocker.StatusStrip = (StatusStripMerging ? _statusStrip : null);
@@ -1274,7 +1225,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			        if (_headerStyle != _headerStylePrev)
 			        {
                         // Ensure the header style matches the form border style
-                        SetHeaderStyle(_drawHeading, _stateCommon.Header, _headerStyle);
+                        SetHeaderStyle(_drawHeading, StateCommon.Header, _headerStyle);
 
 				        // Remember last header style set
                         _headerStylePrev = _headerStyle;
@@ -1465,24 +1416,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        internal bool StatusStripMerging
-        {
-            get
-            {
-                // We only perform status strip merging if the status strip exists and is visible
-                // and at the bottom of the form. We check it is at the bottom and ensure it is
-                // docked and its bottom edge is at the bottom of the form. At the moment we only
-                // provide this ability for the Office 2007 palettes via KryptonOffice2007Renderer. 
-                return (_allowStatusStripMerge &&
-                        (_statusStrip != null) &&
-                        _statusStrip.Visible &&
-                        (_statusStrip.Dock == DockStyle.Bottom) &&
-                        (_statusStrip.Bottom == ClientRectangle.Bottom) &&
-                        (_statusStrip.RenderMode == ToolStripRenderMode.ManagerRenderMode) &&
-                        ((ToolStripManager.Renderer is KryptonOffice2007Renderer) ||
-                         (ToolStripManager.Renderer is KryptonSparkleRenderer)));
-            }
-        }
+        internal bool StatusStripMerging => (_allowStatusStripMerge &&
+                                             (_statusStrip != null) &&
+                                             _statusStrip.Visible &&
+                                             (_statusStrip.Dock == DockStyle.Bottom) &&
+                                             (_statusStrip.Bottom == ClientRectangle.Bottom) &&
+                                             (_statusStrip.RenderMode == ToolStripRenderMode.ManagerRenderMode) &&
+                                             ((ToolStripManager.Renderer is KryptonOffice2007Renderer) ||
+                                              (ToolStripManager.Renderer is KryptonSparkleRenderer)));
 
         private void MonitorStatusStrip(StatusStrip statusStrip)
         {
@@ -1591,9 +1532,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Only interest in the three form level buttons, as we know 
                 // these never change in size because of a paint request
-                if ((bs == _buttonSpecMin) ||
-                    (bs == _buttonSpecMax) ||
-                    (bs == _buttonSpecClose))
+                if ((bs == ButtonSpecMin) ||
+                    (bs == ButtonSpecMax) ||
+                    (bs == ButtonSpecClose))
                 {
                     // Translate the button rectangle into the non client area
                     Rectangle buttonRect = bsView.ViewButton.ClientRectangle;

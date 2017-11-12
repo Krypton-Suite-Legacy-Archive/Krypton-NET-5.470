@@ -28,8 +28,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingFloatingWindow : DockingElementClosedCollection
     {
         #region Instance Fields
-        private KryptonFloatingWindow _window;
-        private KryptonDockingFloatspace _floatspace;
+
         private ObscureControl _obscure;
         private int _updateCount;
         #endregion
@@ -49,14 +48,14 @@ namespace ComponentFactory.Krypton.Docking
                 throw new ArgumentNullException("owner");
             }
 
-            _floatspace = floatspace ?? throw new ArgumentNullException("floatspace");
-            _floatspace.Disposed += new EventHandler(OnDockingFloatspaceDisposed);
+            FloatspaceElement = floatspace ?? throw new ArgumentNullException("floatspace");
+            FloatspaceElement.Disposed += new EventHandler(OnDockingFloatspaceDisposed);
 
             // Create the actual window control and hook into events
-            _window = new KryptonFloatingWindow(owner, floatspace.FloatspaceControl);
-            _window.WindowCloseClicked += new EventHandler<UniqueNamesEventArgs>(OnFloatingWindowCloseClicked);
-            _window.WindowCaptionDragging += new EventHandler<ScreenAndOffsetEventArgs>(OnFloatingWindowCaptionDragging);
-            _window.Disposed += new EventHandler(OnFloatingWindowDisposed);
+            FloatingWindow = new KryptonFloatingWindow(owner, floatspace.FloatspaceControl);
+            FloatingWindow.WindowCloseClicked += new EventHandler<UniqueNamesEventArgs>(OnFloatingWindowCloseClicked);
+            FloatingWindow.WindowCaptionDragging += new EventHandler<ScreenAndOffsetEventArgs>(OnFloatingWindowCaptionDragging);
+            FloatingWindow.Disposed += new EventHandler(OnFloatingWindowDisposed);
 
             // Create and add a control we use to obscure the floating window client area during multi-part operations
             _obscure = new ObscureControl
@@ -64,7 +63,7 @@ namespace ComponentFactory.Krypton.Docking
                 Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom),
                 Visible = false
             };
-            _window.Controls.Add(_obscure);
+            FloatingWindow.Controls.Add(_obscure);
 
             // Add the floatspace as the only child of this collection
             InternalAdd(floatspace);
@@ -90,18 +89,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the window this element is managing.
         /// </summary>
-        public KryptonFloatingWindow FloatingWindow
-        {
-            get { return _window; }
-        }
+        public KryptonFloatingWindow FloatingWindow { get; }
 
         /// <summary>
         /// Gets the floatspace element contained by the floating window.
         /// </summary>
-        public KryptonDockingFloatspace FloatspaceElement
-        {
-            get { return _floatspace; }
-        }
+        public KryptonDockingFloatspace FloatspaceElement { get; }
 
         /// <summary>
         /// Propogates an action request down the hierarchy of docking elements.
@@ -215,10 +208,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DFW"; }
-        }
+        protected override string XmlElementName => "DFW";
 
         /// <summary>
         /// Perform docking element specific actions based on the loading xml.

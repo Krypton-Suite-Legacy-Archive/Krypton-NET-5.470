@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Navigator
 	public class TabMovedEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-        private int _index;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -30,8 +29,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="index">New index of the page within the page collection.</param>
         public TabMovedEventArgs(KryptonPage page, int index)
 		{
-            _page = page;
-            _index = index;
+            Page = page;
+            Index = index;
 		}
         #endregion
 
@@ -39,20 +38,16 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a reference to the page that has been moved.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
-        #endregion
+        public KryptonPage Page { get; }
+
+	    #endregion
 
         #region Pages
         /// <summary>
         /// Gets the new index of the page within the page collection.
         /// </summary>
-        public int Index
-        {
-            get { return _index; }
-        }
-        #endregion
+        public int Index { get; }
+
+	    #endregion
     }
 }

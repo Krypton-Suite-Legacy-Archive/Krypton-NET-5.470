@@ -58,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 [Category("Appearance")]
                 public string ShortText
                 {
-                    get { return _item.ShortText; }
-                    set { _item.ShortText = value; }
+                    get => _item.ShortText;
+                    set => _item.ShortText = value;
                 }
                 #endregion
 
@@ -70,8 +70,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 [Category("Appearance")]
                 public string LongText
                 {
-                    get { return _item.LongText; }
-                    set { _item.LongText = value; }
+                    get => _item.LongText;
+                    set => _item.LongText = value;
                 }
                 #endregion
 
@@ -83,8 +83,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 [DefaultValue(null)]
                 public Image Image
                 {
-                    get { return _item.Image; }
-                    set { _item.Image = value; }
+                    get => _item.Image;
+                    set => _item.Image = value;
                 }
                 #endregion
 
@@ -96,8 +96,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 [DefaultValue(typeof(Color), "")]
                 public Color ImageTransparentColor
                 {
-                    get { return _item.ImageTransparentColor; }
-                    set { _item.ImageTransparentColor = value; }
+                    get => _item.ImageTransparentColor;
+                    set => _item.ImageTransparentColor = value;
                 }
                 #endregion
 
@@ -110,8 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 [DefaultValue(null)]
                 public object Tag
                 {
-                    get { return _item.Tag; }
-                    set { _item.Tag = value; }
+                    get => _item.Tag;
+                    set => _item.Tag = value;
                 }
                 #endregion
             }
@@ -122,8 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
             protected class MenuTreeNode : TreeNode
             {
                 #region Instance Fields
-                private KryptonBreadCrumbItem _item;
-                private object _propertyObject;
+
                 #endregion
 
                 #region Identity
@@ -133,13 +132,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 /// <param name="item">Menu item to represent.</param>
                 public MenuTreeNode(KryptonBreadCrumbItem item)
                 {
-                    _item = item;
-                    _propertyObject = item;
+                    Item = item;
+                    PropertyObject = item;
 
-                    Text = _item.ToString();
+                    Text = Item.ToString();
 
                     // Hook into property changes
-                    _item.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+                    Item.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
                 }
                 #endregion
 
@@ -147,25 +146,20 @@ namespace ComponentFactory.Krypton.Toolkit
                 /// <summary>
                 /// Gets access to the associated item.
                 /// </summary>
-                public KryptonBreadCrumbItem Item
-                {
-                    get { return _item; }
-                }
+                public KryptonBreadCrumbItem Item { get; }
 
                 /// <summary>
                 /// Gets access to object wrapper for use in the property grid.
                 /// </summary>
-                public object PropertyObject
-                {
-                    get { return _propertyObject; }
-                }
+                public object PropertyObject { get; }
+
                 #endregion
 
                 #region Implementation
                 private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
                 {
                     // Update with correct string for new state
-                    Text = _item.ToString();
+                    Text = Item.ToString();
                 }
                 #endregion
             }
@@ -176,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
             protected class PropertyGridSite : ISite, IServiceProvider
             {
                 #region Instance Fields
-                private IComponent _component;
+
                 private IServiceProvider _serviceProvider;
                 private bool _inGetService;
                 #endregion
@@ -191,7 +185,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         IComponent component)
                 {
                     _serviceProvider = servicePovider;
-                    _component = component;
+                    Component = component;
                 }
                 #endregion
 
@@ -222,26 +216,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 /// <summary>
                 /// Gets the component associated with the ISite when implemented by a class.
                 /// </summary>
-                public IComponent Component
-                {
-                    get { return _component; }
-                }
+                public IComponent Component { get; }
 
                 /// <summary>
                 /// Gets the IContainer associated with the ISite when implemented by a class.
                 /// </summary>
-                public IContainer Container
-                {
-                    get { return null; }
-                }
+                public IContainer Container => null;
 
                 /// <summary>
                 /// Determines whether the component is in design mode when implemented by a class.
                 /// </summary>
-                public bool DesignMode
-                {
-                    get { return false; }
-                }
+                public bool DesignMode => false;
 
                 /// <summary>
                 /// Gets or sets the name of the component associated with the ISite when implemented by a class.

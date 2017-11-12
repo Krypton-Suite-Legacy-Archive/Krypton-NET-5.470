@@ -129,9 +129,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public double Hue
 		{
-			get { return _hue; }
-			
-			set
+			get => _hue;
+
+		    set
 			{
 				// Store new value
 				_hue = value;
@@ -155,9 +155,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public double Saturation
 		{
-			get { return _saturation; }
+			get => _saturation;
 
-			set
+		    set
 			{
 				// Store new value
 				_saturation = value;
@@ -181,9 +181,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public double Luminance
 		{
-			get { return _luminance; }
+			get => _luminance;
 
-			set
+		    set
 			{
 				// Store new value
 				_luminance = value;

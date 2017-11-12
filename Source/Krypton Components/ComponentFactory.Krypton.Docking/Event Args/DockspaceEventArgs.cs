@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class DockspaceEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonDockspace _dockspace;
-        private KryptonDockingDockspace _element;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         public DockspaceEventArgs(KryptonDockspace dockspace,
                                   KryptonDockingDockspace element)
 		{
-            _dockspace = dockspace;
-            _element = element;
+            DockspaceControl = dockspace;
+            DockspaceElement = element;
 		}
         #endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonDockspace control.
         /// </summary>
-        public KryptonDockspace DockspaceControl
-        {
-            get { return _dockspace; }
-        }
+        public KryptonDockspace DockspaceControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingDockspace that is managing the dockspace control.
         /// </summary>
-        public KryptonDockingDockspace DockspaceElement
-        {
-            get { return _element; }
-        }
-        #endregion
+        public KryptonDockingDockspace DockspaceElement { get; }
+
+	    #endregion
 	}
 }

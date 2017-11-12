@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteLayoutEventArgs : NeedLayoutEventArgs
 	{
 		#region Instance Fields
-        private bool _needColorTable;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                       bool needColorTable)
             : base(needLayout)
 		{
-            _needColorTable = needColorTable;
+            NeedColorTable = needColorTable;
 		}
 		#endregion
 
@@ -37,10 +37,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets a value indicating if the color table needs to be reprocessed.
 		/// </summary>
-        public bool NeedColorTable
-		{
-            get { return _needColorTable; }
-		}
-		#endregion
+        public bool NeedColorTable { get; }
+
+	    #endregion
 	}
 }

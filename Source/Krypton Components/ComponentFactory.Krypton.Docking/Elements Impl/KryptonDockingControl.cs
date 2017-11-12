@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private Control _control;
+
         private ObscureControl _obscure;
         private IDockingElement _innerElement;
         private Size _innerMinimum;
@@ -104,17 +104,14 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public Control Control
-        {
-            get { return _control; }
-        }
+        public Control Control { get; private set; }
 
         /// <summary>
         /// Gets and sets the minimum size for the inner area of the control that docking should not overlap.
         /// </summary>
         public Size InnerMinimum
         {
-            get { return _innerMinimum; }
+            get => _innerMinimum;
 
             set
             {
@@ -286,10 +283,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DC"; }
-        }
+        protected override string XmlElementName => "DC";
 
         /// <summary>
         /// Loads docking configuration information using a provider xml reader.
@@ -326,9 +320,9 @@ namespace ComponentFactory.Krypton.Docking
             _innerMinimum = INNER_MINIMUM;
 
             // Hook into events on the target control
-            _control = control;
-            _control.SizeChanged += new EventHandler(OnControlSizeChanged);
-            _control.Disposed += new EventHandler(OnControlDisposed);
+            Control = control;
+            Control.SizeChanged += new EventHandler(OnControlSizeChanged);
+            Control.Disposed += new EventHandler(OnControlDisposed);
 
             // Create and add a control we use to obscure the client area during multi-part operations
             _obscure = new ObscureControl
@@ -336,7 +330,7 @@ namespace ComponentFactory.Krypton.Docking
                 Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom),
                 Visible = false
             };
-            _control.Controls.Add(_obscure);
+            Control.Controls.Add(_obscure);
 
             // Create docking elements for managing each of the four control edges
             Add(new KryptonDockingEdge("Top", control, DockingEdge.Top));
@@ -348,8 +342,8 @@ namespace ComponentFactory.Krypton.Docking
         private void OnControlDisposed(object sender, EventArgs e)
         {
             // Unhook events to allow garbage collection
-            _control.SizeChanged -= new EventHandler(OnControlSizeChanged);
-            _control.Disposed -= new EventHandler(OnControlDisposed);
+            Control.SizeChanged -= new EventHandler(OnControlSizeChanged);
+            Control.Disposed -= new EventHandler(OnControlDisposed);
         }
 
         private void OnControlSizeChanged(object sender, EventArgs e)
@@ -474,7 +468,7 @@ namespace ComponentFactory.Krypton.Docking
                                     new Rectangle(area.X, area.Y, area.Width, length),
                                     new Rectangle(area.X, area.Bottom - length, area.Width, length),
                                     new Rectangle(area.X + length, area.Y + length, 
-                                                  area.Width - length * 2, area.Height - length * 2)};
+                                                  area.Width - (length * 2), area.Height - (length * 2))};
         }
 
         private void DebugOutput(string title)

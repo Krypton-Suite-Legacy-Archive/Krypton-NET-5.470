@@ -104,10 +104,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if inside edge spacers are required.
         /// </summary>
-        protected override bool UseInsideSpacers
-        {
-            get { return true; }
-        }
+        protected override bool UseInsideSpacers => true;
 
         /// <summary>
         /// Perform final steps now that the button spec has been created.

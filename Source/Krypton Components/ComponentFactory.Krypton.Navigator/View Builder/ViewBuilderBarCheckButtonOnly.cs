@@ -35,10 +35,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
-        public override bool IsTabStripMode
-        {
-            get { return true; }
-        }
+        public override bool IsTabStripMode => true;
 
         /// <summary>
         /// User has used the keyboard to select the currently selected page.

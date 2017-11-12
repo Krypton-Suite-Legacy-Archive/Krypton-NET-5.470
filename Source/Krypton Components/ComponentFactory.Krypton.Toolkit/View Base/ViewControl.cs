@@ -42,10 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private VisualControl _rootControl;
         private VisualPopup _rootPopup;
-        private ViewLayoutControl _viewLayout;
-        private NeedPaintHandler _needPaintDelegate;
-        private bool _transparentBackground;
-        private bool _inDesignMode;
+
         #endregion
 
         #region Identity
@@ -69,14 +66,14 @@ namespace ComponentFactory.Krypton.Toolkit
             SetStyle(ControlStyles.Selectable, false);
 
             // Default
-            _transparentBackground = false;
-            _inDesignMode = false;
+            TransparentBackground = false;
+            InDesignMode = false;
 
             // Remember incoming references
             _rootControl = rootControl;
 
             // Create delegate so child elements can request a repaint
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
         }
         #endregion
 
@@ -84,11 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets access to the view layout control.
         /// </summary>
-        public ViewLayoutControl ViewLayoutControl
-        {
-            get { return _viewLayout; }
-            set { _viewLayout = value; }
-        }
+        public ViewLayoutControl ViewLayoutControl { get; set; }
+
         #endregion
 
         #region UpdateParent
@@ -127,32 +121,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets if the background is transparent.
         /// </summary>
-        public bool TransparentBackground
-        {
-            get { return _transparentBackground; }
-            set { _transparentBackground = value; }
-        }
+        public bool TransparentBackground { get; set; }
+
         #endregion
 
         #region InDesignMode
         /// <summary>
         /// Gets and sets a value indicating if the control is in design mode.
         /// </summary>
-        public bool InDesignMode
-        {
-            get { return _inDesignMode; }
-            set { _inDesignMode = value; }
-        }
+        public bool InDesignMode { get; set; }
+
         #endregion
 
         #region NeedPaintDelegate
         /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
-        public NeedPaintHandler NeedPaintDelegate
-        {
-            get { return _needPaintDelegate; }
-        }
+        public NeedPaintHandler NeedPaintDelegate { get; }
+
         #endregion
 
         #region Protected
@@ -184,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                  Renderer))
                 {
                     // Ask the view to paint itself
-                    _viewLayout.ChildView.Render(context);
+                    ViewLayoutControl.ChildView.Render(context);
                 }
             }
         }

@@ -23,9 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonTab _ribbonTab;
         private PaletteRibbonDoubleInheritOverride _inherit;
-        private bool _lightBackground;
+
         #endregion
 
         #region Identity
@@ -37,7 +36,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
-            _lightBackground = false;
+            LightBackground = false;
         }
         #endregion
 
@@ -45,22 +44,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the associated ribbon tab.
         /// </summary>
-        public KryptonRibbonTab RibbonTab
-        {
-            get { return _ribbonTab; }
-            set { _ribbonTab = value; }
-        }
+        public KryptonRibbonTab RibbonTab { get; set; }
+
         #endregion
 
         #region LightBackground
         /// <summary>
         /// Gets and sets a value indicating if the text is being drawn on a light coloured background.
         /// </summary>
-        public bool LightBackground
-        {
-            get { return _lightBackground; }
-            set { _lightBackground = value; }
-        }
+        public bool LightBackground { get; set; }
+
         #endregion
 
         #region SetInherit
@@ -217,10 +210,10 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // We need an associated ribbon tab
             // Does the ribbon tab have a context setting?
-            if (!string.IsNullOrEmpty(_ribbonTab?.ContextName))
+            if (!string.IsNullOrEmpty(RibbonTab?.ContextName))
             {
                 // Find the context definition for this context
-                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[_ribbonTab.ContextName];
+                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[RibbonTab.ContextName];
 
                 // Should always work, but you never know!
                 if (ribbonContext != null)

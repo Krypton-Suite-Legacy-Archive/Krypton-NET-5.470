@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewLayoutContext : ViewContext
 	{
 		#region Instance Fields
-		private Rectangle _displayRectangle;
-		#endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -110,11 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets and sets the available display area.
 		/// </summary>
-		public Rectangle DisplayRectangle
-		{
-			get { return _displayRectangle; }
-			set { _displayRectangle = value; }
-		}
-		#endregion
+		public Rectangle DisplayRectangle { get; set; }
+
+	    #endregion
 	}
 }

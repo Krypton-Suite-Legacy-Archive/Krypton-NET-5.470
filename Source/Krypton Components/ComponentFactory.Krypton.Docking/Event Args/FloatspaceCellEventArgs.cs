@@ -19,10 +19,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class FloatspaceCellEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonFloatspace _floatspace;
-        private KryptonDockingFloatspace _element;
-        private KryptonWorkspaceCell _cell;
-        #endregion
+
+	    #endregion
 		
         #region Identity
 		/// <summary>
@@ -35,9 +33,9 @@ namespace ComponentFactory.Krypton.Docking
                                        KryptonDockingFloatspace element,
                                        KryptonWorkspaceCell cell)
 		{
-            _floatspace = floatspace;
-            _element = element;
-            _cell = cell;
+            FloatspaceControl = floatspace;
+            FloatspaceElement = element;
+            CellControl = cell;
 		}
 		#endregion
 
@@ -45,26 +43,18 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonFloatspace control.
         /// </summary>
-        public KryptonFloatspace FloatspaceControl
-        {
-            get { return _floatspace; }
-        }
+        public KryptonFloatspace FloatspaceControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingFloatspace that is managing the floatspace.
         /// </summary>
-        public KryptonDockingFloatspace FloatspaceElement
-        {
-            get { return _element; }
-        }
+        public KryptonDockingFloatspace FloatspaceElement { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonWorkspaceCell control.
         /// </summary>
-        public KryptonWorkspaceCell CellControl
-        {
-            get { return _cell; }
-        }
-        #endregion
+        public KryptonWorkspaceCell CellControl { get; }
+
+	    #endregion
 	}
 }

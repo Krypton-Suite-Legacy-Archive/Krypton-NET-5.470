@@ -54,15 +54,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (base.IsDefault &&
-                        Padding.Equals(CommonHelper.InheritPadding));
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   Padding.Equals(CommonHelper.InheritPadding));
+
+	    #endregion
 
 		#region Padding
 		/// <summary>
@@ -75,9 +70,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Padding Padding
 		{
-			get { return _separatorPadding; }
+			get => _separatorPadding;
 
-			set
+		    set
 			{
 				if (_separatorPadding != value)
 				{

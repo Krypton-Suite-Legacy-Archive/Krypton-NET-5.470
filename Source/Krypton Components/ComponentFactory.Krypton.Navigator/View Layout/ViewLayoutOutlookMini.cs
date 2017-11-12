@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewLayoutOutlookMini : ViewLayoutDocker
     {
         #region Instance Fields
-        private ViewBuilderOutlookBase _viewBuilder; 
+
         #endregion
 
         #region Identity
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
         public ViewLayoutOutlookMini(ViewBuilderOutlookBase viewBuilder)
         {
             Debug.Assert(viewBuilder != null);
-            _viewBuilder = viewBuilder;
+            ViewBuilder = viewBuilder;
         }
 
         /// <summary>
@@ -51,8 +51,9 @@ namespace ComponentFactory.Krypton.Navigator
         public ViewBuilderOutlookBase ViewBuilder
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewBuilder; }
+            get;
         }
+
         #endregion
 
         #region Layout

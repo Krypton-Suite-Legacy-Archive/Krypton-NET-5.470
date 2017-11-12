@@ -37,7 +37,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonRibbon _ribbon;
         private KryptonRibbonGroup _ribbonGroup;
         private ViewDrawRibbonDesignGroupContainer _viewAddContainer;
-        private ViewLayoutRibbonGroupButton _dialogView;
         private NeedPaintHandler _needPaint;
         private ContainerToView _containerToView;
         private List<ItemSizeWidth[]> _listWidths;
@@ -96,11 +95,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the dialog view reference.
         /// </summary>
-        public ViewLayoutRibbonGroupButton DialogView
-        {
-            get { return _dialogView; }
-            set { _dialogView = value; }
-        }
+        public ViewLayoutRibbonGroupButton DialogView { get; set; }
+
         #endregion
 
         #region GetGroupKeyTips

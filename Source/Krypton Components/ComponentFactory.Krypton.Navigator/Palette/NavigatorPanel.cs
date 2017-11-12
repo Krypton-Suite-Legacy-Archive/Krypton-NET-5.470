@@ -51,10 +51,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get { return (PanelBackStyle == PaletteBackStyle.PanelClient); }
-        }
+        public override bool IsDefault => (PanelBackStyle == PaletteBackStyle.PanelClient);
+
         #endregion
 
         #region PanelBackStyle
@@ -66,7 +64,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteBackStyle), "PanelClient")]
         public PaletteBackStyle PanelBackStyle
         {
-            get { return _panelBackStyle; }
+            get => _panelBackStyle;
 
             set
             {

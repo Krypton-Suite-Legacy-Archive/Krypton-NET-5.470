@@ -19,26 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteCheckButtons : Storage
     {
         #region Instance Fields
-        private KryptonPaletteCheckButton _buttonCommon;
-        private KryptonPaletteCheckButton _buttonStandalone;
-        private KryptonPaletteCheckButton _buttonAlternate;
-        private KryptonPaletteCheckButton _buttonLowProfile;
-        private KryptonPaletteCheckButton _buttonButtonSpec;
-        private KryptonPaletteCheckButton _buttonBreadCrumb;
-        private KryptonPaletteCheckButton _buttonCalendarDay;
-        private KryptonPaletteCheckButton _buttonCluster;
-        private KryptonPaletteCheckButton _buttonGallery;
-        private KryptonPaletteCheckButton _buttonNavigatorStack;
-        private KryptonPaletteCheckButton _buttonNavigatorOverflow;
-        private KryptonPaletteCheckButton _buttonNavigatorMini;
-        private KryptonPaletteCheckButton _buttonInputControl;
-        private KryptonPaletteCheckButton _buttonListItem;
-        private KryptonPaletteCheckButton _buttonForm;
-        private KryptonPaletteCheckButton _buttonFormClose;
-        private KryptonPaletteCheckButton _buttonCommand;
-        private KryptonPaletteCheckButton _buttonCustom1;
-        private KryptonPaletteCheckButton _buttonCustom2;
-        private KryptonPaletteCheckButton _buttonCustom3;
+
         #endregion
 
         #region Identity
@@ -53,54 +34,54 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _buttonCommon = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
-            _buttonStandalone = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
-            _buttonAlternate = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonAlternate, PaletteBorderStyle.ButtonAlternate, PaletteContentStyle.ButtonAlternate, needPaint);
-            _buttonLowProfile = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonLowProfile, PaletteBorderStyle.ButtonLowProfile, PaletteContentStyle.ButtonLowProfile, needPaint);
-            _buttonButtonSpec = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonButtonSpec, PaletteBorderStyle.ButtonButtonSpec, PaletteContentStyle.ButtonButtonSpec, needPaint);
-            _buttonBreadCrumb = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonBreadCrumb, PaletteBorderStyle.ButtonBreadCrumb, PaletteContentStyle.ButtonBreadCrumb, needPaint);
-            _buttonCalendarDay = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _buttonCluster = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCluster, PaletteBorderStyle.ButtonCluster, PaletteContentStyle.ButtonCluster, needPaint);
-            _buttonGallery = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonGallery, PaletteBorderStyle.ButtonGallery, PaletteContentStyle.ButtonGallery, needPaint);
-            _buttonNavigatorStack = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorStack, PaletteBorderStyle.ButtonNavigatorStack, PaletteContentStyle.ButtonNavigatorStack, needPaint);
-            _buttonNavigatorOverflow = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorOverflow, PaletteBorderStyle.ButtonNavigatorOverflow, PaletteContentStyle.ButtonNavigatorOverflow, needPaint);
-            _buttonNavigatorMini = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorMini, PaletteBorderStyle.ButtonNavigatorMini, PaletteContentStyle.ButtonNavigatorMini, needPaint);
-            _buttonInputControl = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonInputControl, PaletteBorderStyle.ButtonInputControl, PaletteContentStyle.ButtonInputControl, needPaint);
-            _buttonListItem = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonListItem, PaletteBorderStyle.ButtonListItem, PaletteContentStyle.ButtonListItem, needPaint);
-            _buttonForm = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonForm, PaletteBorderStyle.ButtonForm, PaletteContentStyle.ButtonForm, needPaint);
-            _buttonFormClose = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonFormClose, PaletteBorderStyle.ButtonFormClose, PaletteContentStyle.ButtonFormClose, needPaint);
-            _buttonCommand = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCommand, PaletteBorderStyle.ButtonCommand, PaletteContentStyle.ButtonCommand, needPaint);
-            _buttonCustom1 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom1, PaletteBorderStyle.ButtonCustom1, PaletteContentStyle.ButtonCustom1, needPaint);
-            _buttonCustom2 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom2, PaletteBorderStyle.ButtonCustom2, PaletteContentStyle.ButtonCustom2, needPaint);
-            _buttonCustom3 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom3, PaletteBorderStyle.ButtonCustom3, PaletteContentStyle.ButtonCustom3, needPaint);
+            ButtonCommon = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
+            ButtonStandalone = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
+            ButtonAlternate = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonAlternate, PaletteBorderStyle.ButtonAlternate, PaletteContentStyle.ButtonAlternate, needPaint);
+            ButtonLowProfile = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonLowProfile, PaletteBorderStyle.ButtonLowProfile, PaletteContentStyle.ButtonLowProfile, needPaint);
+            ButtonButtonSpec = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonButtonSpec, PaletteBorderStyle.ButtonButtonSpec, PaletteContentStyle.ButtonButtonSpec, needPaint);
+            ButtonBreadCrumb = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonBreadCrumb, PaletteBorderStyle.ButtonBreadCrumb, PaletteContentStyle.ButtonBreadCrumb, needPaint);
+            ButtonCalendarDay = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            ButtonCluster = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCluster, PaletteBorderStyle.ButtonCluster, PaletteContentStyle.ButtonCluster, needPaint);
+            ButtonGallery = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonGallery, PaletteBorderStyle.ButtonGallery, PaletteContentStyle.ButtonGallery, needPaint);
+            ButtonNavigatorStack = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorStack, PaletteBorderStyle.ButtonNavigatorStack, PaletteContentStyle.ButtonNavigatorStack, needPaint);
+            ButtonNavigatorOverflow = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorOverflow, PaletteBorderStyle.ButtonNavigatorOverflow, PaletteContentStyle.ButtonNavigatorOverflow, needPaint);
+            ButtonNavigatorMini = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonNavigatorMini, PaletteBorderStyle.ButtonNavigatorMini, PaletteContentStyle.ButtonNavigatorMini, needPaint);
+            ButtonInputControl = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonInputControl, PaletteBorderStyle.ButtonInputControl, PaletteContentStyle.ButtonInputControl, needPaint);
+            ButtonListItem = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonListItem, PaletteBorderStyle.ButtonListItem, PaletteContentStyle.ButtonListItem, needPaint);
+            ButtonForm = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonForm, PaletteBorderStyle.ButtonForm, PaletteContentStyle.ButtonForm, needPaint);
+            ButtonFormClose = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonFormClose, PaletteBorderStyle.ButtonFormClose, PaletteContentStyle.ButtonFormClose, needPaint);
+            ButtonCommand = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCommand, PaletteBorderStyle.ButtonCommand, PaletteContentStyle.ButtonCommand, needPaint);
+            ButtonCustom1 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom1, PaletteBorderStyle.ButtonCustom1, PaletteContentStyle.ButtonCustom1, needPaint);
+            ButtonCustom2 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom2, PaletteBorderStyle.ButtonCustom2, PaletteContentStyle.ButtonCustom2, needPaint);
+            ButtonCustom3 = new KryptonPaletteCheckButton(redirector, PaletteBackStyle.ButtonCustom3, PaletteBorderStyle.ButtonCustom3, PaletteContentStyle.ButtonCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectTriple redirectCommon = new PaletteRedirectTriple(redirector, 
-                                                                             _buttonCommon.StateDisabled, _buttonCommon.StateNormal,
-                                                                             _buttonCommon.StatePressed, _buttonCommon.StateTracking, 
-                                                                             _buttonCommon.StateCheckedNormal, _buttonCommon.StateCheckedPressed, 
-                                                                             _buttonCommon.StateCheckedTracking,_buttonCommon.OverrideFocus, 
-                                                                             _buttonCommon.OverrideDefault);
+                                                                             ButtonCommon.StateDisabled, ButtonCommon.StateNormal,
+                                                                             ButtonCommon.StatePressed, ButtonCommon.StateTracking, 
+                                                                             ButtonCommon.StateCheckedNormal, ButtonCommon.StateCheckedPressed, 
+                                                                             ButtonCommon.StateCheckedTracking,ButtonCommon.OverrideFocus, 
+                                                                             ButtonCommon.OverrideDefault);
             // Inform the button style to use the new redirector
-            _buttonStandalone.SetRedirector(redirectCommon);
-            _buttonAlternate.SetRedirector(redirectCommon);
-            _buttonLowProfile.SetRedirector(redirectCommon);
-            _buttonButtonSpec.SetRedirector(redirectCommon);
-            _buttonBreadCrumb.SetRedirector(redirectCommon);
-            _buttonCalendarDay.SetRedirector(redirectCommon);
-            _buttonCluster.SetRedirector(redirectCommon);
-            _buttonGallery.SetRedirector(redirectCommon);
-            _buttonNavigatorStack.SetRedirector(redirectCommon);
-            _buttonNavigatorOverflow.SetRedirector(redirectCommon);
-            _buttonNavigatorMini.SetRedirector(redirectCommon);
-            _buttonInputControl.SetRedirector(redirectCommon);
-            _buttonListItem.SetRedirector(redirectCommon);
-            _buttonForm.SetRedirector(redirectCommon);
-            _buttonFormClose.SetRedirector(redirectCommon);
-            _buttonCommand.SetRedirector(redirectCommon);
-            _buttonCustom1.SetRedirector(redirectCommon);
-            _buttonCustom2.SetRedirector(redirectCommon);
-            _buttonCustom3.SetRedirector(redirectCommon);
+            ButtonStandalone.SetRedirector(redirectCommon);
+            ButtonAlternate.SetRedirector(redirectCommon);
+            ButtonLowProfile.SetRedirector(redirectCommon);
+            ButtonButtonSpec.SetRedirector(redirectCommon);
+            ButtonBreadCrumb.SetRedirector(redirectCommon);
+            ButtonCalendarDay.SetRedirector(redirectCommon);
+            ButtonCluster.SetRedirector(redirectCommon);
+            ButtonGallery.SetRedirector(redirectCommon);
+            ButtonNavigatorStack.SetRedirector(redirectCommon);
+            ButtonNavigatorOverflow.SetRedirector(redirectCommon);
+            ButtonNavigatorMini.SetRedirector(redirectCommon);
+            ButtonInputControl.SetRedirector(redirectCommon);
+            ButtonListItem.SetRedirector(redirectCommon);
+            ButtonForm.SetRedirector(redirectCommon);
+            ButtonFormClose.SetRedirector(redirectCommon);
+            ButtonCommand.SetRedirector(redirectCommon);
+            ButtonCustom1.SetRedirector(redirectCommon);
+            ButtonCustom2.SetRedirector(redirectCommon);
+            ButtonCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -108,32 +89,27 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _buttonCommon.IsDefault &&
-                       _buttonStandalone.IsDefault &&
-                       _buttonAlternate.IsDefault &&
-                       _buttonLowProfile.IsDefault &&
-                       _buttonButtonSpec.IsDefault &&
-                       _buttonBreadCrumb.IsDefault &&
-                       _buttonCalendarDay.IsDefault &&
-                       _buttonCluster.IsDefault &&
-                       _buttonGallery.IsDefault &&
-                       _buttonNavigatorStack.IsDefault &&
-                       _buttonNavigatorOverflow.IsDefault &&
-                       _buttonNavigatorMini.IsDefault &&
-                       _buttonInputControl.IsDefault &&
-                       _buttonListItem.IsDefault &&
-                       _buttonForm.IsDefault &&
-                       _buttonFormClose.IsDefault &&
-                       _buttonCommand.IsDefault &&
-                       _buttonCustom1.IsDefault &&
-                       _buttonCustom2.IsDefault &&
-                       _buttonCustom3.IsDefault;
-            }
-        }
+        public override bool IsDefault => ButtonCommon.IsDefault &&
+                                          ButtonStandalone.IsDefault &&
+                                          ButtonAlternate.IsDefault &&
+                                          ButtonLowProfile.IsDefault &&
+                                          ButtonButtonSpec.IsDefault &&
+                                          ButtonBreadCrumb.IsDefault &&
+                                          ButtonCalendarDay.IsDefault &&
+                                          ButtonCluster.IsDefault &&
+                                          ButtonGallery.IsDefault &&
+                                          ButtonNavigatorStack.IsDefault &&
+                                          ButtonNavigatorOverflow.IsDefault &&
+                                          ButtonNavigatorMini.IsDefault &&
+                                          ButtonInputControl.IsDefault &&
+                                          ButtonListItem.IsDefault &&
+                                          ButtonForm.IsDefault &&
+                                          ButtonFormClose.IsDefault &&
+                                          ButtonCommand.IsDefault &&
+                                          ButtonCustom1.IsDefault &&
+                                          ButtonCustom2.IsDefault &&
+                                          ButtonCustom3.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -147,67 +123,67 @@ namespace ComponentFactory.Krypton.Toolkit
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonStandalone;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonStandalone;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonStandalone;
-            _buttonStandalone.PopulateFromBase();
+            ButtonStandalone.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonAlternate;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonAlternate;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonAlternate;
-            _buttonAlternate.PopulateFromBase();
+            ButtonAlternate.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonLowProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonLowProfile;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonLowProfile;
-            _buttonLowProfile.PopulateFromBase();
+            ButtonLowProfile.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonButtonSpec;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonButtonSpec;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonButtonSpec;
-            _buttonButtonSpec.PopulateFromBase();
+            ButtonButtonSpec.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonBreadCrumb;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonBreadCrumb;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonBreadCrumb;
-            _buttonBreadCrumb.PopulateFromBase();
+            ButtonBreadCrumb.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonCalendarDay;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonCalendarDay;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonCalendarDay;
-            _buttonCalendarDay.PopulateFromBase();
+            ButtonCalendarDay.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonNavigatorStack;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonNavigatorStack;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonNavigatorStack;
-            _buttonNavigatorStack.PopulateFromBase();
+            ButtonNavigatorStack.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonNavigatorOverflow;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonNavigatorOverflow;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonNavigatorOverflow;
-            _buttonNavigatorOverflow.PopulateFromBase();
+            ButtonNavigatorOverflow.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonNavigatorMini;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonNavigatorMini;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonNavigatorMini;
-            _buttonNavigatorMini.PopulateFromBase();
+            ButtonNavigatorMini.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonInputControl;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonInputControl;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonInputControl;
-            _buttonInputControl.PopulateFromBase();
+            ButtonInputControl.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonListItem;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonListItem;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonListItem;
-            _buttonListItem.PopulateFromBase();
+            ButtonListItem.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonForm;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonForm;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonForm;
-            _buttonForm.PopulateFromBase();
+            ButtonForm.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonFormClose;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonFormClose;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonFormClose;
-            _buttonFormClose.PopulateFromBase();
+            ButtonFormClose.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonCommand;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonCommand;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonCommand;
-            _buttonCommand.PopulateFromBase();
+            ButtonCommand.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonCluster;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonCluster;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonCluster;
-            _buttonCluster.PopulateFromBase();
+            ButtonCluster.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ButtonGallery;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ButtonGallery;
             common.StateCommon.ContentStyle = PaletteContentStyle.ButtonGallery;
-            _buttonGallery.PopulateFromBase();
+            ButtonGallery.PopulateFromBase();
         }
         #endregion
 
@@ -219,14 +195,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common inherited button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCommon
-        {
-            get { return _buttonCommon; }
-        }
+        public KryptonPaletteCheckButton ButtonCommon { get; }
 
         private bool ShouldSerializeButtonCommon()
         {
-            return !_buttonCommon.IsDefault;
+            return !ButtonCommon.IsDefault;
         }
         #endregion
 
@@ -238,14 +211,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Standalone appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonStandalone
-        {
-            get { return _buttonStandalone; }
-        }
+        public KryptonPaletteCheckButton ButtonStandalone { get; }
 
         private bool ShouldSerializeButtonStandalone()
         {
-            return !_buttonStandalone.IsDefault;
+            return !ButtonStandalone.IsDefault;
         }
         #endregion
 
@@ -257,14 +227,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Alternate appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonAlternate
-        {
-            get { return _buttonAlternate; }
-        }
+        public KryptonPaletteCheckButton ButtonAlternate { get; }
 
         private bool ShouldSerializeButtonAlternate()
         {
-            return !_buttonAlternate.IsDefault;
+            return !ButtonAlternate.IsDefault;
         }
         #endregion
 
@@ -276,14 +243,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining LowProfile appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonLowProfile
-        {
-            get { return _buttonLowProfile; }
-        }
+        public KryptonPaletteCheckButton ButtonLowProfile { get; }
 
         private bool ShouldSerializeButtonLowProfile()
         {
-            return !_buttonLowProfile.IsDefault;
+            return !ButtonLowProfile.IsDefault;
         }
         #endregion
 
@@ -295,14 +259,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonSpec appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonButtonSpec
-        {
-            get { return _buttonButtonSpec; }
-        }
+        public KryptonPaletteCheckButton ButtonButtonSpec { get; }
 
         private bool ShouldSerializeButtonButtonSpec()
         {
-            return !_buttonButtonSpec.IsDefault;
+            return !ButtonButtonSpec.IsDefault;
         }
         #endregion
 
@@ -314,14 +275,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining BreadCrumb appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonBreadCrumb
-        {
-            get { return _buttonBreadCrumb; }
-        }
+        public KryptonPaletteCheckButton ButtonBreadCrumb { get; }
 
         private bool ShouldSerializeButtonBreadCrumb()
         {
-            return !_buttonBreadCrumb.IsDefault;
+            return !ButtonBreadCrumb.IsDefault;
         }
         #endregion
 
@@ -333,14 +291,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining CalendarDay appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCalendarDay
-        {
-            get { return _buttonCalendarDay; }
-        }
+        public KryptonPaletteCheckButton ButtonCalendarDay { get; }
 
         private bool ShouldSerializeButtonCalendarDay()
         {
-            return !_buttonCalendarDay.IsDefault;
+            return !ButtonCalendarDay.IsDefault;
         }
         #endregion
 
@@ -352,14 +307,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonCluster appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCluster
-        {
-            get { return _buttonCluster; }
-        }
+        public KryptonPaletteCheckButton ButtonCluster { get; }
 
         private bool ShouldSerializeButtonCluster()
         {
-            return !_buttonCluster.IsDefault;
+            return !ButtonCluster.IsDefault;
         }
         #endregion
 
@@ -371,14 +323,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonGallery appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonGallery
-        {
-            get { return _buttonGallery; }
-        }
+        public KryptonPaletteCheckButton ButtonGallery { get; }
 
         private bool ShouldSerializeButtonGallery()
         {
-            return !_buttonGallery.IsDefault;
+            return !ButtonGallery.IsDefault;
         }
         #endregion
 
@@ -390,14 +339,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonNavigatorStack appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonNavigatorStack
-        {
-            get { return _buttonNavigatorStack; }
-        }
+        public KryptonPaletteCheckButton ButtonNavigatorStack { get; }
 
         private bool ShouldSerializeButtonNavigatorStack()
         {
-            return !_buttonNavigatorStack.IsDefault;
+            return !ButtonNavigatorStack.IsDefault;
         }
         #endregion
 
@@ -409,14 +355,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonNavigatorOverflow appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonNavigatorOverflow
-        {
-            get { return _buttonNavigatorOverflow; }
-        }
+        public KryptonPaletteCheckButton ButtonNavigatorOverflow { get; }
 
         private bool ShouldSerializeButtonNavigatorOverflow()
         {
-            return !_buttonNavigatorOverflow.IsDefault;
+            return !ButtonNavigatorOverflow.IsDefault;
         }
         #endregion
 
@@ -428,14 +371,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonNavigatorMini appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonNavigatorMini
-        {
-            get { return _buttonNavigatorMini; }
-        }
+        public KryptonPaletteCheckButton ButtonNavigatorMini { get; }
 
         private bool ShouldSerializeButtonNavigatorMini()
         {
-            return !_buttonNavigatorMini.IsDefault;
+            return !ButtonNavigatorMini.IsDefault;
         }
         #endregion
 
@@ -447,14 +387,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonInputControl appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonInputControl
-        {
-            get { return _buttonInputControl; }
-        }
+        public KryptonPaletteCheckButton ButtonInputControl { get; }
 
         private bool ShouldSerializeButtonInputControl()
         {
-            return !_buttonInputControl.IsDefault;
+            return !ButtonInputControl.IsDefault;
         }
         #endregion
 
@@ -466,14 +403,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonListItem appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonListItem
-        {
-            get { return _buttonListItem; }
-        }
+        public KryptonPaletteCheckButton ButtonListItem { get; }
 
         private bool ShouldSerializeButtonListItem()
         {
-            return !_buttonListItem.IsDefault;
+            return !ButtonListItem.IsDefault;
         }
         #endregion
 
@@ -485,14 +419,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonForm appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonForm
-        {
-            get { return _buttonForm; }
-        }
+        public KryptonPaletteCheckButton ButtonForm { get; }
 
         private bool ShouldSerializeButtonForm()
         {
-            return !_buttonForm.IsDefault;
+            return !ButtonForm.IsDefault;
         }
         #endregion
 
@@ -504,14 +435,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonFormClose appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonFormClose
-        {
-            get { return _buttonFormClose; }
-        }
+        public KryptonPaletteCheckButton ButtonFormClose { get; }
 
         private bool ShouldSerializeButtonFormClose()
         {
-            return !_buttonFormClose.IsDefault;
+            return !ButtonFormClose.IsDefault;
         }
         #endregion
 
@@ -523,14 +451,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ButtonCommand appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCommand
-        {
-            get { return _buttonCommand; }
-        }
+        public KryptonPaletteCheckButton ButtonCommand { get; }
 
         private bool ShouldSerializeButtonCommand()
         {
-            return !_buttonCommand.IsDefault;
+            return !ButtonCommand.IsDefault;
         }
         #endregion
 
@@ -542,14 +467,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom1 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCustom1
-        {
-            get { return _buttonCustom1; }
-        }
+        public KryptonPaletteCheckButton ButtonCustom1 { get; }
 
         private bool ShouldSerializeButtonCustom1()
         {
-            return !_buttonCustom1.IsDefault;
+            return !ButtonCustom1.IsDefault;
         }
         #endregion
 
@@ -561,14 +483,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom2 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCustom2
-        {
-            get { return _buttonCustom2; }
-        }
+        public KryptonPaletteCheckButton ButtonCustom2 { get; }
 
         private bool ShouldSerializeButtonCustom2()
         {
-            return !_buttonCustom2.IsDefault;
+            return !ButtonCustom2.IsDefault;
         }
         #endregion
 
@@ -580,14 +499,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom3 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButton ButtonCustom3
-        {
-            get { return _buttonCustom3; }
-        }
+        public KryptonPaletteCheckButton ButtonCustom3 { get; }
 
         private bool ShouldSerializeButtonCustom3()
         {
-            return !_buttonCustom3.IsDefault;
+            return !ButtonCustom3.IsDefault;
         }
         #endregion
     }

@@ -48,15 +48,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get 
-            { 
-                return (HeaderColumn.IsDefault &&
-                        HeaderRow.IsDefault);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (HeaderColumn.IsDefault &&
+		                                   HeaderRow.IsDefault);
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -112,12 +107,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining header column cell appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteDataGridViewTripleStates HeaderColumn
-        {
-            get { return _headerColumn; }
-        }
+        public virtual PaletteDataGridViewTripleStates HeaderColumn => _headerColumn;
 
-        private bool ShouldSerializeHeaderColumn()
+	    private bool ShouldSerializeHeaderColumn()
         {
             return !_headerColumn.IsDefault;
         }
@@ -131,12 +123,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining header row cell appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteDataGridViewTripleStates HeaderRow
-        {
-            get { return _headerRow; }
-        }
+        public virtual PaletteDataGridViewTripleStates HeaderRow => _headerRow;
 
-        private bool ShouldSerializeHeaderRow()
+	    private bool ShouldSerializeHeaderRow()
         {
             return !_headerRow.IsDefault;
         }

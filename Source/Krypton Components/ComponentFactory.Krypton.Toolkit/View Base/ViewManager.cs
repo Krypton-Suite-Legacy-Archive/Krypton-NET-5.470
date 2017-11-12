@@ -25,13 +25,6 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private ViewBase _root;
 		private ViewBase _activeView;
-		private bool _mouseCaptured;
-        private bool _doNotLayoutControls;
-        private bool _outputDebug;
-        private Control _control;
-        private Control _alignControl;
-        private int _layoutCounter;
-        private int _paintCounter;
         private long _outputStart;
         #endregion
 
@@ -79,8 +72,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			_root = root;
             _root.OwningControl = control;
-            _control = control;
-            _alignControl = control;
+            Control = control;
+            AlignControl = control;
 		}
 
         /// <summary>
@@ -103,8 +96,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _root = root;
             _root.OwningControl = control;
-            _control = control;
-            _alignControl = control;
+            Control = control;
+            AlignControl = control;
         }
 
 		/// <summary>
@@ -119,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			{
 				Debug.Assert(value != null);
 				_root = value;
-                _root.OwningControl = _control;
+                _root.OwningControl = Control;
 			}
 		}
 
@@ -129,8 +122,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public Control Control
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _control; }
-            set { _control = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -139,8 +132,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public Control AlignControl
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _alignControl; }
-            set { _alignControl = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -149,8 +142,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool DoNotLayoutControls
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _doNotLayoutControls; }
-            set { _doNotLayoutControls = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -159,9 +152,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool OutputDebug
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _outputDebug; }
-            set { _outputDebug = value; }
+            get;
+            set;
         }
+
         #endregion
 
 		#region GetPreferredSize
@@ -181,12 +175,12 @@ namespace ComponentFactory.Krypton.Toolkit
             Size retSize = Size.Empty;
 
             // Short circuit for a disposed control
-            if (!_control.IsDisposed)
+            if (!Control.IsDisposed)
             {
                 // Create a layout context for calculating size and positioning
                 using (ViewLayoutContext context = new ViewLayoutContext(this,
-                                                                         _control,
-                                                                         _alignControl,
+                                                                         Control,
+                                                                         AlignControl,
                                                                          renderer,
                                                                          proposedSize))
                 {
@@ -194,11 +188,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            if (_outputDebug)
+            if (OutputDebug)
             {
                 Console.WriteLine("Id:{0} GetPreferredSize Type:{1} Ret:{2} Proposed:{3}",
                     Id, 
-                    _control.GetType().ToString(), 
+                    Control.GetType().ToString(), 
                     retSize,
                     proposedSize);
             }
@@ -226,8 +220,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create a layout context for calculating size and positioning
             using (ViewContext context = new ViewContext(this,
-                                                         _control, 
-                                                         _alignControl, 
+                                                         Control, 
+                                                         AlignControl, 
                                                           renderer))
             {
                 // Ask the view to perform operation
@@ -242,7 +236,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ViewBase ActiveView
         {
-            get { return _activeView; }
+            get => _activeView;
 
             set
             {
@@ -291,11 +285,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets a value indicating if the mouse is capturing input.
         /// </summary>
-        public bool MouseCaptured
-        {
-            get { return _mouseCaptured; }
-            set { _mouseCaptured = value; }
-        }
+        public bool MouseCaptured { get; set; }
+
         #endregion
 
         #region Layout
@@ -309,12 +300,12 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(Root != null);
 
             // Do nothing if the control is disposed
-            if (!_control.IsDisposed)
+            if (!Control.IsDisposed)
             {
                 // Create a layout context for calculating size and positioning
                 using (ViewLayoutContext context = new ViewLayoutContext(this,
-                                                                         _control,
-                                                                         _alignControl,
+                                                                         Control,
+                                                                         AlignControl,
                                                                          renderer))
                 {
                     Layout(context);
@@ -335,7 +326,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do nothing if the control is disposed
             if (!context.Control.IsDisposed)
             {
-                if (_outputDebug)
+                if (OutputDebug)
                 {
                     PI.QueryPerformanceCounter(ref _outputStart);
                 }
@@ -355,7 +346,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If someone is interested, tell them the layout cycle has finished
                 LayoutAfter?.Invoke(this, EventArgs.Empty);
 
-                if (_outputDebug)
+                if (OutputDebug)
                 {
                     long outputEnd = 0;
                     PI.QueryPerformanceCounter(ref outputEnd);
@@ -370,7 +361,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Maintain internal counters for measuring perf
-                _layoutCounter++;
+                LayoutCounter++;
             }
         }
 		#endregion
@@ -398,12 +389,12 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Do nothing if the control is disposed or inside a layout call
-            if (!_control.IsDisposed)
+            if (!Control.IsDisposed)
             {
                 // Create a render context for drawing the view
                 using (RenderContext context = new RenderContext(this,
-                                                                 _control,
-                                                                 _alignControl,
+                                                                 Control,
+                                                                 AlignControl,
                                                                  e.Graphics,
                                                                  e.ClipRectangle,
                                                                  renderer))
@@ -429,9 +420,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Do nothing if the control is disposed or inside a layout call
-            if (!_control.IsDisposed)
+            if (!Control.IsDisposed)
             {
-                if (_outputDebug)
+                if (OutputDebug)
                 {
                     PI.QueryPerformanceCounter(ref _outputStart);
                 }
@@ -439,7 +430,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Ask the view to paint itself
                 Root.Render(context);
 
-                if (_outputDebug)
+                if (OutputDebug)
                 {
                     long outputEnd = 0;
                     PI.QueryPerformanceCounter(ref outputEnd);
@@ -447,13 +438,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     Console.WriteLine("Id:{0} Paint Type:{1} Elapsed: {2}",
                         Id, 
-                        _control.GetType().ToString(),
+                        Control.GetType().ToString(),
                         outputDiff.ToString());
                 }
             }
 
             // Maintain internal counters for measuring perf
-            _paintCounter++;
+            PaintCounter++;
         }
 		#endregion
 
@@ -476,7 +467,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Point pt = new Point(e.X, e.Y);
 
 			// Set the correct active view from the point
-            UpdateViewFromPoint(_control, pt);
+            UpdateViewFromPoint(Control, pt);
 
 			// Tell current view of mouse movement
 		    ActiveView?.MouseMove(rawPt);
@@ -500,7 +491,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Point pt = new Point(e.X, e.Y);
 
 			// Set the correct active view from the point
-            UpdateViewFromPoint(_control, pt);
+            UpdateViewFromPoint(Control, pt);
 
 			// Tell current view of mouse down
             if (ActiveView != null)
@@ -530,7 +521,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Point pt = new Point(e.X, e.Y);
 
 			// Set the correct active view from the point
-            UpdateViewFromPoint(_control, pt);
+            UpdateViewFromPoint(Control, pt);
 
 			// Tell current view of mouse up
 		    ActiveView?.MouseUp(rawPt, e.Button);
@@ -662,11 +653,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Tell current view of source event
             if (ActiveView != null)
             {
-                ActiveView.GotFocus(_control);
+                ActiveView.GotFocus(Control);
             }
             else
             {
-                _root?.GotFocus(_control);
+                _root?.GotFocus(Control);
             }
         }
 
@@ -678,11 +669,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Tell current view of source event
             if (ActiveView != null)
             {
-                ActiveView.LostFocus(_control);
+                ActiveView.LostFocus(Control);
             }
             else
             {
-                _root?.LostFocus(_control);
+                _root?.LostFocus(Control);
             }
         }
         #endregion
@@ -693,25 +684,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void ResetCounters()
         {
-            _layoutCounter = 0;
-            _paintCounter = 0;
+            LayoutCounter = 0;
+            PaintCounter = 0;
         }
 
         /// <summary>
         /// Gets the number of layout cycles performed since last reset.
         /// </summary>
-        public int LayoutCounter
-        {
-            get { return _layoutCounter; }
-        }
+        public int LayoutCounter { get; private set; }
 
         /// <summary>
         /// Gets the number of paint cycles performed since last reset.
         /// </summary>
-        public int PaintCounter
-        {
-            get { return _paintCounter; }
-        }
+        public int PaintCounter { get; private set; }
+
         #endregion
 
         #region Protected

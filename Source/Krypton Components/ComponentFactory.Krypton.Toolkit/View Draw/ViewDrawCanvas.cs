@@ -28,15 +28,9 @@ namespace ComponentFactory.Krypton.Toolkit
         internal PaletteMetricPadding _metricPadding;
         private IDisposable _mementoBack;
         private PaletteBorderInheritForced _borderForced;
-		private VisualOrientation _orientation;
-        private VisualOrientation _includeBorderEdge;
-        private TabBorderStyle _tabBorderStyle;
-		private Region _clipRegion;
-        private bool _drawTabBorder;
-        private bool _drawCanvas;
-        private bool _drawOnComposition;
-        private bool _applyIncludeBorderEdge;
-        #endregion
+	    private Region _clipRegion;
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -75,11 +69,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			_paletteBack = paletteBack;
 			_paletteMetric = paletteMetric;
 			_metricPadding = metricPadding;
-			_orientation = orientation;
-            _includeBorderEdge = orientation;
-            _applyIncludeBorderEdge = false;
-            _drawTabBorder = false;
-            _drawCanvas = true;
+			Orientation = orientation;
+            IncludeBorderEdge = orientation;
+            ApplyIncludeBorderEdge = false;
+            DrawTabBorder = false;
+            DrawCanvas = true;
         }
 
 		/// <summary>
@@ -193,55 +187,44 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public VisualOrientation Orientation
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _orientation; }
-			set { _orientation = value; }
-		}
-		#endregion
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    set;
+	    }
+
+	    #endregion
 
         #region DrawTabBorder
         /// <summary>
         /// Gets and sets if the border should be drawn as a tab border.
         /// </summary>
-        public bool DrawTabBorder
-        {
-            get { return _drawTabBorder; }
-            set { _drawTabBorder = value; }
-        }
-        #endregion
+        public bool DrawTabBorder { get; set; }
+
+	    #endregion
 
         #region TabBorderStyle
         /// <summary>
         /// Gets and sets the tab border style to use.
         /// </summary>
-        public TabBorderStyle TabBorderStyle
-        {
-            get { return _tabBorderStyle; }
-            set { _tabBorderStyle = value; }
-        }
-        #endregion
+        public TabBorderStyle TabBorderStyle { get; set; }
+
+	    #endregion
 
         #region IncludeBorderEdge
         /// <summary>
         /// Determines which border for the orientation is always drawn regardless of max border edges.
         /// </summary>
-        public VisualOrientation IncludeBorderEdge
-        {
-            get { return _includeBorderEdge; }
-            set { _includeBorderEdge = value; }
-        }
-        #endregion
+        public VisualOrientation IncludeBorderEdge { get; set; }
+
+	    #endregion
 
         #region ApplyIncludeBorderEdge
         /// <summary>
         /// Determines if the border for the orientation is always drawn regardless of max border edges.
         /// </summary>
-        public bool ApplyIncludeBorderEdge
-        {
-            get { return _applyIncludeBorderEdge; }
-            set { _applyIncludeBorderEdge = value; }
-        }
-        #endregion
+        public bool ApplyIncludeBorderEdge { get; set; }
+
+	    #endregion
 
         #region MaxBorderEdges
         /// <summary>
@@ -273,9 +256,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     _paletteBorder = _borderForced;
                 }
 
-                if (_applyIncludeBorderEdge)
+                if (ApplyIncludeBorderEdge)
                 {
-                    switch (_includeBorderEdge)
+                    switch (IncludeBorderEdge)
                     {
                         case VisualOrientation.Top:
                             value |= PaletteDrawBorders.Top;
@@ -336,37 +319,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets the drawing of the border before or after children.
 		/// </summary>
-		public virtual bool DrawBorderLast
-		{
-			get
-			{
-				// By default the border is drawn after the child content
-				return true;
-			}
-		}
-		#endregion
+		public virtual bool DrawBorderLast => true;
+
+	    #endregion
 
         #region DrawCanvas
         /// <summary>
         /// Gets and sets if the canvas should 
         /// </summary>
-        public bool DrawCanvas
-        {
-            get { return _drawCanvas; }
-            set { _drawCanvas = value; }
-        }
-        #endregion
+        public bool DrawCanvas { get; set; }
+
+	    #endregion
 
         #region DrawOnComposition
         /// <summary>
         /// Gets and sets a value indicating if the canvas is drawing on composition.
         /// </summary>
-        public bool DrawCanvasOnComposition
-        {
-            get { return _drawOnComposition; }
-            set { _drawOnComposition = value; }
-        }
-        #endregion
+        public bool DrawCanvasOnComposition { get; set; }
+
+	    #endregion
 
         #region GetOuterBorderPath
         /// <summary>
@@ -499,7 +470,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (child is ViewDrawContent viewContent)
                 {
                     // Do we need to draw the background?
-                    bool drawBackground = _drawCanvas && (_paletteBack.GetBackDraw(State) == InheritBool.True);
+                    bool drawBackground = DrawCanvas && (_paletteBack.GetBackDraw(State) == InheritBool.True);
 
                     // Update the content accordingly
                     viewContent.DrawContentOnComposition = DrawCanvasOnComposition && !drawBackground;
@@ -530,7 +501,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Do we need to draw the background?
-            if (_drawCanvas &&(_paletteBack.GetBackDraw(State) == InheritBool.True))
+            if (DrawCanvas &&(_paletteBack.GetBackDraw(State) == InheritBool.True))
 			{
                 GraphicsPath borderPath;
                 Padding borderPadding;
@@ -548,15 +519,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Apply the padding depending on the orientation
-                Rectangle enclosingRect = CommonHelper.ApplyPadding(_orientation, ClientRectangle, borderPadding);
+                Rectangle enclosingRect = CommonHelper.ApplyPadding(Orientation, ClientRectangle, borderPadding);
 
 				// Render the background inside the border path
-                _mementoBack = context.Renderer.RenderStandardBack.DrawBack(context, enclosingRect, borderPath, _paletteBack, _orientation, State, _mementoBack);
+                _mementoBack = context.Renderer.RenderStandardBack.DrawBack(context, enclosingRect, borderPath, _paletteBack, Orientation, State, _mementoBack);
 
                 borderPath.Dispose();
 			}
 
-            if (_drawCanvas && (_paletteBorder != null))
+            if (DrawCanvas && (_paletteBorder != null))
             {
                 // Do we draw the border before the children?
                 if (!DrawBorderLast)
@@ -610,7 +581,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException("context");
             }
 
-            if (_drawCanvas && (_paletteBorder != null))
+            if (DrawCanvas && (_paletteBorder != null))
             {
                 // Do we draw the border after the children?
                 if (DrawBorderLast)
@@ -641,11 +612,11 @@ namespace ComponentFactory.Krypton.Toolkit
 				// Render the border over the background and children
                 if (DrawTabBorder)
                 {
-                    context.Renderer.RenderTabBorder.DrawTabBorder(context, ClientRectangle, _paletteBorder, _orientation, State, TabBorderStyle);
+                    context.Renderer.RenderTabBorder.DrawTabBorder(context, ClientRectangle, _paletteBorder, Orientation, State, TabBorderStyle);
                 }
                 else
                 {
-                    context.Renderer.RenderStandardBorder.DrawBorder(context, ClientRectangle, _paletteBorder, _orientation, State);
+                    context.Renderer.RenderStandardBorder.DrawBorder(context, ClientRectangle, _paletteBorder, Orientation, State);
                 }
             }
 		}

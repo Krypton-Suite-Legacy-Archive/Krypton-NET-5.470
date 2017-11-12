@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _domainUpDown.PaletteMode; }
-            
+            get => _domainUpDown.PaletteMode;
+
             set 
             {
                 if (_domainUpDown.PaletteMode != value)
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public InputControlStyle InputControlStyle
         {
-            get { return _domainUpDown.InputControlStyle; }
+            get => _domainUpDown.InputControlStyle;
 
             set
             {

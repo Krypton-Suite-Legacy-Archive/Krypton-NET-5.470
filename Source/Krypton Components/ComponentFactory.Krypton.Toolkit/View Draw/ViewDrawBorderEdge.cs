@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private PaletteBorderEdge _palette;
         private PaletteBackInheritForced _borderForced;
-        private Orientation _orientation;
+
         #endregion
 
         #region Identity
@@ -64,11 +64,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the orientation.
         /// </summary>
-        public Orientation Orientation
-        {
-            get { return _orientation; }
-            set { _orientation = value; }
-        }
+        public Orientation Orientation { get; set; }
+
         #endregion
 
         #region SetPalettes

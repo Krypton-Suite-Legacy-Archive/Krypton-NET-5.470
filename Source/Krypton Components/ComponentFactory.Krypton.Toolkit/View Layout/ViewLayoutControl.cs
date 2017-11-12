@@ -21,9 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewLayoutControl : ViewLeaf
     {
         #region Instance Fields
-        private ViewControl _viewControl;
-        private ViewBase _viewChild;
-        private Point _layoutOffset;
+
         #endregion
 
         #region Identity
@@ -53,28 +51,28 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(viewChild != null);
 
             // Default values
-            _layoutOffset = Point.Empty;
+            LayoutOffset = Point.Empty;
 
             // Remember the view
-            _viewChild = viewChild;
+            ChildView = viewChild;
 
             // Ensure the child is hooked into the hierarchy of elements
-            _viewChild.Parent = this;
+            ChildView.Parent = this;
 
             // Create the view control instance
-            _viewControl = viewControl;
+            ChildControl = viewControl;
 
             // Back reference hookup
-            _viewControl.ViewLayoutControl = this;
+            ChildControl.ViewLayoutControl = this;
 
             // Start off invisible until first layed out
-            _viewControl.Visible = false;
+            ChildControl.Visible = false;
 
             // Ensure that all view elements inside here use our control
-            OwningControl = _viewControl;
+            OwningControl = ChildControl;
 
             // Add our new control to the provided parent collection
-            CommonHelper.AddControlToParent(rootControl, _viewControl);
+            CommonHelper.AddControlToParent(rootControl, ChildControl);
         }
 
         /// <summary>
@@ -86,21 +84,21 @@ namespace ComponentFactory.Krypton.Toolkit
             // If called from explicit call to Dispose
             if (disposing)
             {
-                if (_viewControl != null)
+                if (ChildControl != null)
                 {
                     try
                     {
-                        ViewControl vc = _viewControl;
-                        _viewControl = null;
+                        ViewControl vc = ChildControl;
+                        ChildControl = null;
                         CommonHelper.RemoveControlFromParent(vc);
                     }
                     catch { }
                 }
 
-                if (_viewChild != null)
+                if (ChildView != null)
                 {
-                    _viewChild.Dispose();
-                    _viewChild = null;
+                    ChildView.Dispose();
+                    ChildView = null;
                 }
             }
 
@@ -124,7 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool Visible
         {
-            get { return base.Visible; }
+            get => base.Visible;
 
             set
             {
@@ -133,10 +131,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     base.Visible = value;
 
                     // During disposal the view control will not longer exist
-                    if (_viewControl != null)
+                    if (ChildControl != null)
                     {
                         // Only want the child real control to show when we are
-                        _viewControl.Visible = value;
+                        ChildControl.Visible = value;
                     }
                 }
             }
@@ -147,41 +145,32 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the offset to apply the layout of the child view.
         /// </summary>
-        public Point LayoutOffset
-        {
-            get { return _layoutOffset; }
-            set { _layoutOffset = value; }
-        }
+        public Point LayoutOffset { get; set; }
+
         #endregion
 
         #region ChildView
         /// <summary>
         /// Gets access to the child view.
         /// </summary>
-        public ViewBase ChildView
-        {
-            get { return _viewChild; }
-        }
+        public ViewBase ChildView { get; private set; }
+
         #endregion
 
         #region ChildControl
         /// <summary>
         /// Gets access to the child control.
         /// </summary>
-        public ViewControl ChildControl
-        {
-            get { return _viewControl; }
-        }
+        public ViewControl ChildControl { get; private set; }
+
         #endregion
 
         #region ChildPaintDelegate
         /// <summary>
         /// Gets access to the child controls paint delegate.
         /// </summary>
-        public NeedPaintHandler ChildPaintDelegate
-        {
-            get { return _viewControl.NeedPaintDelegate; }
-        }
+        public NeedPaintHandler ChildPaintDelegate => ChildControl.NeedPaintDelegate;
+
         #endregion
 
         #region ChildTransparentBackground
@@ -190,8 +179,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ChildTransparentBackground
         {
-            get { return _viewControl.TransparentBackground; }
-            set { _viewControl.TransparentBackground = value; }
+            get => ChildControl.TransparentBackground;
+            set => ChildControl.TransparentBackground = value;
         }
         #endregion
 
@@ -201,8 +190,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool InDesignMode
         {
-            get { return _viewControl.InDesignMode; }
-            set { _viewControl.InDesignMode = value; }
+            get => ChildControl.InDesignMode;
+            set => ChildControl.InDesignMode = value;
         }
         #endregion
 
@@ -217,7 +206,7 @@ namespace ComponentFactory.Krypton.Toolkit
             CommonHelper.RemoveControlFromParent(c);
 
             // Add to our child control
-            CommonHelper.AddControlToParent(_viewControl, c);
+            CommonHelper.AddControlToParent(ChildControl, c);
         }
         #endregion
 
@@ -237,18 +226,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // During disposal the view control will not longer exist
-            if (_viewControl != null)
+            if (ChildControl != null)
             {
                 // Ensure the control has the correct parent
                 UpdateParent(context.Control);
 
                 // Ensure context has the correct control
-                using (CorrectContextControl ccc = new CorrectContextControl(context, _viewControl))
+                using (CorrectContextControl ccc = new CorrectContextControl(context, ChildControl))
                 {
                     // Ask the view for its preferred size
-                    if (_viewChild != null)
+                    if (ChildView != null)
                     {
-                        return _viewChild.GetPreferredSize(context);
+                        return ChildView.GetPreferredSize(context);
                     }
                 }
             }
@@ -271,10 +260,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // During disposal the view control will not longer exist
-            if (_viewControl != null)
+            if (ChildControl != null)
             {
                 // Ensure context has the correct control
-                using (CorrectContextControl ccc = new CorrectContextControl(context, _viewControl))
+                using (CorrectContextControl ccc = new CorrectContextControl(context, ChildControl))
                 {
                     // We take on all the available display area
                     ClientRectangle = context.DisplayRectangle;
@@ -283,17 +272,17 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (!context.ViewManager.DoNotLayoutControls)
                     {
                         // Do we have a control to position?
-                        if (_viewControl != null)
+                        if (ChildControl != null)
                         {
                             // Size and position the child control
-                            _viewControl.SetBounds(ClientLocation.X, ClientLocation.Y, ClientWidth, ClientHeight);
+                            ChildControl.SetBounds(ClientLocation.X, ClientLocation.Y, ClientWidth, ClientHeight);
 
                             // Ensure the visible/enabled states are up to date
-                            _viewControl.Visible = Visible;
-                            _viewControl.Enabled = Enabled;
+                            ChildControl.Visible = Visible;
+                            ChildControl.Enabled = Enabled;
 
                             // A layout means something might have changed, so better redraw it
-                            _viewControl.Invalidate();
+                            ChildControl.Invalidate();
                         }
                     }
 
@@ -302,7 +291,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Do we have a child view to layout?
                     // Layout the child view
-                    _viewChild?.Layout(context);
+                    ChildView?.Layout(context);
 
                     // Put back the original display value now we have finished
                     context.DisplayRectangle = ClientRectangle;
@@ -320,13 +309,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ViewBase ViewFromPoint(Point pt)
         {
             // If we contain a child view
-            if (_viewChild != null)
+            if (ChildView != null)
             {
                 // Is the point inside this controls area?
                 if (ClientRectangle.Contains(pt))
                 {
                     // Convert to contained view coordinates
-                    return _viewChild.ViewFromPoint(new Point(pt.X - ClientLocation.X,
+                    return ChildView.ViewFromPoint(new Point(pt.X - ClientLocation.X,
                                                               pt.Y - ClientLocation.Y));
                 }
             }
@@ -339,19 +328,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private void UpdateParent(Control parentControl)
         {
             // During disposal the view control will no longer exist
-            if (_viewControl != null)
+            if (ChildControl != null)
             {
                 // If the view control is not inside the correct parent
-                if (parentControl != _viewControl.Parent)
+                if (parentControl != ChildControl.Parent)
                 {
                     // Ensure the control is not in the display area when first added
-                    _viewControl.Location = new Point(-_viewControl.Width, -_viewControl.Height);
+                    ChildControl.Location = new Point(-ChildControl.Width, -ChildControl.Height);
 
                     // Add our control to the provided parent collection
-                    CommonHelper.AddControlToParent(parentControl, _viewControl);
+                    CommonHelper.AddControlToParent(parentControl, ChildControl);
 
                     // Let the actual control hook into correct parent for view manager processing
-                    _viewControl.UpdateParent(parentControl);
+                    ChildControl.UpdateParent(parentControl);
                 }
             }
         }

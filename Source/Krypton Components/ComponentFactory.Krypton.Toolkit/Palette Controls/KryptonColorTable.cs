@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonColorTable : ProfessionalColorTable
     {
         #region Instance Fields
-        private IPalette _palette;
+
         #endregion
 
         #region Identity
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Reference to associated palette.</param>
         public KryptonColorTable(IPalette palette)
         {
-            _palette = palette;
+            Palette = palette;
         }
         #endregion
 
@@ -37,90 +37,72 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the associated palette instance.
         /// </summary>
-        public IPalette Palette
-        {
-            get { return _palette; }
-        }
+        public IPalette Palette { get; }
+
         #endregion
 
         #region RoundedEdges
         /// <summary>
         /// Gets a value indicating if rounded egdes are required.
         /// </summary>
-        public virtual InheritBool UseRoundedEdges
-        {
-            get { return InheritBool.True; }
-        }
+        public virtual InheritBool UseRoundedEdges => InheritBool.True;
+
         #endregion
 
         #region MenuItemText
         /// <summary>
         /// Gets the text color used on the menu items.
         /// </summary>
-        public virtual Color MenuItemText
-        {
-            get { return SystemColors.MenuText; }
-        }
+        public virtual Color MenuItemText => SystemColors.MenuText;
+
         #endregion
 
         #region MenuStripText
         /// <summary>
         /// Gets the text color used on the menu strip.
         /// </summary>
-        public virtual Color MenuStripText
-        {
-            get { return SystemColors.MenuText; }
-        }
+        public virtual Color MenuStripText => SystemColors.MenuText;
+
         #endregion
 
         #region ToolStripText
         /// <summary>
         /// Gets the text color used on the tool strip.
         /// </summary>
-        public virtual Color ToolStripText
-        {
-            get { return SystemColors.MenuText; }
-        }
+        public virtual Color ToolStripText => SystemColors.MenuText;
+
         #endregion
 
         #region StatusStripText
         /// <summary>
         /// Gets the text color used on the status strip.
         /// </summary>
-        public virtual Color StatusStripText
-        {
-            get { return SystemColors.MenuText; }
-        }
+        public virtual Color StatusStripText => SystemColors.MenuText;
+
         #endregion
 
         #region MenuStripFont
         /// <summary>
         /// Gets the font used on the menu strip.
         /// </summary>
-        public virtual Font MenuStripFont
-        {
-            get { return SystemInformation.MenuFont; }
-        }
+        public virtual Font MenuStripFont => SystemInformation.MenuFont;
+
         #endregion
 
         #region ToolStripFont
         /// <summary>
         /// Gets the font used on the tool strip.
         /// </summary>
-        public virtual Font ToolStripFont
-        {
-            get { return SystemInformation.MenuFont; }
-        }
+        public virtual Font ToolStripFont => SystemInformation.MenuFont;
+
         #endregion
 
         #region StatusStripFont
         /// <summary>
         /// Gets the font used on the status strip.
         /// </summary>
-        public virtual Font StatusStripFont
-        {
-            get { return SystemInformation.MenuFont; }
-        }
+        public virtual Font StatusStripFont => SystemInformation.MenuFont;
+
         #endregion
     }
 }

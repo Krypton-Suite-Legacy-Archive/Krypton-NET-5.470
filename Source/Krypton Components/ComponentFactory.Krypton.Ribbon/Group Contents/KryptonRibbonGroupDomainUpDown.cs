@@ -33,14 +33,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _visible;
         private bool _enabled;
         private string _keyTip;
-        private Keys _shortcutKeys;
         private GroupItemSize _itemSizeCurrent;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonDomainUpDown _domainUpDown;
-        private KryptonDomainUpDown _lastDomainUpDown;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _domainUpDownView;
+
         #endregion
 
         #region Events
@@ -133,11 +127,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _visible = true;
             _enabled = true;
             _itemSizeCurrent = GroupItemSize.Medium;
-            _shortcutKeys = Keys.None;
+            ShortcutKeys = Keys.None;
             _keyTip = "X";
 
             // Create the actual domain up-down control and set initial settings
-            _domainUpDown = new KryptonDomainUpDown
+            DomainUpDown = new KryptonDomainUpDown
             {
                 InputControlStyle = InputControlStyle.Ribbon,
                 AlwaysActive = false,
@@ -147,18 +141,18 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            _domainUpDown.Scroll += new ScrollEventHandler(OnDomainUpDownScroll);
-            _domainUpDown.SelectedItemChanged += new EventHandler(OnDomainUpDownSelectedItemChanged);
-            _domainUpDown.GotFocus += new EventHandler(OnDomainUpDownGotFocus);
-            _domainUpDown.LostFocus += new EventHandler(OnDomainUpDownLostFocus);
-            _domainUpDown.KeyDown += new KeyEventHandler(OnDomainUpDownKeyDown);
-            _domainUpDown.KeyUp += new KeyEventHandler(OnDomainUpDownKeyUp);
-            _domainUpDown.KeyPress += new KeyPressEventHandler(OnDomainUpDownKeyPress);
-            _domainUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDomainUpDownPreviewKeyDown);
-            _domainUpDown.TextChanged += new EventHandler(OnDomainUpDownTextChanged);
+            DomainUpDown.Scroll += new ScrollEventHandler(OnDomainUpDownScroll);
+            DomainUpDown.SelectedItemChanged += new EventHandler(OnDomainUpDownSelectedItemChanged);
+            DomainUpDown.GotFocus += new EventHandler(OnDomainUpDownGotFocus);
+            DomainUpDown.LostFocus += new EventHandler(OnDomainUpDownLostFocus);
+            DomainUpDown.KeyDown += new KeyEventHandler(OnDomainUpDownKeyDown);
+            DomainUpDown.KeyUp += new KeyEventHandler(OnDomainUpDownKeyUp);
+            DomainUpDown.KeyPress += new KeyPressEventHandler(OnDomainUpDownKeyPress);
+            DomainUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDomainUpDownPreviewKeyDown);
+            DomainUpDown.TextChanged += new EventHandler(OnDomainUpDownTextChanged);
 
             // Ensure we can track mouse events on the domain up-down
-            MonitorControl(_domainUpDown);
+            MonitorControl(DomainUpDown);
         }
 
         /// <summary>
@@ -169,11 +163,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_domainUpDown != null)
+                if (DomainUpDown != null)
                 {
-                    UnmonitorControl(_domainUpDown);
-                    _domainUpDown.Dispose();
-                    _domainUpDown = null;
+                    UnmonitorControl(DomainUpDown);
+                    DomainUpDown.Dispose();
+                    DomainUpDown = null;
                 }
             }
 
@@ -198,7 +192,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the same palette in the domain up-down as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
-                    _domainUpDown.Palette = Ribbon.GetResolvedPalette();
+                    DomainUpDown.Palette = Ribbon.GetResolvedPalette();
                     Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
                 }
             }
@@ -211,8 +205,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int SelectedIndex
         {
-            get { return DomainUpDown.SelectedIndex; }
-            set { DomainUpDown.SelectedIndex = value; }
+            get => DomainUpDown.SelectedIndex;
+            set => DomainUpDown.SelectedIndex = value;
         }
 
         /// <summary>
@@ -222,8 +216,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object SelectedItem
         {
-            get { return DomainUpDown.SelectedItem; }
-            set { DomainUpDown.SelectedItem = value; }
+            get => DomainUpDown.SelectedItem;
+            set => DomainUpDown.SelectedItem = value;
         }
 
         /// <summary>
@@ -234,8 +228,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
         {
-            get { return _domainUpDown.Text; }
-            set { _domainUpDown.Text = value; }
+            get => DomainUpDown.Text;
+            set => DomainUpDown.Text = value;
         }
 
         /// <summary>
@@ -244,11 +238,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         [Category("Behavior")]
         [Description("Shortcut key combination to set focus to the domain up-down.")]
-        public Keys ShortcutKeys
-        {
-            get { return _shortcutKeys; }
-            set { _shortcutKeys = value; }
-        }
+        public Keys ShortcutKeys { get; set; }
 
         private bool ShouldSerializeShortcutKeys()
         {
@@ -271,10 +261,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(true)]
-        public DomainUpDown.DomainUpDownItemCollection Items
-        {
-            get { return DomainUpDown.Items; }
-        }
+        public DomainUpDown.DomainUpDownItemCollection Items => DomainUpDown.Items;
 
         /// <summary>
         /// Access to the actual embedded KryptonDomainUpDown instance.
@@ -283,10 +270,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonDomainUpDown DomainUpDown
-        {
-            get { return _domainUpDown; }
-        }
+        public KryptonDomainUpDown DomainUpDown { get; private set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the item collection is sorted.   
@@ -296,8 +280,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool Sorted
         {
-            get { return DomainUpDown.Sorted; }
-            set { DomainUpDown.Sorted = value; }
+            get => DomainUpDown.Sorted;
+            set => DomainUpDown.Sorted = value;
         }
 
         /// <summary>
@@ -310,7 +294,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("X")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -332,8 +316,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public HorizontalAlignment TextAlign
         {
-            get { return _domainUpDown.TextAlign; }
-            set { _domainUpDown.TextAlign = value; }
+            get => DomainUpDown.TextAlign;
+            set => DomainUpDown.TextAlign = value;
         }
 
 
@@ -346,8 +330,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public LeftRightAlignment UpDownAlign
         {
-            get { return _domainUpDown.UpDownAlign; }
-            set { _domainUpDown.UpDownAlign = value; }
+            get => DomainUpDown.UpDownAlign;
+            set => DomainUpDown.UpDownAlign = value;
         }
 
         /// <summary>
@@ -358,8 +342,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool InterceptArrowKeys
         {
-            get { return _domainUpDown.InterceptArrowKeys; }
-            set { _domainUpDown.InterceptArrowKeys = value; }
+            get => DomainUpDown.InterceptArrowKeys;
+            set => DomainUpDown.InterceptArrowKeys = value;
         }
 
         /// <summary>
@@ -371,8 +355,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool ReadOnly
         {
-            get { return _domainUpDown.ReadOnly; }
-            set { _domainUpDown.ReadOnly = value; }
+            get => DomainUpDown.ReadOnly;
+            set => DomainUpDown.ReadOnly = value;
         }
 
         /// <summary>
@@ -381,10 +365,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonDomainUpDown.DomainUpDownButtonSpecCollection ButtonSpecs
-        {
-            get { return _domainUpDown.ButtonSpecs; }
-        }
+        public KryptonDomainUpDown.DomainUpDownButtonSpecCollection ButtonSpecs => DomainUpDown.ButtonSpecs;
+
         /// <summary>
         /// Gets and sets the visible state of the domain up-down.
         /// </summary>
@@ -397,7 +379,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -434,7 +416,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -454,8 +436,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MinimumSize
         {
-            get { return _domainUpDown.MinimumSize; }
-            set { _domainUpDown.MinimumSize = value; }
+            get => DomainUpDown.MinimumSize;
+            set => DomainUpDown.MinimumSize = value;
         }
 
         /// <summary>
@@ -466,8 +448,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MaximumSize
         {
-            get { return _domainUpDown.MaximumSize; }
-            set { _domainUpDown.MaximumSize = value; }
+            get => DomainUpDown.MaximumSize;
+            set => DomainUpDown.MaximumSize = value;
         }
 
         /// <summary>
@@ -478,8 +460,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _domainUpDown.ContextMenuStrip; }
-            set { _domainUpDown.ContextMenuStrip = value; }
+            get => DomainUpDown.ContextMenuStrip;
+            set => DomainUpDown.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -490,8 +472,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _domainUpDown.KryptonContextMenu; }
-            set { _domainUpDown.KryptonContextMenu = value; }
+            get => DomainUpDown.KryptonContextMenu;
+            set => DomainUpDown.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -502,8 +484,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool AllowButtonSpecToolTips
         {
-            get { return _domainUpDown.AllowButtonSpecToolTips; }
-            set { _domainUpDown.AllowButtonSpecToolTips = value; }
+            get => DomainUpDown.AllowButtonSpecToolTips;
+            set => DomainUpDown.AllowButtonSpecToolTips = value;
         }
 
         /// <summary>
@@ -513,7 +495,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="length">The number of characters to select.</param>
         public void Select(int start, int length)
         {
-            _domainUpDown.Select(start, length);
+            DomainUpDown.Select(start, length);
         }
 
         /// <summary>
@@ -548,7 +530,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -579,11 +561,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject DomainUpDownDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject DomainUpDownDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.
@@ -591,11 +569,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase DomainUpDownView
-        {
-            get { return _domainUpDownView; }
-            set { _domainUpDownView = value; }
-        }
+        public ViewBase DomainUpDownView { get; set; }
+
         #endregion
 
         #region Protected Virtual
@@ -691,23 +666,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonDomainUpDown LastDomainUpDown
-        {
-            get { return _lastDomainUpDown; }
-            set { _lastDomainUpDown = value; }
-        }
+        internal KryptonDomainUpDown LastDomainUpDown { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
@@ -771,7 +734,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            _viewPaintDelegate?.Invoke(this, e);
+            ViewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnDomainUpDownScroll(object sender, ScrollEventArgs e)
@@ -821,7 +784,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)
         {
-            _domainUpDown.Palette = Ribbon.GetResolvedPalette();
+            DomainUpDown.Palette = Ribbon.GetResolvedPalette();
         }
         #endregion
     }

@@ -62,8 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Size SeparatorSize
         {
-            get { return new Size(_width, _height); }
-            
+            get => new Size(_width, _height);
+
             set
             {
                 _width = value.Width;

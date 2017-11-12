@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Workspace
 	public class PageSavingEventArgs : XmlSavingEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Workspace
                                    XmlWriter xmlWriter)
             : base(workspace, xmlWriter)
 		{
-            _page = page;
+            Page = page;
 		}
 		#endregion
 
@@ -42,10 +42,8 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the workspace cell page reference.
 		/// </summary>
-        public KryptonPage Page
-		{
-            get { return _page; }
-		}
-        #endregion
+        public KryptonPage Page { get; }
+
+	    #endregion
 	}
 }

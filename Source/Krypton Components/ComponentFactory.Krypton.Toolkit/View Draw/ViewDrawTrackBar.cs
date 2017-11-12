@@ -38,11 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private PaletteTrackBarStates _stateDisabled;
-        private PaletteTrackBarStatesOverride _stateNormal;
-        private PaletteTrackBarPositionStatesOverride _stateTracking;
-        private PaletteTrackBarPositionStatesOverride _statePressed;
-        private Padding _padding;
+
         private Orientation _orientation;
         private TickStyle _tickStyle;
         private int _tickFreq;
@@ -51,13 +47,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _maximum;
         private int _smallChange;
         private int _largeChange;
-        private bool _volumeControl;
         private ViewLayoutDocker _layoutTop;
-        private ViewDrawTP _trackPosition;
         private ViewDrawTrackTicks _ticksTop;
         private ViewDrawTrackTicks _ticksBottom;
-        private RightToLeft _rightToLeft;
-        private PaletteTrackBarSize _trackBarSize;
         private NeedPaintHandler _needPaint;
         #endregion
 
@@ -90,11 +82,11 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(stateNormal.Back)
 		{
             // Default state
-            _stateNormal = stateNormal;
-            _stateDisabled = stateDisabled;
-            _stateTracking = stateTracking;
-            _statePressed = statePressed;
-            _padding = Padding.Empty;
+            StateNormal = stateNormal;
+            StateDisabled = stateDisabled;
+            StateTracking = stateTracking;
+            StatePressed = statePressed;
+            Padding = Padding.Empty;
             _orientation = Orientation.Horizontal;
             _value = 0;
             _minimum = 0;
@@ -103,12 +95,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _largeChange = 5;
             _tickFreq = 1;
             _tickStyle = TickStyle.BottomRight;
-            _trackBarSize = PaletteTrackBarSize.Medium;
-            _volumeControl = false;
+            TrackBarSize = PaletteTrackBarSize.Medium;
+            VolumeControl = false;
             _needPaint = needPaint;
 
             // Create drawing/layout elements
-            _trackPosition = new ViewDrawTP(this);
+            TrackPosition = new ViewDrawTP(this);
             _ticksTop = new ViewDrawTrackTicks(this, true);
             _ticksBottom = new ViewDrawTrackTicks(this, false);
             _ticksTop.Visible = false;
@@ -118,7 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutTop = new ViewLayoutDocker
             {
                 { _ticksTop, ViewDockStyle.Top },
-                { _trackPosition, ViewDockStyle.Top },
+                { TrackPosition, ViewDockStyle.Top },
                 { _ticksBottom, ViewDockStyle.Top }
             };
             _layoutTop.Padding = Padding;
@@ -140,53 +132,34 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the track position element.
         /// </summary>
-        public ViewDrawTP TrackPosition
-        {
-            get { return _trackPosition; }
-        }
+        public ViewDrawTP TrackPosition { get; }
 
         /// <summary>
         /// Gets and sets the track bar size.
         /// </summary>
-        public PaletteTrackBarSize TrackBarSize
-        {
-            get { return _trackBarSize; }
-            set { _trackBarSize = value; }
-        }
+        public PaletteTrackBarSize TrackBarSize { get; set; }
 
         /// <summary>
         /// Gets and sets if the track bar displays like a volume control.
         /// </summary>
-        public bool VolumeControl
-        {
-            get { return _volumeControl; }
-            set { _volumeControl = value; }
-        }
+        public bool VolumeControl { get; set; }
 
         /// <summary>
         /// Gets and sets the internal padding space.
         /// </summary>
-        public Padding Padding
-        {
-            get { return _padding; }
-            set { _padding = value; }
-        }
+        public Padding Padding { get; set; }
 
         /// <summary>
         /// Gets and sets the right to left setting.
         /// </summary>
-        public RightToLeft RightToLeft
-        {
-            get { return _rightToLeft; }
-            set { _rightToLeft = value; }
-        }
+        public RightToLeft RightToLeft { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating how to display the tick marks on the track bar.
         /// </summary>
         public TickStyle TickStyle
         {
-            get { return _tickStyle; }
+            get => _tickStyle;
 
             set
             {
@@ -222,7 +195,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int TickFrequency
         {
-            get { return _tickFreq; }
+            get => _tickFreq;
 
             set
             {
@@ -238,7 +211,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Orientation Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
 
             set
             {
@@ -256,7 +229,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Maximum
         {
-            get { return _maximum; }
+            get => _maximum;
 
             set
             {
@@ -277,7 +250,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Minimum
         {
-            get { return _minimum; }
+            get => _minimum;
 
             set
             {
@@ -298,7 +271,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Value
         {
-            get { return _value; }
+            get => _value;
 
             set
             {
@@ -341,7 +314,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int SmallChange
         {
-            get { return _smallChange; }
+            get => _smallChange;
 
             set
             {
@@ -359,7 +332,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int LargeChange
         {
-            get { return _largeChange; }
+            get => _largeChange;
 
             set
             {
@@ -419,7 +392,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _ticksBottom.FixedState = state;
             }
 
-            _trackPosition.SetFixedState(state);
+            TrackPosition.SetFixedState(state);
         }
 
         /// <summary>
@@ -427,15 +400,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool Enabled
         {
-            get { return base.Enabled; }
-            
+            get => base.Enabled;
+
             set
             {
                 base.Enabled = value;
 
                 // Update with latest enabled state
                 _layoutTop.Enabled = value;
-                _trackPosition.Enabled = value;
+                TrackPosition.Enabled = value;
                 _ticksTop.Enabled = value;
                 _ticksBottom.Enabled = value;
             }
@@ -462,7 +435,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                switch (_trackBarSize)
+                switch (TrackBarSize)
                 {
                     case PaletteTrackBarSize.Small:
                         return (_orientation == Orientation.Horizontal ? _positionSizeSmallH : _positionSizeSmallV);
@@ -482,7 +455,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                switch (_trackBarSize)
+                switch (TrackBarSize)
                 {
                     case PaletteTrackBarSize.Small:
                         return VolumeControl ? _trackSizeSmallV : _trackSizeSmall;
@@ -502,7 +475,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                switch (_trackBarSize)
+                switch (TrackBarSize)
                 {
                     case PaletteTrackBarSize.Small:
                         return _tickSizeSmall;
@@ -518,35 +491,23 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the normal state.
         /// </summary>
-        public PaletteTrackBarStatesOverride StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTrackBarStatesOverride StateNormal { get; }
 
         /// <summary>
         /// Gets access to the disabled state.
         /// </summary>
-        public PaletteTrackBarStates StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTrackBarStates StateDisabled { get; }
 
         /// <summary>
         /// Gets access to the tracking state.
         /// </summary>
-        public PaletteTrackBarPositionStatesOverride StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTrackBarPositionStatesOverride StateTracking { get; }
 
         /// <summary>
         /// Gets access to the pressed state.
         /// </summary>
-        public PaletteTrackBarPositionStatesOverride StatePressed
-        {
-            get { return _statePressed; }
-        }
-    
+        public PaletteTrackBarPositionStatesOverride StatePressed { get; }
+
         /// <summary>
         /// Raises a need paint event.
         /// </summary>

@@ -18,11 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteContextMenu : Storage
     {
         #region Instance Fields
-        private PaletteContextMenuRedirect _stateCommon;
-        private PaletteContextMenuItemState _stateNormal;
-        private PaletteContextMenuItemState _stateDisabled;
-        private PaletteContextMenuItemStateHighlight _stateHighlight;
-        private PaletteContextMenuItemStateChecked _stateChecked;
+
         #endregion
 
         #region Identity
@@ -35,11 +31,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                            NeedPaintHandler needPaint)
         {
             // Create the storage objects
-            _stateCommon = new PaletteContextMenuRedirect(redirect, needPaint);
-            _stateNormal = new PaletteContextMenuItemState(_stateCommon);
-            _stateDisabled = new PaletteContextMenuItemState(_stateCommon);
-            _stateHighlight = new PaletteContextMenuItemStateHighlight(_stateCommon);
-            _stateChecked = new PaletteContextMenuItemStateChecked(_stateCommon);
+            StateCommon = new PaletteContextMenuRedirect(redirect, needPaint);
+            StateNormal = new PaletteContextMenuItemState(StateCommon);
+            StateDisabled = new PaletteContextMenuItemState(StateCommon);
+            StateHighlight = new PaletteContextMenuItemStateHighlight(StateCommon);
+            StateChecked = new PaletteContextMenuItemStateChecked(StateCommon);
         }
         #endregion
 
@@ -50,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateCommon.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -58,17 +54,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _stateCommon.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateHighlight.IsDefault &&
-                       _stateChecked.IsDefault;
-            }
-        }
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateHighlight.IsDefault &&
+                                          StateChecked.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -79,11 +70,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase(KryptonPaletteCommon common)
         {
             // Populate only the designated styles
-            _stateCommon.PopulateFromBase(common, PaletteState.Normal);
-            _stateDisabled.PopulateFromBase(common, PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(common, PaletteState.Normal);
-            _stateHighlight.PopulateFromBase(common, PaletteState.Tracking);
-            _stateChecked.PopulateFromBase(common, PaletteState.CheckedNormal);
+            StateCommon.PopulateFromBase(common, PaletteState.Normal);
+            StateDisabled.PopulateFromBase(common, PaletteState.Disabled);
+            StateNormal.PopulateFromBase(common, PaletteState.Normal);
+            StateHighlight.PopulateFromBase(common, PaletteState.Tracking);
+            StateChecked.PopulateFromBase(common, PaletteState.CheckedNormal);
         }
         #endregion
 
@@ -95,14 +86,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContextMenuRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteContextMenuRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -114,14 +102,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContextMenuItemState StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteContextMenuItemState StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -133,14 +118,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContextMenuItemState StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteContextMenuItemState StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -152,14 +134,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining highlight appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContextMenuItemStateHighlight StateHighlight
-        {
-            get { return _stateHighlight; }
-        }
+        public PaletteContextMenuItemStateHighlight StateHighlight { get; }
 
         private bool ShouldSerializeStateHighlight()
         {
-            return !_stateHighlight.IsDefault;
+            return !StateHighlight.IsDefault;
         }
         #endregion
 
@@ -171,14 +150,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining checked appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContextMenuItemStateChecked StateChecked
-        {
-            get { return _stateChecked; }
-        }
+        public PaletteContextMenuItemStateChecked StateChecked { get; }
 
         private bool ShouldSerializeStateChecked()
         {
-            return !_stateChecked.IsDefault;
+            return !StateChecked.IsDefault;
         }
         #endregion
     }

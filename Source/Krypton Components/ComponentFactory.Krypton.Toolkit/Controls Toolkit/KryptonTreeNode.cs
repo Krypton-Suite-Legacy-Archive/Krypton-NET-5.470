@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string LongText
         {
-            get { return _longText; }
+            get => _longText;
 
             set 
             {
@@ -133,7 +133,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Foreground color of the long text")]
         public Color LongForeColor
         {
-            get { return _longForeColor; }
+            get => _longForeColor;
 
             set
             {
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Font of the long text")]
         public Font LongNodeFont
         {
-            get { return _longNodeFont; }
+            get => _longNodeFont;
 
             set
             {

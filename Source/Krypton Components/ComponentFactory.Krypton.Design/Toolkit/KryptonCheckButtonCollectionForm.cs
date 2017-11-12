@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class ListEntry
         {
             #region Instance Fields
-            private KryptonCheckButton _checkButton;
+
             #endregion
 
             #region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
             public ListEntry(KryptonCheckButton checkButton)
             {
                 Debug.Assert(checkButton != null);
-                _checkButton = checkButton;
+                CheckButton = checkButton;
             }
 
             /// <summary>
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>String instance.</returns>
             public override string ToString()
             {
-                return _checkButton.Site.Name + "  (Text: " + _checkButton.Text + ")";
+                return CheckButton.Site.Name + "  (Text: " + CheckButton.Text + ")";
             }
             #endregion
 
@@ -50,10 +50,8 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets access to the encapsulated check button instance.
             /// </summary>
-            public KryptonCheckButton CheckButton
-            {
-                get { return _checkButton; }
-            }
+            public KryptonCheckButton CheckButton { get; }
+
             #endregion
         }
         #endregion

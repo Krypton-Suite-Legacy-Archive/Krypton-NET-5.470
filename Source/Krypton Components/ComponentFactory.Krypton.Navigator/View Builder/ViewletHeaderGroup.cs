@@ -22,8 +22,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewletHeaderGroup
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
-        private PaletteRedirect _redirector;
+
         private ViewDrawDocker _viewGroup;
         private ViewDrawDocker _viewHeadingPrimary;
         private ViewDrawContent _viewContentPrimary;
@@ -49,8 +48,8 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(needPaintDelegate != null);
 
             // Remember references
-            _navigator = navigator;
-            _redirector = redirector;
+            Navigator = navigator;
+            Redirector = redirector;
             _needPaintDelegate = needPaintDelegate;
         }
         #endregion
@@ -59,18 +58,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the navigator reference.
         /// </summary>
-        public KryptonNavigator Navigator
-        {
-            get { return _navigator; }
-        }
+        public KryptonNavigator Navigator { get; }
 
         /// <summary>
         /// Gets access to the palette redirector reference.
         /// </summary>
-        public PaletteRedirect Redirector
-        {
-            get { return _redirector; }
-        }
+        public PaletteRedirect Redirector { get; }
 
         /// <summary>
 		/// Construct the view appropriate for this builder.
@@ -514,37 +507,37 @@ namespace ComponentFactory.Krypton.Navigator
 
         private void OnDragStart(object sender, DragStartEventCancelArgs e)
         {
-            _navigator.InternalDragStart(e, null);
+            Navigator.InternalDragStart(e, null);
         }
 
         private void OnDragMove(object sender, PointEventArgs e)
         {
-            _navigator.InternalDragMove(e);
+            Navigator.InternalDragMove(e);
         }
 
         private void OnDragEnd(object sender, PointEventArgs e)
         {
-            _navigator.InternalDragEnd(e);
+            Navigator.InternalDragEnd(e);
         }
 
         private void OnDragQuit(object sender, EventArgs e)
         {
-            _navigator.InternalDragQuit();
+            Navigator.InternalDragQuit();
         }
 
         private void OnLeftMouseDown(object sender, EventArgs e)
         {
-            _navigator.OnPrimaryHeaderLeftClicked(e);
+            Navigator.OnPrimaryHeaderLeftClicked(e);
         }
 
         private void OnRightMouseDown(object sender, EventArgs e)
         {
-            _navigator.OnPrimaryHeaderRightClicked(e);
+            Navigator.OnPrimaryHeaderRightClicked(e);
         }
 
         private void OnLeftDoubleClick(object sender, EventArgs e)
         {
-            _navigator.OnPrimaryHeaderDoubleClicked(e);
+            Navigator.OnPrimaryHeaderDoubleClicked(e);
         }
         #endregion
     }

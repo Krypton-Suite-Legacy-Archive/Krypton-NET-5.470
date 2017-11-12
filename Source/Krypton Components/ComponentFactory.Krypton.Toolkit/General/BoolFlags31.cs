@@ -16,18 +16,14 @@ namespace ComponentFactory.Krypton.Toolkit
     public struct BoolFlags31
     {
         #region Instance Fields
-        private int _flags;
+
         #endregion
 
         #region Public
         /// <summary>
         /// Gets and sets the entire flags value.
         /// </summary>
-        public int Flags
-        {
-            get { return _flags; }
-            set { _flags = value; }
-        }
+        public int Flags { get; set; }
 
         /// <summary>
         /// Set all the provided flags to true.
@@ -36,13 +32,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <return>Set of flags that have changed in value.</return>
         public int SetFlags(int flags)
         {
-            int before = _flags;
+            int before = Flags;
 
             // Set all the provided flags
-            _flags |= flags;
+            Flags |= flags;
 
             // Return set of flags that have changed value
-            return (before ^ _flags);
+            return (before ^ Flags);
         }
 
         /// <summary>
@@ -52,13 +48,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <return>Set of flags that have changed in value.</return>
         public int ClearFlags(int flags)
         {
-            int before = _flags;
+            int before = Flags;
 
             // Clear all the provided flags
-            _flags &= ~flags;
+            Flags &= ~flags;
 
             // Return set of flags that have changed value
-            return (before ^ _flags);
+            return (before ^ Flags);
         }
 
         /// <summary>
@@ -68,7 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if all flags are set; otherwise false.</returns>
         public bool AreFlagsSet(int flags)
         {
-            return ((_flags & flags) == flags);
+            return ((Flags & flags) == flags);
         }
         #endregion
     }

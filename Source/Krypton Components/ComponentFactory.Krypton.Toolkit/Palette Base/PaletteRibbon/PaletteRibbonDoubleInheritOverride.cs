@@ -19,9 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRibbonDoubleInheritOverride : PaletteRibbonDoubleInherit
     {
         #region Instance Fields
-        private bool _apply;
-        private bool _override;
-        private PaletteState _state;
+
         private IPaletteRibbonBack _primaryBack;
         private IPaletteRibbonBack _backupBack;
         private IPaletteRibbonText _primaryText;
@@ -55,9 +53,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _backupText = backupText;
 
             // Default state
-            _apply = false;
-            _override = true;
-            _state = state;
+            Apply = false;
+            Override = true;
+            OverrideState = state;
         }
         #endregion
 
@@ -65,33 +63,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets a value indicating if override should be applied.
         /// </summary>
-        public bool Apply
-        {
-            get { return _apply; }
-            set { _apply = value; }
-        }
+        public bool Apply { get; set; }
+
         #endregion
 
         #region Override
         /// <summary>
         /// Gets and sets a value indicating if override state should be applied.
         /// </summary>
-        public bool Override
-        {
-            get { return _override; }
-            set { _override = value; }
-        }
+        public bool Override { get; set; }
+
         #endregion
 
         #region OverrideState
         /// <summary>
         /// Gets and sets the override palette state to use.
         /// </summary>
-        public PaletteState OverrideState
-        {
-            get { return _state; }
-            set { _state = value; }
-        }
+        public PaletteState OverrideState { get; set; }
+
         #endregion
 
         #region IPaletteRibbonBack
@@ -102,9 +91,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteRibbonBackStyle value.</returns>
         public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(_override ? _state : state);
+                PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteRibbonColorStyle.Inherit)
                 {
@@ -126,9 +115,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor1(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -150,9 +139,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor2(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -174,9 +163,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor3(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor3(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor3(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -198,9 +187,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor4(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor4(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor4(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -222,9 +211,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor5(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor5(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor5(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -248,9 +237,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonTextColor(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryText.GetRibbonTextColor(_override ? _state : state);
+                Color ret = _primaryText.GetRibbonTextColor(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {

@@ -118,8 +118,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ContextTabSet ContextTabSet
         {
-            get { return _context; }
-            
+            get => _context;
+
             set 
             { 
                 _context = value;
@@ -143,8 +143,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return (_ribbon.Visible && base.Visible); }
-            set { base.Visible = value; }
+            get => (_ribbon.Visible && base.Visible);
+            set => base.Visible = value;
         }
         #endregion
 
@@ -580,7 +580,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Title string.</returns>
         public string GetShortText()
         {
-            if ((_context != null) && (_context.ContextTitle != null))
+            if (_context?.ContextTitle != null)
             {
                 return _context.ContextTitle;
             }

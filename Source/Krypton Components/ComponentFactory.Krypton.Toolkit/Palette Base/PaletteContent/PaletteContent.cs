@@ -44,17 +44,10 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets a value indicating if all values are default.
             /// </summary>
-            public bool IsDefault
-            {
-                get
-                {
-                    return (ContentDraw == InheritBool.Inherit) &&
-                           (ContentDrawFocus == InheritBool.Inherit) &&
-                           ContentPadding.Equals(CommonHelper.InheritPadding) &&
-                           (ContentAdjacentGap == -1);
-
-                }
-            }
+            public bool IsDefault => (ContentDraw == InheritBool.Inherit) &&
+                                     (ContentDrawFocus == InheritBool.Inherit) &&
+                                     ContentPadding.Equals(CommonHelper.InheritPadding) &&
+                                     (ContentAdjacentGap == -1);
         }
         #endregion
 
@@ -113,16 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((_image.IsDefault) &&
-                        (_shortText.IsDefault) &&
-                        (_longText.IsDefault) &&
-                        ((_storage == null) || _storage.IsDefault));
-            }
-        }
+        public override bool IsDefault => ((_image.IsDefault) &&
+                                           (_shortText.IsDefault) &&
+                                           (_longText.IsDefault) &&
+                                           ((_storage == null) || _storage.IsDefault));
+
         #endregion
 
         #region SetInherit
@@ -329,10 +317,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining image appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteContentImage Image
-        {
-            get { return _image; }
-        }
+        public virtual PaletteContentImage Image => _image;
 
         private bool ShouldSerializeImage()
         {
@@ -433,10 +418,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining short text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteContentText ShortText
-        {
-            get { return _shortText; }
-        }
+        public virtual PaletteContentText ShortText => _shortText;
 
         private bool ShouldSerializeShortText()
         {
@@ -741,10 +723,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining long text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteContentText LongText
-        {
-            get { return _longText; }
-        }
+        public virtual PaletteContentText LongText => _longText;
 
         private bool ShouldSerializeLongText()
         {

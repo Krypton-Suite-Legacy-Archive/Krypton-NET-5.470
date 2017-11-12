@@ -30,8 +30,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewBase _target;
         private NeedPaintHandler _needPaint;
         private ViewDrawMenuColorBlock _menuColorBlock;
-        private ViewContextMenuManager _viewManager;
-        #endregion
+
+	    #endregion
 
         #region Events
         /// <summary>
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(colorBlock != null);
             Debug.Assert(needPaint != null);
 
-            _viewManager = viewManager;
+            ViewManager = viewManager;
             _target = target;
             _menuColorBlock = colorBlock;
             NeedPaint = needPaint;
@@ -72,12 +72,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns if the item shows a sub menu when selected.
         /// </summary>
-        public virtual bool HasSubMenu
-        {
-            get { return false; }
-        }
+        public virtual bool HasSubMenu => false;
 
-        /// <summary>
+	    /// <summary>
         /// This target should display as the active target.
         /// </summary>
         public virtual void ShowTarget()
@@ -136,12 +133,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Get the client rectangle for the display of this target.
         /// </summary>
-        public Rectangle ClientRectangle
-        {
-            get { return _target.ClientRectangle; }
-        }
+        public Rectangle ClientRectangle => _target.ClientRectangle;
 
-        /// <summary>
+	    /// <summary>
         /// Should a mouse down at the provided point cause the currently stacked context menu to become current.
         /// </summary>
         /// <param name="pt">Client coordinates point.</param>
@@ -245,11 +239,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Key Notifications
         /// <summary>
@@ -285,25 +277,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     break;
                 case Keys.Tab:
-                    _viewManager.KeyTab(e.Shift);
+                    ViewManager.KeyTab(e.Shift);
                     break;
                 case Keys.Home:
-                    _viewManager.KeyHome();
+                    ViewManager.KeyHome();
                     break;
                 case Keys.End:
-                    _viewManager.KeyEnd();
+                    ViewManager.KeyEnd();
                     break;
                 case Keys.Up:
-                    _viewManager.KeyUp();
+                    ViewManager.KeyUp();
                     break;
                 case Keys.Down:
-                    _viewManager.KeyDown();
+                    ViewManager.KeyDown();
                     break;
                 case Keys.Left:
-                    _viewManager.KeyLeft(true);
+                    ViewManager.KeyLeft(true);
                     break;
                 case Keys.Right:
-                    _viewManager.KeyRight();
+                    ViewManager.KeyRight();
                     break;
             }
         }
@@ -329,7 +321,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException("e");
             }
 
-            _viewManager.KeyMnemonic(e.KeyChar);
+            ViewManager.KeyMnemonic(e.KeyChar);
         }
 
         /// <summary>
@@ -382,7 +374,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -404,12 +396,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
         #region Private
-        private ViewContextMenuManager ViewManager
-        {
-            get { return _viewManager; }
-        }
+        private ViewContextMenuManager ViewManager { get; }
 
-        private void PressColorBlock()
+	    private void PressColorBlock()
         {
             Click?.Invoke(this, EventArgs.Empty);
 

@@ -24,8 +24,7 @@ namespace ComponentFactory.Krypton.Ribbon
 	{
 		#region Instance Fields
         private NeedPaintHandler _needPaint;
-        private ViewBase _target;
-        private bool _mouseOver;
+	    private bool _mouseOver;
         private bool _rightButtonDown;
         #endregion
 
@@ -53,7 +52,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(target != null);
             Debug.Assert(needPaint != null);
 
-			_target = target;
+			Target = target;
             NeedPaint = needPaint;
         }
 		#endregion
@@ -152,11 +151,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Public
         /// <summary>
@@ -164,7 +161,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -179,12 +176,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()
@@ -229,9 +223,9 @@ namespace ComponentFactory.Krypton.Ribbon
             PaletteState newState = (_mouseOver ? PaletteState.Tracking : PaletteState.Normal);
 
             // If state has changed
-            if (_target.ElementState != newState)
+            if (Target.ElementState != newState)
             {
-                _target.ElementState = newState;
+                Target.ElementState = newState;
 
                 // Redraw to show the change in visual state
                 OnNeedPaint(false);
@@ -244,7 +238,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, Target.ClientRectangle));
         }
 
         /// <summary>

@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                        ISourceController
 	{
 		#region Instance Fields
-		private bool _captured;
-        private bool _mouseOver;
+
+	    private bool _mouseOver;
         private DateTime _clickTime;
         private ViewDrawContent _target;
         private IPaletteContent _paletteDisabled;
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (button == MouseButtons.Left)
                 {
                     // Capturing mouse input
-                    _captured = true;
+                    Captured = true;
 
                     // Update the visual state
                     UpdateTargetState(c);
@@ -148,7 +148,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			return _captured;
+			return Captured;
 		}
 
 		/// <summary>
@@ -163,10 +163,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if (IsOperating)
             {
                 // If the mouse is currently captured
-                if (_captured)
+                if (Captured)
                 {
                     // Not capturing mouse input anymore
-                    _captured = false;
+                    Captured = false;
 
                     // Only interested in left mouse being released
                     if (button == MouseButtons.Left)
@@ -218,7 +218,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _mouseOver = false;
 
                     // If leaving the view then cannot be capturing mouse input anymore
-                    _captured = false;
+                    Captured = false;
 
                     // Update the visual state
                     UpdateTargetState(c);
@@ -238,11 +238,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Key Notifications
         /// <summary>
@@ -292,7 +290,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool KeyUp(Control c, KeyEventArgs e)
         {
-            return _captured;
+            return Captured;
         }
         #endregion
 
@@ -312,11 +310,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void LostFocus(Control c)
         {
             // If we are capturing mouse input
-            if (_captured)
+            if (Captured)
             {
                 // Release the mouse capture
                 c.Capture = false;
-                _captured = false;
+                Captured = false;
 
                 // Recalculate if the mouse is over the button area
                 _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
@@ -333,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -348,12 +346,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target => _target;
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Control that controller is operating within.</param>
@@ -402,13 +397,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -441,7 +432,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                if (_captured)
+                if (Captured)
                 {
                     if (_target.ClientRectangle.Contains(pt))
                     {

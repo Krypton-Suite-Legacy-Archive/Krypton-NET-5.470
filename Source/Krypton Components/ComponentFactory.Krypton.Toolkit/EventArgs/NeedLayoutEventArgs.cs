@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class NeedLayoutEventArgs : EventArgs
 	{
 		#region Instance Fields
-		private bool _needLayout;
-        private Rectangle _invalidRect;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -41,8 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public NeedLayoutEventArgs(bool needLayout,
                                    Rectangle invalidRect)
         {
-            _needLayout = needLayout;
-            _invalidRect = invalidRect;
+            NeedLayout = needLayout;
+            InvalidRect = invalidRect;
         }
         #endregion
 
@@ -50,18 +49,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets a value indicating if the layout needs regenerating.
 		/// </summary>
-		public bool NeedLayout
-		{
-            get { return _needLayout; }
-		}
+		public bool NeedLayout { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the rectangle to be invalidated.
         /// </summary>
-        public Rectangle InvalidRect
-        {
-            get { return _invalidRect; }
-        }
-		#endregion
+        public Rectangle InvalidRect { get; }
+
+	    #endregion
 	}
 }

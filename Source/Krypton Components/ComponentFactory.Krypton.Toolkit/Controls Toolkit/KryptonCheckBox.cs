@@ -34,8 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private LabelStyle _style;
-		private LabelValues _labelValues;
-        private VisualOrientation _orientation;
+	    private VisualOrientation _orientation;
         private CheckBoxController _controller;
         private ViewLayoutDocker _layoutDocker;
         private ViewLayoutCenter _layoutCenter;
@@ -43,21 +42,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawContent _drawContent;
 		private PaletteContentInheritRedirect _paletteCommonRedirect;
         private PaletteRedirectCheckBox _paletteCheckBoxImages;
-        private PaletteContent _stateCommon;
-        private PaletteContent _stateDisabled;
-		private PaletteContent _stateNormal;
-        private PaletteContent _stateFocus;
-        private PaletteContentInheritOverride _overrideNormal;
+	    private PaletteContentInheritOverride _overrideNormal;
         private KryptonCommand _command;
-        private CheckBoxImages _images;
-        private VisualOrientation _checkPosition;
+	    private VisualOrientation _checkPosition;
         private CheckState _checkState;
         private CheckState _wasCheckState;
         private bool _wasEnabled;
         private bool _checked;
         private bool _threeState;
-        private bool _autoCheck;
-        private bool _useMnemonic;
+	    private bool _useMnemonic;
         #endregion
 
         #region Events
@@ -125,25 +118,25 @@ namespace ComponentFactory.Krypton.Toolkit
             _threeState = false;
             _checkState = CheckState.Unchecked;
             _useMnemonic = true;
-            _autoCheck = true;
+            AutoCheck = true;
 
 			// Create content storage
-            _labelValues = new LabelValues(NeedPaintDelegate);
-            _labelValues.TextChanged += new EventHandler(OnCheckBoxTextChanged);
-            _images = new CheckBoxImages(NeedPaintDelegate);
+            Values = new LabelValues(NeedPaintDelegate);
+            Values.TextChanged += new EventHandler(OnCheckBoxTextChanged);
+            Images = new CheckBoxImages(NeedPaintDelegate);
 
 			// Create palette redirector
             _paletteCommonRedirect = new PaletteContentInheritRedirect(Redirector, PaletteContentStyle.LabelNormalControl);
-            _paletteCheckBoxImages = new PaletteRedirectCheckBox(Redirector, _images);
+            _paletteCheckBoxImages = new PaletteRedirectCheckBox(Redirector, Images);
 
 			// Create the palette provider
-            _stateCommon = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
-            _stateDisabled = new PaletteContent(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteContent(_stateCommon, NeedPaintDelegate);
-            _stateFocus = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
+            StateCommon = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
+            StateDisabled = new PaletteContent(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteContent(StateCommon, NeedPaintDelegate);
+            OverrideFocus = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
 
             // Override the normal values with the focus, when the control has focus
-            _overrideNormal = new PaletteContentInheritOverride(_stateFocus, _stateNormal, PaletteState.FocusOverride, false);
+            _overrideNormal = new PaletteContentInheritOverride(OverrideFocus, StateNormal, PaletteState.FocusOverride, false);
 
             // Our view contains background and border with content inside
             _drawContent = new ViewDrawContent(_overrideNormal, this, VisualOrientation.Top)
@@ -202,8 +195,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -216,8 +209,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public new AutoSizeMode AutoSizeMode
         {
-            get { return base.AutoSizeMode; }
-            set { base.AutoSizeMode = value; }
+            get => base.AutoSizeMode;
+            set => base.AutoSizeMode = value;
         }
 
         /// <summary>
@@ -229,8 +222,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
 		/// <summary>
@@ -239,17 +232,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public override string Text
 		{
-			get
-			{
-				// Map onto the text property from the label values
-				return _labelValues.Text;
-			}
-				
-			set
-			{
-				// Map onto the text property from the label values
-				_labelValues.Text = value;
-			}
+			get => Values.Text;
+
+		    set => Values.Text = value;
 		}
 
 		private bool ShouldSerializeText()
@@ -264,7 +249,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override void ResetText()
 		{
 			// Map onto the text property from the label values
-			_labelValues.ResetText();
+			Values.ResetText();
 		}
 
         /// <summary>
@@ -275,9 +260,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public virtual VisualOrientation Orientation
 		{
-			get { return _orientation; }
+			get => _orientation;
 
-			set
+            set
 			{
                 if (_orientation != value)
 				{
@@ -303,7 +288,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public virtual VisualOrientation CheckPosition
         {
-            get { return _checkPosition; }
+            get => _checkPosition;
 
             set
             {
@@ -326,9 +311,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Label style.")]
 		public LabelStyle LabelStyle
 		{
-			get { return _style; }
+			get => _style;
 
-			set
+            set
 			{
 				if (_style != value)
 				{
@@ -355,14 +340,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Label values")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public LabelValues Values
-		{
-			get { return _labelValues; }
-		}
+		public LabelValues Values { get; }
 
-		private bool ShouldSerializeValues()
+	    private bool ShouldSerializeValues()
 		{
-			return !_labelValues.IsDefault;
+			return !Values.IsDefault;
 		}
 
         /// <summary>
@@ -371,14 +353,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Image value overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public CheckBoxImages Images
-        {
-            get { return _images; }
-        }
+        public CheckBoxImages Images { get; }
 
-        private bool ShouldSerializeImages()
+	    private bool ShouldSerializeImages()
         {
-            return !_images.IsDefault;
+            return !Images.IsDefault;
         }
 
         /// <summary>
@@ -387,14 +366,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common label appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteContent StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
 		/// <summary>
@@ -403,14 +379,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled label appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+		public PaletteContent StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -419,14 +392,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal label appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateNormal
-		{
-			get { return _stateNormal; }
-		}
+		public PaletteContent StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
         /// <summary>
@@ -435,14 +405,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining label appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteContent OverrideFocus { get; }
 
-        private bool ShouldSerializeOverrideFocus()
+	    private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -453,7 +420,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool UseMnemonic
         {
-            get { return _useMnemonic; }
+            get => _useMnemonic;
 
             set
             {
@@ -475,7 +442,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -501,13 +468,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Causes the check box to automatically change state when clicked.")]
         [DefaultValue(true)]
-        public bool AutoCheck
-        {
-            get { return _autoCheck; }
-            set { _autoCheck = value; }
-        }
+        public bool AutoCheck { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets a value indicating if the component allows three states instead of two.
         /// </summary>
         [Category("Behavior")]
@@ -515,9 +478,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ThreeState
         {
-            get { return _threeState; }
+            get => _threeState;
 
-            set
+	        set
             {
                 if (_threeState != value)
                 {
@@ -536,7 +499,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public CheckState CheckState
         {
-            get { return _checkState; }
+            get => _checkState;
 
             set
             {
@@ -569,7 +532,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonCommand KryptonCommand
         {
-            get { return _command; }
+            get => _command;
 
             set
             {
@@ -638,7 +601,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _labelValues.GetShortText();
+                return Values.GetShortText();
             }
         }
 
@@ -654,7 +617,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _labelValues.GetLongText();
+                return Values.GetLongText();
             }
         }
 
@@ -671,7 +634,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _labelValues.GetImage(state);
+                return Values.GetImage(state);
             }
         }
 
@@ -688,7 +651,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _labelValues.GetImageTransparentColor(state);
+                return Values.GetImageTransparentColor(state);
             }
         }
         #endregion
@@ -909,7 +872,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                _drawContent.SetPalette(_stateDisabled);
+                _drawContent.SetPalette(StateDisabled);
             }
 
             _drawContent.Enabled = Enabled;
@@ -936,12 +899,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(90, 25); }
-		}
+		protected override Size DefaultSize => new Size(90, 25);
 
-        /// <summary>
+	    /// <summary>
         /// Work out if this control needs to paint transparent areas.
         /// </summary>
         /// <returns>True if paint required; otherwise false.</returns>

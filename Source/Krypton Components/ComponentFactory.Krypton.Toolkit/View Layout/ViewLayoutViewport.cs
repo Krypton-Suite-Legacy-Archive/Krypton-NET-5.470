@@ -33,13 +33,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPaletteMetric _paletteMetrics;
         private PaletteMetricPadding _metricPadding;
         private PaletteMetricInt _metricOvers;
-        private VisualOrientation _orientation;
-        private RelativePositionAlign _alignment;
-        private RelativePositionAlign _counterAlignment;
         private RightToLeft _rightToLeft;
         private bool _rightToLeftLayout;
-        private bool _fillSpace;
-        private bool _animateChange;
         private Point _offset;
         private Point _limit;
         private Size _extent;
@@ -74,17 +69,17 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteMetrics = paletteMetrics;
             _metricPadding = metricPadding;
             _metricOvers = metricOvers;
-            _orientation = orientation;
-            _alignment = alignment;
-            _animateChange = animateChange;
+            Orientation = orientation;
+            Alignment = alignment;
+            AnimateChange = animateChange;
 
             // Default other state
             _offset = Point.Empty;
             _extent = Size.Empty;
             _rightToLeft = RightToLeft.No;
             _rightToLeftLayout = false;
-            _fillSpace = false;
-            _counterAlignment = RelativePositionAlign.Far;
+            FillSpace = false;
+            CounterAlignment = RelativePositionAlign.Far;
 
             // Create a timer for animation effect
             _animationTimer = new Timer
@@ -154,9 +149,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool AnimateChange
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _animateChange; }
-            set { _animateChange = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region Orientation
@@ -166,9 +162,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public VisualOrientation Orientation
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _orientation; }
-            set { _orientation = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region Alignment
@@ -178,9 +175,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public RelativePositionAlign Alignment
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _alignment; }
-            set { _alignment = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region CounterAlignment
@@ -190,9 +188,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public RelativePositionAlign CounterAlignment
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _counterAlignment; }
-            set { _counterAlignment = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region FillSpace
@@ -202,9 +201,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool FillSpace
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _fillSpace; }
-            set { _fillSpace = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region Offset
@@ -245,28 +245,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the total extent of the scrolling view.
         /// </summary>
-        public Size ScrollExtent
-        {
-            get
-            {
-                return new Size(Math.Abs(_extent.Width),
-                                Math.Abs(_extent.Height));
-            }
-        }
+        public Size ScrollExtent => new Size(Math.Abs(_extent.Width),
+            Math.Abs(_extent.Height));
+
         #endregion
 
         #region ScrollOffset
         /// <summary>
         /// Gets a scrolling offset within the viewport.
         /// </summary>
-        public Point ScrollOffset
-        {
-            get
-            {
-                return new Point(Math.Abs(_offset.X),
-                                 Math.Abs(_offset.Y));
-            }
-        }
+        public Point ScrollOffset => new Point(Math.Abs(_offset.X),
+            Math.Abs(_offset.Y));
+
         #endregion
 
         #region SetOffsetV
@@ -417,10 +407,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Is scrolling required because the viewport extents beyong available space.
         /// </summary>
-        public bool NeedScrolling
-        {
-            get { return CanScrollNext || CanScrollPrevious; }
-        }
+        public bool NeedScrolling => CanScrollNext || CanScrollPrevious;
+
         #endregion
 
         #region BringIntoView
@@ -434,7 +422,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Point offset = OffsetForChildRect(rect);
 
             // If not allowed to animate, or there is no animation needed
-            if (!_animateChange || _offset.Equals(offset))
+            if (!AnimateChange || _offset.Equals(offset))
             {
                 // Stop any running animation
                 _animationTimer.Stop();
@@ -661,14 +649,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Implementation
-        private bool Horizontal
-        {
-            get
-            {
-                return ((Orientation == VisualOrientation.Top) ||
-                        (Orientation == VisualOrientation.Bottom));
-            }
-        }
+        private bool Horizontal => ((Orientation == VisualOrientation.Top) ||
+                                    (Orientation == VisualOrientation.Bottom));
 
         private RelativePositionAlign AlignmentRTL
         {
@@ -873,7 +855,7 @@ namespace ComponentFactory.Krypton.Toolkit
             offset.Y = Math.Min(Math.Max(offset.Y, _limit.Y), 0);
 
             // If not allowed to animate, or there is no animation needed
-            if (!_animateChange || _offset.Equals(offset))
+            if (!AnimateChange || _offset.Equals(offset))
             {
                 // Use the new offset
                 _offset = offset;

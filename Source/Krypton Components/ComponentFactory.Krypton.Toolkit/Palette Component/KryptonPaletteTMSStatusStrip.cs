@@ -36,18 +36,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalStatusStripText == Color.Empty) &&
-                       (InternalKCT.InternalStatusStripFont == null) &&
-                       (InternalKCT.InternalStatusStripGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalStatusStripGradientEnd == Color.Empty);
-                
-			}
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalStatusStripText == Color.Empty) &&
+		                                  (InternalKCT.InternalStatusStripFont == null) &&
+		                                  (InternalKCT.InternalStatusStripGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalStatusStripGradientEnd == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -72,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color StatusStripText
         {
-            get { return InternalKCT.InternalStatusStripText; }
+            get => InternalKCT.InternalStatusStripText;
 
             set
             {
@@ -100,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public Font StatusStripFont
         {
-            get { return InternalKCT.InternalStatusStripFont; }
+            get => InternalKCT.InternalStatusStripFont;
 
             set
             {
@@ -128,8 +122,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color StatusStripGradientBegin
         {
-            get { return InternalKCT.InternalStatusStripGradientBegin; }
-            
+            get => InternalKCT.InternalStatusStripGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalStatusStripGradientBegin = value;
@@ -156,8 +150,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color StatusStripGradientEnd
         {
-            get { return InternalKCT.InternalStatusStripGradientEnd; }
-            
+            get => InternalKCT.InternalStatusStripGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalStatusStripGradientEnd = value;

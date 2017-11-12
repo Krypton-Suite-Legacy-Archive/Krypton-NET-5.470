@@ -65,8 +65,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle ContainerBackStyle
         {
-            get { return _splitContainer.ContainerBackStyle; }
-            
+            get => _splitContainer.ContainerBackStyle;
+
             set 
             {
                 if (_splitContainer.ContainerBackStyle != value)
@@ -82,8 +82,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public SeparatorStyle SeparatorStyle
         {
-            get { return _splitContainer.SeparatorStyle; }
-            
+            get => _splitContainer.SeparatorStyle;
+
             set 
             {
                 if (_splitContainer.SeparatorStyle != value)
@@ -99,8 +99,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _splitContainer.PaletteMode; }
-            
+            get => _splitContainer.PaletteMode;
+
             set 
             {
                 if (_splitContainer.PaletteMode != value)

@@ -18,12 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteGrid : Storage
     {
         #region Instance Fields
-        private PaletteDataGridViewRedirect _stateCommon;
-        private PaletteDataGridViewAll _stateDisabled;
-        private PaletteDataGridViewAll _stateNormal;
-        private PaletteDataGridViewHeaders _stateTracking;
-        private PaletteDataGridViewHeaders _statePressed;
-        private PaletteDataGridViewCells _stateSelected;
+
         #endregion
 
         #region Identity
@@ -38,12 +33,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                   NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateCommon = new PaletteDataGridViewRedirect(redirect, needPaint);
-            _stateDisabled = new PaletteDataGridViewAll(_stateCommon, needPaint);
-            _stateNormal = new PaletteDataGridViewAll(_stateCommon, needPaint);
-            _stateTracking = new PaletteDataGridViewHeaders(_stateCommon, needPaint);
-            _statePressed = new PaletteDataGridViewHeaders(_stateCommon, needPaint);
-            _stateSelected = new PaletteDataGridViewCells(_stateCommon, needPaint);
+            StateCommon = new PaletteDataGridViewRedirect(redirect, needPaint);
+            StateDisabled = new PaletteDataGridViewAll(StateCommon, needPaint);
+            StateNormal = new PaletteDataGridViewAll(StateCommon, needPaint);
+            StateTracking = new PaletteDataGridViewHeaders(StateCommon, needPaint);
+            StatePressed = new PaletteDataGridViewHeaders(StateCommon, needPaint);
+            StateSelected = new PaletteDataGridViewCells(StateCommon, needPaint);
         }
         #endregion
 
@@ -54,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateCommon.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -63,19 +58,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault &&
-                       _stateSelected.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault &&
+		                                  StateSelected.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -87,11 +77,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                      GridStyle gridStyle)
         {
             // Populate only the designated styles
-            _stateDisabled.PopulateFromBase(common, PaletteState.Disabled, gridStyle);
-            _stateNormal.PopulateFromBase(common, PaletteState.Normal, gridStyle);
-            _stateTracking.PopulateFromBase(common, PaletteState.Tracking, gridStyle);
-            _statePressed.PopulateFromBase(common, PaletteState.Pressed, gridStyle);
-            _stateSelected.PopulateFromBase(common, PaletteState.CheckedNormal, gridStyle);
+            StateDisabled.PopulateFromBase(common, PaletteState.Disabled, gridStyle);
+            StateNormal.PopulateFromBase(common, PaletteState.Normal, gridStyle);
+            StateTracking.PopulateFromBase(common, PaletteState.Tracking, gridStyle);
+            StatePressed.PopulateFromBase(common, PaletteState.Pressed, gridStyle);
+            StateSelected.PopulateFromBase(common, PaletteState.CheckedNormal, gridStyle);
         }
         #endregion
 
@@ -103,14 +93,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common grid appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteDataGridViewRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -122,14 +109,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewAll StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteDataGridViewAll StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -141,14 +125,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewAll StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteDataGridViewAll StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -160,14 +141,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewHeaders StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteDataGridViewHeaders StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -179,14 +157,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewHeaders StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteDataGridViewHeaders StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
 
@@ -198,14 +173,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining selected grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewCells StateSelected
-        {
-            get { return _stateSelected; }
-        }
+        public PaletteDataGridViewCells StateSelected { get; }
 
         private bool ShouldSerializeStateSelected()
         {
-            return !_stateSelected.IsDefault;
+            return !StateSelected.IsDefault;
         }
         #endregion
     }

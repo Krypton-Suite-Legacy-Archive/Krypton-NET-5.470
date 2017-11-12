@@ -53,22 +53,16 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
 		    /// Gets a value indicating if all values are default.
 		    /// </summary>
-            public bool IsDefault
-            {
-                get
-                {
-                    return (BackDraw == InheritBool.Inherit) &&
-                           (BackGraphicsHint == PaletteGraphicsHint.Inherit) &&
-                           (BackColor1 == Color.Empty) &&
-                           (BackColor2 == Color.Empty) &&
-                           (BackColorStyle == PaletteColorStyle.Inherit) &&
-                           (BackColorAlign == PaletteRectangleAlign.Inherit) &&
-                           (BackColorAngle == -1) &&
-                           (BackImage == null) &&
-                           (BackImageStyle == PaletteImageStyle.Inherit) &&
-                           (BackImageAlign == PaletteRectangleAlign.Inherit);
-                }
-            }
+            public bool IsDefault => (BackDraw == InheritBool.Inherit) &&
+                                     (BackGraphicsHint == PaletteGraphicsHint.Inherit) &&
+                                     (BackColor1 == Color.Empty) &&
+                                     (BackColor2 == Color.Empty) &&
+                                     (BackColorStyle == PaletteColorStyle.Inherit) &&
+                                     (BackColorAlign == PaletteRectangleAlign.Inherit) &&
+                                     (BackColorAngle == -1) &&
+                                     (BackImage == null) &&
+                                     (BackImageStyle == PaletteImageStyle.Inherit) &&
+                                     (BackImageAlign == PaletteRectangleAlign.Inherit);
         }
         #endregion
 
@@ -108,11 +102,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get { return (_storage == null) || _storage.IsDefault; }
-		}
-		#endregion
+		public override bool IsDefault => (_storage == null) || _storage.IsDefault;
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -625,12 +617,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get
-			{
-			    return _storage?.BackImage;
-			}
+			get => _storage?.BackImage;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {

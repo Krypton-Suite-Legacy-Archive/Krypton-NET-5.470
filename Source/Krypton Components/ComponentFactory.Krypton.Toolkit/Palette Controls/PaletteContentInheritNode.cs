@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
         #region Instance Fields
         private IPaletteContent _inherit;
-        private TreeNode _node;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -39,12 +39,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Set the tree node to use for sourcing values.
         /// </summary>
-        public TreeNode TreeNode
-        {
-            get { return _node; }
-            set { _node = value; }
-        }
-        #endregion
+        public TreeNode TreeNode { get; set; }
+
+	    #endregion
 
         #region IPaletteContent
         /// <summary>
@@ -124,7 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Font value.</returns>
         public override Font GetContentShortTextFont(PaletteState state)
         {
-            if ((TreeNode != null) && (TreeNode.NodeFont != null))
+            if (TreeNode?.NodeFont != null)
             {
                 return TreeNode.NodeFont;
             }
@@ -141,7 +138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public override Font GetContentShortTextNewFont(PaletteState state)
         {
-            if ((TreeNode != null) && (TreeNode.NodeFont != null))
+            if (TreeNode?.NodeFont != null)
             {
                 return TreeNode.NodeFont;
             }

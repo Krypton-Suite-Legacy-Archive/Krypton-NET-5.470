@@ -65,8 +65,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _trackBar.PaletteMode; }
-            
+            get => _trackBar.PaletteMode;
+
             set 
             {
                 if (_trackBar.PaletteMode != value)
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public TickStyle TickStyle
         {
-            get { return _trackBar.TickStyle; }
+            get => _trackBar.TickStyle;
 
             set
             {
@@ -99,7 +99,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteTrackBarSize TrackBarSize
         {
-            get { return _trackBar.TrackBarSize; }
+            get => _trackBar.TrackBarSize;
 
             set
             {
@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Minimum
         {
-            get { return _trackBar.Minimum; }
+            get => _trackBar.Minimum;
 
             set
             {
@@ -133,7 +133,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Maximum
         {
-            get { return _trackBar.Maximum; }
+            get => _trackBar.Maximum;
 
             set
             {
@@ -150,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int SmallChange
         {
-            get { return _trackBar.SmallChange; }
+            get => _trackBar.SmallChange;
 
             set
             {
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int LargeChange
         {
-            get { return _trackBar.LargeChange; }
+            get => _trackBar.LargeChange;
 
             set
             {

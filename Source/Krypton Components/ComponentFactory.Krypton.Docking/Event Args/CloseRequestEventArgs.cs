@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Docking
     public class CloseRequestEventArgs : UniqueNameEventArgs
 	{
 		#region Instance Fields
-        private DockingCloseRequest _closeRequest;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
         public CloseRequestEventArgs(string uniqueName, DockingCloseRequest closeRequest)
             : base(uniqueName)
 		{
-            _closeRequest = closeRequest;
+            CloseRequest = closeRequest;
 		}
         #endregion
 
@@ -36,11 +36,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets the close action to be performed.
         /// </summary>
-        public DockingCloseRequest CloseRequest
-        {
-            get { return _closeRequest; }
-            set { _closeRequest = value; }
-        }
-        #endregion
+        public DockingCloseRequest CloseRequest { get; set; }
+
+	    #endregion
 	}
 }

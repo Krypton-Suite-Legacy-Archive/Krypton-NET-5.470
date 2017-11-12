@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewLayoutOutlookFull : ViewLayoutScrollViewport
     {
         #region Instance Fields
-        private ViewBuilderOutlookBase _viewBuilder; 
+
         #endregion
 
         #region Identity
@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Navigator
                    vertical, needPaintDelegate)
         {
             Debug.Assert(viewBuilder != null);
-            _viewBuilder = viewBuilder;
+            ViewBuilder = viewBuilder;
         }
 
         /// <summary>
@@ -77,8 +77,9 @@ namespace ComponentFactory.Krypton.Navigator
         public ViewBuilderOutlookBase ViewBuilder
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewBuilder; }
+            get;
         }
+
         #endregion
 
         #region Layout
@@ -109,7 +110,7 @@ namespace ComponentFactory.Krypton.Navigator
             BorderEdgeH.Visible = ScrollbarH.Visible = false;
 
             // Get the the visible state before processing
-            string beforeOverflowState = _viewBuilder.GetOverflowButtonStates();
+            string beforeOverflowState = ViewBuilder.GetOverflowButtonStates();
 
             // Make all stacking items visible so all that can be shown will be
             ViewBuilder.UnshrinkAppropriatePages();
@@ -203,7 +204,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // If visible state of an overflow button has changed, need to relayout
-            if (!beforeOverflowState.Equals(_viewBuilder.GetOverflowButtonStates()))
+            if (!beforeOverflowState.Equals(ViewBuilder.GetOverflowButtonStates()))
             {
                 NeedPaint(true);
             }

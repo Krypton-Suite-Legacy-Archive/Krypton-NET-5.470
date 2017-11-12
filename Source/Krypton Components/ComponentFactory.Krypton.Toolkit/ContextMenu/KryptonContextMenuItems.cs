@@ -29,8 +29,6 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private bool _standardStyle;
         private bool _imageColumn;
-        private KryptonContextMenuItemCollection _items;
-        private PaletteDoubleRedirect _stateNormal;
         private PaletteRedirectDouble _redirectImageColumn;
         #endregion
 
@@ -52,19 +50,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Default fields
             _standardStyle = true;
             _imageColumn = true;
-            _items = new KryptonContextMenuItemCollection();
+            Items = new KryptonContextMenuItemCollection();
 
             // Add any initial set of item
             if (children != null)
             {
-                _items.AddRange(children);
+                Items.AddRange(children);
             }
 
             // Create the redirector that can get values from the krypton context menu
             _redirectImageColumn = new PaletteRedirectDouble();
 
             // Create the column image storage for overriding specific values
-            _stateNormal = new PaletteDoubleRedirect(_redirectImageColumn,
+            StateNormal = new PaletteDoubleRedirect(_redirectImageColumn,
                                                      PaletteBackStyle.ContextMenuItemImageColumn,
                                                      PaletteBorderStyle.ContextMenuItemImageColumn);
         }
@@ -85,20 +83,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount
-        {
-            get { return Items.Count; }
-        }
+        public override int ItemChildCount => Items.Count;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return Items[index]; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => Items[index];
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -138,10 +130,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Collection of standard menu items.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
-        public KryptonContextMenuItemCollection Items
-        {
-            get { return _items; }
-        }
+        public KryptonContextMenuItemCollection Items { get; }
 
         /// <summary>
         /// Gets and sets if the collection appears as standard or alternate items.
@@ -152,8 +141,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool StandardStyle
         {
-            get { return _standardStyle; }
-            
+            get => _standardStyle;
+
             set 
             {
                 if (_standardStyle != value)
@@ -173,8 +162,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ImageColumn
         {
-            get { return _imageColumn; }
-            
+            get => _imageColumn;
+
             set 
             {
                 if (_imageColumn != value)
@@ -192,14 +181,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining image column specific appearance values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteDoubleRedirect StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 

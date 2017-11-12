@@ -92,10 +92,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize 
-        {
-            get { return _smallSize; }
-        }
+        protected override Size DrawSize => _smallSize;
 
         /// <summary>
         /// Gets the image to be drawn.

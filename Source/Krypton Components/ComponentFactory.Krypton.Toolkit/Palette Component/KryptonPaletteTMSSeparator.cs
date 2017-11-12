@@ -36,15 +36,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalSeparatorDark == Color.Empty) &&
-                       (InternalKCT.InternalSeparatorLight == Color.Empty);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalSeparatorDark == Color.Empty) &&
+		                                  (InternalKCT.InternalSeparatorLight == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -67,8 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color SeparatorDark
         {
-            get { return InternalKCT.InternalSeparatorDark; }
-            
+            get => InternalKCT.InternalSeparatorDark;
+
             set 
             { 
                 InternalKCT.InternalSeparatorDark = value;
@@ -95,8 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color SeparatorLight
         {
-            get { return InternalKCT.InternalSeparatorLight; }
-            
+            get => InternalKCT.InternalSeparatorLight;
+
             set 
             { 
                 InternalKCT.InternalSeparatorLight = value;

@@ -21,8 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private bool _captured;
-        private bool _enabled;
-        private ViewDrawRadioButton _target;
+	    private ViewDrawRadioButton _target;
         private ViewBase _top;
         private NeedPaintHandler _needPaint;
         #endregion
@@ -199,11 +198,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Key Notifications
         /// <summary>
@@ -307,20 +304,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the enabled state of the controller.
         /// </summary>
-        public bool Enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
+        public bool Enabled { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the need paint delegate for notifying paint requests.
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
-            set
+	        set
             {
                 // Warn if multiple sources want to hook their single delegate
                 Debug.Assert(((_needPaint == null) && (value != null)) ||
@@ -333,13 +326,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target => _target;
 
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()

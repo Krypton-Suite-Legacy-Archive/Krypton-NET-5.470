@@ -34,15 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private string _ok;
-        private string _cancel;
-        private string _yes;
-        private string _no;
-        private string _abort;
-        private string _retry;
-        private string _ignore;
-        private string _close;
-        private string _today;
+
         #endregion
 
 		#region Identity
@@ -75,36 +67,30 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>True if all values are defaulted; otherwise false.</returns>
         [Browsable(false)]
-        public bool IsDefault
-        {
-            get
-            {
-                return _ok.Equals(DEFAULT_OK) &&
-                       _cancel.Equals(DEFAULT_CANCEL) &&
-                       _yes.Equals(DEFAULT_YES) &&
-                       _no.Equals(DEFAULT_NO) &&
-                       _abort.Equals(DEFAULT_ABORT) &&
-                       _retry.Equals(DEFAULT_RETRY) &&
-                       _ignore.Equals(DEFAULT_IGNORE) &&
-                       _close.Equals(DEFAULT_CLOSE) &&
-                       _today.Equals(DEFAULT_CLOSE);
-            }
-        }
+        public bool IsDefault => OK.Equals(DEFAULT_OK) &&
+                                 Cancel.Equals(DEFAULT_CANCEL) &&
+                                 Yes.Equals(DEFAULT_YES) &&
+                                 No.Equals(DEFAULT_NO) &&
+                                 Abort.Equals(DEFAULT_ABORT) &&
+                                 Retry.Equals(DEFAULT_RETRY) &&
+                                 Ignore.Equals(DEFAULT_IGNORE) &&
+                                 Close.Equals(DEFAULT_CLOSE) &&
+                                 Today.Equals(DEFAULT_CLOSE);
 
         /// <summary>
         /// Reset all strings to default values.
         /// </summary>
         public void Reset()
         {
-            _ok = DEFAULT_OK;
-            _cancel = DEFAULT_CANCEL;
-            _yes = DEFAULT_YES;
-            _no = DEFAULT_NO;
-            _abort = DEFAULT_ABORT;
-            _retry = DEFAULT_RETRY;
-            _ignore = DEFAULT_IGNORE;
-            _close = DEFAULT_CLOSE;
-            _today = DEFAULT_TODAY;
+            OK = DEFAULT_OK;
+            Cancel = DEFAULT_CANCEL;
+            Yes = DEFAULT_YES;
+            No = DEFAULT_NO;
+            Abort = DEFAULT_ABORT;
+            Retry = DEFAULT_RETRY;
+            Ignore = DEFAULT_IGNORE;
+            Close = DEFAULT_CLOSE;
+            Today = DEFAULT_TODAY;
         }
 
         /// <summary>
@@ -115,11 +101,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("OK string used for message box buttons.")]
         [DefaultValue("OK")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string OK
-        {
-            get { return _ok; }
-            set { _ok = value; }
-        }
+        public string OK { get; set; }
 
         /// <summary>
         /// Gets and sets the Cancel string used in message box buttons.
@@ -129,11 +111,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Cancel string used for message box buttons.")]
         [DefaultValue("Cancel")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Cancel
-        {
-            get { return _cancel; }
-            set { _cancel = value; }
-        }
+        public string Cancel { get; set; }
 
         /// <summary>
         /// Gets and sets the Yes string used in message box buttons.
@@ -143,11 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Yes string used for message box buttons.")]
         [DefaultValue("Yes")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Yes
-        {
-            get { return _yes; }
-            set { _yes = value; }
-        }
+        public string Yes { get; set; }
 
         /// <summary>
         /// Gets and sets the No string used in message box buttons.
@@ -157,11 +131,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("No string used for message box buttons.")]
         [DefaultValue("No")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string No
-        {
-            get { return _no; }
-            set { _no = value; }
-        }
+        public string No { get; set; }
 
         /// <summary>
         /// Gets and sets the Abort string used in message box buttons.
@@ -171,12 +141,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Abort string used for message box buttons.")]
         [DefaultValue("Abort")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Abort
-        {
-            get { return _abort; }
-            set { _abort = value; }
-        }
-        
+        public string Abort { get; set; }
+
         /// <summary>
         /// Gets and sets the Retry string used in message box buttons.
         /// </summary>
@@ -185,11 +151,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Retry string used for message box buttons.")]
         [DefaultValue("Retry")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Retry
-        {
-            get { return _retry; }
-            set { _retry = value; }
-        }
+        public string Retry { get; set; }
 
         /// <summary>
         /// Gets and sets the Ignore string used in message box buttons.
@@ -199,11 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Ignore string used for message box buttons.")]
         [DefaultValue("Ignore")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Ignore
-        {
-            get { return _ignore; }
-            set { _ignore = value; }
-        }
+        public string Ignore { get; set; }
 
         /// <summary>
         /// Gets and sets the Close string used in message box buttons.
@@ -213,11 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Close string used for message box buttons.")]
         [DefaultValue("Close")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Close
-        {
-            get { return _close; }
-            set { _close = value; }
-        }
+        public string Close { get; set; }
 
         /// <summary>
         /// Gets and sets the Close string used in calendars.
@@ -227,11 +181,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Today string used for calendars.")]
         [DefaultValue("Today")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Today
-        {
-            get { return _today; }
-            set { _today = value; }
-        }
+        public string Today { get; set; }
+
         #endregion
     }
 }

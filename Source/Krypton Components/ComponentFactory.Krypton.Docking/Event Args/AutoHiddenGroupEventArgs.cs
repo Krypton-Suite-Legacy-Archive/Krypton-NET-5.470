@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class AutoHiddenGroupEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonAutoHiddenGroup _autoHiddenGroup;
-        private KryptonDockingAutoHiddenGroup _element;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         public AutoHiddenGroupEventArgs(KryptonAutoHiddenGroup control,
                                         KryptonDockingAutoHiddenGroup element)
 		{
-            _autoHiddenGroup = control;
-            _element = element;
+            AutoHiddenGroupControl = control;
+            AutoHiddenGroupElement = element;
 		}
 		#endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonAutoHiddenGroup control.
         /// </summary>
-        public KryptonAutoHiddenGroup AutoHiddenGroupControl
-        {
-            get { return _autoHiddenGroup; }
-        }
+        public KryptonAutoHiddenGroup AutoHiddenGroupControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingAutoHiddenGroup that is managing the group.
         /// </summary>
-        public KryptonDockingAutoHiddenGroup AutoHiddenGroupElement
-        {
-            get { return _element; }
-        }
-        #endregion
+        public KryptonDockingAutoHiddenGroup AutoHiddenGroupElement { get; }
+
+	    #endregion
 	}
 }

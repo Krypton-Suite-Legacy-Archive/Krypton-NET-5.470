@@ -38,10 +38,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override PaletteBorder Border
-        {
-            get { return base.Border; }
-        }
+        public override PaletteBorder Border => base.Border;
 
         /// <summary>
         /// Gets the border palette.
@@ -49,10 +46,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override IPaletteBorder PaletteBorder
-        {
-            get { return base.PaletteBorder; }
-        }
+        public override IPaletteBorder PaletteBorder => base.PaletteBorder;
+
         #endregion
     }
 }

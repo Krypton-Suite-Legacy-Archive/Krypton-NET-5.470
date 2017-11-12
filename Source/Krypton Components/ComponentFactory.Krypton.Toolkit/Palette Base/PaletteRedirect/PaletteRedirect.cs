@@ -77,8 +77,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public virtual IPalette Target
 		{
-			get { return _target; }
-            set { _target = value; }
+			get => _target;
+		    set => _target = value;
 		}
 		#endregion
 
@@ -1487,10 +1487,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the color table instance.
         /// </summary>
-        public virtual KryptonColorTable ColorTable
-        {
-            get { return _target.ColorTable; }
-        }
+        public virtual KryptonColorTable ColorTable => _target.ColorTable;
+
         #endregion
 
         #region OnPalettePaint

@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
     {
         #region Instance Fields
         private string _storeName;
-        private KryptonDockableNavigator _navigator;
+
         #endregion
 
         #region Identity
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Docking
             : base(name)
         {
             _storeName = storeName;
-            _navigator = navigator ?? throw new ArgumentNullException("navigator");
+            DockableNavigatorControl = navigator ?? throw new ArgumentNullException("navigator");
 
             DockableNavigatorControl.Disposed += new EventHandler(OnDockableNavigatorDisposed);
             DockableNavigatorControl.CellPageInserting += new EventHandler<KryptonPageEventArgs>(OnDockableNavigatorPageInserting);
@@ -66,10 +66,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public KryptonDockableNavigator DockableNavigatorControl
-        {
-            get { return _navigator; }
-        }
+        public KryptonDockableNavigator DockableNavigatorControl { get; }
 
         /// <summary>
         /// Gets and sets access to the parent docking element.
@@ -492,7 +489,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Only remove a matching unique name if it is a placeholder page
                         KryptonPage removePage = DockableNavigatorControl.Pages[uniqueName];
-                        if ((removePage != null) && (removePage is KryptonStorePage))
+                        if (removePage is KryptonStorePage)
                         {
                             DockableNavigatorControl.Pages.Remove(removePage);
                         }
@@ -505,7 +502,7 @@ namespace ComponentFactory.Krypton.Docking
                         {
                             // Remove all placeholders
                             KryptonPage page = DockableNavigatorControl.Pages[i];
-                            if ((page != null) && (page is KryptonStorePage))
+                            if (page is KryptonStorePage)
                             {
                                 DockableNavigatorControl.Pages.Remove(page);
                             }
@@ -546,7 +543,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Return definitive answer 'true' if the group controls contains a store page for the unique name.
                         KryptonPage page = DockableNavigatorControl.Pages[uniqueName];
-                        if ((page != null) && (page is KryptonStorePage))
+                        if (page is KryptonStorePage)
                         {
                             return true;
                         }
@@ -705,7 +702,7 @@ namespace ComponentFactory.Krypton.Docking
             if (location == DockingLocation.Navigator)
             {
                 KryptonPage page = DockableNavigatorControl.Pages[uniqueName];
-                if ((page != null) && (page is KryptonStorePage))
+                if (page is KryptonStorePage)
                 {
                     return this;
                 }
@@ -727,10 +724,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the number of visible pages.
         /// </summary>
-        public int VisiblePages
-        {
-            get { return DockableNavigatorControl.Pages.VisibleCount; }
-        }
+        public int VisiblePages => DockableNavigatorControl.Pages.VisibleCount;
 
         /// <summary>
         /// Ensure the provided page is selected within the cell that contains it.
@@ -927,10 +921,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DN"; }
-        }
+        protected override string XmlElementName => "DN";
+
         #endregion
 
         #region Implementation

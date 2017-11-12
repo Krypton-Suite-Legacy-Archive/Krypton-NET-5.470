@@ -32,18 +32,11 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
         private ViewDrawTrackBar _drawTrackBar;
-        private PaletteTrackBarRedirect _stateCommon;
-        private PaletteTrackBarRedirect _stateFocus;
-        private PaletteTrackBarStates _stateDisabled;
-        private PaletteTrackBarStates _stateNormal;
-        private PaletteTrackBarPositionStates _stateTracking;
-        private PaletteTrackBarPositionStates _statePressed;
-        private PaletteTrackBarStatesOverride _overrideNormal;
+	    private PaletteTrackBarStatesOverride _overrideNormal;
         private PaletteTrackBarPositionStatesOverride _overrideTracking;
         private PaletteTrackBarPositionStatesOverride _overridePressed;
         private bool _autoSize;
-        private bool _inRibbonDesignMode;
-        private int _requestedDim;
+	    private int _requestedDim;
         #endregion
 
         #region Events
@@ -73,20 +66,20 @@ namespace ComponentFactory.Krypton.Toolkit
             _requestedDim = 0;
             
 			// Create the palette storage
-            _stateCommon = new PaletteTrackBarRedirect(Redirector, NeedPaintDelegate);
-            _stateFocus = new PaletteTrackBarRedirect(Redirector, NeedPaintDelegate);
-            _stateDisabled = new PaletteTrackBarStates(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteTrackBarStates(_stateCommon, NeedPaintDelegate);
-            _stateTracking = new PaletteTrackBarPositionStates(_stateCommon, NeedPaintDelegate);
-            _statePressed = new PaletteTrackBarPositionStates(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteTrackBarRedirect(Redirector, NeedPaintDelegate);
+            OverrideFocus = new PaletteTrackBarRedirect(Redirector, NeedPaintDelegate);
+            StateDisabled = new PaletteTrackBarStates(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteTrackBarStates(StateCommon, NeedPaintDelegate);
+            StateTracking = new PaletteTrackBarPositionStates(StateCommon, NeedPaintDelegate);
+            StatePressed = new PaletteTrackBarPositionStates(StateCommon, NeedPaintDelegate);
 
             // Create the override handling classes
-            _overrideNormal = new PaletteTrackBarStatesOverride(_stateFocus, _stateNormal, PaletteState.FocusOverride);
-            _overrideTracking = new PaletteTrackBarPositionStatesOverride(_stateFocus, _stateTracking, PaletteState.FocusOverride);
-            _overridePressed = new PaletteTrackBarPositionStatesOverride(_stateFocus, _statePressed, PaletteState.FocusOverride);
+            _overrideNormal = new PaletteTrackBarStatesOverride(OverrideFocus, StateNormal, PaletteState.FocusOverride);
+            _overrideTracking = new PaletteTrackBarPositionStatesOverride(OverrideFocus, StateTracking, PaletteState.FocusOverride);
+            _overridePressed = new PaletteTrackBarPositionStatesOverride(OverrideFocus, StatePressed, PaletteState.FocusOverride);
 
             // Create the view manager instance
-            _drawTrackBar = new ViewDrawTrackBar(_overrideNormal, _stateDisabled, _overrideTracking, _overridePressed, NeedPaintDelegate);
+            _drawTrackBar = new ViewDrawTrackBar(_overrideNormal, StateDisabled, _overrideTracking, _overridePressed, NeedPaintDelegate);
             _drawTrackBar.ValueChanged += new EventHandler(OnDrawValueChanged);
             _drawTrackBar.Scroll += new EventHandler(OnDrawScroll);
             _drawTrackBar.RightToLeft = RightToLeft;
@@ -103,8 +96,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -114,8 +107,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new ImeMode ImeMode
         {
-            get { return base.ImeMode; }
-            set { base.ImeMode = value; }
+            get => base.ImeMode;
+            set => base.ImeMode = value;
         }
 
         /// <summary>
@@ -127,8 +120,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public override bool AutoSize
         {
-            get { return _autoSize; }
-            
+            get => _autoSize;
+
             set 
             {
                 if (value != _autoSize)
@@ -160,8 +153,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override AutoSizeMode AutoSizeMode
         {
-            get { return base.AutoSizeMode; }
-            set { base.AutoSizeMode = value; }
+            get => base.AutoSizeMode;
+            set => base.AutoSizeMode = value;
         }
 
         /// <summary>
@@ -170,8 +163,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Padding), "0,0,0,0")]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -181,13 +174,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Background style.")]
 		public PaletteBackStyle BackStyle
 		{
-            get { return _stateFocus.BackStyle; }
-			
-			set
+            get => OverrideFocus.BackStyle;
+
+            set
 			{
-                if (_stateFocus.BackStyle != value)
+                if (OverrideFocus.BackStyle != value)
 				{
-                    _stateFocus.BackStyle = value;
+                    OverrideFocus.BackStyle = value;
 					PerformNeedPaint(true);
 				}
 			}
@@ -209,14 +202,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining track bar appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTrackBarRedirect OverrideFocus { get; }
 
-        private bool ShouldSerializeOverrideFocus()
+	    private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -225,14 +215,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common trackbar appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTrackBarRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         
         /// <summary>
@@ -241,14 +228,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
         [Description("Overrides for defining disabled trackbar appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarStates StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+        public PaletteTrackBarStates StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -257,14 +241,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
         [Description("Overrides for defining normal trackbar appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarStates StateNormal
-		{
-            get { return _stateNormal; }
-		}
+        public PaletteTrackBarStates StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
 		}
 
         /// <summary>
@@ -273,14 +254,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking trackbar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarPositionStates StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTrackBarPositionStates StateTracking { get; }
 
-        private bool ShouldSerializeStateTracking()
+	    private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -289,14 +267,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed trackbar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarPositionStates StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTrackBarPositionStates StatePressed { get; }
 
-        private bool ShouldSerializeStatePressed()
+	    private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -307,7 +282,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool VolumeControl
         {
-            get { return _drawTrackBar.VolumeControl; }
+            get => _drawTrackBar.VolumeControl;
 
             set
             {
@@ -327,7 +302,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteTrackBarSize), "Medium")]
         public PaletteTrackBarSize TrackBarSize
         {
-            get { return _drawTrackBar.TrackBarSize; }
+            get => _drawTrackBar.TrackBarSize;
 
             set 
             {
@@ -349,7 +324,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public TickStyle TickStyle
         {
-            get { return _drawTrackBar.TickStyle; }
+            get => _drawTrackBar.TickStyle;
 
             set
             {
@@ -370,7 +345,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(1)]
         public int TickFrequency
         {
-            get { return _drawTrackBar.TickFrequency; }
+            get => _drawTrackBar.TickFrequency;
 
             set
             {
@@ -390,7 +365,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Orientation), "Horizontal")]
         public Orientation Orientation
         {
-            get { return _drawTrackBar.Orientation; }
+            get => _drawTrackBar.Orientation;
 
             set
             {
@@ -430,7 +405,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(10)]
         public int Maximum
         {
-            get { return _drawTrackBar.Maximum; }
+            get => _drawTrackBar.Maximum;
 
             set
             {
@@ -451,7 +426,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(0)]
         public int Minimum
         {
-            get { return _drawTrackBar.Minimum; }
+            get => _drawTrackBar.Minimum;
 
             set
             {
@@ -471,7 +446,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(0)]
         public int Value
         {
-            get { return _drawTrackBar.Value; }
+            get => _drawTrackBar.Value;
 
             set
             {
@@ -490,8 +465,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(1)]
         public int SmallChange
         {
-            get { return _drawTrackBar.SmallChange; }
-            set { _drawTrackBar.SmallChange = value; }
+            get => _drawTrackBar.SmallChange;
+            set => _drawTrackBar.SmallChange = value;
         }
 
         /// <summary>
@@ -502,8 +477,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(5)]
         public int LargeChange
         {
-            get { return _drawTrackBar.LargeChange; }
-            set { _drawTrackBar.LargeChange = value; }
+            get => _drawTrackBar.LargeChange;
+            set => _drawTrackBar.LargeChange = value;
         }
 
         /// <summary>
@@ -536,8 +511,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public bool DrawBackground
         {
-            get { return !_drawTrackBar.IgnoreRender; }
-            set { _drawTrackBar.IgnoreRender = !value; }
+            get => !_drawTrackBar.IgnoreRender;
+            set => _drawTrackBar.IgnoreRender = !value;
         }
 
         /// <summary>
@@ -546,23 +521,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public bool InRibbonDesignMode
-        {
-            get { return _inRibbonDesignMode; }
-            set { _inRibbonDesignMode = value; }
-        }
-        #endregion
+        public bool InRibbonDesignMode { get; set; }
+
+	    #endregion
 
 		#region Protected
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(150, 35); }
-        }
+        protected override Size DefaultSize => new Size(150, 35);
 
-        /// <summary>
+	    /// <summary>
         /// Raises the HandleCreated event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
@@ -786,11 +755,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
         #region Internal
-        internal bool InTransparentDesignMode
-        {
-            get { return InRibbonDesignMode; }
-        }
-        #endregion
+        internal bool InTransparentDesignMode => InRibbonDesignMode;
+
+	    #endregion
 
         #region Implementation
         private void AdjustSize()

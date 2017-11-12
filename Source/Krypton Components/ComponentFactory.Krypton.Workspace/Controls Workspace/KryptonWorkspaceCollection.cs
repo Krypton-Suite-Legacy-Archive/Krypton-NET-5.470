@@ -64,10 +64,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets an array of types that the collection is restricted to contain.
         /// </summary>
-        public override Type[] RestrictTypes
-        {
-            get { return _types; }
-        }
+        public override Type[] RestrictTypes => _types;
 
         /// <summary>
         /// Gets a value indicating if the collection or child collections contains a cell instance.

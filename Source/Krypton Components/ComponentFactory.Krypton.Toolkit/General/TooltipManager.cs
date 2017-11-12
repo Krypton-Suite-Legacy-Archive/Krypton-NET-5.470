@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int ShowInterval
         {
-            get { return _startTimer.Interval; }
+            get => _startTimer.Interval;
 
             set
             {
@@ -84,7 +84,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int CloseInterval
         {
-            get { return _stopTimer.Interval; }
+            get => _stopTimer.Interval;
 
             set
             {

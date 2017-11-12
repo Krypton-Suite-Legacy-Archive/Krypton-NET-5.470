@@ -32,7 +32,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupGallery _ribbonGallery;
         private ViewDrawRibbonGroup _activeGroup;
         private GalleryController _controller;
         private NeedPaintHandler _needPaint;
@@ -64,19 +63,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonGallery = ribbonGallery;
+            GroupGallery = ribbonGallery;
             _needPaint = needPaint;
-            _currentSize = _ribbonGallery.ItemSizeCurrent;
+            _currentSize = GroupGallery.ItemSizeCurrent;
 
             // Create the button view used in small setting
             CreateLargeButtonView();
 
             // Hook into the gallery events
-            _ribbonGallery.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            _ribbonGallery.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupGallery.MouseEnterControl += new EventHandler(OnMouseEnterControl);
+            GroupGallery.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonGallery;
+            Component = GroupGallery;
 
             if (_ribbon.InDesignMode)
             {
@@ -87,7 +86,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Create controller needed for handling focus and key tip actions
-            _controller = new GalleryController(_ribbon, _ribbonGallery, this);
+            _controller = new GalleryController(_ribbon, GroupGallery, this);
             SourceController = _controller;
             KeyController = _controller;
 
@@ -96,13 +95,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
 
             // Define back reference to view for the gallery definition
-            _ribbonGallery.GalleryView = this;
+            GroupGallery.GalleryView = this;
 
             // Give paint delegate to gallery so its palette changes are redrawn
-            _ribbonGallery.ViewPaintDelegate = needPaint;
+            GroupGallery.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            _ribbonGallery.PropertyChanged += new PropertyChangedEventHandler(OnGalleryPropertyChanged);
+            GroupGallery.PropertyChanged += new PropertyChangedEventHandler(OnGalleryPropertyChanged);
         }
 
 		/// <summary>
@@ -123,24 +122,24 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonGallery != null)
+                if (GroupGallery != null)
                 {
                     // Must unhook to prevent memory leaks
-                    if (_ribbonGallery.LastGallery != null)
+                    if (GroupGallery.LastGallery != null)
                     {
-                        _ribbonGallery.LastGallery.Ribbon = null;
+                        GroupGallery.LastGallery.Ribbon = null;
                     }
 
-                    _ribbonGallery.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    _ribbonGallery.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
-                    _ribbonGallery.ViewPaintDelegate = null;
-                    _ribbonGallery.PropertyChanged -= new PropertyChangedEventHandler(OnGalleryPropertyChanged);
+                    GroupGallery.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
+                    GroupGallery.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupGallery.ViewPaintDelegate = null;
+                    GroupGallery.PropertyChanged -= new PropertyChangedEventHandler(OnGalleryPropertyChanged);
                     _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
                     _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
 
                     // Remove association with definition
-                    _ribbonGallery.GalleryView = null; 
-                    _ribbonGallery = null;
+                    GroupGallery.GalleryView = null; 
+                    GroupGallery = null;
                 }
             }
 
@@ -154,11 +153,11 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void KeyTipSelect()
         {
-            _ribbonGallery.LastGallery?.ShownGalleryDropDown(_ribbonGallery.LastGallery.RectangleToScreen(_ribbonGallery.LastGallery.ClientRectangle),
+            GroupGallery.LastGallery?.ShownGalleryDropDown(GroupGallery.LastGallery.RectangleToScreen(GroupGallery.LastGallery.ClientRectangle),
                 KryptonContextMenuPositionH.Left,
                 KryptonContextMenuPositionV.Top,
                 null,
-                _ribbonGallery.DropButtonItemWidth);
+                GroupGallery.DropButtonItemWidth);
         }
         #endregion
 
@@ -166,10 +165,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group gallery instance.
         /// </summary>
-        public KryptonRibbonGroupGallery GroupGallery
-        {
-            get { return _ribbonGallery; }
-        }
+        public KryptonRibbonGroupGallery GroupGallery { get; private set; }
+
         #endregion
 
         #region LostFocus
@@ -180,7 +177,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void LostFocus(Control c)
         {
             // Ask ribbon to shift focus to the embedded control
-            _ribbon.HideFocus(_ribbonGallery.Gallery);
+            _ribbon.HideFocus(GroupGallery.Gallery);
             base.LostFocus(c);
         }
         #endregion
@@ -194,16 +191,16 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (_viewLarge.Visible)
             {
-                if (_ribbonGallery.Visible && _ribbonGallery.Enabled)
+                if (GroupGallery.Visible && GroupGallery.Enabled)
                 {
                     return _viewLarge;
                 }
             }
             else
             {
-                if ((_ribbonGallery.Visible) &&
-                    (_ribbonGallery.LastGallery != null) &&
-                    (_ribbonGallery.LastGallery.CanSelect))
+                if ((GroupGallery.Visible) &&
+                    (GroupGallery.LastGallery != null) &&
+                    (GroupGallery.LastGallery.CanSelect))
                 {
                     return this;
                 }
@@ -222,16 +219,16 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (_viewLarge.Visible)
             {
-                if (_ribbonGallery.Visible && _ribbonGallery.Enabled)
+                if (GroupGallery.Visible && GroupGallery.Enabled)
                 {
                     return _viewLarge;
                 }
             }
             else
             {
-                if ((_ribbonGallery.Visible) &&
-                    (_ribbonGallery.LastGallery != null) &&
-                    (_ribbonGallery.LastGallery.CanSelect))
+                if ((GroupGallery.Visible) &&
+                    (GroupGallery.LastGallery != null) &&
+                    (GroupGallery.LastGallery.CanSelect))
                 {
                     return this;
                 }
@@ -276,14 +273,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="keyTipList">List to add new entries into.</param>
         public void GetGroupKeyTips(KeyTipInfoList keyTipList)
         {
-            if (_ribbonGallery.Visible)
+            if (GroupGallery.Visible)
             {
                 if (_viewLarge.Visible)
                 {
                     // Get the screen location of the button
                     Rectangle viewRect = _ribbon.KeyTipToScreen(_viewLarge); 
-                    keyTipList.Add(new KeyTipInfo(_ribbonGallery.Enabled,
-                                                  _ribbonGallery.KeyTip,
+                    keyTipList.Add(new KeyTipInfo(GroupGallery.Enabled,
+                                                  GroupGallery.KeyTip,
                                                   new Point(viewRect.Left + (viewRect.Width / 2), viewRect.Bottom),
                                                   ClientRectangle,
                                                   _viewLarge.Controller));
@@ -292,8 +289,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Get the screen location of the button
                     Rectangle viewRect = _ribbon.KeyTipToScreen(this);
-                    keyTipList.Add(new KeyTipInfo(_ribbonGallery.Enabled,
-                                                  _ribbonGallery.KeyTip,
+                    keyTipList.Add(new KeyTipInfo(GroupGallery.Enabled,
+                                                  GroupGallery.KeyTip,
                                                   new Point(viewRect.Left + (viewRect.Width / 2), viewRect.Bottom),
                                                   ClientRectangle,
                                                   _controller));
@@ -322,14 +319,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 List<ItemSizeWidth> results = new List<ItemSizeWidth>();
 
                 // Are we allowed to be in the large size?
-                if (_ribbonGallery.ItemSizeMaximum == GroupItemSize.Large)
+                if (GroupGallery.ItemSizeMaximum == GroupItemSize.Large)
                 {
                     // Allow a maximum of 39 steps between the large and medium values (with a minimum of 1)
-                    int step = Math.Max(1, (_ribbonGallery.LargeItemCount - _ribbonGallery.MediumItemCount) / 20);
+                    int step = Math.Max(1, (GroupGallery.LargeItemCount - GroupGallery.MediumItemCount) / 20);
 
                     // Process each step from large to medium
-                    int itemCount = _ribbonGallery.LargeItemCount;
-                    while (itemCount > _ribbonGallery.MediumItemCount)
+                    int itemCount = GroupGallery.LargeItemCount;
+                    while (itemCount > GroupGallery.MediumItemCount)
                     {
                         LastGallery.InternalPreferredItemSize = new Size(itemCount, 1);
                         results.Add(new ItemSizeWidth(GroupItemSize.Large, GetPreferredSize(context).Width, itemCount));
@@ -338,10 +335,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
 
                 // Are we allowed to be in the medium size?
-                if (((int)_ribbonGallery.ItemSizeMaximum >= (int)GroupItemSize.Medium) &&
-                    ((int)_ribbonGallery.ItemSizeMinimum <= (int)GroupItemSize.Medium))
+                if (((int)GroupGallery.ItemSizeMaximum >= (int)GroupItemSize.Medium) &&
+                    ((int)GroupGallery.ItemSizeMinimum <= (int)GroupItemSize.Medium))
                 {
-                    LastGallery.InternalPreferredItemSize = new Size(_ribbonGallery.MediumItemCount, 1);
+                    LastGallery.InternalPreferredItemSize = new Size(GroupGallery.MediumItemCount, 1);
                     ItemSizeWidth mediumWidth = new ItemSizeWidth(GroupItemSize.Medium, GetPreferredSize(context).Width);
 
                     if (_ribbon.InDesignHelperMode)
@@ -365,7 +362,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
 
                 // Are we allowed to be in the small size?
-                if ((int)_ribbonGallery.ItemSizeMinimum == (int)GroupItemSize.Small)
+                if ((int)GroupGallery.ItemSizeMinimum == (int)GroupItemSize.Small)
                 {
                     // Temporary set the item size to be size
                     _viewLarge.Visible = true;
@@ -413,8 +410,8 @@ namespace ComponentFactory.Krypton.Ribbon
         public void SetSolutionSize(ItemSizeWidth size)
         {
             // Update the container definition
-            _ribbonGallery.ItemSizeCurrent = size.GroupItemSize;
-            _ribbonGallery.InternalItemCount = size.Tag;
+            GroupGallery.ItemSizeCurrent = size.GroupItemSize;
+            GroupGallery.InternalItemCount = size.Tag;
             _viewLarge.Visible = (size.GroupItemSize == GroupItemSize.Small);
         }
 
@@ -424,9 +421,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public void ResetSolutionSize()
         {
             // Restore the container back to the defined size
-            _ribbonGallery.ItemSizeCurrent = _ribbonGallery.ItemSizeMaximum;
-            _ribbonGallery.InternalItemCount = _ribbonGallery.LargeItemCount;
-            _viewLarge.Visible = (_ribbonGallery.ItemSizeCurrent == GroupItemSize.Small);
+            GroupGallery.ItemSizeCurrent = GroupGallery.ItemSizeMaximum;
+            GroupGallery.InternalItemCount = GroupGallery.LargeItemCount;
+            _viewLarge.Visible = (GroupGallery.ItemSizeCurrent == GroupItemSize.Small);
         }
 
         /// <summary>
@@ -511,7 +508,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // If we do not have a gallery
-            if (_ribbonGallery.Gallery == null)
+            if (GroupGallery.Gallery == null)
             {
                 // And we are in design time
                 if (_ribbon.InDesignMode)
@@ -564,7 +561,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void CreateLargeButtonView()
         {
             // Create the background and border view
-            _viewLarge = new ViewDrawRibbonGroupButtonBackBorder(_ribbon, _ribbonGallery,
+            _viewLarge = new ViewDrawRibbonGroupButtonBackBorder(_ribbon, GroupGallery,
                                                                  _ribbon.StateCommon.RibbonGroupButton.PaletteBack,
                                                                  _ribbon.StateCommon.RibbonGroupButton.PaletteBorder,
                                                                  false, _needPaint)
@@ -582,7 +579,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ViewLayoutDocker contentLayout = new ViewLayoutDocker();
 
             // Add the large button at the top
-            _viewLargeImage = new ViewDrawRibbonGroupGalleryImage(_ribbon, _ribbonGallery);
+            _viewLargeImage = new ViewDrawRibbonGroupGalleryImage(_ribbon, GroupGallery);
             ViewLayoutRibbonCenterPadding largeImagePadding = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
             {
                 _viewLargeImage
@@ -590,12 +587,12 @@ namespace ComponentFactory.Krypton.Ribbon
             contentLayout.Add(largeImagePadding, ViewDockStyle.Top);
 
             // Add the first line of text
-            _viewLargeText1 = new ViewDrawRibbonGroupGalleryText(_ribbon, _ribbonGallery, true);
+            _viewLargeText1 = new ViewDrawRibbonGroupGalleryText(_ribbon, GroupGallery, true);
             contentLayout.Add(_viewLargeText1, ViewDockStyle.Bottom);
 
             // Add the second line of text
             _viewLargeCenter = new ViewLayoutRibbonRowCenter();
-            _viewLargeText2 = new ViewDrawRibbonGroupGalleryText(_ribbon, _ribbonGallery, false);
+            _viewLargeText2 = new ViewDrawRibbonGroupGalleryText(_ribbon, GroupGallery, false);
             _viewLargeDropArrow = new ViewDrawRibbonDropArrow(_ribbon);
             _viewLargeText2Sep1 = new ViewLayoutRibbonSeparator(4, false);
             _viewLargeText2Sep2 = new ViewLayoutRibbonSeparator(4, false);
@@ -622,16 +619,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnLargeButtonDropDown(object sender, EventArgs e)
         {
-            _ribbonGallery.LastGallery?.ShownGalleryDropDown(_ribbon.ViewRectangleToScreen(_viewLarge),
+            GroupGallery.LastGallery?.ShownGalleryDropDown(_ribbon.ViewRectangleToScreen(_viewLarge),
                 KryptonContextMenuPositionH.Left,
                 KryptonContextMenuPositionV.Below,
                 _viewLarge.FinishDelegate,
-                _ribbonGallery.DropButtonItemWidth);
+                GroupGallery.DropButtonItemWidth);
         }
 
         private void OnContextClick(object sender, MouseEventArgs e)
         {
-            _ribbonGallery.OnDesignTimeContextMenu(e);
+            GroupGallery.OnDesignTimeContextMenu(e);
         }
 
         private void OnGalleryPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -670,8 +667,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonGallery.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonGallery.RibbonTab))
+                if ((GroupGallery.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupGallery.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -682,11 +679,11 @@ namespace ComponentFactory.Krypton.Ribbon
 #pragma warning disable 162
             {
                 // If this button is actually defined as visible...
-                if (_ribbonGallery.Visible || _ribbon.InDesignMode)
+                if (GroupGallery.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonGallery.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonGallery.RibbonTab))
+                    if ((GroupGallery.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupGallery.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);
@@ -698,14 +695,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private Control LastParentControl
         {
-            get { return _ribbonGallery.LastParentControl; }
-            set { _ribbonGallery.LastParentControl = value; }
+            get => GroupGallery.LastParentControl;
+            set => GroupGallery.LastParentControl = value;
         }
 
         private KryptonGallery LastGallery
         {
-            get { return _ribbonGallery.LastGallery; }
-            set { _ribbonGallery.LastGallery = value; }
+            get => GroupGallery.LastGallery;
+            set => GroupGallery.LastGallery = value;
         }
 
         private void UpdateParent(Control parentControl)
@@ -713,11 +710,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // Is there a change in the gallery or a change in 
             // the parent control that is hosting the control...
             if ((parentControl != LastParentControl) ||
-                (LastGallery != _ribbonGallery.Gallery))
+                (LastGallery != GroupGallery.Gallery))
             {
                 // We only modify the parent and visible state if processing for correct container
-                if ((_ribbonGallery.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
-                    (!_ribbonGallery.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
+                if ((GroupGallery.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
+                    (!GroupGallery.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
                 {
                     // If we have added the custrom control to a parent before
                     if ((LastGallery != null) && (LastParentControl != null))
@@ -737,7 +734,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Remember the current control and new parent
-                    LastGallery = _ribbonGallery.Gallery;
+                    LastGallery = GroupGallery.Gallery;
                     LastParentControl = parentControl;
 
                     // Add ribbon reference to new gallery reference
@@ -768,13 +765,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the enabled state of the group element
-                bool enabled = _ribbonGallery.Enabled;
+                bool enabled = GroupGallery.Enabled;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonGallery.GalleryDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupGallery.GalleryDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    enabled = _ribbonGallery.GalleryDesigner.DesignEnabled;
+                    enabled = GroupGallery.GalleryDesigner.DesignEnabled;
                 }
 
                 c.Enabled = enabled;
@@ -786,13 +783,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonGallery.Visible;
+                bool visible = GroupGallery.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonGallery.GalleryDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupGallery.GalleryDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonGallery.GalleryDesigner.DesignVisible;
+                    visible = GroupGallery.GalleryDesigner.DesignVisible;
                 }
 
                 return visible;
@@ -806,28 +803,28 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonGallery.Visible;
+                bool visible = GroupGallery.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonGallery.GalleryDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupGallery.GalleryDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonGallery.GalleryDesigner.DesignVisible;
+                    visible = GroupGallery.GalleryDesigner.DesignVisible;
                 }
 
                 if (visible)
                 {
                     // Only visible if on the currently selected page
-                    if ((_ribbonGallery.RibbonTab == null) ||
-                        (_ribbon.SelectedTab != _ribbonGallery.RibbonTab))
+                    if ((GroupGallery.RibbonTab == null) ||
+                        (_ribbon.SelectedTab != GroupGallery.RibbonTab))
                     {
                         visible = false;
                     }
                     else
                     {
                         // Check the owning group is visible
-                        if ((_ribbonGallery.RibbonGroup != null) &&
-                            !_ribbonGallery.RibbonGroup.Visible &&
+                        if ((GroupGallery.RibbonGroup != null) &&
+                            !GroupGallery.RibbonGroup.Visible &&
                             !_ribbon.InDesignMode)
                         {
                             visible = false;
@@ -835,9 +832,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         else
                         {
                             // Check that the group is not collapsed
-                            if ((_ribbonGallery.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(_ribbonGallery.Gallery) is KryptonRibbon) ||
-                                 (_ribbon.GetControllerControl(_ribbonGallery.Gallery) is VisualPopupMinimized)))
+                            if ((GroupGallery.RibbonGroup.IsCollapsed) &&
+                                ((_ribbon.GetControllerControl(GroupGallery.Gallery) is KryptonRibbon) ||
+                                 (_ribbon.GetControllerControl(GroupGallery.Gallery) is VisualPopupMinimized)))
                             {
                                 visible = false;
                             }
@@ -845,14 +842,14 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
 
-                c.Visible = (visible && (_ribbonGallery.ItemSizeCurrent != GroupItemSize.Small));
+                c.Visible = (visible && (GroupGallery.ItemSizeCurrent != GroupItemSize.Small));
             }
         }
 
         private void OnLayoutAction(object sender, EventArgs e)
         {
             // If not disposed then we still have a element reference
-            if (_ribbonGallery != null)
+            if (GroupGallery != null)
             {
                 // Change in selected tab requires a retest of the control visibility
                 UpdateVisible(LastGallery);

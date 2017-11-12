@@ -33,14 +33,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _visible;
         private bool _enabled;
         private string _keyTip;
-        private Keys _shortcutKeys;
         private GroupItemSize _itemSizeCurrent;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonComboBox _comboBox;
-        private KryptonComboBox _lastComboBox;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _comboBoxView;
+
         #endregion
 
         #region Events
@@ -210,11 +204,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _visible = true;
             _enabled = true;
             _itemSizeCurrent = GroupItemSize.Medium;
-            _shortcutKeys = Keys.None;
+            ShortcutKeys = Keys.None;
             _keyTip = "X";
 
             // Create the actual combo box control and set initial settings
-            _comboBox = new KryptonComboBox
+            ComboBox = new KryptonComboBox
             {
                 InputControlStyle = InputControlStyle.Ribbon,
                 AlwaysActive = false,
@@ -224,29 +218,29 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into the events that are then exposed via ourself
-            _comboBox.DropDown += new EventHandler(OnComboBoxDropDown);
-            _comboBox.DropDownClosed += new EventHandler(OnComboBoxDropDownClosed);
-            _comboBox.DropDownStyleChanged += new EventHandler(OnComboBoxDropDownStyleChanged);
-            _comboBox.SelectedIndexChanged += new EventHandler(OnComboBoxSelectedIndexChanged);
-            _comboBox.SelectionChangeCommitted += new EventHandler(OnComboBoxSelectionChangeCommitted);
-            _comboBox.TextUpdate += new EventHandler(OnComboBoxTextUpdate);
-            _comboBox.GotFocus += new EventHandler(OnComboBoxGotFocus);
-            _comboBox.LostFocus += new EventHandler(OnComboBoxLostFocus);
-            _comboBox.KeyDown += new KeyEventHandler(OnComboBoxKeyDown);
-            _comboBox.KeyUp += new KeyEventHandler(OnComboBoxKeyUp);
-            _comboBox.KeyPress += new KeyPressEventHandler(OnComboBoxKeyPress);
-            _comboBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnComboBoxPreviewKeyDown);
-            _comboBox.DataSourceChanged += new EventHandler(OnComboBoxDataSourceChanged);
-            _comboBox.DisplayMemberChanged += new EventHandler(OnComboBoxDisplayMemberChanged);
-            _comboBox.Format += new ListControlConvertEventHandler(OnComboBoxFormat);
-            _comboBox.FormatInfoChanged += new EventHandler(OnComboBoxFormatInfoChanged);
-            _comboBox.FormatStringChanged += new EventHandler(OnComboBoxFormatStringChanged);
-            _comboBox.FormattingEnabledChanged += new EventHandler(OnComboBoxFormattingEnabledChanged);
-            _comboBox.SelectedValueChanged += new EventHandler(OnComboBoxSelectedValueChanged);
-            _comboBox.ValueMemberChanged += new EventHandler(OnComboBoxValueMemberChanged);
+            ComboBox.DropDown += new EventHandler(OnComboBoxDropDown);
+            ComboBox.DropDownClosed += new EventHandler(OnComboBoxDropDownClosed);
+            ComboBox.DropDownStyleChanged += new EventHandler(OnComboBoxDropDownStyleChanged);
+            ComboBox.SelectedIndexChanged += new EventHandler(OnComboBoxSelectedIndexChanged);
+            ComboBox.SelectionChangeCommitted += new EventHandler(OnComboBoxSelectionChangeCommitted);
+            ComboBox.TextUpdate += new EventHandler(OnComboBoxTextUpdate);
+            ComboBox.GotFocus += new EventHandler(OnComboBoxGotFocus);
+            ComboBox.LostFocus += new EventHandler(OnComboBoxLostFocus);
+            ComboBox.KeyDown += new KeyEventHandler(OnComboBoxKeyDown);
+            ComboBox.KeyUp += new KeyEventHandler(OnComboBoxKeyUp);
+            ComboBox.KeyPress += new KeyPressEventHandler(OnComboBoxKeyPress);
+            ComboBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnComboBoxPreviewKeyDown);
+            ComboBox.DataSourceChanged += new EventHandler(OnComboBoxDataSourceChanged);
+            ComboBox.DisplayMemberChanged += new EventHandler(OnComboBoxDisplayMemberChanged);
+            ComboBox.Format += new ListControlConvertEventHandler(OnComboBoxFormat);
+            ComboBox.FormatInfoChanged += new EventHandler(OnComboBoxFormatInfoChanged);
+            ComboBox.FormatStringChanged += new EventHandler(OnComboBoxFormatStringChanged);
+            ComboBox.FormattingEnabledChanged += new EventHandler(OnComboBoxFormattingEnabledChanged);
+            ComboBox.SelectedValueChanged += new EventHandler(OnComboBoxSelectedValueChanged);
+            ComboBox.ValueMemberChanged += new EventHandler(OnComboBoxValueMemberChanged);
 
             // Ensure we can track mouse events on the text box
-            MonitorControl(_comboBox);
+            MonitorControl(ComboBox);
         }
 
         /// <summary>
@@ -257,11 +251,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_comboBox != null)
+                if (ComboBox != null)
                 {
-                    UnmonitorControl(_comboBox);
-                    _comboBox.Dispose();
-                    _comboBox = null;
+                    UnmonitorControl(ComboBox);
+                    ComboBox.Dispose();
+                    ComboBox = null;
                 }
             }
 
@@ -286,7 +280,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the same palette in the combo box as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
-                    _comboBox.Palette = Ribbon.GetResolvedPalette();
+                    ComboBox.Palette = Ribbon.GetResolvedPalette();
                     Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
                 }
             }
@@ -297,11 +291,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         [Category("Behavior")]
         [Description("Shortcut key combination to set focus to the combo box.")]
-        public Keys ShortcutKeys
-        {
-            get { return _shortcutKeys; }
-            set { _shortcutKeys = value; }
-        }
+        public Keys ShortcutKeys { get; set; }
 
         private bool ShouldSerializeShortcutKeys()
         {
@@ -323,10 +313,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonComboBox ComboBox
-        {
-            get { return _comboBox; }
-        }
+        public KryptonComboBox ComboBox { get; private set; }
 
         /// <summary>
         /// Gets and sets the key tip for the ribbon group text box.
@@ -338,7 +325,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("X")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -363,7 +350,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -400,7 +387,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -420,8 +407,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MinimumSize
         {
-            get { return _comboBox.MinimumSize; }
-            set { _comboBox.MinimumSize = value; }
+            get => ComboBox.MinimumSize;
+            set => ComboBox.MinimumSize = value;
         }
 
         /// <summary>
@@ -432,8 +419,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "121, 0")]
         public Size MaximumSize
         {
-            get { return _comboBox.MaximumSize; }
-            set { _comboBox.MaximumSize = value; }
+            get => ComboBox.MaximumSize;
+            set => ComboBox.MaximumSize = value;
         }
 
         /// <summary>
@@ -444,8 +431,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
         {
-            get { return _comboBox.Text; }
-            set { _comboBox.Text = value; }
+            get => ComboBox.Text;
+            set => ComboBox.Text = value;
         }
 
         /// <summary>
@@ -456,8 +443,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _comboBox.ContextMenuStrip; }
-            set { _comboBox.ContextMenuStrip = value; }
+            get => ComboBox.ContextMenuStrip;
+            set => ComboBox.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -468,8 +455,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _comboBox.KryptonContextMenu; }
-            set { _comboBox.KryptonContextMenu = value; }
+            get => ComboBox.KryptonContextMenu;
+            set => ComboBox.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -481,8 +468,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string ValueMember
         {
-            get { return _comboBox.ValueMember; }
-            set { _comboBox.ValueMember = value; }
+            get => ComboBox.ValueMember;
+            set => ComboBox.ValueMember = value;
         }
 
         /// <summary>
@@ -495,8 +482,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue((string)null)]
         public object DataSource
         {
-            get { return _comboBox.DataSource; }
-            set { _comboBox.DataSource = value; }
+            get => ComboBox.DataSource;
+            set => ComboBox.DataSource = value;
         }
 
         /// <summary>
@@ -509,8 +496,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string DisplayMember
         {
-            get { return _comboBox.DisplayMember; }
-            set { _comboBox.DisplayMember = value; }
+            get => ComboBox.DisplayMember;
+            set => ComboBox.DisplayMember = value;
         }
 
         /// <summary>
@@ -522,8 +509,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.Repaint)]
         public ComboBoxStyle DropDownStyle
         {
-            get { return _comboBox.DropDownStyle; }
-            set { _comboBox.DropDownStyle = value; }
+            get => ComboBox.DropDownStyle;
+            set => ComboBox.DropDownStyle = value;
         }
 
         /// <summary>
@@ -536,8 +523,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(true)]
         public int DropDownHeight
         {
-            get { return _comboBox.DropDownHeight; }
-            set { _comboBox.DropDownHeight = value; }
+            get => ComboBox.DropDownHeight;
+            set => ComboBox.DropDownHeight = value;
         }
 
         /// <summary>
@@ -550,8 +537,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(true)]
         public int DropDownWidth
         {
-            get { return _comboBox.DropDownWidth; }
-            set { _comboBox.DropDownWidth = value; }
+            get => ComboBox.DropDownWidth;
+            set => ComboBox.DropDownWidth = value;
         }
 
         /// <summary>
@@ -562,8 +549,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public int ItemHeight
         {
-            get { return _comboBox.ItemHeight; }
-            set { _comboBox.ItemHeight = value; }
+            get => ComboBox.ItemHeight;
+            set => ComboBox.ItemHeight = value;
         }
 
         /// <summary>
@@ -575,8 +562,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(8)]
         public int MaxDropDownItems
         {
-            get { return _comboBox.MaxDropDownItems; }
-            set { _comboBox.MaxDropDownItems = value; }
+            get => ComboBox.MaxDropDownItems;
+            set => ComboBox.MaxDropDownItems = value;
         }
 
         /// <summary>
@@ -588,8 +575,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public int MaxLength
         {
-            get { return _comboBox.MaxLength; }
-            set { _comboBox.MaxLength = value; }
+            get => ComboBox.MaxLength;
+            set => ComboBox.MaxLength = value;
         }
 
         /// <summary>
@@ -600,8 +587,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool Sorted
         {
-            get { return _comboBox.Sorted; }
-            set { _comboBox.Sorted = value; }
+            get => ComboBox.Sorted;
+            set => ComboBox.Sorted = value;
         }
 
         /// <summary>
@@ -613,10 +600,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [MergableProperty(false)]
         [Localizable(true)]
-        public ComboBox.ObjectCollection Items
-        {
-            get { return _comboBox.Items; }
-        }
+        public ComboBox.ObjectCollection Items => ComboBox.Items;
 
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
@@ -626,8 +610,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool AllowButtonSpecToolTips
         {
-            get { return _comboBox.AllowButtonSpecToolTips; }
-            set { _comboBox.AllowButtonSpecToolTips = value; }
+            get => ComboBox.AllowButtonSpecToolTips;
+            set => ComboBox.AllowButtonSpecToolTips = value;
         }
 
         /// <summary>
@@ -636,10 +620,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonComboBox.ComboBoxButtonSpecCollection ButtonSpecs
-        {
-            get { return _comboBox.ButtonSpecs; }
-        }
+        public KryptonComboBox.ComboBoxButtonSpecCollection ButtonSpecs => ComboBox.ButtonSpecs;
 
         /// <summary>
         /// Gets or sets the StringCollection to use when the AutoCompleteSource property is set to CustomSource.
@@ -652,8 +633,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(true)]
         public AutoCompleteStringCollection AutoCompleteCustomSource
         {
-            get { return _comboBox.AutoCompleteCustomSource; }
-            set { _comboBox.AutoCompleteCustomSource = value; }
+            get => ComboBox.AutoCompleteCustomSource;
+            set => ComboBox.AutoCompleteCustomSource = value;
         }
 
         /// <summary>
@@ -665,8 +646,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(true)]
         public AutoCompleteMode AutoCompleteMode
         {
-            get { return _comboBox.AutoCompleteMode; }
-            set { _comboBox.AutoCompleteMode = value; }
+            get => ComboBox.AutoCompleteMode;
+            set => ComboBox.AutoCompleteMode = value;
         }
 
         /// <summary>
@@ -678,8 +659,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(true)]
         public AutoCompleteSource AutoCompleteSource
         {
-            get { return _comboBox.AutoCompleteSource; }
-            set { _comboBox.AutoCompleteSource = value; }
+            get => ComboBox.AutoCompleteSource;
+            set => ComboBox.AutoCompleteSource = value;
         }
 
         /// <summary>
@@ -691,8 +672,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string FormatString
         {
-            get { return _comboBox.FormatString; }
-            set { _comboBox.FormatString = value; }
+            get => ComboBox.FormatString;
+            set => ComboBox.FormatString = value;
         }
 
         /// <summary>
@@ -702,8 +683,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool FormattingEnabled
         {
-            get { return _comboBox.FormattingEnabled; }
-            set { _comboBox.FormattingEnabled = value; }
+            get => ComboBox.FormattingEnabled;
+            set => ComboBox.FormattingEnabled = value;
         }
 
         /// <summary>
@@ -714,8 +695,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public IFormatProvider FormatInfo
         {
-            get { return _comboBox.FormatInfo; }
-            set { _comboBox.FormatInfo = value; }
+            get => ComboBox.FormatInfo;
+            set => ComboBox.FormatInfo = value;
         }
 
         /// <summary>
@@ -725,8 +706,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SelectionLength
         {
-            get { return _comboBox.SelectionLength; }
-            set { _comboBox.SelectionLength = value; }
+            get => ComboBox.SelectionLength;
+            set => ComboBox.SelectionLength = value;
         }
 
         /// <summary>
@@ -736,8 +717,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SelectionStart
         {
-            get { return _comboBox.SelectionStart; }
-            set { _comboBox.SelectionStart = value; }
+            get => ComboBox.SelectionStart;
+            set => ComboBox.SelectionStart = value;
         }
 
         /// <summary>
@@ -748,8 +729,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object SelectedItem
         {
-            get { return _comboBox.SelectedItem; }
-            set { _comboBox.SelectedItem = value; }
+            get => ComboBox.SelectedItem;
+            set => ComboBox.SelectedItem = value;
         }
 
         /// <summary>
@@ -759,8 +740,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SelectedText
         {
-            get { return _comboBox.SelectedText; }
-            set { _comboBox.SelectedText = value; }
+            get => ComboBox.SelectedText;
+            set => ComboBox.SelectedText = value;
         }
 
         /// <summary>
@@ -770,8 +751,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SelectedIndex
         {
-            get { return _comboBox.SelectedIndex; }
-            set { _comboBox.SelectedIndex = value; }
+            get => ComboBox.SelectedIndex;
+            set => ComboBox.SelectedIndex = value;
         }
 
         /// <summary>
@@ -783,8 +764,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object SelectedValue
         {
-            get { return _comboBox.SelectedValue; }
-            set { _comboBox.SelectedValue = value; }
+            get => ComboBox.SelectedValue;
+            set => ComboBox.SelectedValue = value;
         }
 
         /// <summary>
@@ -794,8 +775,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool DroppedDown
         {
-            get { return _comboBox.DroppedDown; }
-            set { _comboBox.DroppedDown = value; }
+            get => ComboBox.DroppedDown;
+            set => ComboBox.DroppedDown = value;
         }
 
         /// <summary>
@@ -805,7 +786,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found.</returns>
         public int FindString(string str)
         {
-            return _comboBox.FindString(str);
+            return ComboBox.FindString(str);
         }
 
         /// <summary>
@@ -816,7 +797,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found, or 0 if the s parameter specifies Empty.</returns>
         public int FindString(string str, int startIndex)
         {
-            return _comboBox.FindString(str, startIndex);
+            return ComboBox.FindString(str, startIndex);
         }
 
         /// <summary>
@@ -826,7 +807,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found.</returns>
         public int FindStringExact(string str)
         {
-            return _comboBox.FindStringExact(str);
+            return ComboBox.FindStringExact(str);
         }
 
         /// <summary>
@@ -837,7 +818,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found, or 0 if the s parameter specifies Empty.</returns>
         public int FindStringExact(string str, int startIndex)
         {
-            return _comboBox.FindStringExact(str, startIndex);
+            return ComboBox.FindStringExact(str, startIndex);
         }
 
         /// <summary>
@@ -847,7 +828,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>The height, in pixels, of the item at the specified index.</returns>
         public int GetItemHeight(int index)
         {
-            return _comboBox.GetItemHeight(index);
+            return ComboBox.GetItemHeight(index);
         }
 
         /// <summary>
@@ -857,7 +838,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>If the DisplayMember property is not specified, the value returned by GetItemText is the value of the item's ToString method. Otherwise, the method returns the string value of the member specified in the DisplayMember property for the object specified in the item parameter.</returns>
         public string GetItemText(object item)
         {
-            return _comboBox.GetItemText(item);
+            return ComboBox.GetItemText(item);
         }
 
         /// <summary>
@@ -867,7 +848,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="length">The number of characters to select.</param>
         public void Select(int start, int length)
         {
-            _comboBox.Select(start, length);
+            ComboBox.Select(start, length);
         }
 
         /// <summary>
@@ -875,7 +856,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void SelectAll()
         {
-            _comboBox.SelectAll();
+            ComboBox.SelectAll();
         }
 
         /// <summary>
@@ -910,7 +891,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -941,11 +922,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject ComboBoxDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject ComboBoxDesigner { get; set; }
 
         private bool ShouldSerializeComboBoxDesigner()
         {
@@ -958,11 +935,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase ComboBoxView
-        {
-            get { return _comboBoxView; }
-            set { _comboBoxView = value; }
-        }
+        public ViewBase ComboBoxView { get; set; }
+
         #endregion
 
         #region Protected Virtual
@@ -1158,23 +1132,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonComboBox LastComboBox
-        {
-            get { return _lastComboBox; }
-            set { _lastComboBox = value; }
-        }
+        internal KryptonComboBox LastComboBox { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
@@ -1238,7 +1200,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            _viewPaintDelegate?.Invoke(this, e);
+            ViewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnComboBoxGotFocus(object sender, EventArgs e)
@@ -1343,7 +1305,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)
         {
-            _comboBox.Palette = Ribbon.GetResolvedPalette();
+            ComboBox.Palette = Ribbon.GetResolvedPalette();
         }
         #endregion
     }

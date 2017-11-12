@@ -129,24 +129,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private Size _lastLayoutSize;
         private IPalette _localPalette;
         private IPalette _palette;
-        private IRenderer _renderer;
         private PaletteMode _paletteMode;
         private ViewDrawPanel _drawPanel;
-        private ViewManager _viewManager;
-        private NeedPaintHandler _needPaintDelegate;
         private SimpleCall _refreshCall;
 
         // States and redirector
-        private PaletteRedirect _redirector;
-        private PaletteDataGridViewRedirect _stateCommon;
-        private PaletteDataGridViewAll _stateDisabled;
-        private PaletteDataGridViewAll _stateNormal;
-        private PaletteDataGridViewHeaders _stateTracking;
-        private PaletteDataGridViewHeaders _statePressed;
-        private PaletteDataGridViewCells _stateSelected;
 
         // Cached values for determining cell style overrides
-        private DataGridViewStyles _gridSyles;
         private Font _columnFont;
         private Font _rowFont;
         private Font _dataCellFont;
@@ -173,7 +162,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private Point _cellDown;
         private Timer _showTimer;
         private bool _hideOuterBorders;
-        private bool _showCellToolTips;
         private string _toolTipText;
         private byte _oldLocation;
         private DataGridViewCell _oldCell;
@@ -257,8 +245,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Color BackgroundColor
         {
-            get { return base.BackgroundColor; }
-            set { base.BackgroundColor = value; }
+            get => base.BackgroundColor;
+            set => base.BackgroundColor = value;
         }
 
         /// <summary>
@@ -281,8 +269,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewCellBorderStyle CellBorderStyle
         {
-            get { return base.CellBorderStyle; }
-            set { base.CellBorderStyle = value; }
+            get => base.CellBorderStyle;
+            set => base.CellBorderStyle = value;
         }
 
         /// <summary>
@@ -293,8 +281,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewHeaderBorderStyle ColumnHeadersBorderStyle
         {
-            get { return base.ColumnHeadersBorderStyle; }
-            set { base.ColumnHeadersBorderStyle = value; }
+            get => base.ColumnHeadersBorderStyle;
+            set => base.ColumnHeadersBorderStyle = value;
         }
 
         /// <summary>
@@ -305,8 +293,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewCellStyle ColumnHeadersDefaultCellStyle
         {
-            get { return base.ColumnHeadersDefaultCellStyle; }
-            set { base.ColumnHeadersDefaultCellStyle = value; }
+            get => base.ColumnHeadersDefaultCellStyle;
+            set => base.ColumnHeadersDefaultCellStyle = value;
         }
 
         /// <summary>
@@ -317,8 +305,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewCellStyle DefaultCellStyle
         {
-            get { return base.DefaultCellStyle; }
-            set { base.DefaultCellStyle = value; }
+            get => base.DefaultCellStyle;
+            set => base.DefaultCellStyle = value;
         }
 
         /// <summary>
@@ -329,8 +317,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new bool EnableHeadersVisualStyles
         {
-            get { return base.EnableHeadersVisualStyles; }
-            set { base.EnableHeadersVisualStyles = value; }
+            get => base.EnableHeadersVisualStyles;
+            set => base.EnableHeadersVisualStyles = value;
         }
 
         /// <summary>
@@ -341,8 +329,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Color GridColor
         {
-            get { return base.GridColor; }
-            set { base.GridColor = value; }
+            get => base.GridColor;
+            set => base.GridColor = value;
         }
 
         /// <summary>
@@ -353,8 +341,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewHeaderBorderStyle RowHeadersBorderStyle
         {
-            get { return base.RowHeadersBorderStyle; }
-            set { base.RowHeadersBorderStyle = value; }
+            get => base.RowHeadersBorderStyle;
+            set => base.RowHeadersBorderStyle = value;
         }
 
         /// <summary>
@@ -365,18 +353,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new DataGridViewCellStyle RowHeadersDefaultCellStyle
         {
-            get { return base.RowHeadersDefaultCellStyle; }
-            set { base.RowHeadersDefaultCellStyle = value; }
+            get => base.RowHeadersDefaultCellStyle;
+            set => base.RowHeadersDefaultCellStyle = value;
         }
 
         /// <summary>
         /// Indicates if tool tips are displayed when the mouse hovers over the cell.
         /// </summary>
-        public new bool ShowCellToolTips
-        {
-            get { return _showCellToolTips; }
-            set { _showCellToolTips = value; }
-        }
+        public new bool ShowCellToolTips { get; set; }
+
         #endregion
 
         #region Public
@@ -388,7 +373,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool HideOuterBorders
         {
-            get { return _hideOuterBorders; }
+            get => _hideOuterBorders;
 
             set
             {
@@ -522,7 +507,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -531,14 +517,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common data grid view appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteDataGridViewRedirect StateCommon { get; private set; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -547,14 +530,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled data grid view appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewAll StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteDataGridViewAll StateDisabled { get; private set; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -563,14 +543,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal data grid view appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewAll StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteDataGridViewAll StateNormal { get; private set; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -579,14 +556,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking data grid view appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewHeaders StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteDataGridViewHeaders StateTracking { get; private set; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -595,14 +569,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed data grid view appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewHeaders StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteDataGridViewHeaders StatePressed { get; private set; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -611,14 +582,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining selected data grid view appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDataGridViewCells StateSelected
-        {
-            get { return _stateSelected; }
-        }
+        public PaletteDataGridViewCells StateSelected { get; private set; }
 
         private bool ShouldSerializeStateSelected()
         {
-            return !_stateSelected.IsDefault;
+            return !StateSelected.IsDefault;
         }
 
         /// <summary>
@@ -627,10 +595,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Set of grid styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewStyles GridStyles
-        {
-            get { return _gridSyles; }
-        }
+        public DataGridViewStyles GridStyles { get; private set; }
 
         /// <summary>
         /// Fires the NeedPaint event.
@@ -803,7 +768,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ViewManager GetViewManager()
         {
-            return _viewManager;
+            return ViewManager;
         }
 
         /// <summary>
@@ -824,8 +789,8 @@ namespace ComponentFactory.Krypton.Toolkit
         protected ViewManager ViewManager
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewManager; }
-            set { _viewManager = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -834,7 +799,8 @@ namespace ComponentFactory.Krypton.Toolkit
         protected NeedPaintHandler NeedPaintDelegate
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _needPaintDelegate; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -947,7 +913,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (ViewManager != null)
             {
                 // Ask the view if it needs to paint transparent areas
-                return ViewManager.EvalTransparentPaint(_renderer);
+                return ViewManager.EvalTransparentPaint(Renderer);
             }
             else
             {
@@ -959,25 +925,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
-        protected virtual bool EvalInvokePaint
-        {
-            get
-            {
-                // By default the paint can occur safely via a simple Invalidate() call,
-                // but some controls might need to override this the entire client area can
-                // be covered by child controls and so Invalidate() becomes redundant and the
-                // control is never layed out.
-                return false;
-            }
-        }
+        protected virtual bool EvalInvokePaint => false;
 
         /// <summary>
         /// Gets the control reference that is the parent for transparent drawing.
         /// </summary>
-        protected virtual Control TransparentParent
-        {
-            get { return Parent; }
-        }
+        protected virtual Control TransparentParent => Parent;
 
         /// <summary>
         /// Processes a notification from palette storage of a button spec change.
@@ -1172,17 +1125,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 using (Graphics tempG = Graphics.FromImage(tempBitmap))
                 {
-                    using (RenderContext renderContext = new RenderContext(this, tempG, tempCellBounds, _renderer))
+                    using (RenderContext renderContext = new RenderContext(this, tempG, tempCellBounds, Renderer))
                     {
                         // Force the border to have a specificed maximum border edge
                         _borderForced.SetInherit(paletteBorder);
                         _borderForced.MaxBorderEdges = GetCellMaxBorderEdges(e.CellBounds, e.ColumnIndex, e.RowIndex);
 
                         // Get the padding used to decide how to draw the background
-                        Padding borderPadding = _renderer.RenderStandardBorder.GetBorderRawPadding(_borderForced, state, VisualOrientation.Top);
+                        Padding borderPadding = Renderer.RenderStandardBorder.GetBorderRawPadding(_borderForced, state, VisualOrientation.Top);
 
                         // Get the border path used to limit drawing of the background
-                        GraphicsPath borderPath = _renderer.RenderStandardBorder.GetBackPath(renderContext, tempCellBounds, _borderForced, VisualOrientation.Top, state);
+                        GraphicsPath borderPath = Renderer.RenderStandardBorder.GetBackPath(renderContext, tempCellBounds, _borderForced, VisualOrientation.Top, state);
 
                         // Reduce background drawing rect by the raw padding
                         Rectangle tempCellBackBounds = CommonHelper.ApplyPadding(VisualOrientation.Top, tempCellBounds, borderPadding);
@@ -1190,7 +1143,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Update the back interceptor class
                         _backInherit.SetInherit(paletteBack, e.CellStyle);
 
-                        IDisposable unused =  _renderer.RenderStandardBack.DrawBack(renderContext, tempCellBackBounds, borderPath, _backInherit, VisualOrientation.Top, state, null);
+                        IDisposable unused =  Renderer.RenderStandardBack.DrawBack(renderContext, tempCellBackBounds, borderPath, _backInherit, VisualOrientation.Top, state, null);
 
                         // We never save the memento for reuse later
                         if (unused != null)
@@ -1199,7 +1152,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             unused = null;
                         }
 
-                        _renderer.RenderStandardBorder.DrawBorder(renderContext, tempCellBounds, _borderForced, VisualOrientation.Top, state);
+                        Renderer.RenderStandardBorder.DrawBorder(renderContext, tempCellBounds, _borderForced, VisualOrientation.Top, state);
 
                         // Must remember to release resources!
                         borderPath.Dispose();
@@ -1211,7 +1164,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             if (Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection != SortOrder.None)
                             {
                                 // Draw the sort glyph and update the remainder cell bounds left over
-                                tempCellBounds = _renderer.RenderGlyph.DrawGridSortGlyph(renderContext, Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection, tempCellBounds, paletteContent, state, rtl);
+                                tempCellBounds = Renderer.RenderGlyph.DrawGridSortGlyph(renderContext, Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection, tempCellBounds, paletteContent, state, rtl);
                             }
                         }
                         else
@@ -1262,7 +1215,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 if (glpyh != GridRowGlyph.None)
                                 {
                                     // Draw the row glyph and update the remainder cell bounds left over
-                                    tempCellBounds = _renderer.RenderGlyph.DrawGridRowGlyph(renderContext, glpyh, tempCellBounds, paletteContent, state, rtl);
+                                    tempCellBounds = Renderer.RenderGlyph.DrawGridRowGlyph(renderContext, glpyh, tempCellBounds, paletteContent, state, rtl);
                                 }
 
                                 // Is there an error icon associated with the row that needs showing
@@ -1270,7 +1223,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 {
                                     // Draw error icon and update the remainder cell bounds left over
                                     Rectangle beforeCellBounds = tempCellBounds;
-                                    tempCellBounds = _renderer.RenderGlyph.DrawGridErrorGlyph(renderContext, tempCellBounds, state, rtl);
+                                    tempCellBounds = Renderer.RenderGlyph.DrawGridErrorGlyph(renderContext, tempCellBounds, state, rtl);
 
                                     // Calculate the icon rectangle
                                     Rectangle iconBounds = new Rectangle(tempCellBounds.Right + 1, tempCellBounds.Top,
@@ -1305,7 +1258,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     if (ShowCellErrors && !string.IsNullOrEmpty(Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText))
                                     {
                                         // Draw error icon and update the remainder cell bounds left over
-                                        tempCellBounds = _renderer.RenderGlyph.DrawGridErrorGlyph(renderContext, tempCellBounds, state, rtl);
+                                        tempCellBounds = Renderer.RenderGlyph.DrawGridErrorGlyph(renderContext, tempCellBounds, state, rtl);
                                     }
                                 }
                             }
@@ -1334,13 +1287,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                     // Use the display value of the header cell
                                     _shortTextValue.ShortText = e.FormattedValue.ToString();
 
-                                    using (ViewLayoutContext layoutContext = new ViewLayoutContext(this, _renderer))
+                                    using (ViewLayoutContext layoutContext = new ViewLayoutContext(this, Renderer))
                                     {
                                         // If a column header cell...
                                         if ((e.RowIndex == -1) && (e.ColumnIndex != -1))
                                         {
                                             // Find size needed to show header text fully
-                                            Size prefSize = _renderer.RenderStandardContent.GetContentPreferredSize(layoutContext, _contentInherit, _shortTextValue,
+                                            Size prefSize = Renderer.RenderStandardContent.GetContentPreferredSize(layoutContext, _contentInherit, _shortTextValue,
                                                                                                                     VisualOrientation.Top, state, false);
 
                                             bool contentsFit = (prefSize.Width <= tempCellBounds.Width) &&
@@ -1358,12 +1311,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                         }
 
                                         // Find the correct layout for the header content
-                                        using (IDisposable memento = _renderer.RenderStandardContent.LayoutContent(layoutContext, tempCellBounds,
+                                        using (IDisposable memento = Renderer.RenderStandardContent.LayoutContent(layoutContext, tempCellBounds,
                                                                                                                    _contentInherit, _shortTextValue,
                                                                                                                    VisualOrientation.Top, state, false))
                                         {
                                            // Perform actual drawing of the content
-                                            _renderer.RenderStandardContent.DrawContent(renderContext, tempCellBounds,
+                                            Renderer.RenderStandardContent.DrawContent(renderContext, tempCellBounds,
                                                                                         _contentInherit, memento,
                                                                                         VisualOrientation.Top,
                                                                                         state, false, true);
@@ -1468,7 +1421,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnEnabledChanged(EventArgs e)
         {
             // Push correct palettes into the view
-            _drawPanel.SetPalettes(Enabled ? _stateNormal.Background : _stateDisabled.Background);
+            _drawPanel.SetPalettes(Enabled ? StateNormal.Background : StateDisabled.Background);
 
             // Update with latest enabled state
             _drawPanel.Enabled = Enabled;
@@ -1498,18 +1451,19 @@ namespace ComponentFactory.Krypton.Toolkit
         internal PaletteRedirect Redirector
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
+            get;
+            private set;
         }
 
         internal void SyncStyles()
         {
             // Update with individual grid styles required
-            _stateCommon.SetGridStyles(_gridSyles.StyleColumn,
-                                       _gridSyles.StyleRow,
-                                       _gridSyles.StyleDataCells);
+            StateCommon.SetGridStyles(GridStyles.StyleColumn,
+                                       GridStyles.StyleRow,
+                                       GridStyles.StyleDataCells);
 
             // Update the background separately
-            _stateCommon.BackStyle = _gridSyles.StyleBackground;
+            StateCommon.BackStyle = GridStyles.StyleBackground;
 
             SyncCellStylesWithPalette();
         }
@@ -1541,7 +1495,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _refreshCall = new SimpleCall(OnPerformRefresh);
 
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedResyncPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedResyncPaint);
 
             // Must layout before first draw attempt
             _layoutDirty = true;
@@ -1554,7 +1508,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteMode = PaletteMode.Global;
 
             // Create constant target for resolving palette delegates
-            _redirector = new PaletteRedirect(_palette);
+            Redirector = new PaletteRedirect(_palette);
 
             // Hook into global palette changing events
             KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
@@ -1566,15 +1520,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private void SetupViewAndStates()
         {
             // Create the state storgate objects
-            _stateCommon = new PaletteDataGridViewRedirect(_redirector, NeedPaintDelegate);
-            _stateDisabled = new PaletteDataGridViewAll(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteDataGridViewAll(_stateCommon, NeedPaintDelegate);
-            _stateTracking = new PaletteDataGridViewHeaders(_stateCommon, NeedPaintDelegate);
-            _statePressed = new PaletteDataGridViewHeaders(_stateCommon, NeedPaintDelegate);
-            _stateSelected = new PaletteDataGridViewCells(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteDataGridViewRedirect(Redirector, NeedPaintDelegate);
+            StateDisabled = new PaletteDataGridViewAll(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteDataGridViewAll(StateCommon, NeedPaintDelegate);
+            StateTracking = new PaletteDataGridViewHeaders(StateCommon, NeedPaintDelegate);
+            StatePressed = new PaletteDataGridViewHeaders(StateCommon, NeedPaintDelegate);
+            StateSelected = new PaletteDataGridViewCells(StateCommon, NeedPaintDelegate);
 
             // Our view contains just a simple canvas that is the background
-            _drawPanel = new ViewDrawPanel(_stateNormal.Background);
+            _drawPanel = new ViewDrawPanel(StateNormal.Background);
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawPanel);
@@ -1587,7 +1541,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _borderForced = new PaletteBorderInheritForced(null);
             _backInherit = new PaletteDataGridViewBackInherit();
             _contentInherit = new PaletteDataGridViewContentInherit();
-            _gridSyles = new DataGridViewStyles(this);
+            GridStyles = new DataGridViewStyles(this);
             _columnCache = new ColumnHeaderCache();
             _rowCache = new RowHeaderCache();
             _showTimer = new Timer
@@ -1600,7 +1554,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _cellDown = _nullCell;
             _cellOver = _nullCell;
             _hideOuterBorders = false;
-            _showCellToolTips = true;
+            ShowCellToolTips = true;
 
             // Remove border from being drawn, border is drawn according to system settings
             // and we do not want that appearance. So set to 'None' and override the 
@@ -2133,7 +2087,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _layoutDirty = false;
 
                         // Ask the view to peform a layout
-                        ViewManager.Layout(_renderer);
+                        ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
 
@@ -2509,7 +2463,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Get the renderer associated with the palette
-                _renderer = _palette.GetRenderer();
+                Renderer = _palette.GetRenderer();
 
                 // Hook to new palette events
                 if (_palette != null)

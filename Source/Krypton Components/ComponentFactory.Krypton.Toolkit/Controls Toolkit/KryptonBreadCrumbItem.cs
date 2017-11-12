@@ -150,8 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private KryptonBreadCrumbItem _parent;
-        private BreadCrumbItems _items;
+
         #endregion
 
         #region Identity
@@ -209,7 +208,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(shortText, longText, image, imageTransparentColor)
         {
             // Create child collection
-            _items = new BreadCrumbItems(this);
+            Items = new BreadCrumbItems(this);
         }
 
         /// <summary>
@@ -218,7 +217,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         public override string ToString()
         {
-            return "(" + _items.Count.ToString() + ") " + ShortText;
+            return "(" + Items.Count.ToString() + ") " + ShortText;
         }
         #endregion
 
@@ -232,10 +231,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [RefreshProperties(RefreshProperties.All)]
         [Browsable(true)]
-        public BreadCrumbItems Items
-        {
-            get { return _items; }
-        }
+        public BreadCrumbItems Items { get; }
 
         /// <summary>
         /// Gets access to the Parent item in the hierarchy.
@@ -243,11 +239,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonBreadCrumbItem Parent
-        {
-            get { return _parent; }
-            internal set { _parent = value; }
-        }
+        public KryptonBreadCrumbItem Parent { get; internal set; }
+
         #endregion
 
         #region Protected

@@ -22,9 +22,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                           IPaletteContent
     {
         #region Instance Fields
-        private bool _apply;
-        private bool _override;
-        private PaletteState _state;
+
         private IPaletteRibbonBack _primaryBack;
         private IPaletteRibbonBack _backupBack;
         private IPaletteRibbonText _primaryText;
@@ -68,9 +66,9 @@ namespace ComponentFactory.Krypton.Navigator
             _backupContent = backupContent;
 
             // Default state
-            _apply = false;
-            _override = true;
-            _state = state;
+            Apply = false;
+            Override = true;
+            OverrideState = state;
         }
         #endregion
 
@@ -78,33 +76,24 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets and sets a value indicating if override should be applied.
         /// </summary>
-        public bool Apply
-        {
-            get { return _apply; }
-            set { _apply = value; }
-        }
+        public bool Apply { get; set; }
+
         #endregion
 
         #region Override
         /// <summary>
         /// Gets and sets a value indicating if override state should be applied.
         /// </summary>
-        public bool Override
-        {
-            get { return _override; }
-            set { _override = value; }
-        }
+        public bool Override { get; set; }
+
         #endregion
 
         #region OverrideState
         /// <summary>
         /// Gets and sets the override palette state to use.
         /// </summary>
-        public PaletteState OverrideState
-        {
-            get { return _state; }
-            set { _state = value; }
-        }
+        public PaletteState OverrideState { get; set; }
+
         #endregion
 
         #region IPaletteRibbonBack
@@ -115,9 +104,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteRibbonBackStyle value.</returns>
         public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(_override ? _state : state);
+                PaletteRibbonColorStyle ret = _primaryBack.GetRibbonBackColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteRibbonColorStyle.Inherit)
                 {
@@ -139,9 +128,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor1(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -163,9 +152,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor2(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -187,9 +176,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor3(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor3(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor3(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -211,9 +200,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor4(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor4(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor4(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -235,9 +224,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor5(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryBack.GetRibbonBackColor5(_override ? _state : state);
+                Color ret = _primaryBack.GetRibbonBackColor5(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -261,9 +250,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public override Color GetRibbonTextColor(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryText.GetRibbonTextColor(_override ? _state : state);
+                Color ret = _primaryText.GetRibbonTextColor(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -287,9 +276,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentDraw(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                InheritBool ret = _primaryContent.GetContentDraw(_override ? _state : state);
+                InheritBool ret = _primaryContent.GetContentDraw(Override ? OverrideState : state);
 
                 if (ret == InheritBool.Inherit)
                 {
@@ -311,9 +300,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentDrawFocus(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                InheritBool ret = _primaryContent.GetContentDrawFocus(_override ? _state : state);
+                InheritBool ret = _primaryContent.GetContentDrawFocus(Override ? OverrideState : state);
 
                 if (ret == InheritBool.Inherit)
                 {
@@ -335,9 +324,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentImageH(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentImageH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentImageH(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -359,9 +348,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentImageV(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentImageV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentImageV(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -383,9 +372,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteImageEffect value.</returns>
         public virtual PaletteImageEffect GetContentImageEffect(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteImageEffect ret = _primaryContent.GetContentImageEffect(_override ? _state : state);
+                PaletteImageEffect ret = _primaryContent.GetContentImageEffect(Override ? OverrideState : state);
 
                 if (ret == PaletteImageEffect.Inherit)
                 {
@@ -407,9 +396,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentImageColorMap(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentImageColorMap(_override ? _state : state);
+                Color ret = _primaryContent.GetContentImageColorMap(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -431,9 +420,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentImageColorTo(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentImageColorTo(_override ? _state : state);
+                Color ret = _primaryContent.GetContentImageColorTo(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -455,9 +444,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Font value.</returns>
         public virtual Font GetContentShortTextFont(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Font ret = _primaryContent.GetContentShortTextFont(_override ? _state : state);
+                Font ret = _primaryContent.GetContentShortTextFont(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -479,9 +468,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Font value.</returns>
         public virtual Font GetContentShortTextNewFont(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Font ret = _primaryContent.GetContentShortTextNewFont(_override ? _state : state);
+                Font ret = _primaryContent.GetContentShortTextNewFont(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -503,9 +492,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextHint value.</returns>
         public virtual PaletteTextHint GetContentShortTextHint(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHint ret = _primaryContent.GetContentShortTextHint(_override ? _state : state);
+                PaletteTextHint ret = _primaryContent.GetContentShortTextHint(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHint.Inherit)
                 {
@@ -527,9 +516,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextPrefix value.</returns>
         public virtual PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHotkeyPrefix ret = _primaryContent.GetContentShortTextPrefix(_override ? _state : state);
+                PaletteTextHotkeyPrefix ret = _primaryContent.GetContentShortTextPrefix(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
                 {
@@ -551,9 +540,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentShortTextMultiLine(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                InheritBool ret = _primaryContent.GetContentShortTextMultiLine(_override ? _state : state);
+                InheritBool ret = _primaryContent.GetContentShortTextMultiLine(Override ? OverrideState : state);
 
                 if (ret == InheritBool.Inherit)
                 {
@@ -575,9 +564,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextTrim value.</returns>
         public virtual PaletteTextTrim GetContentShortTextTrim(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextTrim ret = _primaryContent.GetContentShortTextTrim(_override ? _state : state);
+                PaletteTextTrim ret = _primaryContent.GetContentShortTextTrim(Override ? OverrideState : state);
 
                 if (ret == PaletteTextTrim.Inherit)
                 {
@@ -599,9 +588,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextH(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextH(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -623,9 +612,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextV(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextV(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -647,9 +636,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextMultiLineH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentShortTextMultiLineH(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -671,9 +660,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentShortTextColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentShortTextColor1(_override ? _state : state);
+                Color ret = _primaryContent.GetContentShortTextColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -695,9 +684,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentShortTextColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentShortTextColor2(_override ? _state : state);
+                Color ret = _primaryContent.GetContentShortTextColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -719,9 +708,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color drawing style.</returns>
         public virtual PaletteColorStyle GetContentShortTextColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteColorStyle ret = _primaryContent.GetContentShortTextColorStyle(_override ? _state : state);
+                PaletteColorStyle ret = _primaryContent.GetContentShortTextColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteColorStyle.Inherit)
                 {
@@ -743,9 +732,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color alignment style.</returns>
         public virtual PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primaryContent.GetContentShortTextColorAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primaryContent.GetContentShortTextColorAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -767,9 +756,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Angle used for color drawing.</returns>
         public virtual float GetContentShortTextColorAngle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                float ret = _primaryContent.GetContentShortTextColorAngle(_override ? _state : state);
+                float ret = _primaryContent.GetContentShortTextColorAngle(Override ? OverrideState : state);
 
                 if (ret == -1f)
                 {
@@ -791,9 +780,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image instance.</returns>
         public virtual Image GetContentShortTextImage(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Image ret = _primaryContent.GetContentShortTextImage(_override ? _state : state);
+                Image ret = _primaryContent.GetContentShortTextImage(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -815,9 +804,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image style value.</returns>
         public virtual PaletteImageStyle GetContentShortTextImageStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteImageStyle ret = _primaryContent.GetContentShortTextImageStyle(_override ? _state : state);
+                PaletteImageStyle ret = _primaryContent.GetContentShortTextImageStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteImageStyle.Inherit)
                 {
@@ -839,9 +828,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image alignment style.</returns>
         public virtual PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primaryContent.GetContentShortTextImageAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primaryContent.GetContentShortTextImageAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -863,9 +852,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Font value.</returns>
         public virtual Font GetContentLongTextFont(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Font ret = _primaryContent.GetContentLongTextFont(_override ? _state : state);
+                Font ret = _primaryContent.GetContentLongTextFont(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -887,9 +876,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Font value.</returns>
         public virtual Font GetContentLongTextNewFont(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Font ret = _primaryContent.GetContentLongTextNewFont(_override ? _state : state);
+                Font ret = _primaryContent.GetContentLongTextNewFont(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -911,9 +900,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextHint value.</returns>
         public virtual PaletteTextHint GetContentLongTextHint(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHint ret = _primaryContent.GetContentLongTextHint(_override ? _state : state);
+                PaletteTextHint ret = _primaryContent.GetContentLongTextHint(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHint.Inherit)
                 {
@@ -935,9 +924,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextPrefix value.</returns>
         public virtual PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHotkeyPrefix ret = _primaryContent.GetContentLongTextPrefix(_override ? _state : state);
+                PaletteTextHotkeyPrefix ret = _primaryContent.GetContentLongTextPrefix(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
                 {
@@ -959,9 +948,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentLongTextMultiLine(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                InheritBool ret = _primaryContent.GetContentLongTextMultiLine(_override ? _state : state);
+                InheritBool ret = _primaryContent.GetContentLongTextMultiLine(Override ? OverrideState : state);
 
                 if (ret == InheritBool.Inherit)
                 {
@@ -983,9 +972,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>PaletteTextTrim value.</returns>
         public virtual PaletteTextTrim GetContentLongTextTrim(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextTrim ret = _primaryContent.GetContentLongTextTrim(_override ? _state : state);
+                PaletteTextTrim ret = _primaryContent.GetContentLongTextTrim(Override ? OverrideState : state);
 
                 if (ret == PaletteTextTrim.Inherit)
                 {
@@ -1007,9 +996,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextH(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextH(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -1031,9 +1020,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextV(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextV(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -1055,9 +1044,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextMultiLineH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primaryContent.GetContentLongTextMultiLineH(Override ? OverrideState : state);
 
                 if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -1079,9 +1068,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentLongTextColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentLongTextColor1(_override ? _state : state);
+                Color ret = _primaryContent.GetContentLongTextColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -1103,9 +1092,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color value.</returns>
         public virtual Color GetContentLongTextColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primaryContent.GetContentLongTextColor2(_override ? _state : state);
+                Color ret = _primaryContent.GetContentLongTextColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -1127,9 +1116,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color drawing style.</returns>
         public virtual PaletteColorStyle GetContentLongTextColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteColorStyle ret = _primaryContent.GetContentLongTextColorStyle(_override ? _state : state);
+                PaletteColorStyle ret = _primaryContent.GetContentLongTextColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteColorStyle.Inherit)
                 {
@@ -1151,9 +1140,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Color alignment style.</returns>
         public virtual PaletteRectangleAlign GetContentLongTextColorAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primaryContent.GetContentLongTextColorAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primaryContent.GetContentLongTextColorAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -1175,9 +1164,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Angle used for color drawing.</returns>
         public virtual float GetContentLongTextColorAngle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                float ret = _primaryContent.GetContentLongTextColorAngle(_override ? _state : state);
+                float ret = _primaryContent.GetContentLongTextColorAngle(Override ? OverrideState : state);
 
                 if (ret == -1f)
                 {
@@ -1199,9 +1188,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image instance.</returns>
         public virtual Image GetContentLongTextImage(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Image ret = _primaryContent.GetContentLongTextImage(_override ? _state : state);
+                Image ret = _primaryContent.GetContentLongTextImage(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -1223,9 +1212,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image style value.</returns>
         public virtual PaletteImageStyle GetContentLongTextImageStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteImageStyle ret = _primaryContent.GetContentLongTextImageStyle(_override ? _state : state);
+                PaletteImageStyle ret = _primaryContent.GetContentLongTextImageStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteImageStyle.Inherit)
                 {
@@ -1247,9 +1236,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image alignment style.</returns>
         public virtual PaletteRectangleAlign GetContentLongTextImageAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primaryContent.GetContentLongTextImageAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primaryContent.GetContentLongTextImageAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -1271,9 +1260,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Padding value.</returns>
         public virtual Padding GetContentPadding(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Padding ret = _primaryContent.GetContentPadding(_override ? _state : state);
+                Padding ret = _primaryContent.GetContentPadding(Override ? OverrideState : state);
 
                 if (ret.All == -1)
                 {
@@ -1295,9 +1284,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Integer value.</returns>
         public virtual int GetContentAdjacentGap(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                int ret = _primaryContent.GetContentAdjacentGap(_override ? _state : state);
+                int ret = _primaryContent.GetContentAdjacentGap(Override ? OverrideState : state);
 
                 if (ret == -1)
                 {
@@ -1318,7 +1307,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Content style.</returns>
         public virtual PaletteContentStyle GetContentStyle()
         {
-            if (_apply)
+            if (Apply)
             {
                 return _primaryContent.GetContentStyle();
             }

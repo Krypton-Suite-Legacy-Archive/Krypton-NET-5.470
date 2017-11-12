@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class AutoHiddenShowingStateEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-        private DockingAutoHiddenShowState _state;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="state">New state of the auto hidden page.</param>
         public AutoHiddenShowingStateEventArgs(KryptonPage page, DockingAutoHiddenShowState state)
 		{
-            _page = page;
-            _state = state;
+            Page = page;
+            NewState = state;
 		}
         #endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the page that has had the state change.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
+        public KryptonPage Page { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the new state of the auto hidden page.
         /// </summary>
-        public DockingAutoHiddenShowState NewState
-        {
-            get { return _state; }
-        }
-        #endregion
+        public DockingAutoHiddenShowState NewState { get; }
+
+	    #endregion
     }
 }

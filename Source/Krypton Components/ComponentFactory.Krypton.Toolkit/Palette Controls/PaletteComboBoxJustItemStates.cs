@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteComboBoxJustItemStates : Storage
 	{
 		#region Instance Fields
-        private PaletteTriple _itemState;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Create storage that maps onto the inherit instances
-            _itemState = new PaletteTriple(inheritItem, needPaint);
+            Item = new PaletteTriple(inheritItem, needPaint);
 		}
 		#endregion
 
@@ -46,14 +46,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return Item.IsDefault;
-			}
-		}
-		#endregion
+		public override bool IsDefault => Item.IsDefault;
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -62,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="inheritItem">Source for inheriting item values.</param>
         public void SetInherit(IPaletteTriple inheritItem)
         {
-            _itemState.SetInherit(inheritItem);
+            Item.SetInherit(inheritItem);
         }
         #endregion
 
@@ -73,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette state to use when populating.</param>
         public void PopulateFromBase(PaletteState state)
         {
-            _itemState.PopulateFromBase(state);
+            Item.PopulateFromBase(state);
         }
         #endregion
 
@@ -85,14 +80,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple Item
-        {
-            get { return _itemState; }
-        }
+        public PaletteTriple Item { get; }
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
-            return !_itemState.IsDefault;
+            return !Item.IsDefault;
         }
         #endregion
 

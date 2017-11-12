@@ -31,24 +31,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private PaletteRibbonBackInheritRedirect _ribbonGalleryBackRedirect;
         private PaletteRibbonBackInheritRedirect _ribbonGalleryBorderRedirect;
 
-        private PaletteRibbonGeneral _ribbonGeneral;
-        private KryptonPaletteRibbonAppButton _ribbonAppButton;
-        private KryptonPaletteRibbonGroupArea _ribbonGroupArea;
-        private KryptonPaletteRibbonGroupButtonText _ribbonGroupButtonText;
-        private KryptonPaletteRibbonGroupCheckBoxText _ribbonGroupCheckBoxText;
-        private KryptonPaletteRibbonGroupNormalBorder _ribbonGroupNormalBorder;
-        private KryptonPaletteRibbonGroupNormalTitle _ribbonGroupNormalTitle;
-        private KryptonPaletteRibbonGroupCollapsedBorder _ribbonGroupCollapsedBorder;
-        private KryptonPaletteRibbonGroupCollapsedBack _ribbonGroupCollapsedBack;
-        private KryptonPaletteRibbonGroupCollapsedFrameBorder _ribbonGroupCollapsedFrameBorder;
-        private KryptonPaletteRibbonGroupCollapsedFrameBack _ribbonGroupCollapsedFrameBack;
-        private KryptonPaletteRibbonGroupCollapsedText _ribbonGroupCollapsedText;
-        private KryptonPaletteRibbonGroupRadioButtonText _ribbonGroupRadioButtonText;
-        private KryptonPaletteRibbonGroupLabelText _ribbonGroupLabelText;
-        private PaletteRibbonBack _ribbonQATFullbar;
-        private KryptonPaletteRibbonQATMinibar _ribbonQATMinibar;
-        private PaletteRibbonBack _ribbonQATOverflow;
-        private KryptonPaletteRibbonTab _ribbonTab;
         private PaletteRibbonBack _ribbonAppMenuInner;
         private PaletteRibbonBack _ribbonAppMenuOuter;
         private PaletteRibbonBack _ribbonAppMenuDocs;
@@ -85,29 +67,29 @@ namespace ComponentFactory.Krypton.Toolkit
             _ribbonGalleryBorderRedirect = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonGalleryBorder);
 
             // Create palettes
-            _ribbonGeneral = new PaletteRibbonGeneral(_ribbonGeneralRedirect, needPaint);
-            _ribbonAppButton = new KryptonPaletteRibbonAppButton(redirect, needPaint);
+            RibbonGeneral = new PaletteRibbonGeneral(_ribbonGeneralRedirect, needPaint);
+            RibbonAppButton = new KryptonPaletteRibbonAppButton(redirect, needPaint);
             _ribbonAppMenuInner = new PaletteRibbonBack(_ribbonAppMenuInnerInherit, needPaint);
             _ribbonAppMenuOuter = new PaletteRibbonBack(_ribbonAppMenuOuterInherit, needPaint);
             _ribbonAppMenuDocs = new PaletteRibbonBack(_ribbonAppMenuDocsInherit, needPaint);
             _ribbonAppMenuDocsTitle = new PaletteRibbonText(_ribbonAppMenuDocsTitleInherit, needPaint);
             _ribbonAppMenuDocsEntry = new PaletteRibbonText(_ribbonAppMenuDocsEntryInherit, needPaint);
-            _ribbonGroupArea = new KryptonPaletteRibbonGroupArea(redirect, needPaint);
-            _ribbonGroupButtonText = new KryptonPaletteRibbonGroupButtonText(redirect, needPaint);
-            _ribbonGroupCheckBoxText = new KryptonPaletteRibbonGroupCheckBoxText(redirect, needPaint);
-            _ribbonGroupNormalBorder = new KryptonPaletteRibbonGroupNormalBorder(redirect, needPaint);
-            _ribbonGroupNormalTitle = new KryptonPaletteRibbonGroupNormalTitle(redirect, needPaint);
-            _ribbonGroupCollapsedBorder = new KryptonPaletteRibbonGroupCollapsedBorder(redirect, needPaint);
-            _ribbonGroupCollapsedBack = new KryptonPaletteRibbonGroupCollapsedBack(redirect, needPaint);
-            _ribbonGroupCollapsedFrameBorder = new KryptonPaletteRibbonGroupCollapsedFrameBorder(redirect, needPaint);
-            _ribbonGroupCollapsedFrameBack = new KryptonPaletteRibbonGroupCollapsedFrameBack(redirect, needPaint);
-            _ribbonGroupCollapsedText = new KryptonPaletteRibbonGroupCollapsedText(redirect, needPaint);
-            _ribbonGroupRadioButtonText = new KryptonPaletteRibbonGroupRadioButtonText(redirect, needPaint);
-            _ribbonGroupLabelText = new KryptonPaletteRibbonGroupLabelText(redirect, needPaint);
-            _ribbonQATFullbar = new PaletteRibbonBack(_ribbonQATFullRedirect, needPaint);
-            _ribbonQATMinibar = new KryptonPaletteRibbonQATMinibar(redirect, needPaint);
-            _ribbonQATOverflow = new PaletteRibbonBack(_ribbonQATOverRedirect, needPaint);
-            _ribbonTab = new KryptonPaletteRibbonTab(redirect, needPaint);
+            RibbonGroupArea = new KryptonPaletteRibbonGroupArea(redirect, needPaint);
+            RibbonGroupButtonText = new KryptonPaletteRibbonGroupButtonText(redirect, needPaint);
+            RibbonGroupCheckBoxText = new KryptonPaletteRibbonGroupCheckBoxText(redirect, needPaint);
+            RibbonGroupNormalBorder = new KryptonPaletteRibbonGroupNormalBorder(redirect, needPaint);
+            RibbonGroupNormalTitle = new KryptonPaletteRibbonGroupNormalTitle(redirect, needPaint);
+            RibbonGroupCollapsedBorder = new KryptonPaletteRibbonGroupCollapsedBorder(redirect, needPaint);
+            RibbonGroupCollapsedBack = new KryptonPaletteRibbonGroupCollapsedBack(redirect, needPaint);
+            RibbonGroupCollapsedFrameBorder = new KryptonPaletteRibbonGroupCollapsedFrameBorder(redirect, needPaint);
+            RibbonGroupCollapsedFrameBack = new KryptonPaletteRibbonGroupCollapsedFrameBack(redirect, needPaint);
+            RibbonGroupCollapsedText = new KryptonPaletteRibbonGroupCollapsedText(redirect, needPaint);
+            RibbonGroupRadioButtonText = new KryptonPaletteRibbonGroupRadioButtonText(redirect, needPaint);
+            RibbonGroupLabelText = new KryptonPaletteRibbonGroupLabelText(redirect, needPaint);
+            RibbonQATFullbar = new PaletteRibbonBack(_ribbonQATFullRedirect, needPaint);
+            RibbonQATMinibar = new KryptonPaletteRibbonQATMinibar(redirect, needPaint);
+            RibbonQATOverflow = new PaletteRibbonBack(_ribbonQATOverRedirect, needPaint);
+            RibbonTab = new KryptonPaletteRibbonTab(redirect, needPaint);
             _ribbonGalleryBack = new PaletteRibbonBack(_ribbonGalleryBackRedirect, needPaint);
             _ribbonGalleryBorder = new PaletteRibbonBack(_ribbonGalleryBorderRedirect, needPaint);
         }
@@ -115,36 +97,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return RibbonAppButton.IsDefault &&
-                       RibbonAppMenuOuter.IsDefault &&
-                       RibbonAppMenuInner.IsDefault &&
-                       RibbonAppMenuDocs.IsDefault &&
-                       RibbonAppMenuDocsTitle.IsDefault &&
-                       RibbonAppMenuDocsEntry.IsDefault &&
-                       RibbonGeneral.IsDefault &&
-                       RibbonGroupArea.IsDefault &&
-                       RibbonGroupButtonText.IsDefault &&
-                       RibbonGroupCheckBoxText.IsDefault &&
-                       RibbonGroupNormalBorder.IsDefault &&
-                       RibbonGroupNormalTitle.IsDefault &&
-                       RibbonGroupCollapsedBorder.IsDefault &&
-                       RibbonGroupCollapsedBack.IsDefault &&
-                       RibbonGroupCollapsedFrameBorder.IsDefault &&
-                       RibbonGroupCollapsedFrameBack.IsDefault &&
-                       RibbonGroupCollapsedText.IsDefault &&
-                       RibbonGroupLabelText.IsDefault &&
-                       RibbonGroupRadioButtonText.IsDefault &&
-                       RibbonQATFullbar.IsDefault &&
-                       RibbonQATMinibar.IsDefault &&
-                       RibbonTab.IsDefault &&
-                       RibbonGalleryBack.IsDefault &&
-                       RibbonGalleryBorder.IsDefault;
-            }
-        }
+        public override bool IsDefault => RibbonAppButton.IsDefault &&
+                                          RibbonAppMenuOuter.IsDefault &&
+                                          RibbonAppMenuInner.IsDefault &&
+                                          RibbonAppMenuDocs.IsDefault &&
+                                          RibbonAppMenuDocsTitle.IsDefault &&
+                                          RibbonAppMenuDocsEntry.IsDefault &&
+                                          RibbonGeneral.IsDefault &&
+                                          RibbonGroupArea.IsDefault &&
+                                          RibbonGroupButtonText.IsDefault &&
+                                          RibbonGroupCheckBoxText.IsDefault &&
+                                          RibbonGroupNormalBorder.IsDefault &&
+                                          RibbonGroupNormalTitle.IsDefault &&
+                                          RibbonGroupCollapsedBorder.IsDefault &&
+                                          RibbonGroupCollapsedBack.IsDefault &&
+                                          RibbonGroupCollapsedFrameBorder.IsDefault &&
+                                          RibbonGroupCollapsedFrameBack.IsDefault &&
+                                          RibbonGroupCollapsedText.IsDefault &&
+                                          RibbonGroupLabelText.IsDefault &&
+                                          RibbonGroupRadioButtonText.IsDefault &&
+                                          RibbonQATFullbar.IsDefault &&
+                                          RibbonQATMinibar.IsDefault &&
+                                          RibbonTab.IsDefault &&
+                                          RibbonGalleryBack.IsDefault &&
+                                          RibbonGalleryBorder.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -189,14 +166,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon application button specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonAppButton RibbonAppButton
-        {
-            get { return _ribbonAppButton; }
-        }
+        public KryptonPaletteRibbonAppButton RibbonAppButton { get; }
 
         private bool ShouldSerializeRibbonAppButton()
         {
-            return !_ribbonAppButton.IsDefault;
+            return !RibbonAppButton.IsDefault;
         }
         #endregion
 
@@ -208,10 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining application button menu outer appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonAppMenuOuter
-        {
-            get { return _ribbonAppMenuOuter; }
-        }
+        public virtual PaletteRibbonBack RibbonAppMenuOuter => _ribbonAppMenuOuter;
 
         private bool ShouldSerializeRibbonAppMenuOuter()
         {
@@ -227,10 +198,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining application button menu inner appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonAppMenuInner
-        {
-            get { return _ribbonAppMenuInner; }
-        }
+        public virtual PaletteRibbonBack RibbonAppMenuInner => _ribbonAppMenuInner;
 
         private bool ShouldSerializeRibbonAppMenuInner()
         {
@@ -246,10 +214,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining application button menu recent docs appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonAppMenuDocs
-        {
-            get { return _ribbonAppMenuDocs; }
-        }
+        public virtual PaletteRibbonBack RibbonAppMenuDocs => _ribbonAppMenuDocs;
 
         private bool ShouldSerializeRibbonAppMenuDocs()
         {
@@ -265,10 +230,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining application button menu recent documents title.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonAppMenuDocsTitle
-        {
-            get { return _ribbonAppMenuDocsTitle; }
-        }
+        public virtual PaletteRibbonText RibbonAppMenuDocsTitle => _ribbonAppMenuDocsTitle;
 
         private bool ShouldSerializeRibbonAppMenuDocsTitle()
         {
@@ -284,10 +246,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining application button menu recent documents entry.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonAppMenuDocsEntry
-        {
-            get { return _ribbonAppMenuDocsEntry; }
-        }
+        public virtual PaletteRibbonText RibbonAppMenuDocsEntry => _ribbonAppMenuDocsEntry;
 
         private bool ShouldSerializeRibbonAppMenuDocsEntry()
         {
@@ -303,14 +262,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon general settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonGeneral RibbonGeneral
-        {
-            get { return _ribbonGeneral; }
-        }
+        public PaletteRibbonGeneral RibbonGeneral { get; }
 
         private bool ShouldSerializeRibbonGeneral()
         {
-            return !_ribbonGeneral.IsDefault;
+            return !RibbonGeneral.IsDefault;
         }
         #endregion
 
@@ -322,14 +278,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group area specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupArea RibbonGroupArea
-        {
-            get { return _ribbonGroupArea; }
-        }
+        public KryptonPaletteRibbonGroupArea RibbonGroupArea { get; }
 
         private bool ShouldSerializeRibbonGroupArea()
         {
-            return !_ribbonGroupArea.IsDefault;
+            return !RibbonGroupArea.IsDefault;
         }
         #endregion
 
@@ -341,14 +294,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group button text specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupButtonText RibbonGroupButtonText
-        {
-            get { return _ribbonGroupButtonText; }
-        }
+        public KryptonPaletteRibbonGroupButtonText RibbonGroupButtonText { get; }
 
         private bool ShouldSerializeRibbonGroupButtonText()
         {
-            return !_ribbonGroupButtonText.IsDefault;
+            return !RibbonGroupButtonText.IsDefault;
         }
         #endregion
 
@@ -360,14 +310,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group check box text specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCheckBoxText RibbonGroupCheckBoxText
-        {
-            get { return _ribbonGroupCheckBoxText; }
-        }
+        public KryptonPaletteRibbonGroupCheckBoxText RibbonGroupCheckBoxText { get; }
 
         private bool ShouldSerializeRibbonGroupCheckBoxText()
         {
-            return !_ribbonGroupCheckBoxText.IsDefault;
+            return !RibbonGroupCheckBoxText.IsDefault;
         }
         #endregion
 
@@ -379,14 +326,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group normal border specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupNormalBorder RibbonGroupNormalBorder
-        {
-            get { return _ribbonGroupNormalBorder; }
-        }
+        public KryptonPaletteRibbonGroupNormalBorder RibbonGroupNormalBorder { get; }
 
         private bool ShouldSerializeRibbonGroupNormalBorder()
         {
-            return !_ribbonGroupNormalBorder.IsDefault;
+            return !RibbonGroupNormalBorder.IsDefault;
         }
         #endregion
 
@@ -398,14 +342,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group normal title specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupNormalTitle RibbonGroupNormalTitle
-        {
-            get { return _ribbonGroupNormalTitle; }
-        }
+        public KryptonPaletteRibbonGroupNormalTitle RibbonGroupNormalTitle { get; }
 
         private bool ShouldSerializeRibbonGroupNormalTitle()
         {
-            return !_ribbonGroupNormalTitle.IsDefault;
+            return !RibbonGroupNormalTitle.IsDefault;
         }
         #endregion
 
@@ -417,14 +358,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group collapsed border specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCollapsedBorder RibbonGroupCollapsedBorder
-        {
-            get { return _ribbonGroupCollapsedBorder; }
-        }
+        public KryptonPaletteRibbonGroupCollapsedBorder RibbonGroupCollapsedBorder { get; }
 
         private bool ShouldSerializeRibbonGroupCollapsedBorder()
         {
-            return !_ribbonGroupCollapsedBorder.IsDefault;
+            return !RibbonGroupCollapsedBorder.IsDefault;
         }
         #endregion
 
@@ -436,14 +374,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group collapsed background specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCollapsedBack RibbonGroupCollapsedBack
-        {
-            get { return _ribbonGroupCollapsedBack; }
-        }
+        public KryptonPaletteRibbonGroupCollapsedBack RibbonGroupCollapsedBack { get; }
 
         private bool ShouldSerializeRibbonGroupCollapsedBack()
         {
-            return !_ribbonGroupCollapsedBack.IsDefault;
+            return !RibbonGroupCollapsedBack.IsDefault;
         }
         #endregion
 
@@ -455,14 +390,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group collapsed frame border specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCollapsedFrameBorder RibbonGroupCollapsedFrameBorder
-        {
-            get { return _ribbonGroupCollapsedFrameBorder; }
-        }
+        public KryptonPaletteRibbonGroupCollapsedFrameBorder RibbonGroupCollapsedFrameBorder { get; }
 
         private bool ShouldSerializeRibbonGroupCollapsedFrameBorder()
         {
-            return !_ribbonGroupCollapsedFrameBorder.IsDefault;
+            return !RibbonGroupCollapsedFrameBorder.IsDefault;
         }
         #endregion
 
@@ -474,14 +406,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group collapsed frame background specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCollapsedFrameBack RibbonGroupCollapsedFrameBack
-        {
-            get { return _ribbonGroupCollapsedFrameBack; }
-        }
+        public KryptonPaletteRibbonGroupCollapsedFrameBack RibbonGroupCollapsedFrameBack { get; }
 
         private bool ShouldSerializeRibbonGroupCollapsedFrameBack()
         {
-            return !_ribbonGroupCollapsedFrameBack.IsDefault;
+            return !RibbonGroupCollapsedFrameBack.IsDefault;
         }
         #endregion
 
@@ -493,14 +422,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group collapsed text specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupCollapsedText RibbonGroupCollapsedText
-        {
-            get { return _ribbonGroupCollapsedText; }
-        }
+        public KryptonPaletteRibbonGroupCollapsedText RibbonGroupCollapsedText { get; }
 
         private bool ShouldSerializeRibbonGroupCollapsedText()
         {
-            return !_ribbonGroupCollapsedText.IsDefault;
+            return !RibbonGroupCollapsedText.IsDefault;
         }
         #endregion
 
@@ -512,14 +438,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group label text specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupLabelText RibbonGroupLabelText
-        {
-            get { return _ribbonGroupLabelText; }
-        }
+        public KryptonPaletteRibbonGroupLabelText RibbonGroupLabelText { get; }
 
         private bool ShouldSerializeRibbonGroupLabelText()
         {
-            return !_ribbonGroupLabelText.IsDefault;
+            return !RibbonGroupLabelText.IsDefault;
         }
         #endregion
 
@@ -531,14 +454,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon group radio button text specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonGroupRadioButtonText RibbonGroupRadioButtonText
-        {
-            get { return _ribbonGroupRadioButtonText; }
-        }
+        public KryptonPaletteRibbonGroupRadioButtonText RibbonGroupRadioButtonText { get; }
 
         private bool ShouldSerializeRibbonGroupRadioButtonText()
         {
-            return !_ribbonGroupRadioButtonText.IsDefault;
+            return !RibbonGroupRadioButtonText.IsDefault;
         }
         #endregion
 
@@ -550,14 +470,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon quick access toolbar full settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack RibbonQATFullbar
-        {
-            get { return _ribbonQATFullbar; }
-        }
+        public PaletteRibbonBack RibbonQATFullbar { get; }
 
         private bool ShouldSerializeRibbonQATFullbar()
         {
-            return !_ribbonQATFullbar.IsDefault;
+            return !RibbonQATFullbar.IsDefault;
         }
         #endregion
 
@@ -569,14 +486,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon quick access toolbar mini settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonQATMinibar RibbonQATMinibar
-        {
-            get { return _ribbonQATMinibar; }
-        }
+        public KryptonPaletteRibbonQATMinibar RibbonQATMinibar { get; }
 
         private bool ShouldSerializeRibbonQATMinibar()
         {
-            return !_ribbonQATMinibar.IsDefault;
+            return !RibbonQATMinibar.IsDefault;
         }
         #endregion
 
@@ -588,14 +502,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon quick access toolbar overflow settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack RibbonQATOverflow
-        {
-            get { return _ribbonQATOverflow; }
-        }
+        public PaletteRibbonBack RibbonQATOverflow { get; }
 
         private bool ShouldSerializeRibbonQATOverflow()
         {
-            return !_ribbonQATOverflow.IsDefault;
+            return !RibbonQATOverflow.IsDefault;
         }
         #endregion
 
@@ -607,14 +518,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Ribbon tab specific settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbonTab RibbonTab
-        {
-            get { return _ribbonTab; }
-        }
+        public KryptonPaletteRibbonTab RibbonTab { get; }
 
         private bool ShouldSerializeRibbonTab()
         {
-            return !_ribbonTab.IsDefault;
+            return !RibbonTab.IsDefault;
         }
         #endregion
 
@@ -626,10 +534,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ribbon gallery background appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonGalleryBack
-        {
-            get { return _ribbonGalleryBack; }
-        }
+        public virtual PaletteRibbonBack RibbonGalleryBack => _ribbonGalleryBack;
 
         private bool ShouldSerializeRibbonGalleryBack()
         {
@@ -645,10 +550,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ribbon gallery border appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonGalleryBorder
-        {
-            get { return _ribbonGalleryBorder; }
-        }
+        public virtual PaletteRibbonBack RibbonGalleryBorder => _ribbonGalleryBorder;
 
         private bool ShouldSerializeRibbonGalleryBorder()
         {

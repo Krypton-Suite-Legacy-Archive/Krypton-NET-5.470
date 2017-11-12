@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteGroupBox : PaletteDouble
 	{
 		#region Instance Fields
-        private PaletteContent _content;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                NeedPaintHandler needPaint)
             : base(inherit, needPaint)
 		{
-            _content = new PaletteContent(inherit.PaletteContent, needPaint);
+            Content = new PaletteContent(inherit.PaletteContent, needPaint);
         }
 		#endregion
 
@@ -43,14 +43,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining content appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent Content
-        {
-            get { return _content; }
-        }
+        public PaletteContent Content { get; }
 
-        private bool ShouldSerializeContent()
+	    private bool ShouldSerializeContent()
         {
-            return !_content.IsDefault;
+            return !Content.IsDefault;
         }
 
         /// <summary>
@@ -59,10 +56,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IPaletteContent PaletteContent
-        {
-            get { return Content; }
-        }
-        #endregion
+        public IPaletteContent PaletteContent => Content;
+
+	    #endregion
     }
 }

@@ -68,19 +68,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (BackColor1 == Color.Empty) &&
-                       (BackColor2 == Color.Empty) &&
-                       (BackColor3 == Color.Empty) &&
-                       (BackColor4 == Color.Empty) &&
-                       (BackColor5 == Color.Empty) &&
-                       (TextColor == Color.Empty);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (BackColor1 == Color.Empty) &&
+		                                  (BackColor2 == Color.Empty) &&
+		                                  (BackColor3 == Color.Empty) &&
+		                                  (BackColor4 == Color.Empty) &&
+		                                  (BackColor5 == Color.Empty) &&
+		                                  (TextColor == Color.Empty);
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -133,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color BackColor1
         {
-            get { return _backColor1; }
+            get => _backColor1;
 
             set
             {
@@ -182,7 +177,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color BackColor2
         {
-            get { return _backColor2; }
+            get => _backColor2;
 
             set
             {
@@ -231,7 +226,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color BackColor3
         {
-            get { return _backColor3; }
+            get => _backColor3;
 
             set
             {
@@ -280,7 +275,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color BackColor4
         {
-            get { return _backColor4; }
+            get => _backColor4;
 
             set
             {
@@ -329,7 +324,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color BackColor5
         {
-            get { return _backColor5; }
+            get => _backColor5;
 
             set
             {
@@ -378,7 +373,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color TextColor
         {
-            get { return _textColor; }
+            get => _textColor;
 
             set
             {

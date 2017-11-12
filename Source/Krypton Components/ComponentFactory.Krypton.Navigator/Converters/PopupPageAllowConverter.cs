@@ -18,9 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PopupPageAllowConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(PopupPageAllow.Never,                 "Never"),
-                                             new Pair(PopupPageAllow.OnlyCompatibleModes,   "Only Compatible Modes"),
-                                             new Pair(PopupPageAllow.OnlyOutlookMiniMode,   "Only Outlook Mini Mode")};
+
         #endregion
                                              
         #region Identity
@@ -37,10 +35,11 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(PopupPageAllow.Never,                 "Never"),
+            new Pair(PopupPageAllow.OnlyCompatibleModes,   "Only Compatible Modes"),
+            new Pair(PopupPageAllow.OnlyOutlookMiniMode,   "Only Outlook Mini Mode")};
+
         #endregion
     }
 }

@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _numericUpDown.PaletteMode; }
-            
+            get => _numericUpDown.PaletteMode;
+
             set 
             {
                 if (_numericUpDown.PaletteMode != value)
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public InputControlStyle InputControlStyle
         {
-            get { return _numericUpDown.InputControlStyle; }
+            get => _numericUpDown.InputControlStyle;
 
             set
             {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public decimal Increment
         {
-            get { return _numericUpDown.Increment; }
+            get => _numericUpDown.Increment;
 
             set
             {
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public decimal Maximum
         {
-            get { return _numericUpDown.Maximum; }
+            get => _numericUpDown.Maximum;
 
             set
             {
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public decimal Minimum
         {
-            get { return _numericUpDown.Minimum; }
+            get => _numericUpDown.Minimum;
 
             set
             {

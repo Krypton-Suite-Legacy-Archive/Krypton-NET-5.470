@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Image _imageSmall;
         private Image _imageLarge;
         private Color _imageTransparentColor;
-        private object _tag;
+
         #endregion
 
         #region Events
@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Enabled 
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -124,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -150,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(CheckState), "Unchecked")]
         public CheckState CheckState
         {
-            get { return _checkState; }
+            get => _checkState;
 
             set
             {
@@ -183,7 +183,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
         {
-            get { return _text; }
+            get => _text;
 
             set
             {
@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string ExtraText
         {
-            get { return _extraText; }
+            get => _extraText;
 
             set
             {
@@ -246,7 +246,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Command text line 1 for use in KryptonRibbon.")]
         public string TextLine1
         {
-            get { return _textLine1; }
+            get => _textLine1;
 
             set
             {
@@ -277,7 +277,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Command text line 2 for use in KryptonRibbon.")]
         public string TextLine2
         {
-            get { return _textLine2; }
+            get => _textLine2;
 
             set
             {
@@ -308,7 +308,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Command small image.")]
         public Image ImageSmall
         {
-            get { return _imageSmall; }
+            get => _imageSmall;
 
             set
             {
@@ -339,7 +339,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Command large image.")]
         public Image ImageLarge
         {
-            get { return _imageLarge; }
+            get => _imageLarge;
 
             set
             {
@@ -371,7 +371,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
+            get => _imageTransparentColor;
 
             set
             {
@@ -390,11 +390,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("User-defined data associated with the object.")]
         [TypeConverter(typeof(StringConverter))]
         [DefaultValue(null)]
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
+        public object Tag { get; set; }
 
         /// <summary>
         /// Generates a Execute event for a button.

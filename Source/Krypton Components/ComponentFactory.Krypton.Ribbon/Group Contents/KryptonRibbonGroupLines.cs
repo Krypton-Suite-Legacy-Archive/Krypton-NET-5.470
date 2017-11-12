@@ -30,12 +30,12 @@ namespace ComponentFactory.Krypton.Ribbon
     public class KryptonRibbonGroupLines : KryptonRibbonGroupContainer
     {
         #region Instance Fields
-        private KryptonRibbonGroupLinesCollection _ribbonLineItems;
+
         private GroupItemSize _itemSizeMax;
         private GroupItemSize _itemSizeMin;
         private GroupItemSize _itemSizeCurrent;
         private bool _visible;
-        private ViewBase _linesView;
+
         #endregion
 
         #region Events
@@ -173,11 +173,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _itemSizeCurrent = GroupItemSize.Large;
 
             // Create collection for holding triple items
-            _ribbonLineItems = new KryptonRibbonGroupLinesCollection();
-            _ribbonLineItems.Clearing += new EventHandler(OnRibbonGroupLineClearing);
-            _ribbonLineItems.Cleared += new EventHandler(OnRibbonGroupLineCleared);
-            _ribbonLineItems.Inserted += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupLineInserted);
-            _ribbonLineItems.Removed += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupLineRemoved);
+            Items = new KryptonRibbonGroupLinesCollection();
+            Items.Clearing += new EventHandler(OnRibbonGroupLineClearing);
+            Items.Cleared += new EventHandler(OnRibbonGroupLineCleared);
+            Items.Inserted += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupLineInserted);
+            Items.Removed += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupLineRemoved);
         }
 
         /// <summary>
@@ -208,15 +208,15 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override KryptonRibbon Ribbon
         {
-            get { return base.Ribbon; }
-            
+            get => base.Ribbon;
+
             set 
             { 
                 base.Ribbon = value;
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in _ribbonLineItems)
+                foreach (KryptonRibbonGroupItem item in Items)
                 {
                     item.Ribbon = value;
                 }
@@ -231,7 +231,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override KryptonRibbonTab RibbonTab
         {
-            get { return base.RibbonTab; }
+            get => base.RibbonTab;
 
             set 
             { 
@@ -239,7 +239,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in _ribbonLineItems)
+                foreach (KryptonRibbonGroupItem item in Items)
                 {
                     item.RibbonTab = value;
                 }
@@ -258,7 +258,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -298,8 +298,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public GroupItemSize MaximumSize
         {
-            get { return ItemSizeMaximum; }
-            set { ItemSizeMaximum = value; }
+            get => ItemSizeMaximum;
+            set => ItemSizeMaximum = value;
         }
 
         /// <summary>
@@ -314,8 +314,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public GroupItemSize MinimumSize
         {
-            get { return ItemSizeMinimum; }
-            set { ItemSizeMinimum = value; }
+            get => ItemSizeMinimum;
+            set => ItemSizeMinimum = value;
         }
 
         /// <summary>
@@ -326,7 +326,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMaximum
         {
-            get { return _itemSizeMax; }
+            get => _itemSizeMax;
 
             set
             {
@@ -371,7 +371,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMinimum
         {
-            get { return _itemSizeMin; }
+            get => _itemSizeMin;
 
             set
             {
@@ -416,8 +416,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
-            
+            get => _itemSizeCurrent;
+
             set
             {
                 if (_itemSizeCurrent != value)
@@ -449,10 +449,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [MergableProperty(false)]
         [Editor("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLinesCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonRibbonGroupLinesCollection Items
-        {
-            get { return _ribbonLineItems; }
-        }
+        public KryptonRibbonGroupLinesCollection Items { get; }
 
         /// <summary>
         /// Gets an array of all the contained components.
@@ -461,7 +458,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override Component[] GetChildComponents()
         {
             Component[] array = new Component[Items.Count];
-            _ribbonLineItems.CopyTo(array, 0);
+            Items.CopyTo(array, 0);
             return array;
         }
 
@@ -471,11 +468,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase LinesView
-        {
-            get { return _linesView; }
-            set { _linesView = value; }
-        }
+        public ViewBase LinesView { get; set; }
+
         #endregion
 
         #region Protected
@@ -604,7 +598,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonGroupLineClearing(object sender, EventArgs e)
         {
             // Remove the back references
-            foreach (IRibbonGroupItem item in _ribbonLineItems)
+            foreach (IRibbonGroupItem item in Items)
             {
                 item.Ribbon = null;
                 item.RibbonTab = null;

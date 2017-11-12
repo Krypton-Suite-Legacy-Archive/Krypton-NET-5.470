@@ -554,10 +554,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                     context.DisplayRectangle = new Rectangle(x, y, childSize.Width, childSize.Height);
                                     break;
                                 case RibbonItemAlignment.Center:
-                                    context.DisplayRectangle = new Rectangle(x + (widest - childSize.Width) / 2, y, childSize.Width, childSize.Height);
+                                    context.DisplayRectangle = new Rectangle(x + ((widest - childSize.Width) / 2), y, childSize.Width, childSize.Height);
                                     break;
                                 case RibbonItemAlignment.Far:
-                                    context.DisplayRectangle = new Rectangle(x + widest - childSize.Width, y, childSize.Width, childSize.Height);
+                                    context.DisplayRectangle = new Rectangle((x + widest) - childSize.Width, y, childSize.Width, childSize.Height);
                                     break;
                             }
 

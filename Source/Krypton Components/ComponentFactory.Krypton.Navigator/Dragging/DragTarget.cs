@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Navigator
         public void AddRange(IDragTargetProvider provider, PageDragEndData dragEndData)
         {
             DragTargetList targets = provider?.GenerateDragTargets(dragEndData);
-            if (targets != null && (targets.Count > 0))
+            if ((targets != null) && (targets.Count > 0))
             {
                 AddRange(targets);
             }
@@ -42,12 +42,7 @@ namespace ComponentFactory.Krypton.Navigator
     public abstract class DragTarget : IDisposable
     {
         #region Instance Fields
-        private Rectangle _screenRect;
-        private Rectangle _hotRect;
-        private Rectangle _drawRect;
-        private DragTargetHint _hint;
-        private KryptonPageFlags _allowFlags;
-        private bool _disposed;
+
         #endregion
 
         #region Identity
@@ -65,11 +60,11 @@ namespace ComponentFactory.Krypton.Navigator
                           DragTargetHint hint,
                           KryptonPageFlags allowFlags)
         {
-            _screenRect = screenRect;
-            _hotRect = hotRect;
-            _drawRect = drawRect;
-            _hint = hint;
-            _allowFlags = allowFlags;
+            ScreenRect = screenRect;
+            HotRect = hotRect;
+            DrawRect = drawRect;
+            Hint = hint;
+            AllowFlags = allowFlags;
         }
 
         /// <summary>
@@ -112,58 +107,41 @@ namespace ComponentFactory.Krypton.Navigator
 			}
 
 			// Mark as disposed
-			_disposed = true;
+			IsDisposed = true;
 		}
 
         /// <summary>
         /// Gets a value indicating if the view has been disposed.
         /// </summary>
-        public bool IsDisposed
-        {
-            get { return _disposed; }
-        }
+        public bool IsDisposed { get; private set; }
+
         #endregion
 
         #region Public
         /// <summary>
         /// Gets the rectangle representing the targets screen area.
         /// </summary>
-        public Rectangle ScreenRect
-        {
-            get { return _screenRect; }
-        }
+        public Rectangle ScreenRect { get; }
 
         /// <summary>
         /// Gets the rectangle representing the targets hot area.
         /// </summary>
-        public Rectangle HotRect
-        {
-            get { return _hotRect; }
-        }
+        public Rectangle HotRect { get; }
 
         /// <summary>
         /// Gets the rectangle representing the targets drawing area.
         /// </summary>
-        public Rectangle DrawRect
-        {
-            get { return _drawRect; }
-        }
+        public Rectangle DrawRect { get; }
 
         /// <summary>
         /// Gets the hint used to help the drag feedback.
         /// </summary>
-        public DragTargetHint Hint
-        {
-            get { return _hint; }
-        }
+        public DragTargetHint Hint { get; }
 
         /// <summary>
         /// Gets the flags of the pages allowed to be dropped.
         /// </summary>
-        public KryptonPageFlags AllowFlags
-        {
-            get { return _allowFlags; }
-        }
+        public KryptonPageFlags AllowFlags { get; }
 
         /// <summary>
         /// Is this target a match for the provided screen position.

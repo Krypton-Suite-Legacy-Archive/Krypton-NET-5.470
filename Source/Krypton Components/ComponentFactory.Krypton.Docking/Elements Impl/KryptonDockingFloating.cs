@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingFloating : DockingElementClosedCollection
     {
         #region Instance Fields
-        private Form _ownerForm;
+
         #endregion
 
         #region Identity
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingFloating(string name, Form ownerForm)
             : base(name)
         {
-            _ownerForm = ownerForm ?? throw new ArgumentNullException("owner");
+            OwnerForm = ownerForm ?? throw new ArgumentNullException("owner");
         }
         #endregion
 
@@ -46,10 +46,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the form the floating windows have as the owner.
         /// </summary>
-        public Form OwnerForm
-        {
-            get { return _ownerForm; }
-        }
+        public Form OwnerForm { get; }
 
         /// <summary>
         /// Create and add a new floating window.
@@ -110,10 +107,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DF"; }
-        }
+        protected override string XmlElementName => "DF";
 
         /// <summary>
         /// Perform docking element specific actions for loading a child xml.

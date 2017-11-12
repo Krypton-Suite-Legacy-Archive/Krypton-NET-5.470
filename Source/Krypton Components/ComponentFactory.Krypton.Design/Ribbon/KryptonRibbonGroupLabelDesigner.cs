@@ -140,7 +140,7 @@ namespace ComponentFactory.Krypton.Ribbon
             bool moveNext = false;
             bool moveLast = false;
 
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonLabel) > 0);
@@ -158,7 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 _ribbonLabel.Ribbon.InDesignHelperMode = !_ribbonLabel.Ribbon.InDesignHelperMode;
             }
@@ -166,7 +166,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -198,7 +198,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -232,7 +232,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -266,7 +266,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -298,7 +298,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteLabel(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -334,7 +334,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnVisible(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonLabel, null, _ribbonLabel.Visible, !_ribbonLabel.Visible);
                 _ribbonLabel.Visible = !_ribbonLabel.Visible;
@@ -343,7 +343,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnEnabled(object sender, EventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonLabel, null, _ribbonLabel.Enabled, !_ribbonLabel.Enabled);
                 _ribbonLabel.Enabled = !_ribbonLabel.Enabled;
@@ -357,7 +357,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonLabel != null) && (_ribbonLabel.Ribbon != null))
+            if (_ribbonLabel?.Ribbon != null)
             {
                 // Create the menu strip the first time around
                 if (_cms == null)

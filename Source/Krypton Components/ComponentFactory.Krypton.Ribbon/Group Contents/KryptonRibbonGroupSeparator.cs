@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private bool _visible;
-        private ViewBase _separatorView;
+
         #endregion
 
         #region Events
@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -156,11 +156,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase SeparatorView
-        {
-            get { return _separatorView; }
-            set { _separatorView = value; }
-        }
+        public ViewBase SeparatorView { get; set; }
+
         #endregion
 
         #region Internal

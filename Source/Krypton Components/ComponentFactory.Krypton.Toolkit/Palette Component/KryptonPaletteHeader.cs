@@ -18,9 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteHeader : Storage
     {
         #region Instance Fields
-        private PaletteHeaderRedirect _stateCommon;
-        private PaletteTripleMetric _stateDisabled;
-        private PaletteTripleMetric _stateNormal;
+
         #endregion
 
         #region Identity
@@ -39,9 +37,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateCommon = new PaletteHeaderRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
-            _stateDisabled = new PaletteTripleMetric(_stateCommon, needPaint);
-            _stateNormal = new PaletteTripleMetric(_stateCommon, needPaint);
+            StateCommon = new PaletteHeaderRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
+            StateDisabled = new PaletteTripleMetric(StateCommon, needPaint);
+            StateNormal = new PaletteTripleMetric(StateCommon, needPaint);
         }
         #endregion
 
@@ -52,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateCommon.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -61,16 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -78,8 +71,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void PopulateFromBase()
         {
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
         }
         #endregion
 
@@ -91,14 +84,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common header appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteHeaderRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteHeaderRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     
@@ -110,14 +100,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTripleMetric StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -129,14 +116,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTripleMetric StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
     }

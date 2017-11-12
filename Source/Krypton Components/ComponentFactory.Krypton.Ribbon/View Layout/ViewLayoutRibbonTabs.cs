@@ -32,19 +32,17 @@ namespace ComponentFactory.Krypton.Ribbon
 
 	    private const int TAB_MINWIDTH = 32;
 	    private const int TAB_EXCESS = 14;
-	    private static ContextTabSetCollection _contextTabSets;
-        #endregion
+
+	    #endregion
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
         private ViewDrawRibbonTabList _tabCache;
         private ViewDrawRibbonTabSepList _tabSepCache;
         private ViewDrawRibbonDesignTab _viewAddTab;
-        private ViewLayoutRibbonTabsSpare _tabsSpare;
-        private NeedPaintHandler _needPaint;
+	    private NeedPaintHandler _needPaint;
         private ContextNameList _cachedSelectedContext;
-        private Control _parentControl;
-        private Size[] _cachedSizes;
+	    private Size[] _cachedSizes;
         private int _cachedPreferredWidth;
         private int _cachedMinimumWidth;
         private int _cachedAllTabCount;
@@ -55,7 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		#region Identity
         static ViewLayoutRibbonTabs()
         {
-            _contextTabSets = new ContextTabSetCollection();
+            ContextTabSets = new ContextTabSetCollection();
         }
 
 		/// <summary>
@@ -122,7 +120,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaintDelegate
         {
-            set { _needPaint = value; }
+            set => _needPaint = value;
         }
         #endregion
 
@@ -130,22 +128,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the parent control.
         /// </summary>
-        public Control ParentControl
-        {
-            get { return _parentControl; }
-            set { _parentControl = value; }
-        }
-        #endregion
+        public Control ParentControl { get; set; }
+
+	    #endregion
 
         #region GetViewForSpare
         /// <summary>
         /// Gets access to the tabs spare area.
         /// </summary>
-        public ViewLayoutRibbonTabsSpare GetViewForSpare
-        {
-            get { return _tabsSpare; }
-        }
-        #endregion
+        public ViewLayoutRibbonTabsSpare GetViewForSpare { get; private set; }
+
+	    #endregion
 
         #region GetViewForRibbonTab
         /// <summary>
@@ -298,11 +291,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the collection of tab sets shown in the tabs area.
         /// </summary>
-        public static ContextTabSetCollection ContextTabSets
-        {
-            get { return _contextTabSets; }
-        }
-        #endregion
+        public static ContextTabSetCollection ContextTabSets { get; }
+
+	    #endregion
 
         #region ProcessMouseWheel
         /// <summary>
@@ -443,7 +434,7 @@ namespace ComponentFactory.Krypton.Ribbon
             preferredSize.Width = _cachedMinimumWidth;
 
             // If we have the tabs spare area...
-            if (_tabsSpare != null)
+            if (GetViewForSpare != null)
             {
                 // Always take up the entire provided width as the spare will take up any remainder not used by actual tabs
                 if (preferredSize.Width < context.DisplayRectangle.Width)
@@ -518,17 +509,17 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Fill remainder space with the tabs spare element
             Rectangle customCaptionRect = Rectangle.Empty;
-            if (_tabsSpare != null)
+            if (GetViewForSpare != null)
             {
-                _tabsSpare.Visible = false;
+                GetViewForSpare.Visible = false;
                 if (x < ClientRectangle.Right)
                 {
                     if (_ribbon.GetRedirector().GetMetricBool(PaletteState.Normal, PaletteMetricBool.RibbonTabsSpareCaption) == InheritBool.True)
                     {
                         customCaptionRect = new Rectangle(x, ClientRectangle.Y, ClientRectangle.Right - x, ClientHeight);
                         context.DisplayRectangle = customCaptionRect;
-                        _tabsSpare.Visible = true;
-                        _tabsSpare.Layout(context);
+                        GetViewForSpare.Visible = true;
+                        GetViewForSpare.Layout(context);
                         x = ClientRectangle.Right;
                     }
                 }
@@ -540,7 +531,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (!customCaptionRect.IsEmpty)
                 {
                     // Convert the rectangle to the owning form coordinates
-                    customCaptionRect = _parentControl.RectangleToScreen(customCaptionRect);
+                    customCaptionRect = ParentControl.RectangleToScreen(customCaptionRect);
                     customCaptionRect = _ribbon.CaptionArea.KryptonForm.RectangleToClient(customCaptionRect);
                 }
 
@@ -612,13 +603,13 @@ namespace ComponentFactory.Krypton.Ribbon
             else
             {
                 // At run time we add the filler that acts like title bar header
-                if (_tabsSpare == null)
+                if (GetViewForSpare == null)
                 {
-                    _tabsSpare = new ViewLayoutRibbonTabsSpare();
+                    GetViewForSpare = new ViewLayoutRibbonTabsSpare();
                 }
 
                 // Always add at end of the list of tabs
-                Add(_tabsSpare);
+                Add(GetViewForSpare);
             }
         }
 

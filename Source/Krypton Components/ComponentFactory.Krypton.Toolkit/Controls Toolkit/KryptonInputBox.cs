@@ -188,10 +188,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        internal string InputResponse
-        {
-            get { return _textBoxResponse.Text; }
-        }
+        internal string InputResponse => _textBoxResponse.Text;
 
         private void UpdateText()
         {

@@ -42,8 +42,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public HeaderStyle HeaderStyle
         {
-            get { return _header.HeaderStyle; }
-            
+            get => _header.HeaderStyle;
+
             set 
             {
                 if (_header.HeaderStyle != value)
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation
         {
-            get { return _header.Orientation; }
-            
+            get => _header.Orientation;
+
             set 
             {
                 if (_header.Orientation != value)
@@ -76,8 +76,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Heading
         {
-            get { return _header.Values.Heading; }
-            
+            get => _header.Values.Heading;
+
             set 
             {
                 if (_header.Values.Heading != value)
@@ -93,8 +93,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Description
         {
-            get { return _header.Values.Description; }
-            
+            get => _header.Values.Description;
+
             set 
             {
                 if (_header.Values.Description != value)
@@ -110,8 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Image Image
         {
-            get { return _header.Values.Image; }
-            
+            get => _header.Values.Image;
+
             set 
             {
                 if (_header.Values.Image != value)
@@ -127,8 +127,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _header.PaletteMode; }
-            
+            get => _header.PaletteMode;
+
             set 
             {
                 if (_header.PaletteMode != value)

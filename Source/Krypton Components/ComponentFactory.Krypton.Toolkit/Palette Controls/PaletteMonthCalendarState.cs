@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteMonthCalendarState : Storage
     {
         #region Instance Fields
-        private PaletteTriple _paletteDay;
+
         #endregion
 
         #region Identity
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteMonthCalendarState(PaletteMonthCalendarRedirect redirect,
                                          NeedPaintHandler needPaint) 
 		{
-            _paletteDay = new PaletteTriple(redirect.Day, needPaint);
+            Day = new PaletteTriple(redirect.Day, needPaint);
         }
         #endregion
 
@@ -48,14 +48,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return _paletteDay.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => Day.IsDefault;
+
+        #endregion
 
         #region Day
         /// <summary>
@@ -64,14 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining day appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple Day
-        {
-            get { return _paletteDay; }
-        }
+        public PaletteTriple Day { get; }
 
         private bool ShouldSerializeContent()
         {
-            return !_paletteDay.IsDefault;
+            return !Day.IsDefault;
         }
         #endregion
     }

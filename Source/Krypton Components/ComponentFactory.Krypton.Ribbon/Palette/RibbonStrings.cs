@@ -38,18 +38,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private string _appButtonKeyTip;
-        private string _customizeQuickAccessToolbar;
-        private string _minimize;
-        private string _moreColors;
-        private string _noColor;
-        private string _recentDocuments;
-        private string _recentColors;
-        private string _showAboveRibbon;
-        private string _showBelowRibbon;
-        private string _showQATAboveRibbon;
-        private string _showQATBelowRibbon;
-        private string _standardColors;
-        private string _themeColors;
+
         #endregion
 
         #region Identity
@@ -60,18 +49,18 @@ namespace ComponentFactory.Krypton.Ribbon
 		{
             // Default values
             _appButtonKeyTip = DEFAULT_APP_BUTTON_KEY_TIP;
-            _customizeQuickAccessToolbar = DEFAULT_CUSTOMIZE_QUICK_ACCESS_TOOLBAR;
-            _minimize = DEFAULT_MINIMIZE;
-            _moreColors = DEFAULT_MORE_COLORS;
-            _noColor = DEFAULT_NO_COLOR;
-            _recentDocuments = DEFAULT_RECENT_DOCUMENTS;
-            _recentColors = DEFAULT_RECENT_COLORS;
-            _showAboveRibbon = DEFAULT_SHOW_ABOVE_RIBBON;
-            _showBelowRibbon = DEFAULT_SHOW_BELOW_RIBBON;
-            _showQATAboveRibbon = DEFAULT_SHOW_QAT_ABOVE_RIBBON;
-            _showQATBelowRibbon = DEFAULT_SHOW_QAT_BELOW_RIBBON;
-            _standardColors = DEFAULT_STANDARD_COLORS;
-            _themeColors = DEFAULT_THEME_COLORS;
+            CustomizeQuickAccessToolbar = DEFAULT_CUSTOMIZE_QUICK_ACCESS_TOOLBAR;
+            Minimize = DEFAULT_MINIMIZE;
+            MoreColors = DEFAULT_MORE_COLORS;
+            NoColor = DEFAULT_NO_COLOR;
+            RecentDocuments = DEFAULT_RECENT_DOCUMENTS;
+            RecentColors = DEFAULT_RECENT_COLORS;
+            ShowAboveRibbon = DEFAULT_SHOW_ABOVE_RIBBON;
+            ShowBelowRibbon = DEFAULT_SHOW_BELOW_RIBBON;
+            ShowQATAboveRibbon = DEFAULT_SHOW_QAT_ABOVE_RIBBON;
+            ShowQATBelowRibbon = DEFAULT_SHOW_QAT_BELOW_RIBBON;
+            StandardColors = DEFAULT_STANDARD_COLORS;
+            ThemeColors = DEFAULT_THEME_COLORS;
         }
 		#endregion
 
@@ -80,25 +69,20 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (AppButtonKeyTip.Equals(DEFAULT_APP_BUTTON_KEY_TIP)) &&
-                       (CustomizeQuickAccessToolbar.Equals(DEFAULT_CUSTOMIZE_QUICK_ACCESS_TOOLBAR)) &&
-                       (Minimize.Equals(DEFAULT_MINIMIZE)) &&
-                       (MoreColors.Equals(DEFAULT_MORE_COLORS)) &&
-                       (NoColor.Equals(DEFAULT_NO_COLOR)) &&
-                       (RecentDocuments.Equals(DEFAULT_RECENT_DOCUMENTS)) &&
-                       (RecentColors.Equals(DEFAULT_RECENT_COLORS)) &&
-                       (ShowAboveRibbon.Equals(DEFAULT_SHOW_ABOVE_RIBBON)) &&
-                       (ShowBelowRibbon.Equals(DEFAULT_SHOW_BELOW_RIBBON)) &&
-                       (ShowQATAboveRibbon.Equals(DEFAULT_SHOW_QAT_ABOVE_RIBBON)) &&
-                       (ShowQATBelowRibbon.Equals(DEFAULT_SHOW_QAT_BELOW_RIBBON)) &&
-                       (StandardColors.Equals(DEFAULT_STANDARD_COLORS)) &&
-                       (ThemeColors.Equals(DEFAULT_THEME_COLORS));
-            }
-        }
+        public override bool IsDefault => (AppButtonKeyTip.Equals(DEFAULT_APP_BUTTON_KEY_TIP)) &&
+                                          (CustomizeQuickAccessToolbar.Equals(DEFAULT_CUSTOMIZE_QUICK_ACCESS_TOOLBAR)) &&
+                                          (Minimize.Equals(DEFAULT_MINIMIZE)) &&
+                                          (MoreColors.Equals(DEFAULT_MORE_COLORS)) &&
+                                          (NoColor.Equals(DEFAULT_NO_COLOR)) &&
+                                          (RecentDocuments.Equals(DEFAULT_RECENT_DOCUMENTS)) &&
+                                          (RecentColors.Equals(DEFAULT_RECENT_COLORS)) &&
+                                          (ShowAboveRibbon.Equals(DEFAULT_SHOW_ABOVE_RIBBON)) &&
+                                          (ShowBelowRibbon.Equals(DEFAULT_SHOW_BELOW_RIBBON)) &&
+                                          (ShowQATAboveRibbon.Equals(DEFAULT_SHOW_QAT_ABOVE_RIBBON)) &&
+                                          (ShowQATBelowRibbon.Equals(DEFAULT_SHOW_QAT_BELOW_RIBBON)) &&
+                                          (StandardColors.Equals(DEFAULT_STANDARD_COLORS)) &&
+                                          (ThemeColors.Equals(DEFAULT_THEME_COLORS));
+
         #endregion
 
         #region AppButtonKeyTip
@@ -112,7 +96,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string AppButtonKeyTip
         {
-            get { return _appButtonKeyTip; }
+            get => _appButtonKeyTip;
 
             set
             {
@@ -134,11 +118,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Heading for quick access toolbar menu.")]
         [DefaultValue("Customize Quick Access Toolbar")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string CustomizeQuickAccessToolbar
-        {
-            get { return _customizeQuickAccessToolbar; }
-            set { _customizeQuickAccessToolbar = value; }
-        }
+        public string CustomizeQuickAccessToolbar { get; set; }
+
         #endregion
 
         #region Minimize
@@ -150,11 +131,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for minimizing the ribbon option.")]
         [DefaultValue("Mi&nimize the Ribbon")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string Minimize
-        {
-            get { return _minimize; }
-            set { _minimize = value; }
-        }
+        public string Minimize { get; set; }
+
         #endregion
 
         #region MoreColors
@@ -166,11 +144,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for a 'more colors' entry.")]
         [DefaultValue("&More Colors...")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string MoreColors
-        {
-            get { return _moreColors; }
-            set { _moreColors = value; }
-        }
+        public string MoreColors { get; set; }
+
         #endregion
 
         #region NoColor
@@ -182,11 +157,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for a 'no color' entry.")]
         [DefaultValue("&No Color")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string NoColor
-        {
-            get { return _noColor; }
-            set { _noColor = value; }
-        }
+        public string NoColor { get; set; }
+
         #endregion
 
         #region RecentDocuments     
@@ -198,11 +170,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Title for recent documents section of the application menu.")]
         [DefaultValue("Recent Documents")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string RecentDocuments
-        {
-            get { return _recentDocuments; }
-            set { _recentDocuments = value; }
-        }
+        public string RecentDocuments { get; set; }
+
         #endregion
 
         #region RecentColors
@@ -214,11 +183,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Title for recent colors section of the color button menu.")]
         [DefaultValue("Recent Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string RecentColors
-        {
-            get { return _recentColors; }
-            set { _recentColors = value; }
-        }
+        public string RecentColors { get; set; }
+
         #endregion
 
         #region ShowAboveRibbon
@@ -230,11 +196,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for showing above the ribbon.")]
         [DefaultValue("&Show Above the Ribbon")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ShowAboveRibbon
-        {
-            get { return _showAboveRibbon; }
-            set { _showAboveRibbon = value; }
-        }
+        public string ShowAboveRibbon { get; set; }
+
         #endregion
 
         #region ShowBelowRibbon
@@ -246,11 +209,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for showing below the ribbon.")]
         [DefaultValue("&Show Below the Ribbon")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ShowBelowRibbon
-        {
-            get { return _showBelowRibbon; }
-            set { _showBelowRibbon = value; }
-        }
+        public string ShowBelowRibbon { get; set; }
+
         #endregion
 
         #region ShowQATAboveRibbon
@@ -262,11 +222,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for showing QAT above the ribbon.")]
         [DefaultValue("&Show Quick Access Toolbar Above the Ribbon")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ShowQATAboveRibbon
-        {
-            get { return _showQATAboveRibbon; }
-            set { _showQATAboveRibbon = value; }
-        }
+        public string ShowQATAboveRibbon { get; set; }
+
         #endregion
 
         #region ShowQATBelowRibbon
@@ -278,11 +235,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Menu string for showing QAT below the ribbon.")]
         [DefaultValue("&Show Quick Access Toolbar Below the Ribbon")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ShowQATBelowRibbon
-        {
-            get { return _showQATBelowRibbon; }
-            set { _showQATBelowRibbon = value; }
-        }
+        public string ShowQATBelowRibbon { get; set; }
+
         #endregion
 
         #region StandardColors
@@ -294,11 +248,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Title for standard colors section of the color button menu.")]
         [DefaultValue("Standard Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string StandardColors
-        {
-            get { return _standardColors; }
-            set { _standardColors = value; }
-        }
+        public string StandardColors { get; set; }
+
         #endregion
 
         #region ThemeColors
@@ -310,11 +261,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Title for theme colors section of the color button menu.")]
         [DefaultValue("Theme Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ThemeColors
-        {
-            get { return _themeColors; }
-            set { _themeColors = value; }
-        }
+        public string ThemeColors { get; set; }
+
         #endregion
     }
 }

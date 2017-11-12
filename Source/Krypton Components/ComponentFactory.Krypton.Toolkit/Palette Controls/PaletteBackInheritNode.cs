@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
         #region Instance Fields
         private IPaletteBack _inherit;
-        private TreeNode _node;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -42,12 +42,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Set the tree node to use for sourcing values.
         /// </summary>
-        public TreeNode TreeNode
-        {
-            get { return _node; }
-            set { _node = value; }
-        }
-        #endregion
+        public TreeNode TreeNode { get; set; }
+
+	    #endregion
 
         #region IPaletteBack
 		/// <summary>

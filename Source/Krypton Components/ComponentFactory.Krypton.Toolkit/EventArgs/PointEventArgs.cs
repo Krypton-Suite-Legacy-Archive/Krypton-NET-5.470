@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PointEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private Point _point;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="point">Point associated with event.</param>
         public PointEventArgs(Point point)
 		{
-            _point = point;
+            Point = point;
 		}
 		#endregion
 
@@ -37,11 +37,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets and sets the point.
 		/// </summary>
-        public Point Point
-		{
-            get { return _point; }
-            set { _point = value; }
-		}
-		#endregion
+        public Point Point { get; set; }
+
+	    #endregion
     }
 }

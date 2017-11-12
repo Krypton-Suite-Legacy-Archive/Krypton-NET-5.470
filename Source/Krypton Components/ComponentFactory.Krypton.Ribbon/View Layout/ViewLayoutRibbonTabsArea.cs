@@ -53,11 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needPaintDelegate;
-        private ViewLayoutRibbonTabs _layoutRibbonTabs;
         private ViewLayoutRibbonScrollPort _tabsViewport;
-        private ViewLayoutRibbonAppButton _layoutAppButton;
-        private ViewLayoutRibbonAppTab _layoutAppTab;
         private ViewLayoutSeparator _layoutAppButtonSep;
         private ViewLayoutRibbonSeparator _leftSeparator;
         private ViewLayoutRibbonSeparator _rightSeparator;
@@ -67,7 +63,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private AppTabController _appTabController;
         private VisualPopupToolTip _visualPopupToolTip;
         private VisualPopupAppMenu _appMenu;
-        private ToolTipManager _toolTipManager;
         private DateTime _lastAppButtonClick;
 
         // Fixed button specifications
@@ -77,7 +72,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private ButtonSpecMdiChildMin _buttonSpecMin;
         private ButtonSpecMinimizeRibbon _buttonSpecMinimize;
         private ButtonSpecExpandRibbon _buttonSpecExpand;
-        private ButtonSpecManagerLayoutRibbon _buttonManager;
 
         // Monitoring the containing form and mdi status
         private Timer _invalidateTimer;
@@ -121,7 +115,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _appButtonController = captionArea.AppButtonController;
             _appTabController = captionArea.AppTabController;
             _layoutContexts = layoutContexts;
-            _needPaintDelegate = needPaintDelegate;
+            NeedPaintDelegate = needPaintDelegate;
 
             // Default other state
             _setVisible = true;
@@ -165,10 +159,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
 
                 // Destruct the button manager resources
-                if (_buttonManager != null)
+                if (ButtonSpecManager != null)
                 {
-                    _buttonManager.Destruct();
-                    _buttonManager = null;
+                    ButtonSpecManager.Destruct();
+                    ButtonSpecManager = null;
                 }
             }
 
@@ -192,8 +186,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void HookToolTipHandling()
         {
-            _layoutAppButton.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, _layoutAppButton, _appButtonController);
-            _layoutAppTab.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, _layoutAppTab, _appTabController);
+            LayoutAppButton.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, LayoutAppButton, _appButtonController);
+            LayoutAppTab.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, LayoutAppTab, _appTabController);
         }
         #endregion
 
@@ -261,12 +255,12 @@ namespace ComponentFactory.Krypton.Ribbon
         public void AppButtonVisibleChanged()
         {
             // Update visible state of the app button/tab to reflect current state
-            _layoutAppButton.Visible = (_ribbon.RibbonAppButton.AppButtonVisible && (_ribbon.RibbonShape == PaletteRibbonShape.Office2007));
-            _layoutAppTab.Visible = (_ribbon.RibbonAppButton.AppButtonVisible && (_ribbon.RibbonShape != PaletteRibbonShape.Office2007));
+            LayoutAppButton.Visible = (_ribbon.RibbonAppButton.AppButtonVisible && (_ribbon.RibbonShape == PaletteRibbonShape.Office2007));
+            LayoutAppTab.Visible = (_ribbon.RibbonAppButton.AppButtonVisible && (_ribbon.RibbonShape != PaletteRibbonShape.Office2007));
             _leftSeparator.SeparatorSize = (_ribbon.RibbonShape == PaletteRibbonShape.Office2007) ? new Size(BUTTON_TAB_GAP_2007, BUTTON_TAB_GAP_2007) : new Size(BUTTON_TAB_GAP_2010, BUTTON_TAB_GAP_2010);
 
             // If no app button then need separator to stop first tab being to close to the left edge
-            _layoutAppButtonSep.Visible = !_layoutAppButton.Visible;
+            _layoutAppButtonSep.Visible = !LayoutAppButton.Visible;
         }
         #endregion
 
@@ -274,47 +268,39 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the view layout used for the individual ribbon tabs.
         /// </summary>
-        public ViewLayoutRibbonTabs LayoutTabs
-        {
-            get { return _layoutRibbonTabs; }
-        }
+        public ViewLayoutRibbonTabs LayoutTabs { get; private set; }
+
         #endregion
 
         #region LayoutAppButton
         /// <summary>
         /// Gets access to the view layout used for the appplication button.
         /// </summary>
-        public ViewLayoutRibbonAppButton LayoutAppButton
-        {
-            get { return _layoutAppButton; }
-        }
+        public ViewLayoutRibbonAppButton LayoutAppButton { get; private set; }
+
         #endregion
 
         #region LayoutAppTab
         /// <summary>
         /// Gets access to the view layout used for the appplication tab.
         /// </summary>
-        public ViewLayoutRibbonAppTab LayoutAppTab
-        {
-            get { return _layoutAppTab; }
-        }
+        public ViewLayoutRibbonAppTab LayoutAppTab { get; private set; }
+
         #endregion
 
         #region TabsContainerControl
         /// <summary>
         /// Gets access to the control that contains the tabs.
         /// </summary>
-        public ViewLayoutControl TabsContainerControl
-        {
-            get { return _tabsViewport.ViewLayoutControl; }
-        }
+        public ViewLayoutControl TabsContainerControl => _tabsViewport.ViewLayoutControl;
+
         #endregion
 
         #region GetAppButtonKeyTip
         public KeyTipInfo GetAppButtonKeyTip()
         {
             // Get the screen location of the bottom half of the button
-            Rectangle buttonRect = _ribbon.RectangleToScreen(_layoutAppButton.ClientRectangle);
+            Rectangle buttonRect = _ribbon.RectangleToScreen(LayoutAppButton.ClientRectangle);
 
             // Alter the rect to account for it not being exactly half the button height
             buttonRect.Y -= 5;
@@ -325,7 +311,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Return key tip details
             return new KeyTipInfo(true, _ribbon.RibbonStrings.AppButtonKeyTip, screenPt,
-                                  _layoutAppButton.ClientRectangle, _appButtonController);
+                                  LayoutAppButton.ClientRectangle, _appButtonController);
 
         }
         #endregion
@@ -334,14 +320,14 @@ namespace ComponentFactory.Krypton.Ribbon
         public KeyTipInfo GetAppTabKeyTip()
         {
             // Get the screen location of the bottom half of the button
-            Rectangle buttonRect = _ribbon.RectangleToScreen(_layoutAppTab.ClientRectangle);
+            Rectangle buttonRect = _ribbon.RectangleToScreen(LayoutAppTab.ClientRectangle);
 
             // The keytip should be centered on the top center of the bottom half
             Point screenPt = new Point(buttonRect.Left + (buttonRect.Width / 2), buttonRect.Bottom + 2);
 
             // Return key tip details
             return new KeyTipInfo(true, _ribbon.RibbonStrings.AppButtonKeyTip, screenPt,
-                                  _layoutAppTab.ClientRectangle, _appTabController);
+                                  LayoutAppTab.ClientRectangle, _appTabController);
 
         }
         #endregion
@@ -425,25 +411,19 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the tool tip manager.
         /// </summary>
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; private set; }
 
         /// <summary>
         /// Gets the button specification manager.
         /// </summary>
-        public ButtonSpecManagerLayoutRibbon ButtonSpecManager
-        {
-            get { return _buttonManager; }
-        }
+        public ButtonSpecManagerLayoutRibbon ButtonSpecManager { get; private set; }
 
         /// <summary>
         /// Recreate the button specifications.
         /// </summary>
         public void RecreateButtons()
         {
-            _buttonManager?.RecreateButtons();
+            ButtonSpecManager?.RecreateButtons();
         }
         #endregion
 
@@ -454,7 +434,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected NeedPaintHandler NeedPaintDelegate
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _needPaintDelegate; }
+            get;
         }
 
         /// <summary>
@@ -463,7 +443,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needLayout">Does the palette change require a layout.</param>
         protected void PerformNeedPaint(bool needLayout)
         {
-            _needPaintDelegate(this, new NeedLayoutEventArgs(needLayout));
+            NeedPaintDelegate(this, new NeedLayoutEventArgs(needLayout));
         }
         #endregion
 
@@ -491,16 +471,16 @@ namespace ComponentFactory.Krypton.Ribbon
         private void CreateViewElements(PaletteRedirect redirect)
         {
             // Layout for individual tabs inside the header
-            _layoutRibbonTabs = new ViewLayoutRibbonTabs(_ribbon, NeedPaintDelegate);
+            LayoutTabs = new ViewLayoutRibbonTabs(_ribbon, NeedPaintDelegate);
 
             // Put inside a viewport so scrollers are used when tabs cannot be shrunk to fill space
-            _tabsViewport = new ViewLayoutRibbonScrollPort(_ribbon, System.Windows.Forms.Orientation.Horizontal, _layoutRibbonTabs, true, SCROLL_SPEED, NeedPaintDelegate)
+            _tabsViewport = new ViewLayoutRibbonScrollPort(_ribbon, System.Windows.Forms.Orientation.Horizontal, LayoutTabs, true, SCROLL_SPEED, NeedPaintDelegate)
             {
                 TransparentBackground = true
             };
             _tabsViewport.PaintBackground += new PaintEventHandler(OnTabsPaintBackground);
-            _layoutRibbonTabs.ParentControl = _tabsViewport.ViewLayoutControl.ChildControl;
-            _layoutRibbonTabs.NeedPaintDelegate = _tabsViewport.ViewControlPaintDelegate;
+            LayoutTabs.ParentControl = _tabsViewport.ViewLayoutControl.ChildControl;
+            LayoutTabs.NeedPaintDelegate = _tabsViewport.ViewControlPaintDelegate;
 
             // We use a layout docker as a child to prevent buttons going to the left of the app button
             ViewLayoutDocker tabsDocker = new ViewLayoutDocker
@@ -512,23 +492,23 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // We need to draw the bottom half of the application button or a full app tab
-            _layoutAppButton = new ViewLayoutRibbonAppButton(_ribbon, true);
-            _layoutAppTab = new ViewLayoutRibbonAppTab(_ribbon);
+            LayoutAppButton = new ViewLayoutRibbonAppButton(_ribbon, true);
+            LayoutAppTab = new ViewLayoutRibbonAppTab(_ribbon);
 
             // Connect up the application button controller to the app button element
-            _appButtonController.Target3 = _layoutAppButton.AppButton;
+            _appButtonController.Target3 = LayoutAppButton.AppButton;
             _appButtonController.Click += new EventHandler(OnAppButtonClicked);
             _appButtonController.MouseReleased += new EventHandler(OnAppButtonReleased);
-            _layoutAppButton.MouseController = _appButtonController;
-            _layoutAppButton.SourceController = _appButtonController;
-            _layoutAppButton.KeyController = _appButtonController;
+            LayoutAppButton.MouseController = _appButtonController;
+            LayoutAppButton.SourceController = _appButtonController;
+            LayoutAppButton.KeyController = _appButtonController;
 
-            _appTabController.Target1 = _layoutAppTab.AppTab;
+            _appTabController.Target1 = LayoutAppTab.AppTab;
             _appTabController.Click += new EventHandler(OnAppButtonClicked);
             _appTabController.MouseReleased += new EventHandler(OnAppButtonReleased);
-            _layoutAppTab.MouseController = _appTabController;
-            _layoutAppTab.SourceController = _appTabController;
-            _layoutAppTab.KeyController = _appTabController;
+            LayoutAppTab.MouseController = _appTabController;
+            LayoutAppTab.SourceController = _appTabController;
+            LayoutAppTab.KeyController = _appTabController;
 
             // When the app button is not visible we need separator instead before start of first tab
             _layoutAppButtonSep = new ViewLayoutSeparator(5, 0)
@@ -543,14 +523,14 @@ namespace ComponentFactory.Krypton.Ribbon
             // Place application button on left  and tabs as the filler (with some separators for neatness)
             Add(_rightSeparator, ViewDockStyle.Left);
             Add(_leftSeparator, ViewDockStyle.Left);
-            Add(_layoutAppButton, ViewDockStyle.Left);
+            Add(LayoutAppButton, ViewDockStyle.Left);
             Add(_layoutAppButtonSep, ViewDockStyle.Left);
-            Add(_layoutAppTab, ViewDockStyle.Left);
+            Add(LayoutAppTab, ViewDockStyle.Left);
             Add(tabsDocker, ViewDockStyle.Fill);
 
             // Create button specification collection manager
             PaletteRedirect aeroOverrideText = new PaletteRedirectRibbonAeroOverride(_ribbon, redirect);
-            _buttonManager = new ButtonSpecManagerLayoutRibbon(_ribbon, aeroOverrideText, _ribbon.ButtonSpecs, _buttonSpecsFixed,
+            ButtonSpecManager = new ButtonSpecManagerLayoutRibbon(_ribbon, aeroOverrideText, _ribbon.ButtonSpecs, _buttonSpecsFixed,
                                                                new ViewLayoutDocker[] { tabsDocker },
                                                                new IPaletteMetric[] { _ribbon.StateCommon },
                                                                new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
@@ -559,10 +539,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                NeedPaintDelegate);
 
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ButtonSpecManager.ToolTipManager = ToolTipManager;
         }
 
         private void SetupParentMonitoring()
@@ -644,7 +624,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _buttonSpecClose.MdiChild = _activeMdiChild;
             _buttonSpecRestore.MdiChild = _activeMdiChild;
             _buttonSpecMin.MdiChild = _activeMdiChild;
-            _buttonManager.RecreateButtons();
+            ButtonSpecManager.RecreateButtons();
             PerformNeedPaint(true);
 
             // We never want the mdi child window to have a system menu, we provide the 
@@ -662,7 +642,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonMdiChildSizeChanged(object sender, EventArgs e)
         {
             // Update pendant buttons to reflect new child state
-            _buttonManager.RecreateButtons();
+            ButtonSpecManager.RecreateButtons();
             PerformNeedPaint(true);
         }
 
@@ -670,9 +650,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             _invalidateTimer.Stop();
 
-            if ((_captionArea != null) &&
-                (_captionArea.KryptonForm != null) &&
-                _captionArea.UsingCustomChrome)
+            if ((_captionArea?.KryptonForm != null) && _captionArea.UsingCustomChrome)
             {
                 if (_captionArea.KryptonForm.PaintCount == _paintCount)
                 {
@@ -727,7 +705,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         if (_ribbon.RibbonShape == PaletteRibbonShape.Office2007)
                         {
                             // Find screen location of the applicaton button lower half
-                            Rectangle appButtonRect = _ribbon.RectangleToScreen(_layoutAppButton.AppButton.ClientRectangle);
+                            Rectangle appButtonRect = _ribbon.RectangleToScreen(LayoutAppButton.AppButton.ClientRectangle);
                             appRectBottom = new Rectangle(appButtonRect.X, appButtonRect.Y + 22, appButtonRect.Width, appButtonRect.Height - 21);
                             appRectTop = new Rectangle(appRectBottom.X, appRectBottom.Y - 21, appRectBottom.Width, 21);
                             appRectShow = appRectBottom;
@@ -735,7 +713,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         else
                         {
                             // Find screen location of the applicaton tab lower half
-                            Rectangle appButtonRect = _ribbon.RectangleToScreen(_layoutAppTab.AppTab.ClientRectangle);
+                            Rectangle appButtonRect = _ribbon.RectangleToScreen(LayoutAppTab.AppTab.ClientRectangle);
                             appRectBottom = Rectangle.Empty;
                             appRectTop = appButtonRect;
                             appRectShow = new Rectangle(appButtonRect.X, appButtonRect.Bottom - 1, appButtonRect.Width, 0);
@@ -838,7 +816,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                 toolTipStyle = _ribbon.RibbonAppButton.AppButtonToolTipStyle;
 
                                 // Display below the mouse cursor
-                                screenRect.Height += SystemInformation.CursorSize.Height / 3 * 2;
+                                screenRect.Height += (SystemInformation.CursorSize.Height / 3) * 2;
                             }
                             break;
                         case ViewDrawRibbonQATButton viewElement1:
@@ -857,17 +835,16 @@ namespace ComponentFactory.Krypton.Ribbon
                                 toolTipStyle = viewElement1.QATButton.GetToolTipStyle();
 
                                 // Display below the mouse cursor
-                                screenRect.Height += SystemInformation.CursorSize.Height / 3 * 2;
+                                screenRect.Height += (SystemInformation.CursorSize.Height / 3) * 2;
                             }
                             break;
                         default:
-                            if ((e.Target.Parent != null) && (e.Target.Parent is ViewDrawRibbonGroupLabel))
+                            if (e.Target.Parent is ViewDrawRibbonGroupLabel viewElement2)
                             {
                                 // Cast to correct type
-                                ViewDrawRibbonGroupLabel viewElement = (ViewDrawRibbonGroupLabel)e.Target.Parent;
 
                                 // Create a content that recovers values from a KryptonRibbonGroupItem
-                                GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupLabel);
+                                GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement2.GroupLabel);
 
                                 // Is there actually anything to show for the tooltip
                                 if (groupItemContent.HasContent)
@@ -875,27 +852,27 @@ namespace ComponentFactory.Krypton.Ribbon
                                     sourceContent = groupItemContent;
 
                                     // Grab the style from the group label settings
-                                    toolTipStyle = viewElement.GroupLabel.ToolTipStyle;
+                                    toolTipStyle = viewElement2.GroupLabel.ToolTipStyle;
 
                                     // Display below the bottom of the ribbon control
                                     Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
                                     screenRect.Y = ribbonScreenRect.Y;
                                     screenRect.Height = ribbonScreenRect.Height;
-                                    screenRect.X = ribbonScreenRect.X + viewElement.ClientLocation.X;
-                                    screenRect.Width = viewElement.ClientWidth;
+                                    screenRect.X = ribbonScreenRect.X + viewElement2.ClientLocation.X;
+                                    screenRect.Width = viewElement2.ClientWidth;
                                 }
                             }
                             else
                             {
                                 switch (e.Target)
                                 {
-                                    case ViewDrawRibbonGroupButtonBackBorder viewElement2:
+                                    case ViewDrawRibbonGroupButtonBackBorder viewElement3:
                                     {
                                         // Is the target is a button or cluster button
                                         // Cast to correct type
 
                                         // Create a content that recovers values from a KryptonRibbonGroupItem
-                                        GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement2.GroupItem);
+                                        GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement3.GroupItem);
 
                                         // Is there actually anything to show for the tooltip
                                         if (groupItemContent.HasContent)
@@ -903,14 +880,14 @@ namespace ComponentFactory.Krypton.Ribbon
                                             sourceContent = groupItemContent;
 
                                             // Grab the style from the group button/group cluster button settings
-                                            toolTipStyle = viewElement2.GroupItem.InternalToolTipStyle;
+                                            toolTipStyle = viewElement3.GroupItem.InternalToolTipStyle;
 
                                             // Display below the bottom of the ribbon control
                                             Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
                                             screenRect.Y = ribbonScreenRect.Y;
                                             screenRect.Height = ribbonScreenRect.Height;
-                                            screenRect.X = ribbonScreenRect.X + viewElement2.ClientLocation.X;
-                                            screenRect.Width = viewElement2.ClientWidth;
+                                            screenRect.X = ribbonScreenRect.X + viewElement3.ClientLocation.X;
+                                            screenRect.Width = viewElement3.ClientWidth;
                                         }
                                         break;
                                     }
@@ -966,7 +943,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     }
                                     default:
                                         // Find the button spec associated with the tooltip request
-                                        ButtonSpec buttonSpec = _buttonManager.ButtonSpecFromView(e.Target);
+                                        ButtonSpec buttonSpec = ButtonSpecManager.ButtonSpecFromView(e.Target);
 
                                         // If the tooltip is for a button spec
                                         if (buttonSpec != null)
@@ -986,7 +963,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                                     toolTipStyle = buttonSpec.ToolTipStyle;
 
                                                     // Display below the mouse cursor
-                                                    screenRect.Height += SystemInformation.CursorSize.Height / 3 * 2;
+                                                    screenRect.Height += (SystemInformation.CursorSize.Height / 3) * 2;
                                                 }
                                             }
                                         }

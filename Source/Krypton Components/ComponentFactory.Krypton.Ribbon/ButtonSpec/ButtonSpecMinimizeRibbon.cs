@@ -45,10 +45,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool AllowComponent
-        {
-            get { return false; }
-        }
+        public override bool AllowComponent => false;
+
         #endregion
 
         #region ButtonSpecStype
@@ -57,8 +55,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public PaletteButtonSpecStyle ButtonSpecType
         {
-            get { return ProtectedType; }
-            set { ProtectedType = value; }
+            get => ProtectedType;
+            set => ProtectedType = value;
         }
         #endregion
 

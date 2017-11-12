@@ -148,7 +148,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public GroupItemSize CurrentSize
         {
-            get { return _currentSize; }
+            get => _currentSize;
 
             set
             {
@@ -836,7 +836,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 int beforeWidth = 0;
 
                 // Test splitting into two lines after each item in turn
-                for (int i = 0; i <= _sizeList.Count - 2; i++)
+                for (int i = 0; i <= (_sizeList.Count - 2); i++)
                 {
                     // Get size of this item
                     Size itemSize = _sizeList[i];
@@ -925,7 +925,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         int beforeFirstWidth = 0;
 
                         // Test all combinations of the first split
-                        for (int i = 0; i < _sizeList.Count - 2; i++)
+                        for (int i = 0; i < (_sizeList.Count - 2); i++)
                         {
                             // Get size of this item
                             Size itemFirstSize = _sizeList[i];
@@ -939,7 +939,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             int beforeSecondWidth = 0;
 
                             // Check all combinations of the second split for this first split
-                            for (int j = i + 1; j < _sizeList.Count - 1; j++)
+                            for (int j = i + 1; j < (_sizeList.Count - 1); j++)
                             {
                                 // Get size of this item
                                 Size itemSecondSize = _sizeList[j];
@@ -1109,10 +1109,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         clusterChild1.EndSeparator = false;
                     }
 
-                    if ((previousChild != null) && (previousChild is ViewLayoutRibbonGroupCluster))
+                    if (previousChild is ViewLayoutRibbonGroupCluster clusterChild)
                     {
                         // Inform cluster if it is before another item and so needs an end separator
-                        ViewLayoutRibbonGroupCluster clusterChild = (ViewLayoutRibbonGroupCluster)previousChild;
                         clusterChild.EndSeparator = true;
 
                         // Need to layout the item again with the new setting

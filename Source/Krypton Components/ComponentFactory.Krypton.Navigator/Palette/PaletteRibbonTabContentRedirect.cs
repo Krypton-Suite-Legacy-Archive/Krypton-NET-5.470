@@ -66,13 +66,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (TabDraw.IsDefault && Content.IsDefault);
-            }
-        }
+        public override bool IsDefault => (TabDraw.IsDefault && Content.IsDefault);
+
         #endregion
 
         #region TabDraw
@@ -82,10 +77,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab drawing appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonDoubleRedirect TabDraw
-        {
-            get { return _drawRedirect; }
-        }
+        public virtual PaletteRibbonDoubleRedirect TabDraw => _drawRedirect;
 
         private bool ShouldSerializeTabDraw()
         {
@@ -100,10 +92,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab content appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteNavContent Content
-        {
-            get { return _content; }
-        }
+        public virtual PaletteNavContent Content => _content;
 
         private bool ShouldSerializeContent()
         {

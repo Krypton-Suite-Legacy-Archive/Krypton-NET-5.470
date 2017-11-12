@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonStorePage : KryptonPage
     {
         #region Instance Fields
-        private string _storeName;
+
         #endregion
 
         #region Identity
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             Visible = false;
             UniqueName = uniqueName;
-            _storeName = storeName;
+            StoreName = storeName;
         }
         #endregion
 
@@ -56,10 +56,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public string StoreName
-        {
-            get { return _storeName; }
-        }
+        public string StoreName { get; }
+
         #endregion
     }
 }

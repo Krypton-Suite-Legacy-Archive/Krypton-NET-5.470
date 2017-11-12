@@ -32,12 +32,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class KryptonGallery : VisualSimpleBase
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonGalleryRangeCollection _dropButtonRanges;
-        private PaletteGalleryRedirect _stateCommon;
-        private PaletteGalleryState _stateNormal;
-        private PaletteGalleryState _stateDisabled;
-        private PaletteGalleryState _stateActive;
+
         private PaletteGalleryBackBorder _backBorder;
         private ViewLayoutRibbonGalleryButtons _buttonsLayout;
         private ViewDrawRibbonGalleryButton _buttonUp;
@@ -45,12 +40,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private ViewDrawRibbonGalleryButton _buttonContext;
         private ViewLayoutRibbonGalleryItems _drawItems;
         private ImageList _imageList;
-        private GalleryImages _images;
         private ViewLayoutDocker _layoutDocker;
         private ViewDrawDocker _drawDocker;
         private Nullable<bool> _fixedActive;
         private Size _preferredItemSize;
-        private bool _inRibbonDesignMode;
         private bool _mouseOver;
         private bool _alwaysActive;
         private int _dropMaxItemWidth;
@@ -118,19 +111,19 @@ namespace ComponentFactory.Krypton.Ribbon
             _trackingEventTimer.Tick += new EventHandler(OnTrackingTick);
 
             // Create content storage
-            _images = new GalleryImages(NeedPaintDelegate);
-            _dropButtonRanges = new KryptonGalleryRangeCollection();
+            Images = new GalleryImages(NeedPaintDelegate);
+            DropButtonRanges = new KryptonGalleryRangeCollection();
 
             // Create the palette storage
-            _stateCommon = new PaletteGalleryRedirect(Redirector, NeedPaintDelegate);
-            _stateNormal = new PaletteGalleryState(_stateCommon, NeedPaintDelegate);
-            _stateDisabled = new PaletteGalleryState(_stateCommon, NeedPaintDelegate);
-            _stateActive = new PaletteGalleryState(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteGalleryRedirect(Redirector, NeedPaintDelegate);
+            StateNormal = new PaletteGalleryState(StateCommon, NeedPaintDelegate);
+            StateDisabled = new PaletteGalleryState(StateCommon, NeedPaintDelegate);
+            StateActive = new PaletteGalleryState(StateCommon, NeedPaintDelegate);
 
             // Create and organize the buttons
-            _buttonUp = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Near, PaletteRibbonGalleryButton.Up, _images, NeedPaintDelegate);
-            _buttonDown = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Center, PaletteRibbonGalleryButton.Down, _images, NeedPaintDelegate);
-            _buttonContext = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Far, PaletteRibbonGalleryButton.DropDown, _images, NeedPaintDelegate);
+            _buttonUp = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Near, PaletteRibbonGalleryButton.Up, Images, NeedPaintDelegate);
+            _buttonDown = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Center, PaletteRibbonGalleryButton.Down, Images, NeedPaintDelegate);
+            _buttonContext = new ViewDrawRibbonGalleryButton(Redirector, PaletteRelativeAlign.Far, PaletteRibbonGalleryButton.DropDown, Images, NeedPaintDelegate);
             _buttonsLayout = new ViewLayoutRibbonGalleryButtons
             {
                 _buttonUp,
@@ -139,7 +132,7 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // The draw layout that contains the actual selection images
-            _backBorder = new PaletteGalleryBackBorder(_stateNormal);
+            _backBorder = new PaletteGalleryBackBorder(StateNormal);
             _drawDocker = new ViewDrawDocker(_backBorder, _backBorder);
             _drawItems = new ViewLayoutRibbonGalleryItems(Redirector, this, NeedPaintDelegate, _buttonUp, _buttonDown, _buttonContext);
             _drawDocker.Add(_drawItems, ViewDockStyle.Fill);
@@ -183,8 +176,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -195,8 +188,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -205,8 +198,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Padding), "3,3,3,3")]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -216,10 +209,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Collection of drop down ranges")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonGalleryRangeCollection DropButtonRanges
-        {
-            get { return _dropButtonRanges; }
-        }
+        public KryptonGalleryRangeCollection DropButtonRanges { get; }
 
         /// <summary>
         /// Gets and sets the preferred size based on the number of items per line and number of lines.
@@ -229,8 +219,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "5,1")]
         public Size PreferredItemSize
         {
-            get { return _preferredItemSize; }
-            
+            get => _preferredItemSize;
+
             set 
             {
                 if (!_preferredItemSize.Equals(value))
@@ -254,7 +244,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(128)]
         public int DropMaxItemWidth
         {
-            get { return _dropMaxItemWidth; }
+            get => _dropMaxItemWidth;
 
             set
             {
@@ -274,7 +264,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(3)]
         public int DropMinItemWidth
         {
-            get { return _dropMinItemWidth; }
+            get => _dropMinItemWidth;
 
             set
             {
@@ -294,8 +284,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "LowProfile")]
         public ButtonStyle ButtonStyle
         {
-            get { return _drawItems.ButtonStyle; }
-            set { _drawItems.ButtonStyle = value; }
+            get => _drawItems.ButtonStyle;
+            set => _drawItems.ButtonStyle = value;
         }
 
         /// <summary>
@@ -306,8 +296,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool SmoothScrolling
         {
-            get { return _drawItems.ScrollIntoView; }
-            set { _drawItems.ScrollIntoView = value; }
+            get => _drawItems.ScrollIntoView;
+            set => _drawItems.ScrollIntoView = value;
         }
 
         /// <summary>
@@ -318,7 +308,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool AlwaysActive
         {
-            get { return _alwaysActive; }
+            get => _alwaysActive;
 
             set
             {
@@ -337,8 +327,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Collection of images for display and selection.")]
         public ImageList ImageList
         {
-            get { return _imageList; }
-            
+            get => _imageList;
+
             set 
             { 
                 _imageList = value;
@@ -355,7 +345,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int SelectedIndex
         {
-            get { return _selectedIndex; }
+            get => _selectedIndex;
 
             set
             {
@@ -375,14 +365,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Gallery button image overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public GalleryImages Images
-        {
-            get { return _images; }
-        }
+        public GalleryImages Images { get; }
 
         private bool ShouldSerializeImages()
         {
-            return !_images.IsDefault;
+            return !Images.IsDefault;
         }
 
         /// <summary>
@@ -391,14 +378,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining common gallery appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteGalleryRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteGalleryRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
             
         /// <summary>
@@ -407,14 +391,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining disabled gallery appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteGalleryState StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteGalleryState StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -423,14 +404,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining normal gallery appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteGalleryState StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteGalleryState StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -439,14 +417,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining active gallery appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteGalleryState StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteGalleryState StateActive { get; }
 
         private bool ShouldSerializeStateActive()
         {
-            return !_stateActive.IsDefault;
+            return !StateActive.IsDefault;
         }
 
         /// <summary>
@@ -455,11 +430,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public bool InRibbonDesignMode
-        {
-            get { return _inRibbonDesignMode; }
-            set { _inRibbonDesignMode = value; }
-        }
+        public bool InRibbonDesignMode { get; set; }
 
         /// <summary>
         /// Bring the selected index into view.
@@ -684,7 +655,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         case Keys.PageDown:
                         case Keys.PageUp:
                             // If inside a ribbon then we ignore the movement keys
-                            if ((_ribbon == null) || ((_ribbon != null) && !_ribbon.InKeyboardMode))
+                            if ((Ribbon == null) || ((Ribbon != null) && !Ribbon.InKeyboardMode))
                             {
                                 _drawItems[_trackingIndex].KeyDown(new KeyEventArgs(keyData));
                                 return true;
@@ -729,10 +700,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(240, 30); }
-		}
+		protected override Size DefaultSize => new Size(240, 30);
 
         /// <summary>
         /// Process Windows-based messages.
@@ -762,8 +730,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Internal
         internal int TrackingIndex
         {
-            get { return _trackingIndex; }
-            
+            get => _trackingIndex;
+
             set 
             {
                 if (_trackingIndex != value)
@@ -795,10 +763,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        internal bool InTransparentDesignMode
-        {
-            get { return InRibbonDesignMode; }
-        }
+        internal bool InTransparentDesignMode => InRibbonDesignMode;
 
         internal bool DesignerGetHitTest(Point pt)
         {
@@ -826,15 +791,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         internal Size InternalPreferredItemSize
         {
-            get { return _preferredItemSize; }
-            set { _preferredItemSize = value; }
+            get => _preferredItemSize;
+            set => _preferredItemSize = value;
         }
 
-        internal KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-            set { _ribbon = value; }
-        }
+        internal KryptonRibbon Ribbon { get; set; }
 
         internal void OnDropButton()
         {
@@ -861,7 +822,7 @@ namespace ComponentFactory.Krypton.Ribbon
             int lineItems = Math.Max(DropMinItemWidth, Math.Min(DropMaxItemWidth, actualLineItems));
 
             // If there are no ranges defined, just add a single entry showing all enties
-            if (_dropButtonRanges.Count == 0)
+            if (DropButtonRanges.Count == 0)
             {
                 KryptonContextMenuImageSelect imageSelect = new KryptonContextMenuImageSelect
                 {
@@ -875,7 +836,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
             else
             {
-                foreach (KryptonGalleryRange range in _dropButtonRanges)
+                foreach (KryptonGalleryRange range in DropButtonRanges)
                 {
                     // If not the first item in the menu, add a separator
                     if (_dropMenu.Items.Count > 0)
@@ -1014,16 +975,16 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (IsActive)
                 {
-                    return _stateActive;
+                    return StateActive;
                 }
                 else
                 {
-                    return _stateNormal;
+                    return StateNormal;
                 }
             }
             else
             {
-                return _stateDisabled;
+                return StateDisabled;
             }
         }
 

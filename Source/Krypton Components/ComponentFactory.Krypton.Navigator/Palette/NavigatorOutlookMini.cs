@@ -63,20 +63,14 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((MiniButtonStyle == ButtonStyle.NavigatorMini) &&
-                        (MiniMapImage == MapKryptonPageImage.None) &&
-                        (MiniMapText == MapKryptonPageText.TextTitle) &&
-                        (MiniMapExtraText == MapKryptonPageText.None) &&
-                        (StackMapImage == MapKryptonPageImage.MediumSmall) &&
-                        (StackMapText == MapKryptonPageText.None) &&
-                        (StackMapExtraText == MapKryptonPageText.None));
-                        
-            }
-        }
+        public override bool IsDefault => ((MiniButtonStyle == ButtonStyle.NavigatorMini) &&
+                                           (MiniMapImage == MapKryptonPageImage.None) &&
+                                           (MiniMapText == MapKryptonPageText.TextTitle) &&
+                                           (MiniMapExtraText == MapKryptonPageText.None) &&
+                                           (StackMapImage == MapKryptonPageImage.MediumSmall) &&
+                                           (StackMapText == MapKryptonPageText.None) &&
+                                           (StackMapExtraText == MapKryptonPageText.None));
+
         #endregion
 
         #region MiniButtonStyle
@@ -88,7 +82,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonStyle), "NavigatorMini")]
         public ButtonStyle MiniButtonStyle
         {
-            get { return _miniButtonStyle; }
+            get => _miniButtonStyle;
 
             set
             {
@@ -112,7 +106,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageImage), "None (Null image)")]
         public virtual MapKryptonPageImage MiniMapImage
         {
-            get { return _miniMapImage; }
+            get => _miniMapImage;
 
             set
             {
@@ -143,7 +137,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "Text - Title")]
         public MapKryptonPageText MiniMapText
         {
-            get { return _miniMapText; }
+            get => _miniMapText;
 
             set
             {
@@ -174,7 +168,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "None (Empty string)")]
         public MapKryptonPageText MiniMapExtraText
         {
-            get { return _miniMapExtraText; }
+            get => _miniMapExtraText;
 
             set
             {
@@ -206,7 +200,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageImage), "MediumSmall")]
         public virtual MapKryptonPageImage StackMapImage
         {
-            get { return _stackMapImage; }
+            get => _stackMapImage;
 
             set
             {
@@ -237,7 +231,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "None (Empty string)")]
         public MapKryptonPageText StackMapText
         {
-            get { return _stackMapText; }
+            get => _stackMapText;
 
             set
             {
@@ -268,7 +262,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "None (Empty string)")]
         public MapKryptonPageText StackMapExtraText
         {
-            get { return _stackMapExtraText; }
+            get => _stackMapExtraText;
 
             set
             {

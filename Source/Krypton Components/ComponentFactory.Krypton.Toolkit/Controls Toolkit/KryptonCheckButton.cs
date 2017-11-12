@@ -30,10 +30,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonCheckButton : KryptonButton
 	{
 		#region Instance Fields
-        private PaletteTriple _stateCheckedNormal;
-        private PaletteTriple _stateCheckedTracking;
-        private PaletteTriple _stateCheckedPressed;
-        private PaletteTripleOverride _overrideCheckedFocus;
+
+	    private PaletteTripleOverride _overrideCheckedFocus;
         private PaletteTripleOverride _overrideCheckedNormal;
         private PaletteTripleOverride _overrideCheckedTracking;
         private PaletteTripleOverride _overrideCheckedPressed;
@@ -64,15 +62,15 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonCheckButton()
 		{
 			// Create the extra state needed for the checked additions the the base button
-            _stateCheckedNormal = new PaletteTriple(StateCommon, NeedPaintDelegate);
-            _stateCheckedTracking = new PaletteTriple(StateCommon, NeedPaintDelegate);
-            _stateCheckedPressed = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StateCheckedNormal = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StateCheckedTracking = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StateCheckedPressed = new PaletteTriple(StateCommon, NeedPaintDelegate);
 
 			// Create the override handling classes
-            _overrideCheckedFocus = new PaletteTripleOverride(OverrideFocus, _stateCheckedNormal, PaletteState.FocusOverride);
+            _overrideCheckedFocus = new PaletteTripleOverride(OverrideFocus, StateCheckedNormal, PaletteState.FocusOverride);
             _overrideCheckedNormal = new PaletteTripleOverride(OverrideDefault, _overrideCheckedFocus, PaletteState.NormalDefaultOverride);
-            _overrideCheckedTracking = new PaletteTripleOverride(OverrideFocus, _stateCheckedTracking, PaletteState.FocusOverride);
-            _overrideCheckedPressed = new PaletteTripleOverride(OverrideFocus, _stateCheckedPressed, PaletteState.FocusOverride);
+            _overrideCheckedTracking = new PaletteTripleOverride(OverrideFocus, StateCheckedTracking, PaletteState.FocusOverride);
+            _overrideCheckedPressed = new PaletteTripleOverride(OverrideFocus, StateCheckedPressed, PaletteState.FocusOverride);
 
             // Add the checked specific palettes to the existing view button
             ViewDrawButton.SetCheckedPalettes(_overrideCheckedNormal,
@@ -88,14 +86,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal checked button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTriple StateCheckedNormal
-		{
-			get { return _stateCheckedNormal; }
-		}
+		public PaletteTriple StateCheckedNormal { get; }
 
-        private bool ShouldSerializeStateCheckedNormal()
+	    private bool ShouldSerializeStateCheckedNormal()
 		{
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
 		}
 
 		/// <summary>
@@ -104,14 +99,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
         [Description("Overrides for defining hot tracking checked button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedTracking
-		{
-			get { return _stateCheckedTracking; }
-		}
+        public PaletteTriple StateCheckedTracking { get; }
 
-        private bool ShouldSerializeStateCheckedTracking()
+	    private bool ShouldSerializeStateCheckedTracking()
 		{
-            return !_stateCheckedTracking.IsDefault;
+            return !StateCheckedTracking.IsDefault;
 		}
 
 		/// <summary>
@@ -120,14 +112,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
         [Description("Overrides for defining pressed checked button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedPressed
-		{
-			get { return _stateCheckedPressed; }
-		}
+        public PaletteTriple StateCheckedPressed { get; }
 
-        private bool ShouldSerializeStateCheckedPressed()
+	    private bool ShouldSerializeStateCheckedPressed()
 		{
-            return !_stateCheckedPressed.IsDefault;
+            return !StateCheckedPressed.IsDefault;
 		}
 
         /// <summary>
@@ -139,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Checked
         {
-            get { return ViewDrawButton.Checked; }
+            get => ViewDrawButton.Checked;
 
             set
             {
@@ -173,8 +162,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AllowUncheck
         {
-            get { return ViewDrawButton.AllowUncheck; }
-            set { ViewDrawButton.AllowUncheck = value; }
+            get => ViewDrawButton.AllowUncheck;
+            set => ViewDrawButton.AllowUncheck = value;
         }
 
         /// <summary>
@@ -185,7 +174,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public override IKryptonCommand KryptonCommand
         {
-            get { return base.KryptonCommand; }
+            get => base.KryptonCommand;
 
             set
             {

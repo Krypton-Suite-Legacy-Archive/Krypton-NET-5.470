@@ -27,8 +27,7 @@ namespace ComponentFactory.Krypton.Navigator
         private NeedPaintHandler _needPaint;
         private ViewBase _target;
         private bool _fixedTracking;
-		private bool _captured;
-        private bool _mouseOver;
+	    private bool _mouseOver;
 		#endregion
 
 		#region Events
@@ -63,7 +62,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (_fixedTracking)
             {
                 // Mouse no longer considered pressed down
-                _captured = false;
+                Captured = false;
 
                 // No longer in fixed state mode
                 _fixedTracking = false;
@@ -115,13 +114,13 @@ namespace ComponentFactory.Krypton.Navigator
             if (button == MouseButtons.Left)
             {
                // Capturing mouse input
-                _captured = true;
+                Captured = true;
 
                 // Update the visual state
                 UpdateTargetState(pt);
             }
 
-            return _captured;
+            return Captured;
 		}
 
 		/// <summary>
@@ -132,10 +131,10 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
 		{
-            if (_captured)
+            if (Captured)
             {
                 // Not capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Only interested in left mouse being released
                 if (button == MouseButtons.Left)
@@ -186,7 +185,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (!_fixedTracking)
             {
                 // If leaving the view then cannot be capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 UpdateTargetState(c);
             }
@@ -204,11 +203,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Key Notifications
         /// <summary>
@@ -234,7 +231,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (e.KeyCode == Keys.Space)
             {
                 // Enter the captured mode and pretend mouse is over area
-                _captured = true;
+                Captured = true;
                 _mouseOver = true;
 
                 // Update target to reflect new state
@@ -279,11 +276,11 @@ namespace ComponentFactory.Krypton.Navigator
             if ((e.KeyCode == Keys.Escape) || (e.KeyCode == Keys.Space))
             {
                 // If we are capturing mouse input
-                if (_captured)
+                if (Captured)
                 {
                     // Release the mouse capture
                     c.Capture = false;
-                    _captured = false;
+                    Captured = false;
 
                     // Recalculate if the mouse is over the button area
                     _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
@@ -303,7 +300,7 @@ namespace ComponentFactory.Krypton.Navigator
                 }
             }
 
-            return _captured;
+            return Captured;
         }
         #endregion
 
@@ -313,7 +310,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -339,13 +336,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -381,7 +374,7 @@ namespace ComponentFactory.Krypton.Navigator
                 newState = PaletteState.Normal;
 
                 // If capturing input....
-                if (_captured)
+                if (Captured)
                 {
                     if (_target.ClientRectangle.Contains(pt))
                     {

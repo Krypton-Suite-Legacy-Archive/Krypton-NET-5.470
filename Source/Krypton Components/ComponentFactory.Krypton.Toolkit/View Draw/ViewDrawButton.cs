@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewDrawButton : ViewComposite
 	{
 		#region Instance Fields
-        private IPaletteTriple _paletteCurrent;
-        private IPaletteTriple _paletteDisabled;
+
+	    private IPaletteTriple _paletteDisabled;
         private IPaletteTriple _paletteNormal;
         private IPaletteTriple _paletteTracking;
         private IPaletteTriple _palettePressed;
@@ -34,16 +34,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawBorderEdge _drawSplitBorder;
         private ViewLayoutCenter _drawDropDown;
         private ViewDrawDropDownButton _drawDropDownButton;
-        private ViewLayoutDocker _layoutDocker;
-        private VisualOrientation _dropDownPosition;
+	    private VisualOrientation _dropDownPosition;
         private ViewLayoutSeparator _drawOuterSeparator;
         private Rectangle _splitRectangle;
         private Rectangle _nonSplitRectangle;
         private bool _dropDown;
         private bool _splitter;
-        private bool _checked;
-        private bool _allowUncheck;
-        private bool _forcePaletteUpdate;
+	    private bool _forcePaletteUpdate;
 		#endregion
 
 		#region Identity
@@ -106,11 +103,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			_paletteCheckedNormal = paletteCheckedNormal;
 			_paletteCheckedTracking = paletteCheckedTracking;
 			_paletteCheckedPressed = paletteCheckedPressed;
-            _paletteCurrent = _paletteNormal;
+            CurrentPalette = _paletteNormal;
 
             // Default to not being checked
-            _checked = false;
-            _allowUncheck = true;
+            Checked = false;
+            AllowUncheck = true;
             _dropDown = false;
             _splitter = false;
             _dropDownPosition = VisualOrientation.Right;
@@ -130,20 +127,20 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawCanvas = new ViewDrawSplitCanvas(_paletteNormal.PaletteBack, _paletteNormal.PaletteBorder, paletteMetric, PaletteMetricPadding.None, orientation);
 
             // Use a docker layout to organize the contents of the canvas
-            _layoutDocker = new ViewLayoutDocker
+            LayoutDocker = new ViewLayoutDocker
             {
                 { _drawContent, ViewDockStyle.Fill },
                 { _drawSplitBorder, ViewDockStyle.Right },
                 { _drawDropDown, ViewDockStyle.Right },
                 { _drawOuterSeparator, ViewDockStyle.Right }
             };
-            _layoutDocker.Tag = this;
+            LayoutDocker.Tag = this;
 
 			// Pass the mnemonic default to the content view
 			_drawContent.UseMnemonic = useMnemonic;
 
 			// Place the content inside the canvas
-            _drawCanvas.Add(_layoutDocker);
+            _drawCanvas.Add(LayoutDocker);
 
             // Set initial view element visible states
             UpdateDropDown();
@@ -167,21 +164,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the contained layout docker.
         /// </summary>
-        public ViewLayoutDocker LayoutDocker
-        {
-            get { return _layoutDocker; }
-        }
-        #endregion
+        public ViewLayoutDocker LayoutDocker { get; }
+
+	    #endregion
 
         #region CurrentPalette
         /// <summary>
         /// Gets access to the currently selected palette.
         /// </summary>
-        public IPaletteTriple CurrentPalette
-        {
-            get { return _paletteCurrent; }
-        }
-        #endregion
+        public IPaletteTriple CurrentPalette { get; private set; }
+
+	    #endregion
 
         #region DropDown
         /// <summary>
@@ -189,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool DropDown
         {
-            get { return _dropDown; }
+            get => _dropDown;
 
             set
             {
@@ -208,7 +201,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation DropDownPosition
         {
-            get { return _dropDownPosition; }
+            get => _dropDownPosition;
 
             set
             {
@@ -227,7 +220,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation DropDownOrientation
         {
-            get { return _drawDropDownButton.Orientation; }
+            get => _drawDropDownButton.Orientation;
 
             set
             {
@@ -246,8 +239,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPalette DropDownPalette
         {
-            get { return _drawDropDownButton.Palette; }
-            set { _drawDropDownButton.Palette = value; }
+            get => _drawDropDownButton.Palette;
+            set => _drawDropDownButton.Palette = value;
         }
         #endregion
 
@@ -257,7 +250,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Splitter
         {
-            get { return _splitter; }
+            get => _splitter;
 
             set
             {
@@ -274,21 +267,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the split rectangle area.
         /// </summary>
-        public Rectangle SplitRectangle
-        {
-            get { return _splitRectangle; }
-        }
-        #endregion
+        public Rectangle SplitRectangle => _splitRectangle;
+
+	    #endregion
 
         #region NonSplitRectangle
         /// <summary>
         /// Gets the non split rectangle area.
         /// </summary>
-        public Rectangle NonSplitRectangle
-        {
-            get { return _nonSplitRectangle; }
-        }
-        #endregion
+        public Rectangle NonSplitRectangle => _nonSplitRectangle;
+
+	    #endregion
 
         #region ButtonValues
         /// <summary>
@@ -296,8 +285,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IContentValues ButtonValues
         {
-            get { return _drawContent.Values; }
-            set { _drawContent.Values = value; }
+            get => _drawContent.Values;
+            set => _drawContent.Values = value;
         }
         #endregion
 
@@ -307,8 +296,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool DrawTabBorder
         {
-            get { return _drawCanvas.DrawTabBorder; }
-            set { _drawCanvas.DrawTabBorder = value; }
+            get => _drawCanvas.DrawTabBorder;
+            set => _drawCanvas.DrawTabBorder = value;
         }
         #endregion
 
@@ -318,8 +307,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public TabBorderStyle TabBorderStyle
         {
-            get { return _drawCanvas.TabBorderStyle; }
-            set { _drawCanvas.TabBorderStyle = value; }
+            get => _drawCanvas.TabBorderStyle;
+            set => _drawCanvas.TabBorderStyle = value;
         }
         #endregion
 
@@ -329,9 +318,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public override bool Enabled
 		{
-			get { return base.Enabled; }
+			get => base.Enabled;
 
-			set 
+            set 
 			{ 
 				base.Enabled = value;
 
@@ -362,8 +351,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public virtual VisualOrientation Orientation
 		{
-            get { return _drawCanvas.Orientation; }
-			set { SetOrientation(value, value); }
+            get => _drawCanvas.Orientation;
+		    set => SetOrientation(value, value);
 		}
 
         /// <summary>
@@ -386,8 +375,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public bool UseMnemonic
 		{
-			get { return _drawContent.UseMnemonic; }
-			set { _drawContent.UseMnemonic = value; }
+			get => _drawContent.UseMnemonic;
+		    set => _drawContent.UseMnemonic = value;
 		}
 		#endregion
 
@@ -395,23 +384,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the checked state.
         /// </summary>
-        public bool Checked
-        {
-            get { return _checked; }
-            set { _checked = value; }
-        }
-        #endregion
+        public bool Checked { get; set; }
+
+	    #endregion
 
         #region AllowUncheck
         /// <summary>
         /// Gets and sets the allow uncheck state.
         /// </summary>
-        public bool AllowUncheck
-        {
-            get { return _allowUncheck; }
-            set { _allowUncheck = value; }
-        }
-        #endregion
+        public bool AllowUncheck { get; set; }
+
+	    #endregion
 
         #region DrawButtonComposition
         /// <summary>
@@ -419,8 +402,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool DrawButtonComposition
         {
-            get { return _drawCanvas.DrawCanvasOnComposition; }
-            set { _drawCanvas.DrawCanvasOnComposition = value; }
+            get => _drawCanvas.DrawCanvasOnComposition;
+            set => _drawCanvas.DrawCanvasOnComposition = value;
         }
         #endregion
 
@@ -430,8 +413,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool TestForFocusCues
         {
-            get { return _drawContent.TestForFocusCues; }
-            set { _drawContent.TestForFocusCues = value; }
+            get => _drawContent.TestForFocusCues;
+            set => _drawContent.TestForFocusCues = value;
         }
         #endregion
 
@@ -678,25 +661,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 switch (buttonState)
                 {
                     case PaletteState.Disabled:
-                        _paletteCurrent = _paletteDisabled;
+                        CurrentPalette = _paletteDisabled;
                         break;
                     case PaletteState.Normal:
-                        _paletteCurrent = _paletteNormal;
+                        CurrentPalette = _paletteNormal;
                         break;
                     case PaletteState.CheckedNormal:
-                        _paletteCurrent = _paletteCheckedNormal;
+                        CurrentPalette = _paletteCheckedNormal;
                         break;
                     case PaletteState.Pressed:
-                        _paletteCurrent = _palettePressed;
+                        CurrentPalette = _palettePressed;
                         break;
                     case PaletteState.CheckedPressed:
-                        _paletteCurrent = _paletteCheckedPressed;
+                        CurrentPalette = _paletteCheckedPressed;
                         break;
                     case PaletteState.Tracking:
-                        _paletteCurrent = _paletteTracking;
+                        CurrentPalette = _paletteTracking;
                         break;
                     case PaletteState.CheckedTracking:
-                        _paletteCurrent = _paletteCheckedTracking;
+                        CurrentPalette = _paletteCheckedTracking;
                         break;
                     default:
                         // Should never happen!
@@ -705,9 +688,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Update with the correct palettes
-                _drawCanvas.SetPalettes(_paletteCurrent.PaletteBack, _paletteCurrent.PaletteBorder);
-                _drawContent.SetPalette(_paletteCurrent.PaletteContent);
-                _edgeRedirect.SetPalette(_paletteCurrent.PaletteBorder);
+                _drawCanvas.SetPalettes(CurrentPalette.PaletteBack, CurrentPalette.PaletteBorder);
+                _drawContent.SetPalette(CurrentPalette.PaletteContent);
+                _edgeRedirect.SetPalette(CurrentPalette.PaletteBorder);
             }
         }
         #endregion
@@ -744,9 +727,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _drawSplitBorder.Orientation = splitOrientation;
             _drawSplitBorder.VisualOrientation = Orientation;
-            _layoutDocker.SetDock(_drawSplitBorder, dockStyle);
-            _layoutDocker.SetDock(_drawDropDown, dockStyle);
-            _layoutDocker.SetDock(_drawOuterSeparator, dockStyle);
+            LayoutDocker.SetDock(_drawSplitBorder, dockStyle);
+            LayoutDocker.SetDock(_drawDropDown, dockStyle);
+            LayoutDocker.SetDock(_drawOuterSeparator, dockStyle);
         }
 		#endregion
 	}

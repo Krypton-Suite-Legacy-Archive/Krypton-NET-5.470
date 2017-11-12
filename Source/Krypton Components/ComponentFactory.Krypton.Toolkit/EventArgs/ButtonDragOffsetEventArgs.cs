@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ButtonDragOffsetEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private Point _offset;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="offset">Mouse offset for button dragging.</param>
         public ButtonDragOffsetEventArgs(Point offset)
 		{
-            _offset = offset;
+            PointOffset = offset;
 		}
         #endregion
 
@@ -37,10 +37,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the left mouse dragging offer.
         /// </summary>
-        public Point PointOffset
-        {
-            get { return _offset; }
-        }
-        #endregion
+        public Point PointOffset { get; }
+
+	    #endregion
     }
 }

@@ -218,10 +218,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private const float CUT_TOOL_ITEM_MENU = 1.0f;
         private static readonly Blend _statusStripBlend;
         private static readonly Color _disabled = Color.FromArgb(167, 167, 167);
-        private static GradientItemColors _disabledItem = new GradientItemColors(Color.FromArgb(250, 250, 250), Color.FromArgb(243, 243, 243), 
-                                                                                 Color.FromArgb(236, 236, 236), Color.FromArgb(230, 230, 230), 
-                                                                                 Color.FromArgb(243, 243, 243), Color.FromArgb(224, 224, 224), 
-                                                                                 Color.FromArgb(200, 200, 200), Color.FromArgb(210, 210, 210), 
+        private static GradientItemColors _disabledItem = new GradientItemColors(Color.FromArgb(250, 250, 250), Color.FromArgb(243, 243, 243),
+                                                                                 Color.FromArgb(236, 236, 236), Color.FromArgb(230, 230, 230),
+                                                                                 Color.FromArgb(243, 243, 243), Color.FromArgb(224, 224, 224),
+                                                                                 Color.FromArgb(200, 200, 200), Color.FromArgb(210, 210, 210),
                                                                                  Color.FromArgb(212, 212, 212), Color.FromArgb(195, 195, 195));
         #endregion
 
@@ -306,7 +306,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region OnRenderButtonBackground
         /// <summary>
         /// Raises the RenderButtonBackground event. 
@@ -434,7 +434,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ToolStripItemTextRenderEventArgs that contains the event data.</param>
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
-            if ((e.ToolStrip is ToolStrip) || 
+            if ((e.ToolStrip is ToolStrip) ||
                 (e.ToolStrip is ContextMenuStrip) ||
                 (e.ToolStrip is ToolStripDropDownMenu))
             {
@@ -443,7 +443,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     e.TextColor = _disabled;
                 }
-                else if(!e.Item.Pressed && !e.Item.Selected)
+                else if (!e.Item.Pressed && !e.Item.Selected)
                 {
                     switch (e.ToolStrip)
                     {
@@ -764,16 +764,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Check if the status strip is inside a KryptonForm and using the Office 2007 renderer, in 
                     // which case we want to extend the drawing down into the border area for an integrated look
-                    if ((owner != null) && 
-                        (owner is KryptonForm) &&
-                        e.ToolStrip.Visible &&
-                        (e.ToolStrip.Dock == DockStyle.Bottom) &&
-                        (e.ToolStrip.Bottom == owner.ClientSize.Height) &&
-                        (e.ToolStrip.RenderMode == ToolStripRenderMode.ManagerRenderMode) &&
-                        (ToolStripManager.Renderer is KryptonOffice2007Renderer))
+                    if (e.ToolStrip.Visible
+                        && (e.ToolStrip.Dock == DockStyle.Bottom)
+                        && (e.ToolStrip.RenderMode == ToolStripRenderMode.ManagerRenderMode)
+                        && (ToolStripManager.Renderer is KryptonOffice2007Renderer)
+                        && owner is KryptonForm kryptonForm
+                        && (e.ToolStrip.Bottom == owner.ClientSize.Height)
+                        )
                     {
                         // Get the window borders
-                        KryptonForm kryptonForm = (KryptonForm)owner;
 
                         // Finally check that the actual form is using custom chrome
                         if (kryptonForm.ApplyCustomChrome)

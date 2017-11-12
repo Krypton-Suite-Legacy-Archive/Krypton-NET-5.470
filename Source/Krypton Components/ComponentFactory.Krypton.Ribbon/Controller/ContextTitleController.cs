@@ -23,7 +23,6 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private ContextTabSet _context;
         private bool _mouseOver;
         #endregion
 
@@ -43,11 +42,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the associated context tab set.
         /// </summary>
-        public ContextTabSet ContextTabSet
-        {
-            get { return _context; }
-            set { _context = value; }
-        }
+        public ContextTabSet ContextTabSet { get; set; }
+
         #endregion
 
         #region Mouse Notifications
@@ -132,10 +128,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
         #endregion
     }
 }

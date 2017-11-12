@@ -20,20 +20,10 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorRedirect : PaletteDoubleMetricRedirect
 	{
         #region Instance Fields
-        private PalettePageRedirect _palettePageRedirect;
-        private PaletteNavigatorHeaderGroupRedirect _paletteHeaderGroupRedirect;
-        private PaletteTripleRedirect _paletteCheckButton;
-        private PaletteTripleRedirect _paletteOverflowButton;
-        private PaletteTripleRedirect _paletteMiniButton;
-        private PaletteTabTripleRedirect _paletteTab;
-        private PaletteBarRedirect _paletteBarRedirect;
-        private PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
-        private PaletteBorderEdgeRedirect _paletteBorderEdgeRedirect;
-        private PaletteSeparatorPaddingRedirect _paletteSeparator;
-        private PaletteRibbonTabContentRedirect _paletteRibbonTab;
-        private PaletteRibbonGeneralNavRedirect _paletteRibbonGeneral;
-        private PaletteMetrics _paletteMetrics;
-        #endregion
+
+	    private PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -97,19 +87,19 @@ namespace ComponentFactory.Krypton.Navigator
                    PaletteBorderStyle.ControlClient, needPaint)
 		{
             // Create the palette storage
-            _palettePageRedirect = new PalettePageRedirect(redirectNavigatorPage, needPaint);
-            _paletteHeaderGroupRedirect = new PaletteNavigatorHeaderGroupRedirect(redirectNavigatorHeaderGroup, redirectNavigatorHeaderPrimary, redirectNavigatorHeaderSecondary, redirectNavigatorHeaderBar, redirectNavigatorHeaderOverflow, needPaint);
-            _paletteCheckButton = new PaletteTripleRedirect(redirectNavigatorCheckButton, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
-            _paletteOverflowButton = new PaletteTripleRedirect(redirectNavigatorOverflowButton, PaletteBackStyle.ButtonNavigatorOverflow, PaletteBorderStyle.ButtonNavigatorOverflow, PaletteContentStyle.ButtonNavigatorOverflow, needPaint);
-            _paletteMiniButton = new PaletteTripleRedirect(redirectNavigatorMiniButton, PaletteBackStyle.ButtonNavigatorMini, PaletteBorderStyle.ButtonNavigatorMini, PaletteContentStyle.ButtonNavigatorMini, needPaint);
-            _paletteBarRedirect = new PaletteBarRedirect(redirectNavigatorBar, needPaint);
+            PalettePage = new PalettePageRedirect(redirectNavigatorPage, needPaint);
+            HeaderGroup = new PaletteNavigatorHeaderGroupRedirect(redirectNavigatorHeaderGroup, redirectNavigatorHeaderPrimary, redirectNavigatorHeaderSecondary, redirectNavigatorHeaderBar, redirectNavigatorHeaderOverflow, needPaint);
+            CheckButton = new PaletteTripleRedirect(redirectNavigatorCheckButton, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, needPaint);
+            OverflowButton = new PaletteTripleRedirect(redirectNavigatorOverflowButton, PaletteBackStyle.ButtonNavigatorOverflow, PaletteBorderStyle.ButtonNavigatorOverflow, PaletteContentStyle.ButtonNavigatorOverflow, needPaint);
+            MiniButton = new PaletteTripleRedirect(redirectNavigatorMiniButton, PaletteBackStyle.ButtonNavigatorMini, PaletteBorderStyle.ButtonNavigatorMini, PaletteContentStyle.ButtonNavigatorMini, needPaint);
+            Bar = new PaletteBarRedirect(redirectNavigatorBar, needPaint);
             _paletteBorderEdgeInheritRedirect = new PaletteBorderInheritRedirect(redirectNavigatorBorderEdge, PaletteBorderStyle.ControlClient);
-            _paletteBorderEdgeRedirect = new PaletteBorderEdgeRedirect(_paletteBorderEdgeInheritRedirect, needPaint);
-            _paletteSeparator = new PaletteSeparatorPaddingRedirect(redirectNavigatorSeparator, PaletteBackStyle.SeparatorHighInternalProfile, PaletteBorderStyle.SeparatorHighInternalProfile, needPaint);
-            _paletteTab = new PaletteTabTripleRedirect(redirectNavigatorTab, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
-            _paletteRibbonTab = new PaletteRibbonTabContentRedirect(redirectNavigatorRibbonTab, needPaint);
-            _paletteRibbonGeneral = new PaletteRibbonGeneralNavRedirect(redirectNavigatorRibbonGeneral, needPaint);
-            _paletteMetrics = new PaletteMetrics(navigator, needPaint);
+            BorderEdge = new PaletteBorderEdgeRedirect(_paletteBorderEdgeInheritRedirect, needPaint);
+            Separator = new PaletteSeparatorPaddingRedirect(redirectNavigatorSeparator, PaletteBackStyle.SeparatorHighInternalProfile, PaletteBorderStyle.SeparatorHighInternalProfile, needPaint);
+            Tab = new PaletteTabTripleRedirect(redirectNavigatorTab, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
+            RibbonTab = new PaletteRibbonTabContentRedirect(redirectNavigatorRibbonTab, needPaint);
+            RibbonGeneral = new PaletteRibbonGeneralNavRedirect(redirectNavigatorRibbonGeneral, needPaint);
+            Metrics = new PaletteMetrics(navigator, needPaint);
         }
 		#endregion
 
@@ -119,7 +109,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteRedirect RedirectBorderEdge
         {
-            set { _paletteBorderEdgeInheritRedirect.SetRedirector(value); }
+            set => _paletteBorderEdgeInheritRedirect.SetRedirector(value);
         }
         #endregion
 
@@ -129,7 +119,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteRedirect RedirectRibbonGeneral
         {
-            set { _paletteRibbonGeneral.SetRedirector(value); }
+            set => RibbonGeneral.SetRedirector(value);
         }
         #endregion
 
@@ -138,26 +128,21 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault &&
-                        _palettePageRedirect.IsDefault &&
-                        _paletteHeaderGroupRedirect.IsDefault &&
-                        _paletteCheckButton.IsDefault &&
-                        _paletteOverflowButton.IsDefault &&
-                        _paletteMiniButton.IsDefault &&
-                        _paletteBarRedirect.IsDefault &&
-                        _paletteBorderEdgeRedirect.IsDefault &&
-                        _paletteSeparator.IsDefault &&
-                        _paletteTab.IsDefault &&
-                        _paletteRibbonTab.IsDefault &&
-                        _paletteRibbonGeneral.IsDefault &&
-                        _paletteMetrics.IsDefault);
-            }
-        }
-        #endregion
+        public override bool IsDefault => (base.IsDefault &&
+                                           PalettePage.IsDefault &&
+                                           HeaderGroup.IsDefault &&
+                                           CheckButton.IsDefault &&
+                                           OverflowButton.IsDefault &&
+                                           MiniButton.IsDefault &&
+                                           Bar.IsDefault &&
+                                           BorderEdge.IsDefault &&
+                                           Separator.IsDefault &&
+                                           Tab.IsDefault &&
+                                           RibbonTab.IsDefault &&
+                                           RibbonGeneral.IsDefault &&
+                                           Metrics.IsDefault);
+
+	    #endregion
 
         #region Bar
         /// <summary>
@@ -166,14 +151,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining bar appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBarRedirect Bar
-        {
-            get { return _paletteBarRedirect; }
-        }
+        public PaletteBarRedirect Bar { get; }
 
-        private bool ShouldSerializeBar()
+	    private bool ShouldSerializeBar()
         {
-            return !_paletteBarRedirect.IsDefault;
+            return !Bar.IsDefault;
         }
         #endregion
 
@@ -184,23 +166,18 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override PaletteBack Back
-        {
-            get { return base.Back; }
-        }
+        public override PaletteBack Back => base.Back;
 
 
-        /// <summary>
+	    /// <summary>
         /// Gets the background palette.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override IPaletteBack PaletteBack
-        {
-            get { return base.PaletteBack; }
-        }
-        #endregion
+        public override IPaletteBack PaletteBack => base.PaletteBack;
+
+	    #endregion
 
         #region Border
         /// <summary>
@@ -209,22 +186,17 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override PaletteBorder Border
-        {
-            get { return base.Border; }
-        }
+        public override PaletteBorder Border => base.Border;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the border palette.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override IPaletteBorder PaletteBorder
-        {
-            get { return base.PaletteBorder; }
-        }
-        #endregion
+        public override IPaletteBorder PaletteBorder => base.PaletteBorder;
+
+	    #endregion
 
         #region Panel
         /// <summary>
@@ -233,12 +205,9 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack Panel
-        {
-            get { return base.Back; }
-        }
+        public PaletteBack Panel => base.Back;
 
-        private bool ShouldSerializePanel()
+	    private bool ShouldSerializePanel()
         {
             return !base.Back.IsDefault;
         }
@@ -251,14 +220,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining check button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect CheckButton
-        {
-            get { return _paletteCheckButton; }
-        }
+        public PaletteTripleRedirect CheckButton { get; }
 
-        private bool ShouldSerializeCheckButton()
+	    private bool ShouldSerializeCheckButton()
         {
-            return !_paletteCheckButton.IsDefault;
+            return !CheckButton.IsDefault;
         }
         #endregion
 
@@ -269,14 +235,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook overflow button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverflowButton
-        {
-            get { return _paletteOverflowButton; }
-        }
+        public PaletteTripleRedirect OverflowButton { get; }
 
-        private bool ShouldSerializeOverflowButton()
+	    private bool ShouldSerializeOverflowButton()
         {
-            return !_paletteOverflowButton.IsDefault;
+            return !OverflowButton.IsDefault;
         }
         #endregion
 
@@ -287,14 +250,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook mini button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect MiniButton
-        {
-            get { return _paletteMiniButton; }
-        }
+        public PaletteTripleRedirect MiniButton { get; }
 
-        private bool ShouldSerializeMiniButton()
+	    private bool ShouldSerializeMiniButton()
         {
-            return !_paletteMiniButton.IsDefault;
+            return !MiniButton.IsDefault;
         }
         #endregion
 
@@ -305,14 +265,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining header group appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorHeaderGroupRedirect HeaderGroup
-        {
-            get { return _paletteHeaderGroupRedirect; }
-        }
+        public PaletteNavigatorHeaderGroupRedirect HeaderGroup { get; }
 
-        private bool ShouldSerializeHeaderGroup()
+	    private bool ShouldSerializeHeaderGroup()
         {
-            return !_paletteHeaderGroupRedirect.IsDefault;
+            return !HeaderGroup.IsDefault;
         }
         #endregion
 
@@ -323,14 +280,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining page appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack Page
-        {
-            get { return _palettePageRedirect.Back; }
-        }
+        public PaletteBack Page => PalettePage.Back;
 
-        private bool ShouldSerializePage()
+	    private bool ShouldSerializePage()
         {
-            return !_palettePageRedirect.Back.IsDefault;
+            return !PalettePage.Back.IsDefault;
         }
         #endregion
 
@@ -341,14 +295,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining border edge appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBorderEdgeRedirect BorderEdge
-        {
-            get { return _paletteBorderEdgeRedirect; }
-        }
+        public PaletteBorderEdgeRedirect BorderEdge { get; }
 
-        private bool ShouldSerializeBorderEdge()
+	    private bool ShouldSerializeBorderEdge()
         {
-            return !_paletteBorderEdgeRedirect.IsDefault;
+            return !BorderEdge.IsDefault;
         }
         #endregion
 
@@ -359,14 +310,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining metric entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteMetrics Metrics
-        {
-            get { return _paletteMetrics; }
-        }
+        public PaletteMetrics Metrics { get; }
 
-        private bool ShouldSerializeMetrics()
+	    private bool ShouldSerializeMetrics()
         {
-            return !_paletteMetrics.IsDefault;
+            return !Metrics.IsDefault;
         }
         #endregion
 
@@ -377,14 +325,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPaddingRedirect Separator
-        {
-            get { return _paletteSeparator; }
-        }
+        public PaletteSeparatorPaddingRedirect Separator { get; }
 
-        private bool ShouldSerializeSeparator()
+	    private bool ShouldSerializeSeparator()
         {
-            return !_paletteSeparator.IsDefault;
+            return !Separator.IsDefault;
         }
         #endregion
 
@@ -395,14 +340,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTripleRedirect Tab
-        {
-            get { return _paletteTab; }
-        }
+        public PaletteTabTripleRedirect Tab { get; }
 
-        private bool ShouldSerializeTab()
+	    private bool ShouldSerializeTab()
         {
-            return !_paletteTab.IsDefault;
+            return !Tab.IsDefault;
         }
         #endregion
 
@@ -413,14 +355,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining ribbon tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonTabContentRedirect RibbonTab
-        {
-            get { return _paletteRibbonTab; }
-        }
+        public PaletteRibbonTabContentRedirect RibbonTab { get; }
 
-        private bool ShouldSerializeRibbonTab()
+	    private bool ShouldSerializeRibbonTab()
         {
-            return !_paletteRibbonTab.IsDefault;
+            return !RibbonTab.IsDefault;
         }
         #endregion
 
@@ -431,14 +370,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining ribbon general appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonGeneralNavRedirect RibbonGeneral
-        {
-            get { return _paletteRibbonGeneral; }
-        }
+        public PaletteRibbonGeneralNavRedirect RibbonGeneral { get; }
 
-        private bool ShouldSerializeRibbonGeneral()
+	    private bool ShouldSerializeRibbonGeneral()
         {
-            return !_paletteRibbonGeneral.IsDefault;
+            return !RibbonGeneral.IsDefault;
         }
         #endregion
 
@@ -454,9 +390,9 @@ namespace ComponentFactory.Krypton.Navigator
             switch (metric)
             {
                 case PaletteMetricInt.PageButtonInset:
-                    if (_paletteMetrics.PageButtonSpecInset != -1)
+                    if (Metrics.PageButtonSpecInset != -1)
                     {
-                        return _paletteMetrics.PageButtonSpecInset;
+                        return Metrics.PageButtonSpecInset;
                     }
                     break;
             }
@@ -476,9 +412,9 @@ namespace ComponentFactory.Krypton.Navigator
             switch (metric)
             {
                 case PaletteMetricPadding.PageButtonPadding:
-                    if (!_paletteMetrics.PageButtonSpecPadding.Equals(CommonHelper.InheritPadding))
+                    if (!Metrics.PageButtonSpecPadding.Equals(CommonHelper.InheritPadding))
                     {
-                        return _paletteMetrics.PageButtonSpecPadding;
+                        return Metrics.PageButtonSpecPadding;
                     }
                     break;
             }
@@ -489,15 +425,12 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Internal
-        internal PalettePageRedirect PalettePage
-        {
-            get { return _palettePageRedirect; }
-        }
+        internal PalettePageRedirect PalettePage { get; }
 
-        internal PaletteBorderStyle BorderEdgeStyle
+	    internal PaletteBorderStyle BorderEdgeStyle
         {
-            set { _paletteBorderEdgeInheritRedirect.Style = value; }
-        }
+            set => _paletteBorderEdgeInheritRedirect.Style = value;
+	    }
         #endregion    
     }
 }

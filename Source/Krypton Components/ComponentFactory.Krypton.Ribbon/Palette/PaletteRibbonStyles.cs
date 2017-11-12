@@ -45,20 +45,15 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get 
-            {
-                return ((BackStyle == PaletteBackStyle.PanelClient) &&
-                        (GroupButtonStyle == ButtonStyle.ButtonSpec) &&
-                        (GroupClusterButtonStyle == ButtonStyle.Cluster) &&
-                        (GroupDialogButtonStyle == ButtonStyle.ButtonSpec) &&
-                        (GroupCollapsedButtonStyle == ButtonStyle.Alternate) &&
-                        (QATButtonStyle == ButtonStyle.ButtonSpec) &&
-                        (ScrollerStyle == ButtonStyle.Standalone));
-            }
-		}
-		#endregion
+		public override bool IsDefault => ((BackStyle == PaletteBackStyle.PanelClient) &&
+		                                   (GroupButtonStyle == ButtonStyle.ButtonSpec) &&
+		                                   (GroupClusterButtonStyle == ButtonStyle.Cluster) &&
+		                                   (GroupDialogButtonStyle == ButtonStyle.ButtonSpec) &&
+		                                   (GroupCollapsedButtonStyle == ButtonStyle.Alternate) &&
+		                                   (QATButtonStyle == ButtonStyle.ButtonSpec) &&
+		                                   (ScrollerStyle == ButtonStyle.Standalone));
+
+	    #endregion
 
         #region BackStyle
         /// <summary>
@@ -69,8 +64,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(PaletteBackStyle), "PanelClient")]
         public PaletteBackStyle BackStyle
         {
-            get { return _ribbon.BackStyle; }
-            set { _ribbon.BackStyle = value; }
+            get => _ribbon.BackStyle;
+            set => _ribbon.BackStyle = value;
         }
         #endregion
 
@@ -83,8 +78,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(PaletteBackStyle), "PanelRibbonInactive")]
         public PaletteBackStyle BackInactiveStyle
         {
-            get { return _ribbon.BackInactiveStyle; }
-            set { _ribbon.BackInactiveStyle = value; }
+            get => _ribbon.BackInactiveStyle;
+            set => _ribbon.BackInactiveStyle = value;
         }
         #endregion
 
@@ -97,8 +92,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "ButtonSpec")]
         public ButtonStyle GroupButtonStyle
         {
-            get { return _ribbon.GroupButtonStyle; }
-            set { _ribbon.GroupButtonStyle = value; }
+            get => _ribbon.GroupButtonStyle;
+            set => _ribbon.GroupButtonStyle = value;
         }
         #endregion
 
@@ -111,8 +106,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "Cluster")]
         public ButtonStyle GroupClusterButtonStyle
         {
-            get { return _ribbon.GroupClusterButtonStyle; }
-            set { _ribbon.GroupClusterButtonStyle = value; }
+            get => _ribbon.GroupClusterButtonStyle;
+            set => _ribbon.GroupClusterButtonStyle = value;
         }
         #endregion
 
@@ -125,8 +120,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "Alternate")]
         public ButtonStyle GroupCollapsedButtonStyle
         {
-            get { return _ribbon.GroupCollapsedButtonStyle; }
-            set { _ribbon.GroupCollapsedButtonStyle = value; }
+            get => _ribbon.GroupCollapsedButtonStyle;
+            set => _ribbon.GroupCollapsedButtonStyle = value;
         }
         #endregion
 
@@ -139,8 +134,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "ButtonSpec")]
         public ButtonStyle GroupDialogButtonStyle
         {
-            get { return _ribbon.GroupDialogButtonStyle; }
-            set { _ribbon.GroupDialogButtonStyle = value; }
+            get => _ribbon.GroupDialogButtonStyle;
+            set => _ribbon.GroupDialogButtonStyle = value;
         }
         #endregion
 
@@ -153,8 +148,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "ButtonSpec")]
         public ButtonStyle QATButtonStyle
         {
-            get { return _ribbon.QATButtonStyle; }
-            set { _ribbon.QATButtonStyle = value; }
+            get => _ribbon.QATButtonStyle;
+            set => _ribbon.QATButtonStyle = value;
         }
         #endregion
 
@@ -167,8 +162,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(ButtonStyle), "Standalone")]
         public ButtonStyle ScrollerStyle
         {
-            get { return _ribbon.ScrollerStyle; }
-            set { _ribbon.ScrollerStyle = value; }
+            get => _ribbon.ScrollerStyle;
+            set => _ribbon.ScrollerStyle = value;
         }
         #endregion
     }

@@ -28,12 +28,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private class FormatHandler
         {
             #region Instance Fields
-            private bool _hasFocus;
-            private bool _rightToLeftLayout;
+
             private int _activeFragment;
             private FormatFragmentList _fragments;
             private String _inputDigits;
-            private DateTime _dt;
             private KryptonDateTimePicker _dateTimePicker;
             private NeedPaintHandler _needPaint;
             private ViewDrawDateTimeText _timeText;
@@ -56,7 +54,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _fragments = new FormatFragmentList();
                 _activeFragment = -1;
                 _inputDigits = null;
-                _rightToLeftLayout = false;
+                RightToLeftLayout = false;
             }
 
             /// <summary>
@@ -68,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 StringBuilder ret = new StringBuilder();
                 for(int i=0; i<_fragments.Count; i++)
                 {
-                    ret.Append(_fragments[i].GetDisplay(_dt));
+                    ret.Append(_fragments[i].GetDisplay(DateTime));
                 }
 
                 return ret.ToString();
@@ -79,28 +77,17 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets and sets the need to show focus.
             /// </summary>
-            public bool HasFocus
-            {
-                get { return _hasFocus; }
-                set { _hasFocus = value; }
-            }
+            public bool HasFocus { get; set; }
 
             /// <summary>
             /// Gets and sets the right to left layout of text.
             /// </summary>
-            public bool RightToLeftLayout
-            {
-                get { return _rightToLeftLayout; }
-                set { _rightToLeftLayout = value; }
-            }
+            public bool RightToLeftLayout { get; set; }
 
             /// <summary>
             /// Gets a value indicating if there is an active char fragment.
             /// </summary>
-            public bool HasActiveFragment
-            {
-                get { return (_activeFragment >= 0); }
-            }
+            public bool HasActiveFragment => (_activeFragment >= 0);
 
             /// <summary>
             /// Gets and sets the active fragment based on the fragment string.
@@ -148,11 +135,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets and sets the date time currently used by the handler.
             /// </summary>
-            public DateTime DateTime
-            {
-                get { return _dt; }
-                set { _dt = value; }
-            }
+            public DateTime DateTime { get; set; }
 
             /// <summary>
             /// Moves to the first char fragment.
@@ -372,11 +355,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Pass request onto the fragment itself
                 if (_activeFragment >= 0)
                 {
-                    return _fragments[_activeFragment].Increment(_dt, forward);
+                    return _fragments[_activeFragment].Increment(DateTime, forward);
                 }
                 else
                 {
-                    return _dt;
+                    return DateTime;
                 }
             }
 
@@ -390,21 +373,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Pass request onto the fragment itself
                 if (_activeFragment >= 0)
                 {
-                    return _fragments[_activeFragment].AMPM(_dt, am);
+                    return _fragments[_activeFragment].AMPM(DateTime, am);
                 }
                 else
                 {
-                    return _dt;
+                    return DateTime;
                 }
             }
 
             /// <summary>
             /// Gets a value indicating if input digits are being processed.
             /// </summary>
-            public bool IsInputDigits
-            {
-                get { return (_inputDigits != null); }
-            }
+            public bool IsInputDigits => (_inputDigits != null);
 
             /// <summary>
             /// Process the input of numeric digit.
@@ -444,8 +424,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         // Set the new date using the month number
-                        DateTime dt = _dt.AddMonths(monthNumber - _dt.Month);
-                        if (!dt.Equals(_dt))
+                        DateTime dt = DateTime.AddMonths(monthNumber - DateTime.Month);
+                        if (!dt.Equals(DateTime))
                         {
                             _dateTimePicker.Value = _timeText.ValidateDate(dt);
                             _needPaint(this, new NeedLayoutEventArgs(true));
@@ -490,8 +470,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (_inputDigits.Length == _fragments[_activeFragment].InputDigits)
                         {
                             // Ask the fragment to process the digits
-                            DateTime dt = _fragments[_activeFragment].EndDigits(_dt, _inputDigits);
-                            if (!dt.Equals(_dt))
+                            DateTime dt = _fragments[_activeFragment].EndDigits(DateTime, _inputDigits);
+                            if (!dt.Equals(DateTime))
                             {
                                 _dateTimePicker.Value = _timeText.ValidateDate(dt);
                                 _needPaint(this, new NeedLayoutEventArgs(true));
@@ -539,8 +519,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do we have input waiting to be processed and a matching active fragment
                 if ((_inputDigits != null) && (_activeFragment >= 0))
                 {
-                    DateTime dt = _fragments[_activeFragment].EndDigits(_dt, _inputDigits);
-                    if (!dt.Equals(_dt))
+                    DateTime dt = _fragments[_activeFragment].EndDigits(DateTime, _inputDigits);
+                    if (!dt.Equals(DateTime))
                     {
                         _dateTimePicker.Value = _timeText.ValidateDate(dt);
                         _needPaint(this, new NeedLayoutEventArgs(true));
@@ -564,7 +544,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_fragments.Count > 0)
                 {
                     // Measure the pixel width of each fragment
-                    MeasureFragments(g, font, _dt);
+                    MeasureFragments(g, font, DateTime);
                 }
 
                 // If we have an active fragment make sure it is still valid
@@ -643,7 +623,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 else
                                 {
                                     // Draw text for this fragment only
-                                    TextRenderer.DrawText(context.Graphics, _fragments[i].GetDisplay(_dt), font, drawText, foreColor, DRAW_LEFT_FLAGS);
+                                    TextRenderer.DrawText(context.Graphics, _fragments[i].GetDisplay(DateTime), font, drawText, foreColor, DRAW_LEFT_FLAGS);
                                 }
 
                                 lastTotalWidth = totalWidth;
@@ -690,10 +670,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            private bool ImplRightToLeft
-            {
-                get { return (RightToLeftLayout && (_dateTimePicker.RightToLeft == RightToLeft.Yes)); }
-            }
+            private bool ImplRightToLeft => (RightToLeftLayout && (_dateTimePicker.RightToLeft == RightToLeft.Yes));
 
             private void MeasureFragments(Graphics g, Font font, DateTime dt)
             {
@@ -837,10 +814,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class FormatFragment
         {
             #region Instance Fields
-            private string _fragment;
-            private string _fragFormat;
-            private string _output;
-            private int _totalWidth;
+
             #endregion
 
             #region Identity
@@ -852,15 +826,15 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="literal">String literal.</param>
             public FormatFragment(int length, string format, string literal)
             {
-                _fragFormat = literal;
+                FragFormat = literal;
 
                 if (length == 0)
                 {
-                    _fragment = string.Empty;
+                    Fragment = string.Empty;
                 }
                 else
                 {
-                    _fragment = format.Substring(0, length);
+                    Fragment = format.Substring(0, length);
                 }
             }
 
@@ -870,7 +844,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>String instance.</returns>
             public override string ToString()
             {
-                return _fragment;
+                return Fragment;
             }
             #endregion
 
@@ -878,35 +852,22 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets access to the fragment string.
             /// </summary>
-            public string Fragment
-            {
-                get { return _fragment; }
-            }
+            public string Fragment { get; }
 
             /// <summary>
             /// Gets access to the fragment format string.
             /// </summary>
-            public virtual string FragFormat
-            {
-                get { return _fragFormat; }
-            }
+            public virtual string FragFormat { get; }
 
             /// <summary>
             /// Gets access to the generate output.
             /// </summary>
-            public string Output
-            {
-                get { return _output; }
-            }
+            public string Output { get; private set; }
 
             /// <summary>
             /// Gets and sets the total pixel width of this fragments output.
             /// </summary>
-            public int TotalWidth
-            {
-                set { _totalWidth = value; }
-                get { return _totalWidth; }
-            }
+            public int TotalWidth { set; get; }
 
             /// <summary>
             /// Generate the output string from the provided date and the format fragment.
@@ -916,25 +877,19 @@ namespace ComponentFactory.Krypton.Toolkit
             public string GenerateOutput(DateTime dt)
             {
                 // Use helper to ensure single character formats are handled correctly
-                _output = dt.ToString(CommonHelper.MakeCustomDateFormat(Fragment));
-                return _output;
+                Output = dt.ToString(CommonHelper.MakeCustomDateFormat(Fragment));
+                return Output;
             }
 
             /// <summary>
             /// Can this field be edited and active.
             /// </summary>
-            public virtual bool AllowActive
-            {
-                get { return false; }
-            }
+            public virtual bool AllowActive => false;
 
             /// <summary>
             /// Gets the number of digits allowed to be entered for this fragment.
             /// </summary>
-            public virtual int InputDigits
-            {
-                get { return 0; }
-            }
+            public virtual int InputDigits => 0;
 
             /// <summary>
             /// Process the input digits to modify the incoming date time.
@@ -1026,10 +981,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets access to the fragment format string.
             /// </summary>
-            public override string FragFormat
-            {
-                get { return _fragFormat; }
-            }
+            public override string FragFormat => _fragFormat;
 
             /// <summary>
             /// Can this field be edited and active.
@@ -1517,8 +1469,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool RightToLeftLayout
         {
-            get { return _formatHandler.RightToLeftLayout; }
-            set { _formatHandler.RightToLeftLayout = value; }
+            get => _formatHandler.RightToLeftLayout;
+            set => _formatHandler.RightToLeftLayout = value;
         }
         #endregion
 
@@ -1539,8 +1491,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool HasFocus
         {
-            get { return _formatHandler.HasFocus; }
-            set { _formatHandler.HasFocus = value; }
+            get => _formatHandler.HasFocus;
+            set => _formatHandler.HasFocus = value;
         }
         #endregion
 
@@ -1548,10 +1500,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if there is an active char fragment.
         /// </summary>
-        public bool HasActiveFragment
-        {
-            get { return _formatHandler.HasActiveFragment; }
-        }
+        public bool HasActiveFragment => _formatHandler.HasActiveFragment;
+
         #endregion
 
         #region ClearActiveFragment
@@ -1603,8 +1553,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string ActiveFragment
         {
-            get { return _formatHandler.ActiveFragment; }
-            set { _formatHandler.ActiveFragment = value; }
+            get => _formatHandler.ActiveFragment;
+            set => _formatHandler.ActiveFragment = value;
         }
         #endregion
 

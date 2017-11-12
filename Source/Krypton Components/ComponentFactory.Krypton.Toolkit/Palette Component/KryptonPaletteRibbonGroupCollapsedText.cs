@@ -19,11 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRibbonTextInheritRedirect _stateInherit;
-        private PaletteRibbonText _stateCommon;
-        private PaletteRibbonText _stateNormal;
-        private PaletteRibbonText _stateTracking;
-        private PaletteRibbonText _stateContextNormal;
-        private PaletteRibbonText _stateContextTracking;
+
         #endregion
 
         #region Identity
@@ -37,11 +33,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteRibbonTextInheritRedirect(redirect, PaletteRibbonTextStyle.RibbonGroupCollapsedText);
-            _stateCommon = new PaletteRibbonText(_stateInherit, needPaint);
-            _stateNormal = new PaletteRibbonText(_stateCommon, needPaint);
-            _stateTracking = new PaletteRibbonText(_stateCommon, needPaint);
-            _stateContextNormal = new PaletteRibbonText(_stateCommon, needPaint);
-            _stateContextTracking = new PaletteRibbonText(_stateCommon, needPaint);
+            StateCommon = new PaletteRibbonText(_stateInherit, needPaint);
+            StateNormal = new PaletteRibbonText(StateCommon, needPaint);
+            StateTracking = new PaletteRibbonText(StateCommon, needPaint);
+            StateContextNormal = new PaletteRibbonText(StateCommon, needPaint);
+            StateContextTracking = new PaletteRibbonText(StateCommon, needPaint);
         }
         #endregion
 
@@ -61,18 +57,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _stateContextNormal.IsDefault &&
-                       _stateContextTracking.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StateContextNormal.IsDefault &&
+		                                  StateContextTracking.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -81,10 +72,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _stateContextNormal.PopulateFromBase(PaletteState.ContextNormal);
-            _stateContextTracking.PopulateFromBase(PaletteState.ContextTracking);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StateContextNormal.PopulateFromBase(PaletteState.ContextNormal);
+            StateContextTracking.PopulateFromBase(PaletteState.ContextTracking);
         }
         #endregion
 
@@ -96,14 +87,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common ribbon group collapsed text appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonText StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteRibbonText StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -115,14 +103,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal ribbon group collapsed text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonText StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteRibbonText StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -134,14 +119,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking ribbon group collapsed text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonText StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteRibbonText StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -153,14 +135,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context normal ribbon group collapsed text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonText StateContextNormal
-        {
-            get { return _stateContextNormal; }
-        }
+        public PaletteRibbonText StateContextNormal { get; }
 
         private bool ShouldSerializeStateContextNormal()
         {
-            return !_stateContextNormal.IsDefault;
+            return !StateContextNormal.IsDefault;
         }
         #endregion
 
@@ -172,14 +151,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context tracking ribbon group collapsed text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonText StateContextTracking
-        {
-            get { return _stateContextTracking; }
-        }
+        public PaletteRibbonText StateContextTracking { get; }
 
         private bool ShouldSerializeStateContextTracking()
         {
-            return !_stateContextTracking.IsDefault;
+            return !StateContextTracking.IsDefault;
         }
         #endregion
     }

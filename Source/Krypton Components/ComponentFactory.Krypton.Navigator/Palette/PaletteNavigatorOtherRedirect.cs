@@ -19,11 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorOtherRedirect : Storage
     {
         #region Instance Fields
-        private PaletteTripleRedirect _paletteCheckButton;
-        private PaletteTripleRedirect _paletteOverflowButton;
-        private PaletteTripleRedirect _paletteMiniButton;
-        private PaletteTabTripleRedirect _paletteTab;
-        private PaletteRibbonTabContentRedirect _paletteRibbonTab;
+
         #endregion
 
         #region Identity
@@ -44,31 +40,31 @@ namespace ComponentFactory.Krypton.Navigator
                                              NeedPaintHandler needPaint) 
 		{
             // Create the palette storage
-            _paletteCheckButton = new PaletteTripleRedirect(redirectCheckButton, 
+            CheckButton = new PaletteTripleRedirect(redirectCheckButton, 
                                                             PaletteBackStyle.ButtonStandalone,
                                                             PaletteBorderStyle.ButtonStandalone,
                                                             PaletteContentStyle.ButtonStandalone,
                                                             needPaint);
 
-            _paletteOverflowButton = new PaletteTripleRedirect(redirectCheckButton,
+            OverflowButton = new PaletteTripleRedirect(redirectCheckButton,
                                                                PaletteBackStyle.ButtonNavigatorOverflow,
                                                                PaletteBorderStyle.ButtonNavigatorOverflow,
                                                                PaletteContentStyle.ButtonNavigatorOverflow,
                                                                needPaint);
 
-            _paletteMiniButton = new PaletteTripleRedirect(redirectMiniButton,
+            MiniButton = new PaletteTripleRedirect(redirectMiniButton,
                                                             PaletteBackStyle.ButtonNavigatorMini,
                                                             PaletteBorderStyle.ButtonNavigatorMini,
                                                             PaletteContentStyle.ButtonNavigatorMini,
                                                             needPaint);
 
-            _paletteTab = new PaletteTabTripleRedirect(redirectTab,
+            Tab = new PaletteTabTripleRedirect(redirectTab,
                                                        PaletteBackStyle.TabHighProfile,
                                                        PaletteBorderStyle.TabHighProfile,
                                                        PaletteContentStyle.TabHighProfile,
                                                        needPaint);
 
-            _paletteRibbonTab = new PaletteRibbonTabContentRedirect(redirectRibbonTab, needPaint);
+            RibbonTab = new PaletteRibbonTabContentRedirect(redirectRibbonTab, needPaint);
         }
         #endregion
 
@@ -77,18 +73,13 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (_paletteCheckButton.IsDefault &&
-                        _paletteOverflowButton.IsDefault &&
-                        _paletteMiniButton.IsDefault &&
-                        _paletteRibbonTab.IsDefault &&
-                        _paletteTab.IsDefault);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (CheckButton.IsDefault &&
+		                                   OverflowButton.IsDefault &&
+		                                   MiniButton.IsDefault &&
+		                                   RibbonTab.IsDefault &&
+		                                   Tab.IsDefault);
+
+        #endregion
 
         #region CheckButton
         /// <summary>
@@ -97,14 +88,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining check button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect CheckButton
-        {
-            get { return _paletteCheckButton; }
-        }
+        public PaletteTripleRedirect CheckButton { get; }
 
         private bool ShouldSerializeCheckButton()
         {
-            return !_paletteCheckButton.IsDefault;
+            return !CheckButton.IsDefault;
         }
         #endregion
 
@@ -115,14 +103,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook overflow button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverflowButton
-        {
-            get { return _paletteOverflowButton; }
-        }
+        public PaletteTripleRedirect OverflowButton { get; }
 
         private bool ShouldSerializeOverflowButton()
         {
-            return !_paletteOverflowButton.IsDefault;
+            return !OverflowButton.IsDefault;
         }
         #endregion
 
@@ -133,14 +118,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook mini button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect MiniButton
-        {
-            get { return _paletteMiniButton; }
-        }
+        public PaletteTripleRedirect MiniButton { get; }
 
         private bool ShouldSerializeMiniButton()
         {
-            return !_paletteMiniButton.IsDefault;
+            return !MiniButton.IsDefault;
         }
         #endregion
 
@@ -151,14 +133,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTripleRedirect Tab
-        {
-            get { return _paletteTab; }
-        }
+        public PaletteTabTripleRedirect Tab { get; }
 
         private bool ShouldSerializeTab()
         {
-            return !_paletteTab.IsDefault;
+            return !Tab.IsDefault;
         }
         #endregion
 
@@ -169,14 +148,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining ribbon tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonTabContentRedirect RibbonTab
-        {
-            get { return _paletteRibbonTab; }
-        }
+        public PaletteRibbonTabContentRedirect RibbonTab { get; }
 
         private bool ShouldSerializeRibbonTab()
         {
-            return !_paletteRibbonTab.IsDefault;
+            return !RibbonTab.IsDefault;
         }
         #endregion
     }

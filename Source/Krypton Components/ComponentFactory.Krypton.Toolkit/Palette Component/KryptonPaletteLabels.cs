@@ -19,22 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteLabels : Storage
     {
         #region Instance Fields
-        private KryptonPaletteLabel _labelCommon;
-        private KryptonPaletteLabel _labelNormalControl;
-        private KryptonPaletteLabel _labelBoldControl;
-        private KryptonPaletteLabel _labelItalicControl;
-        private KryptonPaletteLabel _labelTitleControl;
-        private KryptonPaletteLabel _labelNormalPanel;
-        private KryptonPaletteLabel _labelBoldPanel;
-        private KryptonPaletteLabel _labelItalicPanel;
-        private KryptonPaletteLabel _labelTitlePanel;
-        private KryptonPaletteLabel _labelCaptionPanel;
-        private KryptonPaletteLabel _labelToolTip;
-        private KryptonPaletteLabel _labelSuperTip;
-        private KryptonPaletteLabel _labelKeyTip;
-        private KryptonPaletteLabel _labelCustom1;
-        private KryptonPaletteLabel _labelCustom2;
-        private KryptonPaletteLabel _labelCustom3;
+
         #endregion
 
         #region Identity
@@ -49,42 +34,42 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _labelCommon = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalControl, needPaint);
-            _labelNormalControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalControl, needPaint);
-            _labelBoldControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelBoldControl, needPaint);
-            _labelItalicControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelItalicControl, needPaint);
-            _labelTitleControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelTitleControl, needPaint);
-            _labelNormalPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalPanel, needPaint);
-            _labelBoldPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelBoldPanel, needPaint);
-            _labelItalicPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelItalicPanel, needPaint);
-            _labelTitlePanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelTitlePanel, needPaint);
-            _labelCaptionPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelGroupBoxCaption, needPaint);
-            _labelToolTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelToolTip, needPaint);
-            _labelSuperTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelSuperTip, needPaint);
-            _labelKeyTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelKeyTip, needPaint);
-            _labelCustom1 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom1, needPaint);
-            _labelCustom2 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom2, needPaint);
-            _labelCustom3 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom3, needPaint);
+            LabelCommon = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalControl, needPaint);
+            LabelNormalControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalControl, needPaint);
+            LabelBoldControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelBoldControl, needPaint);
+            LabelItalicControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelItalicControl, needPaint);
+            LabelTitleControl = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelTitleControl, needPaint);
+            LabelNormalPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelNormalPanel, needPaint);
+            LabelBoldPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelBoldPanel, needPaint);
+            LabelItalicPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelItalicPanel, needPaint);
+            LabelTitlePanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelTitlePanel, needPaint);
+            LabelCaptionPanel = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelGroupBoxCaption, needPaint);
+            LabelToolTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelToolTip, needPaint);
+            LabelSuperTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelSuperTip, needPaint);
+            LabelKeyTip = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelKeyTip, needPaint);
+            LabelCustom1 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom1, needPaint);
+            LabelCustom2 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom2, needPaint);
+            LabelCustom3 = new KryptonPaletteLabel(redirector, PaletteContentStyle.LabelCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectContent redirectCommon = new PaletteRedirectContent(redirector, _labelCommon.StateDisabled, _labelCommon.StateNormal);
+            PaletteRedirectContent redirectCommon = new PaletteRedirectContent(redirector, LabelCommon.StateDisabled, LabelCommon.StateNormal);
 
             // Inform the button style to use the new redirector
-            _labelNormalControl.SetRedirector(redirectCommon);
-            _labelBoldControl.SetRedirector(redirectCommon);
-            _labelItalicControl.SetRedirector(redirectCommon);
-            _labelTitleControl.SetRedirector(redirectCommon);
-            _labelNormalPanel.SetRedirector(redirectCommon);
-            _labelBoldPanel.SetRedirector(redirectCommon);
-            _labelItalicPanel.SetRedirector(redirectCommon);
-            _labelTitlePanel.SetRedirector(redirectCommon);
-            _labelCaptionPanel.SetRedirector(redirectCommon);
-            _labelToolTip.SetRedirector(redirectCommon);
-            _labelSuperTip.SetRedirector(redirectCommon);
-            _labelKeyTip.SetRedirector(redirectCommon);
-            _labelCustom1.SetRedirector(redirectCommon);
-            _labelCustom2.SetRedirector(redirectCommon);
-            _labelCustom3.SetRedirector(redirectCommon);
+            LabelNormalControl.SetRedirector(redirectCommon);
+            LabelBoldControl.SetRedirector(redirectCommon);
+            LabelItalicControl.SetRedirector(redirectCommon);
+            LabelTitleControl.SetRedirector(redirectCommon);
+            LabelNormalPanel.SetRedirector(redirectCommon);
+            LabelBoldPanel.SetRedirector(redirectCommon);
+            LabelItalicPanel.SetRedirector(redirectCommon);
+            LabelTitlePanel.SetRedirector(redirectCommon);
+            LabelCaptionPanel.SetRedirector(redirectCommon);
+            LabelToolTip.SetRedirector(redirectCommon);
+            LabelSuperTip.SetRedirector(redirectCommon);
+            LabelKeyTip.SetRedirector(redirectCommon);
+            LabelCustom1.SetRedirector(redirectCommon);
+            LabelCustom2.SetRedirector(redirectCommon);
+            LabelCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -92,28 +77,23 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _labelCommon.IsDefault &&
-                       _labelNormalControl.IsDefault &&
-                       _labelBoldControl.IsDefault &&
-                       _labelItalicControl.IsDefault &&
-                       _labelTitleControl.IsDefault &&
-                       _labelNormalPanel.IsDefault &&
-                       _labelBoldPanel.IsDefault &&
-                       _labelItalicPanel.IsDefault &&
-                       _labelTitlePanel.IsDefault &&
-                       _labelCaptionPanel.IsDefault &&
-                       _labelToolTip.IsDefault &&
-                       _labelSuperTip.IsDefault &&
-                       _labelKeyTip.IsDefault &&
-                       _labelCustom1.IsDefault &&
-                       _labelCustom2.IsDefault &&
-                       _labelCustom3.IsDefault;
-            }
-        }
+        public override bool IsDefault => LabelCommon.IsDefault &&
+                                          LabelNormalControl.IsDefault &&
+                                          LabelBoldControl.IsDefault &&
+                                          LabelItalicControl.IsDefault &&
+                                          LabelTitleControl.IsDefault &&
+                                          LabelNormalPanel.IsDefault &&
+                                          LabelBoldPanel.IsDefault &&
+                                          LabelItalicPanel.IsDefault &&
+                                          LabelTitlePanel.IsDefault &&
+                                          LabelCaptionPanel.IsDefault &&
+                                          LabelToolTip.IsDefault &&
+                                          LabelSuperTip.IsDefault &&
+                                          LabelKeyTip.IsDefault &&
+                                          LabelCustom1.IsDefault &&
+                                          LabelCustom2.IsDefault &&
+                                          LabelCustom3.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -125,29 +105,29 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Populate only the designated styles
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelNormalControl;
-            _labelNormalControl.PopulateFromBase();
+            LabelNormalControl.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelBoldControl;
-            _labelNormalControl.PopulateFromBase();
+            LabelNormalControl.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelItalicControl;
-            _labelNormalControl.PopulateFromBase();
+            LabelNormalControl.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelTitleControl;
-            _labelTitleControl.PopulateFromBase();
+            LabelTitleControl.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelNormalPanel;
-            _labelNormalPanel.PopulateFromBase();
+            LabelNormalPanel.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelBoldPanel;
-            _labelNormalPanel.PopulateFromBase();
+            LabelNormalPanel.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelItalicPanel;
-            _labelNormalPanel.PopulateFromBase();
+            LabelNormalPanel.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelTitlePanel;
-            _labelTitlePanel.PopulateFromBase();
+            LabelTitlePanel.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelGroupBoxCaption;
-            _labelCaptionPanel.PopulateFromBase();
+            LabelCaptionPanel.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelToolTip;
-            _labelToolTip.PopulateFromBase();
+            LabelToolTip.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelSuperTip;
-            _labelSuperTip.PopulateFromBase();
+            LabelSuperTip.PopulateFromBase();
             common.StateCommon.ContentStyle = PaletteContentStyle.LabelKeyTip;
-            _labelKeyTip.PopulateFromBase();
+            LabelKeyTip.PopulateFromBase();
         }
         #endregion
 
@@ -159,14 +139,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelCommon
-        {
-            get { return _labelCommon; }
-        }
+        public KryptonPaletteLabel LabelCommon { get; }
 
         private bool ShouldSerializeLabelCommon()
         {
-            return !_labelCommon.IsDefault;
+            return !LabelCommon.IsDefault;
         }
         #endregion
 
@@ -178,14 +155,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal label appearance for use on control style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelNormalControl
-        {
-            get { return _labelNormalControl; }
-        }
+        public KryptonPaletteLabel LabelNormalControl { get; }
 
         private bool ShouldSerializeLabelNormalControl()
         {
-            return !_labelNormalControl.IsDefault;
+            return !LabelNormalControl.IsDefault;
         }
         #endregion
 
@@ -197,14 +171,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining bold label appearance for use on control style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelBoldControl
-        {
-            get { return _labelBoldControl; }
-        }
+        public KryptonPaletteLabel LabelBoldControl { get; }
 
         private bool ShouldSerializeLabelBoldControl()
         {
-            return !_labelBoldControl.IsDefault;
+            return !LabelBoldControl.IsDefault;
         }
         #endregion
 
@@ -216,14 +187,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining italic label appearance for use on control style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelItalicControl
-        {
-            get { return _labelItalicControl; }
-        }
+        public KryptonPaletteLabel LabelItalicControl { get; }
 
         private bool ShouldSerializeLabelItalicControl()
         {
-            return !_labelItalicControl.IsDefault;
+            return !LabelItalicControl.IsDefault;
         }
         #endregion
 
@@ -235,14 +203,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining title label appearance for use on control style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelTitleControl
-        {
-            get { return _labelTitleControl; }
-        }
+        public KryptonPaletteLabel LabelTitleControl { get; }
 
         private bool ShouldSerializeLabelTitleControl()
         {
-            return !_labelTitleControl.IsDefault;
+            return !LabelTitleControl.IsDefault;
         }
         #endregion
 
@@ -254,14 +219,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal label appearance for use on panel style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelNormalPanel
-        {
-            get { return _labelNormalPanel; }
-        }
+        public KryptonPaletteLabel LabelNormalPanel { get; }
 
         private bool ShouldSerializeLabelNormalPanel()
         {
-            return !_labelNormalPanel.IsDefault;
+            return !LabelNormalPanel.IsDefault;
         }
         #endregion
 
@@ -273,14 +235,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining bold label appearance for use on panel style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelBoldPanel
-        {
-            get { return _labelBoldPanel; }
-        }
+        public KryptonPaletteLabel LabelBoldPanel { get; }
 
         private bool ShouldSerializeLabelBoldPanel()
         {
-            return !_labelBoldPanel.IsDefault;
+            return !LabelBoldPanel.IsDefault;
         }
         #endregion
 
@@ -292,14 +251,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining italic label appearance for use on panel style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelItalicPanel
-        {
-            get { return _labelItalicPanel; }
-        }
+        public KryptonPaletteLabel LabelItalicPanel { get; }
 
         private bool ShouldSerializeLabelItalicPanel()
         {
-            return !_labelItalicPanel.IsDefault;
+            return !LabelItalicPanel.IsDefault;
         }
         #endregion
 
@@ -311,14 +267,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining title label appearance for use on panel style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelTitlePanel
-        {
-            get { return _labelTitlePanel; }
-        }
+        public KryptonPaletteLabel LabelTitlePanel { get; }
 
         private bool ShouldSerializeLabelTitlePanel()
         {
-            return !_labelTitlePanel.IsDefault;
+            return !LabelTitlePanel.IsDefault;
         }
         #endregion
 
@@ -330,14 +283,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining caption label appearance for use on group box style backgrounds.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelCaptionPanel
-        {
-            get { return _labelCaptionPanel; }
-        }
+        public KryptonPaletteLabel LabelCaptionPanel { get; }
 
         private bool ShouldSerializeLabelCaptionPanel()
         {
-            return !_labelCaptionPanel.IsDefault;
+            return !LabelCaptionPanel.IsDefault;
         }
         #endregion
 
@@ -349,14 +299,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the tooltip label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelToolTip
-        {
-            get { return _labelToolTip; }
-        }
+        public KryptonPaletteLabel LabelToolTip { get; }
 
         private bool ShouldSerializeLabelToolTip()
         {
-            return !_labelToolTip.IsDefault;
+            return !LabelToolTip.IsDefault;
         }
         #endregion
 
@@ -368,14 +315,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the super tooltip label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelSuperTip
-        {
-            get { return _labelSuperTip; }
-        }
+        public KryptonPaletteLabel LabelSuperTip { get; }
 
         private bool ShouldSerializeLabelSuperTip()
         {
-            return !_labelSuperTip.IsDefault;
+            return !LabelSuperTip.IsDefault;
         }
         #endregion
 
@@ -387,14 +331,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the keytip label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelKeyTip
-        {
-            get { return _labelKeyTip; }
-        }
+        public KryptonPaletteLabel LabelKeyTip { get; }
 
         private bool ShouldSerializeLabelKeyTip()
         {
-            return !_labelKeyTip.IsDefault;
+            return !LabelKeyTip.IsDefault;
         }
         #endregion
 
@@ -406,14 +347,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelCustom1
-        {
-            get { return _labelCustom1; }
-        }
+        public KryptonPaletteLabel LabelCustom1 { get; }
 
         private bool ShouldSerializeLabelCustom1()
         {
-            return !_labelCustom1.IsDefault;
+            return !LabelCustom1.IsDefault;
         }
         #endregion
 
@@ -425,14 +363,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first second label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelCustom2
-        {
-            get { return _labelCustom2; }
-        }
+        public KryptonPaletteLabel LabelCustom2 { get; }
 
         private bool ShouldSerializeLabelCustom2()
         {
-            return !_labelCustom2.IsDefault;
+            return !LabelCustom2.IsDefault;
         }
         #endregion
 
@@ -444,14 +379,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the third second label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabel LabelCustom3
-        {
-            get { return _labelCustom3; }
-        }
+        public KryptonPaletteLabel LabelCustom3 { get; }
 
         private bool ShouldSerializeLabelCustom3()
         {
-            return !_labelCustom3.IsDefault;
+            return !LabelCustom3.IsDefault;
         }
         #endregion
     }

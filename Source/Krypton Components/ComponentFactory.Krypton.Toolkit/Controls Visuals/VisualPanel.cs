@@ -35,9 +35,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private bool _initializing;
-        private bool _initialized;
-        private bool _refresh;
+
+	    private bool _refresh;
         private bool _refreshAll;
         private bool _layoutDirty;
         private bool _paintTransparent;
@@ -46,13 +45,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private Size _lastLayoutSize;
         private IPalette _localPalette;
         private IPalette _palette;
-        private IRenderer _renderer;
-        private PaletteRedirect _redirector;
-		private PaletteMode _paletteMode;
-		private ViewManager _viewManager;
-        private SimpleCall _refreshCall;
-        private NeedPaintHandler _needPaintDelegate;
-        #endregion
+	    private PaletteMode _paletteMode;
+	    private SimpleCall _refreshCall;
+
+	    #endregion
 
 		#region Events
 		/// <summary>
@@ -120,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _refreshCall = new SimpleCall(OnPerformRefresh);
 
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
 
             // Must layout before first draw attempt
             _layoutDirty = true;
@@ -133,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteMode = PaletteMode.Global;
 
             // Create constant target for resolving palette delegates
-            _redirector = new PaletteRedirect(_palette);
+            Redirector = new PaletteRedirect(_palette);
 
             AttachGlobalEvents();
         }
@@ -165,7 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager.Dispose();
 
                 _palette = null;
-                _renderer = null;
+                Renderer = null;
                 _localPalette = null;
                 Redirector.Target = null;
             }
@@ -181,7 +177,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void BeginInit()
         {
             // Remember that fact we are inside a BeginInit/EndInit pair
-            _initializing = true;
+            IsInitializing = true;
 
             // No need to layout the view during initialization
             SuspendLayout();
@@ -193,10 +189,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void EndInit()
         {
             // We are now initialized
-            _initialized = true;
+            IsInitialized = true;
 
             // We are no longer initializing
-            _initializing = false;
+            IsInitializing = false;
 
             // We always need a paint and layout
             OnNeedPaint(this, new NeedLayoutEventArgs(true));
@@ -214,23 +210,25 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		public bool IsInitialized
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _initialized; }
-		}
+            get;
+            private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the control is initialized.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public bool IsInitializing
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _initializing; }
-        }
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets the ContextMenuStrip associated with this control.
         /// </summary>
         public override ContextMenuStrip ContextMenuStrip
@@ -390,10 +388,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
-        }
+            get;
+            private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
         /// </summary>
         [Browsable(false)]
@@ -410,8 +409,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Image BackgroundImage
 		{
-			get { return base.BackgroundImage; }
-			set { base.BackgroundImage = value; }
+			get => base.BackgroundImage;
+		    set => base.BackgroundImage = value;
 		}
 
 		/// <summary>
@@ -421,8 +420,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override ImageLayout BackgroundImageLayout
 		{
-			get { return base.BackgroundImageLayout; }
-            set { base.BackgroundImageLayout = value; }
+			get => base.BackgroundImageLayout;
+		    set => base.BackgroundImageLayout = value;
 		}
 
         /// <summary>
@@ -469,8 +468,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color BackColor
 		{
-			get { return base.BackColor; }
-			set { base.BackColor = value; }
+			get => base.BackColor;
+		    set => base.BackColor = value;
 		}
 
 		/// <summary>
@@ -480,8 +479,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Font Font
 		{
-			get { return base.Font; }
-			set { base.Font = value; }
+			get => base.Font;
+		    set => base.Font = value;
 		}
 
 		/// <summary>
@@ -491,8 +490,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color ForeColor
 		{
-			get { return base.ForeColor; }
-			set { base.ForeColor = value; }
+			get => base.ForeColor;
+		    set => base.ForeColor = value;
 		}
 
         /// <summary>
@@ -503,8 +502,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new BorderStyle BorderStyle
         {
-            get { return base.BorderStyle; }
-            set { base.BorderStyle = value; }
+            get => base.BorderStyle;
+            set => base.BorderStyle = value;
         }
         #endregion
 
@@ -524,53 +523,48 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonLayoutCounter
-        {
-            get { return ViewManager.LayoutCounter; }
-        }
+        public int KryptonLayoutCounter => ViewManager.LayoutCounter;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the number of paint cycles performed since last reset.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonPaintCounter
-        {
-            get { return ViewManager.PaintCounter; }
-        }
-        #endregion
+        public int KryptonPaintCounter => ViewManager.PaintCounter;
+
+	    #endregion
 
         #region Protected
         /// <summary>
 		/// Gets and sets the ViewManager instance.
 		/// </summary>
 		protected ViewManager ViewManager
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewManager; }
-			set { _viewManager = value; }
-		}
+            get;
+            set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets access to the palette redirector.
 		/// </summary>
 		protected PaletteRedirect Redirector
-		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
-		}
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _needPaintDelegate; }
-        }
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Processes a notification from palette storage of a paint and optional layout required.
         /// </summary>
         /// <param name="sender">Source of notification.</param>
@@ -684,7 +678,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (ViewManager != null)
             {
                 // Ask the view if it needs to paint transparent areas
-                return ViewManager.EvalTransparentPaint(_renderer);
+                return ViewManager.EvalTransparentPaint(Renderer);
             }
             else
             {
@@ -696,27 +690,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
-        protected virtual bool EvalInvokePaint
-        {
-            get
-            {
-                // By default the paint can occur safely via a simple Invalidate() call,
-                // but some controls might need to override this the entire client area can
-                // be covered by child controls and so Invalidate() becomes redundant and the
-                // control is never layed out.
-                return false;
-            }
-        }
+        protected virtual bool EvalInvokePaint => false;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the control reference that is the parent for transparent drawing.
         /// </summary>
-        protected virtual Control TransparentParent
-        {
-            get { return Parent; }
-        }
+        protected virtual Control TransparentParent => Parent;
 
-        /// <summary>
+	    /// <summary>
         /// Processes a notification from palette storage of a button spec change.
         /// </summary>
         /// <param name="sender">Source of notification.</param>
@@ -755,12 +736,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(100, 100); }
-		}
+		protected override Size DefaultSize => new Size(100, 100);
 
-        /// <summary>
+	    /// <summary>
         /// Raises the RightToLeftChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing event data.</param>
@@ -791,7 +769,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _layoutDirty = false;
 
                         // Ask the view to peform a layout
-                        ViewManager.Layout(_renderer);
+                        ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
 
@@ -827,7 +805,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     PaintTransparentBackground(e);
 
                     // Ask the view to repaint the visual structure
-                    ViewManager.Paint(_renderer, e);
+                    ViewManager.Paint(Renderer, e);
 
                     // Request for a refresh has been serviced
                     _refresh = false;
@@ -1023,7 +1001,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Get the renderer associated with the palette
-                _renderer = _palette.GetRenderer();
+                Renderer = _palette.GetRenderer();
 
                 // Hook to new palette events
                 if (_palette != null)

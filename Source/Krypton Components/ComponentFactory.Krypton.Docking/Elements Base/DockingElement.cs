@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Docking
                                            IDockingElement
     {
         #region Instance Fields
-        private string _name;
+
         private IDockingElement _parent;
         #endregion
 
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Docking
         public DockingElement(string name)
         {
             // Do not allow null, use empty string instead
-            _name = name ?? string.Empty;
+            Name = name ?? string.Empty;
         }
         #endregion
 
@@ -47,10 +47,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets and sets the name of the docking element.
         /// </summary>
         [Browsable(false)]
-        public string Name 
-        {
-            get { return _name; }
-        }
+        public string Name { get; }
 
         /// <summary>
         /// Gets a comma separated list of names leading to this element.
@@ -140,12 +137,12 @@ namespace ComponentFactory.Krypton.Docking
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual IDockingElement Parent 
         {
-            get { return _parent; }
-            
+            get => _parent;
+
             set 
             {
                 // We do not allow the same name to occur twice in a collection (so check new parent collection)
-                if ((value != null) && (value[Name] != null))
+                if (value?[Name] != null)
                 {
                     throw new ArgumentNullException("Parent provided already has our Name in its collection.");
                 }
@@ -596,10 +593,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Returns a value indicating if this docking element has access to a parent docking manager.
         /// </summary>
         [Browsable(false)]
-        public bool HasDockManager
-        {
-            get { return (DockingManager != null); }
-        }
+        public bool HasDockManager => (DockingManager != null);
 
         /// <summary>
         /// Finds the KryptonDockingManager instance that owns this part of the docking hieararchy.
@@ -657,30 +651,21 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets the number of child docking elements.
         /// </summary>
         [Browsable(false)]
-        public virtual int Count 
-        { 
-            get { return 0; }
-        }
+        public virtual int Count => 0;
 
         /// <summary>
         /// Gets the docking element at the specified index.
         /// </summary>
         /// <param name="index">Index.</param>
         /// <returns>Docking element at specified index.</returns>
-        public virtual IDockingElement this[int index] 
-        { 
-            get { return null; }
-        }
+        public virtual IDockingElement this[int index] => null;
 
         /// <summary>
         /// Gets the docking element with the specified name.
         /// </summary>
         /// <param name="name">Name of element.</param>
         /// <returns>Docking element with specified name.</returns>
-        public virtual IDockingElement this[string name]
-        {
-            get { return null; }
-        }
+        public virtual IDockingElement this[string name] => null;
 
         /// <summary>
         /// Shallow enumerate over child docking elements.

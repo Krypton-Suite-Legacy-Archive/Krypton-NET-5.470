@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public LabelStyle LabelStyle
         {
-            get { return _wrapLabel.LabelStyle; }
+            get => _wrapLabel.LabelStyle;
 
             set
             {
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _wrapLabel.PaletteMode; }
+            get => _wrapLabel.PaletteMode;
 
             set
             {

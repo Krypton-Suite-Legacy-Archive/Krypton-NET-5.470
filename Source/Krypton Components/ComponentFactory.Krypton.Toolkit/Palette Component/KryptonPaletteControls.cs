@@ -19,14 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteControls : Storage
     {
         #region Instance Fields
-        private KryptonPaletteControl _controlCommon;
-        private KryptonPaletteControl _controlClient;
-        private KryptonPaletteControl _controlAlternate;
-        private KryptonPaletteControl _controlGroupBox;
-        private KryptonPaletteControl _controlToolTip;
-        private KryptonPaletteControl _controlRibbon;
-        private KryptonPaletteControl _controlRibbonAppMenu;
-        private KryptonPaletteControl _controlCustom1;
+
         #endregion
 
         #region Identity
@@ -41,26 +34,26 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _controlCommon = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, needPaint);
-            _controlClient = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, needPaint);
-            _controlAlternate = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlAlternate, PaletteBorderStyle.ControlAlternate, needPaint);
-            _controlGroupBox = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlGroupBox, PaletteBorderStyle.ControlGroupBox, needPaint);
-            _controlToolTip = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlToolTip, PaletteBorderStyle.ControlToolTip, needPaint);
-            _controlRibbon = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbon, PaletteBorderStyle.ControlRibbon, needPaint);
-            _controlRibbonAppMenu = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbonAppMenu, PaletteBorderStyle.ControlRibbonAppMenu, needPaint);
-            _controlCustom1 = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlCustom1, PaletteBorderStyle.ControlCustom1, needPaint);
+            ControlCommon = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, needPaint);
+            ControlClient = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, needPaint);
+            ControlAlternate = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlAlternate, PaletteBorderStyle.ControlAlternate, needPaint);
+            ControlGroupBox = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlGroupBox, PaletteBorderStyle.ControlGroupBox, needPaint);
+            ControlToolTip = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlToolTip, PaletteBorderStyle.ControlToolTip, needPaint);
+            ControlRibbon = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbon, PaletteBorderStyle.ControlRibbon, needPaint);
+            ControlRibbonAppMenu = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbonAppMenu, PaletteBorderStyle.ControlRibbonAppMenu, needPaint);
+            ControlCustom1 = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlCustom1, PaletteBorderStyle.ControlCustom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, _controlCommon.StateDisabled, _controlCommon.StateNormal);
+            PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, ControlCommon.StateDisabled, ControlCommon.StateNormal);
 
             // Inform the button style to use the new redirector
-            _controlClient.SetRedirector(redirectCommon);
-            _controlAlternate.SetRedirector(redirectCommon);
-            _controlGroupBox.SetRedirector(redirectCommon);
-            _controlToolTip.SetRedirector(redirectCommon);
-            _controlRibbon.SetRedirector(redirectCommon);
-            _controlRibbonAppMenu.SetRedirector(redirectCommon);
-            _controlCustom1.SetRedirector(redirectCommon);
+            ControlClient.SetRedirector(redirectCommon);
+            ControlAlternate.SetRedirector(redirectCommon);
+            ControlGroupBox.SetRedirector(redirectCommon);
+            ControlToolTip.SetRedirector(redirectCommon);
+            ControlRibbon.SetRedirector(redirectCommon);
+            ControlRibbonAppMenu.SetRedirector(redirectCommon);
+            ControlCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -68,20 +61,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _controlCommon.IsDefault &&
-                       _controlClient.IsDefault &&
-                       _controlAlternate.IsDefault &&
-                       _controlGroupBox.IsDefault &&
-                       _controlToolTip.IsDefault &&
-                       _controlRibbon.IsDefault &&
-                       _controlRibbonAppMenu.IsDefault &&
-                       _controlCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => ControlCommon.IsDefault &&
+                                          ControlClient.IsDefault &&
+                                          ControlAlternate.IsDefault &&
+                                          ControlGroupBox.IsDefault &&
+                                          ControlToolTip.IsDefault &&
+                                          ControlRibbon.IsDefault &&
+                                          ControlRibbonAppMenu.IsDefault &&
+                                          ControlCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -94,22 +82,22 @@ namespace ComponentFactory.Krypton.Toolkit
             // Populate only the designated styles
             common.StateCommon.BackStyle = PaletteBackStyle.ControlClient;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlClient;
-            _controlClient.PopulateFromBase();
+            ControlClient.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ControlAlternate;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlAlternate;
-            _controlAlternate.PopulateFromBase();
+            ControlAlternate.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ControlGroupBox;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlGroupBox;
-            _controlGroupBox.PopulateFromBase();
+            ControlGroupBox.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ControlToolTip;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlToolTip;
-            _controlToolTip.PopulateFromBase();
+            ControlToolTip.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ControlRibbon;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlRibbon;
-            _controlRibbon.PopulateFromBase();
+            ControlRibbon.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.ControlRibbonAppMenu;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ControlRibbonAppMenu;
-            _controlRibbonAppMenu.PopulateFromBase();
+            ControlRibbonAppMenu.PopulateFromBase();
         }
         #endregion
 
@@ -121,14 +109,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlCommon
-        {
-            get { return _controlCommon; }
-        }
+        public KryptonPaletteControl ControlCommon { get; }
 
         private bool ShouldSerializeControlCommon()
         {
-            return !_controlCommon.IsDefault;
+            return !ControlCommon.IsDefault;
         }
         #endregion
 
@@ -140,14 +125,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining client control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlClient
-        {
-            get { return _controlClient; }
-        }
+        public KryptonPaletteControl ControlClient { get; }
 
         private bool ShouldSerializeControlClient()
         {
-            return !_controlClient.IsDefault;
+            return !ControlClient.IsDefault;
         }
         #endregion
 
@@ -159,14 +141,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining alternate control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlAlternate
-        {
-            get { return _controlAlternate; }
-        }
+        public KryptonPaletteControl ControlAlternate { get; }
 
         private bool ShouldSerializeControlAlternate()
         {
-            return !_controlAlternate.IsDefault;
+            return !ControlAlternate.IsDefault;
         }
         #endregion
 
@@ -178,14 +157,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining group box control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlGroupBox
-        {
-            get { return _controlGroupBox; }
-        }
+        public KryptonPaletteControl ControlGroupBox { get; }
 
         private bool ShouldSerializeControlGroupBox()
         {
-            return !_controlGroupBox.IsDefault;
+            return !ControlGroupBox.IsDefault;
         }
         #endregion
 
@@ -197,14 +173,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tooltip control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlToolTip
-        {
-            get { return _controlToolTip; }
-        }
+        public KryptonPaletteControl ControlToolTip { get; }
 
         private bool ShouldSerializeControlToolTip()
         {
-            return !_controlToolTip.IsDefault;
+            return !ControlToolTip.IsDefault;
         }
         #endregion
 
@@ -216,14 +189,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining control ribbon style appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlRibbon
-        {
-            get { return _controlRibbon; }
-        }
+        public KryptonPaletteControl ControlRibbon { get; }
 
         private bool ShouldSerializeControlRibbon()
         {
-            return !_controlRibbon.IsDefault;
+            return !ControlRibbon.IsDefault;
         }
         #endregion
 
@@ -235,14 +205,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining control ribbon application menu style appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlRibbonAppMenu
-        {
-            get { return _controlRibbonAppMenu; }
-        }
+        public KryptonPaletteControl ControlRibbonAppMenu { get; }
 
         private bool ShouldSerializeControlRibbonAppMenu()
         {
-            return !_controlRibbonAppMenu.IsDefault;
+            return !ControlRibbonAppMenu.IsDefault;
         }
         #endregion
 
@@ -254,14 +221,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControl ControlCustom1
-        {
-            get { return _controlCustom1; }
-        }
+        public KryptonPaletteControl ControlCustom1 { get; }
 
         private bool ShouldSerializeControlCustom1()
         {
-            return !_controlCustom1.IsDefault;
+            return !ControlCustom1.IsDefault;
         }
         #endregion
     }

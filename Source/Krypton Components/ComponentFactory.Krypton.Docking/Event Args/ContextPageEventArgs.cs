@@ -20,9 +20,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class ContextPageEventArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-        private KryptonContextMenu _contextMenu;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -36,8 +35,8 @@ namespace ComponentFactory.Krypton.Docking
                                     bool cancel)
             : base(cancel)
 		{
-            _page = page;
-            _contextMenu = contextMenu;
+            Page = page;
+            KryptonContextMenu = contextMenu;
 		}
         #endregion
 
@@ -45,18 +44,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets access to page associated with the context menu.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
+        public KryptonPage Page { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to context menu that can be customized.
         /// </summary>
-        public KryptonContextMenu KryptonContextMenu
-        {
-            get { return _contextMenu; }
-        }
-        #endregion
+        public KryptonContextMenu KryptonContextMenu { get; }
+
+	    #endregion
 	}
 }

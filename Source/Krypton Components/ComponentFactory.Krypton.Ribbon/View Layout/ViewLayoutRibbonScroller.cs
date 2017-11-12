@@ -90,8 +90,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public VisualOrientation Orientation
         {
-            get { return _orientation; }
-            
+            get => _orientation;
+
             set 
             { 
                 _orientation = value;

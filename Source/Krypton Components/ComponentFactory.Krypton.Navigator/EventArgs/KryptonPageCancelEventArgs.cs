@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Navigator
 	public class KryptonPageCancelEventArgs : KryptonPageEventArgs
 	{
 		#region Instance Fields
-		private bool _cancel;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -35,11 +35,8 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <summary>
 		/// Gets the page associated with the event.
 		/// </summary>
-		public bool Cancel
-		{
-			get { return _cancel; }
-			set { _cancel = value; }
-		}
-		#endregion
+		public bool Cancel { get; set; }
+
+	    #endregion
 	}
 }

@@ -18,13 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteTabButton : Storage
     {
         #region Instance Fields
-        private PaletteTabTripleRedirect _stateFocus;
-        private PaletteTabTripleRedirect _stateCommon;
-        private PaletteTabTriple _stateDisabled;
-        private PaletteTabTriple _stateNormal;
-        private PaletteTabTriple _stateTracking;
-        private PaletteTabTriple _statePressed;
-        private PaletteTabTriple _stateSelected;
+
         #endregion
 
         #region Identity
@@ -43,13 +37,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                        NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateFocus = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
-            _stateCommon = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
-            _stateDisabled = new PaletteTabTriple(_stateCommon, needPaint);
-            _stateNormal = new PaletteTabTriple(_stateCommon, needPaint);
-            _stateTracking = new PaletteTabTriple(_stateCommon, needPaint);
-            _statePressed = new PaletteTabTriple(_stateCommon, needPaint);
-            _stateSelected = new PaletteTabTriple(_stateCommon, needPaint);
+            OverrideFocus = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
+            StateCommon = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
+            StateDisabled = new PaletteTabTriple(StateCommon, needPaint);
+            StateNormal = new PaletteTabTriple(StateCommon, needPaint);
+            StateTracking = new PaletteTabTriple(StateCommon, needPaint);
+            StatePressed = new PaletteTabTriple(StateCommon, needPaint);
+            StateSelected = new PaletteTabTriple(StateCommon, needPaint);
         }
         #endregion
 
@@ -60,8 +54,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateFocus.SetRedirector(redirect);
-            _stateCommon.SetRedirector(redirect);
+            OverrideFocus.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -70,20 +64,15 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateFocus.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault &&
-                       _stateSelected.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  OverrideFocus.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault &&
+		                                  StateSelected.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -92,12 +81,12 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateFocus.PopulateFromBase(PaletteState.FocusOverride);
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _statePressed.PopulateFromBase(PaletteState.Pressed);
-            _stateSelected.PopulateFromBase(PaletteState.CheckedNormal);
+            OverrideFocus.PopulateFromBase(PaletteState.FocusOverride);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StatePressed.PopulateFromBase(PaletteState.Pressed);
+            StateSelected.PopulateFromBase(PaletteState.CheckedNormal);
         }
         #endregion
 
@@ -109,14 +98,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common tab appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTabTripleRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -128,14 +114,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTabTriple StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -147,14 +130,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTabTriple StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -166,14 +146,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTabTriple StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -185,14 +162,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTabTriple StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
 
@@ -204,14 +178,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple StateSelected
-        {
-            get { return _stateSelected; }
-        }
+        public PaletteTabTriple StateSelected { get; }
 
         private bool ShouldSerializeStateSelected()
         {
-            return !_stateSelected.IsDefault;
+            return !StateSelected.IsDefault;
         }
         #endregion
 
@@ -223,14 +194,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tab appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTripleRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTabTripleRedirect OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
         #endregion
     }

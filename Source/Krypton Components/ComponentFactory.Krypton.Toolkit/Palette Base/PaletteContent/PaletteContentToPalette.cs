@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPalette _palette;
-        private PaletteContentStyle _style;
+
         #endregion
 
         #region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Remember source palette
             _palette = palette;
-            _style = style;
+            ContentStyle = style;
         }
         #endregion
 
@@ -41,11 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the fixed content style.
         /// </summary>
-        public PaletteContentStyle ContentStyle
-        {
-            get { return _style; }
-            set { _style = value; }
-        }
+        public PaletteContentStyle ContentStyle { get; set; }
+
         #endregion
 
         #region GetContentStyle
@@ -67,7 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public InheritBool GetContentDraw(PaletteState state)
         {
-            return _palette.GetContentDraw(_style, state);
+            return _palette.GetContentDraw(ContentStyle, state);
         }
         #endregion
 
@@ -79,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public InheritBool GetContentDrawFocus(PaletteState state)
         {
-            return _palette.GetContentDrawFocus(_style, state);
+            return _palette.GetContentDrawFocus(ContentStyle, state);
         }
         #endregion
 
@@ -91,7 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentImageH(PaletteState state)
         {
-            return _palette.GetContentImageH(_style, state);
+            return _palette.GetContentImageH(ContentStyle, state);
         }
 
         /// <summary>
@@ -101,7 +98,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentImageV(PaletteState state)
         {
-            return _palette.GetContentImageV(_style, state);
+            return _palette.GetContentImageV(ContentStyle, state);
         }
 
         /// <summary>
@@ -111,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteImageEffect value.</returns>
         public PaletteImageEffect GetContentImageEffect(PaletteState state)
         {
-            return _palette.GetContentImageEffect(_style, state);
+            return _palette.GetContentImageEffect(ContentStyle, state);
         }
 
         /// <summary>
@@ -121,7 +118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentImageColorMap(PaletteState state)
         {
-            return _palette.GetContentImageColorMap(_style, state);
+            return _palette.GetContentImageColorMap(ContentStyle, state);
         }
 
         /// <summary>
@@ -131,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentImageColorTo(PaletteState state)
         {
-            return _palette.GetContentImageColorTo(_style, state);
+            return _palette.GetContentImageColorTo(ContentStyle, state);
         }
         #endregion
 
@@ -143,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public Font GetContentShortTextFont(PaletteState state)
         {
-            return _palette.GetContentShortTextFont(_style, state);
+            return _palette.GetContentShortTextFont(ContentStyle, state);
         }
 
         /// <summary>
@@ -153,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public Font GetContentShortTextNewFont(PaletteState state)
         {
-            return _palette.GetContentShortTextNewFont(_style, state);
+            return _palette.GetContentShortTextNewFont(ContentStyle, state);
         }
 
         /// <summary>
@@ -163,7 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextHint value.</returns>
         public PaletteTextHint GetContentShortTextHint(PaletteState state)
         {
-            return _palette.GetContentShortTextHint(_style, state);
+            return _palette.GetContentShortTextHint(ContentStyle, state);
         }
 
         /// <summary>
@@ -173,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextPrefix value.</returns>
         public PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state)
         {
-            return _palette.GetContentShortTextPrefix(_style, state);
+            return _palette.GetContentShortTextPrefix(ContentStyle, state);
         }
 
         /// <summary>
@@ -183,7 +180,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextTrim value.</returns>
         public PaletteTextTrim GetContentShortTextTrim(PaletteState state)
         {
-            return _palette.GetContentShortTextTrim(_style, state);
+            return _palette.GetContentShortTextTrim(ContentStyle, state);
         }
 
         /// <summary>
@@ -193,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentShortTextH(PaletteState state)
         {
-            return _palette.GetContentShortTextH(_style, state);
+            return _palette.GetContentShortTextH(ContentStyle, state);
         }
 
         /// <summary>
@@ -203,7 +200,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentShortTextV(PaletteState state)
         {
-            return _palette.GetContentShortTextV(_style, state);
+            return _palette.GetContentShortTextV(ContentStyle, state);
         }
 
         /// <summary>
@@ -213,7 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state)
         {
-            return _palette.GetContentShortTextMultiLineH(_style, state);
+            return _palette.GetContentShortTextMultiLineH(ContentStyle, state);
         }
 
         /// <summary>
@@ -223,7 +220,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public InheritBool GetContentShortTextMultiLine(PaletteState state)
         {
-            return _palette.GetContentShortTextMultiLine(_style, state);
+            return _palette.GetContentShortTextMultiLine(ContentStyle, state);
         }
 
         /// <summary>
@@ -233,7 +230,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentShortTextColor1(PaletteState state)
         {
-            return _palette.GetContentShortTextColor1(_style, state);
+            return _palette.GetContentShortTextColor1(ContentStyle, state);
         }
 
         /// <summary>
@@ -243,7 +240,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentShortTextColor2(PaletteState state)
         {
-            return _palette.GetContentShortTextColor2(_style, state);
+            return _palette.GetContentShortTextColor2(ContentStyle, state);
         }
 
         /// <summary>
@@ -253,7 +250,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color drawing style.</returns>
         public PaletteColorStyle GetContentShortTextColorStyle(PaletteState state)
         {
-            return _palette.GetContentShortTextColorStyle(_style, state);
+            return _palette.GetContentShortTextColorStyle(ContentStyle, state);
         }
 
         /// <summary>
@@ -263,7 +260,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color alignment style.</returns>
         public PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state)
         {
-            return _palette.GetContentShortTextColorAlign(_style, state);
+            return _palette.GetContentShortTextColorAlign(ContentStyle, state);
         }
 
         /// <summary>
@@ -273,7 +270,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Angle used for color drawing.</returns>
         public float GetContentShortTextColorAngle(PaletteState state)
         {
-            return _palette.GetContentShortTextColorAngle(_style, state);
+            return _palette.GetContentShortTextColorAngle(ContentStyle, state);
         }
 
         /// <summary>
@@ -283,7 +280,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image instance.</returns>
         public Image GetContentShortTextImage(PaletteState state)
         {
-            return _palette.GetContentShortTextImage(_style, state);
+            return _palette.GetContentShortTextImage(ContentStyle, state);
         }
 
         /// <summary>
@@ -293,7 +290,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image style value.</returns>
         public PaletteImageStyle GetContentShortTextImageStyle(PaletteState state)
         {
-            return _palette.GetContentShortTextImageStyle(_style, state);
+            return _palette.GetContentShortTextImageStyle(ContentStyle, state);
         }
 
         /// <summary>
@@ -303,7 +300,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image alignment style.</returns>
         public PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state)
         {
-            return _palette.GetContentShortTextImageAlign(_style, state);
+            return _palette.GetContentShortTextImageAlign(ContentStyle, state);
         }
         #endregion
 
@@ -315,7 +312,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette value should be applicable to this state.</param>
         public Font GetContentLongTextFont(PaletteState state)
         {
-            return _palette.GetContentLongTextFont(_style, state);
+            return _palette.GetContentLongTextFont(ContentStyle, state);
         }
 
         /// <summary>
@@ -325,7 +322,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public Font GetContentLongTextNewFont(PaletteState state)
         {
-            return _palette.GetContentLongTextNewFont(_style, state);
+            return _palette.GetContentLongTextNewFont(ContentStyle, state);
         }
 
         /// <summary>
@@ -335,7 +332,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextHint value.</returns>
         public PaletteTextHint GetContentLongTextHint(PaletteState state)
         {
-            return _palette.GetContentLongTextHint(_style, state);
+            return _palette.GetContentLongTextHint(ContentStyle, state);
         }
 
         /// <summary>
@@ -345,7 +342,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextPrefix value.</returns>
         public PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteState state)
         {
-            return _palette.GetContentLongTextPrefix(_style, state);
+            return _palette.GetContentLongTextPrefix(ContentStyle, state);
         }
 
         /// <summary>
@@ -355,7 +352,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextTrim value.</returns>
         public PaletteTextTrim GetContentLongTextTrim(PaletteState state)
         {
-            return _palette.GetContentLongTextTrim(_style, state);
+            return _palette.GetContentLongTextTrim(ContentStyle, state);
         }
 
         /// <summary>
@@ -365,7 +362,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentLongTextH(PaletteState state)
         {
-            return _palette.GetContentLongTextH(_style, state);
+            return _palette.GetContentLongTextH(ContentStyle, state);
         }
 
         /// <summary>
@@ -375,7 +372,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentLongTextV(PaletteState state)
         {
-            return _palette.GetContentLongTextV(_style, state);
+            return _palette.GetContentLongTextV(ContentStyle, state);
         }
 
         /// <summary>
@@ -385,7 +382,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>RelativeAlignment value.</returns>
         public PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteState state)
         {
-            return _palette.GetContentLongTextMultiLineH(_style, state);
+            return _palette.GetContentLongTextMultiLineH(ContentStyle, state);
         }
 
         /// <summary>
@@ -395,7 +392,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public InheritBool GetContentLongTextMultiLine(PaletteState state)
         {
-            return _palette.GetContentLongTextMultiLine(_style, state);
+            return _palette.GetContentLongTextMultiLine(ContentStyle, state);
         }
 
         /// <summary>
@@ -405,7 +402,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentLongTextColor1(PaletteState state)
         {
-            return _palette.GetContentLongTextColor1(_style, state);
+            return _palette.GetContentLongTextColor1(ContentStyle, state);
         }
 
         /// <summary>
@@ -415,7 +412,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetContentLongTextColor2(PaletteState state)
         {
-            return _palette.GetContentLongTextColor2(_style, state);
+            return _palette.GetContentLongTextColor2(ContentStyle, state);
         }
 
         /// <summary>
@@ -425,7 +422,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color drawing style.</returns>
         public PaletteColorStyle GetContentLongTextColorStyle(PaletteState state)
         {
-            return _palette.GetContentLongTextColorStyle(_style, state);
+            return _palette.GetContentLongTextColorStyle(ContentStyle, state);
         }
 
         /// <summary>
@@ -435,7 +432,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color alignment style.</returns>
         public PaletteRectangleAlign GetContentLongTextColorAlign(PaletteState state)
         {
-            return _palette.GetContentLongTextColorAlign(_style, state);
+            return _palette.GetContentLongTextColorAlign(ContentStyle, state);
         }
 
         /// <summary>
@@ -445,7 +442,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Angle used for color drawing.</returns>
         public float GetContentLongTextColorAngle(PaletteState state)
         {
-            return _palette.GetContentLongTextColorAngle(_style, state);
+            return _palette.GetContentLongTextColorAngle(ContentStyle, state);
         }
 
         /// <summary>
@@ -455,7 +452,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image instance.</returns>
         public Image GetContentLongTextImage(PaletteState state)
         {
-            return _palette.GetContentLongTextImage(_style, state);
+            return _palette.GetContentLongTextImage(ContentStyle, state);
         }
 
         /// <summary>
@@ -465,7 +462,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image style value.</returns>
         public PaletteImageStyle GetContentLongTextImageStyle(PaletteState state)
         {
-            return _palette.GetContentLongTextImageStyle(_style, state);
+            return _palette.GetContentLongTextImageStyle(ContentStyle, state);
         }
 
         /// <summary>
@@ -475,7 +472,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image alignment style.</returns>
         public PaletteRectangleAlign GetContentLongTextImageAlign(PaletteState state)
         {
-            return _palette.GetContentLongTextImageAlign(_style, state);
+            return _palette.GetContentLongTextImageAlign(ContentStyle, state);
         }
         #endregion
 
@@ -487,7 +484,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Padding value.</returns>
         public Padding GetContentPadding(PaletteState state)
         {
-            return _palette.GetContentPadding(_style, state);
+            return _palette.GetContentPadding(ContentStyle, state);
         }
         #endregion
 
@@ -499,7 +496,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Integer value.</returns>
         public int GetContentAdjacentGap(PaletteState state)
         {
-            return _palette.GetContentAdjacentGap(_style, state);
+            return _palette.GetContentAdjacentGap(ContentStyle, state);
         }
         #endregion
     }

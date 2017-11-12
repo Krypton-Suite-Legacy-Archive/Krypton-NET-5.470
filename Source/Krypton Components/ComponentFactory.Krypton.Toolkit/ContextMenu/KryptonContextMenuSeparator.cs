@@ -26,7 +26,6 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private bool _horizontal;
-        private PaletteDoubleRedirect _stateNormal;
         private PaletteRedirectDouble _redirectSeparator;
         #endregion
 
@@ -43,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _redirectSeparator = new PaletteRedirectDouble();
 
             // Create the separator storage for overriding specific values
-            _stateNormal = new PaletteDoubleRedirect(_redirectSeparator,
+            StateNormal = new PaletteDoubleRedirect(_redirectSeparator,
                                                      PaletteBackStyle.ContextMenuSeparator,
                                                      PaletteBorderStyle.ContextMenuSeparator);
         }
@@ -64,20 +63,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount 
-        {
-            get { return 0; }
-        }
+        public override int ItemChildCount => 0;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return null; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => null;
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -147,8 +140,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Horizontal
         {
-            get { return _horizontal; }
-            
+            get => _horizontal;
+
             set 
             {
                 if (_horizontal != value)
@@ -166,14 +159,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining separator instance specific appearance values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteDoubleRedirect StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 

@@ -27,7 +27,6 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private KryptonContextMenuMonthCalendar _monthCalendar;
-        private ViewContextMenuManager _viewManager;
         private ViewLayoutMonths _months;
         private NeedPaintHandler _needPaint;
         private DateTime _selectionStart;
@@ -49,7 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        NeedPaintHandler needPaint)
 		{
             _monthCalendar = monthCalendar;
-            _viewManager = viewManager;
+            ViewManager = viewManager;
             _months = months;
             _needPaint = needPaint;
             _mouseOver = false;
@@ -61,10 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns if the item shows a sub menu when selected.
         /// </summary>
-        public virtual bool HasSubMenu
-        {
-            get { return false; }
-        }
+        public virtual bool HasSubMenu => false;
 
         /// <summary>
         /// This target should display as the active target.
@@ -127,10 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Get the client rectangle for the display of this target.
         /// </summary>
-        public Rectangle ClientRectangle
-        {
-            get { return _months.ClientRectangle; }
-        }
+        public Rectangle ClientRectangle => _months.ClientRectangle;
 
         /// <summary>
         /// Should a mouse down at the provided point cause the currently stacked context menu to become current.
@@ -229,7 +222,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _captured = true;
 
                 // Ensure the month calendar has the focus
-                if ((c != null) && (c is KryptonMonthCalendar) && !c.ContainsFocus)
+                if (c is KryptonMonthCalendar && !c.ContainsFocus)
                 {
                     c.Focus();
                 }
@@ -323,10 +316,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
         #endregion
 
         #region Key Notifications
@@ -351,12 +342,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException("e");
             }
 
-            if (_viewManager != null)
+            if (ViewManager != null)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.Tab:
-                        _viewManager.KeyTab(e.Shift);
+                        ViewManager.KeyTab(e.Shift);
                         return;
                 }
             }
@@ -473,7 +464,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _months.FocusDay = focusDate;
                 _months.Calendar.SetSelectionRange(focusDate, focusDate);
 
-                if (_viewManager != null)
+                if (ViewManager != null)
                 {
                     _needPaint(this, new NeedLayoutEventArgs(true));
                 }
@@ -510,7 +501,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _months.FocusDay = focusDate;
                 _months.Calendar.SetSelectionRange(startDate, endDate);
 
-                if (_viewManager != null)
+                if (ViewManager != null)
                 {
                     _needPaint(this, new NeedLayoutEventArgs(true));
                 }
@@ -571,10 +562,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Implementation
-        private ViewContextMenuManager ViewManager
-        {
-            get { return _viewManager; }
-        }
+        private ViewContextMenuManager ViewManager { get; }
+
         #endregion
     }
 }

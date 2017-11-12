@@ -50,9 +50,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
 		public new InheritBool Draw
 		{
-            get { return base.Draw; }
-            set { base.Draw = value; }
-		}
+            get => base.Draw;
+            set => base.Draw = value;
+        }
 		#endregion
 
 		#region GraphicsHint
@@ -62,8 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new PaletteGraphicsHint GraphicsHint
 		{
-            get { return base.GraphicsHint; }
-            set { base.GraphicsHint = value; }
+            get => base.GraphicsHint;
+		    set => base.GraphicsHint = value;
 		}
 		#endregion
 
@@ -74,8 +74,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new Color Color2
 		{
-            get { return base.Color2; }
-            set { base.Color2 = value; }
+            get => base.Color2;
+		    set => base.Color2 = value;
 		}
 		#endregion
 
@@ -86,8 +86,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new PaletteColorStyle ColorStyle
 		{
-            get { return base.ColorStyle; }
-            set { base.ColorStyle = value; }
+            get => base.ColorStyle;
+		    set => base.ColorStyle = value;
 		}
 		#endregion
 
@@ -98,8 +98,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new PaletteRectangleAlign ColorAlign
 		{
-            get { return base.ColorAlign; }
-            set { base.ColorAlign = value; }
+            get => base.ColorAlign;
+		    set => base.ColorAlign = value;
 		}
 		#endregion
 
@@ -110,8 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new float ColorAngle
 		{
-            get { return base.ColorAngle; }
-            set { base.ColorAngle = value; }
+            get => base.ColorAngle;
+		    set => base.ColorAngle = value;
 		}
 		#endregion
 
@@ -122,8 +122,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new Image Image
 		{
-            get { return base.Image; }
-            set { base.Image = value; }
+            get => base.Image;
+		    set => base.Image = value;
 		}
 		#endregion
 
@@ -134,8 +134,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new PaletteImageStyle ImageStyle
 		{
-            get { return base.ImageStyle; }
-            set { base.ImageStyle = value; }
+            get => base.ImageStyle;
+		    set => base.ImageStyle = value;
 		}
 		#endregion
 
@@ -146,9 +146,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new PaletteRectangleAlign ImageAlign
         {
-            get { return base.ImageAlign; }
-            set { base.ImageAlign = value; }
-        }
+            get => base.ImageAlign;
+		    set => base.ImageAlign = value;
+		}
         #endregion
     }
 }

@@ -19,10 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class FixedContentValue : IContentValues
     {
         #region Instance Fields
-        private string _shortText;
-        private string _longText;
-        private Image _image;
-        private Color _imageTransparentColor;
+
         #endregion
 
         #region Identity
@@ -46,10 +43,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                  Image image,
                                  Color imageTransparentColor)
         {
-            _shortText = shortText;
-            _longText = longText;
-            _image = image;
-            _imageTransparentColor = imageTransparentColor;
+            ShortText = shortText;
+            LongText = longText;
+            Image = image;
+            ImageTransparentColor = imageTransparentColor;
         }
         #endregion
 
@@ -61,15 +58,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Main text.")]
         [Localizable(true)]
         [DefaultValue("")]
-        public string ShortText
-        {
-            get { return _shortText; }
-            set { _shortText = value; }
-        }
+        public string ShortText { get; set; }
 
         private bool ShouldSerializeShortText()
         {
-            return !string.IsNullOrEmpty(_shortText);
+            return !string.IsNullOrEmpty(ShortText);
         }
         #endregion
 
@@ -81,15 +74,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Supplementary text.")]
         [Localizable(true)]
         [DefaultValue("")]
-        public string LongText
-        {
-            get { return _longText; }
-            set { _longText = value; }
-        }
+        public string LongText { get; set; }
 
         private bool ShouldSerializeLongText()
         {
-            return !string.IsNullOrEmpty(_longText);
+            return !string.IsNullOrEmpty(LongText);
         }
         #endregion
 
@@ -100,15 +89,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("Image associated with item.")]
         [Localizable(true)]
-        public Image Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
+        public Image Image { get; set; }
 
         private bool ShouldSerializeImage()
         {
-            return (_image != null);
+            return (Image != null);
         }
         #endregion
 
@@ -119,15 +104,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("Color to treat as transparent in the Image.")]
         [Localizable(true)]
-        public Color ImageTransparentColor
-        {
-            get { return _imageTransparentColor; }
-            set { _imageTransparentColor = value; }
-        }
+        public Color ImageTransparentColor { get; set; }
 
         private bool ShouldSerializeImageTransparentColor()
         {
-            return (_imageTransparentColor != Color.Empty);
+            return (ImageTransparentColor != Color.Empty);
         }
         #endregion
 
@@ -138,7 +119,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>String value.</returns>
         public string GetShortText()
         {
-            return _shortText;
+            return ShortText;
         }
 
         /// <summary>
@@ -148,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state)
         {
-            return _image;
+            return Image;
         }
 
         /// <summary>
@@ -158,7 +139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetImageTransparentColor(PaletteState state)
         {
-            return _imageTransparentColor;
+            return ImageTransparentColor;
         }
 
         /// <summary>
@@ -167,7 +148,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>String value.</returns>
         public string GetLongText()
         {
-            return _longText;
+            return LongText;
         }
         #endregion
     }

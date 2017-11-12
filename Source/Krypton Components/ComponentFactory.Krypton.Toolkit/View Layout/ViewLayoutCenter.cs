@@ -23,9 +23,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private Padding _rectPadding;
         private IPaletteMetric _paletteMetric;
-        private PaletteMetricPadding _metricPadding;
-        private VisualOrientation _orientation;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -72,8 +71,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Remember provided values
             _paletteMetric = paletteMetric;
-            _metricPadding = metricPadding;
-            _orientation = orientation;
+            MetricPadding = metricPadding;
+            Orientation = orientation;
 
             if (childElement != null)
             {
@@ -106,23 +105,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the metric used to calculate the extra border padding.
         /// </summary>
-        public PaletteMetricPadding MetricPadding
-        {
-            get { return _metricPadding; }
-            set { _metricPadding = value; }
-        }
-        #endregion
+        public PaletteMetricPadding MetricPadding { get; set; }
+
+	    #endregion
 
         #region Orientation
         /// <summary>
         /// Gets and sets the visual orientation.
         /// </summary>
-        public VisualOrientation Orientation
-        {
-            get { return _orientation; }
-            set { _orientation = value; }
-        }
-        #endregion
+        public VisualOrientation Orientation { get; set; }
+
+	    #endregion
 
         #region Layout
         /// <summary>
@@ -143,10 +136,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(context);
 
             // Do we have a border padding to apply?
-            if ((_paletteMetric != null) && (_metricPadding != PaletteMetricPadding.None))
+            if ((_paletteMetric != null) && (MetricPadding != PaletteMetricPadding.None))
             {
                 // Get the required padding for the border
-                Padding borderPadding = _paletteMetric.GetMetricPadding(ElementState, _metricPadding);
+                Padding borderPadding = _paletteMetric.GetMetricPadding(ElementState, MetricPadding);
 
                 // Applying the padding will depend on the orientation
                 switch(Orientation)
@@ -205,10 +198,10 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = original;
 
             // Do we have a border padding to apply?
-            if ((_paletteMetric != null) && (_metricPadding != PaletteMetricPadding.None))
+            if ((_paletteMetric != null) && (MetricPadding != PaletteMetricPadding.None))
             {
                 // Get the required padding for the border
-                Padding borderPadding = _paletteMetric.GetMetricPadding(ElementState, _metricPadding);
+                Padding borderPadding = _paletteMetric.GetMetricPadding(ElementState, MetricPadding);
 
                 // Applying the padding will depend on the orientation
                 switch (Orientation)

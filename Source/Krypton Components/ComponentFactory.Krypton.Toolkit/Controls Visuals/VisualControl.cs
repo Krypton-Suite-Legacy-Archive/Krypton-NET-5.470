@@ -25,9 +25,8 @@ namespace ComponentFactory.Krypton.Toolkit
 										  ISupportInitializeNotification
 	{
 		#region Instance Fields
-        private bool _initializing;
-        private bool _initialized;
-        #endregion
+
+	    #endregion
 
 		#region Events
 		/// <summary>
@@ -54,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public virtual void BeginInit()
 		{
             // Remember that fact we are inside a BeginInit/EndInit pair
-            _initializing = true;
+            IsInitializing = true;
 
 			// No need to layout the view during initialization
 			SuspendLayout();
@@ -66,10 +65,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void EndInit()
 		{
             // We are now initialized
-			_initialized = true;
+			IsInitialized = true;
 
             // We are no longer initializing
-            _initializing = false;
+            IsInitializing = false;
 
             // Need to recalculate anything relying on the palette
             DirtyPaletteCounter++;
@@ -91,28 +90,29 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		public bool IsInitialized
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _initialized; }
-		}
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the control is initialized.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public bool IsInitializing
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _initializing; }
-        }
-        #endregion
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        private set;
+	    }
+
+	    #endregion
 
         #region Internal
-        internal bool InDesignMode
-        {
-            get { return DesignMode; }
-        }
-        #endregion
+        internal bool InDesignMode => DesignMode;
+
+	    #endregion
 
         #region Protected Virtual
         /// <summary>

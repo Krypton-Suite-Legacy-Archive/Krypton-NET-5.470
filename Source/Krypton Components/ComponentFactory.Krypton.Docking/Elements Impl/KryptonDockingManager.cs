@@ -41,8 +41,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingManager : DockingElementOpenCollection
     {
         #region Instance Fields
-        private DockingCloseRequest _defaultCloseAction;
-        private DockingManagerStrings _strings;
+
         #endregion
 
         #region Events
@@ -525,10 +524,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets access to the set of display strings required of the docking hierarchy display elements.
         /// </summary>
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DockingManagerStrings Strings
-        {
-            get { return _strings; }
-        }
+        public DockingManagerStrings Strings { get; private set; }
 
         /// <summary>
         /// Resolve the provided path.
@@ -1475,11 +1471,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets and sets the default request action to use for a close.
         /// </summary>
         [DefaultValue(typeof(DockingCloseRequest), "HidePage")]
-        public DockingCloseRequest DefaultCloseRequest
-        {
-            get { return _defaultCloseAction; }
-            set { _defaultCloseAction = value; }
-        }
+        public DockingCloseRequest DefaultCloseRequest { get; set; }
 
         /// <summary>
         /// Perform the close request for a set of named pages.
@@ -4150,10 +4142,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DM"; }
-        }
+        protected override string XmlElementName => "DM";
+
         #endregion
 
         #region Internal
@@ -4331,9 +4321,9 @@ namespace ComponentFactory.Krypton.Docking
         #region Implementation
         private void InitializeManager()
         {
-            _strings = new DockingManagerStrings(this);
-            _strings.PropertyChanged += new PropertyChangedEventHandler(OnStringPropertyChanged);
-            _defaultCloseAction = DockingCloseRequest.HidePage;
+            Strings = new DockingManagerStrings(this);
+            Strings.PropertyChanged += new PropertyChangedEventHandler(OnStringPropertyChanged);
+            DefaultCloseRequest = DockingCloseRequest.HidePage;
         }
 
         private IDockingElement ExpectPageElement(string uniqueName, Type target)

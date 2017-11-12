@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _comboBox.PaletteMode; }
-            
+            get => _comboBox.PaletteMode;
+
             set 
             {
                 if (_comboBox.PaletteMode != value)
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public InputControlStyle InputControlStyle
         {
-            get { return _comboBox.InputControlStyle; }
+            get => _comboBox.InputControlStyle;
 
             set
             {

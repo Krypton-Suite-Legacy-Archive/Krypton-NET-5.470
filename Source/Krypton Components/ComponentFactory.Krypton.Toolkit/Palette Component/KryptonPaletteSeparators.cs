@@ -19,11 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteSeparators : Storage
     {
         #region Instance Fields
-        private KryptonPaletteSeparator _separatorCommon;
-        private KryptonPaletteSeparator _separatorLowProfile;
-        private KryptonPaletteSeparator _separatorHighProfile;
-        private KryptonPaletteSeparator _separatorHighInternalProfile;
-        private KryptonPaletteSeparator _separatorCustom1;
+
         #endregion
 
         #region Identity
@@ -38,22 +34,22 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _separatorCommon = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorLowProfile, PaletteBorderStyle.SeparatorLowProfile, needPaint);
-            _separatorLowProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorLowProfile, PaletteBorderStyle.SeparatorLowProfile, needPaint);
-            _separatorHighProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighProfile, PaletteBorderStyle.SeparatorHighProfile, needPaint);
-            _separatorHighInternalProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighInternalProfile, PaletteBorderStyle.SeparatorHighInternalProfile, needPaint);
-            _separatorCustom1 = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorCustom1, PaletteBorderStyle.SeparatorCustom1, needPaint);
+            SeparatorCommon = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorLowProfile, PaletteBorderStyle.SeparatorLowProfile, needPaint);
+            SeparatorLowProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorLowProfile, PaletteBorderStyle.SeparatorLowProfile, needPaint);
+            SeparatorHighProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighProfile, PaletteBorderStyle.SeparatorHighProfile, needPaint);
+            SeparatorHighInternalProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighInternalProfile, PaletteBorderStyle.SeparatorHighInternalProfile, needPaint);
+            SeparatorCustom1 = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorCustom1, PaletteBorderStyle.SeparatorCustom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, 
-                                                                             _separatorCommon.StateDisabled, _separatorCommon.StateNormal,
-                                                                             _separatorCommon.StatePressed, _separatorCommon.StateTracking);
+                                                                             SeparatorCommon.StateDisabled, SeparatorCommon.StateNormal,
+                                                                             SeparatorCommon.StatePressed, SeparatorCommon.StateTracking);
 
             // Inform the button style to use the new redirector
-            _separatorLowProfile.SetRedirector(redirectCommon);
-            _separatorHighProfile.SetRedirector(redirectCommon);
-            _separatorHighInternalProfile.SetRedirector(redirectCommon);
-            _separatorCustom1.SetRedirector(redirectCommon);
+            SeparatorLowProfile.SetRedirector(redirectCommon);
+            SeparatorHighProfile.SetRedirector(redirectCommon);
+            SeparatorHighInternalProfile.SetRedirector(redirectCommon);
+            SeparatorCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -61,17 +57,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _separatorCommon.IsDefault &&
-                       _separatorLowProfile.IsDefault &&
-                       _separatorHighProfile.IsDefault &&
-                       _separatorHighInternalProfile.IsDefault &&
-                       _separatorCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => SeparatorCommon.IsDefault &&
+                                          SeparatorLowProfile.IsDefault &&
+                                          SeparatorHighProfile.IsDefault &&
+                                          SeparatorHighInternalProfile.IsDefault &&
+                                          SeparatorCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -84,13 +75,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Populate only the designated styles
             common.StateCommon.BackStyle = PaletteBackStyle.SeparatorLowProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.SeparatorLowProfile;
-            _separatorLowProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingLowProfile);
+            SeparatorLowProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingLowProfile);
             common.StateCommon.BackStyle = PaletteBackStyle.SeparatorHighProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.SeparatorHighProfile;
-            _separatorHighProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingHighProfile);
+            SeparatorHighProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingHighProfile);
             common.StateCommon.BackStyle = PaletteBackStyle.SeparatorHighInternalProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.SeparatorHighInternalProfile;
-            _separatorHighInternalProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingHighInternalProfile);
+            SeparatorHighInternalProfile.PopulateFromBase(PaletteMetricPadding.SeparatorPaddingHighInternalProfile);
         }
         #endregion
 
@@ -102,14 +93,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparator SeparatorCommon
-        {
-            get { return _separatorCommon; }
-        }
+        public KryptonPaletteSeparator SeparatorCommon { get; }
 
         private bool ShouldSerializeSeparatorCommon()
         {
-            return !_separatorCommon.IsDefault;
+            return !SeparatorCommon.IsDefault;
         }
         #endregion
 
@@ -121,14 +109,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining low profile separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparator SeparatorLowProfile
-        {
-            get { return _separatorLowProfile; }
-        }
+        public KryptonPaletteSeparator SeparatorLowProfile { get; }
 
         private bool ShouldSerializeSeparatorLowProfile()
         {
-            return !_separatorLowProfile.IsDefault;
+            return !SeparatorLowProfile.IsDefault;
         }
         #endregion
 
@@ -140,14 +125,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining high profile separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparator SeparatorHighProfile
-        {
-            get { return _separatorHighProfile; }
-        }
+        public KryptonPaletteSeparator SeparatorHighProfile { get; }
 
         private bool ShouldSerializeSeparatorHighProfile()
         {
-            return !_separatorHighProfile.IsDefault;
+            return !SeparatorHighProfile.IsDefault;
         }
         #endregion
 
@@ -159,14 +141,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining high profile for internal separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparator SeparatorHighInternalProfile
-        {
-            get { return _separatorHighInternalProfile; }
-        }
+        public KryptonPaletteSeparator SeparatorHighInternalProfile { get; }
 
         private bool ShouldSerializeSeparatorHighInternalProfile()
         {
-            return !_separatorHighInternalProfile.IsDefault;
+            return !SeparatorHighInternalProfile.IsDefault;
         }
         #endregion
 
@@ -178,14 +157,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining first custom separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparator SeparatorCustom1
-        {
-            get { return _separatorCustom1; }
-        }
+        public KryptonPaletteSeparator SeparatorCustom1 { get; }
 
         private bool ShouldSerializeSeparatorCustom1()
         {
-            return !_separatorCustom1.IsDefault;
+            return !SeparatorCustom1.IsDefault;
         }
         #endregion
     }

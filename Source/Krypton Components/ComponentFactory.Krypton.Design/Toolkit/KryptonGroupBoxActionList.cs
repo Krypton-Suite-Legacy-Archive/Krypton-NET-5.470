@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _groupBox.GroupBackStyle; }
-            
+            get => _groupBox.GroupBackStyle;
+
             set 
             {
                 if (_groupBox.GroupBackStyle != value)
@@ -58,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _groupBox.GroupBorderStyle; }
-            
+            get => _groupBox.GroupBorderStyle;
+
             set 
             {
                 if (_groupBox.GroupBorderStyle != value)
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public LabelStyle CaptionStyle
         {
-            get { return _groupBox.CaptionStyle; }
+            get => _groupBox.CaptionStyle;
 
             set
             {
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation CaptionEdge
         {
-            get { return _groupBox.CaptionEdge; }
+            get => _groupBox.CaptionEdge;
 
             set
             {
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public double CaptionOverlap
         {
-            get { return _groupBox.CaptionOverlap; }
+            get => _groupBox.CaptionOverlap;
 
             set
             {
@@ -126,8 +126,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _groupBox.PaletteMode; }
-            
+            get => _groupBox.PaletteMode;
+
             set 
             {
                 if (_groupBox.PaletteMode != value)

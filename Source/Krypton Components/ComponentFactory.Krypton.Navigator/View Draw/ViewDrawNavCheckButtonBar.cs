@@ -76,10 +76,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the view associated with the check item.
         /// </summary>
-        public ViewBase View 
-        {
-            get { return this; }
-        }
+        public ViewBase View => this;
+
         #endregion
 
         #region IContentValues

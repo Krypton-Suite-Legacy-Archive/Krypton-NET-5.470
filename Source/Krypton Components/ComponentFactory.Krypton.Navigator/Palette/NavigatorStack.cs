@@ -68,21 +68,16 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((CheckButtonStyle == ButtonStyle.NavigatorStack) &&
-                        (BorderEdgeStyle == PaletteBorderStyle.ControlClient) &&
-                        StackAnimation &&
-                        (StackOrientation == Orientation.Vertical) &&
-                        (StackAlignment == RelativePositionAlign.Center) &&
-                        (ItemOrientation == ButtonOrientation.Auto) &&
-                        (StackMapImage == MapKryptonPageImage.Small) &&
-                        (StackMapText == MapKryptonPageText.TextTitle) &&
-                        (StackMapExtraText == MapKryptonPageText.None));
-            }
-        }
+        public override bool IsDefault => ((CheckButtonStyle == ButtonStyle.NavigatorStack) &&
+                                           (BorderEdgeStyle == PaletteBorderStyle.ControlClient) &&
+                                           StackAnimation &&
+                                           (StackOrientation == Orientation.Vertical) &&
+                                           (StackAlignment == RelativePositionAlign.Center) &&
+                                           (ItemOrientation == ButtonOrientation.Auto) &&
+                                           (StackMapImage == MapKryptonPageImage.Small) &&
+                                           (StackMapText == MapKryptonPageText.TextTitle) &&
+                                           (StackMapExtraText == MapKryptonPageText.None));
+
         #endregion
 
         #region CheckButtonStyle
@@ -94,7 +89,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonStyle), "NavigatorStack")]
         public ButtonStyle CheckButtonStyle
         {
-            get { return _checkButtonStyle; }
+            get => _checkButtonStyle;
 
             set
             {
@@ -116,7 +111,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteBorderStyle), "ControlClient")]
         public PaletteBorderStyle BorderEdgeStyle
         {
-            get { return _borderEdgeStyle; }
+            get => _borderEdgeStyle;
 
             set
             {
@@ -139,7 +134,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool StackAnimation
         {
-            get { return _stackAnimation; }
+            get => _stackAnimation;
 
             set
             {
@@ -170,7 +165,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(Orientation), "Vertical")]
         public Orientation StackOrientation
         {
-            get { return _stackOrientation; }
+            get => _stackOrientation;
 
             set
             {
@@ -201,7 +196,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(RelativePositionAlign), "Center")]
         public RelativePositionAlign StackAlignment
         {
-            get { return _stackAlignment; }
+            get => _stackAlignment;
 
             set
             {
@@ -232,7 +227,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonOrientation), "Auto")]
         public ButtonOrientation ItemOrientation
         {
-            get { return _itemOrientation; }
+            get => _itemOrientation;
 
             set
             {
@@ -264,7 +259,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageImage), "Small")]
         public virtual MapKryptonPageImage StackMapImage
         {
-            get { return _stackMapImage; }
+            get => _stackMapImage;
 
             set
             {
@@ -295,7 +290,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "Text - Title")]
         public MapKryptonPageText StackMapText
         {
-            get { return _stackMapText; }
+            get => _stackMapText;
 
             set
             {
@@ -326,7 +321,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "None (Empty string)")]
         public MapKryptonPageText StackMapExtraText
         {
-            get { return _stackMapExtraText; }
+            get => _stackMapExtraText;
 
             set
             {

@@ -16,10 +16,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class PageDragEndData
 	{
 		#region Instance Fields
-        private object _source;
-        private KryptonNavigator _navigator;
-        private KryptonPageCollection _pages;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -43,9 +41,9 @@ namespace ComponentFactory.Krypton.Navigator
                                KryptonNavigator navigator,
                                KryptonPageCollection pages)
         {
-            _source = source;
-            _navigator = navigator;
-            _pages = pages;
+            Source = source;
+            Navigator = navigator;
+            Pages = pages;
         }
         #endregion
 
@@ -53,26 +51,18 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the source of the drag data.
         /// </summary>
-        public object Source
-        {
-            get { return _source; }
-        }
+        public object Source { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to any associated KryptonNavigator instance.
         /// </summary>
-        public KryptonNavigator Navigator
-        {
-            get { return _navigator; }
-        }
+        public KryptonNavigator Navigator { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the collection of pages.
         /// </summary>
-        public KryptonPageCollection Pages
-        {
-            get { return _pages; }
-        }
-        #endregion
+        public KryptonPageCollection Pages { get; }
+
+	    #endregion
     }
 }

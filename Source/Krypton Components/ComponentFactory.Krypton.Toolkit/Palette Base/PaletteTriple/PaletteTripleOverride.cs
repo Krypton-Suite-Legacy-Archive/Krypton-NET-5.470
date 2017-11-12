@@ -85,9 +85,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public bool Apply
 		{
-			get { return _overrideBack.Apply; }
+			get => _overrideBack.Apply;
 
-			set
+            set
 			{
                 _overrideBack.Apply = value;
 				_overrideBorder.Apply = value;
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Override
         {
-            get { return _overrideBack.Override; }
+            get => _overrideBack.Override;
 
             set
             {
@@ -119,9 +119,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public PaletteState OverrideState
 		{
-			get { return _overrideBack.OverrideState; }
+			get => _overrideBack.OverrideState;
 
-			set
+		    set
 			{
 				_overrideBack.OverrideState = value;
 				_overrideBorder.OverrideState = value;
@@ -134,26 +134,18 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the background palette.
 		/// </summary>
-		public IPaletteBack PaletteBack
-		{
-			get { return _overrideBack; }
-		}
+		public IPaletteBack PaletteBack => _overrideBack;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the border palette.
 		/// </summary>
-		public IPaletteBorder PaletteBorder
-		{
-			get { return _overrideBorder; }
-		}
+		public IPaletteBorder PaletteBorder => _overrideBorder;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the border palette.
 		/// </summary>
-		public IPaletteContent PaletteContent
-		{
-			get { return _overrideContent; }
-		}
-		#endregion
+		public IPaletteContent PaletteContent => _overrideContent;
+
+	    #endregion
 	}
 }

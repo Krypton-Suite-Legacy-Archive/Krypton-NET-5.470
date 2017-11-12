@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class UniqueNameEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private string _uniqueName;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="uniqueName">Unique name of page.</param>
         public UniqueNameEventArgs(string uniqueName)
 		{
-            _uniqueName = uniqueName;
+            UniqueName = uniqueName;
 		}
         #endregion
 
@@ -36,10 +36,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the unique name of a page.
         /// </summary>
-        public string UniqueName
-        {
-            get { return _uniqueName; }
-        }
-        #endregion
+        public string UniqueName { get; }
+
+	    #endregion
 	}
 }

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private StatusStrip _renderStrip;
-        private StatusStrip _statusStrip;
+
         #endregion
 
         #region Identity
@@ -69,11 +69,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the status strip to render.
         /// </summary>
-        public StatusStrip StatusStrip
-        {
-            get { return _statusStrip; }
-            set { _statusStrip = value; }
-        }
+        public StatusStrip StatusStrip { get; set; }
+
         #endregion
 
         #region Paint
@@ -85,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Do we have a status strip to try and merge?
 		    // Is the status strip using the global renderer?
-		    if (_statusStrip?.RenderMode == ToolStripRenderMode.ManagerRenderMode)
+		    if (StatusStrip?.RenderMode == ToolStripRenderMode.ManagerRenderMode)
 		    {
 		        // Cast to correct type
 
@@ -99,10 +96,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
 		            // Size the render strip to the apparent size when merged into borders
 		            _renderStrip.Width = form.Width;
-		            _renderStrip.Height = _statusStrip.Height + borders.Bottom;
+		            _renderStrip.Height = StatusStrip.Height + borders.Bottom;
 
 		            // Find vertical start of the status strip
-		            int y = _statusStrip.Top + borders.Top;
+		            int y = StatusStrip.Top + borders.Top;
 
 		            try
 		            {

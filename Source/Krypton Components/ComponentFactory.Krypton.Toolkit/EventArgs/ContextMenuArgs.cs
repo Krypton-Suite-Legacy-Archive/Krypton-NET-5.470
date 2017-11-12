@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ContextMenuArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private ContextMenuStrip _cms;
-        private KryptonContextMenu _kcm;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -58,8 +57,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public ContextMenuArgs(ContextMenuStrip cms,
                                KryptonContextMenu kcm)
         {
-            _cms = cms;
-            _kcm = kcm;
+            ContextMenuStrip = cms;
+            KryptonContextMenu = kcm;
         }
         #endregion
 
@@ -67,18 +66,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets access to the context menu strip instance.
 		/// </summary>
-        public ContextMenuStrip ContextMenuStrip
-		{
-			get { return _cms; }
-		}
+        public ContextMenuStrip ContextMenuStrip { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the KryptonContextMenu instance.
         /// </summary>
-        public KryptonContextMenu KryptonContextMenu
-        {
-            get { return _kcm; }
-        }
-        #endregion
+        public KryptonContextMenu KryptonContextMenu { get; }
+
+	    #endregion
 	}
 }

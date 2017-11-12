@@ -65,10 +65,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if button specs are allowed on the button.
         /// </summary>
-        public override bool AllowButtonSpecs
-        {
-            get { return (Navigator.NavigatorMode == NavigatorMode.OutlookFull); }
-        }
+        public override bool AllowButtonSpecs => (Navigator.NavigatorMode == NavigatorMode.OutlookFull);
+
         #endregion
 
         #region IContentValues

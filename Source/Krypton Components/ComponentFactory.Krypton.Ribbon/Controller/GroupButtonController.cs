@@ -29,14 +29,11 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonRibbon _ribbon;
         private ViewDrawRibbonGroupButtonBackBorder _target;
         private NeedPaintHandler _needPaint;
-        private GroupButtonType _buttonType;
-        private Rectangle _splitRectangle;
+	    private Rectangle _splitRectangle;
         private bool _rightButtonDown;
-        private bool _mouseInSplit;
-        private bool _previousMouseInSplit;
+	    private bool _previousMouseInSplit;
         private bool _fixedPressed;
-		private bool _captured;
-        private bool _mouseOver;
+	    private bool _mouseOver;
         private bool _hasFocus;
 		#endregion
 
@@ -77,7 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
             NeedPaint = needPaint;
 
             // Default other fields
-            _buttonType = GroupButtonType.Push;
+            ButtonType = GroupButtonType.Push;
         }
 		#endregion
 
@@ -85,11 +82,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if the mouse is inside the split rectangle.
         /// </summary>
-        public bool MouseInSplit
-        {
-            get { return _mouseInSplit; }
-        }
-        #endregion
+        public bool MouseInSplit { get; private set; }
+
+	    #endregion
 
         #region SplitRectangle
         /// <summary>
@@ -97,8 +92,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Rectangle SplitRectangle
         {
-            get { return _splitRectangle; }
-            set { _splitRectangle = value; }
+            get => _splitRectangle;
+            set => _splitRectangle = value;
         }
         #endregion
 
@@ -106,12 +101,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the type of button we are controlling.
         /// </summary>
-        public GroupButtonType ButtonType
-        {
-            get { return _buttonType; }
-            set { _buttonType = value; }
-        }
-        #endregion
+        public GroupButtonType ButtonType { get; set; }
+
+	    #endregion
 
         #region RemoveFixed
         /// <summary>
@@ -122,7 +114,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_fixedPressed)
             {
                 // Mouse no longer considered pressed down
-                _captured = false;
+                Captured = false;
 
                 // No longer in fixed state mode
                 _fixedPressed = false;
@@ -166,7 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		    // Track if the mouse is inside the split area
             if (ButtonType == GroupButtonType.Split)
             {
-                _mouseInSplit = _splitRectangle.Contains(pt);
+                MouseInSplit = _splitRectangle.Contains(pt);
             }
 
 		    // Update the visual state
@@ -188,7 +180,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Can only click if enabled
                 if (ClickOnDown(pt) && _target.Enabled)
                 {
-                    _captured = true;
+                    Captured = true;
 
                     // If already in fixed mode, then ignore mouse down
                     if (!_fixedPressed)
@@ -206,7 +198,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                 // Track if the mouse is inside the split area
                                 if (ButtonType == GroupButtonType.Split)
                                 {
-                                    _mouseInSplit = _splitRectangle.Contains(pt);
+                                    MouseInSplit = _splitRectangle.Contains(pt);
                                 }
 
                                 if (_splitRectangle.Contains(pt))
@@ -232,7 +224,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 else
                 {
                    // Capturing mouse input
-                    _captured = true;
+                    Captured = true;
 
                     // Update the visual state
                     UpdateTargetState(pt);
@@ -245,7 +237,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _rightButtonDown = true;
             }
 
-		    return _captured;
+		    return Captured;
 		}
 
 		/// <summary>
@@ -256,10 +248,10 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
 		{
-            if (_captured && !ClickOnDown(pt))
+            if (Captured && !ClickOnDown(pt))
             {
                 // Not capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Only interested in left mouse being released
                 if (button == MouseButtons.Left)
@@ -284,7 +276,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     // Track if the mouse is inside the split area
                                     if (ButtonType == GroupButtonType.Split)
                                     {
-                                        _mouseInSplit = _splitRectangle.Contains(pt);
+                                        MouseInSplit = _splitRectangle.Contains(pt);
                                     }
 
                                     if (_splitRectangle.Contains(pt))
@@ -348,7 +340,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (!_fixedPressed)
                 {
                     // If leaving the view then cannot be capturing mouse input anymore
-                    _captured = false;
+                    Captured = false;
                     UpdateTargetState(c);
                 }
             }
@@ -366,11 +358,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Focus Notifications
         /// <summary>
@@ -448,7 +438,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // Generate appropriate event
-            switch (_buttonType)
+            switch (ButtonType)
             {
                 case GroupButtonType.Push:
                 case GroupButtonType.Check:
@@ -463,7 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     ribbon.KillKeyboardMode();
 
                     // Pretend we have captured input and then fix state as pressed
-                    _captured = true;
+                    Captured = true;
                     _fixedPressed = true;
 
                     // Redraw to show the fixed state
@@ -481,7 +471,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -496,12 +486,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target => _target;
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()
@@ -523,13 +510,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -565,7 +548,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 newState = PaletteState.Normal;
 
                 // If capturing input....
-                if (_captured)
+                if (Captured)
                 {
                     if (_fixedPressed || _target.ClientRectangle.Contains(pt))
                     {
@@ -586,7 +569,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         // We always show the button as being in the split when it has focus
                         if (_hasFocus)
                         {
-                            _mouseInSplit = true;
+                            MouseInSplit = true;
                         }
                     }
                     else
@@ -598,10 +581,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // If state has changed
             if ((_target.ElementState != newState) ||
-                (_mouseInSplit != _previousMouseInSplit))
+                (MouseInSplit != _previousMouseInSplit))
             {
                 _target.ElementState = newState;
-                _previousMouseInSplit = _mouseInSplit;
+                _previousMouseInSplit = MouseInSplit;
 
                 // Redraw to show the change in visual state
                 OnNeedPaint(false);
@@ -696,7 +679,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Space:
                 case Keys.Enter:
                     // Generate appropriate event
-                    switch (_buttonType)
+                    switch (ButtonType)
                     {
                         case GroupButtonType.Push:
                         case GroupButtonType.Check:
@@ -712,7 +695,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Pretend we have captured input and then fix state as pressed
                             _hasFocus = true;
-                            _captured = true;
+                            Captured = true;
                             _fixedPressed = true;
 
                             // Redraw to show the fixed state
@@ -753,7 +736,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Space:
                 case Keys.Enter:
                     // Generate appropriate event
-                    switch (_buttonType)
+                    switch (ButtonType)
                     {
                         case GroupButtonType.Push:
                         case GroupButtonType.Check:
@@ -769,7 +752,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Pretend we have captured input and then fix state as pressed
                             _hasFocus = true;
-                            _captured = true;
+                            Captured = true;
                             _fixedPressed = true;
 
                             // Redraw to show the fixed state
@@ -797,7 +780,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Space:
                 case Keys.Enter:
                     // Generate appropriate event
-                    switch (_buttonType)
+                    switch (ButtonType)
                     {
                         case GroupButtonType.Push:
                         case GroupButtonType.Check:
@@ -813,7 +796,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                             // Pretend we have captured input and then fix state as pressed
                             _hasFocus = true;
-                            _captured = true;
+                            Captured = true;
                             _fixedPressed = true;
 
                             // Redraw to show the fixed state
@@ -828,7 +811,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ClickOnDown(Point pt)
         {
-            switch (_buttonType)
+            switch (ButtonType)
             {
                 case GroupButtonType.Push:
                 case GroupButtonType.Check:

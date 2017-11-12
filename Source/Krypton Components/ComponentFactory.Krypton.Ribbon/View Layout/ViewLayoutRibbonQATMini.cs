@@ -98,8 +98,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public KryptonForm OwnerForm
         {
-            get { return _border.OwnerForm; }
-            set { _border.OwnerForm = value; }
+            get => _border.OwnerForm;
+            set => _border.OwnerForm = value;
         }
         #endregion
 
@@ -109,8 +109,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return (_ribbon.Visible && base.Visible); }
-            set { base.Visible = value; }
+            get => (_ribbon.Visible && base.Visible);
+            set => base.Visible = value;
         }
         #endregion
 
@@ -120,8 +120,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool OverlapAppButton
         {
-            get { return _border.OverlapAppButton; }
-            set { _border.OverlapAppButton = value; }
+            get => _border.OverlapAppButton;
+            set => _border.OverlapAppButton = value;
         }
         #endregion
 
@@ -151,7 +151,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 Rectangle viewRect = _borderContents.ParentControl.RectangleToScreen(_extraButton.ClientRectangle);
 
                 // The keytip should be centered on the bottom center of the view
-                Point screenPt = new Point(viewRect.Left + (viewRect.Width / 2) - borders.Left,
+                Point screenPt = new Point((viewRect.Left + (viewRect.Width / 2)) - borders.Left,
                                            viewRect.Bottom - 2 - borders.Top);
 
                 // Create fixed key tip of '00' that invokes the extra button contoller

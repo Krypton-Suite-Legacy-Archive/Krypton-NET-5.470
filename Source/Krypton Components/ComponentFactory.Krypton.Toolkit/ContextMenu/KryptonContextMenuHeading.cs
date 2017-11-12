@@ -30,7 +30,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _extraText;
         private Image _image;
         private Color _imageTransparentColor;
-        private PaletteTripleRedirect _stateNormal;
         private PaletteRedirectTriple _redirectHeading;
         #endregion
 
@@ -59,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _redirectHeading = new PaletteRedirectTriple();
 
             // Create the header storage for overriding specific values
-            _stateNormal = new PaletteTripleRedirect(_redirectHeading, 
+            StateNormal = new PaletteTripleRedirect(_redirectHeading, 
                                                      PaletteBackStyle.ContextMenuHeading,
                                                      PaletteBorderStyle.ContextMenuHeading,
                                                      PaletteContentStyle.ContextMenuHeading);
@@ -81,20 +80,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount 
-        {
-            get { return 0; }
-        }
+        public override int ItemChildCount => 0;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return null; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => null;
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -135,8 +128,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("Heading")]
         public string Text
         {
-            get { return _text; }
-            
+            get => _text;
+
             set 
             {
                 if (_text != value)
@@ -158,8 +151,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public string ExtraText
         {
-            get { return _extraText; }
-            
+            get => _extraText;
+
             set 
             {
                 if (_extraText != value)
@@ -180,8 +173,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public Image Image
         {
-            get { return _image; }
-            
+            get => _image;
+
             set 
             {
                 if (_image != value)
@@ -201,8 +194,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
-            
+            get => _imageTransparentColor;
+
             set 
             {
                 if (_imageTransparentColor != value)
@@ -225,14 +218,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining header instance specific appearance values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTripleRedirect StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 

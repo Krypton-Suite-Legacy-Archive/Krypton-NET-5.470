@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Workspace
 	public class PageLoadingEventArgs : XmlLoadingEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Workspace
                                     XmlReader xmlReader)
             : base(workspace, xmlReader)
 		{
-            _page = page;
+            Page = page;
 		}
 		#endregion
 
@@ -42,11 +42,8 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the workspace cell page reference.
 		/// </summary>
-        public KryptonPage Page
-		{
-            get { return _page; }
-            set { _page = value; }
-		}
-        #endregion
+        public KryptonPage Page { get; set; }
+
+	    #endregion
 	}
 }

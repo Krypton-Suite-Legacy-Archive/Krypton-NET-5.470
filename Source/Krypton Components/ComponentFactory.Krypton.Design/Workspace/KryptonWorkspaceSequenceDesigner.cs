@@ -120,9 +120,8 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Grab the workspace control that contains the top most sequence
-                if ((workspaceItem != null) && (workspaceItem is KryptonWorkspaceSequence))
+                if (workspaceItem is KryptonWorkspaceSequence sequence)
                 {
-                    KryptonWorkspaceSequence sequence = (KryptonWorkspaceSequence)workspaceItem;
                     workspace = sequence.WorkspaceControl;
                 }
 

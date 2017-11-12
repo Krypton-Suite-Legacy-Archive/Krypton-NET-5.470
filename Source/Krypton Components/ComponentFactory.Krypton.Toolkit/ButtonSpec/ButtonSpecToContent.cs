@@ -43,15 +43,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if the mapping produces any content.
         /// </summary>
-        public bool HasContent
-        {
-            get
-            {
-                return (GetImage(PaletteState.Normal) != null) ||
-                        !string.IsNullOrEmpty(GetShortText()) ||
-                        !string.IsNullOrEmpty(GetLongText());
-            }
-        }
+        public bool HasContent => (GetImage(PaletteState.Normal) != null) ||
+                                  !string.IsNullOrEmpty(GetShortText()) ||
+                                  !string.IsNullOrEmpty(GetLongText());
+
         #endregion
 
         #region IContentValues

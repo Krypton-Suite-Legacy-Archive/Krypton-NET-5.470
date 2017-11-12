@@ -39,24 +39,13 @@ namespace ComponentFactory.Krypton.Ribbon
         private string _textLine2;
         private Image _imageLarge;
         private string _keyTip;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonGallery _gallery;
-        private KryptonGallery _lastGallery;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _galleryView;
         private GroupItemSize _itemSizeMax;
         private GroupItemSize _itemSizeMin;
         private GroupItemSize _itemSizeCurrent;
         private int _largeItemCount;
         private int _mediumItemCount;
-        private int _itemCount;
         private int _dropButtonItemWidth;
-        private Image _toolTipImage;
-        private Color _toolTipImageTransparentColor;
-        private LabelStyle _toolTipStyle;
-        private string _toolTipTitle;
-        private string _toolTipBody;
+
         #endregion
 
         #region Events
@@ -139,13 +128,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _imageLarge = _defaultButtonImageLarge;
             _textLine1 = "Gallery";
             _textLine2 = string.Empty;
-            _toolTipImageTransparentColor = Color.Empty;
-            _toolTipTitle = string.Empty;
-            _toolTipBody = string.Empty;
-            _toolTipStyle = LabelStyle.SuperTip;
+            ToolTipImageTransparentColor = Color.Empty;
+            ToolTipTitle = string.Empty;
+            ToolTipBody = string.Empty;
+            ToolTipStyle = LabelStyle.SuperTip;
 
             // Create the actual text box control and set initial settings
-            _gallery = new KryptonGallery
+            Gallery = new KryptonGallery
             {
                 AlwaysActive = false,
                 TabStop = false,
@@ -153,15 +142,15 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            _gallery.SelectedIndexChanged += new EventHandler(OnGallerySelectedIndexChanged);
-            _gallery.ImageListChanged += new EventHandler(OnGalleryImageListChanged);
-            _gallery.TrackingImage += new EventHandler<ImageSelectEventArgs>(OnGalleryTrackingImage);
-            _gallery.GalleryDropMenu += new EventHandler<GalleryDropMenuEventArgs>(OnGalleryGalleryDropMenu);
-            _gallery.GotFocus += new EventHandler(OnGalleryGotFocus);
-            _gallery.LostFocus += new EventHandler(OnGalleryLostFocus);
+            Gallery.SelectedIndexChanged += new EventHandler(OnGallerySelectedIndexChanged);
+            Gallery.ImageListChanged += new EventHandler(OnGalleryImageListChanged);
+            Gallery.TrackingImage += new EventHandler<ImageSelectEventArgs>(OnGalleryTrackingImage);
+            Gallery.GalleryDropMenu += new EventHandler<GalleryDropMenuEventArgs>(OnGalleryGalleryDropMenu);
+            Gallery.GotFocus += new EventHandler(OnGalleryGotFocus);
+            Gallery.LostFocus += new EventHandler(OnGalleryLostFocus);
 
             // Ensure we can track mouse events on the gallery
-            MonitorControl(_gallery);
+            MonitorControl(Gallery);
         }
         #endregion
         
@@ -173,10 +162,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonGallery Gallery
-        {
-            get { return _gallery; }
-        }
+        public KryptonGallery Gallery { get; }
 
         /// <summary>
         /// Gets the collection of drop down ranges.
@@ -185,10 +171,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Collection of drop down ranges")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonGalleryRangeCollection DropButtonRanges
-        {
-            get { return _gallery.DropButtonRanges; }
-        }
+        public KryptonGalleryRangeCollection DropButtonRanges => Gallery.DropButtonRanges;
 
         /// <summary>
         /// Gets and sets if scrolling is animated or a jump straight to target..
@@ -198,11 +181,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool SmoothScrolling
         {
-            get { return _gallery.SmoothScrolling; }
-            
+            get => Gallery.SmoothScrolling;
+
             set 
             { 
-                _gallery.SmoothScrolling = value;
+                Gallery.SmoothScrolling = value;
                 OnPropertyChanged("SmoothScrolling");
             }
         }
@@ -214,13 +197,13 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Collection of images for display and selection.")]
         public ImageList ImageList
         {
-            get { return _gallery.ImageList; }
+            get => Gallery.ImageList;
 
             set
             {
-                if (_gallery.ImageList != value)
+                if (Gallery.ImageList != value)
                 {
-                    _gallery.ImageList = value;
+                    Gallery.ImageList = value;
                     OnPropertyChanged("ImageList");
                 }
             }
@@ -234,13 +217,13 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int SelectedIndex
         {
-            get { return _gallery.SelectedIndex; }
-            
+            get => Gallery.SelectedIndex;
+
             set 
             {
-                if (_gallery.SelectedIndex != value)
+                if (Gallery.SelectedIndex != value)
                 {
-                    _gallery.SelectedIndex = value;
+                    Gallery.SelectedIndex = value;
                     OnPropertyChanged("SelectedIndex");
                 }
             }
@@ -254,7 +237,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(9)]
         public int LargeItemCount
         {
-            get { return _largeItemCount; }
+            get => _largeItemCount;
 
             set
             {
@@ -281,7 +264,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(3)]
         public int MediumItemCount
         {
-            get { return _mediumItemCount; }
+            get => _mediumItemCount;
 
             set
             {
@@ -308,7 +291,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(9)]
         public int DropButtonItemWidth
         {
-            get { return _dropButtonItemWidth; }
+            get => _dropButtonItemWidth;
 
             set
             {
@@ -329,13 +312,13 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(128)]
         public int DropMaxItemWidth
         {
-            get { return _gallery.DropMaxItemWidth; }
-            
+            get => Gallery.DropMaxItemWidth;
+
             set 
             {
-                if (_gallery.DropMaxItemWidth != value)
+                if (Gallery.DropMaxItemWidth != value)
                 {
-                    _gallery.DropMaxItemWidth = value;
+                    Gallery.DropMaxItemWidth = value;
                     OnPropertyChanged("DropMaxItemWidth");
                 }
             }
@@ -349,13 +332,13 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(3)]
         public int DropMinItemWidth
         {
-            get { return _gallery.DropMinItemWidth; }
-            
+            get => Gallery.DropMinItemWidth;
+
             set 
             {
-                if (_gallery.DropMinItemWidth != value)
+                if (Gallery.DropMinItemWidth != value)
                 {
-                    _gallery.DropMinItemWidth = value;
+                    Gallery.DropMinItemWidth = value;
                     OnPropertyChanged("DropMinItemWidth");
                 }
             }
@@ -369,8 +352,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _gallery.ContextMenuStrip; }
-            set { _gallery.ContextMenuStrip = value; }
+            get => Gallery.ContextMenuStrip;
+            set => Gallery.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -381,8 +364,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _gallery.KryptonContextMenu; }
-            set { _gallery.KryptonContextMenu = value; }
+            get => Gallery.KryptonContextMenu;
+            set => Gallery.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -395,7 +378,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("X")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -418,7 +401,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image ImageLarge
         {
-            get { return _imageLarge; }
+            get => _imageLarge;
 
             set
             {
@@ -446,7 +429,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("Gallery")]
         public string TextLine1
         {
-            get { return _textLine1; }
+            get => _textLine1;
 
             set
             {
@@ -475,7 +458,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string TextLine2
         {
-            get { return _textLine2; }
+            get => _textLine2;
 
             set
             {
@@ -493,11 +476,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Appearance")]
         [Description("Tooltip style for the group button.")]
         [DefaultValue(typeof(LabelStyle), "SuperTip")]
-        public LabelStyle ToolTipStyle
-        {
-            get { return _toolTipStyle; }
-            set { _toolTipStyle = value; }
-        }
+        public LabelStyle ToolTipStyle { get; set; }
 
         /// <summary>
         /// Gets and sets the image for the item ToolTip.
@@ -507,11 +486,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Display image associated ToolTip.")]
         [DefaultValue(null)]
         [Localizable(true)]
-        public Image ToolTipImage
-        {
-            get { return _toolTipImage; }
-            set { _toolTipImage = value; }
-        }
+        public Image ToolTipImage { get; set; }
 
         /// <summary>
         /// Gets and sets the color to draw as transparent in the ToolTipImage.
@@ -521,11 +496,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Color to draw as transparent in the ToolTipImage.")]
         [KryptonDefaultColorAttribute()]
         [Localizable(true)]
-        public Color ToolTipImageTransparentColor
-        {
-            get { return _toolTipImageTransparentColor; }
-            set { _toolTipImageTransparentColor = value; }
-        }
+        public Color ToolTipImageTransparentColor { get; set; }
 
         /// <summary>
         /// Gets and sets the title text for the item ToolTip.
@@ -536,11 +507,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
         [Localizable(true)]
-        public string ToolTipTitle
-        {
-            get { return _toolTipTitle; }
-            set { _toolTipTitle = value; }
-        }
+        public string ToolTipTitle { get; set; }
 
         /// <summary>
         /// Gets and sets the body text for the item ToolTip.
@@ -551,11 +518,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
         [Localizable(true)]
-        public string ToolTipBody
-        {
-            get { return _toolTipBody; }
-            set { _toolTipBody = value; }
-        }
+        public string ToolTipBody { get; set; }
 
         /// <summary>
         /// Gets and sets the visible state of the group gallery.
@@ -569,7 +532,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -606,8 +569,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
-            
+            get => _enabled;
+
             set 
             {
                 if (_enabled != value)
@@ -630,8 +593,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public GroupItemSize MaximumSize
         {
-            get { return ItemSizeMaximum; }
-            set { ItemSizeMaximum = value; }
+            get => ItemSizeMaximum;
+            set => ItemSizeMaximum = value;
         }
 
         /// <summary>
@@ -646,8 +609,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public GroupItemSize MinimumSize
         {
-            get { return ItemSizeMinimum; }
-            set { ItemSizeMinimum = value; }
+            get => ItemSizeMinimum;
+            set => ItemSizeMinimum = value;
         }
 
         /// <summary>
@@ -658,7 +621,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMaximum 
         {
-            get { return _itemSizeMax; }
+            get => _itemSizeMax;
 
             set
             {
@@ -678,7 +641,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMinimum
         {
-            get { return _itemSizeMin; }
+            get => _itemSizeMin;
 
             set
             {
@@ -698,8 +661,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
-            
+            get => _itemSizeCurrent;
+
             set 
             {
                 _itemSizeCurrent = value;
@@ -707,10 +670,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 switch (value)
                 {
                     case GroupItemSize.Large:
-                        _gallery.InternalPreferredItemSize = new Size(InternalItemCount, 1);
+                        Gallery.InternalPreferredItemSize = new Size(InternalItemCount, 1);
                         break;
                     case GroupItemSize.Medium:
-                        _gallery.InternalPreferredItemSize = new Size(MediumItemCount, 1);
+                        Gallery.InternalPreferredItemSize = new Size(MediumItemCount, 1);
                         break;
                 }
 
@@ -737,11 +700,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject GalleryDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject GalleryDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.
@@ -749,67 +708,33 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase GalleryView
-        {
-            get { return _galleryView; }
-            set { _galleryView = value; }
-        }
+        public ViewBase GalleryView { get; set; }
+
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonGallery LastGallery
-        {
-            get { return _lastGallery; }
-            set { _lastGallery = value; }
-        }
+        internal KryptonGallery LastGallery { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
             DesignTimeContextMenu?.Invoke(this, e);
         }
 
-        internal int InternalItemCount
-        {
-            get { return _itemCount; }
-            set { _itemCount = value; }
-        }
+        internal int InternalItemCount { get; set; }
 
-        internal override LabelStyle InternalToolTipStyle
-        {
-            get { return ToolTipStyle; }
-        }
+        internal override LabelStyle InternalToolTipStyle => ToolTipStyle;
 
-        internal override Image InternalToolTipImage
-        {
-            get { return ToolTipImage; }
-        }
+        internal override Image InternalToolTipImage => ToolTipImage;
 
-        internal override Color InternalToolTipImageTransparentColor
-        {
-            get { return ToolTipImageTransparentColor; }
-        }
+        internal override Color InternalToolTipImageTransparentColor => ToolTipImageTransparentColor;
 
-        internal override string InternalToolTipTitle
-        {
-            get { return ToolTipTitle; }
-        }
+        internal override string InternalToolTipTitle => ToolTipTitle;
 
-        internal override string InternalToolTipBody
-        {
-            get { return ToolTipBody; }
-        }
+        internal override string InternalToolTipBody => ToolTipBody;
 
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

@@ -23,13 +23,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IMouseController
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+
         private bool _active;
         private bool _mouseOver;
         private bool _mouseDown;
-        private bool _fixedPressed;
-        private bool _hasFocus;
-        private ViewBase _target;
         private NeedPaintHandler _needPaint;
         private Timer _updateTimer;
         #endregion
@@ -56,8 +53,8 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(target != null);
             Debug.Assert(needPaint != null);
 
-            _ribbon = ribbon;
-            _target = target;
+            Ribbon = ribbon;
+            Target = target;
             _needPaint = needPaint;
 
             _updateTimer = new Timer
@@ -72,41 +69,32 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon instance.
         /// </summary>
-        public KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-        }
+        public KryptonRibbon Ribbon { get; }
+
         #endregion
 
         #region Target
         /// <summary>
         /// Gets access to the target view for this controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target { get; }
+
         #endregion
 
         #region HasFocus
         /// <summary>
         /// Gets and sets the focus flag.
         /// </summary>
-        public bool HasFocus
-        {
-            get { return _hasFocus; }
-            set { _hasFocus = value; }
-        }
+        public bool HasFocus { get; set; }
+
         #endregion
 
         #region IsFixed
         /// <summary>
         /// Is the controller fixed in the pressed state.
         /// </summary>
-        public bool IsFixed
-        {
-            get { return _fixedPressed; }
-        }
+        public bool IsFixed { get; private set; }
+
         #endregion
 
         #region SetFixed
@@ -116,7 +104,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public void SetFixed()
         {
             // Show the button as pressed, until told otherwise
-            _fixedPressed = true;
+            IsFixed = true;
         }
         #endregion
 
@@ -126,13 +114,13 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void RemoveFixed()
         {
-            if (_fixedPressed)
+            if (IsFixed)
             {
                 // Mouse no longer considered pressed down
                 _mouseDown = false;
 
                 // No longer in fixed state mode
-                _fixedPressed = false;
+                IsFixed = false;
 
                 // Update appearance to reflect current state
                 _updateTimer.Start();
@@ -151,13 +139,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _mouseOver = true;
 
             // Get the form we are inside
-            KryptonForm ownerForm = _ribbon.FindKryptonForm();
+            KryptonForm ownerForm = Ribbon.FindKryptonForm();
             _active = ((ownerForm != null) && ownerForm.WindowActive) ||
                       VisualPopupManager.Singleton.IsTracking ||
-                      _ribbon.InDesignMode ||
+                      Ribbon.InDesignMode ||
                       (CommonHelper.ActiveFloatingWindow != null);
 
-            if (!_fixedPressed)
+            if (!IsFixed)
             {
                 _updateTimer.Start();
             }
@@ -170,7 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
         {
-            if (!_fixedPressed)
+            if (!IsFixed)
             {
                 // Oops, we should really be in mouse over state
                 if (!_mouseOver)
@@ -199,7 +187,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _mouseDown = true;
 
                 // If already in fixed mode, then ignore mouse down
-                if (!_fixedPressed && _ribbon.Enabled)
+                if (!IsFixed && Ribbon.Enabled)
                 {
                     // Mouse is being pressed
                     UpdateTargetState();
@@ -235,7 +223,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Mouse is no longer over the target
             _mouseOver = false;
 
-            if (!_fixedPressed)
+            if (!IsFixed)
             {
                 _updateTimer.Start();
             }
@@ -252,10 +240,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
         #endregion
 
         #region Protected
@@ -268,10 +254,10 @@ namespace ComponentFactory.Krypton.Ribbon
             PaletteState newState = PaletteState.Normal;
 
             // Only allow another state if the ribbon is enabled
-            if (_ribbon.Enabled)
+            if (Ribbon.Enabled)
             {
                 // Are we showing with the fixed state?
-                if (_fixedPressed)
+                if (IsFixed)
                 {
                     newState = PaletteState.Pressed;
                 }
@@ -290,16 +276,16 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Only interested in changes of state
-            if (_target.ElementState != newState)
+            if (Target.ElementState != newState)
             {
                 // Update state
-                _target.ElementState = newState;
+                Target.ElementState = newState;
 
                 // Need to repaint just the target client area
-                OnNeedPaint(false, _target.ClientRectangle);
+                OnNeedPaint(false, Target.ClientRectangle);
 
                 // Get the repaint to happen immediately
-                if (!_ribbon.InKeyboardMode)
+                if (!Ribbon.InKeyboardMode)
                 {
                     Application.DoEvents();
                 }

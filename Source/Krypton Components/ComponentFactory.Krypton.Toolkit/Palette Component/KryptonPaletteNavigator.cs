@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteNavigator : Storage
     {
         #region Instance Fields
-        private KryptonPaletteNavigatorState _stateCommon;
+
         #endregion
 
         #region Identity
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirect != null);
             
             // Create the storage objects
-            _stateCommon = new KryptonPaletteNavigatorState(redirect, needPaint);
+            StateCommon = new KryptonPaletteNavigatorState(redirect, needPaint);
         }
         #endregion
 
@@ -43,13 +43,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return _stateCommon.IsDefault;
-            }
-        }
+        public override bool IsDefault => StateCommon.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -58,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void PopulateFromBase()
         {
-            _stateCommon.PopulateFromBase();
+            StateCommon.PopulateFromBase();
         }
         #endregion
 
@@ -70,14 +65,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common navigator appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteNavigatorState StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public KryptonPaletteNavigatorState StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     }

@@ -23,13 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private PaletteRedirectContent _itemStandard;
         private PaletteRedirectContent _itemAlternate;
 
-        private PaletteDoubleMetricRedirect _redirectItemHighlight;
-        private PaletteTripleJustImageRedirect _redirectItemImage;
-        private PaletteContentInheritRedirect _redirectItemShortcutText;
-        private PaletteDoubleRedirect _redirectItemSplit;
-        private PaletteContentInheritRedirect _redirectItemTextStandard;
-        private PaletteContentInheritRedirect _redirectItemTextAlternate;
-        #endregion
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -44,12 +38,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _itemStandard = new PaletteRedirectContent();
             _itemAlternate = new PaletteRedirectContent();
 
-            _redirectItemHighlight = new PaletteDoubleMetricRedirect(_itemHighlight, PaletteBackStyle.ContextMenuItemHighlight, PaletteBorderStyle.ContextMenuItemHighlight);
-            _redirectItemImage = new PaletteTripleJustImageRedirect(_itemImage, PaletteBackStyle.ContextMenuItemImage, PaletteBorderStyle.ContextMenuItemImage, PaletteContentStyle.ContextMenuItemImage);
-            _redirectItemShortcutText = new PaletteContentInheritRedirect(_itemShortcutText, PaletteContentStyle.ContextMenuItemShortcutText);
-            _redirectItemSplit = new PaletteDoubleRedirect(_itemSplit, PaletteBackStyle.ContextMenuSeparator, PaletteBorderStyle.ContextMenuSeparator);
-            _redirectItemTextStandard = new PaletteContentInheritRedirect(_itemStandard, PaletteContentStyle.ContextMenuItemTextStandard);
-            _redirectItemTextAlternate = new PaletteContentInheritRedirect(_itemAlternate, PaletteContentStyle.ContextMenuItemTextAlternate);
+            ItemHighlight = new PaletteDoubleMetricRedirect(_itemHighlight, PaletteBackStyle.ContextMenuItemHighlight, PaletteBorderStyle.ContextMenuItemHighlight);
+            ItemImage = new PaletteTripleJustImageRedirect(_itemImage, PaletteBackStyle.ContextMenuItemImage, PaletteBorderStyle.ContextMenuItemImage, PaletteContentStyle.ContextMenuItemImage);
+            ItemShortcutText = new PaletteContentInheritRedirect(_itemShortcutText, PaletteContentStyle.ContextMenuItemShortcutText);
+            ItemSplit = new PaletteDoubleRedirect(_itemSplit, PaletteBackStyle.ContextMenuSeparator, PaletteBorderStyle.ContextMenuSeparator);
+            ItemTextStandard = new PaletteContentInheritRedirect(_itemStandard, PaletteContentStyle.ContextMenuItemTextStandard);
+            ItemTextAlternate = new PaletteContentInheritRedirect(_itemAlternate, PaletteContentStyle.ContextMenuItemTextAlternate);
         }
 		#endregion
 
@@ -57,11 +51,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get { return true; }
-        }
-        #endregion
+        public override bool IsDefault => true;
+
+	    #endregion
 
         #region SetRedirector
         /// <summary>
@@ -90,60 +82,48 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the item image highlight entries.
         /// </summary>
-        public PaletteDoubleMetricRedirect ItemHighlight
-        {
-            get { return _redirectItemHighlight; }
-        }
-        #endregion
+        public PaletteDoubleMetricRedirect ItemHighlight { get; }
+
+	    #endregion
 
         #region ItemImage
         /// <summary>
         /// Gets access to the item image appearance entries.
         /// </summary>
-        public PaletteTripleJustImageRedirect ItemImage
-        {
-            get { return _redirectItemImage; }
-        }
-        #endregion
+        public PaletteTripleJustImageRedirect ItemImage { get; }
+
+	    #endregion
 
         #region ItemShortcutText
         /// <summary>
         /// Gets access to the item shortcut text appearance entries.
         /// </summary>
-        public PaletteContentInheritRedirect ItemShortcutText
-        {
-            get { return _redirectItemShortcutText; }
-        }
-        #endregion
+        public PaletteContentInheritRedirect ItemShortcutText { get; }
+
+	    #endregion
 
         #region ItemSplit
         /// <summary>
         /// Gets access to the item split appearance entries.
         /// </summary>
-        public PaletteDoubleRedirect ItemSplit
-        {
-            get { return _redirectItemSplit; }
-        }
-        #endregion
+        public PaletteDoubleRedirect ItemSplit { get; }
+
+	    #endregion
 
         #region ItemTextAlternate
         /// <summary>
         /// Gets access to the alternate item text appearance entries.
         /// </summary>
-        public PaletteContentInheritRedirect ItemTextAlternate
-        {
-            get { return _redirectItemTextAlternate; }
-        }
-        #endregion
+        public PaletteContentInheritRedirect ItemTextAlternate { get; }
+
+	    #endregion
 
         #region ItemTextStandard
         /// <summary>
         /// Gets access to the standard item text appearance entries.
         /// </summary>
-        public PaletteContentInheritRedirect ItemTextStandard
-        {
-            get { return _redirectItemTextStandard; }
-        }
-        #endregion
+        public PaletteContentInheritRedirect ItemTextStandard { get; }
+
+	    #endregion
     }
 }

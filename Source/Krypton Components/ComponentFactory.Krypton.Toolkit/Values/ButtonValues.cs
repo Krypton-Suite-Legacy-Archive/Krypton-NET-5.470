@@ -31,8 +31,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private Color _transparent;
         private string _text;
 		private string _extraText;
-        private ButtonImageStates _imageStates;
-		#endregion
+
+	    #endregion
 
         #region Events
         /// <summary>
@@ -56,8 +56,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _transparent = Color.Empty;
             _text = _defaultText;
 			_extraText = _defaultExtraText;
-            _imageStates = CreateImageStates();
-            _imageStates.NeedPaint = needPaint;
+            ImageStates = CreateImageStates();
+            ImageStates.NeedPaint = needPaint;
 		}
 		#endregion
 
@@ -66,18 +66,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (ImageStates.IsDefault &&
-                        (Image == null) &&
-                        (ImageTransparentColor == Color.Empty) &&
-                        (Text == _defaultText) &&
-					    (ExtraText == _defaultExtraText));
-			}
-		}
-		#endregion
+		public override bool IsDefault => (ImageStates.IsDefault &&
+		                                   (Image == null) &&
+		                                   (ImageTransparentColor == Color.Empty) &&
+		                                   (Text == _defaultText) &&
+		                                   (ExtraText == _defaultExtraText));
+
+	    #endregion
 
         #region Image
 		/// <summary>
@@ -89,9 +84,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get { return _image; }
+			get => _image;
 
-			set
+		    set
 			{
 				if (_image != value)
 				{
@@ -126,7 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageTransparentColor
         {
-            get { return _transparent; }
+            get => _transparent;
 
             set
             {
@@ -169,14 +164,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("State specific images for the button.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ButtonImageStates ImageStates
-        {
-            get { return _imageStates; }
-        }
+        public ButtonImageStates ImageStates { get; }
 
-        private bool ShouldSerializeImageStates()
+	    private bool ShouldSerializeImageStates()
         {
-            return !_imageStates.IsDefault;
+            return !ImageStates.IsDefault;
         }
         #endregion
 
@@ -191,9 +183,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public string Text
 		{
-			get { return _text; }
+			get => _text;
 
-			set
+		    set
 			{
 				if (_text != value)
 				{
@@ -230,9 +222,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
 		public string ExtraText
 		{
-			get { return _extraText; }
+			get => _extraText;
 
-			set
+		    set
 			{
 				if (_extraText != value)
 				{
@@ -281,16 +273,16 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (state)
             {
                 case PaletteState.Disabled:
-                    image = _imageStates.ImageDisabled;
+                    image = ImageStates.ImageDisabled;
                     break;
                 case PaletteState.Normal:
-                    image = _imageStates.ImageNormal;
+                    image = ImageStates.ImageNormal;
                     break;
                 case PaletteState.Pressed:
-                    image = _imageStates.ImagePressed;
+                    image = ImageStates.ImagePressed;
                     break;
                 case PaletteState.Tracking:
-                    image = _imageStates.ImageTracking;
+                    image = ImageStates.ImageTracking;
                     break;
             }
 

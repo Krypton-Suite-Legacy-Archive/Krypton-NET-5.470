@@ -36,14 +36,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault && 
-                        (HeaderLocation == HeaderLocation.PrimaryHeader));
-            }
-        }
+        public override bool IsDefault => (base.IsDefault && 
+                                           (HeaderLocation == HeaderLocation.PrimaryHeader));
+
         #endregion
 
         #region HeaderLocation
@@ -57,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(HeaderLocation), "PrimaryHeader")]
         public HeaderLocation HeaderLocation
         {
-            get { return _location; }
+            get => _location;
 
             set
             {

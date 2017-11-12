@@ -21,16 +21,10 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewLayoutDocker : ViewComposite
 	{
 		#region Instance Fields
-		private VisualOrientation _orientation;
-        private ViewDockStyleLookup _childDocking;
-		private Rectangle _fillRectangle;
-        private PaletteDrawBorders _maxBorderEdges;
-        private bool _preferredSizeAll;
-        private bool _removeChildBorders;
-        private bool _ignoreRightToLeftLayout;
-        private Padding _padding;
-        private object _tag;
-        #endregion
+
+	    private ViewDockStyleLookup _childDocking;
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -42,13 +36,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _childDocking = new ViewDockStyleLookup();
 
             // Default state
-            _fillRectangle = Rectangle.Empty;
-            _orientation = VisualOrientation.Top;
-            _maxBorderEdges = PaletteDrawBorders.All;
-            _preferredSizeAll = false;
-            _removeChildBorders = false;
-            _ignoreRightToLeftLayout = false;
-            _padding = Padding.Empty;
+            FillRectangle = Rectangle.Empty;
+            Orientation = VisualOrientation.Top;
+            MaxBorderEdges = PaletteDrawBorders.All;
+            PreferredSizeAll = false;
+            RemoveChildBorders = false;
+            IgnoreRightToLeftLayout = false;
+            Padding = Padding.Empty;
         }
 
 		/// <summary>
@@ -66,77 +60,57 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets if the RightToLeftLayout ability is used.
         /// </summary>
-        public bool IgnoreRightToLeftLayout
-        {
-            get { return _ignoreRightToLeftLayout; }
-            set { _ignoreRightToLeftLayout = value; }
-        }
-        #endregion
+        public bool IgnoreRightToLeftLayout { get; set; }
+
+	    #endregion
 
         #region Orientation
         /// <summary>
         /// Gets and sets the visual orientation.
         /// </summary>
-        public VisualOrientation Orientation
-        {
-            get { return _orientation; }
-            set { _orientation = value; }
-        }
-        #endregion
+        public VisualOrientation Orientation { get; set; }
+
+	    #endregion
 
         #region Padding
         /// <summary>
         /// Gets and sets the padding around the edges.
         /// </summary>
-        public Padding Padding
-        {
-            get { return _padding; }
-            set { _padding = value; }
-        }
-        #endregion
+        public Padding Padding { get; set; }
+
+	    #endregion
 
         #region MaxBorderEdges
         /// <summary>
         /// Gets and sets the maximum edges allowed.
         /// </summary>
-        public PaletteDrawBorders MaxBorderEdges
-        {
-            get { return _maxBorderEdges; }
-            set { _maxBorderEdges = value; }
-        }
-        #endregion
+        public PaletteDrawBorders MaxBorderEdges { get; set; }
+
+	    #endregion
 
         #region RemoveChildBorders
         /// <summary>
         /// Gets and sets a value indicating if borders for docking edged children should be removed to prevent double borders.
         /// </summary>
-        public bool RemoveChildBorders
-        {
-            get { return _removeChildBorders; }
-            set { _removeChildBorders = value; }
-        }
-        #endregion
+        public bool RemoveChildBorders { get; set; }
+
+	    #endregion
 
         #region PreferredSizeAll
         /// <summary>
         /// Gets and sets a value indicating if calculating the preferred size should include visible and invisible children.
         /// </summary>
-        public bool PreferredSizeAll
-        {
-            get { return _preferredSizeAll; }
-            set { _preferredSizeAll = value; }
-        }
-        #endregion
+        public bool PreferredSizeAll { get; set; }
+
+	    #endregion
 
 		#region FillRect
 		/// <summary>
 		/// Gets the fill rectangle left after positioning all children.
 		/// </summary>
-		public Rectangle FillRectangle
-		{
-			get { return _fillRectangle; }
-		}
-		#endregion
+		public Rectangle FillRectangle { get; private set; }
+
+	    #endregion
 
 		#region Dock
 		/// <summary>
@@ -201,12 +175,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets data with the view.
         /// </summary>
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
-        #endregion
+        public object Tag { get; set; }
+
+	    #endregion
 
         #region Layout
         /// <summary>
@@ -477,7 +448,7 @@ namespace ComponentFactory.Krypton.Toolkit
             context.DisplayRectangle = ClientRectangle;
 
             // Remember the filler size
-			_fillRectangle = fillerRect;
+			FillRectangle = fillerRect;
 		}
 		#endregion
 

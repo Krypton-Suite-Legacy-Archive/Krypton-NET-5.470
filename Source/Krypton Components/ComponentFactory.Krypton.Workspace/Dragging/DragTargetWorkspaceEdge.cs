@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Workspace
     public class DragTargetWorkspaceEdge : DragTargetWorkspace
     {
         #region Instance Fields
-        private VisualOrientation _edge;
+
         #endregion
 
         #region Identity
@@ -50,16 +50,16 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 case DragTargetHint.Transfer:
                 case DragTargetHint.EdgeLeft:
-                    _edge = VisualOrientation.Left;
+                    Edge = VisualOrientation.Left;
                     break;
                 case DragTargetHint.EdgeRight:
-                    _edge = VisualOrientation.Right;
+                    Edge = VisualOrientation.Right;
                     break;
                 case DragTargetHint.EdgeTop:
-                    _edge = VisualOrientation.Top;
+                    Edge = VisualOrientation.Top;
                     break;
                 case DragTargetHint.EdgeBottom:
-                    _edge = VisualOrientation.Bottom;
+                    Edge = VisualOrientation.Bottom;
                     break;
                 default:
                     Debug.Assert(false);
@@ -72,10 +72,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the dragging edge.
         /// </summary>
-        public VisualOrientation Edge
-        {
-            get { return _edge; }
-        }
+        public VisualOrientation Edge { get; }
 
         /// <summary>
         /// Perform the drop action associated with the target.

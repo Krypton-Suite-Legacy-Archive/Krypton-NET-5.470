@@ -19,11 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorOther : Storage
     {
         #region Instance Fields
-        private PaletteTriple _paletteCheckButton;
-        private PaletteTriple _paletteOverflowButton;
-        private PaletteTriple _paletteMiniButton;
-        private PaletteTabTriple _paletteTab;
-        private PaletteRibbonTabContent _paletteRibbonTab;
+
         #endregion
 
         #region Identity
@@ -36,11 +32,11 @@ namespace ComponentFactory.Krypton.Navigator
                                      NeedPaintHandler needPaint) 
 		{
             // Create the palette storage
-            _paletteCheckButton = new PaletteTriple(redirect.CheckButton, needPaint);
-            _paletteOverflowButton = new PaletteTriple(redirect.OverflowButton, needPaint);
-            _paletteMiniButton = new PaletteTriple(redirect.MiniButton, needPaint);
-            _paletteTab = new PaletteTabTriple(redirect.Tab, needPaint);
-            _paletteRibbonTab = new PaletteRibbonTabContent(redirect.RibbonTab.TabDraw, redirect.RibbonTab.TabDraw, redirect.RibbonTab.Content, needPaint);
+            CheckButton = new PaletteTriple(redirect.CheckButton, needPaint);
+            OverflowButton = new PaletteTriple(redirect.OverflowButton, needPaint);
+            MiniButton = new PaletteTriple(redirect.MiniButton, needPaint);
+            Tab = new PaletteTabTriple(redirect.Tab, needPaint);
+            RibbonTab = new PaletteRibbonTabContent(redirect.RibbonTab.TabDraw, redirect.RibbonTab.TabDraw, redirect.RibbonTab.Content, needPaint);
         }
         #endregion
 
@@ -49,18 +45,13 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (_paletteCheckButton.IsDefault &&
-                        _paletteOverflowButton.IsDefault &&
-                        _paletteMiniButton.IsDefault &&
-                        _paletteTab.IsDefault &&
-                        _paletteRibbonTab.IsDefault);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (CheckButton.IsDefault &&
+		                                   OverflowButton.IsDefault &&
+		                                   MiniButton.IsDefault &&
+		                                   Tab.IsDefault &&
+		                                   RibbonTab.IsDefault);
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -69,11 +60,11 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="inheritNavigator">Source for inheriting.</param>
         public virtual void SetInherit(PaletteNavigator inheritNavigator)
         {
-            _paletteCheckButton.SetInherit(inheritNavigator.CheckButton);
-            _paletteOverflowButton.SetInherit(inheritNavigator.OverflowButton);
-            _paletteMiniButton.SetInherit(inheritNavigator.MiniButton);
-            _paletteTab.SetInherit(inheritNavigator.Tab);
-            _paletteRibbonTab.SetInherit(inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.Content);
+            CheckButton.SetInherit(inheritNavigator.CheckButton);
+            OverflowButton.SetInherit(inheritNavigator.OverflowButton);
+            MiniButton.SetInherit(inheritNavigator.MiniButton);
+            Tab.SetInherit(inheritNavigator.Tab);
+            RibbonTab.SetInherit(inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.Content);
         }
         #endregion
 
@@ -84,14 +75,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining check button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple CheckButton
-        {
-            get { return _paletteCheckButton; }
-        }
+        public PaletteTriple CheckButton { get; }
 
         private bool ShouldSerializeCheckButton()
         {
-            return !_paletteCheckButton.IsDefault;
+            return !CheckButton.IsDefault;
         }
         #endregion
 
@@ -102,14 +90,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook overflow button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple OverflowButton
-        {
-            get { return _paletteOverflowButton; }
-        }
+        public PaletteTriple OverflowButton { get; }
 
         private bool ShouldSerializeOverflowButton()
         {
-            return !_paletteOverflowButton.IsDefault;
+            return !OverflowButton.IsDefault;
         }
         #endregion
 
@@ -120,14 +105,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook mini button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple MiniButton
-        {
-            get { return _paletteMiniButton; }
-        }
+        public PaletteTriple MiniButton { get; }
 
         private bool ShouldSerializeMiniButton()
         {
-            return !_paletteMiniButton.IsDefault;
+            return !MiniButton.IsDefault;
         }
         #endregion
 
@@ -138,14 +120,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple Tab
-        {
-            get { return _paletteTab; }
-        }
+        public PaletteTabTriple Tab { get; }
 
         private bool ShouldSerializeTab()
         {
-            return !_paletteTab.IsDefault;
+            return !Tab.IsDefault;
         }
         #endregion
 
@@ -156,14 +135,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining ribbon tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonTabContent RibbonTab
-        {
-            get { return _paletteRibbonTab; }
-        }
+        public PaletteRibbonTabContent RibbonTab { get; }
 
         private bool ShouldSerializeRibbonTab()
         {
-            return !_paletteRibbonTab.IsDefault;
+            return !RibbonTab.IsDefault;
         }
         #endregion
     }

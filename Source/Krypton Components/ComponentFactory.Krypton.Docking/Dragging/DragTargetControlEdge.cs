@@ -23,8 +23,7 @@ namespace ComponentFactory.Krypton.Docking
     public class DragTargetControlEdge : DragTarget
     {
         #region Instance Fields
-        private VisualOrientation _edge;
-        private KryptonDockingControl _controlElement;
+
         private bool _outsideEdge;
         #endregion
 
@@ -48,7 +47,7 @@ namespace ComponentFactory.Krypton.Docking
                                      bool outsideEdge)
             : base(screenRect, hotRect, drawRect, hint, allowFlags)
         {
-            _controlElement = controlElement;
+            ControlElement = controlElement;
             _outsideEdge = outsideEdge;
 
             // Find the orientation by looking for a matching hint (we need to exclude flags from the hint enum)
@@ -56,16 +55,16 @@ namespace ComponentFactory.Krypton.Docking
             {
                 case DragTargetHint.Transfer:
                 case DragTargetHint.EdgeLeft:
-                    _edge = VisualOrientation.Left;
+                    Edge = VisualOrientation.Left;
                     break;
                 case DragTargetHint.EdgeRight:
-                    _edge = VisualOrientation.Right;
+                    Edge = VisualOrientation.Right;
                     break;
                 case DragTargetHint.EdgeTop:
-                    _edge = VisualOrientation.Top;
+                    Edge = VisualOrientation.Top;
                     break;
                 case DragTargetHint.EdgeBottom:
-                    _edge = VisualOrientation.Bottom;
+                    Edge = VisualOrientation.Bottom;
                     break;
                 default:
                     Debug.Assert(false);
@@ -81,7 +80,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             if (disposing)
             {
-                _controlElement = null;
+                ControlElement = null;
             }
 
             base.Dispose(disposing);
@@ -92,18 +91,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the dragging edge.
         /// </summary>
-        public VisualOrientation Edge
-        {
-            get { return _edge; }
-        }
+        public VisualOrientation Edge { get; }
 
         /// <summary>
         /// Gets the target docking element.
         /// </summary>
-        public KryptonDockingControl ControlElement
-        {
-            get { return _controlElement; }
-        }
+        public KryptonDockingControl ControlElement { get; private set; }
 
         /// <summary>
         /// Is this target a match for the provided screen position.

@@ -27,21 +27,16 @@ namespace ComponentFactory.Krypton.Toolkit
 									 IEnumerable<ViewBase>
 	{
 		#region Instance Fields
-		private bool _disposed;
-		private bool _enabled;
+
+	    private bool _enabled;
         private bool _enableDependant;
         private bool _visible;
         private bool _fixed;
-		private ViewBase _parent;
-        private ViewBase _enableDependantView;
-        private Component _component;
-        private Rectangle _clientRect;
+	    private ViewBase _enableDependantView;
+	    private Rectangle _clientRect;
         private PaletteState _fixedState;
         private PaletteState _elementState;
-		private IMouseController _mouseController;
-        private IKeyController _keyController;
-        private ISourceController _sourceController;
-        private Control _owningControl;
+	    private Control _owningControl;
 		#endregion
 
 		#region Identity
@@ -97,25 +92,22 @@ namespace ComponentFactory.Krypton.Toolkit
 			if (disposing)
 			{
                 // Remove reference to parent view
-                _parent = null;
+                Parent = null;
 
                 // No need to call destructor once dispose has occured
 				GC.SuppressFinalize(this);
 			}
 
 			// Mark as disposed
-			_disposed = true;
+			IsDisposed = true;
 		}
 
 		/// <summary>
 		/// Gets a value indicating if the view has been disposed.
 		/// </summary>
-		public bool IsDisposed
-		{
-			get { return _disposed; }
-		}
+		public bool IsDisposed { get; private set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Obtains the String representation of this instance.
 		/// </summary>
 		/// <returns>User readable name of the instance.</returns>
@@ -144,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            set { _owningControl = value; }
+            set => _owningControl = value;
         }
         #endregion
 
@@ -228,12 +220,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the component associated with the element.
         /// </summary>
-        public virtual Component Component
-        {
-            get { return _component; }
-            set { _component = value; }
-        }
-        #endregion
+        public virtual Component Component { get; set; }
+
+	    #endregion
 
         #region Eval
         /// <summary>
@@ -284,12 +273,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public ViewBase Parent
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _parent; }
-			set { _parent = value; }
-		}
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Append a view to the collection.
 		/// </summary>
 		/// <param name="item">ViewBase reference.</param>
@@ -411,31 +400,32 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public virtual IMouseController MouseController
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _mouseController; }
-			set { _mouseController = value; }
-		}
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the associated key controller.
         /// </summary>
         public virtual IKeyController KeyController
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _keyController; }
-            set { _keyController = value; }
-        }
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the associated source controller.
         /// </summary>
         public virtual ISourceController SourceController
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _sourceController; }
-            set { _sourceController = value; }
-        }
-        #endregion
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        set;
+	    }
+
+	    #endregion
 
 		#region Mouse Events
         /// <summary>

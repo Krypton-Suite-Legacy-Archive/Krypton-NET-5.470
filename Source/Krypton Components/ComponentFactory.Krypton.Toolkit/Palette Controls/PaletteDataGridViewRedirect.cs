@@ -52,16 +52,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get { 
-                    return (Background.IsDefault &&
-                            DataCell.IsDefault &&
-                            HeaderColumn.IsDefault &&
-                            HeaderRow.IsDefault);
-                }
-		}
-		#endregion
+		public override bool IsDefault => (Background.IsDefault &&
+		                                   DataCell.IsDefault &&
+		                                   HeaderColumn.IsDefault &&
+		                                   HeaderRow.IsDefault);
+
+	    #endregion
 
         #region SetRedirector
         /// <summary>
@@ -85,8 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PaletteBackStyle BackStyle
         {
-            get { return _background.BackStyle; }
-            set { _background.BackStyle = value; }
+            get => _background.BackStyle;
+            set => _background.BackStyle = value;
         }
         #endregion
 
@@ -150,21 +146,16 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining data grid view background appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteBack Background
-        {
-            get { return _background.Back; }
-        }
+        public virtual PaletteBack Background => _background.Back;
 
-        private bool ShouldSerializeBackground()
+	    private bool ShouldSerializeBackground()
         {
             return !_background.IsDefault;
         }
 
-        internal IPaletteDouble BackgroundDouble
-        {
-            get { return _background; }
-        }
-        #endregion
+        internal IPaletteDouble BackgroundDouble => _background;
+
+	    #endregion
 
         #region DataCell
         /// <summary>
@@ -174,12 +165,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining data cell appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteDataGridViewTripleRedirect DataCell
-        {
-            get { return _dataCell; }
-        }
+        public virtual PaletteDataGridViewTripleRedirect DataCell => _dataCell;
 
-        private bool ShouldSerializeDataCell()
+	    private bool ShouldSerializeDataCell()
         {
             return !_dataCell.IsDefault;
         }
@@ -193,12 +181,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining header column cell appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteDataGridViewTripleRedirect HeaderColumn
-        {
-            get { return _headerColumn; }
-        }
+        public virtual PaletteDataGridViewTripleRedirect HeaderColumn => _headerColumn;
 
-        private bool ShouldSerializeHeaderColumn()
+	    private bool ShouldSerializeHeaderColumn()
         {
             return !_headerColumn.IsDefault;
         }
@@ -212,12 +197,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining header row cell appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteDataGridViewTripleRedirect HeaderRow
-        {
-            get { return _headerRow; }
-        }
+        public virtual PaletteDataGridViewTripleRedirect HeaderRow => _headerRow;
 
-        private bool ShouldSerializeHeaderRow()
+	    private bool ShouldSerializeHeaderRow()
         {
             return !_headerRow.IsDefault;
         }

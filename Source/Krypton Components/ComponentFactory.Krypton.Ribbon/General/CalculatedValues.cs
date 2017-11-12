@@ -41,16 +41,6 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Instance Fields
         private PaletteRibbonShape _lastShape;
         private KryptonRibbon _ribbon;
-        private int _rawFontHeight;
-        private int _drawFontHeight;
-        private int _tabHeight;
-        private int _groupTitleHeight;
-        private int _groupLineContentHeight;
-        private int _groupLineHeight;
-        private int _groupLineGapHeight;
-        private int _groupTripleHeight;
-        private int _groupHeight;
-        private int _groupsHeight;
         private int _groupHeightModifier;
         private int _groupsHeightModifier;
         #endregion
@@ -97,38 +87,38 @@ namespace ComponentFactory.Krypton.Ribbon
             Font font = _ribbon.StateCommon.RibbonGeneral.GetRibbonTextFont(PaletteState.Normal);
 
             // Cache common font height related values
-            _rawFontHeight = font.Height;
+            RawFontHeight = font.Height;
 
-            _drawFontHeight = _rawFontHeight + FONT_HEIGHT_EXTRA;
+            DrawFontHeight = RawFontHeight + FONT_HEIGHT_EXTRA;
 
             // Height of all tabs in the tabs area
-            _tabHeight = _drawFontHeight + TABS_TOP_GAP;
+            TabHeight = DrawFontHeight + TABS_TOP_GAP;
 
             // Find the height of the group title area (must be minimum size to show the dialog launcher button)
-            _groupTitleHeight = Math.Max(_drawFontHeight, DIALOG_MIN_HEIGHT);
+            GroupTitleHeight = Math.Max(DrawFontHeight, DIALOG_MIN_HEIGHT);
 
             // Get the height needed for showing the content of a group line
-            _groupLineContentHeight = Math.Max(_drawFontHeight, GROUP_LINE_CONTENT_MIN);
+            GroupLineContentHeight = Math.Max(DrawFontHeight, GROUP_LINE_CONTENT_MIN);
 
             // Group line height must be the content plus spacing gap and then border
-            _groupLineHeight = _groupLineContentHeight + GROUP_LINE_CONTENT_EXTRA;
+            GroupLineHeight = GroupLineContentHeight + GROUP_LINE_CONTENT_EXTRA;
 
             // Group inside height is 3 group lines plus space at bottom of the lines
-            _groupTripleHeight = (_groupLineHeight * 3);
+            GroupTripleHeight = (GroupLineHeight * 3);
 
             // The gap between lines is one of the lines divide by a gap above, between and below lines
-            _groupLineGapHeight = (_groupLineHeight / 3);
+            GroupLineGapHeight = (GroupLineHeight / 3);
 
             // Group height is the inside plus title area at bottom and the top border
-            _groupHeight = _groupTripleHeight + GROUP_INSIDE_BOTTOM_GAP + _groupTitleHeight + GROUP_TOP_BORDER;
+            GroupHeight = GroupTripleHeight + GROUP_INSIDE_BOTTOM_GAP + GroupTitleHeight + GROUP_TOP_BORDER;
 
             // Size of the groups area (not including the top pixel that is placed in the tabs
             // area is the height of a group plus the bottom and top gaps).
-            _groupsHeight = _groupHeight + GROUPS_BOTTOM_GAP + GROUPS_TOP_GAP;
+            GroupsHeight = GroupHeight + GROUPS_BOTTOM_GAP + GROUPS_TOP_GAP;
 
             // Apply shape specific modifiers
-            _groupHeight += _groupHeightModifier;
-            _groupsHeight += _groupsHeightModifier;
+            GroupHeight += _groupHeightModifier;
+            GroupsHeight += _groupsHeightModifier;
         }
         #endregion
 
@@ -136,100 +126,80 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the raw height of the ribbon font.
         /// </summary>
-        public int RawFontHeight
-        {
-            get { return _rawFontHeight; }
-        }
+        public int RawFontHeight { get; private set; }
+
         #endregion
 
         #region DrawFontHeight
         /// <summary>
         /// Gets the drawing height of the ribbon font.
         /// </summary>
-        public int DrawFontHeight
-        {
-            get { return _drawFontHeight; }
-        }
+        public int DrawFontHeight { get; private set; }
+
         #endregion
 
         #region TabHeight
         /// <summary>
         /// Gets the drawing height of a tab.
         /// </summary>
-        public int TabHeight
-        {
-            get { return _tabHeight; }
-        }
+        public int TabHeight { get; private set; }
+
         #endregion
 
         #region GroupTitleHeight
         /// <summary>
         /// Gets the drawing height of the ribbon font.
         /// </summary>
-        public int GroupTitleHeight
-        {
-            get { return _groupTitleHeight; }
-        }
+        public int GroupTitleHeight { get; private set; }
+
         #endregion
 
         #region GroupLineContentHeight
         /// <summary>
         /// Gets the drawing height of the content for a group line.
         /// </summary>
-        public int GroupLineContentHeight
-        {
-            get { return _groupLineContentHeight; }
-        }
+        public int GroupLineContentHeight { get; private set; }
+
         #endregion
 
         #region GroupLineHeight
         /// <summary>
         /// Gets the drawing height of one of the three group lines.
         /// </summary>
-        public int GroupLineHeight
-        {
-            get { return _groupLineHeight; }
-        }
+        public int GroupLineHeight { get; private set; }
+
         #endregion
 
         #region GroupLineGapHeight
         /// <summary>
         /// Gets the spacing height between two group lines.
         /// </summary>
-        public int GroupLineGapHeight
-        {
-            get { return _groupLineGapHeight; }
-        }
+        public int GroupLineGapHeight { get; private set; }
+
         #endregion
 
         #region GroupTripleHeight
         /// <summary>
         /// Gets the height of the triple height item.
         /// </summary>
-        public int GroupTripleHeight
-        {
-            get { return _groupTripleHeight; }
-        }
+        public int GroupTripleHeight { get; private set; }
+
         #endregion
 
         #region GroupHeight
         /// <summary>
         /// Gets the drawing height of a group.
         /// </summary>
-        public int GroupHeight
-        {
-            get { return _groupHeight; }
-        }
+        public int GroupHeight { get; private set; }
+
         #endregion
 
         #region GroupsHeight
         /// <summary>
         /// Gets the drawing height of the entire groups area not including top pixel line.
         /// </summary>
-        public int GroupsHeight
-        {
-            get { return _groupsHeight; }
-        }
+        public int GroupsHeight { get; private set; }
+
         #endregion
 
         #region KeyTipRectToPoint
@@ -249,7 +219,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     screenPt = new Point(viewRect.Left + KEYTIP_HOFFSET, viewRect.Top);
                     break;
                 case 2:
-                    screenPt = new Point(viewRect.Left + KEYTIP_HOFFSET, (viewRect.Top + viewRect.Height / 2) + KEYTIP_VOFFSET_LINE2);
+                    screenPt = new Point(viewRect.Left + KEYTIP_HOFFSET, (viewRect.Top + (viewRect.Height / 2)) + KEYTIP_VOFFSET_LINE2);
                     break;
                 case 3:
                     screenPt = new Point(viewRect.Left + KEYTIP_HOFFSET, viewRect.Bottom);

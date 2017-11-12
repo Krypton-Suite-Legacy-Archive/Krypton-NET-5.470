@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonProfessionalRenderer : ToolStripProfessionalRenderer
     {
         #region Instance Fields
-        private KryptonColorTable _kct;
+
         #endregion
 
         #region Identity
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(kct)
         {
             Debug.Assert(kct != null);
-            _kct = kct;
+            KCT = kct;
         }
         #endregion
 
@@ -40,10 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the KryptonColorTable instance.
         /// </summary>
-        public KryptonColorTable KCT
-        {
-            get { return _kct; }
-        }
+        public KryptonColorTable KCT { get; }
+
         #endregion
 
         #region OnRenderItemImage

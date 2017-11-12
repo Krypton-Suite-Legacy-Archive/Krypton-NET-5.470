@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int ColumnWidth
         {
-            set { _separator.SeparatorSize = new Size(value, 0); }
+            set => _separator.SeparatorSize = new Size(value, 0);
         }
         #endregion
 

@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteListItemTripleRedirect : Storage                                            
 	{
 		#region Instance Fields
-        private PaletteTripleRedirect _itemRedirect;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              NeedPaintHandler needPaint)
 		{
             Debug.Assert(redirect != null);
-            _itemRedirect = new PaletteTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
+            Item = new PaletteTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
 		}
 		#endregion
 
@@ -47,14 +47,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _itemRedirect.IsDefault;
-			}
-		}
-		#endregion
+		public override bool IsDefault => Item.IsDefault;
+
+	    #endregion
 
         #region Item
         /// <summary>
@@ -64,14 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect Item
-        {
-            get { return _itemRedirect; }
-        }
+        public PaletteTripleRedirect Item { get; }
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
-            return !_itemRedirect.IsDefault;
+            return !Item.IsDefault;
         }
         #endregion
     }

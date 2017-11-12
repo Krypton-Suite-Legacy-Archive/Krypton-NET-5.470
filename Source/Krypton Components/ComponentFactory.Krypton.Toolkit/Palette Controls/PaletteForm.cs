@@ -22,8 +22,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
         private IPaletteMetric _inherit;
-        private PaletteTripleMetric _paletteHeader;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _inherit = inheritForm;
 
 			// Create the palette storage
-            _paletteHeader = new PaletteTripleMetric(inheritHeader, needPaint);
+            Header = new PaletteTripleMetric(inheritHeader, needPaint);
         }
 		#endregion
 
@@ -53,14 +53,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (base.IsDefault && _paletteHeader.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault && Header.IsDefault);
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -71,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.SetInherit(inheritHeader);
             _inherit = inheritHeader;
-            _paletteHeader.SetInherit(inheritHeader.Header);
+            Header.SetInherit(inheritHeader.Header);
         }
         #endregion
 
@@ -82,14 +77,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric Header
-		{
-            get { return _paletteHeader; }
-		}
+        public PaletteTripleMetric Header { get; }
 
-        private bool ShouldSerializeHeader()
+	    private bool ShouldSerializeHeader()
 		{
-			return !_paletteHeader.IsDefault;
+			return !Header.IsDefault;
 		}
 		#endregion
 

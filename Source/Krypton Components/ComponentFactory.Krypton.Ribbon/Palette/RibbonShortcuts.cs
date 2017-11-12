@@ -28,9 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private Keys _toggleMinimizeMode;
-        private Keys _toggleKeyboardAccess1;
-        private Keys _toggleKeyboardAccess2;
+
         #endregion
 
         #region Identity
@@ -40,9 +38,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public RibbonShortcuts()
 		{
             // Default values
-            _toggleMinimizeMode = DEFAULT_TOGGLE_MINIMIZE_MODE;
-            _toggleKeyboardAccess1 = DEFAULT_TOGGLE_KEYBOARD_ACCESS1;
-            _toggleKeyboardAccess2 = DEFAULT_TOGGLE_KEYBOARD_ACCESS2;
+            ToggleMinimizeMode = DEFAULT_TOGGLE_MINIMIZE_MODE;
+            ToggleKeyboardAccess1 = DEFAULT_TOGGLE_KEYBOARD_ACCESS1;
+            ToggleKeyboardAccess2 = DEFAULT_TOGGLE_KEYBOARD_ACCESS2;
         }
 		#endregion
 
@@ -51,15 +49,10 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((ToggleMinimizeMode == DEFAULT_TOGGLE_MINIMIZE_MODE) &&
-                        (ToggleKeyboardAccess1 == DEFAULT_TOGGLE_KEYBOARD_ACCESS1) &&
-                        (ToggleKeyboardAccess2 == DEFAULT_TOGGLE_KEYBOARD_ACCESS2));
-            }
-        }
+        public override bool IsDefault => ((ToggleMinimizeMode == DEFAULT_TOGGLE_MINIMIZE_MODE) &&
+                                           (ToggleKeyboardAccess1 == DEFAULT_TOGGLE_KEYBOARD_ACCESS1) &&
+                                           (ToggleKeyboardAccess2 == DEFAULT_TOGGLE_KEYBOARD_ACCESS2));
+
         #endregion
 
         #region ToggleMinimizeMode
@@ -71,11 +64,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Shortcut to toggle the ribbon minimized mode.")]
         [DefaultValue(typeof(Keys), "F1, Control")]
-        public Keys ToggleMinimizeMode
-        {
-            get { return _toggleMinimizeMode; }
-            set { _toggleMinimizeMode = value; }
-        }
+        public Keys ToggleMinimizeMode { get; set; }
 
         private bool ShouldSerializeToggleMinimizeMode()
         {
@@ -100,11 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Shortcut to toggle keyboard access to the ribbon.")]
         [DefaultValue(typeof(Keys), "Menu, Alt")]
-        public Keys ToggleKeyboardAccess1
-        {
-            get { return _toggleKeyboardAccess1; }
-            set { _toggleKeyboardAccess1 = value; }
-        }
+        public Keys ToggleKeyboardAccess1 { get; set; }
 
         private bool ShouldSerializeToggleKeyboardAccess1()
         {
@@ -129,11 +114,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Shortcut to toggle keyboard access to the ribbon.")]
         [DefaultValue(typeof(Keys), "F10")]
-        public Keys ToggleKeyboardAccess2
-        {
-            get { return _toggleKeyboardAccess2; }
-            set { _toggleKeyboardAccess2 = value; }
-        }
+        public Keys ToggleKeyboardAccess2 { get; set; }
 
         private bool ShouldSerializeToggleKeyboardAccess2()
         {

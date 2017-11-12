@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonRibbon _ribbon;
         private IDisposable _mementoBack;
         private EventHandler _finishDelegate;
-        private bool _overflow;
+
         #endregion
 
         #region Events
@@ -99,21 +99,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the key tip target for this view.
         /// </summary>
-        public IRibbonKeyTipTarget KeyTipTarget
-        {
-            get { return SourceController as IRibbonKeyTipTarget; }
-        }
+        public IRibbonKeyTipTarget KeyTipTarget => SourceController as IRibbonKeyTipTarget;
+
         #endregion
 
         #region Overflow
         /// <summary>
         /// Gets and sets a value indicating if the button should be drawn as an overflow or context arrow.
         /// </summary>
-        public bool Overflow
-        {
-            get { return _overflow; }
-            set { _overflow = value; }
-        }
+        public bool Overflow { get; set; }
+
         #endregion
 
         #region Visible
@@ -122,8 +117,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return (_ribbon.Visible && base.Visible); }
-            set { base.Visible = value; }
+            get => (_ribbon.Visible && base.Visible);
+            set => base.Visible = value;
         }
         #endregion
 

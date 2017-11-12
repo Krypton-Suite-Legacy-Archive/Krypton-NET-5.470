@@ -33,8 +33,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPanel : VisualPanel
 	{
 		#region Instance Fields
-		private ViewDrawPanel _drawPanel;
-        private PaletteDoubleRedirect _stateCommon;
+
+	    private PaletteDoubleRedirect _stateCommon;
         private PaletteDouble _stateDisabled;
 		private PaletteDouble _stateNormal;
 		#endregion
@@ -84,9 +84,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Panel style.")]
 		public PaletteBackStyle PanelBackStyle
 		{
-            get { return _stateCommon.BackStyle; }
-			
-			set
+            get => _stateCommon.BackStyle;
+
+		    set
 			{
 				if (_stateCommon.BackStyle != value)
 				{
@@ -112,12 +112,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common panel appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack StateCommon
-        {
-            get { return _stateCommon.Back; }
-        }
+        public PaletteBack StateCommon => _stateCommon.Back;
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
             return !_stateCommon.Back.IsDefault;
         }
@@ -128,12 +125,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled panel appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteBack StateDisabled
-		{
-			get { return _stateDisabled.Back; }
-		}
+		public PaletteBack StateDisabled => _stateDisabled.Back;
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
             return !_stateDisabled.Back.IsDefault;
 		}
@@ -144,12 +138,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal panel appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack StateNormal
-		{
-            get { return _stateNormal.Back; }
-		}
+        public PaletteBack StateNormal => _stateNormal.Back;
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
             return !_stateNormal.Back.IsDefault;
 		}
@@ -161,7 +152,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void SetFixedState(PaletteState state)
         {
             // Request fixed state from the view
-            _drawPanel.FixedState = state;
+            ViewDrawPanel.FixedState = state;
         }
         #endregion
 
@@ -169,22 +160,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the view element used to draw the KryptonPanel.
         /// </summary>
-        protected ViewDrawPanel ViewDrawPanel
-        {
-            get { return _drawPanel; }
-        }
+        protected ViewDrawPanel ViewDrawPanel { get; private set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Raises the EnabledChanged event.
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
 		{
 			// Push correct palettes into the view
-            _drawPanel.SetPalettes(Enabled ? _stateNormal.Back : _stateDisabled.Back);
+            ViewDrawPanel.SetPalettes(Enabled ? _stateNormal.Back : _stateDisabled.Back);
 
             // Update with latest enabled state
-            _drawPanel.Enabled = Enabled;
+            ViewDrawPanel.Enabled = Enabled;
 
 			// Change in enabled state requires a layout and repaint
 			PerformNeedPaint(true);
@@ -198,10 +186,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private void Construct()
         {
             // Our view contains just a simple canvas that covers entire client area
-            _drawPanel = new ViewDrawPanel(_stateNormal.Back);
+            ViewDrawPanel = new ViewDrawPanel(_stateNormal.Back);
 
             // Create the view manager instance
-            ViewManager = new ViewManager(this, _drawPanel);
+            ViewManager = new ViewManager(this, ViewDrawPanel);
         }
         #endregion
     }

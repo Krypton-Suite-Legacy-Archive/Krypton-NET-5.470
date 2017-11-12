@@ -68,58 +68,34 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawDateTimeButton _buttonUp;
         private ViewDrawDateTimeButton _buttonDown;
         private ViewDrawDateTimeText _drawText;
-        private ViewDrawCheckBox _drawCheckBox;
-        private ViewLayoutCenter _layoutCheckBox;
-        private CheckBoxImages _checkBoxImages;
-        private PaletteInputControlTripleRedirect _stateCommon;
-        private PaletteInputControlTripleStates _stateDisabled;
-        private PaletteInputControlTripleStates _stateNormal;
-        private PaletteInputControlTripleStates _stateActive;
-        private DateTimePickerButtonSpecCollection _buttonSpecs;
-        private ButtonSpecManagerDraw _buttonManager;
+	    private ViewLayoutCenter _layoutCheckBox;
+	    private ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ToolTipManager _toolTipManager;
-        private KryptonContextMenuMonthCalendar _kmc;
+	    private KryptonContextMenuMonthCalendar _kmc;
         private InputControlStyle _inputControlStyle;
         private ButtonStyle _upDownButtonStyle;
         private ButtonStyle _dropButtonStyle;
-        private HeaderStyle _headerStyle;
-        private ButtonStyle _dayStyle;
-        private ButtonStyle _dayOfWeekStyle;
-        private Nullable<bool> _fixedActive;
+	    private Nullable<bool> _fixedActive;
         private DateTimePickerFormat _format;
-        private LeftRightAlignment _dropDownAlign;
-        private DateTime _maxDateTime;
+	    private DateTime _maxDateTime;
         private DateTime _minDateTime;
         private DateTime _dateTime;
         private DateTime _todayDate;
-        private Size _dimensions;
-        private DateTimeList _annualDates;
+	    private DateTimeList _annualDates;
         private DateTimeList _monthlyDates;
         private DateTimeList _dates;
         private string _customFormat;
-        private string _todayFormat;
-        private string _today;
+	    private string _today;
         private string _customNullText;
         private string _lastActiveFragment;
-        private bool _inRibbonDesignMode;
-        private bool _allowButtonSpecToolTips;
-        private bool _autoShift;
-        private bool _showAdornments;
+	    private bool _showAdornments;
         private bool _showUpDown;
         private bool _showCheckBox;
-        private bool _showWeekNumbers;
-        private bool _showTodayCircle;
-        private bool _showToday;
-        private bool _mouseOver;
-        private bool _dropped;
-        private bool _alwaysActive;
+	    private bool _alwaysActive;
         private bool _userSetDateTime;
         private bool _dropDownMonthChanged;
-        private bool _closeOnTodayClick;
-        private object _rawDateTime;
-        private Day _firstDayOfWeek;
-        private int _cachedHeight;
+	    private object _rawDateTime;
+	    private int _cachedHeight;
         #endregion
 
         #region Events
@@ -207,67 +183,67 @@ namespace ComponentFactory.Krypton.Toolkit
             _cachedHeight = -1;
             _alwaysActive = true;
             _showUpDown = false;
-            _autoShift = false;
+            AutoShift = false;
             _showAdornments = true;
             _showCheckBox = false;
-            _dropped = false;
-            _mouseOver = false;
-            _allowButtonSpecToolTips = false;
-            _showToday = true;
-            _showTodayCircle = true;
-            _closeOnTodayClick = false;
+            IsDropped = false;
+            IsMouseOver = false;
+            AllowButtonSpecToolTips = false;
+            CalendarShowToday = true;
+            CalendarShowTodayCircle = true;
+            CalendarCloseOnTodayClick = false;
             _userSetDateTime = false;
             _customFormat = string.Empty;
             _customNullText = string.Empty;
-            _todayFormat = "d";
+            CalendarTodayFormat = "d";
             _dateTime = DateTime.Now;
             _rawDateTime = _dateTime;
             _todayDate = DateTime.Now.Date;
             _maxDateTime = DateTime.MaxValue;
             _minDateTime = DateTime.MinValue;
-            _dropDownAlign = LeftRightAlignment.Left;
+            DropDownAlign = LeftRightAlignment.Left;
             _format = DateTimePickerFormat.Long;
             _inputControlStyle = InputControlStyle.Standalone;
             _upDownButtonStyle = ButtonStyle.InputControl;
             _dropButtonStyle = ButtonStyle.InputControl;
-            _headerStyle = HeaderStyle.Calendar;
-            _dayStyle = ButtonStyle.CalendarDay;
-            _dayOfWeekStyle = ButtonStyle.CalendarDay;
-            _dimensions = new Size(1, 1);
+            CalendarHeaderStyle = HeaderStyle.Calendar;
+            CalendarDayStyle = ButtonStyle.CalendarDay;
+            CalendarDayOfWeekStyle = ButtonStyle.CalendarDay;
+            CalendarDimensions = new Size(1, 1);
             _today = DEFAULT_TODAY;
-            _firstDayOfWeek = Day.Default;
+            CalendarFirstDayOfWeek = Day.Default;
             _annualDates = new DateTimeList();
             _monthlyDates = new DateTimeList();
             _dates = new DateTimeList();
             
 			// Create storage objects
-            _buttonSpecs = new DateTimePickerButtonSpecCollection(this);
+            ButtonSpecs = new DateTimePickerButtonSpecCollection(this);
 
 			// Create the palette storage
-            _stateCommon = new PaletteInputControlTripleRedirect(Redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, NeedPaintDelegate);
-            _stateDisabled = new PaletteInputControlTripleStates(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteInputControlTripleStates(_stateCommon, NeedPaintDelegate);
-            _stateActive = new PaletteInputControlTripleStates(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteInputControlTripleRedirect(Redirector, PaletteBackStyle.InputControlStandalone, PaletteBorderStyle.InputControlStandalone, PaletteContentStyle.InputControlStandalone, NeedPaintDelegate);
+            StateDisabled = new PaletteInputControlTripleStates(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteInputControlTripleStates(StateCommon, NeedPaintDelegate);
+            StateActive = new PaletteInputControlTripleStates(StateCommon, NeedPaintDelegate);
 
             // Add a checkbox to the left of the text area
-            _checkBoxImages = new CheckBoxImages(NeedPaintDelegate);
-            PaletteRedirectCheckBox paletteCheckBoxImages = new PaletteRedirectCheckBox(Redirector, _checkBoxImages);
-            _drawCheckBox = new ViewDrawCheckBox(paletteCheckBoxImages)
+            Images = new CheckBoxImages(NeedPaintDelegate);
+            PaletteRedirectCheckBox paletteCheckBoxImages = new PaletteRedirectCheckBox(Redirector, Images);
+            InternalViewDrawCheckBox = new ViewDrawCheckBox(paletteCheckBoxImages)
             {
                 CheckState = CheckState.Checked
             };
             _layoutCheckBox = new ViewLayoutCenter
             {
-                new ViewLayoutPadding(new Padding(1, 1, 4, 1), _drawCheckBox)
+                new ViewLayoutPadding(new Padding(1, 1, 4, 1), InternalViewDrawCheckBox)
             };
             _layoutCheckBox.Visible = false;
 
             // Need a controller for handling check box mouse input
-            CheckBoxController controller = new CheckBoxController(_drawCheckBox, _drawCheckBox, NeedPaintDelegate);
+            CheckBoxController controller = new CheckBoxController(InternalViewDrawCheckBox, InternalViewDrawCheckBox, NeedPaintDelegate);
             controller.Click += new EventHandler(OnCheckBoxClick);
             controller.Enabled = true;
-            _drawCheckBox.MouseController = controller;
-            _drawCheckBox.KeyController = controller;
+            InternalViewDrawCheckBox.MouseController = controller;
+            InternalViewDrawCheckBox.KeyController = controller;
 
             // Draws the text content of the control
             _drawText = new ViewDrawDateTimeText(this, NeedPaintDelegate);
@@ -309,7 +285,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerInner.Add(_upDownFit, ViewDockStyle.Right);
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            _drawDockerOuter = new ViewDrawDocker(StateNormal.Back, StateNormal.Border)
             {
                 { new ViewLayoutPadding(new Padding(2, 0, 1, 0), _drawDockerInner), ViewDockStyle.Fill }
             };
@@ -318,19 +294,19 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager = new ViewManager(this, _drawDockerOuter);
 
             // Create button specification collection manager
-            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, null,
+            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, ButtonSpecs, null,
                                                        new ViewDrawDocker[] { _drawDockerOuter },
-                                                       new IPaletteMetric[] { _stateCommon },
+                                                       new IPaletteMetric[] { StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary },
                                                        new GetToolStripRenderer(CreateToolStripRenderer),
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            _buttonManager.ToolTipManager = ToolTipManager;
 
             // Update alignment to match current RightToLeft settings
             UpdateForRightToLeft();
@@ -363,8 +339,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         /// <summary>
@@ -374,8 +350,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Font Font
         {
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         /// <summary>
@@ -385,8 +361,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         /// <summary>
@@ -398,8 +374,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -434,13 +410,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Specifies the number of rows and columns of months displayed.")]
         [DefaultValue(typeof(Size), "1,1")]
         [Localizable(true)]
-        public Size CalendarDimensions
-        {
-            get { return _dimensions; }
-            set { _dimensions = value; }
-        }
+        public Size CalendarDimensions { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets the label text for todays text. 
         /// </summary>
         [Category("MonthCalendar")]
@@ -449,9 +421,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string CalendarTodayText
         {
-            get { return _today; }
+            get => _today;
 
-            set
+	        set
             {
                 if (value == null)
                 {
@@ -477,70 +449,50 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("First day of the week.")]
         [DefaultValue(typeof(Day), "Default")]
         [Localizable(true)]
-        public Day CalendarFirstDayOfWeek
-        {
-            get { return _firstDayOfWeek; }
-            set { _firstDayOfWeek = value; }
-        }
+        public Day CalendarFirstDayOfWeek { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets if the control will display todays date.
         /// </summary>
         [Category("MonthCalendar")]
         [Description("Indicates whether this month calendar will display todays date.")]
         [DefaultValue(true)]
-        public bool CalendarShowToday
-        {
-            get { return _showToday; }
-            set { _showToday = value; }
-        }
+        public bool CalendarShowToday { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets if clicking the Today button closes the drop down menu.
         /// </summary>
         [Category("MonthCalendar")]
         [Description("Indicates if clicking the Today button closes the drop down menu.")]
         [DefaultValue(false)]
-        public bool CalendarCloseOnTodayClick
-        {
-            get { return _closeOnTodayClick; }
-            set { _closeOnTodayClick = value; }
-        }
+        public bool CalendarCloseOnTodayClick { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets if the control will circle the today date.
         /// </summary>
         [Category("MonthCalendar")]
         [Description("Indicates whether this month calendar will circle the today date.")]
         [DefaultValue(true)]
-        public bool CalendarShowTodayCircle
-        {
-            get { return _showTodayCircle; }
-            set { _showTodayCircle = value; }
-        }
+        public bool CalendarShowTodayCircle { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets if week numbers to the left of each row.
         /// </summary>
         [Category("MonthCalendar")]
         [Description("Indicates whether this month calendar will display week numbers to the left of each row.")]
         [DefaultValue(false)]
-        public bool CalendarShowWeekNumbers
-        {
-            get { return _showWeekNumbers; }
-            set { _showWeekNumbers = value; }
-        }
+        public bool CalendarShowWeekNumbers { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets today's date.
         /// </summary>
         [Category("MonthCalendar")]
         [Description("Today's date.")]
         public DateTime CalendarTodayDate
         {
-            get { return _todayDate; }
+            get => _todayDate;
 
-            set
+	        set
             {
                 if (value == null)
                 {
@@ -569,7 +521,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarAnnuallyBoldedDates
         {
-            get { return _annualDates.ToArray(); }
+            get => _annualDates.ToArray();
 
             set
             {
@@ -605,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarMonthlyBoldedDates
         {
-            get { return _monthlyDates.ToArray(); }
+            get => _monthlyDates.ToArray();
 
             set
             {
@@ -641,7 +593,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarBoldedDates
         {
-            get { return _dates.ToArray(); }
+            get => _dates.ToArray();
 
             set
             {
@@ -676,13 +628,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Alignment of the drop-down calendar on the KryptonDateTimePicker control.")]
         [DefaultValue(typeof(LeftRightAlignment), "Left")]
         [Localizable(true)]
-        public LeftRightAlignment DropDownAlign
-        {
-            get { return _dropDownAlign; }
-            set { _dropDownAlign = value; }
-        }
+        public LeftRightAlignment DropDownAlign { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets the date/time value assigned to the control that can be null.
         /// </summary>
         [Category("Appearance")]
@@ -692,9 +640,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public object ValueNullable
         {
-            get { return _rawDateTime; }
+            get => _rawDateTime;
 
-            set
+	        set
             {
                 // We only allow a null/DBNull (as a way of setting no value) or a DateTime value
                 if ((value == null) || (value is DBNull) || (value is DateTime))
@@ -709,11 +657,11 @@ namespace ComponentFactory.Krypton.Toolkit
                         if ((_rawDateTime == null) || (_rawDateTime is DBNull))
                         {
                             _rawDateTime = DBNull.Value;
-                            _drawCheckBox.CheckState = CheckState.Unchecked;
+                            InternalViewDrawCheckBox.CheckState = CheckState.Unchecked;
                         }
                         else
                         {
-                            _drawCheckBox.CheckState = CheckState.Checked;
+                            InternalViewDrawCheckBox.CheckState = CheckState.Checked;
                         }
 
                         // Do we need to update the date time value?
@@ -749,7 +697,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public void ResetValueNullable()
         {
             // Setting an explicit value means the check box should be set
-            _drawCheckBox.CheckState = CheckState.Checked;
+            InternalViewDrawCheckBox.CheckState = CheckState.Checked;
 
             // Set new values
             _userSetDateTime = false;
@@ -771,12 +719,12 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public DateTime Value
         {
-            get { return _dateTime; }
+            get => _dateTime;
 
             set
             {
                 // Setting an explicit value means the check box should be set
-                _drawCheckBox.CheckState = CheckState.Checked;
+                InternalViewDrawCheckBox.CheckState = CheckState.Checked;
 
                 // Even if the value is the same as the current value we need to note
                 // that it has been explicitly defined so we know it needs serializing
@@ -810,7 +758,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public void ResetValue()
         {
             // Setting an explicit value means the check box should be set
-            _drawCheckBox.CheckState = CheckState.Checked;
+            InternalViewDrawCheckBox.CheckState = CheckState.Checked;
 
             // Set new values
             _userSetDateTime = false;
@@ -832,7 +780,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.Repaint)]
         public DateTimePickerFormat Format
         {
-            get { return _format; }
+            get => _format;
 
             set
             {
@@ -854,7 +802,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.Repaint)]
         public bool RightToLeftLayout
         {
-            get { return _drawText.RightToLeftLayout; }
+            get => _drawText.RightToLeftLayout;
 
             set
             {
@@ -874,13 +822,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Determines if keyboard input will automatically shift to the next input field.")]
         [DefaultValue(false)]
-        public bool AutoShift
-        {
-            get { return _autoShift; }
-            set { _autoShift = value; }
-        }
+        public bool AutoShift { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets or sets a value indicating whether a spin button control (also known as an up-down control) is used to adjust the date/time value.
         /// </summary>
         [Category("Appearance")]
@@ -888,9 +832,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ShowUpDown
         {
-            get { return _showUpDown; }
+            get => _showUpDown;
 
-            set
+	        set
             {
                 if (_showUpDown != value)
                 {
@@ -910,7 +854,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ShowCheckBox
         {
-            get { return _showCheckBox; }
+            get => _showCheckBox;
 
             set
             {
@@ -931,7 +875,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool UseMnemonic
         {
-            get { return _buttonManager.UseMnemonic; }
+            get => _buttonManager.UseMnemonic;
 
             set
             {
@@ -950,7 +894,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Maximum allowable date.")]
         public DateTime MaxDate
         {
-            get { return EffectiveMaxDate(_maxDateTime); }
+            get => EffectiveMaxDate(_maxDateTime);
 
             set
             {
@@ -1006,7 +950,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Minimum allowable date.")]
         public DateTime MinDate
         {
-            get { return EffectiveMinDate(_minDateTime); }
+            get => EffectiveMinDate(_minDateTime);
 
             set
             {
@@ -1065,7 +1009,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Checked
         {
-            get { return (_drawCheckBox.CheckState == CheckState.Checked); }
+            get => (InternalViewDrawCheckBox.CheckState == CheckState.Checked);
 
             set
             {
@@ -1073,12 +1017,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value)
                     {
-                        _drawCheckBox.CheckState = CheckState.Checked;
+                        InternalViewDrawCheckBox.CheckState = CheckState.Checked;
                         _rawDateTime = _dateTime;
                     }
                     else
                     {
-                        _drawCheckBox.CheckState = CheckState.Unchecked;
+                        InternalViewDrawCheckBox.CheckState = CheckState.Unchecked;
                         _rawDateTime = DBNull.Value;
                     }
 
@@ -1100,7 +1044,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string CustomFormat
         {
-            get { return _customFormat; }
+            get => _customFormat;
 
             set
             {
@@ -1122,7 +1066,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string CustomNullText
         {
-            get { return _customNullText; }
+            get => _customNullText;
 
             set
             {
@@ -1142,24 +1086,16 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("d")]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Localizable(true)]
-        public string CalendarTodayFormat
-        {
-            get { return _todayFormat; }
-            set { _todayFormat = value; }
-        }
+        public string CalendarTodayFormat { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the header style for the month calendar.
         /// </summary>
         [Category("Visuals - MonthCalendar")]
         [Description("Header style for the month calendar.")]
-        public HeaderStyle CalendarHeaderStyle
-        {
-            get { return _headerStyle; }
-            set { _headerStyle = value; }
-        }
+        public HeaderStyle CalendarHeaderStyle { get; set; }
 
-        private void ResetCalendarHeaderStyle()
+	    private void ResetCalendarHeaderStyle()
         {
             CalendarHeaderStyle = HeaderStyle.Calendar;
         }
@@ -1174,13 +1110,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Category("Visuals - MonthCalendar")]
         [Description("Content style for the day entries.")]
-        public ButtonStyle CalendarDayStyle
-        {
-            get { return _dayStyle; }
-            set { _dayStyle = value; }
-        }
+        public ButtonStyle CalendarDayStyle { get; set; }
 
-        private void ResetCalendarDayStyle()
+	    private void ResetCalendarDayStyle()
         {
             CalendarDayStyle = ButtonStyle.CalendarDay;
         }
@@ -1195,13 +1127,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Category("Visuals - MonthCalendar")]
         [Description("Content style for the day of week labels.")]
-        public ButtonStyle CalendarDayOfWeekStyle
-        {
-            get { return _dayOfWeekStyle; }
-            set { _dayOfWeekStyle = value; }
-        }
+        public ButtonStyle CalendarDayOfWeekStyle { get; set; }
 
-        private void ResetCalendarDayOfWeekStyle()
+	    private void ResetCalendarDayOfWeekStyle()
         {
             CalendarDayOfWeekStyle = ButtonStyle.CalendarDay;
         }
@@ -1219,9 +1147,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteMode), "Global")]
         public new PaletteMode PaletteMode
         {
-            get { return base.PaletteMode; }
-            set { base.PaletteMode = value; }
-        }
+            get => base.PaletteMode;
+		    set => base.PaletteMode = value;
+		}
 
 		/// <summary>
 		/// Gets and sets the custom palette implementation.
@@ -1231,9 +1159,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public new IPalette Palette
         {
-            get { return base.Palette; }
-            set { base.Palette = value; }
-        }
+            get => base.Palette;
+		    set => base.Palette = value;
+		}
 
         /// <summary>
         /// Gets and sets Determines if the control is always active or only when the mouse is over the control or has focus.
@@ -1243,7 +1171,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AlwaysActive
         {
-            get { return _alwaysActive; }
+            get => _alwaysActive;
 
             set
             {
@@ -1261,14 +1189,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals - DateTimePicker")]
         [Description("CheckBox image overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public CheckBoxImages Images
-        {
-            get { return _checkBoxImages; }
-        }
+        public CheckBoxImages Images { get; }
 
-        private bool ShouldSerializeImages()
+	    private bool ShouldSerializeImages()
         {
-            return !_checkBoxImages.IsDefault;
+            return !Images.IsDefault;
         }
 
         /// <summary>
@@ -1278,17 +1203,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Input control style.")]
         public InputControlStyle InputControlStyle
         {
-            get
-            {
-                return _inputControlStyle;
-            }
+            get => _inputControlStyle;
 
             set
             {
                 if (_inputControlStyle != value)
                 {
                     _inputControlStyle = value;
-                    _stateCommon.SetStyles(value);
+                    StateCommon.SetStyles(value);
                     PerformNeedPaint(true);
                 }
             }
@@ -1311,7 +1233,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Up and down buttons style.")]
         public ButtonStyle UpDownButtonStyle
         {
-            get { return _upDownButtonStyle; }
+            get => _upDownButtonStyle;
 
             set
             {
@@ -1341,7 +1263,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("DropButton style.")]
         public ButtonStyle DropButtonStyle
         {
-            get { return _dropButtonStyle; }
+            get => _dropButtonStyle;
 
             set
             {
@@ -1370,37 +1292,27 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals - DateTimePicker")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DateTimePickerButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DateTimePickerButtonSpecCollection ButtonSpecs { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
         /// </summary>
         [Category("Visuals - DateTimePicker")]
         [Description("Should tooltips be displayed for button specs.")]
         [DefaultValue(false)]
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the common date time picker appearance entries that other states can override.
         /// </summary>
         [Category("Visuals - DateTimePicker")]
         [Description("Overrides for defining common date time picker appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteInputControlTripleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -1409,14 +1321,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals - DateTimePicker")]
         [Description("Overrides for defining disabled date time picker appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleStates StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteInputControlTripleStates StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -1425,14 +1334,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals - DateTimePicker")]
         [Description("Overrides for defining normal date time picker appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleStates StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteInputControlTripleStates StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -1441,14 +1347,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals - DateTimePicker")]
         [Description("Overrides for defining active date time picker appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleStates StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteInputControlTripleStates StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
+	    private bool ShouldSerializeStateActive()
         {
-            return !_stateActive.IsDefault;
+            return !StateActive.IsDefault;
         }
 
         /// <summary>
@@ -1458,7 +1361,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ActiveFragment
         {
-            get { return _drawText.ActiveFragment; }
+            get => _drawText.ActiveFragment;
 
             set
             {
@@ -1528,12 +1431,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the input control is active.
         /// </summary>
         [Browsable(false)]
@@ -1548,7 +1448,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return (DesignMode || AlwaysActive || ContainsFocus || _mouseOver);
+                    return (DesignMode || AlwaysActive || ContainsFocus || IsMouseOver);
                 }
             }
         }
@@ -1558,22 +1458,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IsMouseOver
-        {
-            get { return _mouseOver; }
-        }
+        public bool IsMouseOver { get; private set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the drop down calendar is showing.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IsDropped
-        {
-            get { return _dropped; }
-        }
+        public bool IsDropped { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the image used for the ribbon tab.
         /// </summary>
         /// <param name="state">Tab state.</param>
@@ -1617,13 +1511,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public bool InRibbonDesignMode
-        {
-            get { return _inRibbonDesignMode; }
-            set { _inRibbonDesignMode = value; }
-        }
+        public bool InRibbonDesignMode { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Get the preferred size of the control based on a proposed size.
         /// </summary>
         /// <param name="proposedSize">Starting size proposed by the caller.</param>
@@ -1696,7 +1586,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool ShowBorder
         {
-            set { _drawDockerOuter.IgnoreAllBorderAndPadding = !value; }
+            set => _drawDockerOuter.IgnoreAllBorderAndPadding = !value;
         }
 
         /// <summary>
@@ -1855,7 +1745,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // At design time inside the ribbon we are transparent to the mouse
-            if ((m.Msg == (int)PI.WM_NCHITTEST) && _inRibbonDesignMode)
+            if ((m.Msg == (int)PI.WM_NCHITTEST) && InRibbonDesignMode)
             {
                 // Allow actions to occur to window beneath us
                 m.Result = (IntPtr)PI.HTTRANSPARENT;
@@ -1925,13 +1815,13 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnKeyDown(KeyEventArgs e)
         {
             // Cannot process a message for a disposed control
-            if (!IsDisposed && !Disposing && !_inRibbonDesignMode)
+            if (!IsDisposed && !Disposing && !InRibbonDesignMode)
             {
                 // Special case pressing the spacebar
                 if (e.KeyCode == Keys.Space)
                 {
                     // If focus is on the checkbox then invert checked state
-                    if (_drawCheckBox.ForcedTracking)
+                    if (InternalViewDrawCheckBox.ForcedTracking)
                     {
                         Checked = !Checked;
                     }
@@ -1953,7 +1843,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             // Cannot process a message for a disposed control
-            if (!IsDisposed && !Disposing && !_inRibbonDesignMode)
+            if (!IsDisposed && !Disposing && !InRibbonDesignMode)
             {
                 _drawText.PerformKeyPress(e);
                 CheckActiveFragment();
@@ -1969,7 +1859,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             // Cannot process a message for a disposed control
-            if (!IsDisposed && !Disposing && !_inRibbonDesignMode)
+            if (!IsDisposed && !Disposing && !InRibbonDesignMode)
             {
                 // We treat positive numbers as moving upwards
                 KeyEventArgs kpea = new KeyEventArgs((e.Delta < 0) ? Keys.Down : Keys.Up);
@@ -1997,7 +1887,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateStateAndPalettes();
 
             _drawText.Enabled = Enabled;
-            _drawCheckBox.Enabled = Enabled;
+            InternalViewDrawCheckBox.Enabled = Enabled;
             _buttonDropDown.Enabled = Enabled;
             _buttonDown.Enabled = Enabled;
             _buttonUp.Enabled = Enabled;
@@ -2030,18 +1920,18 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If the point is after any optional checkbox
                 if (!ShowCheckBox || 
-                    (ShowCheckBox && !rtl && Checked && (e.X > _drawCheckBox.ClientRectangle.Right)) ||
-                    (ShowCheckBox && rtl && Checked && (e.X < _drawCheckBox.ClientRectangle.Left)))
+                    (ShowCheckBox && !rtl && Checked && (e.X > InternalViewDrawCheckBox.ClientRectangle.Right)) ||
+                    (ShowCheckBox && rtl && Checked && (e.X < InternalViewDrawCheckBox.ClientRectangle.Left)))
                 {
                     // Ask the draw text to set the active fragment to the mouse click
-                    _drawCheckBox.ForcedTracking = false;
+                    InternalViewDrawCheckBox.ForcedTracking = false;
                     _drawText.SelectFragment(new Point(e.X, e.Y), e.Button);
                     CheckActiveFragment();
                 }
                 else
                 {
                     // Make the checkbox the active element
-                    _drawCheckBox.ForcedTracking = true;
+                    InternalViewDrawCheckBox.ForcedTracking = true;
                     _drawText.ClearActiveFragment();
                     CheckActiveFragment();
                 }
@@ -2101,7 +1991,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            _mouseOver = true;
+            IsMouseOver = true;
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
         }
@@ -2113,7 +2003,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            _mouseOver = false;
+            IsMouseOver = false;
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
         }
@@ -2134,7 +2024,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If we have a checbox then give it the focus
                 if (ShowCheckBox)
                 {
-                    _drawCheckBox.ForcedTracking = true;
+                    InternalViewDrawCheckBox.ForcedTracking = true;
                 }
                 else
                 {
@@ -2154,7 +2044,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnLostFocus(EventArgs e)
         {
             base.OnLostFocus(e);
-            _drawCheckBox.ForcedTracking = false;
+            InternalViewDrawCheckBox.ForcedTracking = false;
             _drawText.HasFocus = false;
             _drawText.ClearActiveFragment();
             CheckActiveFragment();
@@ -2209,12 +2099,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(240, PreferredHeight); }
-        }
+        protected override Size DefaultSize => new Size(240, PreferredHeight);
 
-        /// <summary>
+	    /// <summary>
         /// Processes a notification from palette storage of a button spec change.
         /// </summary>
         /// <param name="sender">Source of notification.</param>
@@ -2240,17 +2127,11 @@ namespace ComponentFactory.Krypton.Toolkit
             return (_rawDateTime == DBNull.Value);
         }
         
-        internal ViewDrawCheckBox InternalViewDrawCheckBox
-        {
-            get { return _drawCheckBox; }
-        }
+        internal ViewDrawCheckBox InternalViewDrawCheckBox { get; }
 
-        internal bool IsFixedActive
-        {
-            get { return (_fixedActive != null); }
-        }
+	    internal bool IsFixedActive => (_fixedActive != null);
 
-        internal DateTime EffectiveMaxDate(DateTime maxDate)
+	    internal DateTime EffectiveMaxDate(DateTime maxDate)
         {
             DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
             if (maxDate > maximumDateTime)
@@ -2319,16 +2200,16 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (IsActive)
                 {
-                    return _stateActive;
+                    return StateActive;
                 }
                 else
                 {
-                    return _stateNormal;
+                    return StateNormal;
                 }
             }
             else
             {
-                return _stateDisabled;
+                return StateDisabled;
             }
         }
 
@@ -2426,7 +2307,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnDropDownClick(object sender, EventArgs e)
         {
             // Never shown the calendar at design time
-            if (!_inRibbonDesignMode)
+            if (!InRibbonDesignMode)
             {
                 // Just in case the user is inputting characters, end it
                 _drawText.EndInputDigits();
@@ -2584,7 +2465,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnUpClick(object sender, EventArgs e)
         {
             // Never operate the control at design time
-            if (!_inRibbonDesignMode)
+            if (!InRibbonDesignMode)
             {
                 _drawText.PerformKeyDown(new KeyEventArgs(Keys.Up));
                 CheckActiveFragment();
@@ -2596,7 +2477,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnDownClick(object sender, EventArgs e)
         {
             // Never operate the control at design time
-            if (!_inRibbonDesignMode)
+            if (!InRibbonDesignMode)
             {
                 _drawText.PerformKeyDown(new KeyEventArgs(Keys.Down));
                 CheckActiveFragment();

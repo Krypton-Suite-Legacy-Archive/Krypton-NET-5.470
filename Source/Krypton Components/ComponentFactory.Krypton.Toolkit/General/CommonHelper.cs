@@ -57,13 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private const int VK_MENU = 0x12;
         
         private static readonly char[] _singleDateFormat = { 'd', 'f', 'F', 'g', 'h', 'H', 'K', 'm', 'M', 's', 't', 'y', 'z' };
-        private static readonly Padding _inheritPadding = new Padding(-1);
         private static readonly int[] _daysInMonth = new int[12] { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
-        private static readonly ColorMatrix _matrixDisabled = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0.3f,0,0},
-														                                    new float[]{0.59f,0.59f,0.59f,0,0},
-														                                    new float[]{0.11f,0.11f,0.11f,0,0},
-														                                    new float[]{0,0,0,0.5f,0},
-														                                    new float[]{0,0,0,0,1}});
 
         private static int _nextId = 1000;
         private static DateTime _baseDate = new DateTime(2000, 1, 1);
@@ -71,14 +65,12 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PropertyInfo _cachedDesignModePI;
         private static MethodInfo _cachedShortcutMI;
         private static NullContentValues _nullContentValues;
-        private static Point _nullPoint = new Point(Int32.MaxValue, Int32.MaxValue);
-        private static Rectangle _nullRectangle = new Rectangle(Int32.MaxValue, Int32.MaxValue, 0, 0);
         private static DoubleConverter _dc = new DoubleConverter();
         private static SizeConverter _sc = new SizeConverter();
         private static PointConverter _pc = new PointConverter();
         private static BooleanConverter _bc = new BooleanConverter();
         private static ColorConverter _cc = new ColorConverter();
-        private static Form _activeFloatingWindow;
+
         #endregion
 
         #region Public Static
@@ -88,8 +80,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Point NullPoint
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _nullPoint; }
-        }
+            get;
+        } = new Point(Int32.MaxValue, Int32.MaxValue);
 
         /// <summary>
         /// Gets access to the global null rectangle value.
@@ -97,8 +89,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Rectangle NullRectangle
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _nullRectangle; }
-        }
+            get;
+        } = new Rectangle(Int32.MaxValue, Int32.MaxValue, 0, 0);
 
         /// <summary>
         /// Color matrix used to adjust colors to look disabled.
@@ -106,8 +98,12 @@ namespace ComponentFactory.Krypton.Toolkit
         public static ColorMatrix MatrixDisabled
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _matrixDisabled; }
-        }
+            get;
+        } = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0.3f,0,0},
+            new float[]{0.59f,0.59f,0.59f,0,0},
+            new float[]{0.11f,0.11f,0.11f,0,0},
+            new float[]{0,0,0,0.5f,0},
+            new float[]{0,0,0,0,1}});
 
         /// <summary>
         /// Gets the next global identifier in sequence.
@@ -143,8 +139,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Padding InheritPadding
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _inheritPadding; }
-        }
+            get;
+        } = new Padding(-1);
 
         /// <summary>
         /// Check a short cut menu for a matching short and invoke that item if found.
@@ -1790,11 +1786,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a reference to the currently active floating window.
         /// </summary>
-        public static Form ActiveFloatingWindow
-        {
-            get { return _activeFloatingWindow; }
-            set { _activeFloatingWindow = value; }
-        }
+        public static Form ActiveFloatingWindow { get; set; }
+
         #endregion
     }
 }

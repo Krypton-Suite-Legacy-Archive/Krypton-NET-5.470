@@ -72,10 +72,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public KryptonDockspace DockspaceControl
-        {
-            get { return (KryptonDockspace)SpaceControl; }
-        }
+        public KryptonDockspace DockspaceControl => (KryptonDockspace)SpaceControl;
 
         /// <summary>
         /// Gets the sibling auto hidden edge.
@@ -247,7 +244,7 @@ namespace ComponentFactory.Krypton.Docking
             if (location == DockingLocation.Docked)
             {
                 KryptonPage page = DockspaceControl.PageForUniqueName(uniqueName);
-                if ((page != null) && (page is KryptonStorePage))
+                if (page is KryptonStorePage)
                 {
                     return this;
                 }
@@ -261,10 +258,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the proprogate action used to clear a store page for this implementation.
         /// </summary>
-        protected override DockingPropogateAction ClearStoreAction
-        {
-            get { return DockingPropogateAction.ClearDockedStoredPages; }
-        }
+        protected override DockingPropogateAction ClearStoreAction => DockingPropogateAction.ClearDockedStoredPages;
 
         /// <summary>
         /// Raises the type specific space control removed event determinated by the derived class.
@@ -353,10 +347,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DD"; }
-        }
+        protected override string XmlElementName => "DD";
 
         /// <summary>
         /// Saves docking configuration information using a provider xml writer.

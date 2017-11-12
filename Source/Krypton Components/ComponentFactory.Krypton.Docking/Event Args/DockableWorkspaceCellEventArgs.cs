@@ -19,10 +19,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class DockableWorkspaceCellEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonDockableWorkspace _workspace;
-        private KryptonDockingWorkspace _element;
-        private KryptonWorkspaceCell _cell;
-        #endregion
+
+	    #endregion
 		
         #region Identity
 		/// <summary>
@@ -35,9 +33,9 @@ namespace ComponentFactory.Krypton.Docking
                                               KryptonDockingWorkspace element,
                                               KryptonWorkspaceCell cell)
 		{
-            _workspace = workspace;
-            _element = element;
-            _cell = cell;
+            DockableWorkspaceControl = workspace;
+            WorkspaceElement = element;
+            CellControl = cell;
 		}
 		#endregion
 
@@ -45,26 +43,18 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonDockableWorkspace that contains the cell.
         /// </summary>
-        public KryptonDockableWorkspace DockableWorkspaceControl
-        {
-            get { return _workspace; }
-        }
+        public KryptonDockableWorkspace DockableWorkspaceControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingWorkspace that is managing the dockable workspace.
         /// </summary>
-        public KryptonDockingWorkspace WorkspaceElement
-        {
-            get { return _element; }
-        }
+        public KryptonDockingWorkspace WorkspaceElement { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonWorkspaceCell control.
         /// </summary>
-        public KryptonWorkspaceCell CellControl
-        {
-            get { return _cell; }
-        }
-        #endregion
+        public KryptonWorkspaceCell CellControl { get; }
+
+	    #endregion
 	}
 }

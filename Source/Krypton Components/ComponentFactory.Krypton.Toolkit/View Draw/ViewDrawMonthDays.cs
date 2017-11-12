@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool FirstMonth
         {
-            set { _firstMonth = value; }
+            set => _firstMonth = value;
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool LastMonth
         {
-            set { _lastMonth = value; }
+            set => _lastMonth = value;
         }
 
         /// <summary>

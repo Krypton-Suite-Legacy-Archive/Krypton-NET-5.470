@@ -24,12 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRedirect _redirector;
-        private ButtonSpecManagerBase _manager;
-        private ButtonSpec _buttonSpec;
         private PaletteTripleRedirect _palette;
-        private PaletteRedirect _remapPalette;
-        private ViewDrawButton _viewButton;
-        private ViewLayoutCenter _viewCenter;
         private EventHandler _finishDelegate;
         private ButtonController _controller;
         #endregion
@@ -55,8 +50,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Remember references
             _redirector = redirector;
-            _manager = manager;
-            _buttonSpec = buttonSpec;
+            Manager = manager;
+            ButtonSpec = buttonSpec;
             _finishDelegate = new EventHandler(OnFinishDelegate);
 
             // Create delegate for paint notifications
@@ -64,10 +59,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Intercept calls from the button for color remapping and instead use
             // the button spec defined map and the container foreground color
-            _remapPalette = _manager.CreateButtonSpecRemap(redirector, buttonSpec);
+            RemapPalette = Manager.CreateButtonSpecRemap(redirector, buttonSpec);
 
             // Use a redirector to get button values directly from palette
-            _palette = new PaletteTripleRedirect(_remapPalette,
+            _palette = new PaletteTripleRedirect(RemapPalette,
                                                  PaletteBackStyle.ButtonButtonSpec,
                                                  PaletteBorderStyle.ButtonButtonSpec,
                                                  PaletteContentStyle.ButtonButtonSpec,
@@ -75,32 +70,32 @@ namespace ComponentFactory.Krypton.Toolkit
 
 
             // Create the view for displaying a button
-            _viewButton = new ViewDrawButton(_palette, _palette, _palette, _palette,
+            ViewButton = new ViewDrawButton(_palette, _palette, _palette, _palette,
                                              paletteMetric, this, VisualOrientation.Top, false);
 
             // Associate the view with the source component (for design time support)
             if (buttonSpec.AllowComponent)
             {
-                _viewButton.Component = buttonSpec;
+                ViewButton.Component = buttonSpec;
             }
 
             // Use a view center to place button in centre of given space
-            _viewCenter = new ViewLayoutCenter(paletteMetric, metricPadding, VisualOrientation.Top)
+            ViewCenter = new ViewLayoutCenter(paletteMetric, metricPadding, VisualOrientation.Top)
             {
-                _viewButton
+                ViewButton
             };
 
             // Create a controller for managing button behavior
-            ButtonSpecViewControllers controllers = CreateController(_viewButton, needPaint, new MouseEventHandler(OnClick));
-            _viewButton.MouseController = controllers.MouseController;
-            _viewButton.SourceController = controllers.SourceController;
-            _viewButton.KeyController = controllers.KeyController;
+            ButtonSpecViewControllers controllers = CreateController(ViewButton, needPaint, new MouseEventHandler(OnClick));
+            ViewButton.MouseController = controllers.MouseController;
+            ViewButton.SourceController = controllers.SourceController;
+            ViewButton.KeyController = controllers.KeyController;
 
             // We need notifying whenever a button specification property changes
-            _buttonSpec.ButtonSpecPropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            ButtonSpec.ButtonSpecPropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
 
             // Associate the button spec with the view that is drawing it
-            _buttonSpec.SetView(_viewButton);
+            ButtonSpec.SetView(ViewButton);
 
             // Finally update view with current button spec settings
             UpdateButtonStyle();
@@ -114,50 +109,35 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the owning manager.
         /// </summary>
-        public ButtonSpecManagerBase Manager
-        {
-            get { return _manager; }
-        }
+        public ButtonSpecManagerBase Manager { get; }
 
         /// <summary>
         /// Gets access to the monitored button spec
         /// </summary>
-        public ButtonSpec ButtonSpec
-        {
-            get { return _buttonSpec; }
-        }
+        public ButtonSpec ButtonSpec { get; }
 
         /// <summary>
         /// Gets access to the view centering that contains the button.
         /// </summary>
-        public ViewLayoutCenter ViewCenter
-        {
-            get { return _viewCenter; }
-        }
+        public ViewLayoutCenter ViewCenter { get; }
 
         /// <summary>
         /// Gets access to the view centering that contains the button.
         /// </summary>
-        public ViewDrawButton ViewButton
-        {
-            get { return _viewButton; }
-        }
+        public ViewDrawButton ViewButton { get; }
 
         /// <summary>
         /// Gets access to the remapping palette.
         /// </summary>
-        public PaletteRedirect RemapPalette
-        {
-            get { return _remapPalette; }
-        }
+        public PaletteRedirect RemapPalette { get; }
 
         /// <summary>
         /// Gets and sets the composition setting for the button.
         /// </summary>
         public bool DrawButtonSpecOnComposition
         {
-            get { return _viewButton.DrawButtonComposition; }
-            set { _viewButton.DrawButtonComposition = value; }
+            get => ViewButton.DrawButtonComposition;
+            set => ViewButton.DrawButtonComposition = value;
         }
 
         /// <summary>
@@ -166,7 +146,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="needLayout">Does the palette change require a layout.</param>
         public void PerformNeedPaint(bool needLayout)
         {
-            _manager.PerformNeedPaint(this, needLayout);
+            Manager.PerformNeedPaint(this, needLayout);
         }
 
         /// <summary>
@@ -174,7 +154,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void UpdateButtonStyle()
         {
-            _palette.SetStyles(_buttonSpec.GetStyle(_redirector));
+            _palette.SetStyles(ButtonSpec.GetStyle(_redirector));
         }
 
         /// <summary>
@@ -183,11 +163,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool UpdateVisible()
         {
             // Decide if the view should be visible or not
-            bool prevVisible = _viewCenter.Visible;
-            _viewCenter.Visible = _buttonSpec.GetVisible(_redirector);
+            bool prevVisible = ViewCenter.Visible;
+            ViewCenter.Visible = ButtonSpec.GetVisible(_redirector);
 
             // Return if a change has occured
-            return (prevVisible != _viewCenter.Visible);
+            return (prevVisible != ViewCenter.Visible);
         }
 
         /// <summary>
@@ -202,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewBase newDependant;
             bool newEnabled;
 
-            switch (_buttonSpec.GetEnabled(_redirector))
+            switch (ButtonSpec.GetEnabled(_redirector))
             {
                 case ButtonEnabled.True:
                     newDependant = null;
@@ -213,7 +193,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     newEnabled = false;
                     break;
                 case ButtonEnabled.Container:
-                    newDependant = _viewCenter.Parent;
+                    newDependant = ViewCenter.Parent;
                     newEnabled = true;
                     break;
                 default:
@@ -225,15 +205,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Only make change if the values have changed
-            if (newEnabled != _viewButton.Enabled)
+            if (newEnabled != ViewButton.Enabled)
             {
-                _viewButton.Enabled = newEnabled;
+                ViewButton.Enabled = newEnabled;
                 changed = true;
             }
 
-            if (newDependant != _viewButton.DependantEnabledState)
+            if (newDependant != ViewButton.DependantEnabledState)
             {
-                _viewButton.DependantEnabledState = newDependant;
+                ViewButton.DependantEnabledState = newDependant;
                 changed = true;
             }
 
@@ -249,7 +229,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Remember the initial state
             bool newChecked;
 
-            switch (_buttonSpec.GetChecked(_redirector))
+            switch (ButtonSpec.GetChecked(_redirector))
             {
                 case ButtonCheckState.NotCheckButton:
                 case ButtonCheckState.Unchecked:
@@ -266,9 +246,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Only make change if the value has changed
-            if (newChecked != _viewButton.Checked)
+            if (newChecked != ViewButton.Checked)
             {
-                _viewButton.Checked = newChecked;
+                ViewButton.Checked = newChecked;
                 return true;
             }
             else
@@ -283,13 +263,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public void Destruct()
         {
             // Unhook from events
-            _buttonSpec.ButtonSpecPropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
+            ButtonSpec.ButtonSpecPropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
 
             // Remove buttonspec/view association
-            _buttonSpec.SetView(null);
+            ButtonSpec.SetView(null);
 
             // Remove all view element resources
-            _viewCenter.Dispose();
+            ViewCenter.Dispose();
         }
         #endregion
 
@@ -344,7 +324,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetImage(PaletteState state)
         {
             // Get value from button spec passing inheritence redirector
-            return _buttonSpec.GetImage(_redirector, state);
+            return ButtonSpec.GetImage(_redirector, state);
         }
 
         /// <summary>
@@ -355,7 +335,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public Color GetImageTransparentColor(PaletteState state)
         {
             // Get value from button spec passing inheritence redirector
-            return _buttonSpec.GetImageTransparentColor(_redirector);
+            return ButtonSpec.GetImageTransparentColor(_redirector);
         }
 
         /// <summary>
@@ -365,7 +345,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetShortText()
         {
             // Get value from button spec passing inheritence redirector
-            return _buttonSpec.GetShortText(_redirector);
+            return ButtonSpec.GetShortText(_redirector);
         }
 
         /// <summary>
@@ -375,7 +355,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public string GetLongText()
         {
             // Get value from button spec passing inheritence redirector
-            return _buttonSpec.GetLongText(_redirector);
+            return ButtonSpec.GetLongText(_redirector);
         }
         #endregion
 
@@ -383,50 +363,50 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnClick(object sender, MouseEventArgs e)
         {
             // Never show a context menu in design mode
-            if (!CommonHelper.DesignMode(_manager.Control))
+            if (!CommonHelper.DesignMode(Manager.Control))
             {
                 // Fire the event handlers hooked into the button spec click event
-                _buttonSpec.PerformClick(e);
+                ButtonSpec.PerformClick(e);
 
                 // Does the button spec define a krypton context menu?
-                if ((_buttonSpec.KryptonContextMenu != null) && (ViewButton != null))
+                if ((ButtonSpec.KryptonContextMenu != null) && (ViewButton != null))
                 {
                     // Convert from control coordinates to screen coordinates
                     Rectangle rect = ViewButton.ClientRectangle;
                     Point pt;
 
                     // If the button spec is on the chrome titlebar then find position manually
-                    if (_manager.Control is Form)
+                    if (Manager.Control is Form)
                     {
-                        pt = new Point(_manager.Control.Left + rect.Left, _manager.Control.Top + rect.Bottom + 3);
+                        pt = new Point(Manager.Control.Left + rect.Left, Manager.Control.Top + rect.Bottom + 3);
                     }
                     else
                     {
-                        pt = _manager.Control.PointToScreen(new Point(rect.Left, rect.Bottom + 3));
+                        pt = Manager.Control.PointToScreen(new Point(rect.Left, rect.Bottom + 3));
                     }
 
                     // Show the context menu just below the view itself
-                    _buttonSpec.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
-                    if (!_buttonSpec.KryptonContextMenu.Show(_buttonSpec, pt))
+                    ButtonSpec.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                    if (!ButtonSpec.KryptonContextMenu.Show(ButtonSpec, pt))
                     {
                         // Menu not being shown, so clean up
-                        _buttonSpec.KryptonContextMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                        ButtonSpec.KryptonContextMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
 
                         // Not showing a context menu, so remove the fixed view immediately
                         _finishDelegate?.Invoke(this, EventArgs.Empty);
                     }
                 }
-                else if ((_buttonSpec.ContextMenuStrip != null) && (ViewButton != null))
+                else if ((ButtonSpec.ContextMenuStrip != null) && (ViewButton != null))
                 {
                     // Set the correct renderer for the menu strip
-                    _buttonSpec.ContextMenuStrip.Renderer = _manager.RenderToolStrip();
+                    ButtonSpec.ContextMenuStrip.Renderer = Manager.RenderToolStrip();
 
                     // Convert from control coordinates to screen coordinates
                     Rectangle rect = ViewButton.ClientRectangle;
-                    Point pt = _manager.Control.PointToScreen(new Point(rect.Left, rect.Bottom + 3));
+                    Point pt = Manager.Control.PointToScreen(new Point(rect.Left, rect.Bottom + 3));
 
                     // Show the context menu just below the view itself
-                    VisualPopupManager.Singleton.ShowContextMenuStrip(_buttonSpec.ContextMenuStrip, pt, _finishDelegate);
+                    VisualPopupManager.Singleton.ShowContextMenuStrip(ButtonSpec.ContextMenuStrip, pt, _finishDelegate);
                 }
                 else
                 {

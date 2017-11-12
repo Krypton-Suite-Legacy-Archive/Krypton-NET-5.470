@@ -61,25 +61,19 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
 		    /// Gets a value indicating if all values are default.
 		    /// </summary>
-            public bool IsDefault
-            {
-                get
-                {
-                    return (BorderDraw == InheritBool.Inherit) &&
-                           (BorderDrawBorders == PaletteDrawBorders.Inherit) &&
-                           (BorderGraphicsHint == PaletteGraphicsHint.Inherit) &&
-                           (BorderColor1 == Color.Empty) &&
-                           (BorderColor2 == Color.Empty) &&
-                           (BorderColorStyle == PaletteColorStyle.Inherit) &&
-                           (BorderColorAlign == PaletteRectangleAlign.Inherit) &&
-                           (BorderColorAngle == -1) &&
-                           (BorderWidth == -1) &&
-                           (BorderRounding == -1) &&
-                           (BorderImage == null) &&
-                           (BorderImageStyle == PaletteImageStyle.Inherit) &&
-                           (BorderImageAlign == PaletteRectangleAlign.Inherit);
-                }
-            }
+            public bool IsDefault => (BorderDraw == InheritBool.Inherit) &&
+                                     (BorderDrawBorders == PaletteDrawBorders.Inherit) &&
+                                     (BorderGraphicsHint == PaletteGraphicsHint.Inherit) &&
+                                     (BorderColor1 == Color.Empty) &&
+                                     (BorderColor2 == Color.Empty) &&
+                                     (BorderColorStyle == PaletteColorStyle.Inherit) &&
+                                     (BorderColorAlign == PaletteRectangleAlign.Inherit) &&
+                                     (BorderColorAngle == -1) &&
+                                     (BorderWidth == -1) &&
+                                     (BorderRounding == -1) &&
+                                     (BorderImage == null) &&
+                                     (BorderImageStyle == PaletteImageStyle.Inherit) &&
+                                     (BorderImageAlign == PaletteRectangleAlign.Inherit);
         }
         #endregion
 
@@ -121,11 +115,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get { return (_storage == null) || _storage.IsDefault; }
-		}
-		#endregion
+		public override bool IsDefault => (_storage == null) || _storage.IsDefault;
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -848,12 +840,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get
-			{
-			    return _storage?.BorderImage;
-			}
+			get => _storage?.BorderImage;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {

@@ -40,8 +40,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private ToolStripMenuItem _moveNextMenu;
         private ToolStripMenuItem _moveLastMenu;
         private ToolStripMenuItem _deleteCustomControlMenu;
-        private bool _visible;
-        private bool _enabled;
+
         #endregion
 
         #region Identity
@@ -111,8 +110,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool DesignEnabled 
         { 
-            get { return Enabled; }
-            set { Enabled = value; }
+            get => Enabled;
+            set => Enabled = value;
         }
 
         /// <summary>
@@ -120,8 +119,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool DesignVisible 
         {
-            get { return Visible; }
-            set { Visible = value; }
+            get => Visible;
+            set => Visible = value;
         }
         #endregion
 
@@ -173,17 +172,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal bool Visible
-        {
-            get { return _visible; }
-            set { _visible = value; }
-        }
+        internal bool Visible { get; set; }
 
-        internal bool Enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
+        internal bool Enabled { get; set; }
+
         #endregion
 
         #region Implementation
@@ -228,7 +220,7 @@ namespace ComponentFactory.Krypton.Ribbon
             bool moveNext = false;
             bool moveLast = false;
 
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonCustomControl) > 0);
@@ -246,7 +238,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 _ribbonCustomControl.Ribbon.InDesignHelperMode = !_ribbonCustomControl.Ribbon.InDesignHelperMode;
             }
@@ -254,7 +246,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -286,7 +278,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -320,7 +312,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -357,7 +349,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -389,7 +381,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteCustomControl(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -425,7 +417,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnEnabled(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 PropertyDescriptor propertyEnabled = TypeDescriptor.GetProperties(_ribbonCustomControl)["Enabled"];
                 bool oldValue = (bool)propertyEnabled.GetValue(_ribbonCustomControl);
@@ -437,7 +429,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnVisible(object sender, EventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 PropertyDescriptor propertyVisible = TypeDescriptor.GetProperties(_ribbonCustomControl)["Visible"];
                 bool oldValue = (bool)propertyVisible.GetValue(_ribbonCustomControl);
@@ -454,7 +446,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonCustomControl != null) && (_ribbonCustomControl.Ribbon != null))
+            if (_ribbonCustomControl?.Ribbon != null)
             {
                 // Create the menu strip the first time around
                 if (_cms == null)

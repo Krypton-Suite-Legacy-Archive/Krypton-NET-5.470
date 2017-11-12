@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _longText;
         private Image _image;
         private Color _imageTransparentColor;
-        private object _tag;
+
         #endregion
 
         #region Events
@@ -116,8 +116,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string ShortText
         {
-            get { return _shortText; }
-            
+            get => _shortText;
+
             set 
             {
                 if (_shortText != value)
@@ -143,7 +143,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string LongText
         {
-            get { return _longText; }
+            get => _longText;
 
             set 
             {
@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Image Image
         {
-            get { return _image; }
+            get => _image;
 
             set 
             {
@@ -197,8 +197,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
-            
+            get => _imageTransparentColor;
+
             set 
             {
                 if (_imageTransparentColor != value)
@@ -223,11 +223,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("User-defined data associated with the object.")]
         [TypeConverter(typeof(StringConverter))]
         [DefaultValue(null)]
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
+        public object Tag { get; set; }
+
         #endregion
 
         #region IContentValues

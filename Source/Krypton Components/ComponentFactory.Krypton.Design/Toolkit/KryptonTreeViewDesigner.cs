@@ -69,9 +69,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Indicates if the the None value should be included in standard values for selection.
         /// </summary>
-        protected override bool IncludeNoneAsStandardValue 
-        {
-            get { return false; }
-        }
+        protected override bool IncludeNoneAsStandardValue => false;
     }
 }

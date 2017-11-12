@@ -39,18 +39,12 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _refreshAll;
         private bool _paintTransparent;
         private bool _evalTransparent;
-        private int _dirtyPaletteCounter;
-        private IPalette _localPalette;
+	    private IPalette _localPalette;
 		private IPalette _palette;
-        private IRenderer _renderer;
-		private PaletteRedirect _redirector;
-		private PaletteMode _paletteMode;
-		private ViewManager _viewManager;
-        private SimpleCall _refreshCall;
+	    private PaletteMode _paletteMode;
+	    private SimpleCall _refreshCall;
         private SimpleCall _layoutCall;
-        private NeedPaintHandler _needPaintDelegate;
-        private NeedPaintHandler _needPaintPaletteDelegate;
-        private KryptonContextMenu _kryptonContextMenu;
+	    private KryptonContextMenu _kryptonContextMenu;
         #endregion
 
 		#region Events
@@ -104,13 +98,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutCall = new SimpleCall(OnPerformLayout);
 
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
-            _needPaintPaletteDelegate = new NeedPaintHandler(OnPaletteNeedPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintPaletteDelegate = new NeedPaintHandler(OnPaletteNeedPaint);
 
 			// Must layout before first draw attempt
 			_layoutDirty = true;
             _evalTransparent = true;
-            _dirtyPaletteCounter = 1;
+            DirtyPaletteCounter = 1;
 
             // Set the palette and renderer to the defaults as specified by the manager
             _localPalette = null;
@@ -118,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteMode = PaletteMode.Global;
 
             // Create constant target for resolving palette delegates
-            _redirector = CreateRedirector();
+            Redirector = CreateRedirector();
 
             // Hook into global palette changing events
             KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
@@ -160,7 +154,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager.Dispose();
 
                 _palette = null;
-                _renderer = null;
+                Renderer = null;
                 _localPalette = null;
                 Redirector.Target = null;
             }
@@ -207,7 +201,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonContextMenu KryptonContextMenu
         {
-            get { return _kryptonContextMenu; }
+            get => _kryptonContextMenu;
 
             set
             {
@@ -255,7 +249,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformLayout();
 
                 // Do we have a manager to use for laying out?
-                if (viewLayout && ((ViewManager != null) && (_renderer != null)))
+                if (viewLayout && ((ViewManager != null) && (Renderer != null)))
                 {
                     // Prevent infinite loop by looping a maximum number of times
                     int max = 5;
@@ -266,7 +260,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _layoutDirty = false;
 
                         // Ask the view to peform a layout
-                        ViewManager.Layout(_renderer);
+                        ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
                 }
@@ -395,10 +389,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
-        }
+            get;
+            private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
         /// </summary>
         [Browsable(false)]
@@ -415,8 +410,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Image BackgroundImage
 		{
-			get { return base.BackgroundImage; }
-			set { base.BackgroundImage = value; }
+			get => base.BackgroundImage;
+		    set => base.BackgroundImage = value;
 		}
 
 		/// <summary>
@@ -426,8 +421,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override ImageLayout BackgroundImageLayout
 		{
-			get { return base.BackgroundImageLayout; }
-            set { base.BackgroundImageLayout = value; }
+			get => base.BackgroundImageLayout;
+		    set => base.BackgroundImageLayout = value;
 		}
 
         /// <summary>
@@ -437,7 +432,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ViewManager GetViewManager()
         {
-            return _viewManager;
+            return ViewManager;
         }
 
         /// <summary>
@@ -456,12 +451,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int DirtyPaletteCounter
-        {
-            get { return _dirtyPaletteCounter; }
-            set { _dirtyPaletteCounter = value; }
-        }
-        #endregion
+        public int DirtyPaletteCounter { get; set; }
+
+	    #endregion
 
         #region Public IKryptonDebug
         /// <summary>
@@ -479,22 +471,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonLayoutCounter
-        {
-            get { return ViewManager.LayoutCounter; }
-        }
+        public int KryptonLayoutCounter => ViewManager.LayoutCounter;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the number of paint cycles performed since last reset.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonPaintCounter
-        {
-            get { return ViewManager.PaintCounter; }
-        }
-        #endregion
+        public int KryptonPaintCounter => ViewManager.PaintCounter;
+
+	    #endregion
         
         #region Protected
         /// <summary>
@@ -503,36 +490,30 @@ namespace ComponentFactory.Krypton.Toolkit
         protected ViewManager ViewManager
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewManager; }
-            set { _viewManager = value; }
-        }
+            get;
+            set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets access to the palette redirector.
 		/// </summary>
 		protected PaletteRedirect Redirector
-		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }		
-        }
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
-        protected NeedPaintHandler NeedPaintDelegate
-        {
-            get { return _needPaintDelegate; }
-        }
+        protected NeedPaintHandler NeedPaintDelegate { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the need paint palette delegate.
         /// </summary>
-        protected NeedPaintHandler NeedPaintPaletteDelegate
-        {
-            get { return _needPaintPaletteDelegate; }
-        }
+        protected NeedPaintHandler NeedPaintPaletteDelegate { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Force the control to perform a krypton layout to calculate size and positioning.
         /// </summary>
         /// <returns>True if layout was p</returns>
@@ -545,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (ViewManager != null)
                 {
                     // Ask the view to peform a layout
-                    ViewManager.Layout(_renderer);
+                    ViewManager.Layout(Renderer);
 
                     return true;
                 }
@@ -645,7 +626,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (ViewManager != null)
             {
                 // Ask the view if it needs to paint transparent areas
-                return ViewManager.EvalTransparentPaint(_renderer);
+                return ViewManager.EvalTransparentPaint(Renderer);
             }
             else
             {
@@ -657,27 +638,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
-        protected virtual bool EvalInvokePaint
-        {
-            get
-            {
-                // By default the paint can occur safely via a simple Invalidate() call,
-                // but some controls might need to override this the entire client area can
-                // be covered by child controls and so Invalidate() becomes redundant and the
-                // control is never layed out.
-                return false;
-            }
-        }
+        protected virtual bool EvalInvokePaint => false;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the control reference that is the parent for transparent drawing.
         /// </summary>
-        protected virtual Control TransparentParent
-        {
-            get { return Parent; }
-        }
-        
-        /// <summary>
+        protected virtual Control TransparentParent => Parent;
+
+	    /// <summary>
         /// Processes a notification from palette storage of a button spec change.
         /// </summary>
         /// <param name="sender">Source of notification.</param>
@@ -822,7 +790,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _layoutDirty = false;
 
                         // Ask the view to peform a layout
-                        ViewManager.Layout(_renderer);
+                        ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
                 }
@@ -869,7 +837,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Ask the view to repaint the visual structure
                     if (!IsDisposed && !Disposing)
                     {
-                        ViewManager.Paint(_renderer, e);
+                        ViewManager.Paint(Renderer, e);
                     }
 
                     // Request for a refresh has been serviced
@@ -1161,7 +1129,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Get the renderer associated with the palette
-                _renderer = _palette.GetRenderer();
+                Renderer = _palette.GetRenderer();
 
                 // Hook to new palette events
                 if (_palette != null)
@@ -1177,7 +1145,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnBaseChanged(object sender, EventArgs e)
         {
             // Change in base renderer or base palette require we fetch the latest renderer
-            _renderer = _palette.GetRenderer();
+            Renderer = _palette.GetRenderer();
         }
 
 		private void PaintTransparentBackground(PaintEventArgs e)

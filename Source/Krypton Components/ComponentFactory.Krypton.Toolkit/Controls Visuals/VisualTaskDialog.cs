@@ -33,18 +33,15 @@ namespace ComponentFactory.Krypton.Toolkit
         public class MessageButton : KryptonButton
         {
             #region Instance Fields
-            private bool _ignoreAltF4;
+
             #endregion
 
             #region Identity
             /// <summary>
             /// Gets and sets the ignoring of Alt+F4
             /// </summary>
-            public bool IgnoreAltF4
-            {
-                get { return _ignoreAltF4; }
-                set { _ignoreAltF4 = value; }
-            }
+            public bool IgnoreAltF4 { get; set; }
+
             #endregion
 
             #region Protected

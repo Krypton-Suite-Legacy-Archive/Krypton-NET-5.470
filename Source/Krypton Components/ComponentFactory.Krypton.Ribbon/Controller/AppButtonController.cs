@@ -26,14 +26,10 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private ViewBase _target1;
-        private ViewBase _target2;
-        private ViewBase _target3;
         private bool _mouseOver;
         private bool _mouseDown;
         private bool _fixedPressed;
         private bool _hasFocus;
-        private bool _keyboard;
         private Timer _updateTimer;
         #endregion
 
@@ -66,7 +62,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 Interval = 1
             };
             _updateTimer.Tick += new EventHandler(OnUpdateTimer);
-            _keyboard = false;
+            Keyboard = false;
         }
 		#endregion
 
@@ -74,37 +70,23 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the first target element.
         /// </summary>
-        public ViewBase Target1
-        {
-            get { return _target1; }
-            set { _target1 = value; }
-        }
+        public ViewBase Target1 { get; set; }
 
         /// <summary>
         /// Gets and sets the second target element.
         /// </summary>
-        public ViewBase Target2
-        {
-            get { return _target2; }
-            set { _target2 = value; }
-        }
+        public ViewBase Target2 { get; set; }
 
         /// <summary>
         /// Gets and sets the third target element.
         /// </summary>
-        public ViewBase Target3
-        {
-            get { return _target3; }
-            set { _target3 = value; }
-        }
+        public ViewBase Target3 { get; set; }
 
         /// <summary>
         /// Gets a value indicating if the keyboard was used to request the menu.
         /// </summary>
-        public bool Keyboard
-        {
-            get { return _keyboard; }
-        }
+        public bool Keyboard { get; private set; }
+
         #endregion
 
         #region RemoveFixed
@@ -177,7 +159,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     _fixedPressed = true;
 
                     // Generate a click event
-                    _keyboard = false;
+                    Keyboard = false;
                     OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
                 }
             }
@@ -227,10 +209,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown 
-        {
-            get { return true; }
-        }
+        public virtual bool IgnoreVisualFormLeftButtonDown => true;
+
         #endregion
 
         #region Focus Notifications
@@ -373,14 +353,14 @@ namespace ComponentFactory.Krypton.Ribbon
                     UpdateTargetState();
 
                     // Generate a click event
-                    _keyboard = true;
+                    Keyboard = true;
                     OnClick(new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
                     break;
             }
 
             // If we have a new view to focus and it is not ourself...
-            if ((newView != null) && (newView != _target1) && 
-                (newView != _target2 && (newView != _target3)))
+            if ((newView != null) && (newView != Target1) && 
+                ((newView != Target2) && (newView != Target3)))
             {
                 // If the new view is a tab then select that tab unless in minimized mode
                 if (!ribbon.RealMinimizedMode && (newView is ViewDrawRibbonTab tab))
@@ -434,7 +414,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ribbon.FocusView =  ribbon.TabsArea.LayoutAppButton.AppButton;
 
             // Generate a click event
-            _keyboard = true;
+            Keyboard = true;
             OnClick(new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
         }
         #endregion
@@ -473,39 +453,39 @@ namespace ComponentFactory.Krypton.Ribbon
             bool needPaint = false;
 
             // Update all the targets
-            if ((_target1 != null) && (_target1.ElementState != newState))
+            if ((Target1 != null) && (Target1.ElementState != newState))
             {
-                _target1.ElementState = newState;
+                Target1.ElementState = newState;
                 needPaint = true;
             }
 
-            if ((_target2 != null) && (_target2.ElementState != newState))
+            if ((Target2 != null) && (Target2.ElementState != newState))
             {
-                _target2.ElementState = newState;
+                Target2.ElementState = newState;
                 needPaint = true;
             }
 
-            if ((_target3 != null) && (_target3.ElementState != newState))
+            if ((Target3 != null) && (Target3.ElementState != newState))
             {
-                _target3.ElementState = newState;
+                Target3.ElementState = newState;
                 needPaint = true;
             }
 
             if (needPaint)
             {
-                if ((_target1 != null) && !_target1.ClientRectangle.IsEmpty)
+                if ((Target1 != null) && !Target1.ClientRectangle.IsEmpty)
                 {
-                    OnNeedPaint(false, _target1.ClientRectangle);
+                    OnNeedPaint(false, Target1.ClientRectangle);
                 }
 
-                if ((_target2 != null) && !_target2.ClientRectangle.IsEmpty)
+                if ((Target2 != null) && !Target2.ClientRectangle.IsEmpty)
                 {
-                    OnNeedPaint(false, _target2.ClientRectangle);
+                    OnNeedPaint(false, Target2.ClientRectangle);
                 }
 
-                if ((_target3 != null) && !_target3.ClientRectangle.IsEmpty)
+                if ((Target3 != null) && !Target3.ClientRectangle.IsEmpty)
                 {
-                    OnNeedPaint(false, _target3.ClientRectangle);
+                    OnNeedPaint(false, Target3.ClientRectangle);
                 }
 
                 // Get the repaint to happen immediately
@@ -532,7 +512,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Click?.Invoke(this, e);
 
-            _keyboard = false;
+            Keyboard = false;
         }
 
         /// <summary>

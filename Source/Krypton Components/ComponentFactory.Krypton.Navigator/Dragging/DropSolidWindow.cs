@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Rectangle SolidRect
         {
-            get { return _solidRect; }
+            get => _solidRect;
 
             set
             {

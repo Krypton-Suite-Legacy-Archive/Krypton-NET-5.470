@@ -102,10 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public override bool KeyboardInert
-        {
-            get { return true; }
-        }
+        public override bool KeyboardInert => true;
 
         /// <summary>
         /// Should the mouse move at provided screen point be allowed.

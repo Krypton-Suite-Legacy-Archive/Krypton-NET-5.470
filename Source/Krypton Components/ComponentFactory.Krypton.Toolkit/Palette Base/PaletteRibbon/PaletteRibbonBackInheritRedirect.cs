@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private PaletteRedirect _redirect;
-        private PaletteRibbonBackStyle _styleBack;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(redirect != null);
 
 			_redirect = redirect;
-            _styleBack = styleBack;
+            StyleBack = styleBack;
 		}
 		#endregion
 
@@ -54,12 +54,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the ribbon background style to use when inheriting.
         /// </summary>
-        public PaletteRibbonBackStyle StyleBack
-        {
-            get { return _styleBack; }
-            set { _styleBack = value; }
-        }
-        #endregion
+        public PaletteRibbonBackStyle StyleBack { get; set; }
+
+	    #endregion
 
         #region IPaletteRibbonBack
         /// <summary>
@@ -69,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteRibbonBackStyle value.</returns>
         public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteState state)
         {
-            return _redirect.GetRibbonBackColorStyle(_styleBack, state);
+            return _redirect.GetRibbonBackColorStyle(StyleBack, state);
         }
 
         /// <summary>
@@ -79,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor1(PaletteState state)
         {
-            return _redirect.GetRibbonBackColor1(_styleBack, state);
+            return _redirect.GetRibbonBackColor1(StyleBack, state);
         }
 
         /// <summary>
@@ -89,7 +86,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor2(PaletteState state)
         {
-            return _redirect.GetRibbonBackColor2(_styleBack, state);
+            return _redirect.GetRibbonBackColor2(StyleBack, state);
         }
 
         /// <summary>
@@ -99,7 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor3(PaletteState state)
         {
-            return _redirect.GetRibbonBackColor3(_styleBack, state);
+            return _redirect.GetRibbonBackColor3(StyleBack, state);
         }
 
         /// <summary>
@@ -109,7 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor4(PaletteState state)
         {
-            return _redirect.GetRibbonBackColor4(_styleBack, state);
+            return _redirect.GetRibbonBackColor4(StyleBack, state);
         }
 
         /// <summary>
@@ -119,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetRibbonBackColor5(PaletteState state)
         {
-            return _redirect.GetRibbonBackColor5(_styleBack, state);
+            return _redirect.GetRibbonBackColor5(StyleBack, state);
         }
         #endregion
     }

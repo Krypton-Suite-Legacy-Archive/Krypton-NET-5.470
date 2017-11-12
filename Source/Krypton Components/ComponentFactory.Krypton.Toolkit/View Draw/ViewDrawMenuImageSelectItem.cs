@@ -77,12 +77,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Item is becoming tracked by the mouse.
         /// </summary>
-        public bool IsTracking
-        {
-            get { return (_imageSelect.TrackingIndex == _imageIndex); }
-        }
+        public bool IsTracking => (_imageSelect.TrackingIndex == _imageIndex);
 
-        /// <summary>
+	    /// <summary>
         /// Item is becoming tracked by the mouse.
         /// </summary>
         public void Track()
@@ -111,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ImageList ImageList
         {
-            set { _imageList = value; }
+            set => _imageList = value;
         }
         #endregion
 
@@ -121,7 +118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int ImageIndex
         {
-            set { _imageIndex = value; }
+            set => _imageIndex = value;
         }
         #endregion
 

@@ -62,10 +62,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the rounding value to apply on the edges.
         /// </summary>
-        public int BorderWidth
-        {
-            get { return _drawCanvas.PaletteBorder.GetBorderWidth(_drawCanvas.State); }
-        }
+        public int BorderWidth => _drawCanvas.PaletteBorder.GetBorderWidth(_drawCanvas.State);
+
         #endregion
 
         #region Paint

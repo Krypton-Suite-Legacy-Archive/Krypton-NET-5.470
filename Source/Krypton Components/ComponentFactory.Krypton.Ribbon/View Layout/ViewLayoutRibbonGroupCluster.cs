@@ -313,7 +313,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool StartSeparator
         {
-            set { _startSepVisible = value; }
+            set => _startSepVisible = value;
         }
         #endregion
 
@@ -323,7 +323,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool EndSeparator
         {
-            set { _endSepVisible = value; }
+            set => _endSepVisible = value;
         }
         #endregion
 

@@ -56,8 +56,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Navigate
         {
-            get { return _navigate; }
-            set { _navigate = value; }
+            get => _navigate;
+            set => _navigate = value;
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Populate
         {
-            get { return _populate; }
-            set { _populate = value; }
+            get => _populate;
+            set => _populate = value;
         }
     }
 }

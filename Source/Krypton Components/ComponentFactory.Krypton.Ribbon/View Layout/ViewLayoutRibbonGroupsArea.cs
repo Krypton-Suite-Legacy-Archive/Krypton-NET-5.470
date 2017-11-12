@@ -29,7 +29,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private ViewDrawRibbonGroupsBorderSynch _viewGroups;
         private PaletteBackInheritRedirect _backInherit;
         #endregion
 
@@ -56,8 +55,8 @@ namespace ComponentFactory.Krypton.Ribbon
             SetPalettes(_backInherit);
 
             // Create and add the only child we need, the groups area border element
-            _viewGroups = new ViewDrawRibbonGroupsBorderSynch(ribbon, needPaintDelegate);
-            Add(_viewGroups);
+            ViewGroups = new ViewDrawRibbonGroupsBorderSynch(ribbon, needPaintDelegate);
+            Add(ViewGroups);
         }
 
         /// <summary>
@@ -75,10 +74,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the groups border view.
         /// </summary>
-        public ViewDrawRibbonGroupsBorderSynch ViewGroups
-        {
-            get { return _viewGroups; }
-        }
+        public ViewDrawRibbonGroupsBorderSynch ViewGroups { get; }
+
         #endregion
 
         #region BackStyle
@@ -87,8 +84,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public PaletteBackStyle BackStyle
         {
-            get { return _backInherit.Style; }
-            set { _backInherit.Style = value; }
+            get => _backInherit.Style;
+            set => _backInherit.Style = value;
         }
         #endregion
 

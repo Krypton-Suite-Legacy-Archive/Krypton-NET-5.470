@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Navigator
                     // Search for a layout docker as that is always the top of any button
                     if (next is ViewLayoutDocker docker)
                     {
-                        if ((docker.Tag != null) && (docker.Tag is ViewDrawButton))
+                        if (docker.Tag is ViewDrawButton)
                         {
                             return false;
                         }

@@ -36,28 +36,23 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalImageMarginGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalImageMarginGradientEnd == Color.Empty) &&
-                       (InternalKCT.InternalImageMarginGradientMiddle == Color.Empty) &&
-                       (InternalKCT.InternalImageMarginRevealedGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalImageMarginRevealedGradientEnd == Color.Empty) &&
-                       (InternalKCT.InternalImageMarginRevealedGradientMiddle == Color.Empty) &&
-                       (InternalKCT.InternalMenuBorder == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemText == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemBorder == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemPressedGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemPressedGradientEnd == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemPressedGradientMiddle == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemSelected == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemSelectedGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalMenuItemSelectedGradientEnd == Color.Empty);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalImageMarginGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalImageMarginGradientEnd == Color.Empty) &&
+		                                  (InternalKCT.InternalImageMarginGradientMiddle == Color.Empty) &&
+		                                  (InternalKCT.InternalImageMarginRevealedGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalImageMarginRevealedGradientEnd == Color.Empty) &&
+		                                  (InternalKCT.InternalImageMarginRevealedGradientMiddle == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuBorder == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemText == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemBorder == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemPressedGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemPressedGradientEnd == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemPressedGradientMiddle == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemSelected == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemSelectedGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuItemSelectedGradientEnd == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -93,8 +88,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginGradientBegin
         {
-            get { return InternalKCT.InternalImageMarginGradientBegin; }
-            
+            get => InternalKCT.InternalImageMarginGradientBegin;
+
             set 
             {
                 InternalKCT.InternalImageMarginGradientBegin = value;
@@ -121,8 +116,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginGradientEnd
         {
-            get { return InternalKCT.InternalImageMarginGradientEnd; }
-            
+            get => InternalKCT.InternalImageMarginGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalImageMarginGradientEnd = value;
@@ -149,8 +144,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginGradientMiddle
         {
-            get { return InternalKCT.InternalImageMarginGradientMiddle; }
-            
+            get => InternalKCT.InternalImageMarginGradientMiddle;
+
             set 
             { 
                 InternalKCT.InternalImageMarginGradientMiddle = value;
@@ -177,8 +172,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginRevealedGradientBegin
         {
-            get { return InternalKCT.InternalImageMarginRevealedGradientBegin; }
-            
+            get => InternalKCT.InternalImageMarginRevealedGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalImageMarginRevealedGradientBegin = value;
@@ -205,8 +200,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginRevealedGradientEnd
         {
-            get { return InternalKCT.InternalImageMarginRevealedGradientEnd; }
-            
+            get => InternalKCT.InternalImageMarginRevealedGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalImageMarginRevealedGradientEnd = value;
@@ -233,8 +228,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageMarginRevealedGradientMiddle
         {
-            get { return InternalKCT.InternalImageMarginRevealedGradientMiddle; }
-            
+            get => InternalKCT.InternalImageMarginRevealedGradientMiddle;
+
             set 
             { 
                 InternalKCT.InternalImageMarginRevealedGradientMiddle = value;
@@ -261,8 +256,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuBorder
         {
-            get { return InternalKCT.InternalMenuBorder; }
-            
+            get => InternalKCT.InternalMenuBorder;
+
             set 
             { 
                 InternalKCT.InternalMenuBorder = value;
@@ -289,7 +284,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemText
         {
-            get { return InternalKCT.InternalMenuItemText; }
+            get => InternalKCT.InternalMenuItemText;
 
             set
             {
@@ -317,8 +312,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemBorder
         {
-            get { return InternalKCT.InternalMenuItemBorder; }
-            
+            get => InternalKCT.InternalMenuItemBorder;
+
             set 
             { 
                 InternalKCT.InternalMenuItemBorder = value;
@@ -345,8 +340,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemPressedGradientBegin
         {
-            get { return InternalKCT.InternalMenuItemPressedGradientBegin; }
-            
+            get => InternalKCT.InternalMenuItemPressedGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalMenuItemPressedGradientBegin = value;
@@ -373,8 +368,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemPressedGradientEnd
         {
-            get { return InternalKCT.InternalMenuItemPressedGradientEnd; }
-            
+            get => InternalKCT.InternalMenuItemPressedGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalMenuItemPressedGradientEnd = value;
@@ -401,8 +396,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemPressedGradientMiddle
         {
-            get { return InternalKCT.InternalMenuItemPressedGradientMiddle; }
-            
+            get => InternalKCT.InternalMenuItemPressedGradientMiddle;
+
             set 
             { 
                 InternalKCT.InternalMenuItemPressedGradientMiddle = value;
@@ -429,8 +424,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemSelected
         {
-            get { return InternalKCT.InternalMenuItemSelected; }
-            
+            get => InternalKCT.InternalMenuItemSelected;
+
             set 
             { 
                 InternalKCT.InternalMenuItemSelected = value;
@@ -457,8 +452,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemSelectedGradientBegin
         {
-            get { return InternalKCT.InternalMenuItemSelectedGradientBegin; }
-            
+            get => InternalKCT.InternalMenuItemSelectedGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalMenuItemSelectedGradientBegin = value;
@@ -485,8 +480,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuItemSelectedGradientEnd
         {
-            get { return InternalKCT.InternalMenuItemSelectedGradientEnd; }
-            
+            get => InternalKCT.InternalMenuItemSelectedGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalMenuItemSelectedGradientEnd = value;

@@ -19,10 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteBorderInheritOverride : PaletteBorderInherit
 	{
 		#region Instance Fields
-		private bool _apply;
-        private bool _override;
-        private PaletteState _state;
-		private IPaletteBorder _primary;
+
+	    private IPaletteBorder _primary;
 		private IPaletteBorder _backup;
 		#endregion
 
@@ -43,9 +41,9 @@ namespace ComponentFactory.Krypton.Toolkit
 			_backup = backup;
 
 			// Default other state
-            _apply = true;
-            _override = true;
-            _state = PaletteState.Normal;
+            Apply = true;
+            Override = true;
+            OverrideState = PaletteState.Normal;
 		}
 		#endregion
 
@@ -68,34 +66,25 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets and sets a value indicating if override should be applied.
 		/// </summary>
-		public bool Apply
-		{
-			get { return _apply; }
-			set { _apply = value; }
-		}
-		#endregion
+		public bool Apply { get; set; }
+
+	    #endregion
 
         #region Override
         /// <summary>
         /// Gets and sets a value indicating if override state should be applied.
         /// </summary>
-        public bool Override
-        {
-            get { return _override; }
-            set { _override = value; }
-        }
-        #endregion
+        public bool Override { get; set; }
+
+	    #endregion
         
         #region OverrideState
 		/// <summary>
 		/// Gets and sets the override palette state to use.
 		/// </summary>
-		public PaletteState OverrideState
-		{
-			get { return _state; }
-			set { _state = value; }
-		}
-		#endregion
+		public PaletteState OverrideState { get; set; }
+
+	    #endregion
 
 		#region IPaletteBorder
 		/// <summary>
@@ -105,9 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetBorderDraw(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                InheritBool ret = _primary.GetBorderDraw(_override ? _state : state);
+                InheritBool ret = _primary.GetBorderDraw(Override ? OverrideState : state);
 
 				if (ret == InheritBool.Inherit)
                 {
@@ -129,9 +118,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteDrawBorders value.</returns>
         public override PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteDrawBorders ret = _primary.GetBorderDrawBorders(_override ? _state : state);
+                PaletteDrawBorders ret = _primary.GetBorderDrawBorders(Override ? OverrideState : state);
 
                 if (ret == PaletteDrawBorders.Inherit)
                 {
@@ -153,9 +142,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteGraphicsHint value.</returns>
 		public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteGraphicsHint ret = _primary.GetBorderGraphicsHint(_override ? _state : state);
+                PaletteGraphicsHint ret = _primary.GetBorderGraphicsHint(Override ? OverrideState : state);
 
 				if (ret == PaletteGraphicsHint.Inherit)
                 {
@@ -177,9 +166,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public override Color GetBorderColor1(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Color ret = _primary.GetBorderColor1(_override ? _state : state);
+                Color ret = _primary.GetBorderColor1(Override ? OverrideState : state);
 
 				if (ret == Color.Empty)
                 {
@@ -201,9 +190,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public override Color GetBorderColor2(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Color ret = _primary.GetBorderColor2(_override ? _state : state);
+                Color ret = _primary.GetBorderColor2(Override ? OverrideState : state);
 
 				if (ret == Color.Empty)
                 {
@@ -225,9 +214,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color drawing style.</returns>
 		public override PaletteColorStyle GetBorderColorStyle(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteColorStyle ret = _primary.GetBorderColorStyle(_override ? _state : state);
+                PaletteColorStyle ret = _primary.GetBorderColorStyle(Override ? OverrideState : state);
 
 				if (ret == PaletteColorStyle.Inherit)
                 {
@@ -249,9 +238,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color alignment style.</returns>
 		public override PaletteRectangleAlign GetBorderColorAlign(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRectangleAlign ret = _primary.GetBorderColorAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetBorderColorAlign(Override ? OverrideState : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -273,9 +262,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Angle used for color drawing.</returns>
 		public override float GetBorderColorAngle(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                float ret = _primary.GetBorderColorAngle(_override ? _state : state);
+                float ret = _primary.GetBorderColorAngle(Override ? OverrideState : state);
 
 				if (ret == -1f)
                 {
@@ -297,9 +286,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Border width.</returns>
 		public override int GetBorderWidth(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                int ret = _primary.GetBorderWidth(_override ? _state : state);
+                int ret = _primary.GetBorderWidth(Override ? OverrideState : state);
 
 				if (ret == -1)
                 {
@@ -321,9 +310,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Border rounding.</returns>
 		public override int GetBorderRounding(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                int ret = _primary.GetBorderRounding(_override ? _state : state);
+                int ret = _primary.GetBorderRounding(Override ? OverrideState : state);
 
 				if (ret == -1)
                 {
@@ -345,9 +334,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image instance.</returns>
 		public override Image GetBorderImage(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Image ret = _primary.GetBorderImage(_override ? _state : state);
+                Image ret = _primary.GetBorderImage(Override ? OverrideState : state);
 
 				if (ret == null)
                 {
@@ -369,9 +358,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image style value.</returns>
 		public override PaletteImageStyle GetBorderImageStyle(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteImageStyle ret = _primary.GetBorderImageStyle(_override ? _state : state);
+                PaletteImageStyle ret = _primary.GetBorderImageStyle(Override ? OverrideState : state);
 
 				if (ret == PaletteImageStyle.Inherit)
                 {
@@ -393,9 +382,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image alignment style.</returns>
 		public override PaletteRectangleAlign GetBorderImageAlign(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRectangleAlign ret = _primary.GetBorderImageAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetBorderImageAlign(Override ? OverrideState : state);
 
 				if (ret == PaletteRectangleAlign.Inherit)
                 {

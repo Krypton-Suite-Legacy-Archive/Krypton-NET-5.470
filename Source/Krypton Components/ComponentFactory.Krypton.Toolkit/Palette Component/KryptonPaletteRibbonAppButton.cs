@@ -19,10 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRibbonBackInheritRedirect _stateInherit;
-        private PaletteRibbonBack _stateCommon;
-        private PaletteRibbonBack _stateNormal;
-        private PaletteRibbonBack _stateTracking;
-        private PaletteRibbonBack _statePressed;
+
         #endregion
 
         #region Identity
@@ -36,10 +33,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonAppButton);
-            _stateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
-            _stateNormal = new PaletteRibbonBack(_stateCommon, needPaint);
-            _stateTracking = new PaletteRibbonBack(_stateCommon, needPaint);
-            _statePressed = new PaletteRibbonBack(_stateCommon, needPaint);
+            StateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
+            StateNormal = new PaletteRibbonBack(StateCommon, needPaint);
+            StateTracking = new PaletteRibbonBack(StateCommon, needPaint);
+            StatePressed = new PaletteRibbonBack(StateCommon, needPaint);
         }
         #endregion
 
@@ -59,17 +56,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -78,9 +70,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _statePressed.PopulateFromBase(PaletteState.Pressed);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StatePressed.PopulateFromBase(PaletteState.Pressed);
         }
         #endregion
 
@@ -92,14 +84,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common ribbon application button appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteRibbonBack StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     
@@ -111,14 +100,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal ribbon application button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteRibbonBack StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -130,14 +116,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking ribbon application button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteRibbonBack StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -149,14 +132,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed ribbon application button appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteRibbonBack StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
     }

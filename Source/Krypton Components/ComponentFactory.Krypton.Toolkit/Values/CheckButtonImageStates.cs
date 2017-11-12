@@ -29,16 +29,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault &&
-                        (ImageCheckedNormal == null) &&
-                        (ImageCheckedPressed == null) &&
-                        (ImageCheckedTracking == null));
-            }
-        }
+        public override bool IsDefault => (base.IsDefault &&
+                                           (ImageCheckedNormal == null) &&
+                                           (ImageCheckedPressed == null) &&
+                                           (ImageCheckedTracking == null));
+
         #endregion
 
         #region ImageCheckedNormal
@@ -55,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public override Image ImageCheckedNormal
         {
-            get { return _imageCheckedNormal; }
+            get => _imageCheckedNormal;
 
             set
             {
@@ -95,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public override Image ImageCheckedPressed
         {
-            get { return _imageCheckedPressed; }
+            get => _imageCheckedPressed;
 
             set
             {
@@ -135,7 +130,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public override Image ImageCheckedTracking
         {
-            get { return _imageCheckedTracking; }
+            get => _imageCheckedTracking;
 
             set
             {

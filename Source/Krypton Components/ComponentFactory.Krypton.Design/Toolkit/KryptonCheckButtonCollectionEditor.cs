@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>A UITypeEditorEditStyle enumeration value that indicates the style of editor.</returns>
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
         {
-            if ((context != null) && (context.Instance != null))
+            if (context?.Instance != null)
             {
                 return UITypeEditorEditStyle.Modal;
             }
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            if ((context != null) && (context.Instance != null) && (provider != null))
+            if ((context?.Instance != null) && (provider != null))
             {
                 // Must use the editor service for showing dialogs
                 IWindowsFormsEditorService editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));

@@ -47,34 +47,22 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a value indicating if docking specific appearance should be applied.
         /// </summary>
-        protected override bool ApplyDockingAppearance
-        {
-            get { return false; }
-        }
+        protected override bool ApplyDockingAppearance => false;
 
         /// <summary>
         /// Gets a value indicating if docking specific close action should be applied.
         /// </summary>
-        protected override bool ApplyDockingCloseAction
-        {
-            get { return false; }
-        }
+        protected override bool ApplyDockingCloseAction => false;
 
         /// <summary>
         /// Gets a value indicating if docking specific pin actions should be applied.
         /// </summary>
-        protected override bool ApplyDockingPinAction
-        {
-            get { return false; }
-        }
+        protected override bool ApplyDockingPinAction => false;
 
         /// <summary>
         /// Gets a value indicating if docking specific drop down actions should be applied.
         /// </summary>
-        protected override bool ApplyDockingDropDownAction
-        {
-            get { return false; }
-        }
+        protected override bool ApplyDockingDropDownAction => false;
 
         /// <summary>
         /// Initialize a new cell.

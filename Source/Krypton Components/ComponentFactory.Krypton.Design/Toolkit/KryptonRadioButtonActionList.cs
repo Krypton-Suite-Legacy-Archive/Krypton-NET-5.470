@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Checked
         {
-            get { return _radioButton.Checked; }
+            get => _radioButton.Checked;
 
             set
             {
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool AutoCheck
         {
-            get { return _radioButton.AutoCheck; }
+            get => _radioButton.AutoCheck;
 
             set
             {
@@ -76,8 +76,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public LabelStyle LabelStyle
         {
-            get { return _radioButton.LabelStyle; }
-            
+            get => _radioButton.LabelStyle;
+
             set 
             {
                 if (_radioButton.LabelStyle != value)
@@ -93,8 +93,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation
         {
-            get { return _radioButton.Orientation; }
-            
+            get => _radioButton.Orientation;
+
             set
             {
                 if (_radioButton.Orientation != value)
@@ -110,8 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Text
         {
-            get { return _radioButton.Values.Text; }
-            
+            get => _radioButton.Values.Text;
+
             set 
             {
                 if (_radioButton.Values.Text != value)
@@ -127,8 +127,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string ExtraText
         {
-            get { return _radioButton.Values.ExtraText; }
-            
+            get => _radioButton.Values.ExtraText;
+
             set 
             {
                 if (_radioButton.Values.ExtraText != value)
@@ -144,8 +144,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Image Image
         {
-            get { return _radioButton.Values.Image; }
-            
+            get => _radioButton.Values.Image;
+
             set 
             {
                 if (_radioButton.Values.Image != value)
@@ -161,8 +161,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _radioButton.PaletteMode; }
-            
+            get => _radioButton.PaletteMode;
+
             set 
             {
                 if (_radioButton.PaletteMode != value)

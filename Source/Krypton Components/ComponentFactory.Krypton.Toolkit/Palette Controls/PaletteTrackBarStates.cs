@@ -19,10 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteTrackBarStates : Storage
 	{
 		#region Instance Fields
-        private PaletteElementColor _tickState;
-        private PaletteElementColor _trackState;
-        private PaletteElementColor _positionState;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -56,9 +54,9 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Create storage that maps onto the inherit instances
-            _tickState = new PaletteElementColor(inheritTick, needPaint);
-            _trackState = new PaletteElementColor(inheritTrack, needPaint);
-            _positionState = new PaletteElementColor(inheritPosition, needPaint);
+            Tick = new PaletteElementColor(inheritTick, needPaint);
+            Track = new PaletteElementColor(inheritTrack, needPaint);
+            Position = new PaletteElementColor(inheritPosition, needPaint);
         }
 		#endregion
 
@@ -67,16 +65,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (Tick.IsDefault &&
-                        Track.IsDefault &&
-                        Position.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (Tick.IsDefault &&
+		                                   Track.IsDefault &&
+		                                   Position.IsDefault);
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -89,9 +82,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                IPaletteElementColor inheritTrack,
                                IPaletteElementColor inheritPosition)
         {
-            _tickState.SetInherit(inheritTick);
-            _trackState.SetInherit(inheritTrack);
-            _positionState.SetInherit(inheritPosition);
+            Tick.SetInherit(inheritTick);
+            Track.SetInherit(inheritTrack);
+            Position.SetInherit(inheritPosition);
         }
         #endregion
 
@@ -102,9 +95,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette state to use when populating.</param>
         public void PopulateFromBase(PaletteState state)
         {
-            _tickState.PopulateFromBase(state);
-            _trackState.PopulateFromBase(state);
-            _positionState.PopulateFromBase(state);
+            Tick.PopulateFromBase(state);
+            Track.PopulateFromBase(state);
+            Position.PopulateFromBase(state);
         }
         #endregion
 
@@ -116,14 +109,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tick appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColor Tick
-        {
-            get { return _tickState; }
-        }
+        public PaletteElementColor Tick { get; }
 
-        private bool ShouldSerializeTick()
+	    private bool ShouldSerializeTick()
         {
-            return !_tickState.IsDefault;
+            return !Tick.IsDefault;
         }
         #endregion
 
@@ -135,14 +125,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining track appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColor Track
-        {
-            get { return _trackState; }
-        }
+        public PaletteElementColor Track { get; }
 
-        private bool ShouldSerializeTrack()
+	    private bool ShouldSerializeTrack()
         {
-            return !_trackState.IsDefault;
+            return !Track.IsDefault;
         }
         #endregion
 
@@ -154,14 +141,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining position appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColor Position
-        {
-            get { return _positionState; }
-        }
+        public PaletteElementColor Position { get; }
 
-        private bool ShouldSerializePosition()
+	    private bool ShouldSerializePosition()
         {
-            return !_positionState.IsDefault;
+            return !Position.IsDefault;
         }
         #endregion
 	}

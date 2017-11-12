@@ -19,15 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteHeaders : Storage
     {
         #region Instance Fields
-        private KryptonPaletteHeader _headerCommon;
-        private KryptonPaletteHeader _headerPrimary;
-        private KryptonPaletteHeader _headerSecondary;
-        private KryptonPaletteHeader _headerDockInactive;
-        private KryptonPaletteHeader _headerDockActive;
-        private KryptonPaletteHeader _headerCalendar;
-        private KryptonPaletteHeader _headerForm;
-        private KryptonPaletteHeader _headerCustom1;
-        private KryptonPaletteHeader _headerCustom2;
+
         #endregion
 
         #region Identity
@@ -41,30 +33,30 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             Debug.Assert(redirector != null);
             // Create the button style specific and common palettes
-            _headerCommon = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, needPaint);
-            _headerPrimary = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, needPaint);
-            _headerSecondary = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
-            _headerDockInactive = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderDockInactive, PaletteBorderStyle.HeaderDockInactive, PaletteContentStyle.HeaderDockInactive, needPaint);
-            _headerDockActive = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderDockActive, PaletteBorderStyle.HeaderDockActive, PaletteContentStyle.HeaderDockActive, needPaint);
-            _headerCalendar = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCalendar, PaletteBorderStyle.HeaderCalendar, PaletteContentStyle.HeaderCalendar, needPaint);
-            _headerForm = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderForm, PaletteBorderStyle.HeaderForm, PaletteContentStyle.HeaderForm, needPaint);
-            _headerCustom1 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom1, PaletteBorderStyle.HeaderCustom1, PaletteContentStyle.HeaderCustom1, needPaint);
-            _headerCustom2 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom2, PaletteBorderStyle.HeaderCustom2, PaletteContentStyle.HeaderCustom2, needPaint);
+            HeaderCommon = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, needPaint);
+            HeaderPrimary = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, needPaint);
+            HeaderSecondary = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
+            HeaderDockInactive = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderDockInactive, PaletteBorderStyle.HeaderDockInactive, PaletteContentStyle.HeaderDockInactive, needPaint);
+            HeaderDockActive = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderDockActive, PaletteBorderStyle.HeaderDockActive, PaletteContentStyle.HeaderDockActive, needPaint);
+            HeaderCalendar = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCalendar, PaletteBorderStyle.HeaderCalendar, PaletteContentStyle.HeaderCalendar, needPaint);
+            HeaderForm = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderForm, PaletteBorderStyle.HeaderForm, PaletteContentStyle.HeaderForm, needPaint);
+            HeaderCustom1 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom1, PaletteBorderStyle.HeaderCustom1, PaletteContentStyle.HeaderCustom1, needPaint);
+            HeaderCustom2 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom2, PaletteBorderStyle.HeaderCustom2, PaletteContentStyle.HeaderCustom2, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectTripleMetric redirectCommon = new PaletteRedirectTripleMetric(redirector, 
-                                                                                         _headerCommon.StateDisabled, _headerCommon.StateDisabled,
-                                                                                         _headerCommon.StateNormal, _headerCommon.StateNormal);
+                                                                                         HeaderCommon.StateDisabled, HeaderCommon.StateDisabled,
+                                                                                         HeaderCommon.StateNormal, HeaderCommon.StateNormal);
 
             // Inform the button style to use the new redirector
-            _headerPrimary.SetRedirector(redirectCommon);
-            _headerSecondary.SetRedirector(redirectCommon);
-            _headerDockInactive.SetRedirector(redirectCommon);
-            _headerDockActive.SetRedirector(redirectCommon);
-            _headerCalendar.SetRedirector(redirectCommon);
-            _headerForm.SetRedirector(redirectCommon);
-            _headerCustom1.SetRedirector(redirectCommon);
-            _headerCustom2.SetRedirector(redirectCommon);
+            HeaderPrimary.SetRedirector(redirectCommon);
+            HeaderSecondary.SetRedirector(redirectCommon);
+            HeaderDockInactive.SetRedirector(redirectCommon);
+            HeaderDockActive.SetRedirector(redirectCommon);
+            HeaderCalendar.SetRedirector(redirectCommon);
+            HeaderForm.SetRedirector(redirectCommon);
+            HeaderCustom1.SetRedirector(redirectCommon);
+            HeaderCustom2.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -72,21 +64,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _headerCommon.IsDefault &&
-                       _headerPrimary.IsDefault &&
-                       _headerSecondary.IsDefault &&
-                       _headerDockInactive.IsDefault &&
-                       _headerDockActive.IsDefault &&
-                       _headerCalendar.IsDefault &&
-                       _headerForm.IsDefault &&
-                       _headerCustom1.IsDefault &&
-                       _headerCustom2.IsDefault;
-            }
-        }
+        public override bool IsDefault => HeaderCommon.IsDefault &&
+                                          HeaderPrimary.IsDefault &&
+                                          HeaderSecondary.IsDefault &&
+                                          HeaderDockInactive.IsDefault &&
+                                          HeaderDockActive.IsDefault &&
+                                          HeaderCalendar.IsDefault &&
+                                          HeaderForm.IsDefault &&
+                                          HeaderCustom1.IsDefault &&
+                                          HeaderCustom2.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -100,27 +87,27 @@ namespace ComponentFactory.Krypton.Toolkit
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderPrimary;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderPrimary;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderPrimary;
-            _headerPrimary.PopulateFromBase();
+            HeaderPrimary.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderSecondary;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderSecondary;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderSecondary;
-            _headerSecondary.PopulateFromBase();
+            HeaderSecondary.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderDockInactive;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderDockInactive;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderDockInactive;
-            _headerDockInactive.PopulateFromBase();
+            HeaderDockInactive.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderDockActive;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderDockActive;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderDockActive;
-            _headerDockActive.PopulateFromBase();
+            HeaderDockActive.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderCalendar;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderCalendar;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderCalendar;
-            _headerCalendar.PopulateFromBase();
+            HeaderCalendar.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.HeaderForm;
             common.StateCommon.BorderStyle = PaletteBorderStyle.HeaderForm;
             common.StateCommon.ContentStyle = PaletteContentStyle.HeaderForm;
-            _headerForm.PopulateFromBase();
+            HeaderForm.PopulateFromBase();
         }
         #endregion
 
@@ -132,14 +119,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderCommon
-        {
-            get { return _headerCommon; }
-        }
+        public KryptonPaletteHeader HeaderCommon { get; }
 
         private bool ShouldSerializeHeaderCommon()
         {
-            return !_headerCommon.IsDefault;
+            return !HeaderCommon.IsDefault;
         }
         #endregion
 
@@ -151,14 +135,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining primary header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderPrimary
-        {
-            get { return _headerPrimary; }
-        }
+        public KryptonPaletteHeader HeaderPrimary { get; }
 
         private bool ShouldSerializeHeaderPrimary()
         {
-            return !_headerPrimary.IsDefault;
+            return !HeaderPrimary.IsDefault;
         }
         #endregion
 
@@ -170,14 +151,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining secondary header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderSecondary
-        {
-            get { return _headerSecondary; }
-        }
+        public KryptonPaletteHeader HeaderSecondary { get; }
 
         private bool ShouldSerializeHeaderSecondary()
         {
-            return !_headerSecondary.IsDefault;
+            return !HeaderSecondary.IsDefault;
         }
         #endregion
 
@@ -189,14 +167,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining inactive dock header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderDockInactive
-        {
-            get { return _headerDockInactive; }
-        }
+        public KryptonPaletteHeader HeaderDockInactive { get; }
 
         private bool ShouldSerializeHeaderDockInactive()
         {
-            return !_headerDockInactive.IsDefault;
+            return !HeaderDockInactive.IsDefault;
         }
         #endregion
 
@@ -208,14 +183,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining active dock header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderDockActive
-        {
-            get { return _headerDockActive; }
-        }
+        public KryptonPaletteHeader HeaderDockActive { get; }
 
         private bool ShouldSerializeHeaderDockActive()
         {
-            return !_headerDockActive.IsDefault;
+            return !HeaderDockActive.IsDefault;
         }
         #endregion
 
@@ -227,14 +199,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining calendar header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderCalendar
-        {
-            get { return _headerCalendar; }
-        }
+        public KryptonPaletteHeader HeaderCalendar { get; }
 
         private bool ShouldSerializeHeaderCalendar()
         {
-            return !_headerCalendar.IsDefault;
+            return !HeaderCalendar.IsDefault;
         }
         #endregion
 
@@ -246,14 +215,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining main form header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderForm
-        {
-            get { return _headerForm; }
-        }
+        public KryptonPaletteHeader HeaderForm { get; }
 
         private bool ShouldSerializeHeaderForm()
         {
-            return !_headerForm.IsDefault;
+            return !HeaderForm.IsDefault;
         }
         #endregion
 
@@ -265,14 +231,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderCustom1
-        {
-            get { return _headerCustom1; }
-        }
+        public KryptonPaletteHeader HeaderCustom1 { get; }
 
         private bool ShouldSerializeHeaderCustom1()
         {
-            return !_headerCustom1.IsDefault;
+            return !HeaderCustom1.IsDefault;
         }
         #endregion
 
@@ -284,14 +247,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the second custom header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeader HeaderCustom2
-        {
-            get { return _headerCustom2; }
-        }
+        public KryptonPaletteHeader HeaderCustom2 { get; }
 
         private bool ShouldSerializeHeaderCustom2()
         {
-            return !_headerCustom2.IsDefault;
+            return !HeaderCustom2.IsDefault;
         }
         #endregion
     }

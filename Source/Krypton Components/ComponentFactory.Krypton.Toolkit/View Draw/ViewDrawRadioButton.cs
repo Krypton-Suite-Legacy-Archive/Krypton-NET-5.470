@@ -21,9 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPalette _palette;
-        private bool _checkState;
-        private bool _tracking;
-        private bool _pressed;
+
         #endregion
 
         #region Identity
@@ -52,33 +50,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the check state of the check box.
         /// </summary>
-        public bool CheckState
-        {
-            get { return _checkState; }
-            set { _checkState = value; }
-        }
+        public bool CheckState { get; set; }
+
         #endregion
 
         #region Tracking
         /// <summary>
         /// Gets and sets the tracking state of the check box.
         /// </summary>
-        public bool Tracking
-        {
-            get { return _tracking; }
-            set { _tracking = value; }
-        }
+        public bool Tracking { get; set; }
+
         #endregion
 
         #region Pressed
         /// <summary>
         /// Gets and sets the pressed state of the check box.
         /// </summary>
-        public bool Pressed
-        {
-            get { return _pressed; }
-            set { _pressed = value; }
-        }
+        public bool Pressed { get; set; }
+
         #endregion
 
         #region Layout
@@ -92,8 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Ask the renderer for the required size of the check box
             return context.Renderer.RenderGlyph.GetRadioButtonPreferredSize(context, _palette, 
-                                                                            Enabled, _checkState, 
-                                                                            _tracking, _pressed);
+                                                                            Enabled, CheckState, 
+                                                                            Tracking, Pressed);
         }
 
         /// <summary>
@@ -124,8 +113,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             context.Renderer.RenderGlyph.DrawRadioButton(context, ClientRectangle, 
                                                          _palette, Enabled, 
-                                                         _checkState, _tracking, 
-                                                         _pressed);
+                                                         CheckState, Tracking, 
+                                                         Pressed);
         }
         #endregion
     }

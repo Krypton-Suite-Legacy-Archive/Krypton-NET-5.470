@@ -16,9 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectBreadCrumb : PaletteRedirect
     {
         #region Instance Fields
-        private bool _left;
-        private bool _right;
-        private bool _topBottom;
+
         #endregion
 
         #region Identity
@@ -29,9 +27,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteRedirectBreadCrumb(IPalette target)
             : base(target)
         {
-            _left = false;
-            _right = false;
-            _topBottom = true;
+            Left = false;
+            Right = false;
+            TopBottom = true;
         }
 		#endregion
 
@@ -39,33 +37,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets if the left border should be removed.
         /// </summary>
-        public bool Left
-        {
-            get { return _left; }
-            set { _left = value; }
-        }
+        public bool Left { get; set; }
+
         #endregion
 
         #region Right
         /// <summary>
         /// Gets and sets if the right border should be removed.
         /// </summary>
-        public bool Right
-        {
-            get { return _right; }
-            set { _right = value; }
-        }
+        public bool Right { get; set; }
+
         #endregion
 
         #region TopBottom
         /// <summary>
         /// Gets and sets if the top and bottom borders should be removed.
         /// </summary>
-        public bool TopBottom
-        {
-            get { return _topBottom; }
-            set { _topBottom = value; }
-        }
+        public bool TopBottom { get; set; }
+
         #endregion
 
         #region GetBorderDrawBorders

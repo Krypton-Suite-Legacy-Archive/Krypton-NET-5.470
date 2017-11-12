@@ -57,16 +57,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault &&
-                        Visible &&
-                        (Enabled == ButtonEnabled.Container) &&
-                        (Checked == ButtonCheckState.NotCheckButton));
-            }
-        }
+        public override bool IsDefault => (base.IsDefault &&
+                                           Visible &&
+                                           (Enabled == ButtonEnabled.Container) &&
+                                           (Checked == ButtonCheckState.NotCheckButton));
+
         #endregion
 
         #region Visible
@@ -80,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -112,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ButtonEnabled), "Container")]
         public ButtonEnabled Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -144,7 +139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ButtonCheckState), "NotCheckButton")]
         public ButtonCheckState Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -180,7 +175,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public override KryptonCommand KryptonCommand
         {
-            get { return base.KryptonCommand; }
+            get => base.KryptonCommand;
 
             set
             {
@@ -215,7 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteButtonSpecStyle), "Generic")]
         public PaletteButtonSpecStyle Type
         {
-            get { return ProtectedType; }
+            get => ProtectedType;
 
             set
             {
