@@ -105,7 +105,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		internal static AccurateTextMemento Empty => _empty ?? (_empty = new AccurateTextMemento(string.Empty,
 		                                                 null,
 		                                                 Size.Empty,
-		                                                 StringFormat.GenericDefault,   // SKC  should this be GenericTypographic,
+		                                                 StringFormat.GenericDefault,
 		                                                 TextRenderingHint.SystemDefault,
 		                                                 false));
 
