@@ -21,7 +21,7 @@
   - null-propogating code
 * Local Variable can be const (And rename to upper case to follow the rest of the codebase.)
 * ﻿Join declaration and assignment
-* [end]
+
 
 ## 2017-11-12 am Toolkit solution changes:
 * Change Get Set functions to be inlined
@@ -34,11 +34,5 @@
   - Applies to buttons, lLabels, Form Titles
   - Create test project - has theme selection, for type testing
 * Remove Severity	Code	Description	Project	File	Line	Suppression State
-Warning	CS0618	'SecurityAction.RequestMinimum' is obsolete: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.'	Basic Events 2015	Z:\Krypton-NET-4.7\Source\Krypton Navigator Examples\Basic Events\Properties\AssemblyInfo.cs	35	Active
-* [end]
-
-## Next (No particular order)
-* Usage of Lync, foreach etc.
-* [end]
 
 
