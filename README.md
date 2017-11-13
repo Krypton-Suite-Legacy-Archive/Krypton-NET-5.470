@@ -22,6 +22,9 @@
 * Local Variable can be const (And rename to upper case to follow the rest of the codebase.)
 * ﻿Join declaration and assignment
 
+## 2017-11-05 Commits:
+* Pre-compiled binaries for use in projects
+
 
 ## 2017-11-12 am Toolkit solution changes:
 * Change Get Set functions to be inlined
