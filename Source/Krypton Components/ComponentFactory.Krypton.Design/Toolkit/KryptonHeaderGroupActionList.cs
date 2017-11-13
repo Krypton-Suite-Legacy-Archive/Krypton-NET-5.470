@@ -46,8 +46,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _headerGroup.GroupBackStyle; }
-            
+            get => _headerGroup.GroupBackStyle;
+
             set 
             {
                 if (_headerGroup.GroupBackStyle != value)
@@ -63,8 +63,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _headerGroup.GroupBorderStyle; }
-            
+            get => _headerGroup.GroupBorderStyle;
+
             set 
             {
                 if (_headerGroup.GroupBorderStyle != value)
@@ -80,8 +80,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public HeaderStyle HeaderStylePrimary
         {
-            get { return _headerGroup.HeaderStylePrimary; }
-            
+            get => _headerGroup.HeaderStylePrimary;
+
             set 
             { 
                 if (_headerGroup.HeaderStylePrimary != value)
@@ -97,8 +97,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public HeaderStyle HeaderStyleSecondary
         {
-            get { return _headerGroup.HeaderStyleSecondary; }
-            
+            get => _headerGroup.HeaderStyleSecondary;
+
             set 
             {
                 if (_headerGroup.HeaderStyleSecondary != value)
@@ -114,8 +114,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation HeaderPositionPrimary
         {
-            get { return _headerGroup.HeaderPositionPrimary; }
-            
+            get => _headerGroup.HeaderPositionPrimary;
+
             set 
             {
                 if (_headerGroup.HeaderPositionPrimary != value)
@@ -131,8 +131,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation HeaderPositionSecondary
         {
-            get { return _headerGroup.HeaderPositionSecondary; }
-            
+            get => _headerGroup.HeaderPositionSecondary;
+
             set 
             {
                 if (_headerGroup.HeaderPositionSecondary != value)
@@ -148,8 +148,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _headerGroup.PaletteMode; }
-            
+            get => _headerGroup.PaletteMode;
+
             set 
             {
                 if (_headerGroup.PaletteMode != value)

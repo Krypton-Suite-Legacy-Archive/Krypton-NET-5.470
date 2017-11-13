@@ -67,8 +67,7 @@ namespace ComponentFactory.Krypton.Navigator
         private ButtonSpecNavManagerLayoutBar _buttonManager;
         private PageToButtonEdge _buttonEdgeLookup;
         private SeparatorController _separatorController;
-        private bool _hasFocus;
-        private bool _events;
+	    private bool _events;
 
         /// <summary>Lookup between pages and stack buttons.</summary>
         protected PageToNavCheckButton _pageStackLookup;
@@ -123,23 +122,15 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Can the separator be moved by the user.
         /// </summary>
-        public bool SeparatorCanMove
-        {
-            get  
-            { 
-                return (GetShrinkStackItem() != null) || 
-                       (GetExpandOverflowItem() != null); }
-        }
+        public bool SeparatorCanMove => (GetShrinkStackItem() != null) || 
+                                        (GetExpandOverflowItem() != null);
 
-        /// <summary>
+	    /// <summary>
         /// Gets the amount the splitter can be incremented.
         /// </summary>
-        public int SeparatorIncrements
-        {
-            get { return 1; }
-        }
+        public int SeparatorIncrements => 1;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
         /// </summary>
         public abstract Rectangle SeparatorMoveBox { get; }
@@ -676,26 +667,20 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets value indicating if the control has the focus.
         /// </summary>
-        public bool HasFocus
-        {
-            get { return _hasFocus; }
-        }
+        public bool HasFocus { get; private set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the view can accept the focus.
         /// </summary>
-        public override bool CanFocus
-        {
-            get { return true; }
-        }
+        public override bool CanFocus => true;
 
-        /// <summary>
+	    /// <summary>
         /// Occurs when the navigator takes the focus.
         /// </summary>
         public override void GotFocus()
         {
             // The navigator has the focus
-            _hasFocus = true;
+            HasFocus = true;
 
             // Make sure the selected page displays with focus indication
             UpdateSelectedPageFocus();
@@ -713,7 +698,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void LostFocus()
         {
             // Navigator no longer has the focus
-            _hasFocus = false;
+            HasFocus = false;
 
             // Remove focus indication from the selected page
             UpdateSelectedPageFocus();
@@ -849,7 +834,7 @@ namespace ComponentFactory.Krypton.Navigator
                         break;
                     case Keys.Space:
                     case Keys.Enter:
-                        if (_hasFocus)
+                        if (HasFocus)
                         {
                             KeyPressedPageView();
                         }

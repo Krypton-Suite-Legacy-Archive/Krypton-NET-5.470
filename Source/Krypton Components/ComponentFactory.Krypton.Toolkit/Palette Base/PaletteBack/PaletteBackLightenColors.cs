@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteBackLightenColors : PaletteBackInherit
     {
         #region Instance Fields
-        private IPaletteBack _inherit;
+
         #endregion
 
         #region Identity
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="inherit"></param>
         public PaletteBackLightenColors(IPaletteBack inherit)
         {
-            _inherit = inherit;
+            Inherit = inherit;
         }
         #endregion
 
@@ -36,11 +36,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the palette to inherit from.
         /// </summary>
-        public IPaletteBack Inherit
-        {
-            get { return _inherit; }
-            set { _inherit = value; }
-        }
+        public IPaletteBack Inherit { get; set; }
+
         #endregion
 
         #region IPaletteBack
@@ -51,7 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public override InheritBool GetBackDraw(PaletteState state)
         {
-            return _inherit.GetBackDraw(state);
+            return Inherit.GetBackDraw(state);
         }
 
         /// <summary>
@@ -61,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteGraphicsHint value.</returns>
         public override PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
         {
-            return _inherit.GetBackGraphicsHint(state);
+            return Inherit.GetBackGraphicsHint(state);
         }
 
         /// <summary>
@@ -71,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetBackColor1(PaletteState state)
         {
-            return CommonHelper.MergeColors(_inherit.GetBackColor1(state), 0.4f, Color.White, 0.6f);
+            return CommonHelper.MergeColors(Inherit.GetBackColor1(state), 0.4f, Color.White, 0.6f);
         }
 
         /// <summary>
@@ -81,7 +78,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetBackColor2(PaletteState state)
         {
-            return CommonHelper.MergeColors(_inherit.GetBackColor2(state), 0.4f, Color.White, 0.6f);
+            return CommonHelper.MergeColors(Inherit.GetBackColor2(state), 0.4f, Color.White, 0.6f);
         }
 
         /// <summary>
@@ -91,7 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetBackColorStyle(PaletteState state)
         {
-            return _inherit.GetBackColorStyle(state);
+            return Inherit.GetBackColorStyle(state);
         }
 
         /// <summary>
@@ -101,7 +98,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color alignment style.</returns>
         public override PaletteRectangleAlign GetBackColorAlign(PaletteState state)
         {
-            return _inherit.GetBackColorAlign(state);
+            return Inherit.GetBackColorAlign(state);
         }
 
         /// <summary>
@@ -111,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Angle used for color drawing.</returns>
         public override float GetBackColorAngle(PaletteState state)
         {
-            return _inherit.GetBackColorAngle(state);
+            return Inherit.GetBackColorAngle(state);
         }
 
         /// <summary>
@@ -121,7 +118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image instance.</returns>
         public override Image GetBackImage(PaletteState state)
         {
-            return _inherit.GetBackImage(state);
+            return Inherit.GetBackImage(state);
         }
 
         /// <summary>
@@ -131,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image style value.</returns>
         public override PaletteImageStyle GetBackImageStyle(PaletteState state)
         {
-            return _inherit.GetBackImageStyle(state);
+            return Inherit.GetBackImageStyle(state);
         }
 
         /// <summary>
@@ -141,7 +138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image alignment style.</returns>
         public override PaletteRectangleAlign GetBackImageAlign(PaletteState state)
         {
-            return _inherit.GetBackImageAlign(state);
+            return Inherit.GetBackImageAlign(state);
         }
         #endregion
     }

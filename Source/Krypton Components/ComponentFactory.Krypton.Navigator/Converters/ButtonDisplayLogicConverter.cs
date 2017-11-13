@@ -18,10 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class ButtonDisplayLogicConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(ButtonDisplayLogic.None,                  "None"),
-                                             new Pair(ButtonDisplayLogic.Context,               "Context"),
-                                             new Pair(ButtonDisplayLogic.NextPrevious,          "Next/Previous"),
-                                             new Pair(ButtonDisplayLogic.ContextNextPrevious,   "Context & Next/Previous") };
+
         #endregion
                                              
         #region Identity
@@ -38,10 +35,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(ButtonDisplayLogic.None,                  "None"),
+            new Pair(ButtonDisplayLogic.Context,               "Context"),
+            new Pair(ButtonDisplayLogic.NextPrevious,          "Next/Previous"),
+            new Pair(ButtonDisplayLogic.ContextNextPrevious,   "Context & Next/Previous") };
+
         #endregion
     }
 }

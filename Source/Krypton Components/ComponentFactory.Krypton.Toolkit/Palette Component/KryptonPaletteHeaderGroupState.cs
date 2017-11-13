@@ -60,18 +60,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return PrimaryHeaderPadding.Equals(CommonHelper.InheritPadding) &&
-                       SecondaryHeaderPadding.Equals(CommonHelper.InheritPadding) &&
-                       DockInactiveHeaderPadding.Equals(CommonHelper.InheritPadding) &&
-                       DockActiveHeaderPadding.Equals(CommonHelper.InheritPadding) &&
-                       (OverlayHeaders == InheritBool.Inherit);
-            }
-		}
-		#endregion
+		public override bool IsDefault => PrimaryHeaderPadding.Equals(CommonHelper.InheritPadding) &&
+		                                  SecondaryHeaderPadding.Equals(CommonHelper.InheritPadding) &&
+		                                  DockInactiveHeaderPadding.Equals(CommonHelper.InheritPadding) &&
+		                                  DockActiveHeaderPadding.Equals(CommonHelper.InheritPadding) &&
+		                                  (OverlayHeaders == InheritBool.Inherit);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -98,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding PrimaryHeaderPadding
         {
-            get { return _primaryHeaderPadding; }
+            get => _primaryHeaderPadding;
 
             set
             {
@@ -130,7 +125,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding SecondaryHeaderPadding
         {
-            get { return _secondaryHeaderPadding; }
+            get => _secondaryHeaderPadding;
 
             set
             {
@@ -162,7 +157,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding DockInactiveHeaderPadding
         {
-            get { return _dockInactiveHeaderPadding; }
+            get => _dockInactiveHeaderPadding;
 
             set
             {
@@ -194,7 +189,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding DockActiveHeaderPadding
         {
-            get { return _dockActiveHeaderPadding; }
+            get => _dockActiveHeaderPadding;
 
             set
             {
@@ -226,9 +221,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public InheritBool OverlayHeaders
 		{
-			get { return _overlayHeaders; }
+			get => _overlayHeaders;
 
-			set
+            set
 			{
 				if (_overlayHeaders != value)
 				{

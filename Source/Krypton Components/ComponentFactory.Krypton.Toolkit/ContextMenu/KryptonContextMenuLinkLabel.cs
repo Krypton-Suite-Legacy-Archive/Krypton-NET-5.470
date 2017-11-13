@@ -32,11 +32,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _extraText;
         private Image _image;
         private Color _imageTransparentColor;
-        private PaletteContent _stateNormal;
-        private PaletteContent _stateVisited;
-        private PaletteContent _stateNotVisited;
-        private PaletteContent _statePressed;
-        private PaletteContent _stateFocus;
         private PaletteContentInheritRedirect _stateNormalRedirect;
         private PaletteContentInheritRedirect _stateVisitedRedirect;
         private PaletteContentInheritRedirect _stateNotVisitedRedirect;
@@ -44,10 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private PaletteContentInheritRedirect _stateFocusRedirect;
         private PaletteContentInheritOverride _overrideVisited;
         private PaletteContentInheritOverride _overrideNotVisited;
-        private PaletteContentInheritOverride _overrideFocusNotVisited;
         private PaletteContentInheritOverride _overridePressed;
-        private PaletteContentInheritOverride _overridePressedFocus;
-        private LinkLabelBehaviorInherit _inheritBehavior;
         private KryptonCommand _command;
         private LabelStyle _style;
         #endregion
@@ -92,21 +84,21 @@ namespace ComponentFactory.Krypton.Toolkit
             _stateFocusRedirect = new PaletteContentInheritRedirect(PaletteContentStyle.LabelNormalControl);
 
             // Create the states
-            _stateNormal = new PaletteContent(_stateNormalRedirect);
-            _stateVisited = new PaletteContent(_stateVisitedRedirect);
-            _stateNotVisited = new PaletteContent(_stateNotVisitedRedirect);
-            _stateFocus = new PaletteContent(_stateFocusRedirect);
-            _statePressed = new PaletteContent(_statePressedRedirect);
+            StateNormal = new PaletteContent(_stateNormalRedirect);
+            OverrideVisited = new PaletteContent(_stateVisitedRedirect);
+            OverrideNotVisited = new PaletteContent(_stateNotVisitedRedirect);
+            OverrideFocus = new PaletteContent(_stateFocusRedirect);
+            OverridePressed = new PaletteContent(_statePressedRedirect);
 
             // Override the normal state to implement the underling logic
-            _inheritBehavior = new LinkLabelBehaviorInherit(_stateNormal, KryptonLinkBehavior.AlwaysUnderline);
+            LinkBehaviorNormal = new LinkLabelBehaviorInherit(StateNormal, KryptonLinkBehavior.AlwaysUnderline);
 
             // Create the override handling classes
-            _overrideVisited = new PaletteContentInheritOverride(_stateVisited, _inheritBehavior, PaletteState.LinkVisitedOverride, false);
-            _overrideNotVisited = new PaletteContentInheritOverride(_stateNotVisited, _overrideVisited, PaletteState.LinkNotVisitedOverride, true);
-            _overrideFocusNotVisited = new PaletteContentInheritOverride(_stateFocus, _overrideNotVisited, PaletteState.FocusOverride, false);
-            _overridePressed = new PaletteContentInheritOverride(_statePressed, _inheritBehavior, PaletteState.LinkPressedOverride, true);
-            _overridePressedFocus = new PaletteContentInheritOverride(_stateFocus, _overridePressed, PaletteState.FocusOverride, false);
+            _overrideVisited = new PaletteContentInheritOverride(OverrideVisited, LinkBehaviorNormal, PaletteState.LinkVisitedOverride, false);
+            _overrideNotVisited = new PaletteContentInheritOverride(OverrideNotVisited, _overrideVisited, PaletteState.LinkNotVisitedOverride, true);
+            OverrideFocusNotVisited = new PaletteContentInheritOverride(OverrideFocus, _overrideNotVisited, PaletteState.FocusOverride, false);
+            _overridePressed = new PaletteContentInheritOverride(OverridePressed, LinkBehaviorNormal, PaletteState.LinkPressedOverride, true);
+            OverridePressedFocus = new PaletteContentInheritOverride(OverrideFocus, _overridePressed, PaletteState.FocusOverride, false);
         }
 
         /// <summary>
@@ -125,20 +117,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int ItemChildCount 
-        {
-            get { return 0; }
-        }
+        public override int ItemChildCount => 0;
 
         /// <summary>
         /// Returns the indexed child menu item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override KryptonContextMenuItemBase this[int index]
-        {
-            get { return null; }
-        }
+        public override KryptonContextMenuItemBase this[int index] => null;
 
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
@@ -177,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(LabelStyle), "NormalControl")]
         public LabelStyle LabelStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
@@ -199,13 +185,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(KryptonLinkBehavior), "Always Underline")]
         public KryptonLinkBehavior LinkBehavior
         {
-            get { return _inheritBehavior.LinkBehavior; }
-            
+            get => LinkBehaviorNormal.LinkBehavior;
+
             set 
             {
-                if (_inheritBehavior.LinkBehavior != value)
+                if (LinkBehaviorNormal.LinkBehavior != value)
                 {
-                    _inheritBehavior.LinkBehavior = value;
+                    LinkBehaviorNormal.LinkBehavior = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("LinkBehavior"));
                 }
             }
@@ -220,7 +206,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool LinkVisited
         {
-            get { return _overrideVisited.Apply; }
+            get => _overrideVisited.Apply;
             set
             {
                 if (_overrideVisited.Apply != value)
@@ -241,8 +227,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AutoClose
         {
-            get { return _autoClose; }
-            
+            get => _autoClose;
+
             set 
             {
                 if (_autoClose != value)
@@ -263,8 +249,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string Text
         {
-            get { return _text; }
-            
+            get => _text;
+
             set 
             {
                 if (_text != value)
@@ -285,8 +271,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public string ExtraText
         {
-            get { return _extraText; }
-            
+            get => _extraText;
+
             set 
             {
                 if (_extraText != value)
@@ -307,8 +293,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Image Image
         {
-            get { return _image; }
-            
+            get => _image;
+
             set 
             {
                 if (_image != value)
@@ -328,8 +314,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
-            
+            get => _imageTransparentColor;
+
             set 
             {
                 if (_imageTransparentColor != value)
@@ -352,14 +338,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining link label normal instance specific appearance values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteContent StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -369,14 +352,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed link label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent OverridePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteContent OverridePressed { get; }
 
         private bool ShouldSerializeOverridePressed()
         {
-            return !_statePressed.IsDefault;
+            return !OverridePressed.IsDefault;
         }
 
         /// <summary>
@@ -386,14 +366,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining link label appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteContent OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -403,14 +380,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for modifying normal state when link label has been visited.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent OverrideVisited
-        {
-            get { return _stateVisited; }
-        }
+        public PaletteContent OverrideVisited { get; }
 
         private bool ShouldSerializeOverrideVisited()
         {
-            return !_stateVisited.IsDefault;
+            return !OverrideVisited.IsDefault;
         }
 
         /// <summary>
@@ -420,14 +394,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for modifying normal state when link label has not been visited.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent OverrideNotVisited
-        {
-            get { return _stateNotVisited; }
-        }
+        public PaletteContent OverrideNotVisited { get; }
 
         private bool ShouldSerializeOverrideNotVisited()
         {
-            return !_stateNotVisited.IsDefault;
+            return !OverrideNotVisited.IsDefault;
         }
 
         /// <summary>
@@ -439,7 +410,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonCommand KryptonCommand
         {
-            get { return _command; }
+            get => _command;
 
             set
             {
@@ -475,20 +446,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal LinkLabelBehaviorInherit LinkBehaviorNormal
-        {
-            get { return _inheritBehavior; }
-        }
+        internal LinkLabelBehaviorInherit LinkBehaviorNormal { get; }
 
-        internal PaletteContentInheritOverride OverrideFocusNotVisited
-        {
-            get { return _overrideFocusNotVisited; }
-        }
+        internal PaletteContentInheritOverride OverrideFocusNotVisited { get; }
 
-        internal PaletteContentInheritOverride OverridePressedFocus
-        {
-            get { return _overridePressedFocus; }
-        }
+        internal PaletteContentInheritOverride OverridePressedFocus { get; }
 
         internal void SetPaletteRedirect(PaletteRedirect redirector)
         {

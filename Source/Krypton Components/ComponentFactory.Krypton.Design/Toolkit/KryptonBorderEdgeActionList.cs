@@ -65,8 +65,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle BorderStyle
         {
-            get { return _borderEdge.BorderStyle; }
-            
+            get => _borderEdge.BorderStyle;
+
             set 
             {
                 if (_borderEdge.BorderStyle != value)
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool AutoSize
         {
-            get { return _borderEdge.AutoSize; }
+            get => _borderEdge.AutoSize;
 
             set
             {
@@ -99,7 +99,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public DockStyle Dock
         {
-            get { return _borderEdge.Dock; }
+            get => _borderEdge.Dock;
 
             set
             {
@@ -116,8 +116,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _borderEdge.PaletteMode; }
-            
+            get => _borderEdge.PaletteMode;
+
             set 
             {
                 if (_borderEdge.PaletteMode != value)

@@ -18,11 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private KryptonColorTable _baseKCT;
-        private InheritBool _useRoundedEdges;
         private Color[] _colors;
-        private Font _menuFont;
-        private Font _toolFont;
-        private Font _statusFont;
+
         #endregion
 
         #region Identity
@@ -53,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Initialise other storage values
-            _useRoundedEdges = InheritBool.Inherit;
+            InternalUseRoundedEdges = InheritBool.Inherit;
         }
         #endregion
 
@@ -62,10 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public bool IsDefault 
-        { 
-            get { return (_useRoundedEdges == InheritBool.Inherit); }
-        }
+        public bool IsDefault => (InternalUseRoundedEdges == InheritBool.Inherit);
+
         #endregion
 
         #region Button
@@ -93,8 +88,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonCheckedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin] = value;
         }
         #endregion
         
@@ -122,8 +117,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonCheckedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ButtonCheckedGradientEnd] = value;
         }
         #endregion
 
@@ -151,8 +146,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonCheckedGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle] = value;
         }
         #endregion
         
@@ -180,8 +175,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonCheckedHighlight
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonCheckedHighlight]; }
-            set { _colors[(int)PaletteColorIndex.ButtonCheckedHighlight] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonCheckedHighlight];
+            set => _colors[(int)PaletteColorIndex.ButtonCheckedHighlight] = value;
         }
         #endregion
         
@@ -209,8 +204,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonCheckedHighlightBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder]; }
-            set { _colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder];
+            set => _colors[(int)PaletteColorIndex.ButtonCheckedHighlightBorder] = value;
         }
         #endregion
 
@@ -238,8 +233,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedBorder]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedBorder];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedBorder] = value;
         }
         #endregion
 
@@ -267,8 +262,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedGradientBegin] = value;
         }
         #endregion
 
@@ -296,8 +291,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd] = value;
         }
         #endregion
         
@@ -325,8 +320,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedGradientMiddle] = value;
         }
         #endregion
 
@@ -354,8 +349,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedHighlight
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedHighlight]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedHighlight] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedHighlight];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedHighlight] = value;
         }
         #endregion
 
@@ -383,8 +378,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonPressedHighlightBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder]; }
-            set { _colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder];
+            set => _colors[(int)PaletteColorIndex.ButtonPressedHighlightBorder] = value;
         }
         #endregion
 
@@ -412,8 +407,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedBorder]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedBorder];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedBorder] = value;
         }
         #endregion
 
@@ -441,8 +436,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedGradientBegin] = value;
         }
         #endregion
 
@@ -470,8 +465,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd] = value;
         }
         #endregion
         
@@ -499,8 +494,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedGradientMiddle] = value;
         }
         #endregion
 
@@ -528,8 +523,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedHighlight
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedHighlight]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedHighlight] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedHighlight];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedHighlight] = value;
         }
         #endregion
 
@@ -557,8 +552,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalButtonSelectedHighlightBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder]; }
-            set { _colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder];
+            set => _colors[(int)PaletteColorIndex.ButtonSelectedHighlightBorder] = value;
         }
         #endregion
         #endregion
@@ -588,8 +583,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalCheckBackground
         {
-            get { return _colors[(int)PaletteColorIndex.CheckBackground]; }
-            set { _colors[(int)PaletteColorIndex.CheckBackground] = value; }
+            get => _colors[(int)PaletteColorIndex.CheckBackground];
+            set => _colors[(int)PaletteColorIndex.CheckBackground] = value;
         }
         #endregion
         
@@ -617,8 +612,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalCheckPressedBackground
         {
-            get { return _colors[(int)PaletteColorIndex.CheckPressedBackground]; }
-            set { _colors[(int)PaletteColorIndex.CheckPressedBackground] = value; }
+            get => _colors[(int)PaletteColorIndex.CheckPressedBackground];
+            set => _colors[(int)PaletteColorIndex.CheckPressedBackground] = value;
         }
         #endregion
 
@@ -646,8 +641,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalCheckSelectedBackground
         {
-            get { return _colors[(int)PaletteColorIndex.CheckSelectedBackground]; }
-            set { _colors[(int)PaletteColorIndex.CheckSelectedBackground] = value; }
+            get => _colors[(int)PaletteColorIndex.CheckSelectedBackground];
+            set => _colors[(int)PaletteColorIndex.CheckSelectedBackground] = value;
         }
         #endregion
         #endregion
@@ -677,8 +672,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalGripDark
         {
-            get { return _colors[(int)PaletteColorIndex.GripDark]; }
-            set { _colors[(int)PaletteColorIndex.GripDark] = value; }
+            get => _colors[(int)PaletteColorIndex.GripDark];
+            set => _colors[(int)PaletteColorIndex.GripDark] = value;
         }
         #endregion
         
@@ -706,8 +701,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalGripLight
         {
-            get { return _colors[(int)PaletteColorIndex.GripLight]; }
-            set { _colors[(int)PaletteColorIndex.GripLight] = value; }
+            get => _colors[(int)PaletteColorIndex.GripLight];
+            set => _colors[(int)PaletteColorIndex.GripLight] = value;
         }
         #endregion
         #endregion
@@ -737,8 +732,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ImageMarginGradientBegin] = value;
         }
         #endregion
         
@@ -766,8 +761,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ImageMarginGradientEnd] = value;
         }
         #endregion
         
@@ -795,8 +790,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle] = value;
         }
         #endregion
         
@@ -824,8 +819,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginRevealedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin] = value;
         }
         #endregion
         
@@ -853,8 +848,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginRevealedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd] = value;
         }
         #endregion
         
@@ -882,8 +877,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalImageMarginRevealedGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientMiddle] = value;
         }
         #endregion
         #endregion
@@ -913,8 +908,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuBorder
         {
-            get { return _colors[(int)PaletteColorIndex.MenuBorder]; }
-            set { _colors[(int)PaletteColorIndex.MenuBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuBorder];
+            set => _colors[(int)PaletteColorIndex.MenuBorder] = value;
         }
         #endregion
 
@@ -942,8 +937,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemText
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemText]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemText] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemText];
+            set => _colors[(int)PaletteColorIndex.MenuItemText] = value;
         }
         #endregion
 
@@ -955,13 +950,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_menuFont == null)
+                if (InternalMenuStripFont == null)
                 {
                     return BaseKCT.MenuStripFont;
                 }
                 else
                 {
-                    return _menuFont;
+                    return InternalMenuStripFont;
                 }
             }
         }
@@ -969,11 +964,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Sets and sets the internal MenuStripFont value.
         /// </summary>
-        public Font InternalMenuStripFont
-        {
-            get { return _menuFont; }
-            set { _menuFont = value; }
-        }
+        public Font InternalMenuStripFont { get; set; }
+
         #endregion
 
         #region MenuItemBorder
@@ -1000,8 +992,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemBorder
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemBorder]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemBorder];
+            set => _colors[(int)PaletteColorIndex.MenuItemBorder] = value;
         }
         #endregion
         
@@ -1029,8 +1021,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemPressedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin] = value;
         }
         #endregion
         
@@ -1058,8 +1050,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemPressedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd] = value;
         }
         #endregion
         
@@ -1087,8 +1079,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemPressedGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle] = value;
         }
         #endregion
         
@@ -1116,8 +1108,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemSelected
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemSelected]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemSelected] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemSelected];
+            set => _colors[(int)PaletteColorIndex.MenuItemSelected] = value;
         }
         #endregion
         
@@ -1145,8 +1137,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemSelectedGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin];
+            set => _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin] = value;
         }
         #endregion
         
@@ -1174,8 +1166,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuItemSelectedGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd];
+            set => _colors[(int)PaletteColorIndex.MenuItemSelectedGradientEnd] = value;
         }
         #endregion
 
@@ -1203,8 +1195,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuStripText
         {
-            get { return _colors[(int)PaletteColorIndex.MenuStripText]; }
-            set { _colors[(int)PaletteColorIndex.MenuStripText] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuStripText];
+            set => _colors[(int)PaletteColorIndex.MenuStripText] = value;
         }
         #endregion
 
@@ -1232,8 +1224,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuStripGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.MenuStripGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.MenuStripGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuStripGradientBegin];
+            set => _colors[(int)PaletteColorIndex.MenuStripGradientBegin] = value;
         }
         #endregion
         
@@ -1261,8 +1253,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalMenuStripGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.MenuStripGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.MenuStripGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.MenuStripGradientEnd];
+            set => _colors[(int)PaletteColorIndex.MenuStripGradientEnd] = value;
         }
         #endregion
         #endregion
@@ -1292,8 +1284,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalOverflowButtonGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin];
+            set => _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin] = value;
         }
         #endregion
         
@@ -1321,8 +1313,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalOverflowButtonGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd];
+            set => _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd] = value;
         }
         #endregion
         
@@ -1350,8 +1342,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalOverflowButtonGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.OverflowButtonGradientMiddle] = value;
         }
         #endregion
         #endregion
@@ -1381,8 +1373,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalRaftingContainerGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin];
+            set => _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin] = value;
         }
         #endregion
         
@@ -1410,8 +1402,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalRaftingContainerGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.RaftingContainerGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.RaftingContainerGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.RaftingContainerGradientEnd];
+            set => _colors[(int)PaletteColorIndex.RaftingContainerGradientEnd] = value;
         }
         #endregion
         #endregion
@@ -1441,8 +1433,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalSeparatorDark
         {
-            get { return _colors[(int)PaletteColorIndex.SeparatorDark]; }
-            set { _colors[(int)PaletteColorIndex.SeparatorDark] = value; }
+            get => _colors[(int)PaletteColorIndex.SeparatorDark];
+            set => _colors[(int)PaletteColorIndex.SeparatorDark] = value;
         }
         #endregion
 
@@ -1470,8 +1462,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalSeparatorLight
         {
-            get { return _colors[(int)PaletteColorIndex.SeparatorLight]; }
-            set { _colors[(int)PaletteColorIndex.SeparatorLight] = value; }
+            get => _colors[(int)PaletteColorIndex.SeparatorLight];
+            set => _colors[(int)PaletteColorIndex.SeparatorLight] = value;
         }
         #endregion
         #endregion
@@ -1501,8 +1493,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalStatusStripText
         {
-            get { return _colors[(int)PaletteColorIndex.StatusStripText]; }
-            set { _colors[(int)PaletteColorIndex.StatusStripText] = value; }
+            get => _colors[(int)PaletteColorIndex.StatusStripText];
+            set => _colors[(int)PaletteColorIndex.StatusStripText] = value;
         }
         #endregion
 
@@ -1514,13 +1506,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_statusFont == null)
+                if (InternalStatusStripFont == null)
                 {
                     return BaseKCT.StatusStripFont;
                 }
                 else
                 {
-                    return _statusFont;
+                    return InternalStatusStripFont;
                 }
             }
         }
@@ -1528,11 +1520,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Sets and sets the internal StatusStripFont value.
         /// </summary>
-        public Font InternalStatusStripFont
-        {
-            get { return _statusFont; }
-            set { _statusFont = value; }
-        }
+        public Font InternalStatusStripFont { get; set; }
+
         #endregion
         
         #region StatusStripGradientBegin
@@ -1559,8 +1548,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalStatusStripGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.StatusStripGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.StatusStripGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.StatusStripGradientBegin];
+            set => _colors[(int)PaletteColorIndex.StatusStripGradientBegin] = value;
         }
         #endregion
         
@@ -1588,8 +1577,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalStatusStripGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.StatusStripGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.StatusStripGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.StatusStripGradientEnd];
+            set => _colors[(int)PaletteColorIndex.StatusStripGradientEnd] = value;
         }
         #endregion
         #endregion
@@ -1619,8 +1608,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripText
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripText]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripText] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripText];
+            set => _colors[(int)PaletteColorIndex.ToolStripText] = value;
         }
         #endregion
 
@@ -1632,13 +1621,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_toolFont == null)
+                if (InternalToolStripFont == null)
                 {
                     return BaseKCT.ToolStripFont;
                 }
                 else
                 {
-                    return _toolFont;
+                    return InternalToolStripFont;
                 }
             }
         }
@@ -1646,11 +1635,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Sets and sets the internal ToolStripFont value.
         /// </summary>
-        public Font InternalToolStripFont
-        {
-            get { return _toolFont; }
-            set { _toolFont = value; }
-        }
+        public Font InternalToolStripFont { get; set; }
+
         #endregion
 
         #region ToolStripBorder
@@ -1677,8 +1663,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripBorder
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripBorder]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripBorder] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripBorder];
+            set => _colors[(int)PaletteColorIndex.ToolStripBorder] = value;
         }
         #endregion
         
@@ -1706,8 +1692,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripContentPanelGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin] = value;
         }
         #endregion
         
@@ -1735,8 +1721,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripContentPanelGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientEnd] = value;
         }
         #endregion
 
@@ -1764,8 +1750,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripDropDownBackground
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripDropDownBackground]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripDropDownBackground] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripDropDownBackground];
+            set => _colors[(int)PaletteColorIndex.ToolStripDropDownBackground] = value;
         }
         #endregion
         
@@ -1793,8 +1779,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ToolStripGradientBegin] = value;
         }
         #endregion
         
@@ -1822,8 +1808,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ToolStripGradientEnd] = value;
         }
         #endregion
         
@@ -1851,8 +1837,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripGradientMiddle
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripGradientMiddle]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripGradientMiddle] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripGradientMiddle];
+            set => _colors[(int)PaletteColorIndex.ToolStripGradientMiddle] = value;
         }
         #endregion
         
@@ -1880,8 +1866,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripPanelGradientBegin
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin];
+            set => _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin] = value;
         }
         #endregion
         
@@ -1909,8 +1895,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Color InternalToolStripPanelGradientEnd
         {
-            get { return _colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd]; }
-            set { _colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd] = value; }
+            get => _colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd];
+            set => _colors[(int)PaletteColorIndex.ToolStripPanelGradientEnd] = value;
         }
         #endregion
         #endregion
@@ -1923,13 +1909,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (_useRoundedEdges == InheritBool.Inherit)
+                if (InternalUseRoundedEdges == InheritBool.Inherit)
                 {
                     return BaseKCT.UseRoundedEdges;
                 }
                 else
                 {
-                    return _useRoundedEdges;
+                    return InternalUseRoundedEdges;
                 }
             }
         }
@@ -1937,18 +1923,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Sets and sets the internal UseRoundedEdges value.
         /// </summary>
-        public InheritBool InternalUseRoundedEdges
-        {
-            get { return _useRoundedEdges; }
-            set { _useRoundedEdges = value; }
-        }
+        public InheritBool InternalUseRoundedEdges { get; set; }
+
         #endregion
 
         #region Internal
         internal KryptonColorTable BaseKCT
         {
-            get { return _baseKCT; }
-            
+            get => _baseKCT;
+
             set 
             {
                 // Use the new inheritance

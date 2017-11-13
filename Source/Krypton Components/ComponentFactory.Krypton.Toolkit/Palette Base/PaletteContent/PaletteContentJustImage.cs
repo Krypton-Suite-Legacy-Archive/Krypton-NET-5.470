@@ -57,8 +57,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override InheritBool DrawFocus
         {
-            get { return base.DrawFocus; }
-            set { base.DrawFocus = value; }
+            get => base.DrawFocus;
+            set => base.DrawFocus = value;
         }
         #endregion
 
@@ -69,10 +69,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonPersist]
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override PaletteContentText ShortText
-        {
-            get { return base.ShortText; }
-        }
+        public override PaletteContentText ShortText => base.ShortText;
+
         #endregion
 
         #region LongText
@@ -82,10 +80,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonPersist]
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override PaletteContentText LongText
-        {
-            get { return base.LongText; }
-        }
+        public override PaletteContentText LongText => base.LongText;
+
         #endregion
 
         #region AdjacentGap
@@ -97,8 +93,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int AdjacentGap
         {
-            get { return base.AdjacentGap;  }
-            set { base.AdjacentGap = value; }
+            get => base.AdjacentGap;
+            set => base.AdjacentGap = value;
         }
         #endregion
     }

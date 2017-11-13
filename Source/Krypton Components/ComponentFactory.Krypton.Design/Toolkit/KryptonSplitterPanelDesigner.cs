@@ -94,17 +94,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should painting be performed for the selection glyph.
         /// </summary>
-        public bool CanPaint
-        {
-            get { return true; }
-        }
+        public bool CanPaint => true;
 
-        /// <summary>
+	    /// <summary>
         /// Select the control that contains the group panel.
         /// </summary>
         public void SelectParentControl()
         {
-            if ((_panel != null) && (_panel.Parent != null))
+            if (_panel?.Parent != null)
             {
                 _selectionService.SetSelectedComponents(new object[] { _panel.Parent }, SelectionTypes.Primary);
             }
@@ -196,7 +193,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			get
 			{
 				// If we have a valid Krypton splitter panel instance
-				if ((_panel != null) && (_panel.Parent != null))
+				if (_panel?.Parent != null)
 				{
 					// Then get the attribute associated with the parent of the panel
 					return (InheritanceAttribute)TypeDescriptor.GetAttributes(_panel.Parent)[typeof(InheritanceAttribute)];
@@ -213,7 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		private void OnComponentChanged(object sender, ComponentChangedEventArgs e)
 		{
 			// Assuming the panel has a parent
-			if ((_panel != null) && (_panel.Parent != null))
+			if (_panel?.Parent != null)
 			{
 				// And the panel does not have any children yet
 				if (_panel.Controls.Count == 0)

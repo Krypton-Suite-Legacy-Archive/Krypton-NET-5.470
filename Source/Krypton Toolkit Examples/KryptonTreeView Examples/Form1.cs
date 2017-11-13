@@ -35,9 +35,11 @@ namespace KryptonTreeViewExamples
 
         private KryptonTreeNode CreateNewItem()
         {
-            KryptonTreeNode item = new KryptonTreeNode();
-            item.Text = "Item " + (_next++).ToString();
-            item.ImageIndex = _rand.Next(imageList.Images.Count - 1);
+            KryptonTreeNode item = new KryptonTreeNode
+            {
+                Text = "Item " + (_next++).ToString(),
+                ImageIndex = _rand.Next(imageList.Images.Count - 1)
+            };
             item.SelectedImageIndex = item.ImageIndex;
             return item;
         }
@@ -49,7 +51,9 @@ namespace KryptonTreeViewExamples
 
             // If nothing currently selected, then select the new one
             if (kryptonTreeView.SelectedNode == null)
+            {
                 kryptonTreeView.SelectedNode = node;
+            }
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
@@ -61,7 +65,9 @@ namespace KryptonTreeViewExamples
                 kryptonTreeView.SelectedNode.Expand();
             }
             else
+            {
                 buttonAppend_Click(null, EventArgs.Empty);
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -70,9 +76,13 @@ namespace KryptonTreeViewExamples
             if (kryptonTreeView.SelectedNode != null)
             {
                 if (kryptonTreeView.SelectedNode.Parent != null)
+                {
                     kryptonTreeView.SelectedNode.Parent.Nodes.Remove(kryptonTreeView.SelectedNode);
+                }
                 else
+                {
                     kryptonTreeView.Nodes.Remove(kryptonTreeView.SelectedNode);
+                }
             }
         }
         
@@ -84,13 +94,21 @@ namespace KryptonTreeViewExamples
         private void kryptonCheckSet_CheckedButtonChanged(object sender, EventArgs e)
         {
             if (kryptonCheckSet.CheckedButton == check2007Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2007Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == check2010Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2010Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSparkle)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.SparkleBlue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSystem)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.ProfessionalSystem;
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

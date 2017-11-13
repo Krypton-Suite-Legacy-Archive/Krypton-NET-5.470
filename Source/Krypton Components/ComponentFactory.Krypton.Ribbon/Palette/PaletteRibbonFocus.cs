@@ -64,14 +64,9 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return RibbonTab.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => RibbonTab.IsDefault;
+
+	    #endregion
 
         #region RibbonTab
         /// <summary>
@@ -80,12 +75,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining ribbon tab appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonDouble RibbonTab
-        {
-            get { return _ribbonTab; }
-        }
+        public virtual PaletteRibbonDouble RibbonTab => _ribbonTab;
 
-        private bool ShouldSerializeRibbonTab()
+	    private bool ShouldSerializeRibbonTab()
         {
             return !_ribbonTab.IsDefault;
         }

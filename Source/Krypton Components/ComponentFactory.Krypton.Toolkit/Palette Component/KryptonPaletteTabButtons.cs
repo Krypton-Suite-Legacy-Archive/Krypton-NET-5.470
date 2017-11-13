@@ -19,16 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteTabButtons : Storage
     {
         #region Instance Fields
-        private KryptonPaletteTabButton _tabCommon;
-        private KryptonPaletteTabButton _tabHighProfile;
-        private KryptonPaletteTabButton _tabStandardProfile;
-        private KryptonPaletteTabButton _tabLowProfile;
-        private KryptonPaletteTabButton _tabDock;
-        private KryptonPaletteTabButton _tabDockAutoHidden;
-        private KryptonPaletteTabButton _tabOneNote;
-        private KryptonPaletteTabButton _tabCustom1;
-        private KryptonPaletteTabButton _tabCustom2;
-        private KryptonPaletteTabButton _tabCustom3;
+
         #endregion
 
         #region Identity
@@ -43,32 +34,32 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _tabCommon = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
-            _tabHighProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
-            _tabStandardProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabStandardProfile, PaletteBorderStyle.TabStandardProfile, PaletteContentStyle.TabStandardProfile, needPaint);
-            _tabLowProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabLowProfile, PaletteBorderStyle.TabLowProfile, PaletteContentStyle.TabLowProfile, needPaint);
-            _tabDock = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabDock, PaletteBorderStyle.TabDock, PaletteContentStyle.TabDock, needPaint);
-            _tabDockAutoHidden = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabDockAutoHidden, PaletteBorderStyle.TabDockAutoHidden, PaletteContentStyle.TabDockAutoHidden, needPaint);
-            _tabOneNote = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabOneNote, PaletteBorderStyle.TabOneNote, PaletteContentStyle.TabOneNote, needPaint);
-            _tabCustom1 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom1, PaletteBorderStyle.TabCustom1, PaletteContentStyle.TabCustom1, needPaint);
-            _tabCustom2 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom2, PaletteBorderStyle.TabCustom2, PaletteContentStyle.TabCustom2, needPaint);
-            _tabCustom3 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom3, PaletteBorderStyle.TabCustom3, PaletteContentStyle.TabCustom3, needPaint);
+            TabCommon = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
+            TabHighProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabHighProfile, PaletteBorderStyle.TabHighProfile, PaletteContentStyle.TabHighProfile, needPaint);
+            TabStandardProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabStandardProfile, PaletteBorderStyle.TabStandardProfile, PaletteContentStyle.TabStandardProfile, needPaint);
+            TabLowProfile = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabLowProfile, PaletteBorderStyle.TabLowProfile, PaletteContentStyle.TabLowProfile, needPaint);
+            TabDock = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabDock, PaletteBorderStyle.TabDock, PaletteContentStyle.TabDock, needPaint);
+            TabDockAutoHidden = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabDockAutoHidden, PaletteBorderStyle.TabDockAutoHidden, PaletteContentStyle.TabDockAutoHidden, needPaint);
+            TabOneNote = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabOneNote, PaletteBorderStyle.TabOneNote, PaletteContentStyle.TabOneNote, needPaint);
+            TabCustom1 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom1, PaletteBorderStyle.TabCustom1, PaletteContentStyle.TabCustom1, needPaint);
+            TabCustom2 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom2, PaletteBorderStyle.TabCustom2, PaletteContentStyle.TabCustom2, needPaint);
+            TabCustom3 = new KryptonPaletteTabButton(redirector, PaletteBackStyle.TabCustom3, PaletteBorderStyle.TabCustom3, PaletteContentStyle.TabCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectTriple redirectCommon = new PaletteRedirectTriple(redirector, 
-                                                                             _tabCommon.StateDisabled, _tabCommon.StateNormal,
-                                                                             _tabCommon.StatePressed, _tabCommon.StateTracking,
-                                                                             _tabCommon.StateSelected,_tabCommon.OverrideFocus);
+                                                                             TabCommon.StateDisabled, TabCommon.StateNormal,
+                                                                             TabCommon.StatePressed, TabCommon.StateTracking,
+                                                                             TabCommon.StateSelected,TabCommon.OverrideFocus);
             // Inform the button style to use the new redirector
-            _tabHighProfile.SetRedirector(redirectCommon);
-            _tabStandardProfile.SetRedirector(redirectCommon);
-            _tabLowProfile.SetRedirector(redirectCommon);
-            _tabDock.SetRedirector(redirectCommon);
-            _tabDockAutoHidden.SetRedirector(redirectCommon);
-            _tabOneNote.SetRedirector(redirectCommon);
-            _tabCustom1.SetRedirector(redirectCommon);
-            _tabCustom2.SetRedirector(redirectCommon);
-            _tabCustom3.SetRedirector(redirectCommon);
+            TabHighProfile.SetRedirector(redirectCommon);
+            TabStandardProfile.SetRedirector(redirectCommon);
+            TabLowProfile.SetRedirector(redirectCommon);
+            TabDock.SetRedirector(redirectCommon);
+            TabDockAutoHidden.SetRedirector(redirectCommon);
+            TabOneNote.SetRedirector(redirectCommon);
+            TabCustom1.SetRedirector(redirectCommon);
+            TabCustom2.SetRedirector(redirectCommon);
+            TabCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -76,22 +67,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _tabCommon.IsDefault &&
-                       _tabHighProfile.IsDefault &&
-                       _tabStandardProfile.IsDefault &&
-                       _tabLowProfile.IsDefault &&
-                       _tabDock.IsDefault &&
-                       _tabDockAutoHidden.IsDefault &&
-                       _tabOneNote.IsDefault &&
-                       _tabCustom1.IsDefault &&
-                       _tabCustom2.IsDefault &&
-                       _tabCustom3.IsDefault;
-            }
-        }
+        public override bool IsDefault => TabCommon.IsDefault &&
+                                          TabHighProfile.IsDefault &&
+                                          TabStandardProfile.IsDefault &&
+                                          TabLowProfile.IsDefault &&
+                                          TabDock.IsDefault &&
+                                          TabDockAutoHidden.IsDefault &&
+                                          TabOneNote.IsDefault &&
+                                          TabCustom1.IsDefault &&
+                                          TabCustom2.IsDefault &&
+                                          TabCustom3.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -105,27 +91,27 @@ namespace ComponentFactory.Krypton.Toolkit
             common.StateCommon.BackStyle = PaletteBackStyle.TabHighProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabHighProfile;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabHighProfile;
-            _tabHighProfile.PopulateFromBase();
+            TabHighProfile.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.TabStandardProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabStandardProfile;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabStandardProfile;
-            _tabStandardProfile.PopulateFromBase();
+            TabStandardProfile.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.TabLowProfile;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabLowProfile;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabLowProfile;
-            _tabLowProfile.PopulateFromBase();
+            TabLowProfile.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.TabDock;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabDock;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabDock;
-            _tabDock.PopulateFromBase();
+            TabDock.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.TabDockAutoHidden;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabDockAutoHidden;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabDockAutoHidden;
-            _tabDockAutoHidden.PopulateFromBase();
+            TabDockAutoHidden.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.TabOneNote;
             common.StateCommon.BorderStyle = PaletteBorderStyle.TabOneNote;
             common.StateCommon.ContentStyle = PaletteContentStyle.TabOneNote;
-            _tabOneNote.PopulateFromBase();
+            TabOneNote.PopulateFromBase();
         }
         #endregion
 
@@ -137,14 +123,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabCommon
-        {
-            get { return _tabCommon; }
-        }
+        public KryptonPaletteTabButton TabCommon { get; }
 
         private bool ShouldSerializeTabCommon()
         {
-            return !_tabCommon.IsDefault;
+            return !TabCommon.IsDefault;
         }
         #endregion
 
@@ -156,14 +139,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining High Profile appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabHighProfile
-        {
-            get { return _tabHighProfile; }
-        }
+        public KryptonPaletteTabButton TabHighProfile { get; }
 
         private bool ShouldSerializeTabHighProfile()
         {
-            return !_tabHighProfile.IsDefault;
+            return !TabHighProfile.IsDefault;
         }
         #endregion
 
@@ -175,14 +155,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Standard Profile appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabStandardProfile
-        {
-            get { return _tabStandardProfile; }
-        }
+        public KryptonPaletteTabButton TabStandardProfile { get; }
 
         private bool ShouldSerializeTabStandardProfile()
         {
-            return !_tabStandardProfile.IsDefault;
+            return !TabStandardProfile.IsDefault;
         }
         #endregion
 
@@ -194,14 +171,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining LowProfile appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabLowProfile
-        {
-            get { return _tabLowProfile; }
-        }
+        public KryptonPaletteTabButton TabLowProfile { get; }
 
         private bool ShouldSerializeTabLowProfile()
         {
-            return !_tabLowProfile.IsDefault;
+            return !TabLowProfile.IsDefault;
         }
         #endregion
 
@@ -213,14 +187,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Dock appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabDock
-        {
-            get { return _tabDock; }
-        }
+        public KryptonPaletteTabButton TabDock { get; }
 
         private bool ShouldSerializeTabDock()
         {
-            return !_tabDock.IsDefault;
+            return !TabDock.IsDefault;
         }
         #endregion
 
@@ -232,14 +203,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Dock AutoHidden appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabDockAutoHidden
-        {
-            get { return _tabDockAutoHidden; }
-        }
+        public KryptonPaletteTabButton TabDockAutoHidden { get; }
 
         private bool ShouldSerializeTabDockAutoHidden()
         {
-            return !_tabDockAutoHidden.IsDefault;
+            return !TabDockAutoHidden.IsDefault;
         }
         #endregion
 
@@ -251,14 +219,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining OneNote appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabOneNote
-        {
-            get { return _tabOneNote; }
-        }
+        public KryptonPaletteTabButton TabOneNote { get; }
 
         private bool ShouldSerializeTabOneNote()
         {
-            return !_tabOneNote.IsDefault;
+            return !TabOneNote.IsDefault;
         }
         #endregion
 
@@ -270,14 +235,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom1 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabCustom1
-        {
-            get { return _tabCustom1; }
-        }
+        public KryptonPaletteTabButton TabCustom1 { get; }
 
         private bool ShouldSerializeTabCustom1()
         {
-            return !_tabCustom1.IsDefault;
+            return !TabCustom1.IsDefault;
         }
         #endregion
 
@@ -289,14 +251,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom2 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabCustom2
-        {
-            get { return _tabCustom2; }
-        }
+        public KryptonPaletteTabButton TabCustom2 { get; }
 
         private bool ShouldSerializeTabCustom2()
         {
-            return !_tabCustom2.IsDefault;
+            return !TabCustom2.IsDefault;
         }
         #endregion
 
@@ -308,14 +267,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Custom3 appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButton TabCustom3
-        {
-            get { return _tabCustom3; }
-        }
+        public KryptonPaletteTabButton TabCustom3 { get; }
 
         private bool ShouldSerializeTabCustom3()
         {
-            return !_tabCustom3.IsDefault;
+            return !TabCustom3.IsDefault;
         }
         #endregion
     }

@@ -22,9 +22,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
         private IPaletteMetric _inherit;
-        private PaletteTripleMetric _paletteHeaderPrimary;
-        private PaletteTripleMetric _paletteHeaderSecondary;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -48,8 +47,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _inherit = inheritHeaderGroup;
 
 			// Create the palette storage
-            _paletteHeaderPrimary = new PaletteTripleMetric(inheritHeaderPrimary, needPaint);
-            _paletteHeaderSecondary = new PaletteTripleMetric(inheritHeaderSecondary, needPaint);
+            HeaderPrimary = new PaletteTripleMetric(inheritHeaderPrimary, needPaint);
+            HeaderSecondary = new PaletteTripleMetric(inheritHeaderSecondary, needPaint);
         }
 		#endregion
 
@@ -58,16 +57,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{ 
-				return (base.IsDefault &&
-				        _paletteHeaderPrimary.IsDefault &&
-						_paletteHeaderSecondary.IsDefault); 
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   HeaderPrimary.IsDefault &&
+		                                   HeaderSecondary.IsDefault);
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -78,8 +72,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.SetInherit(inheritHeaderGroup);
             _inherit = inheritHeaderGroup;
-            _paletteHeaderPrimary.SetInherit(inheritHeaderGroup.HeaderPrimary);
-            _paletteHeaderSecondary.SetInherit(inheritHeaderGroup.HeaderSecondary);
+            HeaderPrimary.SetInherit(inheritHeaderGroup.HeaderPrimary);
+            HeaderSecondary.SetInherit(inheritHeaderGroup.HeaderSecondary);
         }
         #endregion
 
@@ -90,14 +84,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining primary header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric HeaderPrimary
-		{
-			get { return _paletteHeaderPrimary; }
-		}
+        public PaletteTripleMetric HeaderPrimary { get; }
 
-        private bool ShouldSerializeHeaderPrimary()
+	    private bool ShouldSerializeHeaderPrimary()
 		{
-			return !_paletteHeaderPrimary.IsDefault;
+			return !HeaderPrimary.IsDefault;
 		}
 		#endregion
 
@@ -108,14 +99,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining secondary header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric HeaderSecondary
-		{
-			get { return _paletteHeaderSecondary; }
-		}
+        public PaletteTripleMetric HeaderSecondary { get; }
 
-        private bool ShouldSerializeHeaderSecondary()
+	    private bool ShouldSerializeHeaderSecondary()
 		{
-			return !_paletteHeaderSecondary.IsDefault;
+			return !HeaderSecondary.IsDefault;
 		}
 		#endregion
 

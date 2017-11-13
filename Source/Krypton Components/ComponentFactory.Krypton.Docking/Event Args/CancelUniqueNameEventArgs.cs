@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Docking
     public class CancelUniqueNameEventArgs : UniqueNameEventArgs
 	{
 		#region Instance Fields
-        private bool _cancel;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
         public CancelUniqueNameEventArgs(string uniqueName, bool cancel)
             : base(uniqueName)
 		{
-            _cancel = cancel;
+            Cancel = cancel;
 		}
         #endregion
 
@@ -36,11 +36,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets a value indicating if the event action should be cancelled.
         /// </summary>
-        public bool Cancel
-        {
-            get { return _cancel; }
-            set { _cancel = value; }
-        }
-        #endregion
+        public bool Cancel { get; set; }
+
+	    #endregion
 	}
 }

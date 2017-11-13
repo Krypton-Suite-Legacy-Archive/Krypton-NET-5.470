@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private GroupItemSize _currentSize;
+
         private ViewToSize _viewToSmall;
         private ViewToSize _viewToMedium;
         private ViewToSize _viewToLarge;
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewLayoutRibbonRowCenter()
         {
-            _currentSize = GroupItemSize.Large;
+            CurrentSize = GroupItemSize.Large;
             _viewToSmall = new ViewToSize();
             _viewToMedium = new ViewToSize();
             _viewToLarge = new ViewToSize();
@@ -63,11 +63,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the current group item size.
         /// </summary>
-        public GroupItemSize CurrentSize
-        {
-            get { return _currentSize; }
-            set { _currentSize = value; }
-        }
+        public GroupItemSize CurrentSize { get; set; }
+
         #endregion
 
         #region Layout
@@ -79,7 +76,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(context != null);
 
-            switch (_currentSize)
+            switch (CurrentSize)
             {
                 case GroupItemSize.Small:
                     _viewToSmall.Clear();
@@ -107,7 +104,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     Size childPreferred = child.GetPreferredSize(context);
 
                     // Cache the child preferred size for use in layout
-                    switch (_currentSize)
+                    switch (CurrentSize)
                     {
                         case GroupItemSize.Small:
                             _viewToSmall.Add(child, childPreferred);
@@ -129,7 +126,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Cache the size for the current item
-            switch (_currentSize)
+            switch (CurrentSize)
             {
                 case GroupItemSize.Small:
                     _preferredSizeSmall = preferredSize;
@@ -165,7 +162,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = Size.Empty;
 
             // Cache the size for the current item
-            switch (_currentSize)
+            switch (CurrentSize)
             {
                 case GroupItemSize.Small:
                     preferredSize = _preferredSizeSmall;
@@ -190,7 +187,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Get the cached size of the child
                     Size childPreferred = Size.Empty;
                     
-                    switch (_currentSize)
+                    switch (CurrentSize)
                     {
                         case GroupItemSize.Small:
                             if (_viewToSmall.ContainsKey(child))

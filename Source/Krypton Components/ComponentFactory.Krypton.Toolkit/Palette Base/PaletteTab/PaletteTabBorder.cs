@@ -36,24 +36,19 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-            { 
-                return ((Draw == InheritBool.Inherit) &&
-                        (GraphicsHint == PaletteGraphicsHint.Inherit) &&
-                        (Color1 == Color.Empty) &&
-                        (Color2 == Color.Empty) &&
-                        (ColorStyle == PaletteColorStyle.Inherit) &&
-                        (ColorAlign == PaletteRectangleAlign.Inherit) &&
-                        (ColorAngle == -1) &&
-                        (Width == -1) &&
-                        (Image == null) &&
-                        (ImageStyle == PaletteImageStyle.Inherit) &&
-                        (ImageAlign == PaletteRectangleAlign.Inherit)); 
-            }
-		}
-		#endregion
+		public override bool IsDefault => ((Draw == InheritBool.Inherit) &&
+		                                   (GraphicsHint == PaletteGraphicsHint.Inherit) &&
+		                                   (Color1 == Color.Empty) &&
+		                                   (Color2 == Color.Empty) &&
+		                                   (ColorStyle == PaletteColorStyle.Inherit) &&
+		                                   (ColorAlign == PaletteRectangleAlign.Inherit) &&
+		                                   (ColorAngle == -1) &&
+		                                   (Width == -1) &&
+		                                   (Image == null) &&
+		                                   (ImageStyle == PaletteImageStyle.Inherit) &&
+		                                   (ImageAlign == PaletteRectangleAlign.Inherit));
+
+        #endregion
 
         #region DrawBorders
         /// <summary>
@@ -63,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new PaletteDrawBorders DrawBorders
         {
-            get { return base.DrawBorders; }
-            set { base.DrawBorders = value; }
+            get => base.DrawBorders;
+            set => base.DrawBorders = value;
         }
         #endregion
 
@@ -76,8 +71,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
 		public new int Rounding
 		{
-            get { return base.Rounding; }
-            set { base.Rounding = value;  }
+            get => base.Rounding;
+		    set => base.Rounding = value;
 		}
 		#endregion
     }

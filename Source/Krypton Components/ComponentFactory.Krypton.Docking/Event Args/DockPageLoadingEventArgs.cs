@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Docking
     public class DockPageLoadingEventArgs : DockGlobalLoadingEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _page;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Docking
                                         KryptonPage page)
             : base(manager, xmlReading)
 		{
-            _page = page;
+            Page = page;
 		}
 		#endregion
 
@@ -42,10 +42,8 @@ namespace ComponentFactory.Krypton.Docking
 		/// <summary>
         /// Gets the loading page reference.
 		/// </summary>
-        public KryptonPage Page
-		{
-            get { return _page; }
-		}
-        #endregion
+        public KryptonPage Page { get; }
+
+	    #endregion
 	}
 }

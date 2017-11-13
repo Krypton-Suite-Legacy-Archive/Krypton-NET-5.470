@@ -29,10 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal class HelpInfo
         {
             #region Instance Fields
-            private string _helpFilePath;
-            private string _keyword;
-            private HelpNavigator _navigator;
-            private object _param;
+
             #endregion
 
             #region Identity
@@ -49,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="helpFilePath">Value for HelpFilePath.</param>
             public HelpInfo(string helpFilePath)
             {
-                _helpFilePath = helpFilePath;
+                HelpFilePath = helpFilePath;
             }
 
             /// <summary>
@@ -59,8 +56,8 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="keyword">Value for Keyword</param>
             public HelpInfo(string helpFilePath, string keyword)
             {
-                _helpFilePath = helpFilePath;
-                _keyword = keyword;
+                HelpFilePath = helpFilePath;
+                Keyword = keyword;
             }
 
             /// <summary>
@@ -70,8 +67,8 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="navigator">Value for Navigator</param>
             public HelpInfo(string helpFilePath, HelpNavigator navigator)
             {
-                _helpFilePath = helpFilePath;
-                _navigator = navigator;
+                HelpFilePath = helpFilePath;
+                Navigator = navigator;
             }
 
             /// <summary>
@@ -82,9 +79,9 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="param">Value for Param</param>
             public HelpInfo(string helpFilePath, HelpNavigator navigator, object param)
             {
-                _helpFilePath = helpFilePath;
-                _navigator = navigator;
-                _param = param;
+                HelpFilePath = helpFilePath;
+                Navigator = navigator;
+                Param = param;
             }
             #endregion
 
@@ -92,34 +89,23 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets the HelpFilePath property.
             /// </summary>
-            public string HelpFilePath 
-            { 
-                get { return _helpFilePath; } 
-            }
+            public string HelpFilePath { get; }
 
             /// <summary>
             /// Gets the Keyword property.
             /// </summary>
-            public string Keyword
-            {
-                get { return _keyword; } 
-            }
+            public string Keyword { get; }
 
             /// <summary>
             /// Gets the Navigator property.
             /// </summary>
-            public HelpNavigator Navigator
-            {
-                get { return _navigator; } 
-            }
+            public HelpNavigator Navigator { get; }
 
             /// <summary>
             /// Gets the Param property.
             /// </summary>
-            public object Param
-            {
-                get { return _param; }
-            }
+            public object Param { get; }
+
             #endregion
         }
 
@@ -127,18 +113,15 @@ namespace ComponentFactory.Krypton.Toolkit
         internal class MessageButton : KryptonButton
         {
             #region Instance Fields
-            private bool _ignoreAltF4;
+
             #endregion
 
             #region Identity
             /// <summary>
             /// Gets and sets the ignoring of Alt+F4
             /// </summary>
-            public bool IgnoreAltF4
-            {
-                get { return _ignoreAltF4; }
-                set { _ignoreAltF4 = value; }
-            }
+            public bool IgnoreAltF4 { get; set; }
+
             #endregion
 
             #region Protected

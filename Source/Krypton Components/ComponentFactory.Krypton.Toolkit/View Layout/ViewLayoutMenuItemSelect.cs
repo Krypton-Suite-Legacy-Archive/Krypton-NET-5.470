@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _imageCount;
         private int _lineItems;
         private Padding _padding;
-        private bool _enabled;
+
         #endregion
 
         #region Identity
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _provider = provider;
 
             _itemSelect.TrackingIndex = -1;
-            _enabled = provider.ProviderEnabled;
+            ItemEnabled = provider.ProviderEnabled;
             _viewManager = provider.ProviderViewManager;
 
             // Cache the values to use when running
@@ -103,20 +103,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the enabled state of the item.
         /// </summary>
-        public bool ItemEnabled
-        {
-            get { return _enabled; }
-        }
+        public bool ItemEnabled { get; }
+
         #endregion
 
         #region CanCloseMenu
         /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
-        public bool CanCloseMenu
-        {
-            get { return _provider.ProviderCanCloseMenu; }
-        }
+        public bool CanCloseMenu => _provider.ProviderCanCloseMenu;
+
         #endregion
 
         #region Closing
@@ -263,7 +259,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 item.ImageList = _imageList;
                 item.ImageIndex = imageIndex;
                 item.Checked = (_selectedIndex == imageIndex);
-                item.Enabled = _enabled;
+                item.Enabled = ItemEnabled;
             }
         }
         #endregion

@@ -18,13 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteContextMenuItemState : Storage
 	{
 		#region Instance Fields
-        private PaletteDoubleMetric _paletteItemHighlight;
-        private PaletteTripleJustImage _paletteItemImage;
-        private PaletteContentJustShortText _paletteItemShortcutText;
-        private PaletteDouble _paletteItemSplit;
-        private PaletteContentJustText _paletteItemTextStandard;
-        private PaletteContentJustText _paletteItemTextAlternate;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -65,12 +60,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                            PaletteContentInheritRedirect redirectItemTextStandard,
                                            PaletteContentInheritRedirect redirectItemTextAlternate)
 		{
-            _paletteItemHighlight = new PaletteDoubleMetric(redirectItemHighlight);
-            _paletteItemImage = new PaletteTripleJustImage(redirectItemImage);
-            _paletteItemShortcutText = new PaletteContentJustShortText(redirectItemShortcutText);
-            _paletteItemSplit = new PaletteDouble(redirectItemSplit);
-            _paletteItemTextStandard = new PaletteContentJustText(redirectItemTextStandard);
-            _paletteItemTextAlternate = new PaletteContentJustText(redirectItemTextAlternate);
+            ItemHighlight = new PaletteDoubleMetric(redirectItemHighlight);
+            ItemImage = new PaletteTripleJustImage(redirectItemImage);
+            ItemShortcutText = new PaletteContentJustShortText(redirectItemShortcutText);
+            ItemSplit = new PaletteDouble(redirectItemSplit);
+            ItemTextStandard = new PaletteContentJustText(redirectItemTextStandard);
+            ItemTextAlternate = new PaletteContentJustText(redirectItemTextAlternate);
         }
 		#endregion
 
@@ -79,19 +74,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (_paletteItemHighlight.IsDefault &&
-                        _paletteItemImage.IsDefault &&
-                        _paletteItemShortcutText.IsDefault &&
-                        _paletteItemSplit.IsDefault &&
-                        _paletteItemTextStandard.IsDefault &&
-                        _paletteItemTextAlternate.IsDefault); 
-			}
-		}
-		#endregion
+		public override bool IsDefault => (ItemHighlight.IsDefault &&
+		                                   ItemImage.IsDefault &&
+		                                   ItemShortcutText.IsDefault &&
+		                                   ItemSplit.IsDefault &&
+		                                   ItemTextStandard.IsDefault &&
+		                                   ItemTextAlternate.IsDefault);
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -104,20 +94,20 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuItemHighlight;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuItemHighlight;
-            _paletteItemHighlight.PopulateFromBase(state);
+            ItemHighlight.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuItemImage;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuItemImage;
             common.StateCommon.ContentStyle = PaletteContentStyle.ContextMenuItemImage;
-            _paletteItemImage.PopulateFromBase(state);
+            ItemImage.PopulateFromBase(state);
             common.StateCommon.ContentStyle = PaletteContentStyle.ContextMenuItemShortcutText;
-            _paletteItemShortcutText.PopulateFromBase(state);
+            ItemShortcutText.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuSeparator;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuSeparator;
-            _paletteItemSplit.PopulateFromBase(state);
+            ItemSplit.PopulateFromBase(state);
             common.StateCommon.ContentStyle = PaletteContentStyle.ContextMenuItemTextStandard;
-            _paletteItemTextStandard.PopulateFromBase(state);
+            ItemTextStandard.PopulateFromBase(state);
             common.StateCommon.ContentStyle = PaletteContentStyle.ContextMenuItemTextAlternate;
-            _paletteItemTextAlternate.PopulateFromBase(state);
+            ItemTextAlternate.PopulateFromBase(state);
         }
         #endregion
 
@@ -129,14 +119,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item highlight appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleMetric ItemHighlight
-        {
-            get { return _paletteItemHighlight; }
-        }
+        public PaletteDoubleMetric ItemHighlight { get; }
 
-        private bool ShouldSerializeItemHighlight()
+	    private bool ShouldSerializeItemHighlight()
         {
-            return !_paletteItemHighlight.IsDefault;
+            return !ItemHighlight.IsDefault;
         }
         #endregion
 
@@ -148,14 +135,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item image appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleJustImage ItemImage
-        {
-            get { return _paletteItemImage; }
-        }
+        public PaletteTripleJustImage ItemImage { get; }
 
-        private bool ShouldSerializeItemImage()
+	    private bool ShouldSerializeItemImage()
         {
-            return !_paletteItemImage.IsDefault;
+            return !ItemImage.IsDefault;
         }
         #endregion
 
@@ -167,14 +151,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item shortcut text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustShortText ItemShortcutText
-        {
-            get { return _paletteItemShortcutText; }
-        }
+        public PaletteContentJustShortText ItemShortcutText { get; }
 
-        private bool ShouldSerializeItemShortcutText()
+	    private bool ShouldSerializeItemShortcutText()
         {
-            return !_paletteItemShortcutText.IsDefault;
+            return !ItemShortcutText.IsDefault;
         }
         #endregion
 
@@ -186,14 +167,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item split appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDouble ItemSplit
-        {
-            get { return _paletteItemSplit; }
-        }
+        public PaletteDouble ItemSplit { get; }
 
-        private bool ShouldSerializeItemSplit()
+	    private bool ShouldSerializeItemSplit()
         {
-            return !_paletteItemSplit.IsDefault;
+            return !ItemSplit.IsDefault;
         }
         #endregion
 
@@ -205,14 +183,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining alternate item text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustText ItemTextAlternate
-        {
-            get { return _paletteItemTextAlternate; }
-        }
+        public PaletteContentJustText ItemTextAlternate { get; }
 
-        private bool ShouldSerializeItemTextAlternate()
+	    private bool ShouldSerializeItemTextAlternate()
         {
-            return !_paletteItemTextAlternate.IsDefault;
+            return !ItemTextAlternate.IsDefault;
         }
         #endregion
 
@@ -224,14 +199,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining standard item text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustText ItemTextStandard
-        {
-            get { return _paletteItemTextStandard; }
-        }
+        public PaletteContentJustText ItemTextStandard { get; }
 
-        private bool ShouldSerializeItemTextStandard()
+	    private bool ShouldSerializeItemTextStandard()
         {
-            return !_paletteItemTextStandard.IsDefault;
+            return !ItemTextStandard.IsDefault;
         }
         #endregion
     }

@@ -94,10 +94,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the controller used for the button.
         /// </summary>
-        public DialogLauncherButtonController DialogButtonController
-        {
-            get { return SourceController as DialogLauncherButtonController; }
-        }
+        public DialogLauncherButtonController DialogButtonController => SourceController as DialogLauncherButtonController;
+
         #endregion
 
         #region Layout

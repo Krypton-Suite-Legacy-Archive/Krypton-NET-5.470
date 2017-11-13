@@ -179,10 +179,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get { return (_borderWidth == -1) && base.IsDefault; }
-        }
+        public override bool IsDefault => (_borderWidth == -1) && base.IsDefault;
+
         #endregion
 
         #region Width
@@ -196,7 +194,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int Width
         {
-            get { return _borderWidth; }
+            get => _borderWidth;
 
             set
             {

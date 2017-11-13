@@ -19,21 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteContextMenuRedirect : Storage
 	{
 		#region Instance Fields
-        private PaletteDoubleRedirect _paletteControlInner;
-        private PaletteDoubleRedirect _paletteControlOuter;
-        private PaletteTripleRedirect _paletteHeading;
-        private PaletteDoubleMetricRedirect _paletteItemHighlight;
-        private PaletteTripleJustImageRedirect _paletteItemImage;
-        private PaletteDoubleRedirect _paletteItemImageColumn;
-        private PaletteContentInheritRedirect _paletteItemShortcutTextRedirect;
-        private PaletteContentJustShortText _paletteItemShortcutText;
-        private PaletteDoubleRedirect _paletteItemSplit;
-        private PaletteContentInheritRedirect _paletteItemTextAlternateRedirect;
-        private PaletteContentJustText _paletteItemTextAlternate;
-        private PaletteContentInheritRedirect _paletteItemTextStandardRedirect;
-        private PaletteContentJustText _paletteItemTextStandard;
-        private PaletteDoubleRedirect _paletteSeparator;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -47,20 +34,20 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirect != null);
 
             // Create the palette storage
-            _paletteControlInner = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuInner, PaletteBorderStyle.ContextMenuInner, needPaint);
-            _paletteControlOuter = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuOuter, PaletteBorderStyle.ContextMenuOuter, needPaint);
-            _paletteHeading = new PaletteTripleRedirect(redirect, PaletteBackStyle.ContextMenuHeading, PaletteBorderStyle.ContextMenuHeading, PaletteContentStyle.ContextMenuHeading, needPaint);
-            _paletteItemHighlight = new PaletteDoubleMetricRedirect(redirect, PaletteBackStyle.ContextMenuItemHighlight, PaletteBorderStyle.ContextMenuItemHighlight, needPaint);
-            _paletteItemImage = new PaletteTripleJustImageRedirect(redirect, PaletteBackStyle.ContextMenuItemImage, PaletteBorderStyle.ContextMenuItemImage, PaletteContentStyle.ContextMenuItemImage, needPaint);
-            _paletteItemImageColumn = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuItemImageColumn, PaletteBorderStyle.ContextMenuItemImageColumn, needPaint);
-            _paletteItemShortcutTextRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemShortcutText);
-            _paletteItemShortcutText = new PaletteContentJustShortText(_paletteItemShortcutTextRedirect, needPaint);
-            _paletteItemSplit = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuItemSplit, PaletteBorderStyle.ContextMenuItemSplit, needPaint);
-            _paletteItemTextAlternateRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemTextAlternate);
-            _paletteItemTextAlternate = new PaletteContentJustText(_paletteItemTextAlternateRedirect, needPaint);
-            _paletteItemTextStandardRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemTextStandard);
-            _paletteItemTextStandard = new PaletteContentJustText(_paletteItemTextStandardRedirect, needPaint);
-            _paletteSeparator = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuSeparator, PaletteBorderStyle.ContextMenuSeparator, needPaint);
+            ControlInner = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuInner, PaletteBorderStyle.ContextMenuInner, needPaint);
+            ControlOuter = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuOuter, PaletteBorderStyle.ContextMenuOuter, needPaint);
+            Heading = new PaletteTripleRedirect(redirect, PaletteBackStyle.ContextMenuHeading, PaletteBorderStyle.ContextMenuHeading, PaletteContentStyle.ContextMenuHeading, needPaint);
+            ItemHighlight = new PaletteDoubleMetricRedirect(redirect, PaletteBackStyle.ContextMenuItemHighlight, PaletteBorderStyle.ContextMenuItemHighlight, needPaint);
+            ItemImage = new PaletteTripleJustImageRedirect(redirect, PaletteBackStyle.ContextMenuItemImage, PaletteBorderStyle.ContextMenuItemImage, PaletteContentStyle.ContextMenuItemImage, needPaint);
+            ItemImageColumn = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuItemImageColumn, PaletteBorderStyle.ContextMenuItemImageColumn, needPaint);
+            ItemShortcutTextRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemShortcutText);
+            ItemShortcutText = new PaletteContentJustShortText(ItemShortcutTextRedirect, needPaint);
+            ItemSplit = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuItemSplit, PaletteBorderStyle.ContextMenuItemSplit, needPaint);
+            ItemTextAlternateRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemTextAlternate);
+            ItemTextAlternate = new PaletteContentJustText(ItemTextAlternateRedirect, needPaint);
+            ItemTextStandardRedirect = new PaletteContentInheritRedirect(redirect, PaletteContentStyle.ContextMenuItemTextStandard);
+            ItemTextStandard = new PaletteContentJustText(ItemTextStandardRedirect, needPaint);
+            Separator = new PaletteDoubleRedirect(redirect, PaletteBackStyle.ContextMenuSeparator, PaletteBorderStyle.ContextMenuSeparator, needPaint);
         }
 		#endregion
 
@@ -69,24 +56,19 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (_paletteControlInner.IsDefault &&
-                        _paletteControlOuter.IsDefault &&
-                        _paletteHeading.IsDefault &&
-                        _paletteItemHighlight.IsDefault &&
-                        _paletteItemImage.IsDefault &&
-                        _paletteItemImageColumn.IsDefault &&
-                        _paletteItemShortcutText.IsDefault &&
-                        _paletteItemSplit.IsDefault &&
-                        _paletteItemTextAlternate.IsDefault &&
-                        _paletteItemTextStandard.IsDefault &&
-                        _paletteSeparator.IsDefault); 
-			}
-		}
-		#endregion
+		public override bool IsDefault => (ControlInner.IsDefault &&
+		                                   ControlOuter.IsDefault &&
+		                                   Heading.IsDefault &&
+		                                   ItemHighlight.IsDefault &&
+		                                   ItemImage.IsDefault &&
+		                                   ItemImageColumn.IsDefault &&
+		                                   ItemShortcutText.IsDefault &&
+		                                   ItemSplit.IsDefault &&
+		                                   ItemTextAlternate.IsDefault &&
+		                                   ItemTextStandard.IsDefault &&
+		                                   Separator.IsDefault);
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -99,20 +81,20 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuInner;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuInner;
-            _paletteControlInner.PopulateFromBase(state);
+            ControlInner.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuOuter;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuOuter;
-            _paletteControlOuter.PopulateFromBase(state);
+            ControlOuter.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuHeading;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuHeading;
             common.StateCommon.ContentStyle = PaletteContentStyle.ContextMenuHeading;
-            _paletteHeading.PopulateFromBase(state);
+            Heading.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuItemImageColumn;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuItemImageColumn;
-            _paletteItemImageColumn.PopulateFromBase(state);
+            ItemImageColumn.PopulateFromBase(state);
             common.StateCommon.BackStyle = PaletteBackStyle.ContextMenuSeparator;
             common.StateCommon.BorderStyle = PaletteBorderStyle.ContextMenuSeparator;
-            _paletteSeparator.PopulateFromBase(state);
+            Separator.PopulateFromBase(state);
         }
         #endregion
 
@@ -123,17 +105,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _paletteControlInner.SetRedirector(redirect);
-            _paletteControlOuter.SetRedirector(redirect);
-            _paletteHeading.SetRedirector(redirect);
-            _paletteItemHighlight.SetRedirector(redirect);
-            _paletteItemImage.SetRedirector(redirect);
-            _paletteItemImageColumn.SetRedirector(redirect);
-            _paletteItemShortcutTextRedirect.SetRedirector(redirect);
-            _paletteItemSplit.SetRedirector(redirect);
-            _paletteItemTextAlternateRedirect.SetRedirector(redirect);
-            _paletteItemTextStandardRedirect.SetRedirector(redirect);
-            _paletteSeparator.SetRedirector(redirect);
+            ControlInner.SetRedirector(redirect);
+            ControlOuter.SetRedirector(redirect);
+            Heading.SetRedirector(redirect);
+            ItemHighlight.SetRedirector(redirect);
+            ItemImage.SetRedirector(redirect);
+            ItemImageColumn.SetRedirector(redirect);
+            ItemShortcutTextRedirect.SetRedirector(redirect);
+            ItemSplit.SetRedirector(redirect);
+            ItemTextAlternateRedirect.SetRedirector(redirect);
+            ItemTextStandardRedirect.SetRedirector(redirect);
+            Separator.SetRedirector(redirect);
         }
         #endregion
 
@@ -145,14 +127,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining inner control window appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect ControlInner
-        {
-            get { return _paletteControlInner; }
-        }
+        public PaletteDoubleRedirect ControlInner { get; }
 
-        private bool ShouldSerializeControlInner()
+	    private bool ShouldSerializeControlInner()
         {
-            return !_paletteControlInner.IsDefault;
+            return !ControlInner.IsDefault;
         }
         #endregion
 
@@ -164,14 +143,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining outer control window appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect ControlOuter
-        {
-            get { return _paletteControlOuter; }
-        }
+        public PaletteDoubleRedirect ControlOuter { get; }
 
-        private bool ShouldSerializeControlOuter()
+	    private bool ShouldSerializeControlOuter()
         {
-            return !_paletteControlOuter.IsDefault;
+            return !ControlOuter.IsDefault;
         }
         #endregion
 
@@ -183,14 +159,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
 		[Description("Overrides for defining header entry appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect Heading
-		{
-            get { return _paletteHeading; }
-		}
+        public PaletteTripleRedirect Heading { get; }
 
-        private bool ShouldSerializeHeading()
+	    private bool ShouldSerializeHeading()
 		{
-            return !_paletteHeading.IsDefault;
+            return !Heading.IsDefault;
 		}
 		#endregion
 
@@ -201,14 +174,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item highlight appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleMetricRedirect ItemHighlight
-        {
-            get { return _paletteItemHighlight; }
-        }
+        public PaletteDoubleMetricRedirect ItemHighlight { get; }
 
-        private bool ShouldSerializeItemHighlight()
+	    private bool ShouldSerializeItemHighlight()
         {
-            return !_paletteItemHighlight.IsDefault;
+            return !ItemHighlight.IsDefault;
         }
         #endregion
 
@@ -219,14 +189,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item image appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleJustImageRedirect ItemImage
-        {
-            get { return _paletteItemImage; }
-        }
+        public PaletteTripleJustImageRedirect ItemImage { get; }
 
-        private bool ShouldSerializeItemImage()
+	    private bool ShouldSerializeItemImage()
         {
-            return !_paletteItemImage.IsDefault;
+            return !ItemImage.IsDefault;
         }
         #endregion
 
@@ -238,14 +205,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item image column appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect ItemImageColumn
-        {
-            get { return _paletteItemImageColumn; }
-        }
+        public PaletteDoubleRedirect ItemImageColumn { get; }
 
-        private bool ShouldSerializeItemImageColumn()
+	    private bool ShouldSerializeItemImageColumn()
         {
-            return !_paletteItemImageColumn.IsDefault;
+            return !ItemImageColumn.IsDefault;
         }
         #endregion
 
@@ -256,14 +220,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item shortcut text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustShortText ItemShortcutText
-        {
-            get { return _paletteItemShortcutText; }
-        }
+        public PaletteContentJustShortText ItemShortcutText { get; }
 
-        private bool ShouldSerializeItemShortcutText()
+	    private bool ShouldSerializeItemShortcutText()
         {
-            return !_paletteItemShortcutText.IsDefault;
+            return !ItemShortcutText.IsDefault;
         }
         #endregion
 
@@ -274,14 +235,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item split appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect ItemSplit
-        {
-            get { return _paletteItemSplit; }
-        }
+        public PaletteDoubleRedirect ItemSplit { get; }
 
-        private bool ShouldSerializeItemItemSplit()
+	    private bool ShouldSerializeItemItemSplit()
         {
-            return !_paletteItemSplit.IsDefault;
+            return !ItemSplit.IsDefault;
         }
         #endregion
 
@@ -292,14 +250,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining alternate item text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustText ItemTextAlternate
-        {
-            get { return _paletteItemTextAlternate; }
-        }
+        public PaletteContentJustText ItemTextAlternate { get; }
 
-        private bool ShouldSerializeItemTextAlternate()
+	    private bool ShouldSerializeItemTextAlternate()
         {
-            return !_paletteItemTextAlternate.IsDefault;
+            return !ItemTextAlternate.IsDefault;
         }
         #endregion
 
@@ -310,14 +265,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining standard item text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContentJustText ItemTextStandard
-        {
-            get { return _paletteItemTextStandard; }
-        }
+        public PaletteContentJustText ItemTextStandard { get; }
 
-        private bool ShouldSerializeItemTextStandard()
+	    private bool ShouldSerializeItemTextStandard()
         {
-            return !_paletteItemTextStandard.IsDefault;
+            return !ItemTextStandard.IsDefault;
         }
         #endregion
 
@@ -329,32 +281,21 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining separator items appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect Separator
-        {
-            get { return _paletteSeparator; }
-        }
+        public PaletteDoubleRedirect Separator { get; }
 
-        private bool ShouldSerializeSeparator()
+	    private bool ShouldSerializeSeparator()
         {
-            return !_paletteSeparator.IsDefault;
+            return !Separator.IsDefault;
         }
         #endregion
 
         #region Internal
-        internal PaletteContentInheritRedirect ItemShortcutTextRedirect
-        {
-            get { return _paletteItemShortcutTextRedirect; }
-        }
+        internal PaletteContentInheritRedirect ItemShortcutTextRedirect { get; }
 
-        internal PaletteContentInheritRedirect ItemTextStandardRedirect
-        {
-            get { return _paletteItemTextStandardRedirect; }
-        }
+	    internal PaletteContentInheritRedirect ItemTextStandardRedirect { get; }
 
-        internal PaletteContentInheritRedirect ItemTextAlternateRedirect
-        {
-            get { return _paletteItemTextAlternateRedirect; }
-        }
-        #endregion
+	    internal PaletteContentInheritRedirect ItemTextAlternateRedirect { get; }
+
+	    #endregion
     }
 }

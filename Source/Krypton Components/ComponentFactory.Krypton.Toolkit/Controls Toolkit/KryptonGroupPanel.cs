@@ -190,12 +190,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new DockPaddingEdges DockPadding
-		{
-			get { return base.DockPadding; }
-		}
+		public new DockPaddingEdges DockPadding => base.DockPadding;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets or sets the height of the KryptonGroupPanel. 
 		/// </summary>
         [Browsable(false)]
@@ -203,8 +200,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new int Height
 		{
-			get { return base.Height; }
-            set { base.Height = value;  }
+			get => base.Height;
+		    set => base.Height = value;
 		}
 
 		/// <summary>
@@ -216,8 +213,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new Point Location
 		{
-			get { return base.Location; }
-			set { base.Location = value; }
+			get => base.Location;
+		    set => base.Location = value;
 		}
 
 		/// <summary>
@@ -228,8 +225,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new string Name
 		{
-			get { return base.Name; }
-			set { base.Name = value; }
+			get => base.Name;
+		    set => base.Name = value;
 		}
 
 		/// <summary>
@@ -240,8 +237,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new Control Parent
 		{
-			get { return base.Parent; }
-			set { base.Parent = value; }
+			get => base.Parent;
+		    set => base.Parent = value;
 		}
 
         /// <summary>
@@ -253,8 +250,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Size Size
         {
-            get { return base.Size; }
-            set { base.Size = value; }
+            get => base.Size;
+            set => base.Size = value;
         }
 
 		/// <summary>
@@ -265,8 +262,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new int TabIndex
 		{
-			get { return base.TabIndex; }
-			set { base.TabIndex = value; }
+			get => base.TabIndex;
+		    set => base.TabIndex = value;
 		}
 
 		/// <summary>
@@ -277,8 +274,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new bool TabStop
 		{
-			get { return base.TabStop; }
-			set { base.TabStop = value; }
+			get => base.TabStop;
+		    set => base.TabStop = value;
 		}
 
 		/// <summary>
@@ -289,8 +286,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new bool Visible
 		{
-			get { return base.Visible;  }
-            set { base.Visible = value; }
+			get => base.Visible;
+		    set => base.Visible = value;
 		}
 
 		/// <summary>
@@ -301,8 +298,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int Width
 		{
-			get { return base.Width; }
-            set { base.Width = value; }
+			get => base.Width;
+		    set => base.Width = value;
 		}
 
         /// <summary>
@@ -313,8 +310,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new PaletteMode PaletteMode
         {
-            get { return base.PaletteMode; }
-            set { base.PaletteMode = value; }
+            get => base.PaletteMode;
+            set => base.PaletteMode = value;
         }
 
         /// <summary>
@@ -325,8 +322,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new IPalette Palette
         {
-            get { return base.Palette; }
-            set { base.Palette = value; }
+            get => base.Palette;
+            set => base.Palette = value;
         }
 
         /// <summary>
@@ -337,8 +334,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new PaletteBackStyle PanelBackStyle
         {
-            get { return base.PanelBackStyle; }
-            set { base.PanelBackStyle = value; }
+            get => base.PanelBackStyle;
+            set => base.PanelBackStyle = value;
         }
         
         /// <summary>
@@ -347,44 +344,33 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new PaletteBack StateCommon
-        {
-            get { return base.StateCommon; }
-        }
+        public new PaletteBack StateCommon => base.StateCommon;
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the disabled panel appearance.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new PaletteBack StateDisabled
-        {
-            get { return base.StateDisabled; }
-        }
+        public new PaletteBack StateDisabled => base.StateDisabled;
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the normal panel appearance.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new PaletteBack StateNormal
-        {
-            get { return base.StateNormal; }
-        }
-        #endregion
+        public new PaletteBack StateNormal => base.StateNormal;
+
+	    #endregion
 
 		#region Protected Overrides
 		/// <summary>
 		/// Gets the space, in pixels, that is specified by default between controls.
 		/// </summary>
-		protected override Padding DefaultMargin
-		{
-			get { return new Padding(0, 0, 0, 0); }
-		}
+		protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
 
-        /// <summary>
+	    /// <summary>
         /// Raises the Layout event.
         /// </summary>
         /// <param name="levent">A LayoutEventArgs that contains the event data.</param>

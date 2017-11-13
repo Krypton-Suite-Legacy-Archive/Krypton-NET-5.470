@@ -31,7 +31,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupNumericUpDown _ribbonNumericUpDown;
         private ViewDrawRibbonGroup _activeGroup;
         private NumericUpDownController _controller;
         private NeedPaintHandler _needPaint;
@@ -55,16 +54,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonNumericUpDown = ribbonNumericUpDown;
+            GroupNumericUpDown = ribbonNumericUpDown;
             _needPaint = needPaint;
-            _currentSize = _ribbonNumericUpDown.ItemSizeCurrent;
+            _currentSize = GroupNumericUpDown.ItemSizeCurrent;
 
             // Hook into the numeric up-down events
-            _ribbonNumericUpDown.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            _ribbonNumericUpDown.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupNumericUpDown.MouseEnterControl += new EventHandler(OnMouseEnterControl);
+            GroupNumericUpDown.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonNumericUpDown;
+            Component = GroupNumericUpDown;
 
             if (_ribbon.InDesignMode)
             {
@@ -75,7 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Create controller needed for handling focus and key tip actions
-            _controller = new NumericUpDownController(_ribbon, _ribbonNumericUpDown, this);
+            _controller = new NumericUpDownController(_ribbon, GroupNumericUpDown, this);
             SourceController = _controller;
             KeyController = _controller;
 
@@ -84,13 +83,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
 
             // Define back reference to view for the numeric up-down definition
-            _ribbonNumericUpDown.NumericUpDownView = this;
+            GroupNumericUpDown.NumericUpDownView = this;
 
             // Give paint delegate to numeric up-down so its palette changes are redrawn
-            _ribbonNumericUpDown.ViewPaintDelegate = needPaint;
+            GroupNumericUpDown.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            _ribbonNumericUpDown.PropertyChanged += new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
+            GroupNumericUpDown.PropertyChanged += new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
         }
 
 		/// <summary>
@@ -111,19 +110,19 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonNumericUpDown != null)
+                if (GroupNumericUpDown != null)
                 {
                     // Must unhook to prevent memory leaks
-                    _ribbonNumericUpDown.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    _ribbonNumericUpDown.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
-                    _ribbonNumericUpDown.ViewPaintDelegate = null;
-                    _ribbonNumericUpDown.PropertyChanged -= new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
+                    GroupNumericUpDown.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
+                    GroupNumericUpDown.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupNumericUpDown.ViewPaintDelegate = null;
+                    GroupNumericUpDown.PropertyChanged -= new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
                     _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
                     _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
 
                     // Remove association with definition
-                    _ribbonNumericUpDown.NumericUpDownView = null; 
-                    _ribbonNumericUpDown = null;
+                    GroupNumericUpDown.NumericUpDownView = null; 
+                    GroupNumericUpDown = null;
                 }
             }
 
@@ -135,10 +134,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group numeric up-down instance.
         /// </summary>
-        public KryptonRibbonGroupNumericUpDown GroupNumericUpDown
-        {
-            get { return _ribbonNumericUpDown; }
-        }
+        public KryptonRibbonGroupNumericUpDown GroupNumericUpDown { get; private set; }
+
         #endregion
 
         #region LostFocus
@@ -149,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void LostFocus(Control c)
         {
             // Ask ribbon to shift focus to the hidden control
-            _ribbon.HideFocus(_ribbonNumericUpDown.NumericUpDown);
+            _ribbon.HideFocus(GroupNumericUpDown.NumericUpDown);
             base.LostFocus(c);
         }
         #endregion
@@ -161,10 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetFirstFocusItem()
         {
-            if ((_ribbonNumericUpDown.Visible) &&
-                (_ribbonNumericUpDown.LastNumericUpDown != null) &&
-                (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown != null) &&
-                (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
+            if ((GroupNumericUpDown.Visible) && (GroupNumericUpDown.LastNumericUpDown?.NumericUpDown != null) && (GroupNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
             {
                 return this;
             }
@@ -182,10 +176,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetLastFocusItem()
         {
-            if ((_ribbonNumericUpDown.Visible) &&
-                (_ribbonNumericUpDown.LastNumericUpDown != null) &&
-                (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown != null) &&
-                (_ribbonNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
+            if ((GroupNumericUpDown.Visible) && (GroupNumericUpDown.LastNumericUpDown?.NumericUpDown != null) && (GroupNumericUpDown.LastNumericUpDown.NumericUpDown.CanSelect))
             {
                 return this;
             }
@@ -255,8 +246,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         break;
                 }
 
-                keyTipList.Add(new KeyTipInfo(_ribbonNumericUpDown.Enabled, 
-                                              _ribbonNumericUpDown.KeyTip,
+                keyTipList.Add(new KeyTipInfo(GroupNumericUpDown.Enabled, 
+                                              GroupNumericUpDown.KeyTip,
                                               screenPt, 
                                               ClientRectangle,
                                               _controller));
@@ -279,7 +270,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetGroupItemSize()
         {
-            _currentSize = _ribbonNumericUpDown.ItemSizeCurrent;
+            _currentSize = GroupNumericUpDown.ItemSizeCurrent;
         }
 
         /// <summary>
@@ -357,7 +348,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // If we do not have a numeric up-down
-            if (_ribbonNumericUpDown.NumericUpDown == null)
+            if (GroupNumericUpDown.NumericUpDown == null)
             {
                 // And we are in design time
                 if (_ribbon.InDesignMode)
@@ -407,7 +398,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void OnContextClick(object sender, MouseEventArgs e)
         {
-            _ribbonNumericUpDown.OnDesignTimeContextMenu(e);
+            GroupNumericUpDown.OnDesignTimeContextMenu(e);
         }
 
         private void OnNumericUpDownPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -432,8 +423,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonNumericUpDown.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonNumericUpDown.RibbonTab))
+                if ((GroupNumericUpDown.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupNumericUpDown.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -444,11 +435,11 @@ namespace ComponentFactory.Krypton.Ribbon
 #pragma warning disable 162
             {
                 // If this button is actually defined as visible...
-                if (_ribbonNumericUpDown.Visible || _ribbon.InDesignMode)
+                if (GroupNumericUpDown.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonNumericUpDown.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonNumericUpDown.RibbonTab))
+                    if ((GroupNumericUpDown.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupNumericUpDown.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);
@@ -460,14 +451,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private Control LastParentControl
         {
-            get { return _ribbonNumericUpDown.LastParentControl; }
-            set { _ribbonNumericUpDown.LastParentControl = value; }
+            get => GroupNumericUpDown.LastParentControl;
+            set => GroupNumericUpDown.LastParentControl = value;
         }
 
         private KryptonNumericUpDown LastNumericUpDown
         {
-            get { return _ribbonNumericUpDown.LastNumericUpDown; }
-            set { _ribbonNumericUpDown.LastNumericUpDown = value; }
+            get => GroupNumericUpDown.LastNumericUpDown;
+            set => GroupNumericUpDown.LastNumericUpDown = value;
         }
 
         private void UpdateParent(Control parentControl)
@@ -475,11 +466,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // Is there a change in the numeric up-down or a change in 
             // the parent control that is hosting the control...
             if ((parentControl != LastParentControl) ||
-                (LastNumericUpDown != _ribbonNumericUpDown.NumericUpDown))
+                (LastNumericUpDown != GroupNumericUpDown.NumericUpDown))
             {
                 // We only modify the parent and visible state if processing for correct container
-                if ((_ribbonNumericUpDown.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
-                    (!_ribbonNumericUpDown.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
+                if ((GroupNumericUpDown.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
+                    (!GroupNumericUpDown.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
                 {
                     // If we have added the custrom control to a parent before
                     if ((LastNumericUpDown != null) && (LastParentControl != null))
@@ -493,7 +484,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Remember the current control and new parent
-                    LastNumericUpDown = _ribbonNumericUpDown.NumericUpDown;
+                    LastNumericUpDown = GroupNumericUpDown.NumericUpDown;
                     LastParentControl = parentControl;
 
                     // If we have a new numeric up-down and parent
@@ -517,13 +508,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the enabled state of the group element
-                bool enabled = _ribbonNumericUpDown.Enabled;
+                bool enabled = GroupNumericUpDown.Enabled;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonNumericUpDown.NumericUpDownDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupNumericUpDown.NumericUpDownDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    enabled = _ribbonNumericUpDown.NumericUpDownDesigner.DesignEnabled;
+                    enabled = GroupNumericUpDown.NumericUpDownDesigner.DesignEnabled;
                 }
 
                 c.Enabled = enabled;
@@ -535,13 +526,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonNumericUpDown.Visible;
+                bool visible = GroupNumericUpDown.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonNumericUpDown.NumericUpDownDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupNumericUpDown.NumericUpDownDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonNumericUpDown.NumericUpDownDesigner.DesignVisible;
+                    visible = GroupNumericUpDown.NumericUpDownDesigner.DesignVisible;
                 }
 
                 return visible;
@@ -555,46 +546,43 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonNumericUpDown.Visible;
+                bool visible = GroupNumericUpDown.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonNumericUpDown.NumericUpDownDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupNumericUpDown.NumericUpDownDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonNumericUpDown.NumericUpDownDesigner.DesignVisible;
+                    visible = GroupNumericUpDown.NumericUpDownDesigner.DesignVisible;
                 }
 
                 if (visible)
                 {
                     // Only visible if on the currently selected page
-                    if ((_ribbonNumericUpDown.RibbonTab == null) ||
-                        (_ribbon.SelectedTab != _ribbonNumericUpDown.RibbonTab))
+                    if ((GroupNumericUpDown.RibbonTab == null) ||
+                        (_ribbon.SelectedTab != GroupNumericUpDown.RibbonTab))
                     {
                         visible = false;
                     }
                     else
                     {
                         // Check the owning group is visible
-                        if ((_ribbonNumericUpDown.RibbonContainer != null) &&
-                            (_ribbonNumericUpDown.RibbonContainer.RibbonGroup != null) &&
-                            !_ribbonNumericUpDown.RibbonContainer.RibbonGroup.Visible &&
-                            !_ribbon.InDesignMode)
+                        if ((GroupNumericUpDown.RibbonContainer?.RibbonGroup != null) && !GroupNumericUpDown.RibbonContainer.RibbonGroup.Visible && !_ribbon.InDesignMode)
                         {
                             visible = false;
                         }
                         else
                         {
                             // Check that the group is not collapsed
-                            if ((_ribbonNumericUpDown.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(_ribbonNumericUpDown.NumericUpDown) is KryptonRibbon) ||
-                                 (_ribbon.GetControllerControl(_ribbonNumericUpDown.NumericUpDown) is VisualPopupMinimized)))
+                            if ((GroupNumericUpDown.RibbonContainer.RibbonGroup.IsCollapsed) &&
+                                ((_ribbon.GetControllerControl(GroupNumericUpDown.NumericUpDown) is KryptonRibbon) ||
+                                 (_ribbon.GetControllerControl(GroupNumericUpDown.NumericUpDown) is VisualPopupMinimized)))
                             {
                                 visible = false;
                             }
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = _ribbonNumericUpDown.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupNumericUpDown.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)
@@ -621,7 +609,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnLayoutAction(object sender, EventArgs e)
         {
             // If not disposed then we still have a element reference
-            if (_ribbonNumericUpDown != null)
+            if (GroupNumericUpDown != null)
             {
                 // Change in selected tab requires a retest of the control visibility
                 UpdateVisible(LastNumericUpDown);

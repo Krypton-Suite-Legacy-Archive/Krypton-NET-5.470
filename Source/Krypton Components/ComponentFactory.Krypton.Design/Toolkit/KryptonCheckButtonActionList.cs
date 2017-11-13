@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Checked
         {
-            get { return _checkButton.Checked; }
+            get => _checkButton.Checked;
 
             set
             {

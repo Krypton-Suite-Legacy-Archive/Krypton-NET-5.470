@@ -18,10 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class DateTimePickerDropArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private KryptonContextMenu _kcm;
-        private KryptonContextMenuPositionH _positionH;
-        private KryptonContextMenuPositionV _positionV;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -34,9 +32,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                      KryptonContextMenuPositionH positionH,
                                      KryptonContextMenuPositionV positionV)
         {
-            _kcm = kcm;
-            _positionH = positionH;
-            _positionV = positionV;
+            KryptonContextMenu = kcm;
+            PositionH = positionH;
+            PositionV = positionV;
         }
         #endregion
 
@@ -44,28 +42,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the KryptonContextMenu instance.
         /// </summary>
-        public KryptonContextMenu KryptonContextMenu
-        {
-            get { return _kcm; }
-        }
+        public KryptonContextMenu KryptonContextMenu { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the relative horizontal position of the KryptonContextMenu.
         /// </summary>
-        public KryptonContextMenuPositionH PositionH
-        {
-            get { return _positionH; }
-            set { _positionH = value; }
-        }
+        public KryptonContextMenuPositionH PositionH { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the relative vertical position of the KryptonContextMenu.
         /// </summary>
-        public KryptonContextMenuPositionV PositionV
-        {
-            get { return _positionV; }
-            set { _positionV = value; }
-        }
-        #endregion
+        public KryptonContextMenuPositionV PositionV { get; set; }
+
+	    #endregion
 	}
 }

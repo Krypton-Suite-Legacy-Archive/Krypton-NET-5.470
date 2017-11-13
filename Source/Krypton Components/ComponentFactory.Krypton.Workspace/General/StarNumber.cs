@@ -21,9 +21,7 @@ namespace ComponentFactory.Krypton.Workspace
     {
         #region Internal Fields
         private string _value;
-        private bool _usingStar;
-        private int _fixedSize;
-        private double _starSize;
+
         #endregion
 
         #region Identity
@@ -33,9 +31,9 @@ namespace ComponentFactory.Krypton.Workspace
         public StarNumber()
         {
             _value = "*";
-            _usingStar = true;
-            _fixedSize = 0;
-            _starSize = 1;
+            UsingStar = true;
+            FixedSize = 0;
+            StarSize = 1;
         }
 
         /// <summary>
@@ -63,7 +61,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public string Value
         {
-            get { return _value; }
+            get => _value;
 
             set
             {
@@ -79,21 +77,21 @@ namespace ComponentFactory.Krypton.Workspace
                     // If there is only an asterisk in the string
                     if (value.Length == 1)
                     {
-                        _starSize = 1;
+                        StarSize = 1;
                     }
                     else
                     {
                         // The star number can have decimal places
-                        _starSize = double.Parse(value.Substring(0, value.Length - 1));
+                        StarSize = double.Parse(value.Substring(0, value.Length - 1));
                     }
 
-                    _usingStar = true;
+                    UsingStar = true;
                 }
                 else
                 {
                     // No asterisk, so it should be just be an integer number
-                    _fixedSize = int.Parse(value);
-                    _usingStar = false;
+                    FixedSize = int.Parse(value);
+                    UsingStar = false;
                 }
 
                 _value = value;
@@ -103,26 +101,18 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets a value indicating if stars are being specified.
         /// </summary>
-        public bool UsingStar
-        {
-            get { return _usingStar; }
-        }
+        public bool UsingStar { get; private set; }
 
         /// <summary>
         /// Gets the fixed size value.
         /// </summary>
-        public int FixedSize
-        {
-            get { return _fixedSize; }
-        }
+        public int FixedSize { get; private set; }
 
         /// <summary>
         /// Gets the star size value.
         /// </summary>
-        public double StarSize
-        {
-            get { return _starSize; }
-        }
+        public double StarSize { get; private set; }
+
         #endregion
 
         #region Internal
@@ -131,18 +121,18 @@ namespace ComponentFactory.Krypton.Workspace
             get
             {
                 StringBuilder builder = new StringBuilder();
-                builder.Append(_usingStar ? "T," : "F,");
-                builder.Append(_fixedSize.ToString() + ",");
-                builder.Append(CommonHelper.DoubleToString(_starSize));
+                builder.Append(UsingStar ? "T," : "F,");
+                builder.Append(FixedSize.ToString() + ",");
+                builder.Append(CommonHelper.DoubleToString(StarSize));
                 return builder.ToString();
             }
 
             set
             {
                 string[] parts = value.Split(',');
-                _usingStar = (parts[0] == "T");
-                _fixedSize = int.Parse(parts[1]);
-                _starSize = CommonHelper.StringToDouble(parts[2]);
+                UsingStar = (parts[0] == "T");
+                FixedSize = int.Parse(parts[1]);
+                StarSize = CommonHelper.StringToDouble(parts[2]);
             }
         }
         #endregion

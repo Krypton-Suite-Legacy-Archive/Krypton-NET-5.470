@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class ScreenAndOffsetEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private Point _screenPoint;
-        private Point _elementOffset;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="elementOffset">Element offset.</param>
         public ScreenAndOffsetEventArgs(Point screenPoint, Point elementOffset)
 		{
-            _screenPoint = screenPoint;
-            _elementOffset = elementOffset;
+            ScreenPoint = screenPoint;
+            ElementOffset = elementOffset;
         }
         #endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the screen point.
         /// </summary>
-        public Point ScreenPoint
-        {
-            get { return _screenPoint; }
-        }
+        public Point ScreenPoint { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the element offset.
         /// </summary>
-        public Point ElementOffset
-        {
-            get { return _elementOffset; }
-        }
-        #endregion
+        public Point ElementOffset { get; }
+
+	    #endregion
 	}
 }

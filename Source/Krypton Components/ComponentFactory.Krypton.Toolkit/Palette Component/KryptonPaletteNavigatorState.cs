@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteNavigatorState : Storage
     {
         #region Instance Fields
-        private KryptonPaletteNavigatorStateBar _bar;
+
         #endregion
 
         #region Identity
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirect != null);
             
             // Create the storage objects
-            _bar = new KryptonPaletteNavigatorStateBar(redirect, needPaint);
+            Bar = new KryptonPaletteNavigatorStateBar(redirect, needPaint);
         }
         #endregion
 
@@ -43,13 +43,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return _bar.IsDefault;
-            }
-        }
+        public override bool IsDefault => Bar.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -58,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void PopulateFromBase()
         {
-            _bar.PopulateFromBase();
+            Bar.PopulateFromBase();
         }
         #endregion
 
@@ -70,14 +65,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining navigator bar appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteNavigatorStateBar Bar
-        {
-            get { return _bar; }
-        }
+        public KryptonPaletteNavigatorStateBar Bar { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_bar.IsDefault;
+            return !Bar.IsDefault;
         }
         #endregion
     }

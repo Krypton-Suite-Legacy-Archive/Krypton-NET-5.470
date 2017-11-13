@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonTitle: ViewLayoutDocker
     {
         #region Instance Fields
-        private int _vertOffset;
+
         #endregion
 
         #region Identity
@@ -45,11 +45,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the vertial offset for bottom docked elements.
         /// </summary>
-        public int VertOffset
-        {
-            get { return _vertOffset; }
-            set { _vertOffset = value; }
-        }
+        public int VertOffset { get; set; }
+
         #endregion
 
         #region Layout

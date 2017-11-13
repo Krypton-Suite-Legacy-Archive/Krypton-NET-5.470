@@ -20,10 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
         private PaletteDoubleRedirect _backRedirect;
-        private PaletteElementColorRedirect _tickRedirect;
-        private PaletteElementColorRedirect _trackRedirect;
-        private PaletteElementColorRedirect _positionRedirect;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -41,9 +39,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create storage that maps onto the inherit instances
             _backRedirect = new PaletteDoubleRedirect(redirect, PaletteBackStyle.PanelClient, PaletteBorderStyle.ControlClient, NeedPaint);
-            _tickRedirect = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarTick, NeedPaint);
-            _trackRedirect = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarTrack, NeedPaint);
-            _positionRedirect = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarPosition, NeedPaint);
+            Tick = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarTick, NeedPaint);
+            Track = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarTrack, NeedPaint);
+            Position = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarPosition, NeedPaint);
         }
 		#endregion
 
@@ -52,17 +50,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (Back.IsDefault &&
-                        Tick.IsDefault &&
-                        Track.IsDefault &&
-                        Position.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (Back.IsDefault &&
+		                                   Tick.IsDefault &&
+		                                   Track.IsDefault &&
+		                                   Position.IsDefault);
+
+	    #endregion
 
         #region SetRedirector
         /// <summary>
@@ -72,9 +65,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void SetRedirector(PaletteRedirect redirect)
         {
             _backRedirect.SetRedirector(redirect);
-            _tickRedirect.SetRedirector(redirect);
-            _trackRedirect.SetRedirector(redirect);
-            _positionRedirect.SetRedirector(redirect);
+            Tick.SetRedirector(redirect);
+            Track.SetRedirector(redirect);
+            Position.SetRedirector(redirect);
         }
         #endregion
 
@@ -86,9 +79,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase(PaletteState state)
         {
             _backRedirect.PopulateFromBase(state);
-            _tickRedirect.PopulateFromBase(state);
-            _trackRedirect.PopulateFromBase(state);
-            _positionRedirect.PopulateFromBase(state);
+            Tick.PopulateFromBase(state);
+            Track.PopulateFromBase(state);
+            Position.PopulateFromBase(state);
         }
         #endregion
 
@@ -100,14 +93,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tick appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorRedirect Tick
-        {
-            get { return _tickRedirect; }
-        }
+        public PaletteElementColorRedirect Tick { get; }
 
-        private bool ShouldSerializeTick()
+	    private bool ShouldSerializeTick()
         {
-            return !_tickRedirect.IsDefault;
+            return !Tick.IsDefault;
         }
         #endregion
 
@@ -119,14 +109,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining track appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorRedirect Track
-        {
-            get { return _trackRedirect; }
-        }
+        public PaletteElementColorRedirect Track { get; }
 
-        private bool ShouldSerializeTrack()
+	    private bool ShouldSerializeTrack()
         {
-            return !_trackRedirect.IsDefault;
+            return !Track.IsDefault;
         }
         #endregion
 
@@ -138,14 +125,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining position marker appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteElementColorRedirect Position
-        {
-            get { return _positionRedirect; }
-        }
+        public PaletteElementColorRedirect Position { get; }
 
-        private bool ShouldSerializePosition()
+	    private bool ShouldSerializePosition()
         {
-            return !_positionRedirect.IsDefault;
+            return !Position.IsDefault;
         }
         #endregion
 
@@ -153,15 +137,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the background appearance.
         /// </summary>
-        internal PaletteBack Back
-        {
-            get { return _backRedirect.Back; }
-        }
+        internal PaletteBack Back => _backRedirect.Back;
 
-        internal PaletteBackStyle BackStyle
+	    internal PaletteBackStyle BackStyle
         {
-            get { return _backRedirect.BackStyle; }
-            set { _backRedirect.BackStyle = value; }
+            get => _backRedirect.BackStyle;
+            set => _backRedirect.BackStyle = value;
         }
         #endregion
 

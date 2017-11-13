@@ -44,12 +44,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get { return (_font == null) && 
-                         (_textColor == Color.Empty) && 
-                         (_hint == PaletteTextHint.Inherit); }
-        }
+        public override bool IsDefault => (_font == null) && 
+                                          (_textColor == Color.Empty) && 
+                                          (_hint == PaletteTextHint.Inherit);
+
         #endregion
 
         #region Font
@@ -63,9 +61,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public virtual Font Font
 		{
-            get { return _font; }
+            get => _font;
 
-            set
+		    set
             {
                 _font = value;
                 _wrapLabel.PerformLayout();
@@ -85,7 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color TextColor
         {
-            get { return _textColor; }
+            get => _textColor;
 
             set
             {
@@ -106,9 +104,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextHint Hint
         {
-            get { return _hint; }
+            get => _hint;
 
-            set
+		    set
             {
                 _hint = value;
                 _wrapLabel.Invalidate();

@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private ToolTipManager _toolTipManager;
+
         private PaletteRedirect _redirector;
         private ButtonSpecCollectionBase _variableSpecs;
         private ButtonSpecCollectionBase _fixedSpecs;
@@ -39,9 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private ListSpacers[] _viewSpacers;
         private ButtonSpecLookup _specLookup;
         private GetToolStripRenderer _getRenderer;
-        private bool _useMnemonic;
-        private Control _control;
-        private NeedPaintHandler _needPaint;
+
         #endregion
 
         #region Identity
@@ -77,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Remember references
-            _control = control;
+            Control = control;
             _redirector = redirector;
             _variableSpecs = variableSpecs;
             _fixedSpecs = fixedSpecs;
@@ -93,7 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Default state
-            _useMnemonic = true;
+            UseMnemonic = true;
 
             // Create the lookup instance
             _specLookup = new ButtonSpecLookup();
@@ -112,28 +110,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the owning control.
         /// </summary>
-        public Control Control
-        {
-            get { return _control; }
-        }
+        public Control Control { get; }
 
         /// <summary>
         /// Gets and sets the associated tooltip manager.
         /// </summary>
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-            set { _toolTipManager = value; }
-        }
+        public ToolTipManager ToolTipManager { get; set; }
 
         /// <summary>
         /// Gets and sets the need paint delegate for notifying paint requests.
         /// </summary>
-        public NeedPaintHandler NeedPaint
-        {
-            get { return _needPaint; }
-            set { _needPaint = value; }
-        }
+        public NeedPaintHandler NeedPaint { get; set; }
 
         /// <summary>
         /// Gets an array containing references of all the current views.
@@ -223,11 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the use of mnemonics.
         /// </summary>
-        public bool UseMnemonic
-        {
-            get { return _useMnemonic; }
-            set { _useMnemonic = value; }
-        }
+        public bool UseMnemonic { get; set; }
 
         /// <summary>
         /// Requests that all the buttons be recreated.
@@ -625,10 +608,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if inside edge spacers are required.
         /// </summary>
-        protected virtual bool UseInsideSpacers
-        {
-            get { return false; }
-        }
+        protected virtual bool UseInsideSpacers => false;
 
         /// <summary>
         /// Gets the number of dockers.
@@ -725,7 +705,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="needLayout">Does the palette change require a layout.</param>
         protected virtual void OnNeedPaint(object sender, bool needLayout)
         {
-            _needPaint?.Invoke(sender, new NeedLayoutEventArgs(needLayout));
+            NeedPaint?.Invoke(sender, new NeedLayoutEventArgs(needLayout));
         }
         #endregion
 

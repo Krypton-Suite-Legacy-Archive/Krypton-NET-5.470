@@ -35,13 +35,10 @@ namespace ComponentFactory.Krypton.Toolkit
         // Initialize the global state
         private static bool _globalApplyToolstrips = true;
         private static bool _globalAllowFormChrome = true;
-        private static GlobalStrings _globalStrings = new GlobalStrings();
 
         // Initialize the default modes
-        private static PaletteModeManager _globalPaletteMode = PaletteModeManager.Office2010Blue;
 
         // Initialize instances to match the default modes
-        private static IPalette _globalPalette = CurrentGlobalPalette;
 
         // Singleton instances are created on demand
         private static PaletteProfessionalOffice2003 _paletteProfessionalOffice2003;
@@ -136,12 +133,12 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteModeManager), "Office2010Blue")]
         public PaletteModeManager GlobalPaletteMode
         {
-            get { return _globalPaletteMode; }
-            
+            get => InternalGlobalPaletteMode;
+
             set 
             {
                 // Only interested in changes of value
-                if (_globalPaletteMode != value)
+                if (InternalGlobalPaletteMode != value)
                 {
                     // Action depends on the value
                     switch (value)
@@ -152,19 +149,19 @@ namespace ComponentFactory.Krypton.Toolkit
                             break;
                         default:
                             // Cache the new valus
-                            PaletteModeManager tempMode = _globalPaletteMode;
-                            IPalette tempPalette = _globalPalette;
+                            PaletteModeManager tempMode = InternalGlobalPaletteMode;
+                            IPalette tempPalette = InternalGlobalPalette;
 
                             // Use the new value
-                            _globalPaletteMode = value;
-                            _globalPalette = null;
+                            InternalGlobalPaletteMode = value;
+                            InternalGlobalPalette = null;
 
                             // If the new value creates a circular reference
                             if (HasCircularReference())
                             {
                                 // Restore the original values before throwing
-                                _globalPaletteMode = tempMode;
-                                _globalPalette = tempPalette;
+                                InternalGlobalPaletteMode = tempMode;
+                                InternalGlobalPalette = tempPalette;
 
                                 throw new ArgumentOutOfRangeException("value", "Cannot use palette that would create a circular reference");
                             }
@@ -172,7 +169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 // Restore the original global pallete as 'SetPalette' will not 
                                 // work correctly unles it still has the old value in place
-                                _globalPalette = tempPalette;
+                                InternalGlobalPalette = tempPalette;
                             }
 
                             // Get a reference to the standard palette from its name
@@ -207,27 +204,27 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public IPalette GlobalPalette
         {
-            get { return _globalPalette; }
+            get => InternalGlobalPalette;
 
             set
             {
                 // Only interested in changes of value
-                if (_globalPalette != value)
+                if (InternalGlobalPalette != value)
                 {
                     // Cache the current values
-                    PaletteModeManager tempMode = _globalPaletteMode;
-                    IPalette tempPalette = _globalPalette;
+                    PaletteModeManager tempMode = InternalGlobalPaletteMode;
+                    IPalette tempPalette = InternalGlobalPalette;
 
                     // Use the new values
-                    _globalPaletteMode = (value == null) ? PaletteModeManager.Office2010Blue : PaletteModeManager.Custom;
-                    _globalPalette = value;
+                    InternalGlobalPaletteMode = (value == null) ? PaletteModeManager.Office2010Blue : PaletteModeManager.Custom;
+                    InternalGlobalPalette = value;
 
                     // If the new value creates a circular reference
                     if (HasCircularReference())
                     {
                         // Restore the original values
-                        _globalPaletteMode = tempMode;
-                        _globalPalette = tempPalette;
+                        InternalGlobalPaletteMode = tempMode;
+                        InternalGlobalPalette = tempPalette;
 
                         throw new ArgumentOutOfRangeException("value", "Cannot use palette that would create a circular reference");
                     }
@@ -235,7 +232,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Restore the original global pallete as 'SetPalette' will not 
                         // work correctly unles it still has the old value in place
-                        _globalPalette = tempPalette;
+                        InternalGlobalPalette = tempPalette;
                     }
 
                     // Use the provided palette value
@@ -250,7 +247,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     else
                     {
                         // No longer using a standard palette
-                        _globalPaletteMode = PaletteModeManager.Custom;
+                        InternalGlobalPaletteMode = PaletteModeManager.Custom;
                     }
 
                     // Raise the palette changed event
@@ -275,8 +272,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool GlobalApplyToolstrips
         {
-            get { return KryptonManager.ApplyToolstrips; }
-            set { KryptonManager.ApplyToolstrips = value; }
+            get => KryptonManager.ApplyToolstrips;
+            set => KryptonManager.ApplyToolstrips = value;
         }
 
         private bool ShouldSerializeGlobalApplyToolstrips()
@@ -300,8 +297,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool GlobalAllowFormChrome
         {
-            get { return KryptonManager.AllowFormChrome; }
-            set { KryptonManager.AllowFormChrome = value; }
+            get => KryptonManager.AllowFormChrome;
+            set => KryptonManager.AllowFormChrome = value;
         }
 
         private bool ShouldSerializeGlobalAllowFormChrome()
@@ -325,14 +322,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Localizable(true)]
-        public GlobalStrings GlobalStrings
-        {
-            get { return _globalStrings; }
-        }
+        public GlobalStrings GlobalStrings => Strings;
 
         private bool ShouldSerializeGlobalStrings()
         {
-            return !_globalStrings.IsDefault;
+            return !Strings.IsDefault;
         }
 
         /// <summary>
@@ -340,7 +334,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void ResetGlobalStrings()
         {
-            _globalStrings.Reset();
+            Strings.Reset();
         }
         #endregion
 
@@ -350,7 +344,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static bool ApplyToolstrips
         {
-            get { return _globalApplyToolstrips; }
+            get => _globalApplyToolstrips;
 
             set
             {
@@ -380,7 +374,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static bool AllowFormChrome
         {
-            get { return _globalAllowFormChrome; }
+            get => _globalAllowFormChrome;
 
             set
             {
@@ -401,10 +395,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the set of global strings.
         /// </summary>
-        public static GlobalStrings Strings
-        {
-            get { return _globalStrings; }
-        }
+        public static GlobalStrings Strings { get; } = new GlobalStrings();
+
         #endregion
 
         #region Static Palette
@@ -415,7 +407,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get 
             {
-                switch (_globalPaletteMode)
+                switch (InternalGlobalPaletteMode)
                 {
                     case PaletteModeManager.ProfessionalSystem:
                         return PaletteProfessionalSystem;
@@ -440,7 +432,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PaletteModeManager.SparklePurple:
                         return PaletteSparklePurple;
                     case PaletteModeManager.Custom:
-                        return _globalPalette;
+                        return InternalGlobalPalette;
                     default:
                         Debug.Assert(false);
                         return null;
@@ -772,15 +764,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Static Internal
-        internal static PaletteModeManager InternalGlobalPaletteMode
-        {
-            get { return _globalPaletteMode; }
-        }
+        internal static PaletteModeManager InternalGlobalPaletteMode { get; private set; } = PaletteModeManager.Office2010Blue;
 
-        internal static IPalette InternalGlobalPalette
-        {
-            get { return _globalPalette; }
-        }
+        internal static IPalette InternalGlobalPalette { get; private set; } = CurrentGlobalPalette;
 
         internal static bool HasCircularReference()
         {
@@ -881,21 +867,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private static void SetPalette(IPalette globalPalette)
         {
-            if (globalPalette != _globalPalette)
+            if (globalPalette != InternalGlobalPalette)
             {
                 // Unhook from current palette events
-                if (_globalPalette != null)
+                if (InternalGlobalPalette != null)
                 {
-                    _globalPalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    InternalGlobalPalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
                 }
 
                 // Remember the new palette
-                _globalPalette = globalPalette;
+                InternalGlobalPalette = globalPalette;
 
                 // Hook to new palette events
-                if (_globalPalette != null)
+                if (InternalGlobalPalette != null)
                 {
-                    _globalPalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    InternalGlobalPalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
                 }
             }
         }
@@ -916,7 +902,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (_globalApplyToolstrips)
             {
-                ToolStripManager.Renderer = _globalPalette.GetRenderer().RenderToolStrip(_globalPalette);
+                ToolStripManager.Renderer = InternalGlobalPalette.GetRenderer().RenderToolStrip(InternalGlobalPalette);
             }
         }
 

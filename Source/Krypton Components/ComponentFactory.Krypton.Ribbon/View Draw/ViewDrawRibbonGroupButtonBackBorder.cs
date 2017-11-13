@@ -28,19 +28,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupItem _groupItem;
-        private GroupButtonController _controller;
-        private EventHandler _finishDelegate;
         private IDisposable _mementoBack;
         private IPaletteBack _paletteBack;
         private PaletteBackInheritForced _paletteBackDraw;
         private PaletteBackLightenColors _paletteBackLight;
         private IPaletteBorder _paletteBorder;
         private PaletteBorderInheritForced _paletteBorderAll;
-        private bool _splitVertical;
-        private bool _constantBorder;
-        private bool _drawNonTrackingAreas;
-        private bool _checked;
+
         #endregion
 
         #region Events
@@ -84,7 +78,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _groupItem = groupItem;
+            GroupItem = groupItem;
             _paletteBack = paletteBack;
             _paletteBackDraw = new PaletteBackInheritForced(paletteBack)
             {
@@ -94,23 +88,23 @@ namespace ComponentFactory.Krypton.Ribbon
             _paletteBorderAll = new PaletteBorderInheritForced(paletteBorder);
             _paletteBorderAll.ForceBorderEdges(PaletteDrawBorders.All);
             _paletteBorder = paletteBorder;
-            _constantBorder = constantBorder;
+            ConstantBorder = constantBorder;
 
             // Default other fields
-            _checked = false;
-            _drawNonTrackingAreas = true;
+            Checked = false;
+            DrawNonTrackingAreas = true;
 
             // Create delegate used to process end of click action
-            _finishDelegate = new EventHandler(ActionFinished);
+            FinishDelegate = new EventHandler(ActionFinished);
 
             // Attach a controller to this element for the pressing of the button
-            _controller = new GroupButtonController(_ribbon, this, needPaint);
-            _controller.Click += new EventHandler(OnClick);
-            _controller.ContextClick += new MouseEventHandler(OnContextClick);
-            _controller.DropDown += new EventHandler(OnDropDown);
-            MouseController = _controller;
-            SourceController = _controller;
-            KeyController = _controller;
+            Controller = new GroupButtonController(_ribbon, this, needPaint);
+            Controller.Click += new EventHandler(OnClick);
+            Controller.ContextClick += new MouseEventHandler(OnContextClick);
+            Controller.DropDown += new EventHandler(OnDropDown);
+            MouseController = Controller;
+            SourceController = Controller;
+            KeyController = Controller;
         }
 
 		/// <summary>
@@ -146,31 +140,24 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated ribbon group item.
         /// </summary>
-        public KryptonRibbonGroupItem GroupItem
-        {
-            get { return _groupItem; }
-        }
+        public KryptonRibbonGroupItem GroupItem { get; }
+
         #endregion
 
         #region Controller
         /// <summary>
         /// Gets access to the associated controller.
         /// </summary>
-        public GroupButtonController Controller
-        {
-            get { return _controller; }
-        }
+        public GroupButtonController Controller { get; }
+
         #endregion
 
         #region SplitVertical
         /// <summary>
         /// Gets and sets if the split button is vertical or horizontal.
         /// </summary>
-        public bool SplitVertical
-        {
-            get { return _splitVertical; }
-            set { _splitVertical = value; }
-        }
+        public bool SplitVertical { get; set; }
+
         #endregion
 
         #region SplitRectangle
@@ -179,8 +166,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Rectangle SplitRectangle
         {
-            get { return _controller.SplitRectangle; }
-            set { _controller.SplitRectangle = value; }
+            get => Controller.SplitRectangle;
+            set => Controller.SplitRectangle = value;
         }
         #endregion
 
@@ -190,8 +177,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public GroupButtonType ButtonType
         {
-            get { return _controller.ButtonType; }
-            set { _controller.ButtonType = value; }
+            get => Controller.ButtonType;
+            set => Controller.ButtonType = value;
         }
         #endregion
 
@@ -199,43 +186,32 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the checked state of the button background/border.
         /// </summary>
-        public bool Checked
-        {
-            get { return _checked; }
-            set { _checked = value; }
-        }
+        public bool Checked { get; set; }
+
         #endregion
 
         #region ConstantBorder
         /// <summary>
         /// Gets and sets the drawing of a constant border.
         /// </summary>
-        public bool ConstantBorder
-        {
-            get { return _constantBorder; }
-            set { _constantBorder = value; }
-        }
+        public bool ConstantBorder { get; set; }
+
         #endregion
 
         #region DrawNonTrackingAreas
         /// <summary>
         /// Gets and sets if the non tracking areas are drawn.
         /// </summary>
-        public bool DrawNonTrackingAreas
-        {
-            get { return _drawNonTrackingAreas; }
-            set { _drawNonTrackingAreas = value; }
-        }
+        public bool DrawNonTrackingAreas { get; set; }
+
         #endregion
 
         #region FinishDelegate
         /// <summary>
         /// Gets access to the associated finish delegate.
         /// </summary>
-        public EventHandler FinishDelegate
-        {
-            get { return _finishDelegate; }
-        }
+        public EventHandler FinishDelegate { get; }
+
         #endregion
 
         #region Layout
@@ -298,7 +274,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Entire area is drawn using draw state
                     DrawBackground(_paletteBack, context, ClientRectangle, drawState);
 
-                    if (_constantBorder)
+                    if (ConstantBorder)
                     {
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
                     }
@@ -308,7 +284,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                     break;
                 case GroupButtonType.Split:
-                    if (_splitVertical)
+                    if (SplitVertical)
                     {
                         DrawVerticalSplit(context, drawState);
                     }
@@ -327,9 +303,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private void DrawVerticalSplit(RenderContext context, PaletteState drawState)
         {
             // We need the rectangle that represents just the split area
-            int partialHeight = (ClientHeight / 3 * 2);
+            int partialHeight = ((ClientHeight / 3) * 2);
             Rectangle partialRect = new Rectangle(ClientLocation, new Size(ClientWidth, partialHeight));
-            Rectangle splitRectangle = _controller.SplitRectangle;
+            Rectangle splitRectangle = Controller.SplitRectangle;
             Rectangle aboveSplitRect = new Rectangle(ClientLocation, new Size(ClientWidth, splitRectangle.Y - ClientLocation.Y));
             Rectangle splitterRect = new Rectangle(splitRectangle.Location, new Size(ClientWidth, 1));
             Rectangle belowSplitRect = new Rectangle(ClientLocation.X, splitRectangle.Y, ClientWidth, splitRectangle.Height);
@@ -339,7 +315,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 case PaletteState.Normal:
                     // Draw the entire border around the button
-                    if (_constantBorder)
+                    if (ConstantBorder)
                     {
                         DrawBackground(_paletteBack, context, ClientRectangle, PaletteState.Normal);
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
@@ -347,13 +323,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case PaletteState.Tracking:
                     // Draw the background for the click and split areas
-                    if (_controller.MouseInSplit)
+                    if (Controller.MouseInSplit)
                     {
                         using (Clipping clipToSplitter = new Clipping(context.Graphics, belowSplitRect))
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -374,7 +350,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, partialRect, PaletteState.Tracking);
                                 }
@@ -396,7 +372,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -419,13 +395,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case PaletteState.Pressed:
                     // Draw the background for the click and split areas
-                    if (_controller.MouseInSplit)
+                    if (Controller.MouseInSplit)
                     {
                         using (Clipping clipToSplitter = new Clipping(context.Graphics, belowSplitRect))
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Pressed);
                                 }
@@ -446,7 +422,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, partialRect, PaletteState.Tracking);
                                 }
@@ -468,7 +444,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -490,7 +466,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Draw the border for the click and split areas
-                    if (_controller.MouseInSplit)
+                    if (Controller.MouseInSplit)
                     {
                         using (Clipping clipToSplitter = new Clipping(context.Graphics, belowSplitRect))
                         {
@@ -515,8 +491,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private void DrawHorizontalSplit(RenderContext context, PaletteState drawState)
         {
             // We need the rectangle that represents just the split area
-            int partialWidth = (ClientWidth / 3 * 2);
-            Rectangle splitRectangle = _controller.SplitRectangle;
+            int partialWidth = ((ClientWidth / 3) * 2);
+            Rectangle splitRectangle = Controller.SplitRectangle;
             Rectangle beforeSplitRect = new Rectangle(ClientLocation, new Size(splitRectangle.X - ClientLocation.X, ClientHeight));
             Rectangle splitterRect = new Rectangle(splitRectangle.Location, new Size(1, ClientHeight));
             Rectangle afterSplitRect = new Rectangle(splitRectangle.X, ClientLocation.Y , splitRectangle.Width, ClientHeight);
@@ -526,7 +502,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 case PaletteState.Normal:
                     // Draw the entire border around the button
-                    if (_constantBorder)
+                    if (ConstantBorder)
                     {
                         DrawBackground(_paletteBack, context, ClientRectangle, PaletteState.Normal);
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
@@ -534,13 +510,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case PaletteState.Tracking:
                     // Draw the background for the click and split areas
-                    if (_controller.MouseInSplit)
+                    if (Controller.MouseInSplit)
                     {
                         using (Clipping clipToSplitter = new Clipping(context.Graphics, afterSplitRect))
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -561,7 +537,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -583,7 +559,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -602,13 +578,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Draw the entire border around the button
-                    if (_constantBorder)
+                    if (ConstantBorder)
                     {
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
                     }
 
                     // If the border is not constant, drawn it now
-                    if (!_constantBorder)
+                    if (!ConstantBorder)
                     {
                         // Draw the entire border around the button
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Tracking);
@@ -616,13 +592,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     break;
                 case PaletteState.Pressed:
                     // Draw the background for the click and split areas
-                    if (_controller.MouseInSplit)
+                    if (Controller.MouseInSplit)
                     {
                         using (Clipping clipToSplitter = new Clipping(context.Graphics, afterSplitRect))
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Pressed);
                                 }
@@ -643,7 +619,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -665,7 +641,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             if (splitWithFading)
                             {
-                                if (_drawNonTrackingAreas)
+                                if (DrawNonTrackingAreas)
                                 {
                                     DrawBackground(_paletteBackLight, context, ClientRectangle, PaletteState.Tracking);
                                 }
@@ -684,19 +660,19 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Draw the entire border around the button
-                    if (_constantBorder)
+                    if (ConstantBorder)
                     {
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
                     }
 
                     // If the border is not constant, drawn it now
-                    if (!_constantBorder)
+                    if (!ConstantBorder)
                     {
                         // Draw the entire border around the button
                         DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Tracking);
 
                         // Draw the border for the click and split areas
-                        if (_controller.MouseInSplit)
+                        if (Controller.MouseInSplit)
                         {
                             using (Clipping clipToSplitter = new Clipping(context.Graphics, afterSplitRect))
                             {
@@ -781,7 +757,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Remove the fixed pressed appearance
-            _controller.RemoveFixed();
+            Controller.RemoveFixed();
         }
 
         private void OnClick(object sender, EventArgs e)

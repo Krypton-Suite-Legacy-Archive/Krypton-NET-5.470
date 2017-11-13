@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteComboBoxStates : Storage
 	{
 		#region Instance Fields
-        private PaletteTriple _itemState;
-        private PaletteInputControlTripleStates _comboBoxState;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -41,8 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Create storage that maps onto the inherit instances
-            _itemState = new PaletteTriple(inheritItem, needPaint);
-            _comboBoxState = new PaletteInputControlTripleStates(inheritComboBox, needPaint);
+            Item = new PaletteTriple(inheritItem, needPaint);
+            ComboBox = new PaletteInputControlTripleStates(inheritComboBox, needPaint);
 		}
 		#endregion
 
@@ -51,15 +50,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{
-                return (ComboBox.IsDefault &&
-                        Item.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (ComboBox.IsDefault &&
+		                                   Item.IsDefault);
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -70,8 +64,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public void SetInherit(IPaletteTriple inheritComboBox,
                                IPaletteTriple inheritItem)
         {
-            _comboBoxState.SetInherit(inheritComboBox);
-            _itemState.SetInherit(inheritItem);
+            ComboBox.SetInherit(inheritComboBox);
+            Item.SetInherit(inheritItem);
         }
         #endregion
 
@@ -82,8 +76,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette state to use when populating.</param>
         public void PopulateFromBase(PaletteState state)
         {
-            _comboBoxState.PopulateFromBase(state);
-            _itemState.PopulateFromBase(state);
+            ComboBox.PopulateFromBase(state);
+            Item.PopulateFromBase(state);
         }
         #endregion
 
@@ -95,14 +89,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining combo box appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleStates ComboBox
-        {
-            get { return _comboBoxState; }
-        }
+        public PaletteInputControlTripleStates ComboBox { get; }
 
-        private bool ShouldSerializeComboBox()
+	    private bool ShouldSerializeComboBox()
         {
-            return !_comboBoxState.IsDefault;
+            return !ComboBox.IsDefault;
         }
         #endregion
 
@@ -114,14 +105,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple Item
-        {
-            get { return _itemState; }
-        }
+        public PaletteTriple Item { get; }
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
-            return !_itemState.IsDefault;
+            return !Item.IsDefault;
         }
         #endregion
 

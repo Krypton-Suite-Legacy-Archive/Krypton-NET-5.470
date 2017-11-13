@@ -33,12 +33,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private ViewDrawDocker _drawDocker;
-        private PaletteDoubleRedirect _stateCommon;
-        private PaletteDouble _stateDisabled;
-		private PaletteDouble _stateNormal;
-        private ViewLayoutFill _layoutFill;
-        private KryptonGroupPanel _panel;
-        private bool _forcedLayout;
+	    private ViewLayoutFill _layoutFill;
+	    private bool _forcedLayout;
         private bool _layingOut;
         #endregion
 
@@ -49,12 +45,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		public KryptonGroup()
 		{            
             // Create the palette storage
-            _stateCommon = new PaletteDoubleRedirect(Redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, NeedPaintDelegate);
-            _stateDisabled = new PaletteDouble(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteDouble(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteDoubleRedirect(Redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, NeedPaintDelegate);
+            StateDisabled = new PaletteDouble(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteDouble(StateCommon, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, new NeedPaintHandler(OnGroupPanelPaint))
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -62,10 +58,10 @@ namespace ComponentFactory.Krypton.Toolkit
             };
 
             // Create the element that fills the remainder space and remembers fill rectange
-            _layoutFill = new ViewLayoutFill(_panel);
+            _layoutFill = new ViewLayoutFill(Panel);
 
             // Create view for the control border and background
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            _drawDocker = new ViewDrawDocker(StateNormal.Back, StateNormal.Border)
             {
                 { _layoutFill, ViewDockStyle.Fill }
             };
@@ -77,7 +73,7 @@ namespace ComponentFactory.Krypton.Toolkit
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             // Add panel to the controls collection
-            ((KryptonReadOnlyControls)Controls).AddInternal(_panel);
+            ((KryptonReadOnlyControls)Controls).AddInternal(Panel);
         }
 		#endregion
 
@@ -88,12 +84,12 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new string Name
         {
-            get { return base.Name; }
+            get => base.Name;
 
             set
             {
                 base.Name = value;
-                _panel.Name = value + ".Panel";
+                Panel.Name = value + ".Panel";
             }
         }
 
@@ -106,8 +102,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -119,8 +115,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -131,7 +127,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
-            get { return base.GetAutoSizeMode(); }
+            get => base.GetAutoSizeMode();
 
             set
             {
@@ -156,25 +152,22 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("The internal panel that contains group content.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonGroupPanel Panel
-        {
-            get { return _panel; }
-        }
+        public KryptonGroupPanel Panel { get; }
 
-        /// <summary>
+	    /// <summary>
 		/// Gets and sets the border style.
 		/// </summary>
 		[Category("Visuals")]
 		[Description("Border style.")]
 		public PaletteBorderStyle GroupBorderStyle
 		{
-            get { return _stateCommon.BorderStyle; }
+            get => StateCommon.BorderStyle;
 
-			set
+	        set
 			{
-                if (_stateCommon.BorderStyle != value)
+                if (StateCommon.BorderStyle != value)
 				{
-                    _stateCommon.BorderStyle = value;
+                    StateCommon.BorderStyle = value;
 					PerformNeedPaint(true);
 				}
 			}
@@ -197,14 +190,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Background style.")]
 		public PaletteBackStyle GroupBackStyle
 		{
-			get { return _stateCommon.BackStyle; }
+			get => StateCommon.BackStyle;
 
-			set
+            set
 			{
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
 				{
-                    _stateCommon.BackStyle = value;
-                    _panel.PanelBackStyle = value;
+                    StateCommon.BackStyle = value;
+                    Panel.PanelBackStyle = value;
                     PerformNeedPaint(true);
 				}
 			}
@@ -226,14 +219,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common group appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDoubleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteDoubleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         
         /// <summary>
@@ -242,14 +232,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled group appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDouble StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+        public PaletteDouble StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -258,14 +245,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal group appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDouble StateNormal
-		{
-			get { return _stateNormal; }
-		}
+        public PaletteDouble StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
         /// <summary>
@@ -335,7 +319,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Request fixed state from the view
             _drawDocker.FixedState = state;
-            _panel.SetFixedState(state);
+            Panel.SetFixedState(state);
         }
 		#endregion
 
@@ -405,11 +389,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Push correct palettes into the view
 			if (Enabled)
             {
-                _drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
+                _drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
             }
             else
             {
-                _drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
+                _drawDocker.SetPalettes(StateDisabled.Back, StateDisabled.Border);
             }
 
             _drawDocker.Enabled = Enabled;
@@ -448,10 +432,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Only use layout logic if control is fully initialized or if being forced
             // to allow a relayout or if in design mode.
-            if (IsInitialized || _forcedLayout || (DesignMode && (_panel != null)))
+            if (IsInitialized || _forcedLayout || (DesignMode && (Panel != null)))
             {
                 Rectangle fillRect = _layoutFill.FillRect;
-                _panel.SetBounds(fillRect.X, fillRect.Y, fillRect.Width, fillRect.Height);
+                Panel.SetBounds(fillRect.X, fillRect.Y, fillRect.Width, fillRect.Height);
             }
 
             _layingOut = false;
@@ -468,7 +452,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // As the contained group panel is using our palette storage
                 // we also need to pass on any paint request to it as well
-                _panel.PerformNeedPaint(e.NeedLayout);
+                Panel.PerformNeedPaint(e.NeedLayout);
             }
             else
             {

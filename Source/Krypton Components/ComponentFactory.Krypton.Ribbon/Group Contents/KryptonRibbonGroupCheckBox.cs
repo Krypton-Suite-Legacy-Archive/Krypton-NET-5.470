@@ -36,16 +36,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _checked;
         private bool _threeState;
         private bool _autoCheck;
-        private Image _toolTipImage;
-        private Color _toolTipImageTransparentColor;
-        private LabelStyle _toolTipStyle;
         private string _textLine1;
         private string _textLine2;
         private string _keyTip;
-        private string _toolTipTitle;
-        private string _toolTipBody;
-        private Keys _shortcutKeys;
-        private ViewBase _checkBoxView;
         private GroupItemSize _itemSizeMax;
         private GroupItemSize _itemSizeMin;
         private GroupItemSize _itemSizeCurrent;
@@ -102,17 +95,17 @@ namespace ComponentFactory.Krypton.Ribbon
             _threeState = false;
             _checkState = CheckState.Unchecked;
             _autoCheck = true;
-            _shortcutKeys = Keys.None;
+            ShortcutKeys = Keys.None;
             _textLine1 = "CheckBox";
             _textLine2 = string.Empty;
             _keyTip = "C";
             _itemSizeMax = GroupItemSize.Large;
             _itemSizeMin = GroupItemSize.Small;
             _itemSizeCurrent = GroupItemSize.Large;
-            _toolTipImageTransparentColor = Color.Empty;
-            _toolTipTitle = string.Empty;
-            _toolTipBody = string.Empty;
-            _toolTipStyle = LabelStyle.SuperTip;
+            ToolTipImageTransparentColor = Color.Empty;
+            ToolTipTitle = string.Empty;
+            ToolTipBody = string.Empty;
+            ToolTipStyle = LabelStyle.SuperTip;
         }
         #endregion
 
@@ -128,7 +121,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("CheckBox")]
         public string TextLine1
         {
-            get { return _textLine1; }
+            get => _textLine1;
 
             set
             {
@@ -157,7 +150,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string TextLine2
         {
-            get { return _textLine2; }
+            get => _textLine2;
 
             set
             {
@@ -179,7 +172,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("C")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -204,7 +197,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -241,7 +234,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -262,7 +255,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(CheckState), "Unchecked")]
         public CheckState CheckState
         {
-            get { return _checkState; }
+            get => _checkState;
 
             set
             {
@@ -293,7 +286,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -319,8 +312,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool AutoCheck
         {
-            get { return _autoCheck; }
-            
+            get => _autoCheck;
+
             set 
             {
                 if (_autoCheck != value)
@@ -339,7 +332,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool ThreeState
         {
-            get { return _threeState; }
+            get => _threeState;
 
             set
             {
@@ -357,11 +350,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         [Category("Behavior")]
         [Description("Shortcut key combination to fire click event of the check box.")]
-        public Keys ShortcutKeys
-        {
-            get { return _shortcutKeys; }
-            set { _shortcutKeys = value; }
-        }
+        public Keys ShortcutKeys { get; set; }
 
         private bool ShouldSerializeShortcutKeys()
         {
@@ -382,11 +371,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Appearance")]
         [Description("Tooltip style for the group check box.")]
         [DefaultValue(typeof(LabelStyle), "SuperTip")]
-        public LabelStyle ToolTipStyle
-        {
-            get { return _toolTipStyle; }
-            set { _toolTipStyle = value; }
-        }
+        public LabelStyle ToolTipStyle { get; set; }
 
         /// <summary>
         /// Gets and sets the image for the item ToolTip.
@@ -396,11 +381,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Display image associated ToolTip.")]
         [DefaultValue(null)]
         [Localizable(true)]
-        public Image ToolTipImage
-        {
-            get { return _toolTipImage; }
-            set { _toolTipImage = value; }
-        }
+        public Image ToolTipImage { get; set; }
 
         /// <summary>
         /// Gets and sets the color to draw as transparent in the ToolTipImage.
@@ -410,11 +391,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Color to draw as transparent in the ToolTipImage.")]
         [KryptonDefaultColorAttribute()]
         [Localizable(true)]
-        public Color ToolTipImageTransparentColor
-        {
-            get { return _toolTipImageTransparentColor; }
-            set { _toolTipImageTransparentColor = value; }
-        }
+        public Color ToolTipImageTransparentColor { get; set; }
 
         /// <summary>
         /// Gets and sets the title text for the item ToolTip.
@@ -425,11 +402,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
         [Localizable(true)]
-        public string ToolTipTitle
-        {
-            get { return _toolTipTitle; }
-            set { _toolTipTitle = value; }
-        }
+        public string ToolTipTitle { get; set; }
 
         /// <summary>
         /// Gets and sets the body text for the item ToolTip.
@@ -440,11 +413,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
         [Localizable(true)]
-        public string ToolTipBody
-        {
-            get { return _toolTipBody; }
-            set { _toolTipBody = value; }
-        }
+        public string ToolTipBody { get; set; }
 
         /// <summary>
         /// Gets and sets the associated KryptonCommand.
@@ -454,7 +423,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonCommand KryptonCommand
         {
-            get { return _command; }
+            get => _command;
 
             set
             {
@@ -484,7 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMaximum
         {
-            get { return _itemSizeMax; }
+            get => _itemSizeMax;
 
             set
             {
@@ -504,7 +473,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeMinimum
         {
-            get { return _itemSizeMin; }
+            get => _itemSizeMin;
 
             set
             {
@@ -524,7 +493,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -572,11 +541,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase CheckBoxView
-        {
-            get { return _checkBoxView; }
-            set { _checkBoxView = value; }
-        }
+        public ViewBase CheckBoxView { get; set; }
+
         #endregion
 
         #region Protected
@@ -739,30 +705,16 @@ namespace ComponentFactory.Krypton.Ribbon
             return false;
         }
 
-        internal override LabelStyle InternalToolTipStyle
-        {
-            get { return ToolTipStyle; }
-        }
+        internal override LabelStyle InternalToolTipStyle => ToolTipStyle;
 
-        internal override Image InternalToolTipImage
-        {
-            get { return ToolTipImage; }
-        }
+        internal override Image InternalToolTipImage => ToolTipImage;
 
-        internal override Color InternalToolTipImageTransparentColor
-        {
-            get { return ToolTipImageTransparentColor; }
-        }
+        internal override Color InternalToolTipImageTransparentColor => ToolTipImageTransparentColor;
 
-        internal override string InternalToolTipTitle
-        {
-            get { return ToolTipTitle; }
-        }
+        internal override string InternalToolTipTitle => ToolTipTitle;
 
-        internal override string InternalToolTipBody
-        {
-            get { return ToolTipBody; }
-        }
+        internal override string InternalToolTipBody => ToolTipBody;
+
         #endregion
     }
 }

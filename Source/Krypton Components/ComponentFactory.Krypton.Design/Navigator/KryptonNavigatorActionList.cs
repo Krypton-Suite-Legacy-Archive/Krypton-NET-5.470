@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public NavigatorMode NavigatorMode
         {
-            get { return _navigator.NavigatorMode; }
+            get => _navigator.NavigatorMode;
 
             set
             {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteBackStyle PageBackStyle
         {
-            get { return _navigator.PageBackStyle; }
+            get => _navigator.PageBackStyle;
 
             set
             {
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public VisualOrientation BarOrientation
         {
-            get { return _navigator.Bar.BarOrientation; }
+            get => _navigator.Bar.BarOrientation;
 
             set
             {
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonOrientation ItemOrientationBar
         {
-            get { return _navigator.Bar.ItemOrientation; }
+            get => _navigator.Bar.ItemOrientation;
 
             set
             {
@@ -126,7 +126,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonOrientation ItemOrientationStack
         {
-            get { return _navigator.Stack.ItemOrientation; }
+            get => _navigator.Stack.ItemOrientation;
 
             set
             {
@@ -143,7 +143,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonOrientation ItemOrientationOutlook
         {
-            get { return _navigator.Outlook.ItemOrientation; }
+            get => _navigator.Outlook.ItemOrientation;
 
             set
             {
@@ -160,7 +160,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public RelativePositionAlign ItemAlignment
         {
-            get { return _navigator.Bar.ItemAlignment; }
+            get => _navigator.Bar.ItemAlignment;
 
             set
             {
@@ -177,7 +177,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public BarItemSizing ItemSizing
         {
-            get { return _navigator.Bar.ItemSizing; }
+            get => _navigator.Bar.ItemSizing;
 
             set
             {
@@ -194,7 +194,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public TabBorderStyle TabBorderStyle
         {
-            get { return _navigator.Bar.TabBorderStyle; }
+            get => _navigator.Bar.TabBorderStyle;
 
             set
             {
@@ -211,7 +211,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public TabStyle TabStyle
         {
-            get { return _navigator.Bar.TabStyle; }
+            get => _navigator.Bar.TabStyle;
 
             set
             {
@@ -228,7 +228,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonStyle CheckButtonStyleBar
         {
-            get { return _navigator.Bar.CheckButtonStyle; }
+            get => _navigator.Bar.CheckButtonStyle;
 
             set
             {
@@ -245,7 +245,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonStyle CheckButtonStyleStack
         {
-            get { return _navigator.Stack.CheckButtonStyle; }
+            get => _navigator.Stack.CheckButtonStyle;
 
             set
             {
@@ -262,7 +262,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonStyle CheckButtonStyleOutlook
         {
-            get { return _navigator.Outlook.CheckButtonStyle; }
+            get => _navigator.Outlook.CheckButtonStyle;
 
             set
             {
@@ -279,7 +279,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonDisplayLogic ButtonDisplayLogic
         {
-            get { return _navigator.Button.ButtonDisplayLogic; }
+            get => _navigator.Button.ButtonDisplayLogic;
 
             set
             {
@@ -296,7 +296,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonDisplay CloseButtonDisplay
         {
-            get { return _navigator.Button.CloseButtonDisplay; }
+            get => _navigator.Button.CloseButtonDisplay;
 
             set
             {
@@ -313,7 +313,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public CloseButtonAction CloseButtonAction
         {
-            get { return _navigator.Button.CloseButtonAction; }
+            get => _navigator.Button.CloseButtonAction;
 
             set
             {
@@ -330,7 +330,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _navigator.Group.GroupBackStyle; }
+            get => _navigator.Group.GroupBackStyle;
 
             set
             {
@@ -347,7 +347,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _navigator.Group.GroupBorderStyle; }
+            get => _navigator.Group.GroupBorderStyle;
 
             set
             {
@@ -364,7 +364,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public HeaderStyle BarHeaderStyle
         {
-            get { return _navigator.Header.HeaderStyleBar; }
+            get => _navigator.Header.HeaderStyleBar;
 
             set
             {
@@ -381,7 +381,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public VisualOrientation BarHeaderPosition
         {
-            get { return _navigator.Header.HeaderPositionBar; }
+            get => _navigator.Header.HeaderPositionBar;
 
             set
             {
@@ -398,7 +398,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public HeaderStyle PrimaryHeaderStyle
         {
-            get { return _navigator.Header.HeaderStylePrimary; }
+            get => _navigator.Header.HeaderStylePrimary;
 
             set
             {
@@ -415,7 +415,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public VisualOrientation PrimaryHeaderPosition
         {
-            get { return _navigator.Header.HeaderPositionPrimary; }
+            get => _navigator.Header.HeaderPositionPrimary;
 
             set
             {
@@ -432,7 +432,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public HeaderStyle SecondaryHeaderStyle
         {
-            get { return _navigator.Header.HeaderStyleSecondary; }
+            get => _navigator.Header.HeaderStyleSecondary;
 
             set
             {
@@ -449,7 +449,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public VisualOrientation SecondaryHeaderPosition
         {
-            get { return _navigator.Header.HeaderPositionSecondary; }
+            get => _navigator.Header.HeaderPositionSecondary;
 
             set
             {
@@ -466,7 +466,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public InheritBool SecondaryHeaderOutlookVisible
         {
-            get { return _navigator.Outlook.HeaderSecondaryVisible; }
+            get => _navigator.Outlook.HeaderSecondaryVisible;
 
             set
             {
@@ -483,7 +483,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Orientation OutlookOrientation
         {
-            get { return _navigator.Outlook.Orientation; }
+            get => _navigator.Outlook.Orientation;
 
             set
             {
@@ -500,7 +500,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public PaletteBackStyle PanelBackStyle
         {
-            get { return _navigator.Panel.PanelBackStyle; }
+            get => _navigator.Panel.PanelBackStyle;
 
             set
             {
@@ -517,7 +517,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Orientation StackOrientation
         {
-            get { return _navigator.Stack.StackOrientation; }
+            get => _navigator.Stack.StackOrientation;
 
             set
             {
@@ -534,7 +534,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public RelativePositionAlign StackAlignment
         {
-            get { return _navigator.Stack.StackAlignment; }
+            get => _navigator.Stack.StackAlignment;
 
             set
             {

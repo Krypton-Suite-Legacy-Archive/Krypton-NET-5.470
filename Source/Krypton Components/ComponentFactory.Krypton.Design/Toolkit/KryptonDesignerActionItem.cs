@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private DesignerVerb _verb;
-        private string _category;
+
         #endregion
 
         #region Identity
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Remember details
             _verb = verb ?? throw new ArgumentNullException("verb");
-            _category = category ?? throw new ArgumentNullException("category");
+            Category = category ?? throw new ArgumentNullException("category");
         }
         #endregion
 
@@ -54,42 +54,28 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the group name for an item.
         /// </summary>
-        public override string Category
-        {
-            get { return _category; }
-        }
+        public override string Category { get; }
 
         /// <summary>
         /// Gets the supplemental text for the item.
         /// </summary>
-        public override string Description
-        {
-            get { return _verb.Description; }
-        }
+        public override string Description => _verb.Description;
 
         /// <summary>
         /// Gets the text for this item.
         /// </summary>
-        public override string DisplayName
-        {
-            get { return _verb.Text; }
-        }
+        public override string DisplayName => _verb.Text;
 
         /// <summary>
         /// Gets a value that indicates the item should appear in other user interface contexts.
         /// </summary>
-        public override bool IncludeAsDesignerVerb
-        {
-            get { return false; }
-        }
+        public override bool IncludeAsDesignerVerb => false;
 
         /// <summary>
         /// Gets the name of the method that this item is associated with.
         /// </summary>
-        public override string MemberName
-        {
-            get { return null; }
-        }
+        public override string MemberName => null;
+
         #endregion
     }
 }

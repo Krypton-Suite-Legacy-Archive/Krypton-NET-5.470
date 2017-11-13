@@ -52,8 +52,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(false)]
 		public new bool TabStop
 		{
-			get { return base.TabStop; }
-			set { base.TabStop = value; }
+			get => base.TabStop;
+		    set => base.TabStop = value;
 		}
 
 		/// <summary>
@@ -64,8 +64,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		public override bool AllowDrop
 		{
-			get { return base.AllowDrop; }
-			set { base.AllowDrop = value; }
+			get => base.AllowDrop;
+		    set => base.AllowDrop = value;
 		}
 
 		/// <summary>
@@ -76,8 +76,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		public override bool AutoSize
 		{
-			get { return base.AutoSize; }
-			set { base.AutoSize = value; }
+			get => base.AutoSize;
+		    set => base.AutoSize = value;
 		}
 
 		/// <summary>
@@ -88,8 +88,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public override string Text
 		{
-			get { return base.Text; }
-			set { base.Text = value; }
+			get => base.Text;
+		    set => base.Text = value;
 		}
 
 		/// <summary>
@@ -99,8 +99,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color BackColor
 		{
-			get { return base.BackColor; }
-			set { base.BackColor = value; }
+			get => base.BackColor;
+		    set => base.BackColor = value;
 		}
 
 		/// <summary>
@@ -110,8 +110,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Font Font
 		{
-			get { return base.Font; }
-			set { base.Font = value; }
+			get => base.Font;
+		    set => base.Font = value;
 		}
 
 		/// <summary>
@@ -121,8 +121,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Bindable(false)]
 		public override Color ForeColor
 		{
-			get { return base.ForeColor; }
-			set { base.ForeColor = value; }
+			get => base.ForeColor;
+		    set => base.ForeColor = value;
 		}
 		#endregion
 
@@ -130,10 +130,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(150, 150); }
-		}
-		#endregion
+		protected override Size DefaultSize => new Size(150, 150);
+
+	    #endregion
 	}
 }

@@ -30,10 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private bool _constructed;
-		private ViewManager _manager;
-		private KryptonNavigator _navigator;
-		private PaletteRedirect _redirector;
-        private NeedPaintHandler _needPaintDelegate;
+	    private NeedPaintHandler _needPaintDelegate;
         #endregion
 
 		#region Identity
@@ -52,29 +49,32 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
 		public KryptonNavigator Navigator
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _navigator; }
-		}
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+		    private set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets access to the view manager instance.
 		/// </summary>
 		public ViewManager ViewManager
-		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _manager; }
-		}
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        private set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the palette redirector.
 		/// </summary>
 		public PaletteRedirect Redirector
-		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
-		}
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
         public abstract bool IsTabStripMode { get; }
@@ -97,13 +97,13 @@ namespace ComponentFactory.Krypton.Navigator
 			Debug.Assert(_constructed == false);
 
             // Save provided references
-			_navigator = navigator;
-			_manager = manager;
-			_redirector = redirector;
+			Navigator = navigator;
+			ViewManager = manager;
+			Redirector = redirector;
 			_constructed = true;
 
             // Hook into the navigator events
-            _navigator.ViewBuilderPropertyChanged += new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
+            Navigator.ViewBuilderPropertyChanged += new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
 		}
 
         /// <summary>
@@ -112,16 +112,16 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual void Destruct()
         {
             Debug.Assert(_constructed);
-            Debug.Assert(_navigator != null);
+            Debug.Assert(Navigator != null);
 
             // Unhook from the navigator events
-            _navigator.ViewBuilderPropertyChanged -= new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
+            Navigator.ViewBuilderPropertyChanged -= new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
 
             // No longer constructed
             _constructed = false;
 
             // Change of mode means we get rid of any showing popup page
-            _navigator.DismissPopups();
+            Navigator.DismissPopups();
         }
 
         /// <summary>
@@ -319,12 +319,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if the view can accept the focus.
         /// </summary>
-        public virtual bool CanFocus
-        {
-            get { return false; }
-        }
+        public virtual bool CanFocus => false;
 
-        /// <summary>
+	    /// <summary>
         /// Occurs when the navigator takes the focus.
         /// </summary>
         public virtual void GotFocus() { }

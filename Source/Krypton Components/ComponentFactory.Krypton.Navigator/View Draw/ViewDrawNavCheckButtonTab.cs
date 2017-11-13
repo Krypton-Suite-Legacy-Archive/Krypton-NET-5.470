@@ -64,10 +64,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Should the item be selected on the mouse down.
         /// </summary>
-        protected override bool ButtonClickOnDown
-        {
-            get { return true; }
-        }
-        #endregion
+        protected override bool ButtonClickOnDown => true;
+
+	    #endregion
     }
 }

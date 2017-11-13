@@ -21,13 +21,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                IDisposable
 	{
 		#region Instance Fields
-        private ViewManager _manager;
-		private Control _control;
-        private Control _alignControl;
-		private Graphics _graphics;
+
+	    private Graphics _graphics;
 		private Control _topControl;
-		private IRenderer _renderer;
-        private bool _disposeGraphics;
+	    private bool _disposeGraphics;
         private bool _disposeManager;
 		#endregion
 
@@ -79,19 +76,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Use the manager is provided, otherwise create a temporary one with a null view
             if (manager != null)
             {
-                _manager = manager;
+                ViewManager = manager;
             }
             else
             {
-                _manager = new ViewManager(control, new ViewLayoutNull());
+                ViewManager = new ViewManager(control, new ViewLayoutNull());
                 _disposeManager = true;
             }
 
             // Cache initial values
-            _control = control;
-            _alignControl = alignControl;
+            Control = control;
+            AlignControl = alignControl;
 			_graphics = graphics;
-			_renderer = renderer;
+			Renderer = renderer;
 		}
 
         /// <summary>
@@ -112,15 +109,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Is there a manager instance that might need disposed?
-            if (_manager != null)
+            if (ViewManager != null)
             {
                 // Only dispose if we created it
                 if (_disposeManager)
                 {
-                    _manager.Dispose();
+                    ViewManager.Dispose();
                 }
 
-                _manager = null;
+                ViewManager = null;
             }
         }
 		#endregion
@@ -132,30 +129,31 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewManager ViewManager
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _manager; }
-        }
+            get;
+            private set;
+	    }
 
-        /// <summary>
+	    /// <summary>
 		/// Gets and sets the owning control associated with rendering.
 		/// </summary>
         public Control Control
-		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _control; }
-            set { _control = value; }
-		}
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the control to use when aligning elements.
         /// </summary>
         public Control AlignControl
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _alignControl; }
-            set { _alignControl = value; }
-        }
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	        set;
+	    }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the graphics instance used for rendering operations.
 		/// </summary>
 		public Graphics Graphics
@@ -198,14 +196,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_topControl == null)
                 {
                     // Cache the top most owning control
-                    _topControl = _control.TopLevelControl;
+                    _topControl = Control.TopLevelControl;
 
                     // If no top level control was found...
                     // (this happens at design time)
                     if (_topControl == null)
                     {
                         // Start searching from the control
-                        Control parentControl = _control;
+                        Control parentControl = Control;
 
                         // Climb the parent chain to the top
                         while (parentControl.Parent != null)
@@ -233,9 +231,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public IRenderer Renderer
 		{
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
-		}
-		#endregion
+		    [System.Diagnostics.DebuggerStepThrough]
+		    get;
+	    }
+
+	    #endregion
     }
 }

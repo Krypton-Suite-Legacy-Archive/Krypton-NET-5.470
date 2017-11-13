@@ -17,7 +17,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class RibbonTabToContent : RibbonToContent
     {
         #region Instance Fields
-        private IPaletteRibbonText _ribbonTabText;
+
         #endregion
 
         #region Identity
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
             : base(ribbonGeneral)
         {
             Debug.Assert(ribbonTabText != null);
-            _ribbonTabText = ribbonTabText;
+            PaletteRibbonText = ribbonTabText;
         }
         #endregion
         
@@ -39,11 +39,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the ribbon tab palette to use.
         /// </summary>
-        public IPaletteRibbonText PaletteRibbonText
-        {
-            get { return _ribbonTabText; }
-            set { _ribbonTabText = value; }
-        }
+        public IPaletteRibbonText PaletteRibbonText { get; set; }
+
         #endregion
 
         #region IPaletteContent
@@ -74,7 +71,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor1(PaletteState state)
         {
-            return _ribbonTabText.GetRibbonTextColor(state);
+            return PaletteRibbonText.GetRibbonTextColor(state);
         }
 
         /// <summary>
@@ -84,7 +81,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor2(PaletteState state)
         {
-            return _ribbonTabText.GetRibbonTextColor(state);
+            return PaletteRibbonText.GetRibbonTextColor(state);
         }
 
         /// <summary>
@@ -104,7 +101,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor1(PaletteState state)
         {
-            return _ribbonTabText.GetRibbonTextColor(state);
+            return PaletteRibbonText.GetRibbonTextColor(state);
         }
 
         /// <summary>
@@ -114,7 +111,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor2(PaletteState state)
         {
-            return _ribbonTabText.GetRibbonTextColor(state);
+            return PaletteRibbonText.GetRibbonTextColor(state);
         }
         #endregion
     }

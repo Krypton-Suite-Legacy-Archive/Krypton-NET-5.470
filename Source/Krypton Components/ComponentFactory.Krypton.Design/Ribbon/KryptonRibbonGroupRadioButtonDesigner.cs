@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Ribbon
             bool moveNext = false;
             bool moveLast = false;
 
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonRadioButton) > 0);
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 _ribbonRadioButton.Ribbon.InDesignHelperMode = !_ribbonRadioButton.Ribbon.InDesignHelperMode;
             }
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -202,7 +202,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -236,7 +236,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -270,7 +270,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -302,7 +302,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteRadioButton(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
                 TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
@@ -338,7 +338,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnVisible(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonRadioButton, null, _ribbonRadioButton.Visible, !_ribbonRadioButton.Visible);
                 _ribbonRadioButton.Visible = !_ribbonRadioButton.Visible;
@@ -347,7 +347,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnEnabled(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonRadioButton, null, _ribbonRadioButton.Enabled, !_ribbonRadioButton.Enabled);
                 _ribbonRadioButton.Enabled = !_ribbonRadioButton.Enabled;
@@ -356,7 +356,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnChecked(object sender, EventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 _changeService.OnComponentChanged(_ribbonRadioButton, null, _ribbonRadioButton.Checked, !_ribbonRadioButton.Checked);
                 _ribbonRadioButton.Checked = !_ribbonRadioButton.Checked;
@@ -370,7 +370,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonRadioButton != null) && (_ribbonRadioButton.Ribbon != null))
+            if (_ribbonRadioButton?.Ribbon != null)
             {
                 // Create the menu strip the first time around
                 if (_cms == null)

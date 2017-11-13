@@ -57,8 +57,6 @@ namespace ComponentFactory.Krypton.Toolkit
 		private HeaderStyle _style2;
 		private VisualOrientation _position1;
 		private VisualOrientation _position2;
-		private HeaderGroupValuesPrimary _headerValues1;
-		private HeaderGroupValuesSecondary _headerValues2;
         private HeaderGroupCollapsedTarget _collapsedTarget;
         private ViewDrawDocker _drawDocker;
         private ViewDrawDocker _drawHeading1;
@@ -66,23 +64,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawDocker _drawHeading2;
 		private ViewDrawContent _drawContent2;
         private ViewLayoutFill _layoutFill;
-        private KryptonGroupPanel _panel;
-        private PaletteHeaderGroupRedirect _stateCommon;
-        private PaletteHeaderGroup _stateDisabled;
-		private PaletteHeaderGroup _stateNormal;
-        private HeaderGroupButtonSpecCollection _buttonSpecs;
         private ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ToolTipManager _toolTipManager;
         private ScreenObscurer _obscurer;
         private EventHandler _removeObscurer;
         private bool _forcedLayout;
         private bool _visiblePrimary;
         private bool _visibleSecondary;
-        private bool _autoCollapseArrow;
         private bool _collapsed;
         private bool _ignoreLayout;
-        private bool _allowButtonSpecToolTips;
         private bool _layingOut;
         #endregion
 
@@ -108,28 +98,28 @@ namespace ComponentFactory.Krypton.Toolkit
 			_position2 = VisualOrientation.Bottom;
             _collapsedTarget = HeaderGroupCollapsedTarget.CollapsedToPrimary;
             _collapsed = false;
-            _autoCollapseArrow = true;
-            _allowButtonSpecToolTips = false;
+            AutoCollapseArrow = true;
+            AllowButtonSpecToolTips = false;
             _visiblePrimary = true;
             _visibleSecondary = true;
 
 			// Create storage objects
-            _headerValues1 = new HeaderGroupValuesPrimary(NeedPaintDelegate);
-            _headerValues1.TextChanged += new EventHandler(OnHeaderGroupTextChanged);
-            _headerValues2 = new HeaderGroupValuesSecondary(NeedPaintDelegate);
-            _buttonSpecs = new HeaderGroupButtonSpecCollection(this);
+            ValuesPrimary = new HeaderGroupValuesPrimary(NeedPaintDelegate);
+            ValuesPrimary.TextChanged += new EventHandler(OnHeaderGroupTextChanged);
+            ValuesSecondary = new HeaderGroupValuesSecondary(NeedPaintDelegate);
+            ButtonSpecs = new HeaderGroupButtonSpecCollection(this);
 
             // We need to monitor button spec click events
-            _buttonSpecs.Inserted += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecInserted);
-            _buttonSpecs.Removed += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecRemoved);
+            ButtonSpecs.Inserted += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecInserted);
+            ButtonSpecs.Removed += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecRemoved);
 
 			// Create the palette storage
-            _stateCommon = new PaletteHeaderGroupRedirect(Redirector, NeedPaintDelegate);
-            _stateDisabled = new PaletteHeaderGroup(_stateCommon, _stateCommon.HeaderPrimary, _stateCommon.HeaderSecondary, NeedPaintDelegate);
-            _stateNormal = new PaletteHeaderGroup(_stateCommon, _stateCommon.HeaderPrimary, _stateCommon.HeaderSecondary, NeedPaintDelegate);
+            StateCommon = new PaletteHeaderGroupRedirect(Redirector, NeedPaintDelegate);
+            StateDisabled = new PaletteHeaderGroup(StateCommon, StateCommon.HeaderPrimary, StateCommon.HeaderSecondary, NeedPaintDelegate);
+            StateNormal = new PaletteHeaderGroup(StateCommon, StateCommon.HeaderPrimary, StateCommon.HeaderSecondary, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            _panel = new KryptonGroupPanel(this, _stateCommon, _stateDisabled, _stateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, new NeedPaintHandler(OnGroupPanelPaint))
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -137,29 +127,29 @@ namespace ComponentFactory.Krypton.Toolkit
             };
 
             // Create view for header 1
-            _drawHeading1 = new ViewDrawDocker(_stateNormal.HeaderPrimary.Back,
-                                               _stateNormal.HeaderPrimary.Border,
-                                               _stateNormal.HeaderPrimary,
+            _drawHeading1 = new ViewDrawDocker(StateNormal.HeaderPrimary.Back,
+                                               StateNormal.HeaderPrimary.Border,
+                                               StateNormal.HeaderPrimary,
                                                PaletteMetricBool.None,
 											   PaletteMetricPadding.HeaderGroupPaddingPrimary,
 											   VisualOrientation.Top);
 
-            _drawContent1 = new ViewDrawContent(_stateNormal.HeaderPrimary.Content, _headerValues1, VisualOrientation.Top);
+            _drawContent1 = new ViewDrawContent(StateNormal.HeaderPrimary.Content, ValuesPrimary, VisualOrientation.Top);
             _drawHeading1.Add(_drawContent1, ViewDockStyle.Fill);
 
 			// Create view for header 2
-            _drawHeading2 = new ViewDrawDocker(_stateNormal.HeaderSecondary.Back,
-                                               _stateNormal.HeaderSecondary.Border,
-                                               _stateNormal.HeaderSecondary,
+            _drawHeading2 = new ViewDrawDocker(StateNormal.HeaderSecondary.Back,
+                                               StateNormal.HeaderSecondary.Border,
+                                               StateNormal.HeaderSecondary,
                                                PaletteMetricBool.None,
                                                PaletteMetricPadding.HeaderGroupPaddingSecondary,
 											   VisualOrientation.Top);
 
-            _drawContent2 = new ViewDrawContent(_stateNormal.HeaderSecondary.Content, _headerValues2, VisualOrientation.Top);
+            _drawContent2 = new ViewDrawContent(StateNormal.HeaderSecondary.Content, ValuesSecondary, VisualOrientation.Top);
             _drawHeading2.Add(_drawContent2, ViewDockStyle.Fill);
 
             // Create view for the control border and background
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, _stateNormal,
+            _drawDocker = new ViewDrawDocker(StateNormal.Back, StateNormal.Border, StateNormal,
                                              PaletteMetricBool.HeaderGroupOverlay)
             {
 
@@ -171,7 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
             };
 
             // Create the element that fills the remainder space and remembers fill rectange
-            _layoutFill = new ViewLayoutFill(_panel);
+            _layoutFill = new ViewLayoutFill(Panel);
 
 			// Add headers into the docker with initial dock edges defined
             _drawDocker.Add(_drawHeading2, ViewDockStyle.Bottom);
@@ -182,19 +172,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			ViewManager = new ViewManager(this, _drawDocker);
 
             // Create button specification collection manager
-            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, null,
+            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, ButtonSpecs, null,
                                                        new ViewDrawDocker[] { _drawHeading1, _drawHeading2 },
-                                                       new IPaletteMetric[] { _stateCommon.HeaderPrimary, _stateCommon.HeaderSecondary },
+                                                       new IPaletteMetric[] { StateCommon.HeaderPrimary, StateCommon.HeaderSecondary },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary, PaletteMetricInt.HeaderButtonEdgeInsetSecondary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary, PaletteMetricPadding.HeaderButtonPaddingSecondary },
                                                        new GetToolStripRenderer(CreateToolStripRenderer),
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            _buttonManager.ToolTipManager = ToolTipManager;
 
             // We want to default to shrinking and growing (base class defaults to GrowOnly)
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -210,7 +200,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _ignoreLayout = true;
 
             // Add panel to the controls collection
-            ((KryptonReadOnlyControls)Controls).AddInternal(_panel);
+            ((KryptonReadOnlyControls)Controls).AddInternal(Panel);
             
             _ignoreLayout = false;
         }
@@ -253,12 +243,12 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new string Name
         {
-            get { return base.Name; }
+            get => base.Name;
 
             set
             {
                 base.Name = value;
-                _panel.Name = value + ".Panel";
+                Panel.Name = value + ".Panel";
             }
         }
 
@@ -271,8 +261,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -284,8 +274,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -296,7 +286,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
-            get { return base.GetAutoSizeMode(); }
+            get => base.GetAutoSizeMode();
 
             set
             {
@@ -320,17 +310,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public override string Text
 		{
-			get
-			{
-				// Map onto the heading property from the values
-				return _headerValues1.Heading;
-			}
+			get => ValuesPrimary.Heading;
 
-			set
-			{
-				// Map onto the heading property from the values
-				_headerValues1.Heading = value;
-			}
+		    set => ValuesPrimary.Heading = value;
 		}
 
 		private bool ShouldSerializeText()
@@ -345,7 +327,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override void ResetText()
 		{
 			// Map onto the heading property from the values
-			_headerValues1.ResetHeading();
+			ValuesPrimary.ResetHeading();
 		}
 
         /// <summary>
@@ -356,7 +338,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool UseMnemonic
         {
-            get { return _buttonManager.UseMnemonic; }
+            get => _buttonManager.UseMnemonic;
 
             set
             {
@@ -375,10 +357,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("The internal panel that contains group content.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonGroupPanel Panel
-        {
-            get { return _panel; }
-        }
+        public KryptonGroupPanel Panel { get; }
 
         /// <summary>
         /// Gets or sets a value indicating if collapsed mode is auto toggled by arrow button specs.
@@ -386,11 +365,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Clicking an arrow button spec should toggle collapse state.")]
         [DefaultValue(true)]
-        public bool AutoCollapseArrow
-        {
-            get { return _autoCollapseArrow; }
-            set { _autoCollapseArrow = value; }
-        }
+        public bool AutoCollapseArrow { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating if the appearance is collapsed.
@@ -400,7 +375,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Collapsed
         {
-            get { return _collapsed; }
+            get => _collapsed;
 
             set
             {
@@ -412,7 +387,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         _collapsed = value;
                         _layoutFill.Visible = !value;
-                        _panel.Visible = !value;
+                        Panel.Visible = !value;
                         ReapplyVisible();
                         OnCollapsedChanged(EventArgs.Empty);
                         PerformNeedPaint(false);
@@ -433,7 +408,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Specifies how to collapsed the appearance when entering collapse mode.")]
         public HeaderGroupCollapsedTarget CollapseTarget
         {
-            get { return _collapsedTarget; }
+            get => _collapsedTarget;
 
             set
             {
@@ -463,10 +438,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public HeaderGroupButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public HeaderGroupButtonSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
@@ -474,26 +446,22 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Should tooltips be displayed for button specs.")]
         [DefaultValue(false)]
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
 
-		/// <summary>
+        /// <summary>
 		/// Gets and sets the border style.
 		/// </summary>
 		[Category("Visuals")]
 		[Description("Border style.")]
 		public PaletteBorderStyle GroupBorderStyle
 		{
-			get { return _stateCommon.BorderStyle; }
+			get => StateCommon.BorderStyle;
 
-			set
+            set
 			{
-                if (_stateCommon.BorderStyle != value)
+                if (StateCommon.BorderStyle != value)
 				{
-                    _stateCommon.BorderStyle = value;
+                    StateCommon.BorderStyle = value;
 					PerformNeedPaint(true);
 				}
 			}
@@ -516,14 +484,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Background style.")]
 		public PaletteBackStyle GroupBackStyle
 		{
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
-			set
+            set
 			{
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
 				{
-                    _stateCommon.BackStyle = value;
-                    _panel.PanelBackStyle = value;
+                    StateCommon.BackStyle = value;
+                    Panel.PanelBackStyle = value;
 					PerformNeedPaint(true);
 				}
 			}
@@ -546,14 +514,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Primary header style.")]
 		public HeaderStyle HeaderStylePrimary
 		{
-			get { return _style1; }
+			get => _style1;
 
-			set
+            set
 			{
 				if (_style1 != value)
 				{
 					_style1 = value;
-                    SetHeaderStyle(_drawHeading1, _stateCommon.HeaderPrimary, _style1);
+                    SetHeaderStyle(_drawHeading1, StateCommon.HeaderPrimary, _style1);
                     PerformNeedPaint(true);
 				}
 			}
@@ -576,14 +544,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Secondary header style.")]
 		public HeaderStyle HeaderStyleSecondary
 		{
-			get { return _style2; }
+			get => _style2;
 
-			set
+            set
 			{
 				if (_style2 != value)
 				{
 					_style2 = value;
-                    SetHeaderStyle(_drawHeading2, _stateCommon.HeaderSecondary, _style2);
+                    SetHeaderStyle(_drawHeading2, StateCommon.HeaderSecondary, _style2);
                     PerformNeedPaint(true);
 				}
 			}
@@ -607,9 +575,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(typeof(VisualOrientation), "Top")]
 		public VisualOrientation HeaderPositionPrimary
 		{
-			get { return _position1; }
+			get => _position1;
 
-			set
+		    set
 			{
 				if (_position1 != value)
 				{
@@ -629,9 +597,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(typeof(VisualOrientation), "Bottom")]
 		public VisualOrientation HeaderPositionSecondary
 		{
-			get { return _position2; }
+			get => _position2;
 
-			set
+		    set
 			{
 				if (_position2 != value)
 				{
@@ -651,9 +619,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(true)]
 		public bool HeaderVisiblePrimary
 		{
-            get { return _visiblePrimary; }
+            get => _visiblePrimary;
 
-			set
+		    set
 			{
                 if (_visiblePrimary != value)
 				{
@@ -672,9 +640,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(true)]
 		public bool HeaderVisibleSecondary
 		{
-            get { return _visibleSecondary; }
+            get => _visibleSecondary;
 
-			set
+		    set
 			{
                 if (_visibleSecondary != value)
 				{
@@ -691,14 +659,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common header group appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteHeaderGroupRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteHeaderGroupRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         
         /// <summary>
@@ -707,14 +672,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled header group appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteHeaderGroup StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+		public PaletteHeaderGroup StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+        private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -723,14 +685,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal header group appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteHeaderGroup StateNormal
-		{
-			get { return _stateNormal; }
-		}
+		public PaletteHeaderGroup StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+        private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
 		/// <summary>
@@ -739,14 +698,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Primary header values")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public HeaderGroupValuesPrimary ValuesPrimary
-		{
-			get { return _headerValues1; }
-		}
+		public HeaderGroupValuesPrimary ValuesPrimary { get; }
 
         private bool ShouldSerializeValuesPrimary()
 		{
-			return !_headerValues1.IsDefault;
+			return !ValuesPrimary.IsDefault;
 		}
 
 		/// <summary>
@@ -755,14 +711,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Secondary header values")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public HeaderGroupValuesSecondary ValuesSecondary
-		{
-			get { return _headerValues2; }
-		}
+		public HeaderGroupValuesSecondary ValuesSecondary { get; }
 
         private bool ShouldSerializeValuesSecondary()
 		{
-			return !_headerValues2.IsDefault;
+			return !ValuesSecondary.IsDefault;
 		}
 
         /// <summary>
@@ -832,7 +785,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Request fixed state from the view
             _drawDocker.FixedState = state;
-            _panel.SetFixedState(state);
+            Panel.SetFixedState(state);
         }
 
         /// <summary>
@@ -840,10 +793,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; }
 
         /// <summary>
         /// Internal design time method.
@@ -989,11 +939,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Only use layout logic if control is fully initialized or if being forced
                 // to allow a relayout or if in design mode.
-                if (IsInitialized || _forcedLayout || (DesignMode && (_panel != null)))
+                if (IsInitialized || _forcedLayout || (DesignMode && (Panel != null)))
                 {
                     Rectangle fillRect = _layoutFill.FillRect;
 
-                    _panel.SetBounds(fillRect.X,
+                    Panel.SetBounds(fillRect.X,
                                      fillRect.Y,
                                      fillRect.Width,
                                      fillRect.Height);
@@ -1034,39 +984,39 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Push correct palettes into the view
 			if (Enabled)
 			{
-                _drawHeading1.SetPalettes(_stateNormal.HeaderPrimary.Back, 
-                                          _stateNormal.HeaderPrimary.Border,
-                                          _stateNormal.HeaderPrimary);
+                _drawHeading1.SetPalettes(StateNormal.HeaderPrimary.Back, 
+                                          StateNormal.HeaderPrimary.Border,
+                                          StateNormal.HeaderPrimary);
 
-                _drawContent1.SetPalette(_stateNormal.HeaderPrimary.Content);
+                _drawContent1.SetPalette(StateNormal.HeaderPrimary.Content);
                 
-                _drawHeading2.SetPalettes(_stateNormal.HeaderSecondary.Back, 
-                                          _stateNormal.HeaderSecondary.Border,
-                                          _stateNormal.HeaderSecondary);
+                _drawHeading2.SetPalettes(StateNormal.HeaderSecondary.Back, 
+                                          StateNormal.HeaderSecondary.Border,
+                                          StateNormal.HeaderSecondary);
 
-                _drawContent2.SetPalette(_stateNormal.HeaderSecondary.Content);
+                _drawContent2.SetPalette(StateNormal.HeaderSecondary.Content);
 				
-                _drawDocker.SetPalettes(_stateNormal.Back, 
-                                        _stateNormal.Border,
-                                        _stateNormal);
+                _drawDocker.SetPalettes(StateNormal.Back, 
+                                        StateNormal.Border,
+                                        StateNormal);
 			}
 			else
 			{
-                _drawHeading1.SetPalettes(_stateDisabled.HeaderPrimary.Back, 
-                                          _stateDisabled.HeaderPrimary.Border,
-                                          _stateDisabled.HeaderPrimary);
+                _drawHeading1.SetPalettes(StateDisabled.HeaderPrimary.Back, 
+                                          StateDisabled.HeaderPrimary.Border,
+                                          StateDisabled.HeaderPrimary);
 
-                _drawContent1.SetPalette(_stateDisabled.HeaderPrimary.Content);
+                _drawContent1.SetPalette(StateDisabled.HeaderPrimary.Content);
                 
-                _drawHeading2.SetPalettes(_stateDisabled.HeaderSecondary.Back, 
-                                          _stateDisabled.HeaderSecondary.Border,
-                                          _stateDisabled.HeaderSecondary);
+                _drawHeading2.SetPalettes(StateDisabled.HeaderSecondary.Back, 
+                                          StateDisabled.HeaderSecondary.Border,
+                                          StateDisabled.HeaderSecondary);
 
-                _drawContent2.SetPalette(_stateDisabled.HeaderSecondary.Content);
+                _drawContent2.SetPalette(StateDisabled.HeaderSecondary.Content);
 
-                _drawDocker.SetPalettes(_stateDisabled.Back, 
-                                        _stateNormal.Border,
-                                        _stateNormal);
+                _drawDocker.SetPalettes(StateDisabled.Back, 
+                                        StateNormal.Border,
+                                        StateNormal);
 			}
 
             _drawHeading1.Enabled = Enabled;
@@ -1109,7 +1059,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // As the contained group panel is using our palette storage
                 // we also need to pass on any paint request to it as well
-                _panel.PerformNeedPaint(e.NeedLayout);
+                Panel.PerformNeedPaint(e.NeedLayout);
             }
             else
             {

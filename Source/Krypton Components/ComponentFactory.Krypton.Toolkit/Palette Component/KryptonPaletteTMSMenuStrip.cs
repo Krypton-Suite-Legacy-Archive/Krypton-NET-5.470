@@ -36,17 +36,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalMenuStripText == Color.Empty) &&
-                       (InternalKCT.InternalMenuStripFont == null) &&
-                       (InternalKCT.InternalMenuStripGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalMenuStripGradientEnd == Color.Empty);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalMenuStripText == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuStripFont == null) &&
+		                                  (InternalKCT.InternalMenuStripGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalMenuStripGradientEnd == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -71,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuStripText
         {
-            get { return InternalKCT.InternalMenuStripText; }
+            get => InternalKCT.InternalMenuStripText;
 
             set
             {
@@ -99,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public Font MenuStripFont
         {
-            get { return InternalKCT.InternalMenuStripFont; }
+            get => InternalKCT.InternalMenuStripFont;
 
             set
             {
@@ -127,8 +122,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuStripGradientBegin
         {
-            get { return InternalKCT.InternalMenuStripGradientBegin; }
-            
+            get => InternalKCT.InternalMenuStripGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalMenuStripGradientBegin = value;
@@ -155,8 +150,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color MenuStripGradientEnd
         {
-            get { return InternalKCT.InternalMenuStripGradientEnd; }
-            
+            get => InternalKCT.InternalMenuStripGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalMenuStripGradientEnd = value;

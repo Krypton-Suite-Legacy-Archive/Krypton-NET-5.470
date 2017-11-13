@@ -18,10 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class DirectionButtonActionConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(DirectionButtonAction.None,                   "None (Do nothing)"),
-                                             new Pair(DirectionButtonAction.SelectPage,             "Select Page"),
-                                             new Pair(DirectionButtonAction.MoveBar,                "Move Bar"),
-                                             new Pair(DirectionButtonAction.ModeAppropriateAction,  "Mode Appropriate Action") };
+
         #endregion
                                              
         #region Identity
@@ -38,10 +35,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(DirectionButtonAction.None,                   "None (Do nothing)"),
+            new Pair(DirectionButtonAction.SelectPage,             "Select Page"),
+            new Pair(DirectionButtonAction.MoveBar,                "Move Bar"),
+            new Pair(DirectionButtonAction.ModeAppropriateAction,  "Mode Appropriate Action") };
+
         #endregion
     }
 }

@@ -18,12 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteTrackBar : Storage
     {
         #region Instance Fields
-        private PaletteTrackBarRedirect _stateCommon;
-        private PaletteTrackBarRedirect _stateFocus;
-        private PaletteTrackBarStates _stateDisabled;
-        private PaletteTrackBarStates _stateNormal;
-        private PaletteTrackBarPositionStates _stateTracking;
-        private PaletteTrackBarPositionStates _statePressed;
+
         #endregion
 
         #region Identity
@@ -36,12 +31,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                       NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateCommon = new PaletteTrackBarRedirect(redirect, needPaint);
-            _stateFocus = new PaletteTrackBarRedirect(redirect, needPaint);
-            _stateDisabled = new PaletteTrackBarStates(_stateCommon, needPaint);
-            _stateNormal = new PaletteTrackBarStates(_stateCommon, needPaint);
-            _stateTracking = new PaletteTrackBarPositionStates(_stateCommon, needPaint);
-            _statePressed = new PaletteTrackBarPositionStates(_stateCommon, needPaint);
+            StateCommon = new PaletteTrackBarRedirect(redirect, needPaint);
+            OverrideFocus = new PaletteTrackBarRedirect(redirect, needPaint);
+            StateDisabled = new PaletteTrackBarStates(StateCommon, needPaint);
+            StateNormal = new PaletteTrackBarStates(StateCommon, needPaint);
+            StateTracking = new PaletteTrackBarPositionStates(StateCommon, needPaint);
+            StatePressed = new PaletteTrackBarPositionStates(StateCommon, needPaint);
         }
         #endregion
 
@@ -52,8 +47,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateCommon.SetRedirector(redirect);
-            _stateFocus.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
+            OverrideFocus.SetRedirector(redirect);
         }
         #endregion
 
@@ -62,19 +57,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateFocus.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  OverrideFocus.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -83,11 +73,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateFocus.PopulateFromBase(PaletteState.FocusOverride);
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _statePressed.PopulateFromBase(PaletteState.Pressed);
+            OverrideFocus.PopulateFromBase(PaletteState.FocusOverride);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StatePressed.PopulateFromBase(PaletteState.Pressed);
         }
         #endregion
 
@@ -99,14 +89,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common track bar appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTrackBarRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     
@@ -118,14 +105,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled track bar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarStates StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTrackBarStates StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -137,14 +121,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal track bar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarStates StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTrackBarStates StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -156,14 +137,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining tracking track bar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarPositionStates StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTrackBarPositionStates StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -175,14 +153,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed track bar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarPositionStates StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTrackBarPositionStates StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
 
@@ -194,14 +169,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining track bar appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTrackBarRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTrackBarRedirect OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
         #endregion    
     }

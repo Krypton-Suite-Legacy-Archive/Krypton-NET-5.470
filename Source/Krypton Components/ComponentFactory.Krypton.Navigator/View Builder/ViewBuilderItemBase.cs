@@ -523,10 +523,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if the view can accept the focus.
         /// </summary>
-        public override bool CanFocus
-        {
-            get { return true; }
-        }
+        public override bool CanFocus => true;
 
         /// <summary>
         /// Occurs when the navigator takes the focus.
@@ -808,10 +805,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the collection of pages.
         /// </summary>
-        protected PageToNavCheckItem PageLookup
-        {
-            get { return _pageLookup; }
-        }
+        protected PageToNavCheckItem PageLookup => _pageLookup;
 
         /// <summary>
         /// Update the bar orientation.
@@ -1147,14 +1141,8 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-        private bool BarHorizontal
-        {
-            get
-            {
-                return (Navigator.Bar.BarOrientation == VisualOrientation.Top) ||
-                       (Navigator.Bar.BarOrientation == VisualOrientation.Bottom);
-            }
-        }
+        private bool BarHorizontal => (Navigator.Bar.BarOrientation == VisualOrientation.Top) ||
+                                      (Navigator.Bar.BarOrientation == VisualOrientation.Bottom);
 
         private void OnItemPagesCleared(object sender, EventArgs e)
         {

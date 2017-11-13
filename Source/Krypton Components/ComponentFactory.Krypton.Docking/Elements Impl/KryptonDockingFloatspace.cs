@@ -49,10 +49,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public KryptonFloatspace FloatspaceControl
-        {
-            get { return (KryptonFloatspace)SpaceControl; }
-        }
+        public KryptonFloatspace FloatspaceControl => (KryptonFloatspace)SpaceControl;
 
         /// <summary>
         /// Propogates a request for drag targets down the hierarchy of docking elements.
@@ -132,7 +129,7 @@ namespace ComponentFactory.Krypton.Docking
             if (location == DockingLocation.Floating)
             {
                 KryptonPage page = FloatspaceControl.PageForUniqueName(uniqueName);
-                if ((page != null) && (page is KryptonStorePage))
+                if (page is KryptonStorePage)
                 {
                     return this;
                 }
@@ -146,10 +143,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the proprogate action used to clear a store page for this implementation.
         /// </summary>
-        protected override DockingPropogateAction ClearStoreAction 
-        {
-            get { return DockingPropogateAction.ClearFloatingStoredPages; }
-        }
+        protected override DockingPropogateAction ClearStoreAction => DockingPropogateAction.ClearFloatingStoredPages;
 
         /// <summary>
         /// Occurs when a page is added to a cell in the workspace.
@@ -248,10 +242,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DF"; }
-        }
+        protected override string XmlElementName => "DF";
 
         /// <summary>
         /// Loads docking configuration information using a provider xml reader.

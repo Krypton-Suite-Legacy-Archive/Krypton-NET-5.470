@@ -52,20 +52,15 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region Instance Fields
-        private bool _allowButtonSpecToolTips;
-        private HeaderStyle _style;
-		private HeaderValues _headerValues;
-        private VisualOrientation _orientation;
+
+	    private HeaderStyle _style;
+	    private VisualOrientation _orientation;
         private ViewDrawDocker _drawDocker;
 		private ViewDrawContent _drawContent;
-        private PaletteHeaderRedirect _stateCommon;
-        private PaletteTripleMetric _stateDisabled;
-        private PaletteTripleMetric _stateNormal;
-        private HeaderButtonSpecCollection _buttonSpecs;
-        private ButtonSpecManagerDraw _buttonManager;
+	    private ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ToolTipManager _toolTipManager;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -79,40 +74,40 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Set default values
             _style = HeaderStyle.Primary;
             _orientation = VisualOrientation.Top;
-            _allowButtonSpecToolTips = false;
+            AllowButtonSpecToolTips = false;
 
 			// Create storage objects
-            _headerValues = new HeaderValues(NeedPaintDelegate);
-            _headerValues.TextChanged += new EventHandler(OnHeaderTextChanged);
-            _buttonSpecs = new HeaderButtonSpecCollection(this);
+            Values = new HeaderValues(NeedPaintDelegate);
+            Values.TextChanged += new EventHandler(OnHeaderTextChanged);
+            ButtonSpecs = new HeaderButtonSpecCollection(this);
 
 			// Create the palette storage
-            _stateCommon = new PaletteHeaderRedirect(Redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, NeedPaintDelegate);
-            _stateDisabled = new PaletteTripleMetric(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteTripleMetric(_stateCommon, NeedPaintDelegate);
+            StateCommon = new PaletteHeaderRedirect(Redirector, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, NeedPaintDelegate);
+            StateDisabled = new PaletteTripleMetric(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteTripleMetric(StateCommon, NeedPaintDelegate);
 
 			// Our view contains background and border with content inside
-			_drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border, null);
-			_drawContent = new ViewDrawContent(_stateNormal.Content, _headerValues, Orientation);
+			_drawDocker = new ViewDrawDocker(StateNormal.Back, StateNormal.Border, null);
+			_drawContent = new ViewDrawContent(StateNormal.Content, Values, Orientation);
             _drawDocker.Add(_drawContent, ViewDockStyle.Fill);
 
 			// Create the view manager instance
 			ViewManager = new ViewManager(this, _drawDocker);
 
             // Create button specification collection manager
-            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, _buttonSpecs, null,
+            _buttonManager = new ButtonSpecManagerDraw(this, Redirector, ButtonSpecs, null,
                                                        new ViewDrawDocker[] { _drawDocker },
-                                                       new IPaletteMetric[] { _stateCommon },
+                                                       new IPaletteMetric[] { StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary },
                                                        new GetToolStripRenderer(CreateToolStripRenderer),
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            _buttonManager.ToolTipManager = ToolTipManager;
 
             // We want to be auto sized by default, but not the property default!
             AutoSize = true;
@@ -150,8 +145,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -160,8 +155,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public new AutoSizeMode AutoSizeMode
         {
-            get { return base.AutoSizeMode; }
-            set { base.AutoSizeMode = value; }
+            get => base.AutoSizeMode;
+            set => base.AutoSizeMode = value;
         }
 
         /// <summary>
@@ -173,8 +168,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
 
         /// <summary>
@@ -183,18 +178,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public override string Text
 		{
-			get
-			{
-				// Map onto the heading property from the values
-				return _headerValues.Heading;
-			}
-				
-			set
-			{
-				// Map onto the heading property from the values
-				_headerValues.Heading = value;
-			}
-		}
+			get => Values.Heading;
+
+            set => Values.Heading = value;
+        }
 
 		private bool ShouldSerializeText()
 		{
@@ -208,7 +195,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override void ResetText()
 		{
 			// Map onto the heading property from the values
-			_headerValues.ResetHeading();
+			Values.ResetHeading();
 		}
 
         /// <summary>
@@ -219,9 +206,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public virtual VisualOrientation Orientation
 		{
-            get { return _orientation; }
+            get => _orientation;
 
-			set
+            set
 			{
                 if (_orientation != value)
 				{
@@ -245,7 +232,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool UseMnemonic
         {
-            get { return _buttonManager.UseMnemonic; }
+            get => _buttonManager.UseMnemonic;
 
             set
             {
@@ -263,24 +250,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public HeaderButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public HeaderButtonSpecCollection ButtonSpecs { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
         /// </summary>
         [Category("Visuals")]
         [Description("Should tooltips be displayed for button specs.")]
         [DefaultValue(false)]
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets and sets the header style.
 		/// </summary>
 		[Category("Visuals")]
@@ -288,55 +268,55 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(HeaderStyle), "Primary")]
 		public HeaderStyle HeaderStyle
 		{
-			get { return _style; }
+			get => _style;
 
-			set
+	        set
 			{
 				if (_style != value)
 				{
 					_style = value;
-                    _stateCommon.SetStyles(_style);
+                    StateCommon.SetStyles(_style);
 
 					// Update the drawing to reflect style change
 					switch (_style)
 					{
                         case HeaderStyle.Primary:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon, 
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon, 
                                                             PaletteMetricInt.HeaderButtonEdgeInsetPrimary,
                                                             PaletteMetricPadding.HeaderButtonPaddingPrimary);
 							break;
                         case HeaderStyle.Secondary:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetSecondary,
                                                             PaletteMetricPadding.HeaderButtonPaddingSecondary);
                             break;
                         case HeaderStyle.DockActive:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetDockActive,
                                                             PaletteMetricPadding.HeaderButtonPaddingDockActive);
                             break;
                         case HeaderStyle.DockInactive:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetDockInactive,
                                                             PaletteMetricPadding.HeaderButtonPaddingDockInactive);
                             break;
                         case HeaderStyle.Form:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetForm,
                                                             PaletteMetricPadding.HeaderButtonPaddingForm);
                             break;
                         case HeaderStyle.Calendar:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetCalendar,
                                                             PaletteMetricPadding.HeaderButtonPaddingCalendar);
                             break;
                         case HeaderStyle.Custom1:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetCustom1,
                                                             PaletteMetricPadding.HeaderButtonPaddingCustom1);
                             break;
                         case HeaderStyle.Custom2:
-                            _buttonManager.SetDockerMetrics(_drawDocker, _stateCommon,
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
                                                             PaletteMetricInt.HeaderButtonEdgeInsetCustom2,
                                                             PaletteMetricPadding.HeaderButtonPaddingCustom2);
                             break;
@@ -367,14 +347,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Header values")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public HeaderValues Values
-		{
-			get { return _headerValues; }
-		}
+		public HeaderValues Values { get; }
 
-		private bool ShouldSerializeValues()
+	    private bool ShouldSerializeValues()
 		{
-			return !_headerValues.IsDefault;
+			return !Values.IsDefault;
 		}
 
         /// <summary>
@@ -383,14 +360,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common header appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteHeaderRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteHeaderRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         
         /// <summary>
@@ -399,14 +373,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+        public PaletteTripleMetric StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -415,14 +386,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric StateNormal
-		{
-			get { return _stateNormal; }
-		}
+        public PaletteTripleMetric StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
         /// <summary>
@@ -440,12 +408,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Internal design time method.
         /// </summary>
         /// <param name="pt">Mouse location.</param>
@@ -533,13 +498,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Push correct palettes into the view
 			if (Enabled)
 			{
-				_drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
-				_drawContent.SetPalette(_stateNormal.Content);
+				_drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
+				_drawContent.SetPalette(StateNormal.Content);
 			}
 			else
 			{
-				_drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
-				_drawContent.SetPalette(_stateDisabled.Content);
+				_drawDocker.SetPalettes(StateDisabled.Back, StateDisabled.Border);
+				_drawContent.SetPalette(StateDisabled.Content);
 			}
 
             _drawDocker.Enabled = Enabled;
@@ -558,12 +523,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(240, 30); }
-		}
+		protected override Size DefaultSize => new Size(240, 30);
 
-        /// <summary>
+	    /// <summary>
         /// Processes a notification from palette storage of a button spec change.
         /// </summary>
         /// <param name="sender">Source of notification.</param>

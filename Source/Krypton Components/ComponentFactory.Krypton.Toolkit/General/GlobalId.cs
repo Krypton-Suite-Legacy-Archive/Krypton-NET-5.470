@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class GlobalId
     {
         #region Instance Fields
-        private int _id;
+
         #endregion
 
         #region Identity
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public GlobalId()
         {
             // Assign the next global identifier
-            _id = CommonHelper.NextId;
+            Id = CommonHelper.NextId;
         }
         #endregion
 
@@ -40,10 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int Id
-        {
-            get { return _id; }
-        }
+        public int Id { get; }
+
         #endregion
     }
 }

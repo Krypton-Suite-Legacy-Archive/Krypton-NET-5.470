@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Workspace
     {
         #region Instance Fields
         private KryptonWorkspace _workspace;
-        private IWorkspaceItem _workspaceItem;
+
         #endregion
 
         #region Identity
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Workspace
                    CommonHelper.SeparatorStyleToMetricPadding(workspace.SeparatorStyle), orientation)
 		{
             _workspace = workspace;
-            _workspaceItem = workspaceItem;
+            WorkspaceItem = workspaceItem;
 		}
 
 		/// <summary>
@@ -58,50 +58,32 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the associated workspace item instance.
         /// </summary>
-        public IWorkspaceItem WorkspaceItem
-        {
-            get { return _workspaceItem; }
-        }
+        public IWorkspaceItem WorkspaceItem { get; }
 
         /// <summary>
         /// Gets the top level control of the source.
         /// </summary>
-        public Control SeparatorControl
-        {
-            get { return _workspace; }
-        }
+        public Control SeparatorControl => _workspace;
 
         /// <summary>
         /// Gets the orientation of the separator.
         /// </summary>
-        public Orientation SeparatorOrientation
-        {
-            get { return Orientation; }
-        }
+        public Orientation SeparatorOrientation => Orientation;
 
         /// <summary>
         /// Can the separator be moved by the user.
         /// </summary>
-        public bool SeparatorCanMove
-        {
-            get { return _workspace.SeparatorCanMove(this); }
-        }
+        public bool SeparatorCanMove => _workspace.SeparatorCanMove(this);
 
         /// <summary>
         /// Gets the amount the splitter can be incremented.
         /// </summary>
-        public int SeparatorIncrements
-        {
-            get { return 1; }
-        }
+        public int SeparatorIncrements => 1;
 
         /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
         /// </summary>
-        public Rectangle SeparatorMoveBox
-        {
-            get { return _workspace.SeparatorMoveBox(this); }
-        }
+        public Rectangle SeparatorMoveBox => _workspace.SeparatorMoveBox(this);
 
         /// <summary>
         /// Indicates the separator is moving.

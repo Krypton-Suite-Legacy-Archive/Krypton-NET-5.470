@@ -43,9 +43,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class DataGridViewButtonSpecClickEventArgs : EventArgs
     {
         #region Instance Fields
-        private DataGridViewColumn _column;
-        private DataGridViewCell _cell;
-        private ButtonSpecAny _buttonSpec;
+
         #endregion
 
         #region Identity
@@ -59,9 +57,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                                     DataGridViewCell cell,
                                                     ButtonSpecAny buttonSpec)
         {
-            _column = column;
-            _cell = cell;
-            _buttonSpec = buttonSpec;
+            Column = column;
+            Cell = cell;
+            ButtonSpec = buttonSpec;
         }
         #endregion
 
@@ -69,26 +67,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a reference to the column associated with the button spec.
         /// </summary>
-        public DataGridViewColumn Column
-        {
-            get { return _column; }
-        }
+        public DataGridViewColumn Column { get; }
 
         /// <summary>
         /// Gets a reference to the cell that generated the click event.
         /// </summary>
-        public DataGridViewCell Cell
-        {
-            get { return _cell; }
-        }
+        public DataGridViewCell Cell { get; }
 
         /// <summary>
         /// Gets a reference to the button spec that is performing the click.
         /// </summary>
-        public ButtonSpecAny ButtonSpec
-        {
-            get { return _buttonSpec; }
-        }
+        public ButtonSpecAny ButtonSpec { get; }
+
         #endregion
     }
 
@@ -100,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewTextBoxColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private DataGridViewColumnSpecCollection _buttonSpecs;
+
         #endregion
 
         #region Events
@@ -117,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewTextBoxColumn()
             : base(new KryptonDataGridViewTextBoxCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
             SortMode = DataGridViewColumnSortMode.Automatic;
         }
 
@@ -212,8 +202,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(DataGridViewColumnSortMode), "Automatic")]
         public new DataGridViewColumnSortMode SortMode
         {
-            get { return base.SortMode; }
-            set { base.SortMode = value; }
+            get => base.SortMode;
+            set => base.SortMode = value;
         }
 
         /// <summary>
@@ -223,7 +213,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -242,17 +232,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
+
         #endregion
 
         #region Private
-        private KryptonDataGridViewTextBoxCell TextBoxCellTemplate
-        {
-            get { return (KryptonDataGridViewTextBoxCell)CellTemplate; }
-        }
+        private KryptonDataGridViewTextBoxCell TextBoxCellTemplate => (KryptonDataGridViewTextBoxCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -319,10 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// Returns the type of the cell's Value property
@@ -349,7 +332,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
@@ -495,10 +478,7 @@ namespace ComponentFactory.Krypton.Toolkit
             textColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewTextBoxEditingControl EditingTextBox
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewTextBoxEditingControl; }
-        }
+        private KryptonDataGridViewTextBoxEditingControl EditingTextBox => DataGridView.EditingControl as KryptonDataGridViewTextBoxEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -568,7 +548,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -590,8 +570,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -599,43 +579,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            set { Text = (string)value; }
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+            set => Text = (string)value;
         }
 
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Method called by the grid before the editing control is shown so it can adapt to the provided cell style.
@@ -847,7 +817,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -1030,10 +1000,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Private
-        private KryptonDataGridViewCheckBoxCell CheckBoxCellTemplate
-        {
-            get { return (KryptonDataGridViewCheckBoxCell)CellTemplate; }
-        }
+        private KryptonDataGridViewCheckBoxCell CheckBoxCellTemplate => (KryptonDataGridViewCheckBoxCell)CellTemplate;
 
         private bool ShouldSerializeDefaultCellStyle()
         {
@@ -1197,20 +1164,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                       DataGridViewAdvancedBorderStyle advancedBorderStyle,
                                       DataGridViewPaintParts paintParts)
         {
-            if ((DataGridView != null) && (DataGridView is KryptonDataGridView))
+            if (DataGridView is KryptonDataGridView kDgv)
             {
-                KryptonDataGridView kDGV = (KryptonDataGridView)DataGridView;
-
                 // Should we draw the content foreground?
                 if ((paintParts & DataGridViewPaintParts.ContentForeground) == DataGridViewPaintParts.ContentForeground)
                 {
                     CheckState checkState = CheckState.Unchecked;
 
-                    if ((formattedValue != null) && (formattedValue is CheckState))
+                    if (formattedValue is CheckState state)
                     {
-                        checkState = (CheckState)formattedValue;
+                        checkState = state;
                     }
-                    else if ((formattedValue != null) && (formattedValue is bool))
+                    else if (formattedValue is bool)
                     {
                         if ((bool)formattedValue)
                         {
@@ -1235,16 +1200,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     bool tracking = mouseCell && MouseInContentBoundsInternal;
                     bool pressed = currentCell && ((ButtonStateInternal & ButtonState.Pushed) == ButtonState.Pushed);
 
-                    using (RenderContext renderContext = new RenderContext(kDGV, graphics, cellBounds, kDGV.Renderer))
+                    using (RenderContext renderContext = new RenderContext(kDgv, graphics, cellBounds, kDgv.Renderer))
                     {
-                        Size checkBoxSize = Size.Empty;
+                        Size checkBoxSize;
 
                         // Find out the requested size of the check box drawing
-                        using (ViewLayoutContext viewContent = new ViewLayoutContext(kDGV, kDGV.Renderer))
+                        using (ViewLayoutContext viewContent = new ViewLayoutContext(kDgv, kDgv.Renderer))
                         {
                             checkBoxSize = renderContext.Renderer.RenderGlyph.GetCheckBoxPreferredSize(viewContent, 
-                                                                                                       kDGV.Redirector,
-                                                                                                       kDGV.Enabled,
+                                                                                                       kDgv.Redirector,
+                                                                                                       kDgv.Enabled,
                                                                                                        checkState,
                                                                                                        tracking,
                                                                                                        pressed);
@@ -1300,8 +1265,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Perform actual drawing of the check box
                         renderContext.Renderer.RenderGlyph.DrawCheckBox(renderContext,
                                                                         cellBounds,
-                                                                        kDGV.Redirector,
-                                                                        kDGV.Enabled,
+                                                                        kDgv.Redirector,
+                                                                        kDgv.Enabled,
                                                                         checkState,
                                                                         tracking,
                                                                         pressed);
@@ -1441,7 +1406,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -1461,8 +1426,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         public override DataGridViewCellStyle DefaultCellStyle
         {
-            get { return base.DefaultCellStyle; }
-            set { base.DefaultCellStyle = value; }
+            get => base.DefaultCellStyle;
+            set => base.DefaultCellStyle = value;
         }
         
         /// <summary>
@@ -1472,7 +1437,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue((string)null)]
         public string Text
         {
-            get { return _text; }
+            get => _text;
             set
             {
                 if (!string.Equals(value, _text, StringComparison.Ordinal))
@@ -1691,7 +1656,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ButtonStyle), "Standalone")]
         public ButtonStyle ButtonStyle
         {
-            get { return _buttonStyle; }
+            get => _buttonStyle;
 
             set
             {
@@ -1770,7 +1735,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _shortTextValue.ShortText = col.Text;
                 }
-                else if ((FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                else if (!string.IsNullOrEmpty(FormattedValue?.ToString()))
                 {
                     _shortTextValue.ShortText = FormattedValue.ToString();
                 }
@@ -1828,17 +1793,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                       DataGridViewAdvancedBorderStyle advancedBorderStyle,
                                       DataGridViewPaintParts paintParts)
         {
-            if ((DataGridView != null) && (DataGridView is KryptonDataGridView))
+            if (DataGridView is KryptonDataGridView kDgv)
             {
-                KryptonDataGridView kDGV = (KryptonDataGridView)DataGridView;
-
                 // Should we draw the content foreground?
                 if ((paintParts & DataGridViewPaintParts.ContentForeground) == DataGridViewPaintParts.ContentForeground)
                 {
-                    using (RenderContext renderContext = new RenderContext(kDGV, graphics, cellBounds, kDGV.Renderer))
+                    using (RenderContext renderContext = new RenderContext(kDgv, graphics, cellBounds, kDgv.Renderer))
                     {
                         // Create the view elements and palette structure
-                        CreateViewAndPalettes(kDGV);
+                        CreateViewAndPalettes(kDgv);
 
                         // Cache the starting cell bounds
                         Rectangle startBounds = cellBounds;
@@ -1871,11 +1834,11 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         // Update the display text
-                        if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                        if ((kDgv.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDgv.Rows[rowIndex].IsNewRow)
                         {
                             _shortTextValue.ShortText = col.Text;
                         }
-                        else if ((FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                        else if (!string.IsNullOrEmpty(FormattedValue?.ToString()))
                         {
                             _shortTextValue.ShortText = FormattedValue.ToString();
                         }
@@ -1889,7 +1852,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         cellBounds.Height--;
 
                         // Apply the padding
-                        if (kDGV.RightToLeftInternal)
+                        if (kDgv.RightToLeftInternal)
                         {
                             cellBounds.Offset(cellStyle.Padding.Right, cellStyle.Padding.Bottom);
                         }
@@ -1902,7 +1865,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         cellBounds.Height -= cellStyle.Padding.Vertical;
 
                         // Position the button element inside the available cell area
-                        using (ViewLayoutContext layoutContext = new ViewLayoutContext(kDGV, kDGV.Renderer))
+                        using (ViewLayoutContext layoutContext = new ViewLayoutContext(kDgv, kDgv.Renderer))
                         {
                             // Define the available area for layout
                             layoutContext.DisplayRectangle = cellBounds;
@@ -2090,7 +2053,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -2110,7 +2073,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue((string)null)]
         public string Text
         {
-            get { return _text; }
+            get => _text;
             set
             {
                 if (!string.Equals(value, _text, StringComparison.Ordinal))
@@ -2148,7 +2111,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(LabelStyle), "NormalControl")]
         public LabelStyle LabelStyle
         {
-            get { return _labelStyle; }
+            get => _labelStyle;
             set
             {
                 if (_labelStyle != value)
@@ -2377,7 +2340,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(LinkBehavior), "AlwaysUnderline")]
         public new LinkBehavior LinkBehavior
         {
-            get { return base.LinkBehavior; }
+            get => base.LinkBehavior;
 
             set
             {
@@ -2396,7 +2359,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(LabelStyle), "NormalControl")]
         public LabelStyle LabelStyle
         {
-            get { return _labelStyle; }
+            get => _labelStyle;
 
             set
             {
@@ -2450,7 +2413,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 SetElementStateAndPalette();
 
                 // Update the display text
-                if ((rowIndex >= 0) && (FormattedValue != null) && !string.IsNullOrEmpty(FormattedValue.ToString()))
+                if ((rowIndex >= 0) && !string.IsNullOrEmpty(FormattedValue?.ToString()))
                 {
                     _shortTextValue.ShortText = FormattedValue.ToString();
                 }
@@ -2515,32 +2478,30 @@ namespace ComponentFactory.Krypton.Toolkit
                                       DataGridViewAdvancedBorderStyle advancedBorderStyle,
                                       DataGridViewPaintParts paintParts)
         {
-            if ((DataGridView != null) && (DataGridView is KryptonDataGridView))
+            if (DataGridView is KryptonDataGridView kDgv)
             {
-                KryptonDataGridView kDGV = (KryptonDataGridView)DataGridView;
-
                 // Should we draw the content foreground?
                 if ((paintParts & DataGridViewPaintParts.ContentForeground) == DataGridViewPaintParts.ContentForeground)
                 {
-                    using (RenderContext renderContext = new RenderContext(kDGV, graphics, cellBounds, kDGV.Renderer))
+                    using (RenderContext renderContext = new RenderContext(kDgv, graphics, cellBounds, kDgv.Renderer))
                     {
                         // Cache the starting cell bounds
                         Rectangle startBounds = cellBounds;
 
                         // Ensure the view classes are created and hooked up
-                        CreateViewAndPalettes(kDGV);
+                        CreateViewAndPalettes(kDgv);
 
                         // Update the element with the correct state and used palette
                         SetElementStateAndPalette();
 
                         // Update the display text
-                        if ((formattedValue != null) && !string.IsNullOrEmpty(formattedValue.ToString()))
+                        if (!string.IsNullOrEmpty(formattedValue?.ToString()))
                         {
                             _shortTextValue.ShortText = formattedValue.ToString();
                         }
                         else
                         {
-                            if ((kDGV.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDGV.Rows[rowIndex].IsNewRow)
+                            if ((kDgv.Columns[ColumnIndex] is KryptonDataGridViewButtonColumn col) && col.UseColumnTextForButtonValue && !kDgv.Rows[rowIndex].IsNewRow)
                             {
                                 _shortTextValue.ShortText = col.Text;
                             }
@@ -2555,7 +2516,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         cellBounds.Height--;
 
                         // Apply the padding
-                        if (kDGV.RightToLeftInternal)
+                        if (kDgv.RightToLeftInternal)
                         {
                             cellBounds.Offset(cellStyle.Padding.Right, cellStyle.Padding.Bottom);
                         }
@@ -2568,7 +2529,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         cellBounds.Height -= cellStyle.Padding.Vertical;
 
                         // Position the button element inside the available cell area
-                        using (ViewLayoutContext layoutContext = new ViewLayoutContext(kDGV, kDGV.Renderer))
+                        using (ViewLayoutContext layoutContext = new ViewLayoutContext(kDgv, kDgv.Renderer))
                         {
                             // Define the available area for calculating layout
                             layoutContext.DisplayRectangle = cellBounds;
@@ -2754,7 +2715,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewNumericUpDownColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private DataGridViewColumnSpecCollection _buttonSpecs;
+
         #endregion
 
         #region Events
@@ -2771,7 +2732,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewNumericUpDownColumn()
             : base(new KryptonDataGridViewNumericUpDownCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
         }
 
         /// <summary>
@@ -2814,7 +2775,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate;}
+            get => base.CellTemplate;
             set
             {
                 if ((value != null) && (!(value is KryptonDataGridViewNumericUpDownCell cell)))
@@ -2832,10 +2793,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Replicates the DecimalPlaces property of the KryptonDataGridViewNumericUpDownCell cell type.
@@ -3123,10 +3081,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Small utility function that returns the template cell as a KryptonDataGridViewNumericUpDownCell
         /// </summary>
-        private KryptonDataGridViewNumericUpDownCell NumericUpDownCellTemplate
-        {
-            get { return (KryptonDataGridViewNumericUpDownCell)CellTemplate; }
-        }
+        private KryptonDataGridViewNumericUpDownCell NumericUpDownCellTemplate => (KryptonDataGridViewNumericUpDownCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -3202,10 +3158,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// The DecimalPlaces property replicates the one from the KryptonNumericUpDown control
@@ -3213,7 +3166,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(0)]
         public int DecimalPlaces
         {
-            get { return _decimalPlaces; }
+            get => _decimalPlaces;
 
             set
             {
@@ -3235,7 +3188,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Hexadecimal
         {
-            get { return _hexadecimal; }
+            get => _hexadecimal;
 
             set
             {
@@ -3252,7 +3205,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Decimal Increment
         {
-            get { return _increment; }
+            get => _increment;
 
             set
             {
@@ -3270,7 +3223,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Decimal Maximum
         {
-            get { return _maximum; }
+            get => _maximum;
 
             set
             {
@@ -3287,7 +3240,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Decimal Minimum
         {
-            get { return _minimum; }
+            get => _minimum;
 
             set
             {
@@ -3305,7 +3258,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ThousandsSeparator
         {
-            get { return _thousandsSeparator; }
+            get => _thousandsSeparator;
 
             set
             {
@@ -3360,14 +3313,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
 
             if (dataGridView.EditingControl is KryptonNumericUpDown numericUpDown)
             {
-                if (OwningColumn is KryptonDataGridViewNumericUpDownColumn numericColumn)
+                if (OwningColumn is KryptonDataGridViewNumericUpDownColumn)
                 {
                     foreach (ButtonSpec bs in numericUpDown.ButtonSpecs)
                     {
@@ -3544,9 +3497,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
             {
-                const int ButtonsWidth = 16; // Account for the width of the up/down buttons.
-                const int ButtonMargin = 8;  // Account for some blank pixels between the text and buttons.
-                preferredSize.Width += ButtonsWidth + ButtonMargin;
+                const int BUTTONS_WIDTH = 16; // Account for the width of the up/down buttons.
+                const int BUTTON_MARGIN = 8;  // Account for some blank pixels between the text and buttons.
+                preferredSize.Width += BUTTONS_WIDTH + BUTTON_MARGIN;
             }
 
             return preferredSize;
@@ -3561,10 +3514,7 @@ namespace ComponentFactory.Krypton.Toolkit
             numericColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewNumericUpDownEditingControl EditingNumericUpDown
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewNumericUpDownEditingControl; }
-        }
+        private KryptonDataGridViewNumericUpDownEditingControl EditingNumericUpDown => DataGridView.EditingControl as KryptonDataGridViewNumericUpDownEditingControl;
 
         private Decimal Constrain(Decimal value)
         {
@@ -3753,7 +3703,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -3775,8 +3725,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -3784,43 +3734,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            set { Text = (string)value; }
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+            set => Text = (string)value;
         }
 
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Method called by the grid before the editing control is shown so it can adapt to the provided cell style.
@@ -4040,8 +3980,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewDomainUpDownColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private DataGridViewColumnSpecCollection _buttonSpecs;
-        private StringCollection _items;
+
         #endregion
 
         #region Events
@@ -4058,8 +3997,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewDomainUpDownColumn()
             : base(new KryptonDataGridViewDomainUpDownCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
-            _items = new StringCollection();
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
+            Items = new StringCollection();
         }
 
         /// <summary>
@@ -4111,7 +4050,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
             set
             {
                 if ((value != null) && (!(value is KryptonDataGridViewDomainUpDownCell cell)))
@@ -4129,10 +4068,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Gets the collection of allowable items of the domain up down.
@@ -4141,20 +4077,16 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("The allowable items of the domain up down.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-        public StringCollection Items
-        {
-            get { return _items; }
-        }
+        public StringCollection Items { get; }
+
         #endregion
 
         #region Private
         /// <summary>
         /// Small utility function that returns the template cell as a KryptonDataGridViewDomainUpDownCell
         /// </summary>
-        private KryptonDataGridViewDomainUpDownCell DomainUpDownCellTemplate
-        {
-            get { return (KryptonDataGridViewDomainUpDownCell)CellTemplate; }
-        }
+        private KryptonDataGridViewDomainUpDownCell DomainUpDownCellTemplate => (KryptonDataGridViewDomainUpDownCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -4211,10 +4143,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// Returns the type of the cell's Value property
@@ -4241,7 +4170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
@@ -4385,10 +4314,7 @@ namespace ComponentFactory.Krypton.Toolkit
             domainColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewDomainUpDownEditingControl EditingDomainUpDown
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewDomainUpDownEditingControl; }
-        }
+        private KryptonDataGridViewDomainUpDownEditingControl EditingDomainUpDown => DataGridView.EditingControl as KryptonDataGridViewDomainUpDownEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -4476,7 +4402,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -4498,8 +4424,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -4507,43 +4433,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            set { Text = (string)value; }
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+            set => Text = (string)value;
         }
 
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Method called by the grid before the editing control is shown so it can adapt to the provided cell style.
@@ -4701,9 +4617,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewComboBoxColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private StringCollection _items;
-        private AutoCompleteStringCollection _autoCompleteCustom;
-        private DataGridViewColumnSpecCollection _buttonSpecs;
+
         #endregion
 
         #region Events
@@ -4720,9 +4634,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewComboBoxColumn()
             : base(new KryptonDataGridViewComboBoxCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
-            _items = new StringCollection();
-            _autoCompleteCustom = new AutoCompleteStringCollection();
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
+            Items = new StringCollection();
+            AutoCompleteCustomSource = new AutoCompleteStringCollection();
         }
 
         /// <summary>
@@ -4784,7 +4698,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -4803,10 +4717,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Gets the collection of allowable items of the domain up down.
@@ -4816,15 +4727,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(true)]
-        public StringCollection Items
-        {
-            get { return _items; }
-        }
+        public StringCollection Items { get; }
 
-        private bool ShouldSerializeItems
-        {
-            get { return true; }
-        }
+        private bool ShouldSerializeItems => true;
 
         /// <summary>
         /// Gets and sets the appearance and functionality of the KryptonComboBox.
@@ -5032,15 +4937,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Localizable(true)]
         [Browsable(true)]
-        public AutoCompleteStringCollection AutoCompleteCustomSource
-        {
-            get { return _autoCompleteCustom; }
-        }
+        public AutoCompleteStringCollection AutoCompleteCustomSource { get; }
 
-        private bool ShouldSerializeAutoCompleteCustomSource
-        {
-            get { return true; }
-        }
+        private bool ShouldSerializeAutoCompleteCustomSource => true;
 
         /// <summary>
         /// Gets or sets the text completion behavior of the combobox.
@@ -5196,10 +5095,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Small utility function that returns the template cell as a KryptonDataGridViewDomainUpDownCell
         /// </summary>
-        private KryptonDataGridViewComboBoxCell ComboBoxCellTemplate
-        {
-            get { return (KryptonDataGridViewComboBoxCell)CellTemplate; }
-        }
+        private KryptonDataGridViewComboBoxCell ComboBoxCellTemplate => (KryptonDataGridViewComboBoxCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -5273,10 +5170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// Returns the type of the cell's Value property
@@ -5321,7 +5215,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(0)]
         public ComboBoxStyle DropDownStyle
         {
-            get { return _dropDownStyle; }
+            get => _dropDownStyle;
 
             set
             {
@@ -5344,7 +5238,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(8)]
         public int MaxDropDownItems
         {
-            get { return _maxDropDownItems; }
+            get => _maxDropDownItems;
 
             set
             {
@@ -5362,7 +5256,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(200)]
         public int DropDownHeight
         {
-            get { return _dropDownHeight; }
+            get => _dropDownHeight;
 
             set
             {
@@ -5380,7 +5274,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(121)]
         public int DropDownWidth
         {
-            get { return _dropDownWidth; }
+            get => _dropDownWidth;
 
             set
             {
@@ -5398,7 +5292,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(121)]
         public AutoCompleteMode AutoCompleteMode
         {
-            get { return _autoCompleteMode; }
+            get => _autoCompleteMode;
 
             set
             {
@@ -5416,7 +5310,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(121)]
         public AutoCompleteSource AutoCompleteSource
         {
-            get { return _autoCompleteSource; }
+            get => _autoCompleteSource;
 
             set
             {
@@ -5434,7 +5328,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string DisplayMember
         {
-            get { return _displayMember; }
+            get => _displayMember;
 
             set
             {
@@ -5452,7 +5346,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string ValueMember
         {
-            get { return _valueMember; }
+            get => _valueMember;
 
             set
             {
@@ -5470,14 +5364,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
 
             if (dataGridView.EditingControl is KryptonComboBox comboBox)
             {
-                if (OwningColumn is KryptonDataGridViewComboBoxColumn comboColumn)
+                if (OwningColumn is KryptonDataGridViewComboBoxColumn)
                 {
                     foreach (ButtonSpec bs in comboBox.ButtonSpecs)
                     {
@@ -5631,10 +5525,7 @@ namespace ComponentFactory.Krypton.Toolkit
             comboColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewComboBoxEditingControl EditingComboBox
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewComboBoxEditingControl; }
-        }
+        private KryptonDataGridViewComboBoxEditingControl EditingComboBox => DataGridView.EditingControl as KryptonDataGridViewComboBoxEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -5778,7 +5669,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -5800,8 +5691,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -5809,43 +5700,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            set { Text = (string)value; }
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+            set => Text = (string)value;
         }
 
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Method called by the grid before the editing control is shown so it can adapt to the provided cell style.
@@ -5948,7 +5829,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewDateTimePickerColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private DataGridViewColumnSpecCollection _buttonSpecs;
+
         private DateTimeList _annualDates;
         private DateTimeList _monthlyDates;
         private DateTimeList _dates;
@@ -5968,7 +5849,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewDateTimePickerColumn()
             : base(new KryptonDataGridViewDateTimePickerCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
             _annualDates = new DateTimeList();
             _monthlyDates = new DateTimeList();
             _dates = new DateTimeList();
@@ -6018,7 +5899,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
 
             set
             {
@@ -6037,10 +5918,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Replicates the ShowCheckBox property of the KryptonDataGridViewDateTimePickerCell cell type.
@@ -6893,7 +6771,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarAnnuallyBoldedDates
         {
-            get { return _annualDates.ToArray(); }
+            get => _annualDates.ToArray();
 
             set
             {
@@ -6929,7 +6807,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarMonthlyBoldedDates
         {
-            get { return _monthlyDates.ToArray(); }
+            get => _monthlyDates.ToArray();
 
             set
             {
@@ -6965,7 +6843,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public DateTime[] CalendarBoldedDates
         {
-            get { return _dates.ToArray(); }
+            get => _dates.ToArray();
 
             set
             {
@@ -6998,10 +6876,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Small utility function that returns the template cell as a KryptonDataGridViewDateTimePickerCell
         /// </summary>
-        private KryptonDataGridViewDateTimePickerCell DateTimePickerCellTemplate
-        {
-            get { return (KryptonDataGridViewDateTimePickerCell)CellTemplate; }
-        }
+        private KryptonDataGridViewDateTimePickerCell DateTimePickerCellTemplate => (KryptonDataGridViewDateTimePickerCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -7097,10 +6973,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// Returns the type of the cell's Value property
@@ -7155,7 +7028,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ShowCheckBox
         {
-            get { return _showCheckBox; }
+            get => _showCheckBox;
 
             set
             {
@@ -7173,7 +7046,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ShowUpDown
         {
-            get { return _showUpDown; }
+            get => _showUpDown;
 
             set
             {
@@ -7191,7 +7064,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool AutoShift
         {
-            get { return _autoShift; }
+            get => _autoShift;
 
             set
             {
@@ -7209,7 +7082,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
 
             set
             {
@@ -7227,7 +7100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string CustomFormat
         {
-            get { return _customFormat; }
+            get => _customFormat;
 
             set
             {
@@ -7245,7 +7118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(" ")]
         public string CustomNullText
         {
-            get { return _customNullText; }
+            get => _customNullText;
 
             set
             {
@@ -7262,7 +7135,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public DateTime MaxDate
         {
-            get { return _maxDate; }
+            get => _maxDate;
 
             set
             {
@@ -7293,7 +7166,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public DateTime MinDate
         {
-            get { return _minDate; }
+            get => _minDate;
 
             set
             {
@@ -7325,7 +7198,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(DateTimePickerFormat), "Long")]
         public DateTimePickerFormat Format
         {
-            get { return _format; }
+            get => _format;
 
             set
             {
@@ -7343,7 +7216,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Size), "1,1")]
         public Size CalendarDimensions
         {
-            get { return _calendarDimensions; }
+            get => _calendarDimensions;
 
             set
             {
@@ -7361,7 +7234,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("Today:")]
         public string CalendarTodayText
         {
-            get { return _calendarTodayText; }
+            get => _calendarTodayText;
 
             set
             {
@@ -7379,7 +7252,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Day), "Default")]
         public Day CalendarFirstDayOfWeek
         {
-            get { return _calendarFirstDayOfWeek; }
+            get => _calendarFirstDayOfWeek;
 
             set
             {
@@ -7397,7 +7270,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool CalendarShowToday
         {
-            get { return _calendarShowToday; }
+            get => _calendarShowToday;
 
             set
             {
@@ -7415,7 +7288,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool CalendarCloseOnTodayClick
         {
-            get { return _calendarCloseOnTodayClick; }
+            get => _calendarCloseOnTodayClick;
 
             set
             {
@@ -7434,7 +7307,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool CalendarShowTodayCircle
         {
-            get { return _calendarShowTodayCircle; }
+            get => _calendarShowTodayCircle;
 
             set
             {
@@ -7452,7 +7325,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool CalendarShowWeekNumbers
         {
-            get { return _calendarShowWeekNumbers; }
+            get => _calendarShowWeekNumbers;
 
             set
             {
@@ -7470,7 +7343,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public DateTime CalendarTodayDate
         {
-            get { return _calendarTodayDate; }
+            get => _calendarTodayDate;
 
             set
             {
@@ -7499,7 +7372,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
@@ -7773,10 +7646,7 @@ namespace ComponentFactory.Krypton.Toolkit
             dateTimeColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewDateTimePickerEditingControl EditingDateTimePicker
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewDateTimePickerEditingControl; }
-        }
+        private KryptonDataGridViewDateTimePickerEditingControl EditingDateTimePicker => DataGridView.EditingControl as KryptonDataGridViewDateTimePickerEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -8005,7 +7875,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -8027,8 +7897,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -8036,8 +7906,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+
             set 
             {
                 if ((value == null) || (value == DBNull.Value))
@@ -8062,36 +7932,26 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Called by the grid to give the editing control a chance to prepare itself for the editing session.
@@ -8180,7 +8040,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonDataGridViewMaskedTextBoxColumn : DataGridViewColumn
     {
         #region Instance Fields
-        private DataGridViewColumnSpecCollection _buttonSpecs;
+
         #endregion
 
         #region Events
@@ -8197,7 +8057,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonDataGridViewMaskedTextBoxColumn()
             : base(new KryptonDataGridViewMaskedTextBoxCell())
         {
-            _buttonSpecs = new DataGridViewColumnSpecCollection(this);
+            ButtonSpecs = new DataGridViewColumnSpecCollection(this);
         }
 
         /// <summary>
@@ -8240,7 +8100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DataGridViewCell CellTemplate
         {
-            get { return base.CellTemplate; }
+            get => base.CellTemplate;
             set
             {
                 if ((value != null) && (!(value is KryptonDataGridViewMaskedTextBoxCell cell)))
@@ -8258,10 +8118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Set of extra button specs to appear with control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DataGridViewColumnSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Replicates the PromptChar property of the KryptonDataGridViewMaskedTextBoxCell cell type.
@@ -9020,10 +8877,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Small utility function that returns the template cell as a KryptonDataGridViewMaskedTextBoxCell
         /// </summary>
-        private KryptonDataGridViewMaskedTextBoxCell MaskedTextBoxCellTemplate
-        {
-            get { return (KryptonDataGridViewMaskedTextBoxCell)CellTemplate; }
-        }
+        private KryptonDataGridViewMaskedTextBoxCell MaskedTextBoxCellTemplate => (KryptonDataGridViewMaskedTextBoxCell)CellTemplate;
+
         #endregion
 
         #region Internal
@@ -9118,10 +8973,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Define the type of the cell's editing control
         /// </summary>
-        public override Type EditType
-        {
-            get { return _defaultEditType; }
-        }
+        public override Type EditType => _defaultEditType;
 
         /// <summary>
         /// Returns the type of the cell's Value property
@@ -9147,7 +8999,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue('_')]
         public char PromptChar
         {
-            get { return _promptChar; }
+            get => _promptChar;
 
             set
             {
@@ -9165,7 +9017,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AllowPromptAsInput
         {
-            get { return _allowPromptAsInput; }
+            get => _allowPromptAsInput;
 
             set
             {
@@ -9183,7 +9035,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool AsciiOnly
         {
-            get { return _asciiOnly; }
+            get => _asciiOnly;
 
             set
             {
@@ -9201,7 +9053,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool BeepOnError
         {
-            get { return _beepOnError; }
+            get => _beepOnError;
 
             set
             {
@@ -9219,7 +9071,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(MaskFormat), "IncludeLiterals")]
         public MaskFormat CutCopyMaskFormat
         {
-            get { return _cutCopyMaskFormat; }
+            get => _cutCopyMaskFormat;
 
             set
             {
@@ -9237,7 +9089,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool HidePromptOnLeave
         {
-            get { return _hidePromptOnLeave; }
+            get => _hidePromptOnLeave;
 
             set
             {
@@ -9255,7 +9107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool HideSelection
         {
-            get { return _hideSelection; }
+            get => _hideSelection;
 
             set
             {
@@ -9273,7 +9125,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(InsertKeyMode), "Default")]
         public InsertKeyMode InsertKeyMode
         {
-            get { return _insertKeyMode; }
+            get => _insertKeyMode;
 
             set
             {
@@ -9291,7 +9143,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string Mask
         {
-            get { return _mask; }
+            get => _mask;
 
             set
             {
@@ -9309,7 +9161,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue('\0')]
         public char PasswordChar
         {
-            get { return _passwordChar; }
+            get => _passwordChar;
 
             set
             {
@@ -9327,7 +9179,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool RejectInputOnFirstFailure
         {
-            get { return _rejectInputOnFirstFailure; }
+            get => _rejectInputOnFirstFailure;
 
             set
             {
@@ -9345,7 +9197,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ResetOnPrompt
         {
-            get { return _resetOnPrompt; }
+            get => _resetOnPrompt;
 
             set
             {
@@ -9363,7 +9215,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ResetOnSpace
         {
-            get { return _resetOnSpace; }
+            get => _resetOnSpace;
 
             set
             {
@@ -9381,7 +9233,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool SkipLiterals
         {
-            get { return _skipLiterals; }
+            get => _skipLiterals;
 
             set
             {
@@ -9399,7 +9251,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(MaskFormat), "IncludeLiterals")]
         public MaskFormat TextMaskFormat
         {
-            get { return _textMaskFormat; }
+            get => _textMaskFormat;
 
             set
             {
@@ -9417,7 +9269,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool UseSystemPasswordChar
         {
-            get { return _useSystemPasswordChar; }
+            get => _useSystemPasswordChar;
 
             set
             {
@@ -9464,14 +9316,14 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = DataGridView;
-            if ((dataGridView == null) || (dataGridView.EditingControl == null))
+            if (dataGridView?.EditingControl == null)
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
 
             if (dataGridView.EditingControl is KryptonMaskedTextBox maskedTextBox)
             {
-                if (OwningColumn is KryptonDataGridViewMaskedTextBoxColumn maskedTextBoxColumn)
+                if (OwningColumn is KryptonDataGridViewMaskedTextBoxColumn)
                 {
                     foreach (ButtonSpec bs in maskedTextBox.ButtonSpecs)
                     {
@@ -9619,10 +9471,7 @@ namespace ComponentFactory.Krypton.Toolkit
             maskedColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewMaskedTextBoxEditingControl EditingMaskedTextBox
-        {
-            get { return DataGridView.EditingControl as KryptonDataGridViewMaskedTextBoxEditingControl; }
-        }
+        private KryptonDataGridViewMaskedTextBoxEditingControl EditingMaskedTextBox => DataGridView.EditingControl as KryptonDataGridViewMaskedTextBoxEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -9854,7 +9703,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private DataGridView _dataGridView;
         private bool _valueChanged;
-        private int _rowIndex;
+
         #endregion
 
         #region Identity
@@ -9876,8 +9725,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual DataGridView EditingControlDataGridView
         {
-            get { return _dataGridView; }
-            set { _dataGridView = value; }
+            get => _dataGridView;
+            set => _dataGridView = value;
         }
 
         /// <summary>
@@ -9885,43 +9734,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual object EditingControlFormattedValue
         {
-            get { return GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting); }
-            set { Text = (string)value; }
+            get => GetEditingControlFormattedValue(DataGridViewDataErrorContexts.Formatting);
+            set => Text = (string)value;
         }
 
         /// <summary>
         /// Property which represents the row in which the editing control resides
         /// </summary>
-        public virtual int EditingControlRowIndex
-        {
-            get { return _rowIndex; }
-            set { _rowIndex = value; }
-        }
+        public virtual int EditingControlRowIndex { get; set; }
 
         /// <summary>
         /// Property which indicates whether the value of the editing control has changed or not
         /// </summary>
         public virtual bool EditingControlValueChanged
         {
-            get { return _valueChanged; }
-            set { _valueChanged = value; }
+            get => _valueChanged;
+            set => _valueChanged = value;
         }
 
         /// <summary>
         /// Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.
         /// </summary>
-        public virtual Cursor EditingPanelCursor
-        {
-            get { return Cursors.Default; }
-        }
+        public virtual Cursor EditingPanelCursor => Cursors.Default;
 
         /// <summary>
         /// Property which indicates whether the editing control needs to be repositioned when its value changes.
         /// </summary>
-        public virtual bool RepositionEditingControlOnValueChange
-        {
-            get { return false; }
-        }
+        public virtual bool RepositionEditingControlOnValueChange => false;
 
         /// <summary>
         /// Method called by the grid before the editing control is shown so it can adapt to the provided cell style.

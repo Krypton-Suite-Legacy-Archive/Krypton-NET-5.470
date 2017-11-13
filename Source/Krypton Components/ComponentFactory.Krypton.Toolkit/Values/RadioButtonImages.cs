@@ -66,22 +66,17 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (_common == null) &&
-                       (_uncheckedDisabled == null) &&
-                       (_uncheckedNormal == null) &&
-                       (_uncheckedTracking == null) &&
-                       (_uncheckedPressed == null) &&
-                       (_checkedDisabled == null) &&
-                       (_checkedNormal == null) &&
-                       (_checkedTracking == null) &&
-                       (_checkedPressed == null);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (_common == null) &&
+		                                  (_uncheckedDisabled == null) &&
+		                                  (_uncheckedNormal == null) &&
+		                                  (_uncheckedTracking == null) &&
+		                                  (_uncheckedPressed == null) &&
+		                                  (_checkedDisabled == null) &&
+		                                  (_checkedNormal == null) &&
+		                                  (_checkedTracking == null) &&
+		                                  (_checkedPressed == null);
+
+        #endregion
 
         #region Common
         /// <summary>
@@ -94,7 +89,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Common
         {
-            get { return _common; }
+            get => _common;
 
             set
             {
@@ -126,7 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image UncheckedDisabled
         {
-            get { return _uncheckedDisabled; }
+            get => _uncheckedDisabled;
 
             set
             {
@@ -158,7 +153,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image UncheckedNormal
         {
-            get { return _uncheckedNormal; }
+            get => _uncheckedNormal;
 
             set
             {
@@ -190,7 +185,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image UncheckedTracking
         {
-            get { return _uncheckedTracking; }
+            get => _uncheckedTracking;
 
             set
             {
@@ -222,7 +217,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image UncheckedPressed
         {
-            get { return _uncheckedPressed; }
+            get => _uncheckedPressed;
 
             set
             {
@@ -254,7 +249,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image CheckedDisabled
         {
-            get { return _checkedDisabled; }
+            get => _checkedDisabled;
 
             set
             {
@@ -286,7 +281,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image CheckedNormal
         {
-            get { return _checkedNormal; }
+            get => _checkedNormal;
 
             set
             {
@@ -318,7 +313,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image CheckedTracking
         {
-            get { return _checkedTracking; }
+            get => _checkedTracking;
 
             set
             {
@@ -350,7 +345,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image CheckedPressed
         {
-            get { return _checkedPressed; }
+            get => _checkedPressed;
 
             set
             {

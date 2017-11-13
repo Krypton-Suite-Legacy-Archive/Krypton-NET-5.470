@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _group.GroupBackStyle; }
-            
+            get => _group.GroupBackStyle;
+
             set
             {
                 if (_group.GroupBackStyle != value)
@@ -58,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _group.GroupBorderStyle; }
-            
+            get => _group.GroupBorderStyle;
+
             set 
             {
                 if (_group.GroupBorderStyle != value)
@@ -75,8 +75,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _group.PaletteMode; }
-            
+            get => _group.PaletteMode;
+
             set 
             {
                 if (_group.PaletteMode != value)

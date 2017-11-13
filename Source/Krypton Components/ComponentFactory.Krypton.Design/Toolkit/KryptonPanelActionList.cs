@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle PanelBackStyle
         {
-            get { return _panel.PanelBackStyle; }
-            
+            get => _panel.PanelBackStyle;
+
             set 
             {
                 if (_panel.PanelBackStyle != value)
@@ -58,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _panel.PaletteMode; }
-            
+            get => _panel.PaletteMode;
+
             set 
             {
                 if (_panel.PaletteMode != value)

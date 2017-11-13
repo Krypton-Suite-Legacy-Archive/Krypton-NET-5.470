@@ -20,10 +20,8 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
-        public override SelectionRules SelectionRules
-        {
-            get { return SelectionRules.None; }
-        }
+        public override SelectionRules SelectionRules => SelectionRules.None;
+
         #endregion
         
         #region Implementation

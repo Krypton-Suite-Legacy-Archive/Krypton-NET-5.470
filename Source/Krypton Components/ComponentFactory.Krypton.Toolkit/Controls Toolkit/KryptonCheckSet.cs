@@ -223,9 +223,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _initializing;
         private bool _checkedChanged;
         private bool _ignoreEvents;
-        private bool _allowUncheck;
         private KryptonCheckButton _checkedButton;
-        private KryptonCheckButtonCollection _checkButtons;
+
         #endregion
 
         #region Events
@@ -243,7 +242,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public KryptonCheckSet()
         {
-            _checkButtons = new KryptonCheckButtonCollection(this);
+            CheckButtons = new KryptonCheckButtonCollection(this);
         }
 
         /// <summary>
@@ -307,11 +306,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Is the current checked button allowed to be unchecked.")]
         [DefaultValue(false)]
-        public bool AllowUncheck
-        {
-            get { return _allowUncheck; }
-            set { _allowUncheck = value; }
-        }
+        public bool AllowUncheck { get; set; }
 
         /// <summary>
         /// Gets and sets the currently checked button in the set.
@@ -324,7 +319,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public KryptonCheckButton CheckedButton
         {
-            get { return _checkedButton; }
+            get => _checkedButton;
 
             set
             {
@@ -410,10 +405,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("ComponentFactory.Krypton.Toolkit.KryptonCheckButtonCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         [RefreshProperties(RefreshProperties.All)]
-        public KryptonCheckButtonCollection CheckButtons
-        {
-            get { return _checkButtons; }
-        }
+        public KryptonCheckButtonCollection CheckButtons { get; }
+
         #endregion
 
         #region Protected Virtual

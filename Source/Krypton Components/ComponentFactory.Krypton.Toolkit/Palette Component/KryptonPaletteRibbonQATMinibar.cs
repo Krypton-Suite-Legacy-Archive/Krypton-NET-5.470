@@ -19,9 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRibbonBackInheritRedirect _stateInherit;
-        private PaletteRibbonBack _stateCommon;
-        private PaletteRibbonBack _stateActive;
-        private PaletteRibbonBack _stateInactive;
+
         #endregion
 
         #region Identity
@@ -35,9 +33,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonQATMinibar);
-            _stateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
-            _stateActive = new PaletteRibbonBack(_stateCommon, needPaint);
-            _stateInactive = new PaletteRibbonBack(_stateCommon, needPaint);
+            StateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
+            StateActive = new PaletteRibbonBack(StateCommon, needPaint);
+            StateInactive = new PaletteRibbonBack(StateCommon, needPaint);
         }
         #endregion
 
@@ -57,16 +55,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateActive.IsDefault &&
-                       _stateInactive.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateActive.IsDefault &&
+		                                  StateInactive.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -75,8 +68,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateActive.PopulateFromBase(PaletteState.Normal);
-            _stateInactive.PopulateFromBase(PaletteState.Disabled);
+            StateActive.PopulateFromBase(PaletteState.Normal);
+            StateInactive.PopulateFromBase(PaletteState.Disabled);
         }
         #endregion
 
@@ -88,14 +81,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common ribbon quick access minibar values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteRibbonBack StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -107,14 +97,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining active ribbon quick access minibar values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteRibbonBack StateActive { get; }
 
         private bool ShouldSerializeStateActive()
         {
-            return !_stateActive.IsDefault;
+            return !StateActive.IsDefault;
         }
         #endregion
 
@@ -126,14 +113,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining inactive ribbon quick access minibar values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateInactive
-        {
-            get { return _stateInactive; }
-        }
+        public PaletteRibbonBack StateInactive { get; }
 
         private bool ShouldSerializeStateInactive()
         {
-            return !_stateInactive.IsDefault;
+            return !StateInactive.IsDefault;
         }
         #endregion
     }

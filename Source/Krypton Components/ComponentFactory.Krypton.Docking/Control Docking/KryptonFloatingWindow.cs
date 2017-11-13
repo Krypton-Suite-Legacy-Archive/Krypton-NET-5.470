@@ -32,8 +32,7 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private KryptonFloatspace _floatspace;
-        private IFloatingMessages _floatingMessages;
+
         #endregion
 
         #region Events
@@ -68,12 +67,12 @@ namespace ComponentFactory.Krypton.Docking
             ButtonSpecMin.ImageStates.ImageDisabled = EMPTY_IMAGE;
 
             // Hook into floatspace events and add as the content of the floating window
-            _floatspace = floatspace;
-            _floatspace.CellCountChanged += new EventHandler(OnFloatspaceCellCountChanged);
-            _floatspace.CellVisibleCountChanged += new EventHandler(OnFloatspaceCellVisibleCountChanged);
-            _floatspace.WorkspaceCellAdding += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellAdding);
-            _floatspace.WorkspaceCellRemoved += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellRemoved);
-            Controls.Add(_floatspace);
+            FloatspaceControl = floatspace;
+            FloatspaceControl.CellCountChanged += new EventHandler(OnFloatspaceCellCountChanged);
+            FloatspaceControl.CellVisibleCountChanged += new EventHandler(OnFloatspaceCellVisibleCountChanged);
+            FloatspaceControl.WorkspaceCellAdding += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellAdding);
+            FloatspaceControl.WorkspaceCellRemoved += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellRemoved);
+            Controls.Add(FloatspaceControl);
         }
 
         /// <summary>
@@ -90,10 +89,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets access to the contained KryptonFloatspace control.
         /// </summary>
-        public KryptonFloatspace FloatspaceControl
-        {
-            get { return _floatspace; }
-        }
+        public KryptonFloatspace FloatspaceControl { get; }
+
         #endregion
 
         #region Protected
@@ -138,17 +135,17 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case PI.WM_KEYDOWN:
                     base.WndProc(ref m);
-                    _floatingMessages?.OnKEYDOWN(ref m);
+                    FloatingMessages?.OnKEYDOWN(ref m);
 
                     return;
                 case PI.WM_MOUSEMOVE:
                     base.WndProc(ref m);
-                    _floatingMessages?.OnMOUSEMOVE();
+                    FloatingMessages?.OnMOUSEMOVE();
 
                     return;
                 case PI.WM_LBUTTONUP:
                     base.WndProc(ref m);
-                    _floatingMessages?.OnLBUTTONUP();
+                    FloatingMessages?.OnLBUTTONUP();
 
                     return;
             }
@@ -228,11 +225,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets the floating messages interface.
         /// </summary>
-        internal IFloatingMessages FloatingMessages
-        {
-            get { return _floatingMessages; }
-            set { _floatingMessages = value; }
-        }
+        internal IFloatingMessages FloatingMessages { get; set; }
+
         #endregion
 
         #region Implementation

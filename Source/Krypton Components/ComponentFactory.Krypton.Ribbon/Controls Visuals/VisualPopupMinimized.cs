@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 ViewRibbonManager.MouseLeave(EventArgs.Empty);
 
                 // If this group is being dismissed with key tips showing
-                if (_ribbon.InKeyboardMode && _ribbon.KeyTipMode == KeyTipMode.PopupMinimized)
+                if (_ribbon.InKeyboardMode && (_ribbon.KeyTipMode == KeyTipMode.PopupMinimized))
                 {
                     // Revert back to key tips for selected tab
                     _ribbon.KeyTipMode = KeyTipMode.Root;
@@ -95,10 +95,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the view for the popup group.
         /// </summary>
-        public ViewRibbonMinimizedManager ViewRibbonManager
-        {
-            get { return ViewManager as ViewRibbonMinimizedManager; }
-        }
+        public ViewRibbonMinimizedManager ViewRibbonManager => ViewManager as ViewRibbonMinimizedManager;
 
         /// <summary>
         /// Sets focus to the first focus item inside the selected tab.

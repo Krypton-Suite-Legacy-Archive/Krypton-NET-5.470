@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _gallery.PaletteMode; }
+            get => _gallery.PaletteMode;
 
             set
             {

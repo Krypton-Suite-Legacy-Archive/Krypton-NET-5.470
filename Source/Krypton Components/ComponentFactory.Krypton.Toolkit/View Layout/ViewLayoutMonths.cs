@@ -31,12 +31,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private IKryptonMonthCalendar _calendar;
+
         private ViewDrawDocker _drawHeader;
         private PaletteBorderInheritForced _borderForced;
-        private MonthCalendarButtonSpecCollection _buttonSpecs;
-        private ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
         private ViewDrawToday _drawToday;
         private ButtonSpecRemapByContentView _remapPalette;
@@ -45,13 +42,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private ToolTipManager _toolTipManager;
         private CultureInfo _lastCultureInfo;
         private DateTime _displayMonth;
-        private DayOfWeek _displayDayOfWeek;
-        private string[] _dayNames;
         private string _dayOfWeekMeasure;
         private string _dayMeasure;
         private string _shortText;
-        private Size _sizeDayOfWeek;
-        private Size _sizeDay;
         private DateTime _oldSelectionStart;
         private DateTime _oldSelectionEnd;
         private DateTime? _oldFocusDay;
@@ -62,8 +55,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _showWeekNumbers;
         private bool _showTodayCircle;
         private bool _showToday;
-        private bool _closeOnTodayClick;
-        private bool _allowButtonSpecToolTips;
         private bool _firstTimeSync;
         #endregion
 
@@ -84,18 +75,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                 PaletteRedirect redirector,
                                 NeedPaintHandler needPaintDelegate)
         {
-            _provider = provider;
-            _calendar = calendar;
-            _oldSelectionStart = _calendar.SelectionStart;
-            _oldSelectionEnd = _calendar.SelectionEnd;
+            Provider = provider;
+            Calendar = calendar;
+            _oldSelectionStart = Calendar.SelectionStart;
+            _oldSelectionEnd = Calendar.SelectionEnd;
             _displayMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             _redirector = redirector;
             _needPaintDelegate = needPaintDelegate;
             _showToday = true;
             _showTodayCircle = true;
-            _closeOnTodayClick = false;
+            CloseOnTodayClick = false;
             _firstTimeSync = true;
-            _allowButtonSpecToolTips = false;
+            AllowButtonSpecToolTips = false;
 
             // Use a controller that can work against all the displayed months
             MonthCalendarController controller = new MonthCalendarController(monthCalendar, viewManager, this, _needPaintDelegate);
@@ -103,30 +94,30 @@ namespace ComponentFactory.Krypton.Toolkit
             SourceController = controller;
             KeyController = controller;
 
-            _borderForced = new PaletteBorderInheritForced(_calendar.StateNormal.Header.Border);
+            _borderForced = new PaletteBorderInheritForced(Calendar.StateNormal.Header.Border);
             _borderForced.ForceBorderEdges(PaletteDrawBorders.None);
-            _drawHeader = new ViewDrawDocker(_calendar.StateNormal.Header.Back, _borderForced, null);
-            _emptyContent = new ViewDrawEmptyContent(_calendar.StateDisabled.Header.Content, _calendar.StateNormal.Header.Content);
+            _drawHeader = new ViewDrawDocker(Calendar.StateNormal.Header.Back, _borderForced, null);
+            _emptyContent = new ViewDrawEmptyContent(Calendar.StateDisabled.Header.Content, Calendar.StateNormal.Header.Content);
             _drawHeader.Add(_emptyContent, ViewDockStyle.Fill);
             Add(_drawHeader);
 
             // Using a button spec manager to add the buttons to the header
-            _buttonSpecs = new MonthCalendarButtonSpecCollection(this);
-            _buttonManager = new ButtonSpecManagerDraw(_calendar.CalendarControl, redirector, _buttonSpecs, null,
+            ButtonSpecs = new MonthCalendarButtonSpecCollection(this);
+            ButtonManager = new ButtonSpecManagerDraw(Calendar.CalendarControl, redirector, ButtonSpecs, null,
                                                        new ViewDrawDocker[] { _drawHeader },
-                                                       new IPaletteMetric[] { _calendar.StateCommon },
+                                                       new IPaletteMetric[] { Calendar.StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetCalendar },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.None },
-                                                       _calendar.GetToolStripDelegate, _needPaintDelegate);
+                                                       Calendar.GetToolStripDelegate, _needPaintDelegate);
 
             // Create the manager for handling tooltips
             _toolTipManager = new ToolTipManager();
             _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
             _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
-            _buttonManager.ToolTipManager = _toolTipManager;
+            ButtonManager.ToolTipManager = _toolTipManager;
 
             // Create the bottom header used for showing 'today' and defined button specs
-            _remapPalette = (ButtonSpecRemapByContentView)_buttonManager.CreateButtonSpecRemap(redirector, new ButtonSpecAny());
+            _remapPalette = (ButtonSpecRemapByContentView)ButtonManager.CreateButtonSpecRemap(redirector, new ButtonSpecAny());
             _remapPalette.Foreground = _emptyContent;
 
             // Use a redirector to get button values directly from palette
@@ -136,7 +127,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  PaletteContentStyle.ButtonButtonSpec,
                                                  _needPaintDelegate);
 
-            _drawToday = new ViewDrawToday(_calendar, _palette, _palette, _palette, _palette, _needPaintDelegate);
+            _drawToday = new ViewDrawToday(Calendar, _palette, _palette, _palette, _palette, _needPaintDelegate);
             _drawToday.Click += new EventHandler(OnTodayClick);
             _drawHeader.Add(_drawToday, ViewDockStyle.Left);
         }
@@ -156,58 +147,42 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
         /// </summary>
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
 
         /// <summary>
         /// Gets access to the button manager.
         /// </summary>
-        public ButtonSpecManagerDraw ButtonManager
-        {
-            get { return _buttonManager; }
-        }
+        public ButtonSpecManagerDraw ButtonManager { get; }
 
         /// <summary>
         /// Gets access to the collection of button spec definitions.
         /// </summary>
-        public MonthCalendarButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public MonthCalendarButtonSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Recreate the set of button spec instances.
         /// </summary>
         public void RecreateButtons()
         {
-            _buttonManager.RecreateButtons();
+            ButtonManager.RecreateButtons();
         }
 
         /// <summary>
         /// Gets access to the month calendar.
         /// </summary>
-        public IKryptonMonthCalendar Calendar
-        {
-            get { return _calendar; }
-        }
+        public IKryptonMonthCalendar Calendar { get; }
 
         /// <summary>
         /// Gets access to the optional context menu provider.
         /// </summary>
-        public IContextMenuProvider Provider
-        {
-            get { return _provider; }
-        }
+        public IContextMenuProvider Provider { get; }
 
         /// <summary>
         /// Gets and sets the day that is currently being tracked.
         /// </summary>
         public DateTime? TrackingDay
         {
-            get { return _trackingDay; }
+            get => _trackingDay;
 
             set
             {
@@ -224,8 +199,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public DateTime? FocusDay
         {
-            get { return _calendar.FocusDay; }
-            set { _calendar.FocusDay = value; }
+            get => Calendar.FocusDay;
+            set => Calendar.FocusDay = value;
         }
 
         /// <summary>
@@ -233,7 +208,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public DateTime? AnchorDay
         {
-            get { return _anchorDay; }
+            get => _anchorDay;
 
             set
             {
@@ -250,7 +225,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ShowTodayCircle
         {
-            get { return _showTodayCircle; }
+            get => _showTodayCircle;
 
             set
             {
@@ -267,7 +242,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ShowToday
         {
-            get { return _showToday; }
+            get => _showToday;
 
             set
             {
@@ -282,18 +257,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and set if the menu is closed when the today button is pressed.
         /// </summary>
-        public bool CloseOnTodayClick
-        {
-            get { return _closeOnTodayClick; }
-            set { _closeOnTodayClick = value; }
-        }
+        public bool CloseOnTodayClick { get; set; }
 
         /// <summary>
         /// Gets and sets the showing of week numbers.
         /// </summary>
         public bool ShowWeekNumbers
         {
-            get { return _showWeekNumbers; }
+            get => _showWeekNumbers;
 
             set
             {
@@ -308,14 +279,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the number of display months.
         /// </summary>
-        public int Months
-        {
-            get
-            {
-                return _calendar.CalendarDimensions.Width *
-                       _calendar.CalendarDimensions.Height;
-            }
-        }
+        public int Months => Calendar.CalendarDimensions.Width *
+                             Calendar.CalendarDimensions.Height;
 
         /// <summary>
         /// Process a key down by finding the correct month and calling the associated key controller.
@@ -353,8 +318,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            int cols = _calendar.CalendarDimensions.Width;
-            int rows = _calendar.CalendarDimensions.Height;
+            int cols = Calendar.CalendarDimensions.Width;
+            int rows = Calendar.CalendarDimensions.Height;
             int ptCol = cols - 1;
             int ptRow = rows - 1;
 
@@ -413,7 +378,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public void NextMonth()
         {
             // Get the number of months to move
-            int move = _calendar.ScrollChange;
+            int move = Calendar.ScrollChange;
             if (move == 0)
             {
                 move = 1;
@@ -421,38 +386,38 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Calculate the next set of months shown
             DateTime nextMonth = _displayMonth.AddMonths(move);
-            DateTime lastDate = nextMonth.AddMonths(_calendar.CalendarDimensions.Width * 
-                                                    _calendar.CalendarDimensions.Height);
+            DateTime lastDate = nextMonth.AddMonths(Calendar.CalendarDimensions.Width * 
+                                                    Calendar.CalendarDimensions.Height);
 
             DateTime ld = lastDate.AddDays(-1);
-            DateTime ldofm = LastDayOfMonth(_calendar.MaxDate);
+            DateTime ldofm = LastDayOfMonth(Calendar.MaxDate);
 
             // We do not move the month if doing so moves it past the maximum date
-            if (lastDate.AddDays(-1) <= LastDayOfMonth(_calendar.MaxDate))
+            if (lastDate.AddDays(-1) <= LastDayOfMonth(Calendar.MaxDate))
             {
                 // Use the newly calculated month
                 _displayMonth = nextMonth;
 
                 // If the end of the selection is no longer visible
-                if (_calendar.SelectionEnd < _displayMonth)
+                if (Calendar.SelectionEnd < _displayMonth)
                 {
                     // Find new selection dates
-                    DateTime newSelStart = _calendar.SelectionStart.AddMonths(move);
-                    DateTime newSelEnd = _calendar.SelectionEnd.AddMonths(move);
+                    DateTime newSelStart = Calendar.SelectionStart.AddMonths(move);
+                    DateTime newSelEnd = Calendar.SelectionEnd.AddMonths(move);
 
                     // Impose the min/max dates
-                    if (newSelStart > _calendar.MaxDate)
+                    if (newSelStart > Calendar.MaxDate)
                     {
-                        newSelStart = _calendar.MaxDate;
+                        newSelStart = Calendar.MaxDate;
                     }
 
-                    if (newSelEnd > _calendar.MaxDate)
+                    if (newSelEnd > Calendar.MaxDate)
                     {
-                        newSelEnd = _calendar.MaxDate;
+                        newSelEnd = Calendar.MaxDate;
                     }
 
                     // Shift selection onwards
-                    _calendar.SetSelectionRange(newSelStart, newSelEnd);
+                    Calendar.SetSelectionRange(newSelStart, newSelEnd);
                 }
 
                 _needPaintDelegate(this, new NeedLayoutEventArgs(true));
@@ -465,7 +430,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PrevMonth()
         {
             // Get the number of months to move
-            int move = _calendar.ScrollChange;
+            int move = Calendar.ScrollChange;
             if (move == 0)
             {
                 move = 1;
@@ -475,34 +440,34 @@ namespace ComponentFactory.Krypton.Toolkit
             DateTime prevMonth = _displayMonth.AddMonths(-move);
 
             // We do not move the month if doing so moves it past the maximum date
-            if (prevMonth >= FirstDayOfMonth(_calendar.MinDate))
+            if (prevMonth >= FirstDayOfMonth(Calendar.MinDate))
             {
                 // Use the newly calculated month
                 _displayMonth = prevMonth;
 
-                DateTime lastDate = _displayMonth.AddMonths(_calendar.CalendarDimensions.Width *
-                                                            _calendar.CalendarDimensions.Height);
+                DateTime lastDate = _displayMonth.AddMonths(Calendar.CalendarDimensions.Width *
+                                                            Calendar.CalendarDimensions.Height);
 
                 // If the start of the selection is no longer visible
-                if (_calendar.SelectionStart >= lastDate)
+                if (Calendar.SelectionStart >= lastDate)
                 {
                     // Find new selection dates
-                    DateTime newSelStart = _calendar.SelectionStart.AddMonths(-move);
-                    DateTime newSelEnd = _calendar.SelectionEnd.AddMonths(-move);
+                    DateTime newSelStart = Calendar.SelectionStart.AddMonths(-move);
+                    DateTime newSelEnd = Calendar.SelectionEnd.AddMonths(-move);
 
                     // Impose the min/max dates
-                    if (newSelStart < _calendar.MinDate)
+                    if (newSelStart < Calendar.MinDate)
                     {
-                        newSelStart = _calendar.MinDate;
+                        newSelStart = Calendar.MinDate;
                     }
 
-                    if (newSelEnd < _calendar.MinDate)
+                    if (newSelEnd < Calendar.MinDate)
                     {
-                        newSelEnd = _calendar.MinDate;
+                        newSelEnd = Calendar.MinDate;
                     }
 
                     // Shift selection backwards
-                    _calendar.SetSelectionRange(newSelStart, newSelEnd);
+                    Calendar.SetSelectionRange(newSelStart, newSelEnd);
                 }
 
                 _needPaintDelegate(this, new NeedLayoutEventArgs(true));
@@ -576,8 +541,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size monthSize = this[1].GetPreferredSize(context);
 
                 // Find total width based on requested dimensions and add a single pixel space around and between months
-                preferredSize.Width += (monthSize.Width * _calendar.CalendarDimensions.Width) + (GAP * _calendar.CalendarDimensions.Width) + GAP;
-                preferredSize.Height += (monthSize.Height * _calendar.CalendarDimensions.Height) + (GAP * _calendar.CalendarDimensions.Height) + GAP;
+                preferredSize.Width += (monthSize.Width * Calendar.CalendarDimensions.Width) + (GAP * Calendar.CalendarDimensions.Width) + GAP;
+                preferredSize.Height += (monthSize.Height * Calendar.CalendarDimensions.Height) + (GAP * Calendar.CalendarDimensions.Height) + GAP;
             }
 
             return preferredSize;
@@ -617,7 +582,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Size monthSize = this[1].GetPreferredSize(context);
 
                 // Position each child within the required grid
-                Size dimensions = _calendar.CalendarDimensions;
+                Size dimensions = Calendar.CalendarDimensions;
                 for (int y = 0, index = 1; y < dimensions.Height; y++)
                 {
                     for (int x = 0; x < dimensions.Width; x++)
@@ -677,25 +642,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal Size SizeDays
-        {
-            get { return _sizeDayOfWeek; }
-        }
+        internal Size SizeDays { get; private set; }
 
-        internal Size SizeDay
-        {
-            get { return _sizeDay; }
-        }
+        internal Size SizeDay { get; private set; }
 
-        internal DayOfWeek DisplayDayOfWeek
-        {
-            get { return _displayDayOfWeek; }
-        }
+        internal DayOfWeek DisplayDayOfWeek { get; private set; }
 
-        internal string[] DayNames
-        {
-            get { return _dayNames; }
-        }
+        internal string[] DayNames { get; private set; }
+
         #endregion
 
         #region Private
@@ -707,12 +661,12 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnTodayClick(object sender, EventArgs e)
         {
             // Remove any time information as selecting a date is based only on the day
-            DateTime today = _calendar.TodayDate;
+            DateTime today = Calendar.TodayDate;
 
             // Can only set a date that is within the valid min/max range
-            if ((today >= _calendar.MinDate) && (today <= _calendar.MaxDate))
+            if ((today >= Calendar.MinDate) && (today <= Calendar.MaxDate))
             {
-                _calendar.SetSelectionRange(today, today);
+                Calendar.SetSelectionRange(today, today);
                 _needPaintDelegate(this, new NeedLayoutEventArgs(true));
             }
 
@@ -738,35 +692,35 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _lastCultureInfo = CultureInfo.CurrentCulture;
                 _needPaintDelegate(this, new NeedLayoutEventArgs(true));
-                _dayNames = null;
+                DayNames = null;
             }
 
-            if (_dayNames == null)
+            if (DayNames == null)
             {
                 // Grab the names for each day of the week
-                _dayNames = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
-                _dayOfWeekMeasure = new string('W', Math.Max(3, _dayNames[0].Length));
+                DayNames = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
+                _dayOfWeekMeasure = new string('W', Math.Max(3, DayNames[0].Length));
                 _dayMeasure = "WW";
             }
 
-            if (_calendar.FirstDayOfWeek == Day.Default)
+            if (Calendar.FirstDayOfWeek == Day.Default)
             {
-                _displayDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+                DisplayDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
             }
             else
             {
-                _displayDayOfWeek = (DayOfWeek)((((int)_calendar.FirstDayOfWeek) + 1) % 6);
+                DisplayDayOfWeek = (DayOfWeek)((((int)Calendar.FirstDayOfWeek) + 1) % 6);
             }
 
             // Find the grid cell sizes needed for day names and day entries
-            _sizeDayOfWeek = MaxGridCellDayOfWeek(context);
-            _sizeDay = MaxGridCellDay(context);
+            SizeDays = MaxGridCellDayOfWeek(context);
+            SizeDay = MaxGridCellDay(context);
         }
 
         private void SyncMonths()
         {
             // We need the today header if we show the today button or a button spec
-            this[0].Visible = _showToday || (_buttonSpecs.Count > 0);
+            this[0].Visible = _showToday || (ButtonSpecs.Count > 0);
             this[0].Enabled = Enabled;
             _drawToday.Visible = _showToday;
 
@@ -778,7 +732,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 for (int i = Count - 1; i < months; i++)
                 {
-                    Add(new ViewDrawMonth(_calendar, this, _redirector, _needPaintDelegate));
+                    Add(new ViewDrawMonth(Calendar, this, _redirector, _needPaintDelegate));
                 }
             }
             else if (Count > (months + 1))
@@ -792,14 +746,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Is there a change in the selection range?
-            if ((_oldSelectionStart != _calendar.SelectionStart) || 
-                (_oldSelectionEnd != _calendar.SelectionEnd) ||
+            if ((_oldSelectionStart != Calendar.SelectionStart) || 
+                (_oldSelectionEnd != Calendar.SelectionEnd) ||
                 (_oldFocusDay != FocusDay) ||
                 _firstTimeSync)
             {
                 _firstTimeSync = false;
-                _oldSelectionStart = _calendar.SelectionStart;
-                _oldSelectionEnd = _calendar.SelectionEnd;
+                _oldSelectionStart = Calendar.SelectionStart;
+                _oldSelectionEnd = Calendar.SelectionEnd;
                 _oldFocusDay = FocusDay;
 
                 // If we have a day with the focus
@@ -833,7 +787,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (_oldSelectionStart < _displayMonth)
                     {
-                        _displayMonth = new DateTime(_calendar.SelectionStart.Year, _calendar.SelectionStart.Month, 1);
+                        _displayMonth = new DateTime(Calendar.SelectionStart.Year, Calendar.SelectionStart.Month, 1);
                     }
                 }
             }
@@ -848,7 +802,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 viewMonth.Month = currentMonth;
                 viewMonth.FirstMonth = (i == 1);
                 viewMonth.LastMonth = (i == (Count - 1));
-                viewMonth.UpdateButtons((i == 1), ((i - 1) == (_calendar.CalendarDimensions.Width - 1)));
+                viewMonth.UpdateButtons((i == 1), ((i - 1) == (Calendar.CalendarDimensions.Width - 1)));
 
                 // Move forward to next month
                 currentMonth = currentMonth.AddMonths(1);
@@ -860,20 +814,20 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do not show tooltips when the form we are in does not have focus
-                Form topForm = _calendar.CalendarControl.FindForm();
+                Form topForm = Calendar.CalendarControl.FindForm();
                 if ((topForm != null) && !topForm.ContainsFocus)
                 {
                     return;
                 }
 
                 // Never show tooltips are design time
-                if (!_calendar.InDesignMode)
+                if (!Calendar.InDesignMode)
                 {
                     IContentValues sourceContent = null;
                     LabelStyle toolTipStyle = LabelStyle.ToolTip;
 
                     // Find the button spec associated with the tooltip request
-                    ButtonSpec buttonSpec = _buttonManager.ButtonSpecFromView(e.Target);
+                    ButtonSpec buttonSpec = ButtonManager.ButtonSpecFromView(e.Target);
 
                     // If the tooltip is for a button spec
                     if (buttonSpec != null)
@@ -901,7 +855,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Create the actual tooltip popup object
                         _visualPopupToolTip = new VisualPopupToolTip(_redirector,
                                                                      sourceContent,
-                                                                     _calendar.GetRenderer(),
+                                                                     Calendar.GetRenderer(),
                                                                      PaletteBackStyle.ControlToolTip,
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
@@ -909,7 +863,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(_calendar.CalendarControl.RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(Calendar.CalendarControl.RectangleToScreen(e.Target.ClientRectangle));
                     }
                 }
             }
@@ -936,13 +890,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _shortText = _dayMeasure;
 
             // Find sizes required for the different 
-            Size normalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
-            Size disabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateDisabled.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size trackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size pressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StatePressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateCheckedNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedTrackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateCheckedTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
-            Size checkedPressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateCheckedPressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size normalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
+            Size disabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size trackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size pressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StatePressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size checkedNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedNormal.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size checkedTrackingSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedTracking.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size checkedPressedSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateCheckedPressed.Day.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
 
             // Find largest size required
             normalSize.Width = Math.Max(normalSize.Width, Math.Max(disabledSize.Width, Math.Max(trackingSize.Width, Math.Max(pressedSize.Width, Math.Max(checkedNormalSize.Width, Math.Max(checkedTrackingSize.Width, checkedPressedSize.Width))))));
@@ -956,14 +910,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _shortText = "A";
 
             // Find sizes required for the different 
-            Size shortNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
-            Size shortDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size shortNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Normal, false);
+            Size shortDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
 
             _shortText = "A" + _dayOfWeekMeasure;
 
             // Find sizes required for the different 
-            Size fullNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top,  PaletteState.Normal, false);
-            Size fullDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, _calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
+            Size fullNormalSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateNormal.DayOfWeek.Content, this, VisualOrientation.Top,  PaletteState.Normal, false);
+            Size fullDisabledSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context, Calendar.StateDisabled.DayOfWeek.Content, this, VisualOrientation.Top, PaletteState.Disabled, false);
 
             // Find largest size required (subtract a fudge factor of 3 pixels as Graphics.MeasureString is always too big)
             fullNormalSize.Width = Math.Max(fullNormalSize.Width - shortNormalSize.Width - 3, fullDisabledSize.Width - shortDisabledSize.Width - 3);

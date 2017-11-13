@@ -20,10 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteContentInheritOverride : PaletteContentInherit
 	{
 		#region Instance Fields
-		private bool _apply;
-        private bool _override;
-        private PaletteState _state;
-		private IPaletteContent _primary;
+
+	    private IPaletteContent _primary;
 		private IPaletteContent _backup;
 		#endregion
 
@@ -57,11 +55,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Store incoming values
 			_primary = primary;
 			_backup = backup;
-            _apply = apply;
-            _state = overrideState;
+            Apply = apply;
+            OverrideState = overrideState;
 
             // By default we do override the state
-            _override = true;
+            Override = true;
 		}
 		#endregion
 
@@ -84,34 +82,25 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets and sets a value indicating if override should be applied.
 		/// </summary>
-		public bool Apply
-		{
-			get { return _apply; }
-            set { _apply = value; }
-		}
-		#endregion
+		public bool Apply { get; set; }
+
+	    #endregion
 
         #region Override
         /// <summary>
         /// Gets and sets a value indicating if override state should be applied.
         /// </summary>
-        public bool Override
-        {
-            get { return _override; }
-            set { _override = value; }
-        }
-        #endregion
+        public bool Override { get; set; }
+
+	    #endregion
 
 		#region OverrideState
 		/// <summary>
 		/// Gets and sets the override palette state to use.
 		/// </summary>
-		public PaletteState OverrideState
-		{
-			get { return _state; }
-			set { _state = value; }
-		}
-		#endregion
+		public PaletteState OverrideState { get; set; }
+
+	    #endregion
 
 		#region IPaletteContent
 		/// <summary>
@@ -121,9 +110,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetContentDraw(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                InheritBool ret = _primary.GetContentDraw(_override ? _state : state);
+                InheritBool ret = _primary.GetContentDraw(Override ? OverrideState : state);
 
 				if (ret == InheritBool.Inherit)
                 {
@@ -145,9 +134,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetContentDrawFocus(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                InheritBool ret = _primary.GetContentDrawFocus(_override ? _state : state);
+                InheritBool ret = _primary.GetContentDrawFocus(Override ? OverrideState : state);
 
 				if (ret == InheritBool.Inherit)
                 {
@@ -169,9 +158,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentImageH(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentImageH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentImageH(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -193,9 +182,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentImageV(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentImageV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentImageV(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -217,9 +206,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteImageEffect value.</returns>
 		public override PaletteImageEffect GetContentImageEffect(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteImageEffect ret = _primary.GetContentImageEffect(_override ? _state : state);
+                PaletteImageEffect ret = _primary.GetContentImageEffect(Override ? OverrideState : state);
 
 				if (ret == PaletteImageEffect.Inherit)
                 {
@@ -241,9 +230,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentImageColorMap(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentImageColorMap(_override ? _state : state);
+                Color ret = _primary.GetContentImageColorMap(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -265,9 +254,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentImageColorTo(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentImageColorTo(_override ? _state : state);
+                Color ret = _primary.GetContentImageColorTo(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -289,9 +278,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Font value.</returns>
 		public override Font GetContentShortTextFont(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Font ret = _primary.GetContentShortTextFont(_override ? _state : state);
+                Font ret = _primary.GetContentShortTextFont(Override ? OverrideState : state);
 
 				if (ret == null)
                 {
@@ -313,9 +302,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public override Font GetContentShortTextNewFont(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Font ret = _primary.GetContentShortTextNewFont(_override ? _state : state);
+                Font ret = _primary.GetContentShortTextNewFont(Override ? OverrideState : state);
 
 				if (ret == null)
                 {
@@ -337,9 +326,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteTextHint value.</returns>
 		public override PaletteTextHint GetContentShortTextHint(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteTextHint ret = _primary.GetContentShortTextHint(_override ? _state : state);
+                PaletteTextHint ret = _primary.GetContentShortTextHint(Override ? OverrideState : state);
 
 				if (ret == PaletteTextHint.Inherit)
                 {
@@ -361,9 +350,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextPrefix value.</returns>
         public override PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHotkeyPrefix ret = _primary.GetContentShortTextPrefix(_override ? _state : state);
+                PaletteTextHotkeyPrefix ret = _primary.GetContentShortTextPrefix(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
                 {
@@ -385,9 +374,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetContentShortTextMultiLine(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                InheritBool ret = _primary.GetContentShortTextMultiLine(_override ? _state : state);
+                InheritBool ret = _primary.GetContentShortTextMultiLine(Override ? OverrideState : state);
 
 				if (ret == InheritBool.Inherit)
                 {
@@ -409,9 +398,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteTextTrim value.</returns>
 		public override PaletteTextTrim GetContentShortTextTrim(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteTextTrim ret = _primary.GetContentShortTextTrim(_override ? _state : state);
+                PaletteTextTrim ret = _primary.GetContentShortTextTrim(Override ? OverrideState : state);
 
 				if (ret == PaletteTextTrim.Inherit)
                 {
@@ -433,9 +422,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentShortTextH(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentShortTextH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentShortTextH(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -457,9 +446,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentShortTextV(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentShortTextV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentShortTextV(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -481,9 +470,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentShortTextMultiLineH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentShortTextMultiLineH(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -505,9 +494,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentShortTextColor1(_override ? _state : state);
+                Color ret = _primary.GetContentShortTextColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -529,9 +518,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentShortTextColor2(_override ? _state : state);
+                Color ret = _primary.GetContentShortTextColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -553,9 +542,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetContentShortTextColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteColorStyle ret = _primary.GetContentShortTextColorStyle(_override ? _state : state);
+                PaletteColorStyle ret = _primary.GetContentShortTextColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteColorStyle.Inherit)
                 {
@@ -577,9 +566,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color alignment style.</returns>
         public override PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primary.GetContentShortTextColorAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetContentShortTextColorAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -601,9 +590,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Angle used for color drawing.</returns>
         public override float GetContentShortTextColorAngle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                float ret = _primary.GetContentShortTextColorAngle(_override ? _state : state);
+                float ret = _primary.GetContentShortTextColorAngle(Override ? OverrideState : state);
 
                 if (ret == -1f)
                 {
@@ -625,9 +614,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image instance.</returns>
         public override Image GetContentShortTextImage(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Image ret = _primary.GetContentShortTextImage(_override ? _state : state);
+                Image ret = _primary.GetContentShortTextImage(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -649,9 +638,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image style value.</returns>
         public override PaletteImageStyle GetContentShortTextImageStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteImageStyle ret = _primary.GetContentShortTextImageStyle(_override ? _state : state);
+                PaletteImageStyle ret = _primary.GetContentShortTextImageStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteImageStyle.Inherit)
                 {
@@ -673,9 +662,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image alignment style.</returns>
         public override PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primary.GetContentShortTextImageAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetContentShortTextImageAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -697,9 +686,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Font value.</returns>
 		public override Font GetContentLongTextFont(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Font ret = _primary.GetContentLongTextFont(_override ? _state : state);
+                Font ret = _primary.GetContentLongTextFont(Override ? OverrideState : state);
 
 				if (ret == null)
                 {
@@ -721,9 +710,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Font value.</returns>
         public override Font GetContentLongTextNewFont(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Font ret = _primary.GetContentLongTextNewFont(_override ? _state : state);
+                Font ret = _primary.GetContentLongTextNewFont(Override ? OverrideState : state);
 
 				if (ret == null)
                 {
@@ -745,9 +734,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteTextHint value.</returns>
 		public override PaletteTextHint GetContentLongTextHint(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteTextHint ret = _primary.GetContentLongTextHint(_override ? _state : state);
+                PaletteTextHint ret = _primary.GetContentLongTextHint(Override ? OverrideState : state);
 
 				if (ret == PaletteTextHint.Inherit)
                 {
@@ -769,9 +758,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteTextPrefix value.</returns>
         public override PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteTextHotkeyPrefix ret = _primary.GetContentLongTextPrefix(_override ? _state : state);
+                PaletteTextHotkeyPrefix ret = _primary.GetContentLongTextPrefix(Override ? OverrideState : state);
 
                 if (ret == PaletteTextHotkeyPrefix.Inherit)
                 {
@@ -793,9 +782,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetContentLongTextMultiLine(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                InheritBool ret = _primary.GetContentLongTextMultiLine(_override ? _state : state);
+                InheritBool ret = _primary.GetContentLongTextMultiLine(Override ? OverrideState : state);
 
 				if (ret == InheritBool.Inherit)
                 {
@@ -817,9 +806,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteTextTrim value.</returns>
 		public override PaletteTextTrim GetContentLongTextTrim(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteTextTrim ret = _primary.GetContentLongTextTrim(_override ? _state : state);
+                PaletteTextTrim ret = _primary.GetContentLongTextTrim(Override ? OverrideState : state);
 
 				if (ret == PaletteTextTrim.Inherit)
                 {
@@ -841,9 +830,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentLongTextH(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentLongTextH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentLongTextH(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -865,9 +854,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentLongTextV(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentLongTextV(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentLongTextV(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -889,9 +878,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>RelativeAlignment value.</returns>
 		public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                PaletteRelativeAlign ret = _primary.GetContentLongTextMultiLineH(_override ? _state : state);
+                PaletteRelativeAlign ret = _primary.GetContentLongTextMultiLineH(Override ? OverrideState : state);
 
 				if (ret == PaletteRelativeAlign.Inherit)
                 {
@@ -913,9 +902,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor1(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentLongTextColor1(_override ? _state : state);
+                Color ret = _primary.GetContentLongTextColor1(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -937,9 +926,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor2(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Color ret = _primary.GetContentLongTextColor2(_override ? _state : state);
+                Color ret = _primary.GetContentLongTextColor2(Override ? OverrideState : state);
 
                 if (ret == Color.Empty)
                 {
@@ -961,9 +950,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetContentLongTextColorStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteColorStyle ret = _primary.GetContentLongTextColorStyle(_override ? _state : state);
+                PaletteColorStyle ret = _primary.GetContentLongTextColorStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteColorStyle.Inherit)
                 {
@@ -985,9 +974,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color alignment style.</returns>
         public override PaletteRectangleAlign GetContentLongTextColorAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primary.GetContentLongTextColorAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetContentLongTextColorAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -1009,9 +998,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Angle used for color drawing.</returns>
         public override float GetContentLongTextColorAngle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                float ret = _primary.GetContentLongTextColorAngle(_override ? _state : state);
+                float ret = _primary.GetContentLongTextColorAngle(Override ? OverrideState : state);
 
                 if (ret == -1f)
                 {
@@ -1033,9 +1022,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image instance.</returns>
         public override Image GetContentLongTextImage(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                Image ret = _primary.GetContentLongTextImage(_override ? _state : state);
+                Image ret = _primary.GetContentLongTextImage(Override ? OverrideState : state);
 
                 if (ret == null)
                 {
@@ -1057,9 +1046,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image style value.</returns>
         public override PaletteImageStyle GetContentLongTextImageStyle(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteImageStyle ret = _primary.GetContentLongTextImageStyle(_override ? _state : state);
+                PaletteImageStyle ret = _primary.GetContentLongTextImageStyle(Override ? OverrideState : state);
 
                 if (ret == PaletteImageStyle.Inherit)
                 {
@@ -1081,9 +1070,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Image alignment style.</returns>
         public override PaletteRectangleAlign GetContentLongTextImageAlign(PaletteState state)
         {
-            if (_apply)
+            if (Apply)
             {
-                PaletteRectangleAlign ret = _primary.GetContentLongTextImageAlign(_override ? _state : state);
+                PaletteRectangleAlign ret = _primary.GetContentLongTextImageAlign(Override ? OverrideState : state);
 
                 if (ret == PaletteRectangleAlign.Inherit)
                 {
@@ -1105,9 +1094,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Padding value.</returns>
 		public override Padding GetContentPadding(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                Padding ret = _primary.GetContentPadding(_override ? _state : state);
+                Padding ret = _primary.GetContentPadding(Override ? OverrideState : state);
 
 				if (ret.All == -1)
                 {
@@ -1129,9 +1118,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Integer value.</returns>
 		public override int GetContentAdjacentGap(PaletteState state)
 		{
-			if (_apply)
+			if (Apply)
 			{
-                int ret = _primary.GetContentAdjacentGap(_override ? _state : state);
+                int ret = _primary.GetContentAdjacentGap(Override ? OverrideState : state);
 
 				if (ret == -1)
                 {
@@ -1152,7 +1141,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Content style.</returns>
         public override PaletteContentStyle GetContentStyle()
         {
-            if (_apply)
+            if (Apply)
             {
                 return _primary.GetContentStyle();
             }

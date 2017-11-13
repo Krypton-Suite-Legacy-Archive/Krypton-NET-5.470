@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ButtonSpecNavManagerLayoutBar : ButtonSpecManagerLayout
     {
         #region Instance Fields
-        private ButtonSpecNavRemap.ButtonSpecRemapTarget _remapTarget;
+
         #endregion
 
         #region Identity
@@ -84,7 +84,7 @@ namespace ComponentFactory.Krypton.Navigator
                    viewMetricIntInside, viewMetricPaddings, getRenderer, 
                    needPaint)
         {
-            _remapTarget = ButtonSpecNavRemap.ButtonSpecRemapTarget.LabelPanel;
+            RemapTarget = ButtonSpecNavRemap.ButtonSpecRemapTarget.LabelPanel;
         }
         #endregion
 
@@ -92,11 +92,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Required target for the remapping.
         /// </summary>
-        public ButtonSpecNavRemap.ButtonSpecRemapTarget RemapTarget
-        {
-            get { return _remapTarget; }
-            set { _remapTarget = value; }
-        }
+        public ButtonSpecNavRemap.ButtonSpecRemapTarget RemapTarget { get; set; }
 
         /// <summary>
         /// Update the remap target to match the tab style.
@@ -227,10 +223,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if inside edge spacers are required.
         /// </summary>
-        protected override bool UseInsideSpacers
-        {
-            get { return true; }
-        }
+        protected override bool UseInsideSpacers => true;
 
         /// <summary>
         /// Perform final steps now that the button spec has been created.

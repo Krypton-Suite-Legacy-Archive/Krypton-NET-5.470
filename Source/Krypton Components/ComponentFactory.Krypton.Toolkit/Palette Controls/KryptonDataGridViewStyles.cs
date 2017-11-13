@@ -48,10 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get { return (_gridStyle == DataGridViewStyle.List); }
-        }
+        public override bool IsDefault => (_gridStyle == DataGridViewStyle.List);
+
         #endregion
 
         #region Style
@@ -63,7 +61,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public DataGridViewStyle Style
         {
-            get { return _gridStyle; }
+            get => _gridStyle;
 
             set
             {
@@ -119,7 +117,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public GridStyle StyleColumn
         {
-            get { return _columnStyle; }
+            get => _columnStyle;
 
             set
             {
@@ -185,7 +183,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public GridStyle StyleRow
         {
-            get { return _rowStyle; }
+            get => _rowStyle;
 
             set
             {
@@ -251,7 +249,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public GridStyle StyleDataCells
         {
-            get { return _dataCellStyle; }
+            get => _dataCellStyle;
 
             set
             {
@@ -317,7 +315,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public PaletteBackStyle StyleBackground
         {
-            get { return _backgroundStyle; }
+            get => _backgroundStyle;
 
             set
             {

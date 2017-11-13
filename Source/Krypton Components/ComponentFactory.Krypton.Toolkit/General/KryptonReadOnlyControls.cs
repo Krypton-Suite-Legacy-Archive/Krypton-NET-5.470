@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonReadOnlyControls : KryptonControlCollection
     {
         #region Instance Fields
-        private bool _allowRemove;
+
         #endregion
 
         #region Identity
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonReadOnlyControls(Control owner)
             : base(owner)
         {
-            _allowRemove = false;
+            AllowRemoveInternal = false;
         }
         #endregion
 
@@ -41,11 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowRemoveInternal
-        {
-            get { return _allowRemove; }
-            set { _allowRemove = value; }
-        }
+        public bool AllowRemoveInternal { get; set; }
+
         #endregion
 
         #region Public Overrides

@@ -45,7 +45,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
             #region Instance Fields
             private ViewManager _viewManager;
-            private ViewDrawPanel _drawPanel;
             private KryptonTreeView _kryptonTreeView;
             private IntPtr _screenDC;
             private bool _mouseOver;
@@ -75,8 +74,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 _kryptonTreeView = kryptonTreeView;
 
                 // Create manager and view for drawing the background
-                _drawPanel = new ViewDrawPanel();
-                _viewManager = new ViewManager(this, _drawPanel);
+                ViewDrawPanel = new ViewDrawPanel();
+                _viewManager = new ViewManager(this, ViewDrawPanel);
 
                 // Set required properties to act as an owner draw list box
                 base.Size = Size.Empty;
@@ -112,17 +111,14 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets access to the contained view draw panel instance.
             /// </summary>
-            public ViewDrawPanel ViewDrawPanel
-            {
-                get { return _drawPanel; }
-            }
+            public ViewDrawPanel ViewDrawPanel { get; }
 
             /// <summary>
             /// Gets and sets if the mouse is currently over the combo box.
             /// </summary>
             public bool MouseOver
             {
-                get { return _mouseOver; }
+                get => _mouseOver;
 
                 set
                 {
@@ -172,7 +168,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Ask the panel to layout given our available size
                 using (ViewLayoutContext context = new ViewLayoutContext(_viewManager, this, _kryptonTreeView, _kryptonTreeView.Renderer))
                 {
-                    _drawPanel.Layout(context);
+                    ViewDrawPanel.Layout(context);
                 }
             }
 
@@ -281,17 +277,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                 using (ViewLayoutContext context = new ViewLayoutContext(this, _kryptonTreeView.Renderer))
                                 {
                                     context.DisplayRectangle = realRect;
-                                    _drawPanel.Layout(context);
+                                    ViewDrawPanel.Layout(context);
                                 }
 
                                 using (RenderContext context = new RenderContext(this, _kryptonTreeView, g, realRect, _kryptonTreeView.Renderer))
                                 {
-                                    _drawPanel.Render(context);
+                                    ViewDrawPanel.Render(context);
                                 }
 
                                 // We can only control the background color by using the built in property and not
                                 // by overriding the drawing directly, therefore we can only provide a single color.
-                                Color color1 = _drawPanel.GetPalette().GetBackColor1(_drawPanel.State);
+                                Color color1 = ViewDrawPanel.GetPalette().GetBackColor1(ViewDrawPanel.State);
                                 if (color1 != BackColor)
                                 {
                                     BackColor = color1;
@@ -326,16 +322,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private PaletteTreeStateRedirect _stateCommon;
-        private PaletteTreeState _stateDisabled;
-        private PaletteTreeState _stateNormal;
-        private PaletteDouble _stateActive;
-        private PaletteTreeNodeTriple _stateTracking;
-        private PaletteTreeNodeTriple _statePressed;
-        private PaletteTreeNodeTriple _stateCheckedNormal;
-        private PaletteTreeNodeTriple _stateCheckedTracking;
-        private PaletteTreeNodeTriple _stateCheckedPressed;
-        private PaletteTreeNodeTripleRedirect _stateFocus;
+
         private PaletteTripleOverride _overrideNormal;
         private PaletteTripleOverride _overrideTracking;
         private PaletteTripleOverride _overridePressed;
@@ -344,8 +331,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private PaletteTripleOverride _overrideCheckedPressed;
         private PaletteNodeOverride _overrideNormalNode;
         private PaletteRedirectTreeView _redirectImages;
-        private TreeViewImages _plusMinusImages;
-        private CheckBoxImages _checkBoxImages;
         private ViewLayoutDocker _drawDockerInner;
         private ViewDrawDocker _drawDockerOuter;
         private ViewLayoutFill _layoutFill;
@@ -557,44 +542,44 @@ namespace ComponentFactory.Krypton.Toolkit
             _alwaysActive = true;
             _style = ButtonStyle.ListItem;
             _itemHeightDefault = true;
-            _plusMinusImages = new TreeViewImages();
-            _checkBoxImages = new CheckBoxImages();
+            PlusMinusImages = new TreeViewImages();
+            CheckBoxImages = new CheckBoxImages();
             base.Padding = new Padding(1);
 
             // Create the palette storage
-            _redirectImages = new PaletteRedirectTreeView(Redirector, _plusMinusImages, _checkBoxImages);
+            _redirectImages = new PaletteRedirectTreeView(Redirector, PlusMinusImages, CheckBoxImages);
             PaletteBackInheritRedirect backInherit = new PaletteBackInheritRedirect(Redirector, PaletteBackStyle.InputControlStandalone);
             PaletteBorderInheritRedirect borderInherit = new PaletteBorderInheritRedirect(Redirector, PaletteBorderStyle.InputControlStandalone);
             PaletteBackColor1 commonBack = new PaletteBackColor1(backInherit, NeedPaintDelegate);
             PaletteBorder commonBorder = new PaletteBorder(borderInherit, NeedPaintDelegate);
-            _stateCommon = new PaletteTreeStateRedirect(Redirector, commonBack, backInherit, commonBorder, borderInherit, NeedPaintDelegate);
+            StateCommon = new PaletteTreeStateRedirect(Redirector, commonBack, backInherit, commonBorder, borderInherit, NeedPaintDelegate);
             
-            PaletteBackColor1 disabledBack = new PaletteBackColor1(_stateCommon.PaletteBack, NeedPaintDelegate);
-            PaletteBorder disabledBorder = new PaletteBorder(_stateCommon.PaletteBorder, NeedPaintDelegate);
-            _stateDisabled = new PaletteTreeState(_stateCommon, disabledBack, disabledBorder, NeedPaintDelegate);
+            PaletteBackColor1 disabledBack = new PaletteBackColor1(StateCommon.PaletteBack, NeedPaintDelegate);
+            PaletteBorder disabledBorder = new PaletteBorder(StateCommon.PaletteBorder, NeedPaintDelegate);
+            StateDisabled = new PaletteTreeState(StateCommon, disabledBack, disabledBorder, NeedPaintDelegate);
 
-            PaletteBackColor1 normalBack = new PaletteBackColor1(_stateCommon.PaletteBack, NeedPaintDelegate);
-            PaletteBorder normalBorder = new PaletteBorder(_stateCommon.PaletteBorder, NeedPaintDelegate);
-            _stateNormal = new PaletteTreeState(_stateCommon, normalBack, normalBorder, NeedPaintDelegate);
+            PaletteBackColor1 normalBack = new PaletteBackColor1(StateCommon.PaletteBack, NeedPaintDelegate);
+            PaletteBorder normalBorder = new PaletteBorder(StateCommon.PaletteBorder, NeedPaintDelegate);
+            StateNormal = new PaletteTreeState(StateCommon, normalBack, normalBorder, NeedPaintDelegate);
 
-            PaletteBackColor1 activeBack = new PaletteBackColor1(_stateCommon.PaletteBack, NeedPaintDelegate);
-            PaletteBorder activeBorder = new PaletteBorder(_stateCommon.PaletteBorder, NeedPaintDelegate);
-            _stateActive = new PaletteDouble(_stateCommon, activeBack, activeBorder, NeedPaintDelegate);
+            PaletteBackColor1 activeBack = new PaletteBackColor1(StateCommon.PaletteBack, NeedPaintDelegate);
+            PaletteBorder activeBorder = new PaletteBorder(StateCommon.PaletteBorder, NeedPaintDelegate);
+            StateActive = new PaletteDouble(StateCommon, activeBack, activeBorder, NeedPaintDelegate);
 
-            _stateFocus = new PaletteTreeNodeTripleRedirect(Redirector, PaletteBackStyle.ButtonListItem, PaletteBorderStyle.ButtonListItem, PaletteContentStyle.ButtonListItem, NeedPaintDelegate);
-            _stateTracking = new PaletteTreeNodeTriple(_stateCommon.Node, NeedPaintDelegate);
-            _statePressed = new PaletteTreeNodeTriple(_stateCommon.Node, NeedPaintDelegate);
-            _stateCheckedNormal = new PaletteTreeNodeTriple(_stateCommon.Node, NeedPaintDelegate);
-            _stateCheckedTracking = new PaletteTreeNodeTriple(_stateCommon.Node, NeedPaintDelegate);
-            _stateCheckedPressed = new PaletteTreeNodeTriple(_stateCommon.Node, NeedPaintDelegate);
+            OverrideFocus = new PaletteTreeNodeTripleRedirect(Redirector, PaletteBackStyle.ButtonListItem, PaletteBorderStyle.ButtonListItem, PaletteContentStyle.ButtonListItem, NeedPaintDelegate);
+            StateTracking = new PaletteTreeNodeTriple(StateCommon.Node, NeedPaintDelegate);
+            StatePressed = new PaletteTreeNodeTriple(StateCommon.Node, NeedPaintDelegate);
+            StateCheckedNormal = new PaletteTreeNodeTriple(StateCommon.Node, NeedPaintDelegate);
+            StateCheckedTracking = new PaletteTreeNodeTriple(StateCommon.Node, NeedPaintDelegate);
+            StateCheckedPressed = new PaletteTreeNodeTriple(StateCommon.Node, NeedPaintDelegate);
 
             // Create the override handling classes
-            _overrideNormal = new PaletteTripleOverride(_stateFocus.Node, _stateNormal.Node, PaletteState.FocusOverride);
-            _overrideTracking = new PaletteTripleOverride(_stateFocus.Node, _stateTracking.Node, PaletteState.FocusOverride);
-            _overridePressed = new PaletteTripleOverride(_stateFocus.Node, _statePressed.Node, PaletteState.FocusOverride);
-            _overrideCheckedNormal = new PaletteTripleOverride(_stateFocus.Node, _stateCheckedNormal.Node, PaletteState.FocusOverride);
-            _overrideCheckedTracking = new PaletteTripleOverride(_stateFocus.Node, _stateCheckedTracking.Node, PaletteState.FocusOverride);
-            _overrideCheckedPressed = new PaletteTripleOverride(_stateFocus.Node, _stateCheckedPressed.Node, PaletteState.FocusOverride);
+            _overrideNormal = new PaletteTripleOverride(OverrideFocus.Node, StateNormal.Node, PaletteState.FocusOverride);
+            _overrideTracking = new PaletteTripleOverride(OverrideFocus.Node, StateTracking.Node, PaletteState.FocusOverride);
+            _overridePressed = new PaletteTripleOverride(OverrideFocus.Node, StatePressed.Node, PaletteState.FocusOverride);
+            _overrideCheckedNormal = new PaletteTripleOverride(OverrideFocus.Node, StateCheckedNormal.Node, PaletteState.FocusOverride);
+            _overrideCheckedTracking = new PaletteTripleOverride(OverrideFocus.Node, StateCheckedTracking.Node, PaletteState.FocusOverride);
+            _overrideCheckedPressed = new PaletteTripleOverride(OverrideFocus.Node, StateCheckedPressed.Node, PaletteState.FocusOverride);
             _overrideNormalNode = new PaletteNodeOverride(_overrideNormal);
 
             // Create the check box image drawer and place inside element so it is always centered
@@ -676,7 +661,7 @@ namespace ComponentFactory.Krypton.Toolkit
             };
 
             // Create view for the control border and background
-            _drawDockerOuter = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            _drawDockerOuter = new ViewDrawDocker(StateNormal.Back, StateNormal.Border)
             {
                 { _drawDockerInner, ViewDockStyle.Fill }
             };
@@ -712,10 +697,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(false)]
-        public TreeView TreeView
-        {
-            get { return _treeView; }
-        }
+        public TreeView TreeView => _treeView;
 
         /// <summary>
         /// Gets access to the contained input control.
@@ -723,10 +705,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(false)]
-        public Control ContainedControl
-        {
-            get { return TreeView; }
-        }
+        public Control ContainedControl => TreeView;
 
         /// <summary>
         /// Gets or sets the text for the control.
@@ -737,8 +716,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -750,8 +729,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         /// <summary>
@@ -763,8 +742,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Font Font
         {
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         /// <summary>
@@ -776,8 +755,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         /// <summary>
@@ -786,7 +765,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Padding), "1,1,1,1")]
         public new Padding Padding
         {
-            get { return base.Padding; }
+            get => base.Padding;
 
             set
             {
@@ -803,7 +782,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("The height of every node in the control.")]
         public int ItemHeight
         {
-            get { return _treeView.ItemHeight; }
+            get => _treeView.ItemHeight;
 
             set
             {
@@ -834,8 +813,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool CheckBoxes 
         {
-            get { return _treeView.CheckBoxes; }
-            set { _treeView.CheckBoxes = value; }
+            get => _treeView.CheckBoxes;
+            set => _treeView.CheckBoxes = value;
         }
 
         /// <summary>
@@ -846,8 +825,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool FullRowSelect 
         { 
-            get { return _treeView.FullRowSelect; }
-            set { _treeView.FullRowSelect = value; }
+            get => _treeView.FullRowSelect;
+            set => _treeView.FullRowSelect = value;
         }
 
         /// <summary>
@@ -858,8 +837,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool HideSelection
         { 
-            get { return _treeView.HideSelection; }
-            set { _treeView.HideSelection = value; }
+            get => _treeView.HideSelection;
+            set => _treeView.HideSelection = value;
         }
 
         /// <summary>
@@ -870,8 +849,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool HotTracking
         { 
-            get { return _treeView.HotTracking; }
-            set { _treeView.HotTracking = value; }
+            get => _treeView.HotTracking;
+            set => _treeView.HotTracking = value;
         }
 
         /// <summary>
@@ -887,8 +866,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(-1)]
         public int ImageIndex 
         {
-            get { return _treeView.ImageIndex; }
-            set { _treeView.ImageIndex = value; }
+            get => _treeView.ImageIndex;
+            set => _treeView.ImageIndex = value;
         }
 
         /// <summary>
@@ -904,8 +883,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string ImageKey
         {
-            get { return _treeView.ImageKey; }
-            set { _treeView.ImageKey = value; }
+            get => _treeView.ImageKey;
+            set => _treeView.ImageKey = value;
         }
 
         /// <summary>
@@ -917,8 +896,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue((string)null)]
         public ImageList ImageList
         {
-            get { return _treeView.ImageList; }
-            set { _treeView.ImageList = value; }
+            get => _treeView.ImageList;
+            set => _treeView.ImageList = value;
         }
 
         /// <summary>
@@ -929,8 +908,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool LabelEdit
         {
-            get { return _treeView.LabelEdit; }
-            set { _treeView.LabelEdit = value; }
+            get => _treeView.LabelEdit;
+            set => _treeView.LabelEdit = value;
         }
 
         /// <summary>
@@ -941,8 +920,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(@"\")]
         public string PathSeparator
         {
-            get { return _treeView.PathSeparator; }
-            set { _treeView.PathSeparator = value; }
+            get => _treeView.PathSeparator;
+            set => _treeView.PathSeparator = value;
         }
 
         /// <summary>
@@ -953,8 +932,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Scrollable
         {
-            get { return _treeView.Scrollable; }
-            set { _treeView.Scrollable = value; }
+            get => _treeView.Scrollable;
+            set => _treeView.Scrollable = value;
         }
 
         /// <summary>
@@ -969,8 +948,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(-1)]
         public int SelectedImageIndex
         {
-            get { return _treeView.SelectedImageIndex; }
-            set { _treeView.SelectedImageIndex = value; }
+            get => _treeView.SelectedImageIndex;
+            set => _treeView.SelectedImageIndex = value;
         }
 
         /// <summary>
@@ -986,8 +965,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue("")]
         public string SelectedImageKey
         {
-            get { return _treeView.SelectedImageKey; }
-            set { _treeView.SelectedImageKey = value; }
+            get => _treeView.SelectedImageKey;
+            set => _treeView.SelectedImageKey = value;
         }
 
         /// <summary>
@@ -999,8 +978,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TreeNode SelectedNode
         {
-            get { return _treeView.SelectedNode; }
-            set { _treeView.SelectedNode = value; }
+            get => _treeView.SelectedNode;
+            set => _treeView.SelectedNode = value;
         }
 
         /// <summary>
@@ -1011,8 +990,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ShowLines
         {
-            get { return _treeView.ShowLines; }
-            set { _treeView.ShowLines = value; }
+            get => _treeView.ShowLines;
+            set => _treeView.ShowLines = value;
         }
 
         /// <summary>
@@ -1023,8 +1002,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool ShowNodeToolTips
         {
-            get { return _treeView.ShowNodeToolTips; }
-            set { _treeView.ShowNodeToolTips = value; }
+            get => _treeView.ShowNodeToolTips;
+            set => _treeView.ShowNodeToolTips = value;
         }
 
         /// <summary>
@@ -1035,8 +1014,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ShowPlusMinus
         {
-            get { return _treeView.ShowPlusMinus; }
-            set { _treeView.ShowPlusMinus = value; }
+            get => _treeView.ShowPlusMinus;
+            set => _treeView.ShowPlusMinus = value;
         }
 
         /// <summary>
@@ -1047,8 +1026,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool ShowRootLines
         {
-            get { return _treeView.ShowRootLines; }
-            set { _treeView.ShowRootLines = value; }
+            get => _treeView.ShowRootLines;
+            set => _treeView.ShowRootLines = value;
         }
 
         /// <summary>
@@ -1059,8 +1038,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue((string)null)]
         public ImageList StateImageList
         {
-            get { return _treeView.StateImageList; }
-            set { _treeView.StateImageList = value; }
+            get => _treeView.StateImageList;
+            set => _treeView.StateImageList = value;
         }
 
         /// <summary>
@@ -1072,8 +1051,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public TreeNode TopNode
         {
-            get { return _treeView.TopNode; }
-            set { _treeView.TopNode = value; }
+            get => _treeView.TopNode;
+            set => _treeView.TopNode = value;
         }
 
         /// <summary>
@@ -1085,8 +1064,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)] 
         public IComparer TreeViewNodeSorter
         {
-            get { return _treeView.TreeViewNodeSorter; }
-            set { _treeView.TreeViewNodeSorter = value; }
+            get => _treeView.TreeViewNodeSorter;
+            set => _treeView.TreeViewNodeSorter = value;
         }
 
         /// <summary>
@@ -1096,10 +1075,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Returns number of visible nodes in the control.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [Browsable(false)]
-        public int VisibleCount
-        {
-            get { return _treeView.VisibleCount; }
-        }
+        public int VisibleCount => _treeView.VisibleCount;
 
         /// <summary>
         /// Indicates whether the control layout is right-to-left when the RightToLeft property is True.
@@ -1110,8 +1086,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.Repaint)]
         public bool RightToLeftLayout
         {
-            get { return _treeView.RightToLeftLayout; }
-            set { _treeView.RightToLeftLayout = value; }
+            get => _treeView.RightToLeftLayout;
+            set => _treeView.RightToLeftLayout = value;
         }
         /// <summary>
         /// Gets the collection of tree nodes that are assigned to the tree view control.
@@ -1122,10 +1098,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [MergableProperty(false)]
         [Localizable(true)]
-        public TreeNodeCollection Nodes
-        {
-            get { return _treeView.Nodes; }
-        }
+        public TreeNodeCollection Nodes => _treeView.Nodes;
 
         /// <summary>
         /// Gets and sets the item style.
@@ -1134,15 +1107,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Item style.")]
         public ButtonStyle ItemStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
                 if (_style != value)
                 {
                     _style = value;
-                    _stateCommon.Node.SetStyles(_style);
-                    _stateFocus.Node.SetStyles(_style);
+                    StateCommon.Node.SetStyles(_style);
+                    OverrideFocus.Node.SetStyles(_style);
                     _treeView.Recreate();
                     PerformNeedPaint(true);
                 }
@@ -1167,8 +1140,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Sorted
         {
-            get { return _treeView.Sorted; }
-            set { _treeView.Sorted = value; }
+            get => _treeView.Sorted;
+            set => _treeView.Sorted = value;
         }
 
         /// <summary>
@@ -1178,13 +1151,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Style used to draw the background.")]
         public PaletteBackStyle BackStyle
         {
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
             set
             {
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
                 {
-                    _stateCommon.BackStyle = value;
+                    StateCommon.BackStyle = value;
                     _treeView.Recreate();
                     PerformNeedPaint(true);
                 }
@@ -1208,13 +1181,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Style used to draw the border.")]
         public PaletteBorderStyle BorderStyle
         {
-            get { return _stateCommon.BorderStyle; }
+            get => StateCommon.BorderStyle;
 
             set
             {
-                if (_stateCommon.BorderStyle != value)
+                if (StateCommon.BorderStyle != value)
                 {
-                    _stateCommon.BorderStyle = value;
+                    StateCommon.BorderStyle = value;
                     _treeView.Recreate();
                     PerformNeedPaint(true);
                 }
@@ -1237,14 +1210,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Plus/minus image value overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public TreeViewImages PlusMinusImages
-        {
-            get { return _plusMinusImages; }
-        }
+        public TreeViewImages PlusMinusImages { get; }
 
         private bool ShouldSerializePlusMinusImages()
         {
-            return !_plusMinusImages.IsDefault;
+            return !PlusMinusImages.IsDefault;
         }
 
         /// <summary>
@@ -1253,14 +1223,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("CheckBox image value overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public CheckBoxImages CheckBoxImages
-        {
-            get { return _checkBoxImages; }
-        }
+        public CheckBoxImages CheckBoxImages { get; }
 
         private bool ShouldSerializeCheckBoxImages()
         {
-            return !_checkBoxImages.IsDefault;
+            return !CheckBoxImages.IsDefault;
         }
 
         /// <summary>
@@ -1269,14 +1236,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining item appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTripleRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTreeNodeTripleRedirect OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -1285,14 +1249,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeStateRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTreeStateRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -1301,14 +1262,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeState StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTreeState StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -1317,14 +1275,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeState StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTreeState StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -1333,14 +1288,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining active appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDouble StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteDouble StateActive { get; }
 
         private bool ShouldSerializeStateActive()
         {
-            return !_stateActive.IsDefault;
+            return !StateActive.IsDefault;
         }
 
         /// <summary>
@@ -1349,14 +1301,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTriple StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTreeNodeTriple StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -1365,14 +1314,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTriple StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTreeNodeTriple StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -1381,14 +1327,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal checked item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTriple StateCheckedNormal
-        {
-            get { return _stateCheckedNormal; }
-        }
+        public PaletteTreeNodeTriple StateCheckedNormal { get; }
 
         private bool ShouldSerializeStateCheckedNormal()
         {
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
         }
 
         /// <summary>
@@ -1397,14 +1340,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking checked item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTriple StateCheckedTracking
-        {
-            get { return _stateCheckedTracking; }
-        }
+        public PaletteTreeNodeTriple StateCheckedTracking { get; }
 
         private bool ShouldSerializeStateCheckedTracking()
         {
-            return !_stateCheckedTracking.IsDefault;
+            return !StateCheckedTracking.IsDefault;
         }
 
         /// <summary>
@@ -1413,14 +1353,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed checked item appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTreeNodeTriple StateCheckedPressed
-        {
-            get { return _stateCheckedPressed; }
-        }
+        public PaletteTreeNodeTriple StateCheckedPressed { get; }
 
         private bool ShouldSerializeStateCheckedPressed()
         {
-            return !_stateCheckedPressed.IsDefault;
+            return !StateCheckedPressed.IsDefault;
         }
 
         /// <summary>
@@ -1431,7 +1368,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AlwaysActive
         {
-            get { return _alwaysActive; }
+            get => _alwaysActive;
 
             set
             {
@@ -1982,10 +1919,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(120, 96); }
-        }
+        protected override Size DefaultSize => new Size(120, 96);
+
         #endregion
 
         #region Implementation
@@ -2087,16 +2022,16 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (IsActive)
                 {
-                    return _stateActive;
+                    return StateActive;
                 }
                 else
                 {
-                    return _stateNormal;
+                    return StateNormal;
                 }
             }
             else
             {
-                return _stateDisabled;
+                return StateDisabled;
             }
         }
 

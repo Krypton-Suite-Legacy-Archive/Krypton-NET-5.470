@@ -36,15 +36,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (InternalKCT.InternalRaftingContainerGradientBegin == Color.Empty) &&
-                       (InternalKCT.InternalRaftingContainerGradientEnd == Color.Empty);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (InternalKCT.InternalRaftingContainerGradientBegin == Color.Empty) &&
+		                                  (InternalKCT.InternalRaftingContainerGradientEnd == Color.Empty);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -67,8 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color RaftingContainerGradientBegin
         {
-            get { return InternalKCT.InternalRaftingContainerGradientBegin; }
-            
+            get => InternalKCT.InternalRaftingContainerGradientBegin;
+
             set 
             { 
                 InternalKCT.InternalRaftingContainerGradientBegin = value;
@@ -95,8 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color RaftingContainerGradientEnd
         {
-            get { return InternalKCT.InternalRaftingContainerGradientEnd; }
-            
+            get => InternalKCT.InternalRaftingContainerGradientEnd;
+
             set 
             { 
                 InternalKCT.InternalRaftingContainerGradientEnd = value;

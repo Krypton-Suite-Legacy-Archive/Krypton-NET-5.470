@@ -34,23 +34,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Instance Fields
         private ViewDrawButton _drawButton;
         private ButtonStyle _style;
-		private ButtonValues _buttonValues;
-		private ButtonController _buttonController;
+	    private ButtonController _buttonController;
         private PaletteRedirectDropDownButton _paletteDropDownButtonImages;
-        private PaletteTripleRedirect _stateCommon;
-        private PaletteTriple _stateDisabled;
-        private PaletteTriple _stateNormal;
-        private PaletteTriple _stateTracking;
-        private PaletteTriple _statePressed;
-		private PaletteTripleRedirect _stateDefault;
-		private PaletteTripleRedirect _stateFocus;
-        private PaletteTripleOverride _overrideFocus;
+	    private PaletteTripleOverride _overrideFocus;
 		private PaletteTripleOverride _overrideNormal;
 		private PaletteTripleOverride _overrideTracking;
 		private PaletteTripleOverride _overridePressed;
-        private DropDownButtonImages _images;
-        private DialogResult _dialogResult;
-        private KryptonCommand _command;
+	    private KryptonCommand _command;
         private bool _isDefault;
 		private bool _useMnemonic;
         private bool _wasEnabled;
@@ -85,34 +75,34 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Set default button properties
             _style = ButtonStyle.Standalone;
-            _dialogResult = DialogResult.None;
+            DialogResult = DialogResult.None;
             _useMnemonic = true;
 
             // Create content storage
-            _buttonValues = CreateButtonValues(NeedPaintDelegate);
-            _buttonValues.TextChanged += new EventHandler(OnButtonTextChanged);
-            _images = new DropDownButtonImages(NeedPaintDelegate);
+            Values = CreateButtonValues(NeedPaintDelegate);
+            Values.TextChanged += new EventHandler(OnButtonTextChanged);
+            Images = new DropDownButtonImages(NeedPaintDelegate);
 
             // Image need an extra redirector to check the local images first
-            _paletteDropDownButtonImages = new PaletteRedirectDropDownButton(Redirector, _images);
+            _paletteDropDownButtonImages = new PaletteRedirectDropDownButton(Redirector, Images);
 
             // Create the palette storage
-            _stateCommon = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
-            _stateDisabled = new PaletteTriple(_stateCommon, NeedPaintDelegate);
-            _stateNormal = new PaletteTriple(_stateCommon, NeedPaintDelegate);
-            _stateTracking = new PaletteTriple(_stateCommon, NeedPaintDelegate);
-            _statePressed = new PaletteTriple(_stateCommon, NeedPaintDelegate);
-            _stateDefault = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
-            _stateFocus = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
+            StateCommon = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
+            StateDisabled = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StateNormal = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StateTracking = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            StatePressed = new PaletteTriple(StateCommon, NeedPaintDelegate);
+            OverrideDefault = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
+            OverrideFocus = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
 
             // Create the override handling classes
-            _overrideFocus = new PaletteTripleOverride(_stateFocus, _stateNormal,  PaletteState.FocusOverride);
-            _overrideNormal = new PaletteTripleOverride(_stateDefault, _overrideFocus, PaletteState.NormalDefaultOverride);
-            _overrideTracking = new PaletteTripleOverride(_stateFocus, _stateTracking, PaletteState.FocusOverride);
-            _overridePressed = new PaletteTripleOverride(_stateFocus, _statePressed, PaletteState.FocusOverride);
+            _overrideFocus = new PaletteTripleOverride(OverrideFocus, StateNormal,  PaletteState.FocusOverride);
+            _overrideNormal = new PaletteTripleOverride(OverrideDefault, _overrideFocus, PaletteState.NormalDefaultOverride);
+            _overrideTracking = new PaletteTripleOverride(OverrideFocus, StateTracking, PaletteState.FocusOverride);
+            _overridePressed = new PaletteTripleOverride(OverrideFocus, StatePressed, PaletteState.FocusOverride);
 
             // Create the view button instance
-            _drawButton = new ViewDrawButton(_stateDisabled,
+            _drawButton = new ViewDrawButton(StateDisabled,
                                              _overrideNormal,
                                              _overrideTracking,
                                              _overridePressed,
@@ -160,8 +150,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.All)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -173,8 +163,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
         
         /// <summary>
@@ -183,18 +173,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public override string Text
 		{
-			get
-			{
-				// Map onto the button property from the values
-				return _buttonValues.Text;
-			}
+			get => Values.Text;
 
-			set
-			{
-				// Map onto the button property from the values
-				_buttonValues.Text = value;
-			}
-		}
+            set => Values.Text = value;
+        }
 
 		private bool ShouldSerializeText()
 		{
@@ -208,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override void ResetText()
 		{
 			// Map onto the button property from the values
-			_buttonValues.ResetText();
+			Values.ResetText();
 		}
 
         /// <summary>
@@ -219,9 +201,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public VisualOrientation ButtonOrientation
         {
-            get { return _drawButton.Orientation; }
+            get => _drawButton.Orientation;
 
-			set
+            set
 			{
                 if (_drawButton.Orientation != value)
 				{
@@ -239,7 +221,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(VisualOrientation), "Right")]
         public VisualOrientation DropDownPosition
         {
-            get { return _drawButton.DropDownPosition; }
+            get => _drawButton.DropDownPosition;
 
             set
             {
@@ -311,7 +293,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Splitter
         {
-            get { return _drawButton.Splitter; }
+            get => _drawButton.Splitter;
 
             set
             {
@@ -330,9 +312,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Description("Button style.")]
 		public ButtonStyle ButtonStyle
 		{
-			get { return _style; }
+			get => _style;
 
-			set
+            set
 			{
 				if (_style != value)
 				{
@@ -359,14 +341,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Button values")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public ButtonValues Values
-		{
-			get { return _buttonValues; }
-		}
+		public ButtonValues Values { get; }
 
-		private bool ShouldSerializeValues()
+	    private bool ShouldSerializeValues()
 		{
-			return !_buttonValues.IsDefault;
+			return !Values.IsDefault;
 		}
 
         /// <summary>
@@ -375,14 +354,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Image value overrides.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public DropDownButtonImages Images
-        {
-            get { return _images; }
-        }
+        public DropDownButtonImages Images { get; }
 
-        private bool ShouldSerializeImages()
+	    private bool ShouldSerializeImages()
         {
-            return !_images.IsDefault;
+            return !Images.IsDefault;
         }
 
         /// <summary>
@@ -391,14 +367,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common button appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTripleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
+	    private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         
         /// <summary>
@@ -407,14 +380,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+        public PaletteTriple StateDisabled { get; }
 
-		private bool ShouldSerializeStateDisabled()
+	    private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -423,14 +393,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateNormal
-		{
-			get { return _stateNormal; }
-		}
+        public PaletteTriple StateNormal { get; }
 
-		private bool ShouldSerializeStateNormal()
+	    private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
 		/// <summary>
@@ -439,14 +406,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining hot tracking button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateTracking
-		{
-			get { return _stateTracking; }
-		}
+        public PaletteTriple StateTracking { get; }
 
-		private bool ShouldSerializeStateTracking()
+	    private bool ShouldSerializeStateTracking()
 		{
-			return !_stateTracking.IsDefault;
+			return !StateTracking.IsDefault;
 		}
 
 		/// <summary>
@@ -455,14 +419,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining pressed button appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StatePressed
-		{
-			get { return _statePressed; }
-		}
+        public PaletteTriple StatePressed { get; }
 
-		private bool ShouldSerializeStatePressed()
+	    private bool ShouldSerializeStatePressed()
 		{
-			return !_statePressed.IsDefault;
+			return !StatePressed.IsDefault;
 		}
 
 		/// <summary>
@@ -471,14 +432,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining normal button appearance when default.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideDefault
-		{
-			get { return _stateDefault; }
-		}
+		public PaletteTripleRedirect OverrideDefault { get; }
 
-		private bool ShouldSerializeOverrideDefault()
+	    private bool ShouldSerializeOverrideDefault()
 		{
-			return !_stateDefault.IsDefault;
+			return !OverrideDefault.IsDefault;
 		}
 
 		/// <summary>
@@ -487,14 +445,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining button appearance when it has focus.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideFocus
-		{
-			get { return _stateFocus; }
-		}
+		public PaletteTripleRedirect OverrideFocus { get; }
 
-		private bool ShouldSerializeOverrideFocus()
+	    private bool ShouldSerializeOverrideFocus()
 		{
-			return !_stateFocus.IsDefault;
+			return !OverrideFocus.IsDefault;
 		}
 
 		/// <summary>
@@ -503,13 +458,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Behavior")]
 		[Description("The dialog-box result produced in a modal form by clicking the button.")]
 		[DefaultValue(typeof(DialogResult), "None")]
-		public DialogResult DialogResult
-		{
-			get { return _dialogResult; }
-			set { _dialogResult = value; }
-		}
+		public DialogResult DialogResult { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the associated KryptonCommand.
         /// </summary>
         [Category("Behavior")]
@@ -517,9 +468,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonCommand KryptonCommand
         {
-            get { return _command; }
+            get => _command;
 
-            set
+	        set
             {
                 if (_command != value)
                 {
@@ -596,9 +547,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(true)]
 		public bool UseMnemonic
 		{
-			get { return _useMnemonic; }
-			
-			set
+			get => _useMnemonic;
+
+		    set
 			{
 				if (_useMnemonic != value)
 				{
@@ -636,8 +587,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public new ImeMode ImeMode
 		{
-			get { return base.ImeMode; }
-			set { base.ImeMode = value; }
+			get => base.ImeMode;
+		    set => base.ImeMode = value;
 		}
 		#endregion
 
@@ -654,7 +605,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _buttonValues.GetShortText();
+                return Values.GetShortText();
             }
         }
 
@@ -670,7 +621,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _buttonValues.GetLongText();
+                return Values.GetLongText();
             }
         }
 
@@ -687,7 +638,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _buttonValues.GetImage(state);
+                return Values.GetImage(state);
             }
         }
 
@@ -704,7 +655,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                return _buttonValues.GetImageTransparentColor(state);
+                return Values.GetImageTransparentColor(state);
             }
         }
         #endregion
@@ -713,20 +664,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(90, 25); }
-		}
+		protected override Size DefaultSize => new Size(90, 25);
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the default Input Method Editor (IME) mode supported by this control.
 		/// </summary>
-		protected override ImeMode DefaultImeMode
-		{
-			get { return ImeMode.Disable; }
-		}
+		protected override ImeMode DefaultImeMode => ImeMode.Disable;
 
-		/// <summary>
+	    /// <summary>
 		/// Raises the EnabledChanged event.
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
@@ -914,9 +859,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="buttonStyle">New button style.</param>
         protected virtual void SetStyles(ButtonStyle buttonStyle)
         {
-            _stateCommon.SetStyles(buttonStyle);
-            _stateDefault.SetStyles(buttonStyle);
-            _stateFocus.SetStyles(buttonStyle);
+            StateCommon.SetStyles(buttonStyle);
+            OverrideDefault.SetStyles(buttonStyle);
+            OverrideFocus.SetStyles(buttonStyle);
         }
 
         /// <summary>
@@ -932,11 +877,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the view element for the button.
         /// </summary>
-        protected virtual ViewDrawButton ViewDrawButton
-        {
-            get { return _drawButton; }
-        }
-        #endregion
+        protected virtual ViewDrawButton ViewDrawButton => _drawButton;
+
+	    #endregion
 
         #region Implementation
         private void OnButtonTextChanged(object sender, EventArgs e)

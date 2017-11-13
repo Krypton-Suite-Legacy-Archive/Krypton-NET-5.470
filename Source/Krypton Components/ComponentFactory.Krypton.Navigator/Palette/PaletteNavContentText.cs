@@ -39,8 +39,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Font Font
 		{
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+		    set => base.Font = value;
 		}
 		#endregion
 
@@ -53,8 +53,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteTextHint Hint
 		{
-            get { return base.Hint; }
-            set { base.Hint = value; }
+            get => base.Hint;
+		    set => base.Hint = value;
 		}
 		#endregion
 
@@ -67,8 +67,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color Color1
         {
-            get { return base.Color1; }
-            set { base.Color1 = value; }
+            get => base.Color1;
+            set => base.Color1 = value;
         }
         #endregion
 
@@ -81,8 +81,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color Color2
         {
-            get { return base.Color2; }
-            set { base.Color2 = value; }
+            get => base.Color2;
+            set => base.Color2 = value;
         }
         #endregion
 
@@ -95,8 +95,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteColorStyle ColorStyle
         {
-            get { return base.ColorStyle; }
-            set { base.ColorStyle = value; }
+            get => base.ColorStyle;
+            set => base.ColorStyle = value;
         }
         #endregion
 
@@ -109,8 +109,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteRectangleAlign ColorAlign
         {
-            get { return base.ColorAlign; }
-            set { base.ColorAlign = value; }
+            get => base.ColorAlign;
+            set => base.ColorAlign = value;
         }
         #endregion
 
@@ -123,8 +123,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override float ColorAngle
         {
-            get { return base.ColorAngle; }
-            set { base.ColorAngle = value; }
+            get => base.ColorAngle;
+            set => base.ColorAngle = value;
         }
         #endregion
 
@@ -137,8 +137,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Image Image
         {
-            get { return base.Image; }
-            set { base.Image = value; }
+            get => base.Image;
+            set => base.Image = value;
         }
         #endregion
 
@@ -151,8 +151,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteImageStyle ImageStyle
         {
-            get { return base.ImageStyle; }
-            set { base.ImageStyle = value; }
+            get => base.ImageStyle;
+            set => base.ImageStyle = value;
         }
         #endregion
 
@@ -165,8 +165,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteRectangleAlign ImageAlign
         {
-            get { return base.ImageAlign; }
-            set { base.ImageAlign = value; }
+            get => base.ImageAlign;
+            set => base.ImageAlign = value;
         }
         #endregion
     }

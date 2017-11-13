@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public abstract class KryptonContextMenuItemBase : Component, INotifyPropertyChanged
     {
         #region Instance Fields
-        private object _tag;
+
         private bool _visible;
         #endregion
 
@@ -88,11 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [TypeConverter(typeof(StringConverter))]
         [DefaultValue(null)]
         [Bindable(true)]
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
+        public object Tag { get; set; }
 
         /// <summary>
         /// Gets and sets if the item is visible in the context menu.
@@ -104,8 +100,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public bool Visible
         {
-            get { return _visible; }
-            
+            get => _visible;
+
             set 
             {
                 if (_visible != value)

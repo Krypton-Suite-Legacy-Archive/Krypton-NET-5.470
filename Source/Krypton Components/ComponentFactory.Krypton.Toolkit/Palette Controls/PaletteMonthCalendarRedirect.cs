@@ -18,10 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteMonthCalendarRedirect : PaletteDoubleMetricRedirect
 	{
         #region Instance Fields
-        private PaletteTripleRedirect _paletteHeader;
-        private PaletteTripleRedirect _paletteDayOfWeek;
-        private PaletteTripleRedirect _paletteDay;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -42,9 +40,9 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(redirect, PaletteBackStyle.ControlClient, 
                              PaletteBorderStyle.ControlClient)
 		{
-            _paletteHeader = new PaletteTripleRedirect(redirect, PaletteBackStyle.HeaderCalendar, PaletteBorderStyle.HeaderCalendar, PaletteContentStyle.HeaderCalendar, needPaint);
-            _paletteDayOfWeek = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _paletteDay = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            Header = new PaletteTripleRedirect(redirect, PaletteBackStyle.HeaderCalendar, PaletteBorderStyle.HeaderCalendar, PaletteContentStyle.HeaderCalendar, needPaint);
+            DayOfWeek = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            Day = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
         }
 		#endregion
 
@@ -53,17 +51,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault && 
-                        _paletteHeader.IsDefault &&
-                        _paletteDayOfWeek.IsDefault &&
-                        _paletteDay.IsDefault);
-            }
-        }
-        #endregion
+        public override bool IsDefault => (base.IsDefault && 
+                                           Header.IsDefault &&
+                                           DayOfWeek.IsDefault &&
+                                           Day.IsDefault);
+
+	    #endregion
 
         #region SetRedirector
         /// <summary>
@@ -73,21 +66,21 @@ namespace ComponentFactory.Krypton.Toolkit
         public override void SetRedirector(PaletteRedirect redirect)
         {
             base.SetRedirector(redirect);
-            _paletteHeader.SetRedirector(redirect);
-            _paletteDayOfWeek.SetRedirector(redirect);
-            _paletteDay.SetRedirector(redirect);
+            Header.SetRedirector(redirect);
+            DayOfWeek.SetRedirector(redirect);
+            Day.SetRedirector(redirect);
         }
         #endregion
 
         #region Styles
         internal ButtonStyle DayStyle
         {
-            set { _paletteDay.SetStyles(value); }
+            set => Day.SetStyles(value);
         }
 
         internal ButtonStyle DayOfWeekStyle
         {
-            set { _paletteDayOfWeek.SetStyles(value); }
+            set => DayOfWeek.SetStyles(value);
         }
         #endregion
 
@@ -98,14 +91,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining month/year header appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect Header
-        {
-            get { return _paletteHeader; }
-        }
+        public PaletteTripleRedirect Header { get; }
 
-        private bool ShouldSerializeHeader()
+	    private bool ShouldSerializeHeader()
         {
-            return !_paletteHeader.IsDefault;
+            return !Header.IsDefault;
         }
         #endregion
 
@@ -116,14 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining day appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect Day
-        {
-            get { return _paletteDay; }
-        }
+        public PaletteTripleRedirect Day { get; }
 
-        private bool ShouldSerializeDay()
+	    private bool ShouldSerializeDay()
         {
-            return !_paletteDay.IsDefault;
+            return !Day.IsDefault;
         }
         #endregion
 
@@ -134,14 +121,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining day of week appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect DayOfWeek
-        {
-            get { return _paletteDayOfWeek; }
-        }
+        public PaletteTripleRedirect DayOfWeek { get; }
 
-        private bool ShouldSerializeDayOfWeek()
+	    private bool ShouldSerializeDayOfWeek()
         {
-            return !_paletteDayOfWeek.IsDefault;
+            return !DayOfWeek.IsDefault;
         }
         #endregion
     }

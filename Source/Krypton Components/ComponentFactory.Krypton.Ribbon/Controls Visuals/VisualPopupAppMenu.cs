@@ -31,7 +31,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private ViewDrawRibbonAppButton _appButtonBottom;
         private ViewLayoutStack _viewColumns;
         private ViewLayoutDocker _viewButtonSpecDocker;
-        private PaletteRedirect _redirector;
         private ButtonSpecManagerLayout _buttonManager;
         private Rectangle _rectAppButtonBottomHalf;
         private Rectangle _rectAppButtonTopHalf;
@@ -60,7 +59,7 @@ namespace ComponentFactory.Krypton.Ribbon
             : base(true)
         {
             // Remember incoming state
-            _redirector = redirector;
+            Redirector = redirector;
             _ribbon = ribbon;
             _rectAppButtonTopHalf = rectAppButtonTopHalf;
             _rectAppButtonBottomHalf = rectAppButtonBottomHalf;
@@ -229,8 +228,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void CreateOutsideDocker()
         {
-            _drawOutsideBack = new PaletteBackToPalette(_redirector, PaletteBackStyle.ControlRibbonAppMenu);
-            _drawOutsideBorder = new PaletteBorderToPalette(_redirector, PaletteBorderStyle.ControlRibbonAppMenu);
+            _drawOutsideBack = new PaletteBackToPalette(Redirector, PaletteBackStyle.ControlRibbonAppMenu);
+            _drawOutsideBorder = new PaletteBorderToPalette(Redirector, PaletteBorderStyle.ControlRibbonAppMenu);
             _drawOutsideDocker = new ViewDrawRibbonAppMenu(_drawOutsideBack, _drawOutsideBorder, _appButtonBottom, _rectAppButtonBottomHalf)
             {
                 KeyController = new ContextMenuController((ViewContextMenuManager)ViewManager)
@@ -241,7 +240,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void CreateButtonManager(RibbonAppButton appButton)
         {
             _buttonManager = new ButtonSpecManagerLayoutAppButton((ViewContextMenuManager)ViewManager,
-                                                                  this, _redirector, appButton.AppButtonSpecs, null,
+                                                                  this, Redirector, appButton.AppButtonSpecs, null,
                                                                   new ViewLayoutDocker[] { _viewButtonSpecDocker },
                                                                   new IPaletteMetric[] { _ribbon.StateCommon },
                                                                   new PaletteMetricInt[] { PaletteMetricInt.None },
@@ -283,10 +282,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Sets the reason for the context menu being closed.
         /// </summary>
-        public Nullable<ToolStripDropDownCloseReason> CloseReason 
-        {
-            get { return _provider.ProviderCloseReason; }
-        }
+        public Nullable<ToolStripDropDownCloseReason> CloseReason => _provider.ProviderCloseReason;
 
         /// <summary>
         /// Show the context menu relative to the provided screen rectangle.
@@ -334,8 +330,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public KryptonContextMenuPositionH ShowHorz
         {
-            get { return _provider.ProviderShowHorz; }
-            set { _provider.ProviderShowHorz = value; }
+            get => _provider.ProviderShowHorz;
+            set => _provider.ProviderShowHorz = value;
         }
 
         /// <summary>
@@ -343,17 +339,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public KryptonContextMenuPositionV ShowVert
         {
-            get { return _provider.ProviderShowVert; }
-            set { _provider.ProviderShowVert = value; }
+            get => _provider.ProviderShowVert;
+            set => _provider.ProviderShowVert = value;
         }
 
         /// <summary>
         /// Gets access to the view manager for the context menu.
         /// </summary>
-        public ViewContextMenuManager ViewContextMenuManager
-        {
-            get { return (ViewContextMenuManager)ViewManager; }
-        }
+        public ViewContextMenuManager ViewContextMenuManager => (ViewContextMenuManager)ViewManager;
 
         /// <summary>
         /// Should a mouse down at the provided point cause an end to popup tracking.
@@ -438,7 +431,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected PaletteRedirect Redirector
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
+            get;
         }
 
         /// <summary>
@@ -540,7 +533,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _palette = palette;
 
                 // Update redirector to use palette as source for obtaining values
-                _redirector.Target = _palette;
+                Redirector.Target = _palette;
 
                 // Get the renderer associated with the palette
                 Renderer = _palette.GetRenderer();

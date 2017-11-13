@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ButtonStyle ItemStyle
         {
-            get { return _treeView.ItemStyle; }
+            get => _treeView.ItemStyle;
 
             set
             {
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle BackStyle
         {
-            get { return _treeView.BackStyle; }
+            get => _treeView.BackStyle;
 
             set
             {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle BorderStyle
         {
-            get { return _treeView.BorderStyle; }
+            get => _treeView.BorderStyle;
 
             set
             {
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Sorted
         {
-            get { return _treeView.Sorted; }
+            get => _treeView.Sorted;
 
             set
             {
@@ -109,8 +109,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _treeView.PaletteMode; }
-            
+            get => _treeView.PaletteMode;
+
             set 
             {
                 if (_treeView.PaletteMode != value)

@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class PopupPageEventArgs : KryptonPageCancelEventArgs
 	{
 		#region Instance Fields
-        private Rectangle _screenRect;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Navigator
                                   Rectangle screenRect)
 			: base(page, index)
 		{
-            _screenRect = screenRect;
+            ScreenRect = screenRect;
 		}
 		#endregion
 
@@ -41,11 +41,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
 		/// Gets and sets the screen rectangle for showing the popup page.
 		/// </summary>
-        public Rectangle ScreenRect
-		{
-            get { return _screenRect; }
-            set { _screenRect = value; }
-		}
-		#endregion
+        public Rectangle ScreenRect { get; set; }
+
+	    #endregion
 	}
 }

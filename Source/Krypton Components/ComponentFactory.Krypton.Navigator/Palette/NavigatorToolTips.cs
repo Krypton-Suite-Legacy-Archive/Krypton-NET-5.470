@@ -21,10 +21,6 @@ namespace ComponentFactory.Krypton.Navigator
     {
         #region Instance Fields
         private KryptonNavigator _navigator;
-        private bool _allowPageToolTips;
-        private bool _allowButtonSpecToolTips;
-        private MapKryptonPageText _mapText;
-        private MapKryptonPageText _mapExtraText;
         private MapKryptonPageImage _mapImage;
         #endregion
 
@@ -47,11 +43,11 @@ namespace ComponentFactory.Krypton.Navigator
             NeedPaint = needPaint;
 
             // Default values
-            _allowPageToolTips = false;
-            _allowButtonSpecToolTips = false;
+            AllowPageToolTips = false;
+            AllowButtonSpecToolTips = false;
             _mapImage = MapKryptonPageImage.ToolTip;
-            _mapText = MapKryptonPageText.ToolTipTitle;
-            _mapExtraText = MapKryptonPageText.ToolTipBody;
+            MapText = MapKryptonPageText.ToolTipTitle;
+            MapExtraText = MapKryptonPageText.ToolTipBody;
         }
 		#endregion
 
@@ -60,17 +56,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (!AllowPageToolTips &&
-                        !AllowButtonSpecToolTips &&
-                        (MapImage == MapKryptonPageImage.ToolTip) &&
-                        (MapText == MapKryptonPageText.ToolTipTitle) &&
-                        (MapExtraText == MapKryptonPageText.ToolTipBody));
-            }
-        }
+        public override bool IsDefault => (!AllowPageToolTips &&
+                                           !AllowButtonSpecToolTips &&
+                                           (MapImage == MapKryptonPageImage.ToolTip) &&
+                                           (MapText == MapKryptonPageText.ToolTipTitle) &&
+                                           (MapExtraText == MapKryptonPageText.ToolTipBody));
+
         #endregion
 
         #region AllowPageToolTips
@@ -80,11 +71,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Should tooltips be displayed for page headers.")]
         [DefaultValue(false)]
-        public bool AllowPageToolTips
-        {
-            get { return _allowPageToolTips; }
-            set { _allowPageToolTips = value; }
-        }
+        public bool AllowPageToolTips { get; set; }
+
         #endregion
 
         #region AllowButtonSpecToolTips
@@ -94,11 +82,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Should tooltips be displayed for button specs.")]
         [DefaultValue(false)]
-        public bool AllowButtonSpecToolTips
-        {
-            get { return _allowButtonSpecToolTips; }
-            set { _allowButtonSpecToolTips = value; }
-        }
+        public bool AllowButtonSpecToolTips { get; set; }
+
         #endregion
 
         #region MapImage
@@ -112,8 +97,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageImage), "ToolTip")]
         public virtual MapKryptonPageImage MapImage
         {
-            get { return _mapImage; }
-            set { _mapImage = value; }
+            get => _mapImage;
+            set => _mapImage = value;
         }
 
         /// <summary>
@@ -133,11 +118,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Description("Mapping used for the tooltip text.")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         [DefaultValue(typeof(MapKryptonPageText), "ToolTipTitle")]
-        public MapKryptonPageText MapText
-        {
-            get { return _mapText; }
-            set { _mapText = value; }
-        }
+        public MapKryptonPageText MapText { get; set; }
 
         /// <summary>
         /// Resets the MapText property to its default value.
@@ -156,11 +137,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Description("Mapping used for the tooltip description.")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         [DefaultValue(typeof(MapKryptonPageText), "ToolTipBody")]
-        public MapKryptonPageText MapExtraText
-        {
-            get { return _mapExtraText; }
-            set { _mapExtraText = value; }
-        }
+        public MapKryptonPageText MapExtraText { get; set; }
 
         /// <summary>
         /// Resets the MapExtraText property to its default value.

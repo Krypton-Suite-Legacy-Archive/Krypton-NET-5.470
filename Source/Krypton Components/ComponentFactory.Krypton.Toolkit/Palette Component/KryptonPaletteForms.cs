@@ -19,9 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteForms : Storage
     {
         #region Instance Fields
-        private KryptonPaletteForm _formCommon;
-        private KryptonPaletteForm _formMain;
-        private KryptonPaletteForm _formCustom1;
+
         #endregion
 
         #region Identity
@@ -36,16 +34,16 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the form style specific and common palettes
-            _formCommon = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
-            _formMain = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
-            _formCustom1 = new KryptonPaletteForm(redirector, PaletteBackStyle.FormCustom1, PaletteBorderStyle.FormCustom1, needPaint);
+            FormCommon = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
+            FormMain = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
+            FormCustom1 = new KryptonPaletteForm(redirector, PaletteBackStyle.FormCustom1, PaletteBorderStyle.FormCustom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, _formCommon.StateInactive, _formCommon.StateActive);
+            PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, FormCommon.StateInactive, FormCommon.StateActive);
 
             // Inform the form style to use the new redirector
-            _formMain.SetRedirector(redirectCommon);
-            _formCustom1.SetRedirector(redirectCommon);
+            FormMain.SetRedirector(redirectCommon);
+            FormCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -53,15 +51,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _formCommon.IsDefault &&
-                       _formMain.IsDefault &&
-                       _formCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => FormCommon.IsDefault &&
+                                          FormMain.IsDefault &&
+                                          FormCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -74,7 +67,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Populate only the designated styles
             common.StateCommon.BackStyle = PaletteBackStyle.FormMain;
             common.StateCommon.BorderStyle = PaletteBorderStyle.FormMain;
-            _formMain.PopulateFromBase();
+            FormMain.PopulateFromBase();
         }
         #endregion
 
@@ -86,14 +79,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common form appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteForm FormCommon
-        {
-            get { return _formCommon; }
-        }
+        public KryptonPaletteForm FormCommon { get; }
 
         private bool ShouldSerializeFormCommon()
         {
-            return !_formCommon.IsDefault;
+            return !FormCommon.IsDefault;
         }
         #endregion
 
@@ -105,14 +95,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining main form appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteForm FormMain
-        {
-            get { return _formMain; }
-        }
+        public KryptonPaletteForm FormMain { get; }
 
         private bool ShouldSerializeFormMain()
         {
-            return !_formMain.IsDefault;
+            return !FormMain.IsDefault;
         }
         #endregion
 
@@ -124,14 +111,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom form appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteForm FormCustom1
-        {
-            get { return _formCustom1; }
-        }
+        public KryptonPaletteForm FormCustom1 { get; }
 
         private bool ShouldSerializeFormCustom1()
         {
-            return !_formCustom1.IsDefault;
+            return !FormCustom1.IsDefault;
         }
         #endregion
     }

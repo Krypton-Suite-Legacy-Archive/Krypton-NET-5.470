@@ -28,11 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private string _moreColors;
-        private string _noColor;
-        private string _recentColors;
-        private string _standardColors;
-        private string _themeColors;
+
         #endregion
 
         #region Identity
@@ -42,11 +38,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteColorButtonStrings()
 		{
             // Default values
-            _moreColors = DEFAULT_MORE_COLORS;
-            _noColor = DEFAULT_NO_COLOR;
-            _recentColors = DEFAULT_RECENT_COLORS;
-            _standardColors = DEFAULT_STANDARD_COLORS;
-            _themeColors = DEFAULT_THEME_COLORS;
+            MoreColors = DEFAULT_MORE_COLORS;
+            NoColor = DEFAULT_NO_COLOR;
+            RecentColors = DEFAULT_RECENT_COLORS;
+            StandardColors = DEFAULT_STANDARD_COLORS;
+            ThemeColors = DEFAULT_THEME_COLORS;
         }
 		#endregion
 
@@ -55,17 +51,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (MoreColors.Equals(DEFAULT_MORE_COLORS)) &&
-                       (NoColor.Equals(DEFAULT_NO_COLOR)) &&
-                       (RecentColors.Equals(DEFAULT_RECENT_COLORS)) &&
-                       (StandardColors.Equals(DEFAULT_STANDARD_COLORS)) &&
-                       (ThemeColors.Equals(DEFAULT_THEME_COLORS));
-            }
-        }
+        public override bool IsDefault => (MoreColors.Equals(DEFAULT_MORE_COLORS)) &&
+                                          (NoColor.Equals(DEFAULT_NO_COLOR)) &&
+                                          (RecentColors.Equals(DEFAULT_RECENT_COLORS)) &&
+                                          (StandardColors.Equals(DEFAULT_STANDARD_COLORS)) &&
+                                          (ThemeColors.Equals(DEFAULT_THEME_COLORS));
+
         #endregion
 
         #region MoreColors
@@ -77,11 +68,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Menu string for a 'more colors' entry.")]
         [DefaultValue("&More Colors...")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string MoreColors
-        {
-            get { return _moreColors; }
-            set { _moreColors = value; }
-        }
+        public string MoreColors { get; set; }
+
         #endregion
 
         #region NoColor
@@ -93,11 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Menu string for a 'no color' entry.")]
         [DefaultValue("&No Color")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string NoColor
-        {
-            get { return _noColor; }
-            set { _noColor = value; }
-        }
+        public string NoColor { get; set; }
+
         #endregion
 
         #region RecentColors
@@ -109,11 +94,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Title for recent colors section of the color button menu.")]
         [DefaultValue("Recent Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string RecentColors
-        {
-            get { return _recentColors; }
-            set { _recentColors = value; }
-        }
+        public string RecentColors { get; set; }
+
         #endregion
 
         #region StandardColors
@@ -125,11 +107,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Title for standard colors section of the color button menu.")]
         [DefaultValue("Standard Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string StandardColors
-        {
-            get { return _standardColors; }
-            set { _standardColors = value; }
-        }
+        public string StandardColors { get; set; }
+
         #endregion
 
         #region ThemeColors
@@ -141,11 +120,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Title for theme colors section of the color button menu.")]
         [DefaultValue("Theme Colors")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        public string ThemeColors
-        {
-            get { return _themeColors; }
-            set { _themeColors = value; }
-        }
+        public string ThemeColors { get; set; }
+
         #endregion
     }
 }

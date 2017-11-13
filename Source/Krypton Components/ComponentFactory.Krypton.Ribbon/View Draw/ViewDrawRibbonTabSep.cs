@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private IPaletteRibbonGeneral _palette;
-        private bool _draw;
+
         #endregion
 
         #region Identity
@@ -68,11 +68,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets a value indicating if the tab separator should draw.
         /// </summary>
-        public bool Draw
-        {
-            get { return _draw; }
-            set { _draw = value; }
-        }
+        public bool Draw { get; set; }
+
         #endregion
 
         #region Paint

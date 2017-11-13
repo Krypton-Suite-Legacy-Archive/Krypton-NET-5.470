@@ -13,9 +13,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ItemSizeWidth
     {
         #region Instance Fields
-        private GroupItemSize _groupItemSize;
-        private int _width;
-        private int _tag;
+
         #endregion
 
         #region Identity
@@ -39,9 +37,9 @@ namespace ComponentFactory.Krypton.Ribbon
                              int width,
                              int tag)
         {
-            _groupItemSize = itemSize;
-            _width = width;
-            _tag = tag;
+            GroupItemSize = itemSize;
+            Width = width;
+            Tag = tag;
         }
         #endregion
 
@@ -49,37 +47,25 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the item size.
         /// </summary>
-        public GroupItemSize GroupItemSize
-        {
-            get { return _groupItemSize; }
-            set { _groupItemSize = value; }
-        }
+        public GroupItemSize GroupItemSize { get; set; }
 
         /// <summary>
         /// Gets and sets the item width.
         /// </summary>
-        public int Width
-        {
-            get { return _width; }
-            set { _width = value; }
-        }
+        public int Width { get; set; }
 
         /// <summary>
         /// Gets and sets the item tag.
         /// </summary>
-        public int Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
+        public int Tag { get; set; }
+
         #endregion
     }
 
     internal class GroupSizeWidth
     {
         #region Instance Fields
-        private int _width;
-        private ItemSizeWidth[] _sizing;
+
         #endregion
 
         #region Identity
@@ -90,8 +76,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="sizing">Sizing information for applying to group.</param>
         public GroupSizeWidth(int width, ItemSizeWidth[] sizing)
         {
-            _width = width;
-            _sizing = sizing;
+            Width = width;
+            Sizing = sizing;
         }
         #endregion
 
@@ -99,20 +85,13 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the item width.
         /// </summary>
-        public int Width
-        {
-            get { return _width; }
-            set { _width = value; }
-        }
+        public int Width { get; set; }
 
         /// <summary>
         /// Gets and sets the array of sizing information for group.
         /// </summary>
-        public ItemSizeWidth[] Sizing
-        {
-            get { return _sizing; }
-            set { _sizing = value; }
-        }
+        public ItemSizeWidth[] Sizing { get; set; }
+
         #endregion
     }
 }

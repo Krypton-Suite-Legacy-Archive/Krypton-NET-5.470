@@ -37,20 +37,17 @@ namespace ComponentFactory.Krypton.Ribbon
         private object _tag;
         private bool _visible;
         private bool _allowCollapsed;
-        private bool _isCollapsed;
         private Image _image;
         private string _textLine1;
         private string _textLine2;
         private string _keyTipGroup;
         private string _keyTipDialogLauncher;
         private bool _dialogBoxLauncher;
-        private bool _showingAsPopup;
         private int _minimumWidth;
         private int _maximumWidth;
         private KryptonRibbon _ribbon;
         private KryptonRibbonTab _ribbonTab;
-        private KryptonRibbonGroupContainerCollection _ribbonGroupItems;
-        private ViewBase _groupView;
+
         #endregion
 
         #region Events
@@ -119,16 +116,16 @@ namespace ComponentFactory.Krypton.Ribbon
             _visible = true;
             _allowCollapsed = true;
             _dialogBoxLauncher = true;
-            _isCollapsed = false;
+            IsCollapsed = false;
             _minimumWidth = -1;
             _maximumWidth = -1;
 
             // Create collection for holding child items
-            _ribbonGroupItems = new KryptonRibbonGroupContainerCollection();
-            _ribbonGroupItems.Clearing += new EventHandler(OnRibbonGroupItemsClearing);
-            _ribbonGroupItems.Cleared += new EventHandler(OnRibbonGroupItemsCleared);
-            _ribbonGroupItems.Inserted += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsInserted);
-            _ribbonGroupItems.Removed += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsRemoved);
+            Items = new KryptonRibbonGroupContainerCollection();
+            Items.Clearing += new EventHandler(OnRibbonGroupItemsClearing);
+            Items.Cleared += new EventHandler(OnRibbonGroupItemsCleared);
+            Items.Inserted += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsInserted);
+            Items.Removed += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsRemoved);
         }
 
         /// <summary>
@@ -159,7 +156,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public KryptonRibbon Ribbon
         {
-            get { return _ribbon; }
+            get => _ribbon;
 
             internal set
             {
@@ -167,7 +164,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in _ribbonGroupItems)
+                foreach (KryptonRibbonGroupItem item in Items)
                 {
                     item.Ribbon = value;
                 }
@@ -182,7 +179,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public KryptonRibbonTab RibbonTab
         {
-            get { return _ribbonTab; }
+            get => _ribbonTab;
 
             internal set
             {
@@ -190,7 +187,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in _ribbonGroupItems)
+                foreach (KryptonRibbonGroupItem item in Items)
                 {
                     item.RibbonTab = value;
                 }
@@ -208,7 +205,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("Group")]
         public string TextLine1
         {
-            get { return _textLine1; }
+            get => _textLine1;
 
             set
             {
@@ -237,7 +234,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("")]
         public string TextLine2
         {
-            get { return _textLine2; }
+            get => _textLine2;
 
             set
             {
@@ -259,7 +256,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("G")]
         public string KeyTipGroup
         {
-            get { return _keyTipGroup; }
+            get => _keyTipGroup;
 
             set
             {
@@ -282,7 +279,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("D")]
         public string KeyTipDialogLauncher
         {
-            get { return _keyTipDialogLauncher; }
+            get => _keyTipDialogLauncher;
 
             set
             {
@@ -305,7 +302,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Image
         {
-            get { return _image; }
+            get => _image;
 
             set
             {
@@ -331,7 +328,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -368,7 +365,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool DialogBoxLauncher
         {
-            get { return _dialogBoxLauncher; }
+            get => _dialogBoxLauncher;
 
             set
             {
@@ -389,7 +386,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool AllowCollapsed
         {
-            get { return _allowCollapsed; }
+            get => _allowCollapsed;
 
             set
             {
@@ -410,7 +407,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int MinimumWidth
         {
-            get { return _minimumWidth; }
+            get => _minimumWidth;
 
             set
             {
@@ -431,7 +428,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(-1)]
         public int MaximumWidth
         {
-            get { return _maximumWidth; }
+            get => _maximumWidth;
 
             set
             {
@@ -451,10 +448,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [MergableProperty(false)]
         [Editor("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainerCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonRibbonGroupContainerCollection Items
-        {
-            get { return _ribbonGroupItems; }
-        }
+        public KryptonRibbonGroupContainerCollection Items { get; }
 
         /// <summary>
         /// Gets and sets user-defined data associated with the object.
@@ -465,7 +459,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public object Tag
         {
-            get { return _tag; }
+            get => _tag;
 
             set
             {
@@ -493,11 +487,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase GroupView
-        {
-            get { return _groupView; }
-            set { _groupView = value; }
-        }
+        public ViewBase GroupView { get; set; }
+
         #endregion
 
         #region Protected
@@ -525,17 +516,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal bool IsCollapsed
-        {
-            get { return _isCollapsed; }
-            set { _isCollapsed = value; }
-        }
+        internal bool IsCollapsed { get; set; }
 
-        internal bool ShowingAsPopup
-        {
-            get { return _showingAsPopup; }
-            set { _showingAsPopup = value; }
-        }
+        internal bool ShowingAsPopup { get; set; }
 
         internal void OnDesignTimeAddTriple()
         {
@@ -581,7 +564,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonGroupItemsClearing(object sender, EventArgs e)
         {
             // Remove the back references
-            foreach (KryptonRibbonGroupContainer container in _ribbonGroupItems)
+            foreach (KryptonRibbonGroupContainer container in Items)
             {
                 container.Ribbon = null;
                 container.RibbonTab = null;

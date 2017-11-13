@@ -37,10 +37,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Instance Fields
         private KryptonRibbon _ribbon;
         private NeedPaintHandler _needPaintDelegate;
-        private KryptonForm _kryptonForm;
         private IDisposable _memento;
         private bool _minibar;
-        private bool _overlapAppButton;
+
         #endregion
 
         #region Identity
@@ -61,7 +60,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _needPaintDelegate = needPaintDelegate;
             _minibar = minibar;
-            _overlapAppButton = true;
+            OverlapAppButton = true;
         }
 
         /// <summary>
@@ -97,11 +96,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the associated form instance.
         /// </summary>
-        public KryptonForm OwnerForm
-        {
-            get { return _kryptonForm; }
-            set { _kryptonForm = value; }
-        }
+        public KryptonForm OwnerForm { get; set; }
+
         #endregion
 
         #region Visible
@@ -110,8 +106,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return (_ribbon.Visible && base.Visible); }
-            set { base.Visible = value; }
+            get => (_ribbon.Visible && base.Visible);
+            set => base.Visible = value;
         }
         #endregion
 
@@ -119,11 +115,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the element overlap the app button to the left.
         /// </summary>
-        public bool OverlapAppButton
-        {
-            get { return _overlapAppButton; }
-            set { _overlapAppButton = value; }
-        }
+        public bool OverlapAppButton { get; set; }
+
         #endregion
 
         #region Layout

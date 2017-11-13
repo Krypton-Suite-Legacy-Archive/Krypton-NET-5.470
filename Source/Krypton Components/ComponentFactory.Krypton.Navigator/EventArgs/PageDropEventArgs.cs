@@ -38,8 +38,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonPage Page
         {
-            get { return _page; }
-            set { _page = Page; }
+            get => _page;
+            set => _page = Page;
         }
         #endregion
     }

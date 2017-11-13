@@ -32,25 +32,13 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private KryptonNavigator _navigator;
-        private NavFixedButtonSpecCollection _fixedSpecs;
-        private NavigatorButtonSpecCollection _buttonSpecs;
-        private ButtonSpecNavPrevious _fixedPrevious;
         private DirectionButtonAction _actionPrevious;
-        private Keys _shortcutPrevious;
         private ButtonDisplay _displayPrevious;
-        private ButtonSpecNavNext _fixedNext;
         private DirectionButtonAction _actionNext;
-        private Keys _shortcutNext;
         private ButtonDisplay _displayNext;
-        private ButtonSpecNavContext _fixedContext;
         private ContextButtonAction _actionContext;
-        private Keys _shortcutContext;
         private ButtonDisplay _displayContext;
-        private MapKryptonPageText _mapTextContext;
-        private MapKryptonPageImage _mapImageContext;
-        private ButtonSpecNavClose _fixedClose;
         private CloseButtonAction _actionClosed;
-        private Keys _shortcutClose;
         private ButtonDisplay _displayClosed;
         private ButtonDisplayLogic _displayLogic;
         #endregion
@@ -73,36 +61,36 @@ namespace ComponentFactory.Krypton.Navigator
             NeedPaint = needPaint;
 
             // Create collection for use defined and fixed buttons
-            _buttonSpecs = new NavigatorButtonSpecCollection(navigator);
-            _fixedSpecs = new NavFixedButtonSpecCollection(navigator);
+            ButtonSpecs = new NavigatorButtonSpecCollection(navigator);
+            FixedSpecs = new NavFixedButtonSpecCollection(navigator);
 
             // Create the fixed buttons
-            _fixedPrevious = new ButtonSpecNavPrevious(_navigator);
-            _fixedNext = new ButtonSpecNavNext(_navigator);
-            _fixedContext = new ButtonSpecNavContext(_navigator);
-            _fixedClose = new ButtonSpecNavClose(_navigator);
+            PreviousButton = new ButtonSpecNavPrevious(_navigator);
+            NextButton = new ButtonSpecNavNext(_navigator);
+            ContextButton = new ButtonSpecNavContext(_navigator);
+            CloseButton = new ButtonSpecNavClose(_navigator);
 
             // Hook into the click events for the buttons
-            _fixedPrevious.Click += new EventHandler(OnPreviousClick);
-            _fixedNext.Click += new EventHandler(OnNextClick);
-            _fixedContext.Click += new EventHandler(OnContextClick);
-            _fixedClose.Click += new EventHandler(OnCloseClick);
+            PreviousButton.Click += new EventHandler(OnPreviousClick);
+            NextButton.Click += new EventHandler(OnNextClick);
+            ContextButton.Click += new EventHandler(OnContextClick);
+            CloseButton.Click += new EventHandler(OnCloseClick);
 
             // Add fixed buttons into the display collection
-            _fixedSpecs.AddRange(new ButtonSpecNavFixed[] { _fixedPrevious, _fixedNext, _fixedContext, _fixedClose });
+            FixedSpecs.AddRange(new ButtonSpecNavFixed[] { PreviousButton, NextButton, ContextButton, CloseButton });
 
             // Default fields
             _displayLogic = ButtonDisplayLogic.Context;
-            _mapTextContext = MapKryptonPageText.TextTitle;
-            _mapImageContext = MapKryptonPageImage.Small;
+            ContextMenuMapText = MapKryptonPageText.TextTitle;
+            ContextMenuMapImage = MapKryptonPageImage.Small;
             _actionClosed = CloseButtonAction.RemovePageAndDispose;
             _actionContext = ContextButtonAction.SelectPage;
             _actionPrevious = _actionNext = DirectionButtonAction.ModeAppropriateAction;
             _displayPrevious = _displayNext = _displayContext = _displayClosed = ButtonDisplay.Logic;
-            _shortcutClose = DEFAULT_SHORTCUT_CLOSE;
-            _shortcutContext = DEFAULT_SHORTCUT_CONTEXT;
-            _shortcutNext = DEFAULT_SHORTCUT_NEXT;
-            _shortcutPrevious = DEFAULT_SHORTCUT_PREVIOUS;
+            CloseButtonShortcut = DEFAULT_SHORTCUT_CLOSE;
+            ContextButtonShortcut = DEFAULT_SHORTCUT_CONTEXT;
+            NextButtonShortcut = DEFAULT_SHORTCUT_NEXT;
+            PreviousButtonShortcut = DEFAULT_SHORTCUT_PREVIOUS;
         }
 		#endregion
 
@@ -111,31 +99,26 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((ButtonSpecs.Count == 0) &&
-                        PreviousButton.IsDefault &&
-                        (PreviousButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
-                        (PreviousButtonDisplay == ButtonDisplay.Logic) &&
-                        (PreviousButtonShortcut == DEFAULT_SHORTCUT_PREVIOUS) &&
-                        NextButton.IsDefault &&
-                        (NextButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
-                        (NextButtonDisplay == ButtonDisplay.Logic) &&
-                        (NextButtonShortcut == DEFAULT_SHORTCUT_NEXT) &&
-                        ContextButton.IsDefault &&
-                        (ContextButtonDisplay == ButtonDisplay.Logic) &&
-                        (ContextButtonShortcut == DEFAULT_SHORTCUT_CONTEXT) &&
-                        (ContextMenuMapText == MapKryptonPageText.TextTitle) &&
-                        (ContextMenuMapImage == MapKryptonPageImage.Small) &&
-                        CloseButton.IsDefault &&
-                        (CloseButtonAction == CloseButtonAction.RemovePageAndDispose) &&
-                        (CloseButtonDisplay == ButtonDisplay.Logic) &&
-                        (CloseButtonShortcut == DEFAULT_SHORTCUT_CLOSE) &&
-                        (ButtonDisplayLogic == ButtonDisplayLogic.Context));
-            }
-        }
+        public override bool IsDefault => ((ButtonSpecs.Count == 0) &&
+                                           PreviousButton.IsDefault &&
+                                           (PreviousButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
+                                           (PreviousButtonDisplay == ButtonDisplay.Logic) &&
+                                           (PreviousButtonShortcut == DEFAULT_SHORTCUT_PREVIOUS) &&
+                                           NextButton.IsDefault &&
+                                           (NextButtonAction == DirectionButtonAction.ModeAppropriateAction) &&
+                                           (NextButtonDisplay == ButtonDisplay.Logic) &&
+                                           (NextButtonShortcut == DEFAULT_SHORTCUT_NEXT) &&
+                                           ContextButton.IsDefault &&
+                                           (ContextButtonDisplay == ButtonDisplay.Logic) &&
+                                           (ContextButtonShortcut == DEFAULT_SHORTCUT_CONTEXT) &&
+                                           (ContextMenuMapText == MapKryptonPageText.TextTitle) &&
+                                           (ContextMenuMapImage == MapKryptonPageImage.Small) &&
+                                           CloseButton.IsDefault &&
+                                           (CloseButtonAction == CloseButtonAction.RemovePageAndDispose) &&
+                                           (CloseButtonDisplay == ButtonDisplay.Logic) &&
+                                           (CloseButtonShortcut == DEFAULT_SHORTCUT_CLOSE) &&
+                                           (ButtonDisplayLogic == ButtonDisplayLogic.Context));
+
         #endregion
 
         #region ButtonSpecs
@@ -146,10 +129,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Description("Collection of button specifications.")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public NavigatorButtonSpecCollection ButtonSpecs { get; }
+
         #endregion
 
         #region PreviousButton
@@ -159,14 +140,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Previous button specification.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ButtonSpecNavPrevious PreviousButton
-        {
-            get { return _fixedPrevious; }
-        }
+        public ButtonSpecNavPrevious PreviousButton { get; }
 
         private bool ShouldSerializePreviousButton()
         {
-            return !_fixedPrevious.IsDefault;
+            return !PreviousButton.IsDefault;
         }
         #endregion
 
@@ -179,7 +157,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(DirectionButtonAction), "Mode Appropriate Action")]
         public DirectionButtonAction PreviousButtonAction
         {
-            get { return _actionPrevious; }
+            get => _actionPrevious;
 
             set
             {
@@ -201,7 +179,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonDisplay), "Logic")]
         public ButtonDisplay PreviousButtonDisplay
         {
-            get { return _displayPrevious; }
+            get => _displayPrevious;
 
             set
             {
@@ -222,11 +200,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Shortcut for invoking the previous action.")]
         [DefaultValue(typeof(Keys), "F6, Shift, Control")]
-        public Keys PreviousButtonShortcut
-        {
-            get { return _shortcutPrevious; }
-            set { _shortcutPrevious = value; }
-        }
+        public Keys PreviousButtonShortcut { get; set; }
 
         private bool ShouldSerializePreviousButtonShortcut()
         {
@@ -249,14 +223,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Next button specification.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ButtonSpecNavNext NextButton
-        {
-            get { return _fixedNext; }
-        }
+        public ButtonSpecNavNext NextButton { get; }
 
         private bool ShouldSerializeNextButton()
         {
-            return !_fixedNext.IsDefault;
+            return !NextButton.IsDefault;
         }
         #endregion
 
@@ -269,7 +240,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(DirectionButtonAction), "Mode Appropriate Action")]
         public DirectionButtonAction NextButtonAction
         {
-            get { return _actionNext; }
+            get => _actionNext;
 
             set
             {
@@ -291,7 +262,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonDisplay), "Logic")]
         public ButtonDisplay NextButtonDisplay
         {
-            get { return _displayNext; }
+            get => _displayNext;
 
             set
             {
@@ -312,11 +283,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Shortcut for invoking the next action.")]
         [DefaultValue(typeof(Keys), "F6, Control")]
-        public Keys NextButtonShortcut
-        {
-            get { return _shortcutNext; }
-            set { _shortcutNext = value; }
-        }
+        public Keys NextButtonShortcut { get; set; }
 
         private bool ShouldSerializeNextButtonShortcut()
         {
@@ -339,14 +306,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Context button specification.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ButtonSpecNavContext ContextButton
-        {
-            get { return _fixedContext; }
-        }
+        public ButtonSpecNavContext ContextButton { get; }
 
         private bool ShouldSerializeContextButton()
         {
-            return !_fixedContext.IsDefault;
+            return !ContextButton.IsDefault;
         }
         #endregion
 
@@ -359,7 +323,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ContextButtonAction), "Select Page")]
         public ContextButtonAction ContextButtonAction
         {
-            get { return _actionContext; }
+            get => _actionContext;
 
             set
             {
@@ -381,7 +345,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonDisplay), "Logic")]
         public ButtonDisplay ContextButtonDisplay
         {
-            get { return _displayContext; }
+            get => _displayContext;
 
             set
             {
@@ -402,11 +366,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Shortcut for invoking the context action.")]
         [DefaultValue(typeof(Keys), "Down, Alt, Control")]
-        public Keys ContextButtonShortcut
-        {
-            get { return _shortcutContext; }
-            set { _shortcutContext = value; }
-        }
+        public Keys ContextButtonShortcut { get; set; }
 
         private bool ShouldSerializeContextButtonShortcut()
         {
@@ -429,11 +389,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Mapping used to generate context menu item image.")]
         [DefaultValue(typeof(MapKryptonPageText), "Text - Title")]
-        public MapKryptonPageText ContextMenuMapText
-        {
-            get { return _mapTextContext; }
-            set { _mapTextContext = value; }
-        }
+        public MapKryptonPageText ContextMenuMapText { get; set; }
+
         #endregion
 
         #region ContextMenuMapImage
@@ -443,11 +400,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Mapping used to generate context menu item text.")]
         [DefaultValue(typeof(MapKryptonPageImage), "Small")]
-        public MapKryptonPageImage ContextMenuMapImage
-        {
-            get { return _mapImageContext; }
-            set { _mapImageContext = value; }
-        }
+        public MapKryptonPageImage ContextMenuMapImage { get; set; }
+
         #endregion
 
         #region CloseButton
@@ -457,14 +411,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Close button specification.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ButtonSpecNavClose CloseButton
-        {
-            get { return _fixedClose; }
-        }
+        public ButtonSpecNavClose CloseButton { get; }
 
         private bool ShouldSerializeCloseButton()
         {
-            return !_fixedClose.IsDefault;
+            return !CloseButton.IsDefault;
         }
         #endregion
 
@@ -477,7 +428,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(CloseButtonAction), "RemovePage & Dispose")]
         public CloseButtonAction CloseButtonAction
         {
-            get { return _actionClosed; }
+            get => _actionClosed;
 
             set
             {
@@ -499,7 +450,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonDisplay), "Logic")]
         public ButtonDisplay CloseButtonDisplay
         {
-            get { return _displayClosed; }
+            get => _displayClosed;
 
             set
             {
@@ -520,11 +471,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Shortcut for invoking the close action.")]
         [DefaultValue(typeof(Keys), "F4, Control")]
-        public Keys CloseButtonShortcut
-        {
-            get { return _shortcutClose; }
-            set { _shortcutClose = value; }
-        }
+        public Keys CloseButtonShortcut { get; set; }
 
         private bool ShouldSerializeCloseButtonShortcut()
         {
@@ -549,7 +496,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(ButtonDisplayLogic), "Context")]
         public ButtonDisplayLogic ButtonDisplayLogic
         {
-            get { return _displayLogic; }
+            get => _displayLogic;
 
             set
             {
@@ -571,10 +518,8 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Internal
-        internal NavFixedButtonSpecCollection FixedSpecs
-        {
-            get { return _fixedSpecs; }
-        }
+        internal NavFixedButtonSpecCollection FixedSpecs { get; }
+
         #endregion
 
         #region Implementation

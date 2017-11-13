@@ -32,14 +32,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Instance Fields
         private bool _visible;
         private string _keyTip;
-        private Keys _shortcutKeys;
         private GroupItemSize _itemSizeCurrent;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonDateTimePicker _dateTimePicker;
-        private KryptonDateTimePicker _lastDateTimePicker;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _dateTimePickerView;
+
         #endregion
 
         #region Events
@@ -152,11 +146,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // Default fields
             _visible = true;
             _itemSizeCurrent = GroupItemSize.Medium;
-            _shortcutKeys = Keys.None;
+            ShortcutKeys = Keys.None;
             _keyTip = "X";
 
             // Create the actual date time picker control and set initial settings
-            _dateTimePicker = new KryptonDateTimePicker
+            DateTimePicker = new KryptonDateTimePicker
             {
                 InputControlStyle = InputControlStyle.Ribbon,
                 AlwaysActive = false,
@@ -166,21 +160,21 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            _dateTimePicker.ValueChanged += new EventHandler(OnDateTimePickerValueChanged);
-            _dateTimePicker.ValueNullableChanged += new EventHandler(OnDateTimePickerValueNullableChanged);
-            _dateTimePicker.DropDown += new EventHandler<DateTimePickerDropArgs>(OnDateTimePickerDropDown);
-            _dateTimePicker.CloseUp += new EventHandler<DateTimePickerCloseArgs>(OnDateTimePickerCloseUp);
-            _dateTimePicker.CheckedChanged += new EventHandler(OnDateTimePickerCheckedChanged);
-            _dateTimePicker.FormatChanged += new EventHandler(OnDateTimePickerFormatChanged);
-            _dateTimePicker.GotFocus += new EventHandler(OnDateTimePickerGotFocus);
-            _dateTimePicker.LostFocus += new EventHandler(OnDateTimePickerLostFocus);
-            _dateTimePicker.KeyDown += new KeyEventHandler(OnDateTimePickerKeyDown);
-            _dateTimePicker.KeyUp += new KeyEventHandler(OnDateTimePickerKeyUp);
-            _dateTimePicker.KeyPress += new KeyPressEventHandler(OnDateTimePickerKeyPress);
-            _dateTimePicker.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDateTimePickerKeyDown);
+            DateTimePicker.ValueChanged += new EventHandler(OnDateTimePickerValueChanged);
+            DateTimePicker.ValueNullableChanged += new EventHandler(OnDateTimePickerValueNullableChanged);
+            DateTimePicker.DropDown += new EventHandler<DateTimePickerDropArgs>(OnDateTimePickerDropDown);
+            DateTimePicker.CloseUp += new EventHandler<DateTimePickerCloseArgs>(OnDateTimePickerCloseUp);
+            DateTimePicker.CheckedChanged += new EventHandler(OnDateTimePickerCheckedChanged);
+            DateTimePicker.FormatChanged += new EventHandler(OnDateTimePickerFormatChanged);
+            DateTimePicker.GotFocus += new EventHandler(OnDateTimePickerGotFocus);
+            DateTimePicker.LostFocus += new EventHandler(OnDateTimePickerLostFocus);
+            DateTimePicker.KeyDown += new KeyEventHandler(OnDateTimePickerKeyDown);
+            DateTimePicker.KeyUp += new KeyEventHandler(OnDateTimePickerKeyUp);
+            DateTimePicker.KeyPress += new KeyPressEventHandler(OnDateTimePickerKeyPress);
+            DateTimePicker.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDateTimePickerKeyDown);
 
             // Ensure we can track mouse events on the date time picker
-            MonitorControl(_dateTimePicker);
+            MonitorControl(DateTimePicker);
         }
 
         /// <summary>
@@ -191,11 +185,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_dateTimePicker != null)
+                if (DateTimePicker != null)
                 {
-                    UnmonitorControl(_dateTimePicker);
-                    _dateTimePicker.Dispose();
-                    _dateTimePicker = null;
+                    UnmonitorControl(DateTimePicker);
+                    DateTimePicker.Dispose();
+                    DateTimePicker = null;
                 }
             }
 
@@ -220,7 +214,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the same palette in the date time picker as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
-                    _dateTimePicker.Palette = Ribbon.GetResolvedPalette();
+                    DateTimePicker.Palette = Ribbon.GetResolvedPalette();
                     Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
                 }
             }
@@ -232,11 +226,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         [Category("Behavior")]
         [Description("Shortcut key combination to set focus to the date time picker.")]
-        public Keys ShortcutKeys
-        {
-            get { return _shortcutKeys; }
-            set { _shortcutKeys = value; }
-        }
+        public Keys ShortcutKeys { get; set; }
 
         private bool ShouldSerializeShortcutKeys()
         {
@@ -258,10 +248,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonDateTimePicker DateTimePicker
-        {
-            get { return _dateTimePicker; }
-        }
+        public KryptonDateTimePicker DateTimePicker { get; private set; }
 
         /// <summary>
         /// Gets and sets the key tip for the ribbon group date time picker.
@@ -273,7 +260,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("X")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -298,7 +285,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -335,8 +322,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _dateTimePicker.Enabled; }
-            set { _dateTimePicker.Enabled = value; }
+            get => DateTimePicker.Enabled;
+            set => DateTimePicker.Enabled = value;
         }
 
         /// <summary>
@@ -347,8 +334,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "180, 0")]
         public Size MinimumSize
         {
-            get { return _dateTimePicker.MinimumSize; }
-            set { _dateTimePicker.MinimumSize = value; }
+            get => DateTimePicker.MinimumSize;
+            set => DateTimePicker.MinimumSize = value;
         }
 
         /// <summary>
@@ -359,8 +346,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Size), "180, 0")]
         public Size MaximumSize
         {
-            get { return _dateTimePicker.MaximumSize; }
-            set { _dateTimePicker.MaximumSize = value; }
+            get => DateTimePicker.MaximumSize;
+            set => DateTimePicker.MaximumSize = value;
         }
 
         /// <summary>
@@ -371,8 +358,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _dateTimePicker.ContextMenuStrip; }
-            set { _dateTimePicker.ContextMenuStrip = value; }
+            get => DateTimePicker.ContextMenuStrip;
+            set => DateTimePicker.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -383,8 +370,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _dateTimePicker.KryptonContextMenu; }
-            set { _dateTimePicker.KryptonContextMenu = value; }
+            get => DateTimePicker.KryptonContextMenu;
+            set => DateTimePicker.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -395,8 +382,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool AllowButtonSpecToolTips
         {
-            get { return _dateTimePicker.AllowButtonSpecToolTips; }
-            set { _dateTimePicker.AllowButtonSpecToolTips = value; }
+            get => DateTimePicker.AllowButtonSpecToolTips;
+            set => DateTimePicker.AllowButtonSpecToolTips = value;
         }
 
         /// <summary>
@@ -405,10 +392,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonDateTimePicker.DateTimePickerButtonSpecCollection ButtonSpecs
-        {
-            get { return _dateTimePicker.ButtonSpecs; }
-        }
+        public KryptonDateTimePicker.DateTimePickerButtonSpecCollection ButtonSpecs => DateTimePicker.ButtonSpecs;
 
         /// <summary>
         /// Gets or sets the number of columns and rows of months displayed. 
@@ -419,8 +403,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public Size CalendarDimensions
         {
-            get { return _dateTimePicker.CalendarDimensions; }
-            set { _dateTimePicker.CalendarDimensions = value; }
+            get => DateTimePicker.CalendarDimensions;
+            set => DateTimePicker.CalendarDimensions = value;
         }
 
         /// <summary>
@@ -432,13 +416,13 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public string CalendarTodayText
         {
-            get { return _dateTimePicker.CalendarTodayText; }
-            set { _dateTimePicker.CalendarTodayText = value; }
+            get => DateTimePicker.CalendarTodayText;
+            set => DateTimePicker.CalendarTodayText = value;
         }
 
         private void ResetCalendarTodayText()
         {
-            _dateTimePicker.ResetCalendarTodayText();
+            DateTimePicker.ResetCalendarTodayText();
         }
 
         /// <summary>
@@ -450,8 +434,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public Day CalendarFirstDayOfWeek
         {
-            get { return _dateTimePicker.CalendarFirstDayOfWeek; }
-            set { _dateTimePicker.CalendarFirstDayOfWeek = value; }
+            get => DateTimePicker.CalendarFirstDayOfWeek;
+            set => DateTimePicker.CalendarFirstDayOfWeek = value;
         }
 
         /// <summary>
@@ -462,8 +446,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool CalendarCloseOnTodayClick
         {
-            get { return _dateTimePicker.CalendarCloseOnTodayClick; }
-            set { _dateTimePicker.CalendarCloseOnTodayClick = value; }
+            get => DateTimePicker.CalendarCloseOnTodayClick;
+            set => DateTimePicker.CalendarCloseOnTodayClick = value;
         }
 
         /// <summary>
@@ -474,8 +458,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool CalendarShowToday
         {
-            get { return _dateTimePicker.CalendarShowToday; }
-            set { _dateTimePicker.CalendarShowToday = value; }
+            get => DateTimePicker.CalendarShowToday;
+            set => DateTimePicker.CalendarShowToday = value;
         }
 
         /// <summary>
@@ -486,8 +470,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool CalendarShowTodayCircle
         {
-            get { return _dateTimePicker.CalendarShowTodayCircle; }
-            set { _dateTimePicker.CalendarShowTodayCircle = value; }
+            get => DateTimePicker.CalendarShowTodayCircle;
+            set => DateTimePicker.CalendarShowTodayCircle = value;
         }
 
         /// <summary>
@@ -498,8 +482,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool CalendarShowWeekNumbers
         {
-            get { return _dateTimePicker.CalendarShowWeekNumbers; }
-            set { _dateTimePicker.CalendarShowWeekNumbers = value; }
+            get => DateTimePicker.CalendarShowWeekNumbers;
+            set => DateTimePicker.CalendarShowWeekNumbers = value;
         }
 
         /// <summary>
@@ -509,8 +493,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Today's date.")]
         public DateTime CalendarTodayDate
         {
-            get { return _dateTimePicker.CalendarTodayDate; }
-            set { _dateTimePicker.CalendarTodayDate = value; }
+            get => DateTimePicker.CalendarTodayDate;
+            set => DateTimePicker.CalendarTodayDate = value;
         }
 
         private void ResetCalendarTodayDate()
@@ -531,8 +515,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public DateTime[] CalendarAnnuallyBoldedDates
         {
-            get { return _dateTimePicker.CalendarAnnuallyBoldedDates; }
-            set { _dateTimePicker.CalendarAnnuallyBoldedDates = value; }
+            get => DateTimePicker.CalendarAnnuallyBoldedDates;
+            set => DateTimePicker.CalendarAnnuallyBoldedDates = value;
         }
 
         private void ResetCalendarAnnuallyBoldedDates()
@@ -542,7 +526,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeCalendarAnnuallyBoldedDates()
         {
-            return _dateTimePicker.ShouldSerializeCalendarAnnuallyBoldedDates();
+            return DateTimePicker.ShouldSerializeCalendarAnnuallyBoldedDates();
         }
 
         /// <summary>
@@ -553,8 +537,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public DateTime[] CalendarMonthlyBoldedDates
         {
-            get { return _dateTimePicker.CalendarMonthlyBoldedDates; }
-            set { _dateTimePicker.CalendarMonthlyBoldedDates = value; }
+            get => DateTimePicker.CalendarMonthlyBoldedDates;
+            set => DateTimePicker.CalendarMonthlyBoldedDates = value;
         }
 
         private void ResetCalendarMonthlyBoldedDates()
@@ -564,7 +548,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeCalendarMonthlyBoldedDates()
         {
-            return _dateTimePicker.ShouldSerializeCalendarMonthlyBoldedDates();
+            return DateTimePicker.ShouldSerializeCalendarMonthlyBoldedDates();
         }
 
         /// <summary>
@@ -575,8 +559,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public DateTime[] CalendarBoldedDates
         {
-            get { return _dateTimePicker.CalendarBoldedDates; }
-            set { _dateTimePicker.CalendarBoldedDates = value; }
+            get => DateTimePicker.CalendarBoldedDates;
+            set => DateTimePicker.CalendarBoldedDates = value;
         }
 
         private void ResetCalendarBoldedDates()
@@ -586,7 +570,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeCalendarBoldedDates()
         {
-            return _dateTimePicker.ShouldSerializeCalendarBoldedDates();
+            return DateTimePicker.ShouldSerializeCalendarBoldedDates();
         }
 
         /// <summary>
@@ -598,8 +582,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public LeftRightAlignment DropDownAlign
         {
-            get { return _dateTimePicker.DropDownAlign; }
-            set { _dateTimePicker.DropDownAlign = value; }
+            get => DateTimePicker.DropDownAlign;
+            set => DateTimePicker.DropDownAlign = value;
         }
 
         /// <summary>
@@ -612,18 +596,18 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public object ValueNullable
         {
-            get { return _dateTimePicker.ValueNullable; }
-            set { _dateTimePicker.ValueNullable = value; }
+            get => DateTimePicker.ValueNullable;
+            set => DateTimePicker.ValueNullable = value;
         }
 
         private void ResetValueNullable()
         {
-            _dateTimePicker.ResetValueNullable();
+            DateTimePicker.ResetValueNullable();
         }
 
         private bool ShouldSerializeValueNullable()
         {
-            return _dateTimePicker.ShouldSerializeValueNullable();
+            return DateTimePicker.ShouldSerializeValueNullable();
         }
 
         /// <summary>
@@ -635,18 +619,18 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public DateTime Value
         {
-            get { return _dateTimePicker.Value; }
-            set { _dateTimePicker.Value = value; }
+            get => DateTimePicker.Value;
+            set => DateTimePicker.Value = value;
         }
 
         private void ResetValue()
         {
-            _dateTimePicker.ResetValue();
+            DateTimePicker.ResetValue();
         }
 
         private bool ShouldSerializeValue()
         {
-            return _dateTimePicker.ShouldSerializeValue();
+            return DateTimePicker.ShouldSerializeValue();
         }
 
         /// <summary>
@@ -658,8 +642,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.Repaint)]
         public DateTimePickerFormat Format
         {
-            get { return _dateTimePicker.Format; }
-            set { _dateTimePicker.Format = value; }
+            get => DateTimePicker.Format;
+            set => DateTimePicker.Format = value;
         }
 
         /// <summary>
@@ -670,8 +654,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool ShowUpDown
         {
-            get { return _dateTimePicker.ShowUpDown; }
-            set { _dateTimePicker.ShowUpDown = value; }
+            get => DateTimePicker.ShowUpDown;
+            set => DateTimePicker.ShowUpDown = value;
         }
 
         /// <summary>
@@ -682,8 +666,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool ShowCheckBox
         {
-            get { return _dateTimePicker.ShowCheckBox; }
-            set { _dateTimePicker.ShowCheckBox = value; }
+            get => DateTimePicker.ShowCheckBox;
+            set => DateTimePicker.ShowCheckBox = value;
         }
 
         /// <summary>
@@ -694,8 +678,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool UseMnemonic
         {
-            get { return _dateTimePicker.UseMnemonic; }
-            set { _dateTimePicker.UseMnemonic = value; }
+            get => DateTimePicker.UseMnemonic;
+            set => DateTimePicker.UseMnemonic = value;
         }
 
         /// <summary>
@@ -705,8 +689,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Maximum allowable date.")]
         public DateTime MaxDate
         {
-            get { return _dateTimePicker.MaxDate; }
-            set { _dateTimePicker.MaxDate = value; }
+            get => DateTimePicker.MaxDate;
+            set => DateTimePicker.MaxDate = value;
         }
 
         private void ResetMaxDate()
@@ -716,7 +700,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeMaxDate()
         {
-            return _dateTimePicker.ShouldSerializeMaxDate();
+            return DateTimePicker.ShouldSerializeMaxDate();
         }
 
         /// <summary>
@@ -726,8 +710,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Minimum allowable date.")]
         public DateTime MinDate
         {
-            get { return _dateTimePicker.MinDate; }
-            set { _dateTimePicker.MinDate = value; }
+            get => DateTimePicker.MinDate;
+            set => DateTimePicker.MinDate = value;
         }
 
         private void ResetMinDate()
@@ -737,7 +721,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private bool ShouldSerializeMinDate()
         {
-            return _dateTimePicker.ShouldSerializeMinDate();
+            return DateTimePicker.ShouldSerializeMinDate();
         }
 
         /// <summary>
@@ -750,8 +734,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public bool Checked
         {
-            get { return _dateTimePicker.Checked; }
-            set { _dateTimePicker.Checked = value; }
+            get => DateTimePicker.Checked;
+            set => DateTimePicker.Checked = value;
         }
 
         /// <summary>
@@ -764,8 +748,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public string CustomFormat
         {
-            get { return _dateTimePicker.CustomFormat; }
-            set { _dateTimePicker.CustomFormat = value; }
+            get => DateTimePicker.CustomFormat;
+            set => DateTimePicker.CustomFormat = value;
         }
 
         /// <summary>
@@ -778,8 +762,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public string CustomNullText
         {
-            get { return _dateTimePicker.CustomNullText; }
-            set { _dateTimePicker.CustomNullText = value; }
+            get => DateTimePicker.CustomNullText;
+            set => DateTimePicker.CustomNullText = value;
         }
 
         /// <summary>
@@ -792,8 +776,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Localizable(true)]
         public string CalendarTodayFormat
         {
-            get { return _dateTimePicker.CalendarTodayFormat; }
-            set { _dateTimePicker.CalendarTodayFormat = value; }
+            get => DateTimePicker.CalendarTodayFormat;
+            set => DateTimePicker.CalendarTodayFormat = value;
         }
 
         /// <summary>
@@ -803,8 +787,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Header style for the month calendar.")]
         public HeaderStyle CalendarHeaderStyle
         {
-            get { return _dateTimePicker.CalendarHeaderStyle; }
-            set { _dateTimePicker.CalendarHeaderStyle = value; }
+            get => DateTimePicker.CalendarHeaderStyle;
+            set => DateTimePicker.CalendarHeaderStyle = value;
         }
 
         private void ResetCalendarHeaderStyle()
@@ -824,8 +808,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Content style for the day entries.")]
         public ButtonStyle CalendarDayStyle
         {
-            get { return _dateTimePicker.CalendarDayStyle; }
-            set { _dateTimePicker.CalendarDayStyle = value; }
+            get => DateTimePicker.CalendarDayStyle;
+            set => DateTimePicker.CalendarDayStyle = value;
         }
 
         private void ResetCalendarDayStyle()
@@ -845,8 +829,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Content style for the day of week labels.")]
         public ButtonStyle CalendarDayOfWeekStyle
         {
-            get { return _dateTimePicker.CalendarDayOfWeekStyle; }
-            set { _dateTimePicker.CalendarDayOfWeekStyle = value; }
+            get => DateTimePicker.CalendarDayOfWeekStyle;
+            set => DateTimePicker.CalendarDayOfWeekStyle = value;
         }
 
         private void ResetCalendarDayOfWeekStyle()
@@ -891,7 +875,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -922,11 +906,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject DateTimePickerDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject DateTimePickerDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.
@@ -934,11 +914,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase DateTimePickerView
-        {
-            get { return _dateTimePickerView; }
-            set { _dateTimePickerView = value; }
-        }
+        public ViewBase DateTimePickerView { get; set; }
+
         #endregion
 
         #region Protected Virtual
@@ -1061,23 +1038,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonDateTimePicker LastDateTimePicker
-        {
-            get { return _lastDateTimePicker; }
-            set { _lastDateTimePicker = value; }
-        }
+        internal KryptonDateTimePicker LastDateTimePicker { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
@@ -1137,7 +1102,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            _viewPaintDelegate?.Invoke(this, e);
+            ViewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnDateTimePickerGotFocus(object sender, EventArgs e)
@@ -1202,7 +1167,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)
         {
-            _dateTimePicker.Palette = Ribbon.GetResolvedPalette();
+            DateTimePicker.Palette = Ribbon.GetResolvedPalette();
         }
         #endregion
     }

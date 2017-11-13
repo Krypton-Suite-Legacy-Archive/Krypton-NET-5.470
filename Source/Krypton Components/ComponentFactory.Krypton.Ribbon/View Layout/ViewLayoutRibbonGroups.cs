@@ -114,7 +114,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaintDelegate
         {
-            set { _needPaint = value; }
+            set => _needPaint = value;
         }
         #endregion
 

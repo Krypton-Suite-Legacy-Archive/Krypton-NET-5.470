@@ -25,16 +25,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private KryptonContextMenuMonthCalendar _monthCalendar;
         private IContextMenuProvider _provider;
         private ViewLayoutMonths _layoutMonths;
-        private DateTime _minDate;
-        private DateTime _maxDate;
-        private DateTime _todayDate;
-        private string _todayFormat;
-        private Day _firstDayOfWeek;
-        private Size _dimensions;
         private bool _itemEnabled;
-        private int _maxSelectionCount;
-        private int _scrollChange;
-        private string _todayText;
+
         #endregion
 
         #region Identity
@@ -48,15 +40,15 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             _provider = provider;
             _monthCalendar = monthCalendar;
-            _firstDayOfWeek = _monthCalendar.FirstDayOfWeek;
-            _minDate = _monthCalendar.MinDate;
-            _maxDate = _monthCalendar.MaxDate;
-            _todayDate = _monthCalendar.TodayDate;
-            _maxSelectionCount = _monthCalendar.MaxSelectionCount;
-            _scrollChange = _monthCalendar.ScrollChange;
-            _todayText = _monthCalendar.TodayText;
-            _todayFormat = _monthCalendar.TodayFormat;
-            _dimensions = _monthCalendar.CalendarDimensions;
+            FirstDayOfWeek = _monthCalendar.FirstDayOfWeek;
+            MinDate = _monthCalendar.MinDate;
+            MaxDate = _monthCalendar.MaxDate;
+            TodayDate = _monthCalendar.TodayDate;
+            MaxSelectionCount = _monthCalendar.MaxSelectionCount;
+            ScrollChange = _monthCalendar.ScrollChange;
+            TodayText = _monthCalendar.TodayText;
+            TodayFormat = _monthCalendar.TodayFormat;
+            CalendarDimensions = _monthCalendar.CalendarDimensions;
 
             // Decide on the enabled state of the display
             _itemEnabled = provider.ProviderEnabled && _monthCalendar.Enabled;
@@ -118,18 +110,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the owning control
         /// </summary>
-        public Control CalendarControl 
-        {
-            get { return _provider.ProviderViewManager.Control; }
-        }
+        public Control CalendarControl => _provider.ProviderViewManager.Control;
 
         /// <summary>
         /// Gets if the control is in design mode.
         /// </summary>
-        public bool InDesignMode 
-        {
-            get { return false; }
-        }
+        public bool InDesignMode => false;
 
         /// <summary>
         /// Get the renderer.
@@ -156,243 +142,156 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the number of columns and rows of months displayed.
         /// </summary>
-        public Size CalendarDimensions 
-        {
-            get { return _dimensions; }
-        }
+        public Size CalendarDimensions { get; }
 
         /// <summary>
         /// First day of the week.
         /// </summary>
-        public Day FirstDayOfWeek 
-        {
-            get { return _firstDayOfWeek; }
-        }
+        public Day FirstDayOfWeek { get; }
 
         /// <summary>
         /// First date allowed to be drawn/selected.
         /// </summary>
-        public DateTime MinDate 
-        {
-            get { return _minDate; }
-        }
+        public DateTime MinDate { get; }
 
         /// <summary>
         /// Last date allowed to be drawn/selected.
         /// </summary>
-        public DateTime MaxDate
-        {
-            get { return _maxDate; }
-        }
+        public DateTime MaxDate { get; }
 
         /// <summary>
         /// Today's date.
         /// </summary>
-        public DateTime TodayDate
-        {
-            get { return _todayDate; }
-        }
+        public DateTime TodayDate { get; }
 
         /// <summary>
         /// Today's date format.
         /// </summary>
-        public string TodayFormat
-        {
-            get { return _todayFormat; } 
-        }
+        public string TodayFormat { get; }
 
         /// <summary>
         /// Gets the focus day.
         /// </summary>
         public DateTime? FocusDay
         {
-            get { return _monthCalendar.FocusDay; }
-            set { _monthCalendar.FocusDay = value; }
+            get => _monthCalendar.FocusDay;
+            set => _monthCalendar.FocusDay = value;
         }
 
         /// <summary>
         /// Number of days allowed to be selected at a time.
         /// </summary>
-        public int MaxSelectionCount 
-        {
-            get { return _maxSelectionCount; } 
-        }
+        public int MaxSelectionCount { get; }
 
         /// <summary>
         /// Gets the text used as a today label.
         /// </summary>
-        public string TodayText
-        {
-            get { return _todayText; }
-        }
+        public string TodayText { get; }
 
         /// <summary>
         /// Gets the number of months to move for next/prev buttons.
         /// </summary>
-        public int ScrollChange 
-        {
-            get { return _scrollChange; }
-        }
+        public int ScrollChange { get; }
 
         /// <summary>
         /// Start of selected range.
         /// </summary>
-        public DateTime SelectionStart 
-        {
-            get { return _monthCalendar.SelectionStart; }
-        }
+        public DateTime SelectionStart => _monthCalendar.SelectionStart;
 
         /// <summary>
         /// End of selected range.
         /// </summary>
-        public DateTime SelectionEnd 
-        {
-            get { return _monthCalendar.SelectionEnd; }
-        }
+        public DateTime SelectionEnd => _monthCalendar.SelectionEnd;
 
         /// <summary>
         /// Gets access to the month calendar common appearance entries.
         /// </summary>
-        public PaletteMonthCalendarRedirect StateCommon
-        {
-            get { return _monthCalendar.StateCommon; }
-        }
+        public PaletteMonthCalendarRedirect StateCommon => _monthCalendar.StateCommon;
 
         /// <summary>
         /// Gets access to the month calendar normal appearance entries.
         /// </summary>
-        public PaletteMonthCalendarDoubleState StateNormal 
-        {
-            get { return _monthCalendar.StateNormal; }
-        }
+        public PaletteMonthCalendarDoubleState StateNormal => _monthCalendar.StateNormal;
 
         /// <summary>
         /// Gets access to the month calendar disabled appearance entries.
         /// </summary>
-        public PaletteMonthCalendarDoubleState StateDisabled
-        {
-            get { return _monthCalendar.StateDisabled; }
-        }
+        public PaletteMonthCalendarDoubleState StateDisabled => _monthCalendar.StateDisabled;
 
         /// <summary>
         /// Gets access to the month calendar tracking appearance entries.
         /// </summary>
-        public PaletteMonthCalendarState StateTracking
-        {
-            get { return _monthCalendar.StateTracking; }
-        }
+        public PaletteMonthCalendarState StateTracking => _monthCalendar.StateTracking;
 
         /// <summary>
         /// Gets access to the month calendar pressed appearance entries.
         /// </summary>
-        public PaletteMonthCalendarState StatePressed
-        {
-            get { return _monthCalendar.StatePressed; }
-        }
+        public PaletteMonthCalendarState StatePressed => _monthCalendar.StatePressed;
 
         /// <summary>
         /// Gets access to the month calendar checked normal appearance entries.
         /// </summary>
-        public PaletteMonthCalendarState StateCheckedNormal
-        {
-            get { return _monthCalendar.StateCheckedNormal; }
-        }
+        public PaletteMonthCalendarState StateCheckedNormal => _monthCalendar.StateCheckedNormal;
 
         /// <summary>
         /// Gets access to the month calendar checked tracking appearance entries.
         /// </summary>
-        public PaletteMonthCalendarState StateCheckedTracking
-        {
-            get { return _monthCalendar.StateCheckedTracking; }
-        }
+        public PaletteMonthCalendarState StateCheckedTracking => _monthCalendar.StateCheckedTracking;
 
         /// <summary>
         /// Gets access to the month calendar checked pressed appearance entries.
         /// </summary>
-        public PaletteMonthCalendarState StateCheckedPressed
-        {
-            get { return _monthCalendar.StateCheckedPressed; }
-        }
+        public PaletteMonthCalendarState StateCheckedPressed => _monthCalendar.StateCheckedPressed;
 
         /// <summary>
         /// Gets access to the override for disabled day.
         /// </summary>
-        public PaletteTripleOverride OverrideDisabled
-        {
-            get { return _monthCalendar.OverrideDisabled; }
-        }
+        public PaletteTripleOverride OverrideDisabled => _monthCalendar.OverrideDisabled;
 
         /// <summary>
         /// Gets access to the override for normal day.
         /// </summary>
-        public PaletteTripleOverride OverrideNormal
-        {
-            get { return _monthCalendar.OverrideNormal; }
-        }
+        public PaletteTripleOverride OverrideNormal => _monthCalendar.OverrideNormal;
 
         /// <summary>
         /// Gets access to the override for tracking day.
         /// </summary>
-        public PaletteTripleOverride OverrideTracking
-        {
-            get { return _monthCalendar.OverrideTracking; }
-        }
+        public PaletteTripleOverride OverrideTracking => _monthCalendar.OverrideTracking;
 
         /// <summary>
         /// Gets access to the override for pressed day.
         /// </summary>
-        public PaletteTripleOverride OverridePressed
-        {
-            get { return _monthCalendar.OverridePressed; }
-        }
+        public PaletteTripleOverride OverridePressed => _monthCalendar.OverridePressed;
 
         /// <summary>
         /// Gets access to the override for checked normal day.
         /// </summary>
-        public PaletteTripleOverride OverrideCheckedNormal
-        {
-            get { return _monthCalendar.OverrideCheckedNormal; }
-        }
+        public PaletteTripleOverride OverrideCheckedNormal => _monthCalendar.OverrideCheckedNormal;
 
         /// <summary>
         /// Gets access to the override for checked tracking day.
         /// </summary>
-        public PaletteTripleOverride OverrideCheckedTracking
-        {
-            get { return _monthCalendar.OverrideCheckedTracking; }
-        }
+        public PaletteTripleOverride OverrideCheckedTracking => _monthCalendar.OverrideCheckedTracking;
 
         /// <summary>
         /// Gets access to the override for checked pressed day.
         /// </summary>
-        public PaletteTripleOverride OverrideCheckedPressed
-        {
-            get { return _monthCalendar.OverrideCheckedPressed; }
-        }
+        public PaletteTripleOverride OverrideCheckedPressed => _monthCalendar.OverrideCheckedPressed;
 
         /// <summary>
         /// Dates to be bolded.
         /// </summary>
-        public DateTimeList BoldedDatesList
-        {
-            get { return _monthCalendar.BoldedDatesList; }
-        }
+        public DateTimeList BoldedDatesList => _monthCalendar.BoldedDatesList;
 
         /// <summary>
         /// Monthly days to be bolded.
         /// </summary>
-        public int MonthlyBoldedDatesMask
-        {
-            get { return _monthCalendar.MonthlyBoldedDatesMask; }
-        }
+        public int MonthlyBoldedDatesMask => _monthCalendar.MonthlyBoldedDatesMask;
 
         /// <summary>
         /// Array of annual days per month to be bolded.
         /// </summary>
-        public int[] AnnuallyBoldedDatesMask
-        {
-            get { return _monthCalendar.AnnuallyBoldedDatesMask; }
-        }
+        public int[] AnnuallyBoldedDatesMask => _monthCalendar.AnnuallyBoldedDatesMask;
 
         /// <summary>
         /// Set the selection range.

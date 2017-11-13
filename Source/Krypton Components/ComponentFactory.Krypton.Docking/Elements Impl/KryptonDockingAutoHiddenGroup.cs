@@ -27,8 +27,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingAutoHiddenGroup : DockingElementClosedCollection
     {
         #region Instance Fields
-        private DockingEdge _edge;
-        private KryptonAutoHiddenGroup _autoHiddenGroup;
+
         private int _cacheCellVisibleCount;
         #endregion
 
@@ -58,16 +57,16 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingAutoHiddenGroup(string name, DockingEdge edge)
             : base(name)
         {
-            _edge = edge;
+            Edge = edge;
 
             // Create a control that will draw tabs for auto hidden pages
-            _autoHiddenGroup = new KryptonAutoHiddenGroup(edge);
-            _autoHiddenGroup.StoringPage += new EventHandler<UniqueNameEventArgs>(OnAutoHiddenGroupStoringPage);
-            _autoHiddenGroup.TabClicked += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupTabClicked);
-            _autoHiddenGroup.TabMouseHoverStart += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupHoverStart);
-            _autoHiddenGroup.TabMouseHoverEnd += new EventHandler(OnAutoHiddenGroupHoverEnd);
-            _autoHiddenGroup.TabVisibleCountChanged += new EventHandler(OnAutoHiddenGroupTabVisibleCountChanged);
-            _autoHiddenGroup.Disposed += new EventHandler(OnAutoHiddenGroupDisposed);
+            AutoHiddenGroupControl = new KryptonAutoHiddenGroup(edge);
+            AutoHiddenGroupControl.StoringPage += new EventHandler<UniqueNameEventArgs>(OnAutoHiddenGroupStoringPage);
+            AutoHiddenGroupControl.TabClicked += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupTabClicked);
+            AutoHiddenGroupControl.TabMouseHoverStart += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupHoverStart);
+            AutoHiddenGroupControl.TabMouseHoverEnd += new EventHandler(OnAutoHiddenGroupHoverEnd);
+            AutoHiddenGroupControl.TabVisibleCountChanged += new EventHandler(OnAutoHiddenGroupTabVisibleCountChanged);
+            AutoHiddenGroupControl.Disposed += new EventHandler(OnAutoHiddenGroupDisposed);
         }
         #endregion
 
@@ -75,18 +74,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the docking edge this element is managing.
         /// </summary>
-        public DockingEdge Edge
-        {
-            get { return _edge; }
-        }
+        public DockingEdge Edge { get; }
 
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public KryptonAutoHiddenGroup AutoHiddenGroupControl
-        {
-            get { return _autoHiddenGroup; }
-        }
+        public KryptonAutoHiddenGroup AutoHiddenGroupControl { get; }
 
         /// <summary>
         /// Gets the sibling docked edge.
@@ -211,7 +204,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Only remove a matching placeholder page
                         KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                        if ((page != null) && (page is KryptonStorePage))
+                        if (page is KryptonStorePage)
                         {
                             AutoHiddenGroupControl.Pages.Remove(page);
                         }
@@ -222,7 +215,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Only remove a placeholder paged
                         KryptonPage page = AutoHiddenGroupControl.Pages[i];
-                        if ((page != null) && (page is KryptonStorePage))
+                        if (page is KryptonStorePage)
                         {
                             AutoHiddenGroupControl.Pages.RemoveAt(i);
                         }
@@ -276,7 +269,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Return definitive answer 'true' if the group controls contains a store page for the unique name.
                         KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                        if ((page != null) && (page is KryptonStorePage))
+                        if (page is KryptonStorePage)
                         {
                             return true;
                         }
@@ -312,7 +305,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // If we have the page (stored via a proxy) then return the actual page reference (but not for a placeholder)
                         KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                        if ((page != null) && (page is KryptonAutoHiddenProxyPage))
+                        if (page is KryptonAutoHiddenProxyPage)
                         {
                             return ((KryptonAutoHiddenProxyPage)page).Page;
                         }
@@ -397,7 +390,7 @@ namespace ComponentFactory.Krypton.Docking
             if (location == DockingLocation.AutoHidden)
             {
                 KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                if ((page != null) && (page is KryptonStorePage))
+                if (page is KryptonStorePage)
                 {
                     return this;
                 }
@@ -526,10 +519,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DAHG"; }
-        }
+        protected override string XmlElementName => "DAHG";
 
         /// <summary>
         /// Perform docking element specific actions for loading a child xml.

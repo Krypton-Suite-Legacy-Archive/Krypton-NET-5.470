@@ -24,7 +24,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private ScrollBar _scrollBar;
         private bool _vertical;
         private bool _removing;
-        private bool _shortSize;
         private int _min;
         private int _max;
         private int _largeChange;
@@ -51,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             //Default other properties
             _removing = false;
-            _shortSize = false;
+            ShortSize = false;
             _min = 0;
             _max = 100;
             _largeChange = 20;
@@ -103,7 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Vertical
         {
-            get { return _vertical; }
+            get => _vertical;
 
             set
             {
@@ -124,11 +123,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets a value indicating if the scroll should short size.
         /// </summary>
-        public bool ShortSize
-        {
-            get { return _shortSize; }
-            set { _shortSize = value; }
-        }
+        public bool ShortSize { get; set; }
+
         #endregion
 
         #region SetScrollValues

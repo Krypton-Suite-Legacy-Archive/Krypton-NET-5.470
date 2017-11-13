@@ -24,27 +24,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                     ISourceController
 	{
 		#region Instance Fields
-		private bool _captured;
-        private bool _mouseOver;
-        private bool _nonClientAsNormal;
-        private bool _fixedPressed;
-        private bool _becomesFixed;
-        private bool _becomesRightFixed;
-        private bool _inSplitRectangle;
+
+	    private bool _mouseOver;
+	    private bool _fixedPressed;
+	    private bool _inSplitRectangle;
         private bool _dragging;
-        private bool _allowDragging;
-        private bool _clickOnDown;
-        private bool _repeat;
-        private bool _draggingAttempt;
+	    private bool _draggingAttempt;
         private bool _preDragOffset;
-        private Point _mousePoint;
-        private ViewBase _target;
-		private NeedPaintHandler _needPaint;
+	    private NeedPaintHandler _needPaint;
         private Timer _repeatTimer;
-        private Rectangle _splitRectangle;
-        private Rectangle _dragRect;
-        private object _tag;
-        #endregion
+	    private Rectangle _dragRect;
+
+	    #endregion
 
 		#region Events
 		/// <summary>
@@ -104,14 +95,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			Debug.Assert(target != null);
 
-            _mousePoint = CommonHelper.NullPoint;
-            _splitRectangle = CommonHelper.NullRectangle;
+            MousePoint = CommonHelper.NullPoint;
+            SplitRectangle = CommonHelper.NullRectangle;
             _inSplitRectangle = false;
-            _allowDragging = false;
+            AllowDragging = false;
             _dragging = false;
-            _clickOnDown = false;
-			_target = target;
-            _repeat = false;
+            ClickOnDown = false;
+			Target = target;
+            Repeat = false;
             NeedPaint = needPaint;
         }
 		#endregion
@@ -120,34 +111,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the user data associated with the controller.
         /// </summary>
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
-        #endregion
+        public object Tag { get; set; }
+
+	    #endregion
 
         #region BecomesFixed
         /// <summary>
         /// Gets and sets if the button becomes fixed in pressed appearance when pressed.
         /// </summary>
-        public bool BecomesFixed
-        {
-            get { return _becomesFixed; }
-            set { _becomesFixed = value; }
-        }
-        #endregion
+        public bool BecomesFixed { get; set; }
+
+	    #endregion
 
         #region BecomesRightFixed
         /// <summary>
         /// Gets and sets if the button becomes fixed in pressed appearance when pressed.
         /// </summary>
-        public bool BecomesRightFixed
-        {
-            get { return _becomesRightFixed; }
-            set { _becomesRightFixed = value; }
-        }
-        #endregion
+        public bool BecomesRightFixed { get; set; }
+
+	    #endregion
 
         #region RemoveFixed
         /// <summary>
@@ -158,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_fixedPressed)
             {
                 // Mouse no longer considered pressed down
-                _captured = false;
+                Captured = false;
 
                 // No longer in fixed state mode
                 _fixedPressed = false;
@@ -173,22 +155,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the current tracking mouse point.
         /// </summary>
-        public Point MousePoint
-        {
-            get { return _mousePoint; }
-        }
-        #endregion
+        public Point MousePoint { get; private set; }
+
+	    #endregion
 
         #region AllowDragging
         /// <summary>
         /// Gets and sets if dragging is allowed.
         /// </summary>
-        public bool AllowDragging
-        {
-            get { return _allowDragging; }
-            set { _allowDragging = value; }
-        }
-        #endregion
+        public bool AllowDragging { get; set; }
+
+	    #endregion
 
         #region ClearDragRect
         /// <summary>
@@ -204,45 +181,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets if the press down should cause the click.
         /// </summary>
-        public bool ClickOnDown
-        {
-            get { return _clickOnDown; }
-            set { _clickOnDown = value; }
-        }
-        #endregion
+        public bool ClickOnDown { get; set; }
+
+	    #endregion
 
         #region SplitRectangle
         /// <summary>
         /// Gets and sets the area of the button which is split.
         /// </summary>
-        public Rectangle SplitRectangle
-        {
-            get { return _splitRectangle; }
-            set { _splitRectangle = value; }
-        }
-        #endregion
+        public Rectangle SplitRectangle { get; set; }
+
+	    #endregion
 
         #region NonClientAsNormal
         /// <summary>
         /// Gets and sets the drawing of a non client mouse position when pressed as normal.
         /// </summary>
-        public bool NonClientAsNormal
-        {
-            get { return _nonClientAsNormal; }
-            set { _nonClientAsNormal = value; }
-        }
-        #endregion
+        public bool NonClientAsNormal { get; set; }
+
+	    #endregion
 
         #region Repeat
         /// <summary>
         /// Gets and sets the need for repeat clicks.
         /// </summary>
-        public bool Repeat
-        {
-            get { return _repeat; }
-            set { _repeat = value; }
-        }
-        #endregion
+        public bool Repeat { get; set; }
+
+	    #endregion
 
         #region Mouse Notifications
         /// <summary>
@@ -273,7 +238,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (IsOperating)
             {
                 // Track the mouse point
-                _mousePoint = pt;
+                MousePoint = pt;
 
                 // Update the visual state
                 UpdateTargetState(pt);
@@ -285,16 +250,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         if (_dragging)
                         {
-                            OnDragMove(_mousePoint);
+                            OnDragMove(MousePoint);
                         }
-                        else if (!_dragRect.IsEmpty && !_dragRect.Contains(_mousePoint))
+                        else if (!_dragRect.IsEmpty && !_dragRect.Contains(MousePoint))
                         {
                             if (!_draggingAttempt)
                             {
                                 _draggingAttempt = true;
-                                Point targetOrigin = _target.ClientLocation;
-                                Point offset = new Point(_mousePoint.X - targetOrigin.X, _mousePoint.Y - targetOrigin.Y);
-                                OnDragStart(_mousePoint, offset, c);
+                                Point targetOrigin = Target.ClientLocation;
+                                Point offset = new Point(MousePoint.X - targetOrigin.X, MousePoint.Y - targetOrigin.Y);
+                                OnDragStart(MousePoint, offset, c);
                             }
                         }
                     }
@@ -321,13 +286,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if (IsOperating)
             {
                 // If the button is not enabled then we do nothing on a mouse down
-                if (_target.Enabled)
+                if (Target.Enabled)
                 {
                     // Only interested in left mouse pressing down
                     if (button == MouseButtons.Left)
                     {
                         // Capturing mouse input
-                        _captured = true;
+                        Captured = true;
                         _draggingAttempt = false;
 
                         // Use event to discover the rectangle that causes dragging to begin
@@ -385,7 +350,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			return _captured;
+			return Captured;
 		}
 
 		/// <summary>
@@ -400,7 +365,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (IsOperating)
             {
                 // If the button is not enabled then we do nothing on a mouse down
-                if (_target.Enabled)
+                if (Target.Enabled)
                 {
                     // Remove the repeat timer
                     if (_repeatTimer != null)
@@ -411,10 +376,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // If the mouse is currently captured
-                    if (_captured)
+                    if (Captured)
                     {
                         // Not capturing mouse input anymore
-                        _captured = false;
+                        Captured = false;
 
                         // Only interested in left mouse being released
                         if (button == MouseButtons.Left)
@@ -425,8 +390,8 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             // Only if the button is still pressed, do we generate a click
-                            if ((_target.ElementState == PaletteState.Pressed) ||
-                                (_target.ElementState == (PaletteState.Pressed | PaletteState.Checked)))
+                            if ((Target.ElementState == PaletteState.Pressed) ||
+                                (Target.ElementState == (PaletteState.Pressed | PaletteState.Checked)))
                             {
                                 if (!_fixedPressed)
                                 {
@@ -435,11 +400,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                     // might change focus and so cause the MouseLeave to be
                                     // called and change the state. If this was after the click
                                     // then it would overwrite and lose that leave state change.
-                                    _target.ElementState = PaletteState.Tracking;
+                                    Target.ElementState = PaletteState.Tracking;
                                 }
 
                                 // Can only click if enabled
-                                if (_target.Enabled && !ClickOnDown)
+                                if (Target.Enabled && !ClickOnDown)
                                 {
                                     // Generate a click event
                                     OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
@@ -492,10 +457,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (!_fixedPressed)
                     {
                         // Not tracking the mouse means a null value
-                        _mousePoint = CommonHelper.NullPoint; 
+                        MousePoint = CommonHelper.NullPoint; 
 
                         // If leaving the view then cannot be capturing mouse input anymore
-                        _captured = false;
+                        Captured = false;
 
                         // End any current dragging operation
                         if (_dragging)
@@ -522,11 +487,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Key Notifications
         /// <summary>
@@ -553,7 +516,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (e.KeyCode == Keys.Space)
             {
                 // Enter the captured mode and pretend mouse is over area
-                _captured = true;
+                Captured = true;
                 _mouseOver = true;
 
                 // Do we become fixed in the pressed state until RemoveFixed is called?
@@ -563,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Update target to reflect new state
-                _target.ElementState = PaletteState.Pressed;
+                Target.ElementState = PaletteState.Pressed;
 
                 // Redraw to show the change in visual state
                 OnNeedPaint(true);
@@ -605,11 +568,11 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((e.KeyCode == Keys.Escape) || (e.KeyCode == Keys.Space))
             {
                 // If we are capturing mouse input
-                if (_captured)
+                if (Captured)
                 {
                     // Release the mouse capture
                     c.Capture = false;
-                    _captured = false;
+                    Captured = false;
 
                     // End any current dragging operation
                     if (_dragging)
@@ -618,12 +581,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // Recalculate if the mouse is over the button area
-                    _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
+                    _mouseOver = Target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
 
                     if (e.KeyCode == Keys.Space)
                     {
                         // Can only click if enabled
-                        if (_target.Enabled)
+                        if (Target.Enabled)
                         {
                             // Generate a click event
                             OnClick(new MouseEventArgs(MouseButtons.Left, 1, -1, -1, 0));
@@ -635,7 +598,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
             
-            return _captured;
+            return Captured;
         }
         #endregion
 
@@ -663,7 +626,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // If we are capturing mouse input
-            if (_captured)
+            if (Captured)
             {
                 // Quit out of any dragging operation
                 if (_dragging) 
@@ -675,11 +638,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Release the mouse capture
                     c.Capture = false;
-                    _captured = false;
+                    Captured = false;
                 }
 
                 // Recalculate if the mouse is over the button area
-                _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
+                _mouseOver = Target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
 
                 // Update the visual state
                 UpdateTargetState(c);
@@ -693,7 +656,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -708,12 +671,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()
@@ -753,20 +713,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Discovers if the provided view is part of the button.
         /// </summary>
         /// <param name="next">View to investigate.</param>
         /// <returns>True is part of button; otherwise false.</returns>
         protected virtual bool ViewIsPartOfButton(ViewBase next)
         {
-            return _target.ContainsRecurse(next);
+            return Target.ContainsRecurse(next);
         }
 
         /// <summary>
@@ -800,7 +756,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteState newState;
 
             // If the button is disabled then show as disabled
-            if (!_target.Enabled)
+            if (!Target.Enabled)
             {
                 newState = PaletteState.Disabled;
             }
@@ -815,12 +771,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // If capturing input....
-                    if (_captured)
+                    if (Captured)
                     {
                         // Do we show the button as pressed only when over the button?
                         if (IsOnlyPressedWhenOver)
                         {
-                            if (_target.ClientRectangle.Contains(pt))
+                            if (Target.ClientRectangle.Contains(pt))
                             {
                                 newState = PaletteState.Pressed;
                             }
@@ -859,13 +815,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If state has changed or change in (inside split area)
             bool inSplitRectangle = SplitRectangle.Contains(pt);
-            if ((_target.ElementState != newState) || (inSplitRectangle != _inSplitRectangle))
+            if ((Target.ElementState != newState) || (inSplitRectangle != _inSplitRectangle))
             {
                 // Update if the point is inside the split rectangle
                 _inSplitRectangle = inSplitRectangle;
 
                 // Update target to reflect new state
-                _target.ElementState = newState;
+                Target.ElementState = newState;
 
                 // Redraw to show the change in visual state
                 OnNeedPaint(true);
@@ -899,7 +855,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual void OnDragStart(Point mousePt, Point offset, Control c)
         {
             // Convert point from client to screen coordinates
-            mousePt = _target.OwningControl.PointToScreen(mousePt);
+            mousePt = Target.OwningControl.PointToScreen(mousePt);
             DragStartEventCancelArgs ce = new DragStartEventCancelArgs(mousePt, offset, c);
 
             DragStart?.Invoke(this, ce);
@@ -917,7 +873,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (DragMove != null)
             {
                 // Convert point from client to screen coordinates
-                mousePt = _target.OwningControl.PointToScreen(mousePt);
+                mousePt = Target.OwningControl.PointToScreen(mousePt);
                 DragMove(this, new PointEventArgs(mousePt));
             }
         }
@@ -932,7 +888,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (DragEnd != null)
             {
                 // Convert point from client to screen coordinates
-                mousePt = _target.OwningControl.PointToScreen(mousePt);
+                mousePt = Target.OwningControl.PointToScreen(mousePt);
                 DragEnd(this, new PointEventArgs(mousePt));
             }
         }
@@ -952,7 +908,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-            Click?.Invoke(_target, e);
+            Click?.Invoke(Target, e);
         }
 
         /// <summary>
@@ -961,7 +917,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A MouseEventArgs containing the event data.</param>
         protected virtual void OnRightClick(MouseEventArgs e)
         {
-            RightClick?.Invoke(_target, e);
+            RightClick?.Invoke(Target, e);
         }
         
         /// <summary>
@@ -970,7 +926,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnMouseSelect(MouseEventArgs e)
 		{
-            MouseSelect?.Invoke(_target, e);
+            MouseSelect?.Invoke(Target, e);
         }
 
 		/// <summary>
@@ -979,7 +935,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, Target.ClientRectangle));
         }
 		#endregion
 

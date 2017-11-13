@@ -19,7 +19,6 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private ViewLayoutRibbonQATContents _qatContents;
         private ViewBase _focusView;
         private bool _layingOut;
         #endregion
@@ -42,7 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(qatContents != null);
             
             _ribbon = ribbon;
-            _qatContents = qatContents;
+            QATContents = qatContents;
 		}
 
         /// <summary>
@@ -61,10 +60,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a the view that handles the overflow items.
         /// </summary>
-        public ViewLayoutRibbonQATContents QATContents
-        {
-            get { return _qatContents; }
-        }
+        public ViewLayoutRibbonQATContents QATContents { get; }
+
         #endregion
 
         #region GetPreferredSize
@@ -148,7 +145,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewBase FocusView
         {
-            get { return _focusView; }
+            get => _focusView;
 
             set
             {

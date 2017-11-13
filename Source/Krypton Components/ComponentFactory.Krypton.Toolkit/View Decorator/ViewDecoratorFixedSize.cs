@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDecoratorFixedSize : ViewDecorator
 	{
 		#region Instance Fields
-		private Size _fixedSize;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewDecoratorFixedSize(ViewBase child, Size fixedSize)
             : base(child)
 		{
-            _fixedSize = fixedSize;
+            FixedSize = fixedSize;
 
 		}
 
@@ -47,12 +47,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the fixed size for laying out the contained child element.
         /// </summary>
-        public Size FixedSize
-        {
-            get { return _fixedSize; }
-            set { _fixedSize = value; }
-        }
-        #endregion
+        public Size FixedSize { get; set; }
+
+	    #endregion
 
         #region Layout
         /// <summary>
@@ -62,7 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
             // Always provide the requested fixed size
-            return _fixedSize;
+            return FixedSize;
         }
         #endregion
     }

@@ -20,10 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonImages : Storage
     {
         #region Instance Fields
-        private PaletteRedirectCheckBox _redirectCheckBox;
-        private PaletteRedirectRadioButton _redirectRadioButton;
-        private CheckBoxImages _imagesCheckBox;
-        private RadioButtonImages _imagesRadioButton;
+
         #endregion
 
         #region Identity
@@ -38,10 +35,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(redirect != null);
             Debug.Assert(needPaint != null);
 
-            _imagesCheckBox = new CheckBoxImages(needPaint);
-            _imagesRadioButton = new RadioButtonImages(needPaint);
-            _redirectCheckBox = new PaletteRedirectCheckBox(redirect, _imagesCheckBox);
-            _redirectRadioButton = new PaletteRedirectRadioButton(redirect, _imagesRadioButton);
+            CheckBox = new CheckBoxImages(needPaint);
+            RadioButton = new RadioButtonImages(needPaint);
+            InternalCheckBox = new PaletteRedirectCheckBox(redirect, CheckBox);
+            InternalRadioButton = new PaletteRedirectRadioButton(redirect, RadioButton);
         }
 		#endregion
 
@@ -50,14 +47,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (_imagesCheckBox.IsDefault &&
-                        _imagesRadioButton.IsDefault);
-            }
-        }
+        public override bool IsDefault => (CheckBox.IsDefault &&
+                                           RadioButton.IsDefault);
+
         #endregion
 
         #region CheckBox
@@ -67,14 +59,11 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Values")]
         [Description("Ribbon check box images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public CheckBoxImages CheckBox
-        {
-            get { return _imagesCheckBox; }
-        }
+        public CheckBoxImages CheckBox { get; }
 
         private bool ShouldSerializeCheckBox()
         {
-            return !_imagesCheckBox.IsDefault;
+            return !CheckBox.IsDefault;
         }
         #endregion
 
@@ -85,27 +74,19 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Values")]
         [Description("Ribbon radio button images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public RadioButtonImages RadioButton
-        {
-            get { return _imagesRadioButton; }
-        }
+        public RadioButtonImages RadioButton { get; }
 
         private bool ShouldSerializeRadioButton()
         {
-            return !_imagesRadioButton.IsDefault;
+            return !RadioButton.IsDefault;
         }
         #endregion
 
         #region Implementation
-        internal PaletteRedirectCheckBox InternalCheckBox
-        {
-            get { return _redirectCheckBox; }
-        }
+        internal PaletteRedirectCheckBox InternalCheckBox { get; }
 
-        internal PaletteRedirectRadioButton InternalRadioButton
-        {
-            get { return _redirectRadioButton; }
-        }
+        internal PaletteRedirectRadioButton InternalRadioButton { get; }
+
         #endregion
     }
 }

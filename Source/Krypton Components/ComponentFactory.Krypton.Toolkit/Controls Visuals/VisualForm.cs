@@ -43,23 +43,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _trackingMouse;
         private bool _applyCustomChrome;
         private bool _allowComposition;
-        private bool _applyComposition;
         private bool _insideUpdateComposition;
-        private bool _needLayout;
         private bool _captured;
         private bool _disposing;
         private int _compositionHeight;
         private int _ignoreCount;
-        private int _paintCount;
         private ViewBase _capturedElement;
-        private IKryptonComposition _compositionElement;
         private IPalette _localPalette;
         private IPalette _palette;
-        private IRenderer _renderer;
         private PaletteMode _paletteMode;
-        private PaletteRedirect _redirector;
-        private NeedPaintHandler _needPaintDelegate;
-        private ViewManager _viewManager;
         private IntPtr _screenDC;
         #endregion
 
@@ -111,7 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
 
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
 
             // Set the palette and renderer to the defaults as specified by the manager
             _localPalette = null;
@@ -119,13 +111,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteMode = PaletteMode.Global;
 
             // We need to layout the view
-            _needLayout = true;
+            NeedLayout = true;
 
             // Default the composition height
             _compositionHeight = DEFAULT_COMPOSITION_HEIGHT;
 
             // Create constant target for resolving palette delegates
-            _redirector = CreateRedirector();
+            Redirector = CreateRedirector();
 
             // Hook into global static events
             KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
@@ -263,10 +255,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool ApplyComposition
-        {
-            get { return _applyComposition; }
-        }
+        public bool ApplyComposition { get; private set; }
 
         /// <summary>
         /// Gets a value indicating if composition is allowed to be applied to custom chrome.
@@ -276,7 +265,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AllowComposition
         {
-            get { return _allowComposition; }
+            get => _allowComposition;
 
             set
             {
@@ -309,11 +298,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IKryptonComposition Composition
-        {
-            get { return _compositionElement; }
-            set { _compositionElement = value; }
-        }
+        public IKryptonComposition Composition { get; set; }
 
         /// <summary>
         /// Gets or sets the palette to be applied.
@@ -437,7 +422,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -500,14 +486,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Padding RealWindowBorders
-        {
-            get
-            {
-                // Use the form level create params to get the real borders
-                return CommonHelper.GetWindowBorders(CreateParams);
-            }
-        }
+        public Padding RealWindowBorders => CommonHelper.GetWindowBorders(CreateParams);
 
         /// <summary>
         /// Gets a count of the number of paints that have occured.
@@ -515,10 +494,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int PaintCount
-        {
-            get { return _paintCount; }
-        }
+        public int PaintCount { get; private set; }
 
         /// <summary>
         /// Gets and sets the active state of the window.
@@ -528,7 +504,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool WindowActive
         {
-            get { return _windowActive; }
+            get => _windowActive;
 
             set
             {
@@ -599,10 +575,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonLayoutCounter
-        {
-            get { return ViewManager.LayoutCounter; }
-        }
+        public int KryptonLayoutCounter => ViewManager.LayoutCounter;
 
         /// <summary>
         /// Gets the number of paint cycles performed since last reset.
@@ -610,10 +583,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int KryptonPaintCounter
-        {
-            get { return ViewManager.PaintCounter; }
-        }
+        public int KryptonPaintCounter => ViewManager.PaintCounter;
+
         #endregion
 
         #region Protected
@@ -623,8 +594,8 @@ namespace ComponentFactory.Krypton.Toolkit
         protected ViewManager ViewManager
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewManager; }
-            set { _viewManager = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -633,7 +604,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected PaletteRedirect Redirector
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
+            get;
         }
 
         /// <summary>
@@ -642,7 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected NeedPaintHandler NeedPaintDelegate
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _needPaintDelegate; }
+            get;
         }
 
         /// <summary>
@@ -964,14 +935,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (ApplyComposition)
                 {
                     // Ask the composition element top handle need paint event
-                    _compositionElement.CompNeedPaint(e.NeedLayout);
+                    Composition.CompNeedPaint(e.NeedLayout);
                 }
                 else
                 {
                     // Do we need to recalc the border size as well as invalidate?
                     if (e.NeedLayout)
                     {
-                        _needLayout = true;
+                        NeedLayout = true;
                     }
 
                     InvalidateNonClient();
@@ -1059,7 +1030,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (ApplyComposition)
                         {
                             // Must repaint the composition area not that mouse has left
-                            _compositionElement.CompNeedPaint(true);
+                            Composition.CompNeedPaint(true);
                         }
                         break;
                     case PI.WM_NCLBUTTONDBLCLK:
@@ -1578,7 +1549,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Bump the number of paints that have occured
-            _paintCount++;
+            PaintCount++;
         }
 
         /// <summary>
@@ -1592,11 +1563,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the need to layout the view.
         /// </summary>
-        protected bool NeedLayout
-        {
-            get { return _needLayout; }
-            set { _needLayout = value; }
-        }
+        protected bool NeedLayout { get; set; }
+
         #endregion
 
         #region Protected Chrome
@@ -1699,12 +1667,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Only need to process changes in value
                 if (ApplyComposition != applyComposition)
                 {
-                    _applyComposition = applyComposition;
+                    ApplyComposition = applyComposition;
 
                     // If we are compositing then show the composition interface
                     if (Composition != null)
                     {
-                        Composition.CompVisible = _applyComposition;
+                        Composition.CompVisible = ApplyComposition;
                         Composition.CompOwnerForm = this;
                         _compositionHeight = Composition.CompHeight;
                     }
@@ -1714,7 +1682,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // With composition we extend the top into the client area
-                    DWM.ExtendFrameIntoClientArea(Handle, new Padding(0, (_applyComposition ? _compositionHeight : 0), 0, 0));
+                    DWM.ExtendFrameIntoClientArea(Handle, new Padding(0, (ApplyComposition ? _compositionHeight : 0), 0, 0));
 
                     // A change in composition when using custom chrome must turn custom chrome
                     // off and on again to have it reprocess correctly to the new composition state
@@ -1737,7 +1705,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Apply the new height requirement
                         _compositionHeight = newCompHeight;
-                        DWM.ExtendFrameIntoClientArea(Handle, new Padding(0, (_applyComposition ? _compositionHeight : 0), 0, 0));
+                        DWM.ExtendFrameIntoClientArea(Handle, new Padding(0, (ApplyComposition ? _compositionHeight : 0), 0, 0));
                     }
                 }
 
@@ -1796,7 +1764,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Get the renderer associated with the palette
-                _renderer = _palette.GetRenderer();
+                Renderer = _palette.GetRenderer();
 
                 // Hook to new palette events
                 if (_palette != null)
@@ -1813,7 +1781,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnBaseChanged(object sender, EventArgs e)
         {
             // Change in base renderer or base palette require we fetch the latest renderer
-            _renderer = _palette.GetRenderer();
+            Renderer = _palette.GetRenderer();
         }
         #endregion
     }

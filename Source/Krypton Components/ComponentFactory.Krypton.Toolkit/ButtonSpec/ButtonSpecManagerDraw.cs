@@ -97,10 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the number of dockers.
         /// </summary>
         /// <returns>Number of dockers.</returns>
-        protected override int DockerCount 
-        {
-            get { return _viewDockers.Length; }
-        }
+        protected override int DockerCount => _viewDockers.Length;
 
         /// <summary>
         /// Gets the index of the provided docker.

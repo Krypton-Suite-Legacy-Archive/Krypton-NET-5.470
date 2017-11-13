@@ -42,8 +42,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool InDesignHelperMode
         {
-            get { return _ribbon.InDesignHelperMode; }
-            set { _ribbon.InDesignHelperMode = value; }
+            get => _ribbon.InDesignHelperMode;
+            set => _ribbon.InDesignHelperMode = value;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _ribbon.PaletteMode; }
+            get => _ribbon.PaletteMode;
 
             set
             {

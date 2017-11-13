@@ -33,8 +33,7 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private Control _control;
-        private DockingEdge _edge;
+
         private KryptonAutoHiddenPanel _panel;
         private KryptonAutoHiddenSlidePanel _slidePanel;
         private bool _panelEventFired;
@@ -50,8 +49,8 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingEdgeAutoHidden(string name, Control control, DockingEdge edge)
             : base(name)
         {
-            _control = control ?? throw new ArgumentNullException("control");
-            _edge = edge;
+            Control = control ?? throw new ArgumentNullException("control");
+            Edge = edge;
             _panelEventFired = false;
 
             // Create and add the panel used to host auto hidden groups
@@ -82,18 +81,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public Control Control
-        {
-            get { return _control; }
-        }
+        public Control Control { get; }
 
         /// <summary>
         /// Gets the docking edge this element is managing.
         /// </summary>
-        public DockingEdge Edge
-        {
-            get { return _edge; }
-        }
+        public DockingEdge Edge { get; }
 
         /// <summary>
         /// Create and add a new auto hidden group instance to the correct edge of the owning control.
@@ -254,10 +247,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName 
-        {
-            get { return "DEAH"; }
-        }
+        protected override string XmlElementName => "DEAH";
 
         /// <summary>
         /// Perform docking element specific actions for loading a child xml.

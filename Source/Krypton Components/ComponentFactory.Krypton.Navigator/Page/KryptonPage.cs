@@ -48,13 +48,8 @@ namespace ComponentFactory.Krypton.Navigator
         private PaletteNavigatorRedirect _stateCommon;
         private PaletteNavigator _stateDisabled;
         private PaletteNavigator _stateNormal;
-        private PaletteNavigatorOtherEx _stateTracking;
-        private PaletteNavigatorOtherEx _statePressed;
-        private PaletteNavigatorOther _stateSelected;
-        private PaletteNavigatorOtherRedirect _stateFocus;
         private NeedPaintHandler _needDisabledPaint;
         private NeedPaintHandler _needNormalPaint;
-        private PageButtonSpecCollection _buttonSpecs;
         private BoolFlags31 _flags;
         private string _textTitle;
         private string _textDescription;
@@ -230,11 +225,11 @@ namespace ComponentFactory.Krypton.Navigator
 
             _stateDisabled = new PaletteNavigator(_stateCommon, _needDisabledPaint);
             _stateNormal = new PaletteNavigator(_stateCommon, _needNormalPaint);
-            _stateTracking = new PaletteNavigatorOtherEx(_stateCommon, _needNormalPaint);
-            _statePressed = new PaletteNavigatorOtherEx(_stateCommon, _needNormalPaint);
-            _stateSelected = new PaletteNavigatorOther(_stateCommon, _needNormalPaint);
+            StateTracking = new PaletteNavigatorOtherEx(_stateCommon, _needNormalPaint);
+            StatePressed = new PaletteNavigatorOtherEx(_stateCommon, _needNormalPaint);
+            StateSelected = new PaletteNavigatorOther(_stateCommon, _needNormalPaint);
             
-            _stateFocus = new PaletteNavigatorOtherRedirect(_redirectNavigatorCheckButton,
+            OverrideFocus = new PaletteNavigatorOtherRedirect(_redirectNavigatorCheckButton,
                                                             _redirectNavigatorOverflowButton,
                                                             _redirectNavigatorMiniButton, 
                                                             _redirectNavigatorTab, 
@@ -244,7 +239,7 @@ namespace ComponentFactory.Krypton.Navigator
             _drawPanel = new ViewDrawPanel(_stateNormal.Page);
 
             // Create page specific button spec storage
-            _buttonSpecs = new PageButtonSpecCollection(this);
+            ButtonSpecs = new PageButtonSpecCollection(this);
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawPanel);
@@ -293,10 +288,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PageButtonSpecCollection ButtonSpecs
-        {
-            get { return _buttonSpecs; }
-        }
+        public virtual PageButtonSpecCollection ButtonSpecs { get; }
 
         /// <summary>
         /// Gets access to the common page appearance entries.
@@ -358,7 +350,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual PaletteNavigatorOtherEx StateTracking
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _stateTracking; }
+            get;
         }
 
         private bool ShouldSerializeStateTracking()
@@ -375,7 +367,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual PaletteNavigatorOtherEx StatePressed
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _statePressed; }
+            get;
         }
 
         private bool ShouldSerializeStatePressed()
@@ -392,7 +384,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual PaletteNavigatorOther StateSelected
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _stateSelected; }
+            get;
         }
 
         private bool ShouldSerializeStateSelected()
@@ -409,7 +401,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual PaletteNavigatorOtherRedirect OverrideFocus
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _stateFocus; }
+            get;
         }
 
         private bool ShouldSerializeOverrideFocus()
@@ -602,8 +594,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(null)]
         public virtual Image ToolTipImage
         {
-            get { return _toolTipImage; }
-            
+            get => _toolTipImage;
+
             set 
             {
                 if (_toolTipImage != value)
@@ -636,7 +628,7 @@ namespace ComponentFactory.Krypton.Navigator
         [KryptonDefaultColorAttribute()]
         public virtual Color ToolTipImageTransparentColor
         {
-            get { return _toolTipImageTransparentColor; }
+            get => _toolTipImageTransparentColor;
 
             set
             {
@@ -671,8 +663,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue("")]
         public virtual string ToolTipTitle
         {
-            get { return _toolTipTitle; }
-            
+            get => _toolTipTitle;
+
             set 
             {
                 if (_toolTipTitle != value)
@@ -706,7 +698,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue("")]
         public virtual string ToolTipBody
         {
-            get { return _toolTipBody; }
+            get => _toolTipBody;
 
             set 
             {
@@ -739,8 +731,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(LabelStyle), "ToolTip")]
         public virtual LabelStyle ToolTipStyle
         {
-            get { return _toolTipStyle; }
-            
+            get => _toolTipStyle;
+
             set 
             {
                 if (_toolTipStyle != value)
@@ -772,8 +764,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(null)]
         public virtual KryptonContextMenu KryptonContextMenu
         {
-            get { return _kcm; }
-            
+            get => _kcm;
+
             set 
             {
                 if (_kcm != value)
@@ -832,7 +824,7 @@ namespace ComponentFactory.Krypton.Navigator
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public virtual Size AutoHiddenSlideSize
         {
-            get { return _autoHiddenSlideSize; }
+            get => _autoHiddenSlideSize;
 
             set
             {
@@ -923,8 +915,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color BackColor
 		{
-			get { return base.BackColor; }
-			set { base.BackColor = value; }
+			get => base.BackColor;
+		    set => base.BackColor = value;
 		}
 
 		/// <summary>
@@ -935,8 +927,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override AnchorStyles Anchor
 		{
-			get { return base.Anchor; }
-			set { base.Anchor = value; }
+			get => base.Anchor;
+		    set => base.Anchor = value;
 		}
 
 		/// <summary>
@@ -947,8 +939,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override bool AutoSize
 		{
-			get { return base.AutoSize; }
-			set { base.AutoSize = value; }
+			get => base.AutoSize;
+		    set => base.AutoSize = value;
 		}
 
         /// <summary>
@@ -959,8 +951,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public new Size Size
         {
-            get { return base.Size; }
-            set { base.Size = value; }
+            get => base.Size;
+            set => base.Size = value;
         }
         
         /// <summary>
@@ -971,9 +963,9 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override AutoSizeMode AutoSizeMode
 		{
-			get { return base.AutoSizeMode; }
-			set { base.AutoSizeMode = value; }
-		}
+			get => base.AutoSizeMode;
+            set => base.AutoSizeMode = value;
+        }
 
 		/// <summary>
 		/// Gets or sets which edge of the parent container a control is docked to.
@@ -983,8 +975,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override DockStyle Dock
 		{
-			get { return base.Dock; }
-			set { base.Dock = value; }
+			get => base.Dock;
+		    set => base.Dock = value;
 		}
 
 		/// <summary>
@@ -996,8 +988,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new Point Location
 		{
-			get { return base.Location; }
-			set { base.Location = value; }
+			get => base.Location;
+		    set => base.Location = value;
 		}
 
 		/// <summary>
@@ -1008,8 +1000,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new int TabIndex
 		{
-			get { return base.TabIndex; }
-			set { base.TabIndex = value; }
+			get => base.TabIndex;
+		    set => base.TabIndex = value;
 		}
 
 		/// <summary>
@@ -1020,8 +1012,8 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new bool TabStop
 		{
-			get { return base.TabStop; }
-			set { base.TabStop = value; }
+			get => base.TabStop;
+		    set => base.TabStop = value;
 		}
 
         /// <summary>
@@ -1197,8 +1189,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(0)]
         public virtual int Flags
         {
-            get { return _flags.Flags; }
-            
+            get => _flags.Flags;
+
             set
             {
                 if (_flags.Flags != value)
@@ -1255,8 +1247,8 @@ namespace ComponentFactory.Krypton.Navigator
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public virtual bool LastVisibleSet
         {
-            get { return _setVisible; }
-            
+            get => _setVisible;
+
             set 
             {
                 if (value != _setVisible)

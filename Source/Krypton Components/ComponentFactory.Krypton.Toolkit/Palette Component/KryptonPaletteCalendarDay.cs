@@ -18,17 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteCalendarDay : Storage
     {
         #region Instance Fields
-        private PaletteTripleRedirect _stateFocus;
-        private PaletteTripleRedirect _stateBolded;
-        private PaletteTripleRedirect _stateToday;
-        private PaletteTripleRedirect _stateCommon;
-        private PaletteTriple _stateDisabled;
-        private PaletteTriple _stateNormal;
-        private PaletteTriple _stateTracking;
-        private PaletteTriple _statePressed;
-        private PaletteTriple _stateCheckedNormal;
-        private PaletteTriple _stateCheckedTracking;
-        private PaletteTriple _stateCheckedPressed;
+
         #endregion
 
         #region Identity
@@ -41,17 +31,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                          NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateFocus = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _stateBolded = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _stateToday = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _stateCommon = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
-            _stateDisabled = new PaletteTriple(_stateCommon, needPaint);
-            _stateNormal = new PaletteTriple(_stateCommon, needPaint);
-            _stateTracking = new PaletteTriple(_stateCommon, needPaint);
-            _statePressed = new PaletteTriple(_stateCommon, needPaint);
-            _stateCheckedNormal = new PaletteTriple(_stateCommon, needPaint);
-            _stateCheckedTracking = new PaletteTriple(_stateCommon, needPaint);
-            _stateCheckedPressed = new PaletteTriple(_stateCommon, needPaint);
+            OverrideFocus = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            OverrideBolded = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            OverrideToday = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            StateCommon = new PaletteTripleRedirect(redirect, PaletteBackStyle.ButtonCalendarDay, PaletteBorderStyle.ButtonCalendarDay, PaletteContentStyle.ButtonCalendarDay, needPaint);
+            StateDisabled = new PaletteTriple(StateCommon, needPaint);
+            StateNormal = new PaletteTriple(StateCommon, needPaint);
+            StateTracking = new PaletteTriple(StateCommon, needPaint);
+            StatePressed = new PaletteTriple(StateCommon, needPaint);
+            StateCheckedNormal = new PaletteTriple(StateCommon, needPaint);
+            StateCheckedTracking = new PaletteTriple(StateCommon, needPaint);
+            StateCheckedPressed = new PaletteTriple(StateCommon, needPaint);
         }
         #endregion
 
@@ -62,10 +52,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateFocus.SetRedirector(redirect);
-            _stateBolded.SetRedirector(redirect);
-            _stateToday.SetRedirector(redirect);
-            _stateCommon.SetRedirector(redirect);
+            OverrideFocus.SetRedirector(redirect);
+            OverrideBolded.SetRedirector(redirect);
+            OverrideToday.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -74,24 +64,19 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateFocus.IsDefault &&
-                       _stateBolded.IsDefault &&
-                       _stateToday.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault &&
-                       _stateCheckedNormal.IsDefault &&
-                       _stateCheckedTracking.IsDefault &&
-                       _stateCheckedPressed.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  OverrideFocus.IsDefault &&
+		                                  OverrideBolded.IsDefault &&
+		                                  OverrideToday.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault &&
+		                                  StateCheckedNormal.IsDefault &&
+		                                  StateCheckedTracking.IsDefault &&
+		                                  StateCheckedPressed.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -100,16 +85,16 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateFocus.PopulateFromBase(PaletteState.FocusOverride);
-            _stateBolded.PopulateFromBase(PaletteState.BoldedOverride);
-            _stateToday.PopulateFromBase(PaletteState.BoldedOverride);
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking);
-            _statePressed.PopulateFromBase(PaletteState.Pressed);
-            _stateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
-            _stateCheckedTracking.PopulateFromBase(PaletteState.CheckedTracking);
-            _stateCheckedPressed.PopulateFromBase(PaletteState.CheckedPressed);
+            OverrideFocus.PopulateFromBase(PaletteState.FocusOverride);
+            OverrideBolded.PopulateFromBase(PaletteState.BoldedOverride);
+            OverrideToday.PopulateFromBase(PaletteState.BoldedOverride);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
+            StateTracking.PopulateFromBase(PaletteState.Tracking);
+            StatePressed.PopulateFromBase(PaletteState.Pressed);
+            StateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
+            StateCheckedTracking.PopulateFromBase(PaletteState.CheckedTracking);
+            StateCheckedPressed.PopulateFromBase(PaletteState.CheckedPressed);
         }
         #endregion
 
@@ -121,14 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common calendar day appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTripleRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -140,14 +122,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTriple StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -159,14 +138,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTriple StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -178,14 +154,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteTriple StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -197,14 +170,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteTriple StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
 
@@ -216,14 +186,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal checked calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedNormal
-        {
-            get { return _stateCheckedNormal; }
-        }
+        public PaletteTriple StateCheckedNormal { get; }
 
         private bool ShouldSerializeStateCheckedNormal()
         {
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
         }
         #endregion
 
@@ -235,14 +202,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking checked calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedTracking
-        {
-            get { return _stateCheckedTracking; }
-        }
+        public PaletteTriple StateCheckedTracking { get; }
 
         private bool ShouldSerializeStateCheckedTracking()
         {
-            return !_stateCheckedTracking.IsDefault;
+            return !StateCheckedTracking.IsDefault;
         }
         #endregion
 
@@ -254,14 +218,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed checked calendar day appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateCheckedPressed
-        {
-            get { return _stateCheckedPressed; }
-        }
+        public PaletteTriple StateCheckedPressed { get; }
 
         private bool ShouldSerializeStateCheckedPressed()
         {
-            return !_stateCheckedPressed.IsDefault;
+            return !StateCheckedPressed.IsDefault;
         }
         #endregion
 
@@ -273,14 +234,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining calendar day appearance when it has focus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteTripleRedirect OverrideFocus { get; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
         #endregion
 
@@ -292,14 +250,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining calendar day appearance when it has bolded days.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverrideBolded
-        {
-            get { return _stateBolded; }
-        }
+        public PaletteTripleRedirect OverrideBolded { get; }
 
         private bool ShouldSerializeOverrideBolded()
         {
-            return !_stateBolded.IsDefault;
+            return !OverrideBolded.IsDefault;
         }
         #endregion
 
@@ -311,14 +266,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining calendar day appearance when it is today.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect OverrideToday
-        {
-            get { return _stateToday; }
-        }
+        public PaletteTripleRedirect OverrideToday { get; }
 
         private bool ShouldSerializeOverrideToday()
         {
-            return !_stateToday.IsDefault;
+            return !OverrideToday.IsDefault;
         }
         #endregion
     }

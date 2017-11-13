@@ -38,15 +38,12 @@ namespace ComponentFactory.Krypton.Navigator
         private IRenderer _dragRenderer;
         private PaletteMode _paletteMode;
         private PaletteRedirect _redirector;
-        private PaletteDragDrop _stateCommon;
-        private DragTargetProviderCollection _targetProviders;
         private PageDragEndData _pageDragEndData;
         private DragFeedback _dragFeedback;
         private DragTargetList _dragTargets;
         private DragTarget _currentTarget;
         private bool _documentCursor;
-        private bool _dragging;
-        private bool _disposed;
+
         #endregion
 
         #region Identity
@@ -72,9 +69,9 @@ namespace ComponentFactory.Krypton.Navigator
         public DragManager()
         {
             _redirector = new PaletteRedirect();
-            _stateCommon = new PaletteDragDrop(null, null);
+            StateCommon = new PaletteDragDrop(null, null);
             _paletteMode = PaletteMode.Global;
-            _targetProviders = new DragTargetProviderCollection();
+            DragTargetProviders = new DragTargetProviderCollection();
             _dragTargets = new DragTargetList();
             _documentCursor = false;
         }
@@ -122,34 +119,29 @@ namespace ComponentFactory.Krypton.Navigator
             ClearTargets();
 
 			// Mark as disposed
-			_disposed = true;
+			IsDisposed = true;
 		}
 
 		/// <summary>
 		/// Gets a value indicating if the view has been disposed.
 		/// </summary>
-		public bool IsDisposed
-		{
-			get { return _disposed; }
-		}
+		public bool IsDisposed { get; private set; }
+
         #endregion
 
         #region Public
         /// <summary>
         /// Gets access to the common navigator appearance entries.
         /// </summary>
-        public PaletteDragDrop StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteDragDrop StateCommon { get; }
 
         /// <summary>
         /// Gets or sets the palette to be applied.
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _paletteMode; }
-            
+            get => _paletteMode;
+
             set 
             {
                 if (_paletteMode != value)
@@ -173,8 +165,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public IPalette Palette
         {
-            get { return _localPalette; }
-         
+            get => _localPalette;
+
             set 
             {
                 if (_localPalette != value)
@@ -195,26 +187,20 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the collection of target providers.
         /// </summary>
-        public DragTargetProviderCollection DragTargetProviders
-        {
-            get { return _targetProviders; }
-        }
+        public DragTargetProviderCollection DragTargetProviders { get; }
 
         /// <summary>
         /// Gets a value indicating if dragging is currently occuring.
         /// </summary>
-        public bool IsDragging
-        {
-            get { return _dragging; }
-        }
+        public bool IsDragging { get; private set; }
 
         /// <summary>
         /// Gets and sets a value indicating if document cursors should be used during dragging.
         /// </summary>
         public bool DocumentCursor
         {
-            get { return _documentCursor; }
-            
+            get => _documentCursor;
+
             set 
             {
                 if (IsDragging)
@@ -259,10 +245,10 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // We only drag if we have at least one page and one target
-            _dragging = ((_dragTargets.Count > 0) && (dragEndData.Pages.Count > 0));
+            IsDragging = ((_dragTargets.Count > 0) && (dragEndData.Pages.Count > 0));
 
             // Do we really need to start dragging?
-            if (_dragging)
+            if (IsDragging)
             {
                 // We cache the palette/renderer at start of drag and use the same ones for the
                 // whole duration of the drag as changing drawing info during drag would be hard!
@@ -273,14 +259,14 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Create correct drag feedback class and start it up
                 ResolveDragFeedback();
-                _dragFeedback.Start(_stateCommon, _dragRenderer, _pageDragEndData, _dragTargets);
+                _dragFeedback.Start(StateCommon, _dragRenderer, _pageDragEndData, _dragTargets);
             }
             else
             {
                 ClearTargets();
             }
 
-            return _dragging;
+            return IsDragging;
         }
 
         /// <summary>
@@ -476,7 +462,7 @@ namespace ComponentFactory.Krypton.Navigator
             _redirector.Target = _dragPalette;
 
             // Inherit the state common values from resolved palette
-            _stateCommon.SetInherit(_dragPalette);
+            StateCommon.SetInherit(_dragPalette);
 
             // Get the renderer associated with the palette
             _dragRenderer = _dragPalette.GetRenderer();
@@ -487,7 +473,7 @@ namespace ComponentFactory.Krypton.Navigator
             ClearDragFeedback();
 
             // Start with the provided value
-            PaletteDragFeedback dragFeedback = _stateCommon.GetDragDropFeedback();
+            PaletteDragFeedback dragFeedback = StateCommon.GetDragDropFeedback();
 
             // Should never be 'inherit'
             if (dragFeedback == PaletteDragFeedback.Inherit)
@@ -548,7 +534,7 @@ namespace ComponentFactory.Krypton.Navigator
             _dragPalette = null;
             _dragRenderer = null;
             _pageDragEndData = null;
-            _dragging = false;
+            IsDragging = false;
         }
         #endregion
     }

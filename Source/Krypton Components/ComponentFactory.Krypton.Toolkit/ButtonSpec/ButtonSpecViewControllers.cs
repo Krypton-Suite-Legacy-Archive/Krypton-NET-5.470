@@ -18,9 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ButtonSpecViewControllers
     {
         #region Instance Fields
-        private IMouseController _mouseController;
-        private ISourceController _sourceController;
-        private IKeyController _keyController;
+
         #endregion
 
         #region Identity
@@ -38,9 +36,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(sourceController != null);
             Debug.Assert(keyController != null);
 
-            _mouseController = mouseController;
-            _sourceController = sourceController;
-            _keyController = keyController;
+            MouseController = mouseController;
+            SourceController = sourceController;
+            KeyController = keyController;
         }
         #endregion
 
@@ -48,26 +46,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the mouse controller reference.
         /// </summary>
-        public IMouseController MouseController
-        {
-            get { return _mouseController; }
-        }
+        public IMouseController MouseController { get; }
 
         /// <summary>
         /// Gets the mouse controller reference.
         /// </summary>
-        public ISourceController SourceController
-        {
-            get { return _sourceController; }
-        }
+        public ISourceController SourceController { get; }
 
         /// <summary>
         /// Gets the mouse controller reference.
         /// </summary>
-        public IKeyController KeyController
-        {
-            get { return _keyController; }
-        }
+        public IKeyController KeyController { get; }
+
         #endregion
     }
 }

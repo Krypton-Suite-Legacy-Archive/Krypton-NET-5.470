@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteSplitContainerRedirect : PaletteDoubleRedirect
 	{
 		#region Instance Fields
-        private PaletteSeparatorPaddingRedirect _separator;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(redirect, backContainerStyle, borderContainerStyle, needPaint)
 		{
 			// Create the embedded separator palette information
-            _separator = new PaletteSeparatorPaddingRedirect(redirect, backSeparatorStyle, borderSeparatorStyle, needPaint);
+            Separator = new PaletteSeparatorPaddingRedirect(redirect, backSeparatorStyle, borderSeparatorStyle, needPaint);
 		}
 		#endregion
 
@@ -49,15 +49,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-				return (base.IsDefault &&
-						Separator.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   Separator.IsDefault);
+
+	    #endregion
 
         #region Border
         /// <summary>
@@ -66,11 +61,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new PaletteBorder Border
-        {
-            get { return base.Border; }
-        }
-        #endregion
+        public new PaletteBorder Border => base.Border;
+
+	    #endregion
 
         #region Separator
         /// <summary>
@@ -79,14 +72,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Category("Visuals")]
 		[Description("Overrides for defining separator appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPaddingRedirect Separator
-		{
-			get { return _separator; }
-		}
+        public PaletteSeparatorPaddingRedirect Separator { get; }
 
-		private bool ShouldSerializeSeparator()
+	    private bool ShouldSerializeSeparator()
 		{
-			return !_separator.IsDefault;
+			return !Separator.IsDefault;
 		}
 		#endregion
 	}

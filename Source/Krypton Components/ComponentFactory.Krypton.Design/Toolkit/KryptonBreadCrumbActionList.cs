@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBackStyle ControlBackStyle
         {
-            get { return _breadCrumb.ControlBackStyle; }
+            get => _breadCrumb.ControlBackStyle;
 
             set
             {
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteBorderStyle ControlBorderStyle
         {
-            get { return _breadCrumb.ControlBorderStyle; }
+            get => _breadCrumb.ControlBorderStyle;
 
             set
             {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ButtonStyle CrumbButtonStyle
         {
-            get { return _breadCrumb.CrumbButtonStyle; }
+            get => _breadCrumb.CrumbButtonStyle;
 
             set
             {
@@ -92,8 +92,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _breadCrumb.PaletteMode; }
-            
+            get => _breadCrumb.PaletteMode;
+
             set 
             {
                 if (_breadCrumb.PaletteMode != value)

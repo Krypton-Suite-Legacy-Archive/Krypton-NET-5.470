@@ -28,9 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private ViewDrawRibbonGalleryItem _target;
         private ViewLayoutRibbonGalleryItems _layout;
         private NeedPaintHandler _needPaint;
-        private Point _mousePoint;
-        private bool _captured;
-        private bool _mouseOver;
+	    private bool _mouseOver;
         #endregion
 
 		#region Events
@@ -54,7 +52,7 @@ namespace ComponentFactory.Krypton.Ribbon
 			Debug.Assert(target != null);
             Debug.Assert(layout != null);
 
-            _mousePoint = CommonHelper.NullPoint;
+            MousePoint = CommonHelper.NullPoint;
 			_target = target;
             _layout = layout;
             NeedPaint = needPaint;
@@ -65,11 +63,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the current tracking mouse point.
         /// </summary>
-        public Point MousePoint
-        {
-            get { return _mousePoint; }
-        }
-        #endregion
+        public Point MousePoint { get; private set; }
+
+	    #endregion
 
         #region Mouse Notifications
         /// <summary>
@@ -93,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual void MouseMove(Control c, Point pt)
 		{
             // Track the mouse point
-            _mousePoint = pt;
+            MousePoint = pt;
 
             // Update the visual state
             UpdateTargetState(pt);
@@ -112,13 +108,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (button == MouseButtons.Left)
             {
                 // Capturing mouse input
-                _captured = true;
+                Captured = true;
 
                 // Update the visual state
                 UpdateTargetState(pt);
             }
 
-			return _captured;
+			return Captured;
 		}
 
 		/// <summary>
@@ -130,10 +126,10 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
 		{
             // If the mouse is currently captured
-            if (_captured)
+            if (Captured)
             {
                 // Not capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Only interested in left mouse being released
                 if (button == MouseButtons.Left)
@@ -197,10 +193,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 _mouseOver = false;
 
                 // Not tracking the mouse means a null value
-                _mousePoint = CommonHelper.NullPoint; 
+                MousePoint = CommonHelper.NullPoint; 
 
                 // If leaving the view then cannot be capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Update the visual state
                 UpdateTargetState(c);
@@ -219,11 +215,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Focus Notifications
         /// <summary>
@@ -342,7 +336,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -357,12 +351,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
+        public ViewBase Target => _target;
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()
@@ -384,13 +375,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -430,7 +417,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 newState = PaletteState.Normal;
 
                 // If capturing input....
-                if (_captured)
+                if (Captured)
                 {
                     if (_target.ClientRectangle.Contains(pt))
                     {

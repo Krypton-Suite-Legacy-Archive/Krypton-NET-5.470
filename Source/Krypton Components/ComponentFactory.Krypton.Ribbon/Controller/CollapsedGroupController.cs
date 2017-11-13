@@ -26,7 +26,6 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private bool _hasFocus;
         private bool _mouseOver;
         private NeedPaintHandler _needPaint;
         private ViewLayoutDocker _target;
@@ -64,10 +63,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if the controller has focus.
         /// </summary>
-        public bool HasFocus
-        {
-            get { return _hasFocus; }
-        }
+        public bool HasFocus { get; private set; }
+
         #endregion
 
         #region Mouse Notifications
@@ -141,10 +138,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
         #endregion
 
         #region Key Notifications
@@ -200,7 +195,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void GotFocus(Control c)
         {
-            _hasFocus = true;
+            HasFocus = true;
             OnNeedPaint(false, _target.ClientRectangle);
         }
 
@@ -210,7 +205,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void LostFocus(Control c)
         {
-            _hasFocus = false;
+            HasFocus = false;
             OnNeedPaint(false, _target.ClientRectangle);
         }
         #endregion

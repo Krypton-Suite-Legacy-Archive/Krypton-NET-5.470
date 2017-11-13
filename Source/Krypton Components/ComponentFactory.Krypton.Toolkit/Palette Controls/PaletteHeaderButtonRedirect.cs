@@ -57,16 +57,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-				return (base.IsDefault &&
-                        ButtonPadding.Equals(CommonHelper.InheritPadding) &&
-                        (ButtonEdgeInset == -1));
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   ButtonPadding.Equals(CommonHelper.InheritPadding) &&
+		                                   (ButtonEdgeInset == -1));
+
+	    #endregion
 
         #region ButtonEdgeInset
         /// <summary>
@@ -78,7 +73,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int ButtonEdgeInset
         {
-            get { return _buttonEdgeInset; }
+            get => _buttonEdgeInset;
 
             set
             {
@@ -109,7 +104,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding ButtonPadding
         {
-            get { return _buttonPadding; }
+            get => _buttonPadding;
 
             set
             {

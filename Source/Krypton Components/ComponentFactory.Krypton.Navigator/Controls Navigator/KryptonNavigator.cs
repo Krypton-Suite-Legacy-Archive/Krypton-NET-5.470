@@ -45,27 +45,17 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private NavigatorMode _mode;
-        private KryptonGroupPanel _childPanel; 
-        private ViewBuilderBase _viewBuilder;
         private KryptonPage _selectedPage;
-        private KryptonPageCollection _pages;
         private PaletteBackStyle _pageBackStyle;
         private NeedPaintHandler _needPagePaint;
         private KryptonContextMenu _kcm;
         private VisualPopupPage _visualPopupPage;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ToolTipManager _toolTipManager;
-        private ToolTipManager _hoverManager;
-        private IDragPageNotify _dragPageNotify;
         private KryptonPage[] _dragPages;
         private bool _forcedLayout;
         private bool _layingOut;
-        private bool _useMnemonic;
-        private bool _borrowedChildPanel;
         private bool _pageDragging;
         private bool _ignorePageVisibleChange;
-        private bool _allowPageDrag;
-        private bool _allowPageReorder;
         private bool _allowTabFocus;
         private bool _allowTabSelect;
         private bool _tabHoverStarted;
@@ -73,22 +63,7 @@ namespace ComponentFactory.Krypton.Navigator
         private int _cachePageVisibleCount;
 
         // Palette storage objects
-        private PaletteNavigatorRedirect _stateCommon;
-        private PaletteNavigator _stateNormal;
-		private PaletteNavigator _stateDisabled;
-        private PaletteNavigatorOtherEx _stateTracking;
-        private PaletteNavigatorOtherEx _statePressed;
-        private PaletteNavigatorOther _stateSelected;
-        private PaletteNavigatorOtherRedirect _stateFocus;
-        private NavigatorBar _bar;
-        private NavigatorButton _button;
-        private NavigatorGroup _group;
-        private NavigatorHeader _header;
-        private NavigatorOutlook _outlook;
-        private NavigatorPanel _panel;
-        private NavigatorPopupPages _popupPages;
-        private NavigatorStack _stack;
-        private NavigatorToolTips _toolTips;
+
         #endregion
 
 		#region Events
@@ -331,11 +306,11 @@ namespace ComponentFactory.Krypton.Navigator
                 DismissPopups();
 
                 // If there anything to dispose?
-                if (_viewBuilder != null)
+                if (ViewBuilder != null)
                 {
                     // Pull down the current view builder hierarchy
-                    _viewBuilder.Destruct();
-                    _viewBuilder = null;
+                    ViewBuilder.Destruct();
+                    ViewBuilder = null;
                 }
 
                 // Dispose of the cached context menu
@@ -347,10 +322,10 @@ namespace ComponentFactory.Krypton.Navigator
                 }
 
                 // Dispose of the buttons instances that have dispose interfaces
-                _button.CloseButton.Dispose();
-                _button.ContextButton.Dispose();
-                _button.NextButton.Dispose();
-                _button.PreviousButton.Dispose();
+                Button.CloseButton.Dispose();
+                Button.ContextButton.Dispose();
+                Button.NextButton.Dispose();
+                Button.PreviousButton.Dispose();
             }
 
             base.Dispose(disposing);
@@ -364,12 +339,12 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         public new string Name
         {
-            get { return base.Name; }
+            get => base.Name;
 
             set
             {
                 base.Name = value;
-                _childPanel.Name = value + ".Panel";
+                ChildPanel.Name = value + ".Panel";
             }
         }
 
@@ -383,8 +358,8 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshProperties(RefreshProperties.All)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
 		/// <summary>
@@ -395,23 +370,17 @@ namespace ComponentFactory.Krypton.Navigator
 		[MergableProperty(false)]
         [Editor("ComponentFactory.Krypton.Navigator.NavigatorPageCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public KryptonPageCollection Pages
-		{
-			get { return _pages; }
-		}
+		public KryptonPageCollection Pages { get; private set; }
 
-		/// <summary>
+        /// <summary>
 		/// Gets the collection of controls contained within the control.
 		/// </summary>
 		[Browsable(false)]
 		[Bindable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Control.ControlCollection Controls 
-		{
-			get { return base.Controls; }
-		}
+		public new Control.ControlCollection Controls => base.Controls;
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets the index of the currently-selected page.
 		/// </summary>
 		[Browsable(false)]
@@ -429,7 +398,7 @@ namespace ComponentFactory.Krypton.Navigator
                 }
                 else
                 {
-                    return _pages.IndexOf(SelectedPage);
+                    return Pages.IndexOf(SelectedPage);
                 }
             }
 
@@ -457,7 +426,7 @@ namespace ComponentFactory.Krypton.Navigator
                     }
 
 				    // Request the change by changing the SelectedPage
-                    SelectedPage = _pages[value];
+                    SelectedPage = Pages[value];
 				}
 			}
 		}
@@ -470,9 +439,9 @@ namespace ComponentFactory.Krypton.Navigator
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public KryptonPage SelectedPage
 		{
-			get { return _selectedPage; }
+			get => _selectedPage;
 
-			set
+		    set
 			{
 				// Only interested in changes of value
                 if (_selectedPage != value)
@@ -557,14 +526,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining bar settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorBar Bar
-        {
-            get { return _bar; }
-        }
+        public NavigatorBar Bar { get; private set; }
 
         private bool ShouldSerializeBar()
         {
-            return !_bar.IsDefault;
+            return !Bar.IsDefault;
         }
 
         /// <summary>
@@ -573,14 +539,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining stack settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorStack Stack
-        {
-            get { return _stack; }
-        }
+        public NavigatorStack Stack { get; private set; }
 
         private bool ShouldSerializeStack()
         {
-            return !_stack.IsDefault;
+            return !Stack.IsDefault;
         }
 
         /// <summary>
@@ -589,14 +552,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining outlook mode settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorOutlook Outlook
-        {
-            get { return _outlook; }
-        }
+        public NavigatorOutlook Outlook { get; private set; }
 
         private bool ShouldSerializeOutlook()
         {
-            return !_outlook.IsDefault;
+            return !Outlook.IsDefault;
         }
 
         /// <summary>
@@ -605,14 +565,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Button specifications and fixed button logic.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorButton Button
-        {
-            get { return _button; }
-        }
+        public NavigatorButton Button { get; private set; }
 
         private bool ShouldSerializeButtons()
         {
-            return !_button.IsDefault;
+            return !Button.IsDefault;
         }
 
         /// <summary>
@@ -621,14 +578,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining group settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorGroup Group
-        {
-            get { return _group; }
-        }
+        public NavigatorGroup Group { get; private set; }
 
         private bool ShouldSerializeGroups()
         {
-            return !_group.IsDefault;
+            return !Group.IsDefault;
         }
 
         /// <summary>
@@ -637,14 +591,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining header settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorHeader Header
-        {
-            get { return _header; }
-        }
+        public NavigatorHeader Header { get; private set; }
 
         private bool ShouldSerializeHeaders()
         {
-            return !_header.IsDefault;
+            return !Header.IsDefault;
         }
 
         /// <summary>
@@ -653,14 +604,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals (Modes)")]
         [Description("Overrides for defining panel settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorPanel Panel
-        {
-            get { return _panel; }
-        }
+        public NavigatorPanel Panel { get; private set; }
 
         private bool ShouldSerializePanels()
         {
-            return !_panel.IsDefault;
+            return !Panel.IsDefault;
         }
 
         /// <summary>
@@ -669,14 +617,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining popup page settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorPopupPages PopupPages
-        {
-            get { return _popupPages; }
-        }
+        public NavigatorPopupPages PopupPages { get; private set; }
 
         private bool ShouldSerializePopupPages()
         {
-            return !_popupPages.IsDefault;
+            return !PopupPages.IsDefault;
         }
 
         /// <summary>
@@ -685,14 +630,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tooltip settings.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public NavigatorToolTips ToolTips
-        {
-            get { return _toolTips; }
-        }
+        public NavigatorToolTips ToolTips { get; private set; }
 
         private bool ShouldSerializeToolTips()
         {
-            return !_toolTips.IsDefault;
+            return !ToolTips.IsDefault;
         }
 
         /// <summary>
@@ -701,14 +643,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining common navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteNavigatorRedirect StateCommon { get; private set; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
 		/// <summary>
@@ -717,14 +656,11 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Overrides for defining disabled navigator appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteNavigator StateDisabled
-		{
-			get { return _stateDisabled; }
-		}
+		public PaletteNavigator StateDisabled { get; private set; }
 
-		private bool ShouldSerializeStateDisabled()
+        private bool ShouldSerializeStateDisabled()
 		{
-			return !_stateDisabled.IsDefault;
+			return !StateDisabled.IsDefault;
 		}
 
 		/// <summary>
@@ -733,14 +669,11 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Overrides for defining normal navigator appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteNavigator StateNormal
-		{
-			get { return _stateNormal; }
-		}
+		public PaletteNavigator StateNormal { get; private set; }
 
-		private bool ShouldSerializeStateNormal()
+        private bool ShouldSerializeStateNormal()
 		{
-			return !_stateNormal.IsDefault;
+			return !StateNormal.IsDefault;
 		}
 
         /// <summary>
@@ -749,14 +682,11 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Overrides for defining tracking navigator appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteNavigatorOtherEx StateTracking
-		{
-			get { return _stateTracking; }
-		}
+		public PaletteNavigatorOtherEx StateTracking { get; private set; }
 
         private bool ShouldSerializeStateTracking()
 		{
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
 		}
 
         /// <summary>
@@ -765,14 +695,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining pressed navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorOtherEx StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteNavigatorOtherEx StatePressed { get; private set; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -781,14 +708,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining selected navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorOther StateSelected
-        {
-            get { return _stateSelected; }
-        }
+        public PaletteNavigatorOther StateSelected { get; private set; }
 
         private bool ShouldSerializeStateSelected()
         {
-            return !_stateSelected.IsDefault;
+            return !StateSelected.IsDefault;
         }
 
         /// <summary>
@@ -797,14 +721,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining focus navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorOtherRedirect OverrideFocus
-        {
-            get { return _stateFocus; }
-        }
+        public PaletteNavigatorOtherRedirect OverrideFocus { get; private set; }
 
         private bool ShouldSerializeOverrideFocus()
         {
-            return !_stateFocus.IsDefault;
+            return !OverrideFocus.IsDefault;
         }
 
         /// <summary>
@@ -815,23 +736,23 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(NavigatorMode), "Bar - Tab - Group")]
 		public NavigatorMode NavigatorMode
 		{
-			get { return _mode; }
+			get => _mode;
 
-			set
+            set
 			{
 				if (_mode != value)
 				{
                     // Ignore change in mode as the view builder is already destructed
-                    if (!IsDisposed && (_viewBuilder != null))
+                    if (!IsDisposed && (ViewBuilder != null))
                     {
                         // Ask the view builder to pull down current view
-                        _viewBuilder.Destruct();
+                        ViewBuilder.Destruct();
 
                         _mode = value;
 
                         // Ask the view builder to create new view based on new mode
-                        _viewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
-                        _viewBuilder.Construct(this, ViewManager, Redirector);
+                        ViewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
+                        ViewBuilder.Construct(this, ViewManager, Redirector);
 
                         // Need to layout the new view
                         if (!IsInitializing)
@@ -859,7 +780,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteBackStyle), "ControlClient")]
         public PaletteBackStyle PageBackStyle
         {
-            get { return _pageBackStyle; }
+            get => _pageBackStyle;
 
             set
             {
@@ -877,11 +798,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Behavior")]
         [Description("Defines the default setting for allowing page dragging from the navigator.")]
         [DefaultValue(false)]
-        public bool AllowPageDrag
-        {
-            get { return _allowPageDrag; }
-            set { _allowPageDrag = value; }
-        }
+        public bool AllowPageDrag { get; set; }
 
         /// <summary>
         /// Gets or sets the default setting for allowing the page reordering using the mouse.
@@ -889,11 +806,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Behavior")]
         [Description("Defines the default setting for allowing page reordering using the mouse.")]
         [DefaultValue(true)]
-        public bool AllowPageReorder
-        {
-            get { return _allowPageReorder; }
-            set { _allowPageReorder = value; }
-        }
+        public bool AllowPageReorder { get; set; }
 
         /// <summary>
         /// Gets or sets if the tab headers are allowed to take the focus.
@@ -903,8 +816,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool AllowTabFocus
         {
-            get { return _allowTabFocus; }
-            
+            get => _allowTabFocus;
+
             set 
             {
                 if (_allowTabFocus != value)
@@ -928,7 +841,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool AllowTabSelect
         {
-            get { return _allowTabSelect; }
+            get => _allowTabSelect;
 
             set
             {
@@ -971,32 +884,22 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Appearance")]
         [Description("Defines if mnemonic characters select pages and button specs.")]
         [DefaultValue(true)]
-        public bool UseMnemonic
-        {
-            get { return _useMnemonic; }
-            set { _useMnemonic = value; }
-        }
+        public bool UseMnemonic { get; set; }
 
         /// <summary>
         /// Gets and sets the interface for receiving page drag notifications.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IDragPageNotify DragPageNotify
-        {
-            get { return _dragPageNotify; }
-            set { _dragPageNotify = value; }
-        }
+        public IDragPageNotify DragPageNotify { get; set; }
 
         /// <summary>
         /// Gets access to the ToolTipManager used for displaying tool tips.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ToolTipManager ToolTipManager
-        {
-            get { return _toolTipManager; }
-        }
+        public ToolTipManager ToolTipManager { get; private set; }
+
         #endregion
 
         #region Public Methods
@@ -1097,7 +1000,7 @@ namespace ComponentFactory.Krypton.Navigator
                 while (view != null)
                 {
                     // If the view is associated with a page then return that page
-                    if ((view.Component != null) && (view.Component is KryptonPage))
+                    if (view.Component is KryptonPage)
                     {
                         return (KryptonPage)view.Component;
                     }
@@ -1117,7 +1020,7 @@ namespace ComponentFactory.Krypton.Navigator
         public bool SelectNextPage(bool wrap)
         {
             // Perform view specific page selection
-            return _viewBuilder.SelectNextPage(wrap);
+            return ViewBuilder.SelectNextPage(wrap);
         }
 
         /// <summary>
@@ -1129,7 +1032,7 @@ namespace ComponentFactory.Krypton.Navigator
         public bool SelectNextPage(KryptonPage page, bool wrap)
         {
             // Perform view specific page selection
-            return _viewBuilder.SelectNextPage(page, wrap, false);
+            return ViewBuilder.SelectNextPage(page, wrap, false);
         }
 
         /// <summary>
@@ -1140,7 +1043,7 @@ namespace ComponentFactory.Krypton.Navigator
         public bool SelectPreviousPage(bool wrap)
         {
             // Perform view specific page selection
-            return _viewBuilder.SelectPreviousPage(wrap);
+            return ViewBuilder.SelectPreviousPage(wrap);
         }
 
         /// <summary>
@@ -1152,7 +1055,7 @@ namespace ComponentFactory.Krypton.Navigator
         public bool SelectPreviousPage(KryptonPage page, bool wrap)
         {
             // Perform view specific page selection
-            return _viewBuilder.SelectPreviousPage(page, wrap, false);
+            return ViewBuilder.SelectPreviousPage(page, wrap, false);
         }
 
         /// <summary>
@@ -1213,10 +1116,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets the child panel used for displaying actual pages.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public KryptonGroupPanel ChildPanel
-        {
-            get { return _childPanel; }
-        }
+        public KryptonGroupPanel ChildPanel { get; private set; }
 
         /// <summary>
         /// Called by the designer to hit test a point.
@@ -1233,7 +1133,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // Ask the current view for a decision
-            return _viewBuilder.DesignerGetHitTest(pt);
+            return ViewBuilder.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1312,17 +1212,17 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void OnInitialized(EventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Let base class generate standard event
                 base.OnInitialized(e);
 
                 // Ask the view builder to pull down current view
-                _viewBuilder.Destruct();
+                ViewBuilder.Destruct();
 
                 // Ask the view builder to create new view based on new mode
-                _viewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
-                _viewBuilder.Construct(this, ViewManager, Redirector);
+                ViewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
+                ViewBuilder.Construct(this, ViewManager, Redirector);
 
                 if (LayoutOnInitialized)
                 {
@@ -1352,10 +1252,10 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void OnGotFocus(EventArgs e)
         {
             // We should have a view builder at all times
-            if (_viewBuilder != null)
+            if (ViewBuilder != null)
             {
                 // If we are not allowed to have the focus then push it forward
-                if (!_viewBuilder.CanFocus || !AllowTabFocus)
+                if (!ViewBuilder.CanFocus || !AllowTabFocus)
                 {
                     // When pressing down the ctrl key to tab around we only set focus in the page itself.
                     // Otherwise user might be shift+tabbing around and we need to move outside the page.
@@ -1370,7 +1270,7 @@ namespace ComponentFactory.Krypton.Navigator
                 }
                 else
                 {
-                    _viewBuilder.GotFocus();
+                    ViewBuilder.GotFocus();
                 }
             }
 
@@ -1385,7 +1285,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void OnLostFocus(EventArgs e)
         {
             // We should have a view builder at all times
-            _viewBuilder?.LostFocus();
+            ViewBuilder?.LostFocus();
 
             // Let base class perform standard processing
             base.OnLostFocus(e);
@@ -1404,7 +1304,7 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewBase element = ViewManager.Root.ViewFromPoint(new Point(e.X, e.Y));
 
                 // Ask the view builder if pressing the element needs to give us focus
-                if (_viewBuilder.GiveNavigatorFocus(element))
+                if (ViewBuilder.GiveNavigatorFocus(element))
                 {
                     Focus();
                 }
@@ -1418,17 +1318,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
         /// <returns>True to use Invoke; false to use Invalidate.</returns>
-        protected override bool EvalInvokePaint
-        {
-            get
-            {
-                // If there is a panel holding the pages and that panel takes up the entire
-                // client area then we need to use Invoke to force a refresh, that ensures 
-                // that layout changes are actually processed when non of the client of the 
-                // navigator is visible.
-                return ((ChildPanel != null) && (ChildPanel.ClientRectangle == ClientRectangle));
-            }
-        }
+        protected override bool EvalInvokePaint => ((ChildPanel != null) && (ChildPanel.ClientRectangle == ClientRectangle));
 
         /// <summary>
         /// Previews a keyboard message.
@@ -1499,7 +1389,7 @@ namespace ComponentFactory.Krypton.Navigator
                         {
                             // CONTROL tabbing around the pages in the navigator 
                             // is handled in a view specific way
-                            handled = _viewBuilder.ProcessDialogKey(keyData);
+                            handled = ViewBuilder.ProcessDialogKey(keyData);
                         }
                     }
                     break;
@@ -1508,7 +1398,7 @@ namespace ComponentFactory.Krypton.Navigator
             // Let the view builder perform view specific actions
             if (!handled)
             {
-                handled = _viewBuilder.ProcessDialogKey(keyData);
+                handled = ViewBuilder.ProcessDialogKey(keyData);
             }
 
             // If we did not handle the key then give it to the base class
@@ -1565,7 +1455,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (UseMnemonic && CanProcessMnemonic())
             {
                 // Ask the view builder if the mnemonic can be used
-                if (_viewBuilder.ProcessMnemonic(charCode))
+                if (ViewBuilder.ProcessMnemonic(charCode))
                 {
                     return true;
                 }
@@ -1578,10 +1468,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
-		protected override Size DefaultSize
-		{
-			get { return new Size(250, 150); }
-		}
+		protected override Size DefaultSize => new Size(250, 150);
 
         /// <summary>
         /// Update global event attachments.
@@ -1589,15 +1476,15 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="attach">True if attaching; otherwise false.</param>
         protected override void UpdateGlobalEvents(bool attach)
         {
-            if (_childPanel != null)
+            if (ChildPanel != null)
             {
                 if (attach)
                 {
-                    _childPanel.AttachGlobalEvents();
+                    ChildPanel.AttachGlobalEvents();
                 }
                 else
                 {
-                    _childPanel.UnattachGlobalEvents();
+                    ChildPanel.UnattachGlobalEvents();
                 }
             }
 
@@ -1685,10 +1572,10 @@ namespace ComponentFactory.Krypton.Navigator
 		protected virtual void OnSelectedPageChanged(EventArgs e)
 		{
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Inform view builder of change
-                _viewBuilder.SelectedPageChanged();
+                ViewBuilder.SelectedPageChanged();
 
                 // Request a layout is needed
                 PerformNeedPaint(true);
@@ -1730,7 +1617,7 @@ namespace ComponentFactory.Krypton.Navigator
             DirectionButtonAction dba = DirectionButtonAction.None;
 
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Create the event arguments
                 DirectionActionEventArgs e = new DirectionActionEventArgs(SelectedPage,
@@ -1743,7 +1630,7 @@ namespace ComponentFactory.Krypton.Navigator
                 dba = e.Action;
 
                 // Ask the view to perform requested action on the view
-                _viewBuilder.PerformPreviousAction(e.Action, e.Item);
+                ViewBuilder.PerformPreviousAction(e.Action, e.Item);
             }
 
             return dba;
@@ -1758,7 +1645,7 @@ namespace ComponentFactory.Krypton.Navigator
             DirectionButtonAction dba = DirectionButtonAction.None;
 
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Create the event arguments
                 DirectionActionEventArgs e = new DirectionActionEventArgs(SelectedPage,
@@ -1771,7 +1658,7 @@ namespace ComponentFactory.Krypton.Navigator
                 dba = e.Action;
 
                 // Ask the view to perform requested action on the view
-                _viewBuilder.PerformNextAction(e.Action, e.Item);
+                ViewBuilder.PerformNextAction(e.Action, e.Item);
             }
 
             return dba;
@@ -1797,10 +1684,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Should the OnInitialized call perform layout.
         /// </summary>
-        protected virtual bool LayoutOnInitialized
-        {
-            get { return true; }
-        }
+        protected virtual bool LayoutOnInitialized => true;
 
         /// <summary>
         /// Raises and processes the CloseAction event.
@@ -1812,7 +1696,7 @@ namespace ComponentFactory.Krypton.Navigator
             CloseButtonAction cba = CloseButtonAction.None;
 
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Do not perform any action at design time
                 if (!DesignMode)
@@ -2087,45 +1971,24 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Internal
-        internal ViewBuilderBase ViewBuilder
-        {
-            get { return _viewBuilder; }
-        }
+        internal ViewBuilderBase ViewBuilder { get; private set; }
 
-        internal ButtonSpecCollectionBase FixedSpecs
-        {
-            get { return _button.FixedSpecs; }
-        }
+        internal ButtonSpecCollectionBase FixedSpecs => Button.FixedSpecs;
 
-        internal PaletteRedirect InternalRedirector
-        {
-            get { return Redirector; }
-        }
+        internal PaletteRedirect InternalRedirector => Redirector;
 
         internal void InternalForceViewLayout()
         {
             ForceViewLayout();
         }
 
-        internal ToolTipManager HoverManager
-        {
-            get { return _hoverManager; }
-        }
+        internal ToolTipManager HoverManager { get; private set; }
 
-        internal bool InternalDesignMode
-        {
-            get { return DesignMode; }
-        }
+        internal bool InternalDesignMode => DesignMode;
 
-        internal bool InternalCanLayout
-        {
-            get
-            {
-                return (IsInitialized || 
-                        _forcedLayout || 
-                        (DesignMode && (ViewManager != null)));
-            }
-        }
+        internal bool InternalCanLayout => (IsInitialized || 
+                                            _forcedLayout || 
+                                            (DesignMode && (ViewManager != null)));
 
         internal bool PreviousActionValid
         {
@@ -2245,7 +2108,7 @@ namespace ComponentFactory.Krypton.Navigator
 
             if (position == PopupPagePosition.ModeAppropriate)
             {
-                position = _viewBuilder.GetPopupPagePosition();
+                position = ViewBuilder.GetPopupPagePosition();
             }
 
             return position;
@@ -2264,10 +2127,10 @@ namespace ComponentFactory.Krypton.Navigator
             if (!DesignMode && (page != null) && (relative != null))
             {
                 // Do not show if in the 'Never' show mode
-                if (_popupPages.AllowPopupPages != PopupPageAllow.Never)
+                if (PopupPages.AllowPopupPages != PopupPageAllow.Never)
                 {
                     // Check other allow options
-                    if ((_popupPages.AllowPopupPages != PopupPageAllow.OnlyOutlookMiniMode) ||
+                    if ((PopupPages.AllowPopupPages != PopupPageAllow.OnlyOutlookMiniMode) ||
                         (NavigatorMode == NavigatorMode.OutlookMini))
                     {
                         // Do not need to fire delegate until popup page is dismissed
@@ -2298,10 +2161,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-        internal bool IsChildPanelBorrowed
-        {
-            get { return _borrowedChildPanel; }
-        }
+        internal bool IsChildPanelBorrowed { get; private set; }
 
         internal void BorrowChildPanel()
         {
@@ -2310,7 +2170,7 @@ namespace ComponentFactory.Krypton.Navigator
                 // Must cast to the correct type in order to access the 
                 // internal method that allows a child control to be removed
                 ((KryptonReadOnlyControls)Controls).RemoveInternal(ChildPanel);
-                _borrowedChildPanel = true;
+                IsChildPanelBorrowed = true;
             }
         }
 
@@ -2321,7 +2181,7 @@ namespace ComponentFactory.Krypton.Navigator
                 // Must cast to the correct type in order to access the 
                 // internal method that allows a child control to be added
                 ((KryptonReadOnlyControls)Controls).AddInternal(ChildPanel);
-                _borrowedChildPanel = false;
+                IsChildPanelBorrowed = false;
             }
         }
 
@@ -2446,21 +2306,21 @@ namespace ComponentFactory.Krypton.Navigator
             // Assign the default values
             _mode = NavigatorMode.BarTabGroup;
             _pageBackStyle = PaletteBackStyle.ControlClient;
-            _allowPageReorder = true;
+            AllowPageReorder = true;
             _allowTabFocus = true;
             _allowTabSelect = true;
-            _useMnemonic = true;
+            UseMnemonic = true;
         }
 
         private void CreatePageCollection()
         {
             // Create page collection and monitor changes
-            _pages = new KryptonPageCollection();
-            _pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            _pages.Removing += new TypedHandler<KryptonPage>(OnPageRemoving);
-            _pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            _pages.Clearing += new EventHandler(OnPageClearing);
-            _pages.Cleared += new EventHandler(OnPageCleared);
+            Pages = new KryptonPageCollection();
+            Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
+            Pages.Removing += new TypedHandler<KryptonPage>(OnPageRemoving);
+            Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
+            Pages.Clearing += new EventHandler(OnPageClearing);
+            Pages.Cleared += new EventHandler(OnPageCleared);
 
             // Init fields used to notice a change in the page/page visible counts
             _cachePageCount = 0;
@@ -2473,29 +2333,29 @@ namespace ComponentFactory.Krypton.Navigator
             _needPagePaint = new NeedPaintHandler(OnNeedPagePaint);
 
             // Create state storage objects
-            _stateCommon = new PaletteNavigatorRedirect(this, Redirector, _needPagePaint);
-            _stateDisabled = new PaletteNavigator(_stateCommon, _needPagePaint);
-            _stateNormal = new PaletteNavigator(_stateCommon, _needPagePaint);
-            _stateTracking = new PaletteNavigatorOtherEx(_stateCommon, _needPagePaint);
-            _statePressed = new PaletteNavigatorOtherEx(_stateCommon, _needPagePaint);
-            _stateSelected = new PaletteNavigatorOther(_stateCommon, _needPagePaint);
-            _stateFocus = new PaletteNavigatorOtherRedirect(Redirector, Redirector, Redirector, 
+            StateCommon = new PaletteNavigatorRedirect(this, Redirector, _needPagePaint);
+            StateDisabled = new PaletteNavigator(StateCommon, _needPagePaint);
+            StateNormal = new PaletteNavigator(StateCommon, _needPagePaint);
+            StateTracking = new PaletteNavigatorOtherEx(StateCommon, _needPagePaint);
+            StatePressed = new PaletteNavigatorOtherEx(StateCommon, _needPagePaint);
+            StateSelected = new PaletteNavigatorOther(StateCommon, _needPagePaint);
+            OverrideFocus = new PaletteNavigatorOtherRedirect(Redirector, Redirector, Redirector, 
                                                             Redirector, Redirector, _needPagePaint);
 
             // Create other storage objects
-            _bar = new NavigatorBar(this, NeedPaintDelegate);
-            _button = new NavigatorButton(this, NeedPaintDelegate);
-            _group = new NavigatorGroup(this, NeedPaintDelegate);
-            _header = new NavigatorHeader(this, NeedPaintDelegate);
-            _outlook = new NavigatorOutlook(this, NeedPaintDelegate);
-            _panel = new NavigatorPanel(this, NeedPaintDelegate);
-            _popupPages = new NavigatorPopupPages(this, NeedPaintDelegate);
-            _stack = new NavigatorStack(this, NeedPaintDelegate);
-            _toolTips = new NavigatorToolTips(this, NeedPaintDelegate);
+            Bar = new NavigatorBar(this, NeedPaintDelegate);
+            Button = new NavigatorButton(this, NeedPaintDelegate);
+            Group = new NavigatorGroup(this, NeedPaintDelegate);
+            Header = new NavigatorHeader(this, NeedPaintDelegate);
+            Outlook = new NavigatorOutlook(this, NeedPaintDelegate);
+            Panel = new NavigatorPanel(this, NeedPaintDelegate);
+            PopupPages = new NavigatorPopupPages(this, NeedPaintDelegate);
+            Stack = new NavigatorStack(this, NeedPaintDelegate);
+            ToolTips = new NavigatorToolTips(this, NeedPaintDelegate);
 
             // Need to know when the context button is about to show a context menu, so we
             // can then populate it with the correct set of values dependant on the current pages
-            _button.ContextButton.KryptonContextMenu.Opening += new CancelEventHandler(OnOpeningContextMenu);
+            Button.ContextButton.KryptonContextMenu.Opening += new CancelEventHandler(OnOpeningContextMenu);
         }
 
         private void CreateViewManager()
@@ -2504,8 +2364,8 @@ namespace ComponentFactory.Krypton.Navigator
             ViewManager = new ViewManager(this, new ViewLayoutPageShow(this));
 
             // Ask the view builder to create the view for the default mode
-            _viewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
-            _viewBuilder.Construct(this, ViewManager, Redirector);
+            ViewBuilder = ViewBuilderBase.CreateViewBuilder(_mode);
+            ViewBuilder.Construct(this, ViewManager, Redirector);
 
             // We need to know when the layout cycle is starting/ending
             ViewManager.LayoutBefore += new EventHandler(OnViewManagerLayoutBefore);
@@ -2515,10 +2375,10 @@ namespace ComponentFactory.Krypton.Navigator
         private void CreateChildControl()
         {
             // Create the internal panel used for containing content
-            _childPanel = new KryptonGroupPanel(this,
-                                                _stateCommon.HeaderGroup,
-                                                _stateDisabled.HeaderGroup,
-                                                _stateNormal.HeaderGroup,
+            ChildPanel = new KryptonGroupPanel(this,
+                                                StateCommon.HeaderGroup,
+                                                StateDisabled.HeaderGroup,
+                                                StateNormal.HeaderGroup,
                                                 new NeedPaintHandler(OnGroupPanelPaint))
             {
 
@@ -2527,27 +2387,27 @@ namespace ComponentFactory.Krypton.Navigator
             };
 
             // We need to know whenever a control is removed from the child panel
-            _childPanel.ControlRemoved += new ControlEventHandler(OnChildPanelControlRemoved);
+            ChildPanel.ControlRemoved += new ControlEventHandler(OnChildPanelControlRemoved);
 
             // Add panel to the controls collection
-            ((KryptonReadOnlyControls)Controls).AddInternal(_childPanel);
+            ((KryptonReadOnlyControls)Controls).AddInternal(ChildPanel);
         }
 
         private void CreateInternalObjects()
         {
             // Create the manager for handling tooltips
-            _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager = new ToolTipManager();
+            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
+            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
 
             // Create the manager for handling hovering
-            _hoverManager = new ToolTipManager
+            HoverManager = new ToolTipManager
             {
                 ShowInterval = 400,
                 CloseInterval = 400
             };
-            _hoverManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnStartHover);
-            _hoverManager.CancelToolTip += new EventHandler(OnEndHover);
+            HoverManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnStartHover);
+            HoverManager.CancelToolTip += new EventHandler(OnEndHover);
         }
         #endregion
 
@@ -2555,7 +2415,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageInserted(object sender, TypedCollectionEventArgs<KryptonPage> e)
 		{
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Change to page collection means we remove the popup page
                 DismissPopups();
@@ -2591,7 +2451,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageRemoving(object sender, TypedCollectionEventArgs<KryptonPage> e)
 		{
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Change to page collection means we remove the popup page
                 DismissPopups();
@@ -2607,7 +2467,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageRemoved(object sender, TypedCollectionEventArgs<KryptonPage> e)
 		{
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Stop the page inheriting palette values from the navigator
                 e.Item.ResetInherit(this);
@@ -2662,7 +2522,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageCleared(object sender, EventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // If there are any child controls, remove them
                 if (ChildPanel.Controls.Count > 0)
@@ -2677,7 +2537,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageVisibleChanged(object sender, EventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 if (!IsChildPanelBorrowed && !_ignorePageVisibleChange)
                 {
@@ -2713,7 +2573,7 @@ namespace ComponentFactory.Krypton.Navigator
                         }
 
                         // Inform view builder of a change in page visibility
-                        _viewBuilder.PageVisibleStateChanged(page);
+                        ViewBuilder.PageVisibleStateChanged(page);
                     }
 
                     CheckForPageCountEvents();
@@ -2724,16 +2584,16 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageEnabledChanged(object sender, EventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Change to page enabled state means we remove the popup page
                 DismissPopups();
 
                 // Inform the view builder that a page has changed enabled state
-                if (_viewBuilder != null)
+                if (ViewBuilder != null)
                 {
                     KryptonPage page = (KryptonPage)sender;
-                    _viewBuilder.PageEnabledStateChanged(page);
+                    ViewBuilder.PageEnabledStateChanged(page);
                 }
             }
         }
@@ -2741,7 +2601,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnPageAppearanceChanged(object sender, PropertyChangedEventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Cast to correct type
                 KryptonPage page = (KryptonPage)sender;
@@ -2758,14 +2618,14 @@ namespace ComponentFactory.Krypton.Navigator
                 }
 
                 // Inform the current view builder of possible appearance change
-                _viewBuilder.PageAppearanceChanged(page, e.PropertyName);
+                ViewBuilder.PageAppearanceChanged(page, e.PropertyName);
             }
         }
 
         private void OnPageFlagsChanged(object sender, KryptonPageFlagsEventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Change to page flags state means we remove the popup page
                 DismissPopups();
@@ -2774,17 +2634,17 @@ namespace ComponentFactory.Krypton.Navigator
                 KryptonPage page = (KryptonPage)sender;
 
                 // Inform the current view builder of flags change
-                _viewBuilder.PageFlagsChanged(page, e.Flags);
+                ViewBuilder.PageFlagsChanged(page, e.Flags);
             }
         }
 
         private void PageCollectionChanged()
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Inform view builder of a change in pages collections
-                _viewBuilder.PageCollectionChanged();
+                ViewBuilder.PageCollectionChanged();
                 CheckForPageCountEvents();
             }
         }
@@ -2792,16 +2652,16 @@ namespace ComponentFactory.Krypton.Navigator
         private void CheckForPageCountEvents()
         {
             // Has the number of pages changed?
-            if (_cachePageCount != _pages.Count)
+            if (_cachePageCount != Pages.Count)
             {
-                _cachePageCount = _pages.Count;
+                _cachePageCount = Pages.Count;
                 OnTabCountChanged(EventArgs.Empty);
             }
 
             // Has the number of visible pages changed?
-            if (_cachePageVisibleCount != _pages.VisibleCount)
+            if (_cachePageVisibleCount != Pages.VisibleCount)
             {
-                _cachePageVisibleCount = _pages.VisibleCount;
+                _cachePageVisibleCount = Pages.VisibleCount;
                 OnTabVisibleCountChanged(EventArgs.Empty);
             }
         }
@@ -2899,7 +2759,7 @@ namespace ComponentFactory.Krypton.Navigator
             KryptonPage start = begin;
 
             // Process all pages except the current one to find available pape
-            for (int i = 0; i < Pages.Count - 1; i++)
+            for (int i = 0; i < (Pages.Count - 1); i++)
             {
                 KryptonPage next;
 
@@ -2989,7 +2849,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void UpdateAllPagesVisible(bool visible, Type excludeType)
         {
             // Is it safe to perform any processing?
-            if (!IsDisposed && (_viewBuilder != null) && !IsChildPanelBorrowed)
+            if (!IsDisposed && (ViewBuilder != null) && !IsChildPanelBorrowed)
             {
                 // Do we need to make any changes in page visibility?
                 if ((visible && (Pages.VisibleCount != Pages.Count)) || (!visible && (Pages.VisibleCount > 0)))
@@ -3008,7 +2868,7 @@ namespace ComponentFactory.Krypton.Navigator
                         if ((excludeType == null) || !(page.GetType() == excludeType))
                         {
                             page.Visible = visible;
-                            _viewBuilder.PageVisibleStateChanged(page);
+                            ViewBuilder.PageVisibleStateChanged(page);
                         }
                     }
 
@@ -3041,7 +2901,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnOpeningContextMenu(object sender, CancelEventArgs e)
         {
             // Ignore call as view builder is already destructed
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 if (DesignMode)
                 {
@@ -3067,7 +2927,7 @@ namespace ComponentFactory.Krypton.Navigator
                         if ((page == SelectedPage) || (page.LastVisibleSet && page.Enabled))
                         {
                             // Add a vertical break after every 20 items
-                            if ((menuItems > 0) && (menuItems % 20) == 0)
+                            if ((menuItems > 0) && ((menuItems % 20) == 0))
                             {
                                 KryptonContextMenuSeparator vertBreak = new KryptonContextMenuSeparator
                                 {
@@ -3123,7 +2983,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
@@ -3139,19 +2999,19 @@ namespace ComponentFactory.Krypton.Navigator
                     LabelStyle toolTipStyle = LabelStyle.ToolTip;
 
                     // Find the page associated with the tooltip request
-                    KryptonPage toolTipPage = _viewBuilder.PageFromView(e.Target);
+                    KryptonPage toolTipPage = ViewBuilder.PageFromView(e.Target);
 
                     // If the tooltip is for a krypton page header
                     if (toolTipPage != null)
                     {
                         // Are we allowed to show page related tooltips
-                        if (_toolTips.AllowPageToolTips)
+                        if (ToolTips.AllowPageToolTips)
                         {
                             // Create a helper object to provide tooltip values
                             PageToToolTipMapping pageMapping = new PageToToolTipMapping(toolTipPage,
-                                                                                       _toolTips.MapImage,
-                                                                                       _toolTips.MapText,
-                                                                                       _toolTips.MapExtraText);
+                                                                                       ToolTips.MapImage,
+                                                                                       ToolTips.MapText,
+                                                                                       ToolTips.MapExtraText);
 
                             // Is there actually anything to show for the tooltip
                             if (pageMapping.HasContent)
@@ -3164,13 +3024,13 @@ namespace ComponentFactory.Krypton.Navigator
                     else
                     {
                         // Find the button spec associated with the tooltip request
-                        ButtonSpec buttonSpec = _viewBuilder.ButtonSpecFromView(e.Target);
+                        ButtonSpec buttonSpec = ViewBuilder.ButtonSpecFromView(e.Target);
 
                         // If the tooltip is for a button spec
                         if (buttonSpec != null)
                         {
                             // Are we allowed to show page related tooltips
-                            if (_toolTips.AllowButtonSpecToolTips)
+                            if (ToolTips.AllowButtonSpecToolTips)
                             {
                                 // Create a helper object to provide tooltip values
                                 ButtonSpecToContent buttonSpecMapping = new ButtonSpecToContent(Redirector, buttonSpec);
@@ -3215,7 +3075,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         private void OnStartHover(object sender, ToolTipEventArgs e)
         {
-            if (!IsDisposed && (_viewBuilder != null))
+            if (!IsDisposed && (ViewBuilder != null))
             {
                 // We do not provide hover support when the form does not have the focus
                 Form topForm = FindForm();
@@ -3228,7 +3088,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (!DesignMode)
                 {
                     // Find the page associated with the hover request
-                    KryptonPage hoverPage = _viewBuilder.PageFromView(e.Target);
+                    KryptonPage hoverPage = ViewBuilder.PageFromView(e.Target);
                     if (hoverPage != null)
                     {
                         OnTabMouseHoverStart(new KryptonPageEventArgs(hoverPage, Pages.IndexOf(hoverPage)));
@@ -3357,7 +3217,7 @@ namespace ComponentFactory.Krypton.Navigator
                         else
                         {
                             // We can only be the next control if we accept the focus
-                            if ((next != this) || ((next == this) && _viewBuilder.CanFocus))
+                            if ((next != this) || ((next == this) && ViewBuilder.CanFocus))
                             {
                                 // Is the next control inside ourself as a container?
                                 bool nextInside = Contains(next);
@@ -3366,7 +3226,7 @@ namespace ComponentFactory.Krypton.Navigator
                                 if (!NextOnUnselectedKryptonPage(next))
                                 {
                                     // Cannot select an inside control when in a tab strip mode
-                                    if (!(nextInside && _viewBuilder.IsTabStripMode))
+                                    if (!(nextInside && ViewBuilder.IsTabStripMode))
                                     {
                                         // If the control is not inside this navigator instance or if it 
                                         // is inside this naviagator but it is also inside the selected page 
@@ -3422,10 +3282,9 @@ namespace ComponentFactory.Krypton.Navigator
                 {
 
                     // If the page is inside a krypton container that is a navigator instance
-                    if ((page.KryptonParentContainer != null) && (page.KryptonParentContainer is KryptonNavigator))
+                    if (page.KryptonParentContainer is KryptonNavigator nav)
                     {
                         // Cast to correct type
-                        KryptonNavigator nav = (KryptonNavigator)page.KryptonParentContainer;
 
                         // Tell the caller if the original control is inside a page that is unselected
                         return (nav.SelectedPage != page);

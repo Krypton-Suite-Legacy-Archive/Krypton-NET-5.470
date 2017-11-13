@@ -195,7 +195,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)..\GacUtil.exe" -i "$(TargetPath)" /f</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(ProjectDir)..\GacUtil.exe" -i "$(TargetPath)" /f</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

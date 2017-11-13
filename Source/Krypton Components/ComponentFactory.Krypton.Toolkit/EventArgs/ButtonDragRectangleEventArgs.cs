@@ -20,10 +20,10 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ButtonDragRectangleEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private Point _point;
-        private Rectangle _dragRect;
-        private bool _preDragOffset;
-		#endregion
+
+	    private Rectangle _dragRect;
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -32,10 +32,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="point">Left mouse down point.</param>
         public ButtonDragRectangleEventArgs(Point point)
 		{
-            _point = point;
-            _dragRect = new Rectangle(_point, Size.Empty);
+            Point = point;
+            _dragRect = new Rectangle(Point, Size.Empty);
             _dragRect.Inflate(SystemInformation.DragSize);
-            _preDragOffset = true;
+            PreDragOffset = true;
 		}
         #endregion
 
@@ -43,11 +43,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the left mouse down point.
         /// </summary>
-        public Point Point
-        {
-            get { return _point; }
-        }
-        #endregion
+        public Point Point { get; }
+
+	    #endregion
 
         #region DragRect
         /// <summary>
@@ -55,8 +53,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Rectangle DragRect
         {
-            get { return _dragRect; }
-            set { _dragRect = value; }
+            get => _dragRect;
+            set => _dragRect = value;
         }
         #endregion
 
@@ -64,11 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the need for pre drag offset events.
         /// </summary>
-        public bool PreDragOffset
-        {
-            get { return _preDragOffset; }
-            set { _preDragOffset = value; }
-        }
-        #endregion
+        public bool PreDragOffset { get; set; }
+
+	    #endregion
     }
 }

@@ -74,20 +74,14 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (_textAutoHide.Equals(DEFAULT_TEXT_AUTO_HIDE) &&
-                        _textClose.Equals(DEFAULT_TEXT_CLOSE) &&
-                        _textDock.Equals(DEFAULT_TEXT_DOCK) &&
-                        _textFloat.Equals(DEFAULT_TEXT_FLOAT) &&
-                        _textHide.Equals(DEFAULT_TEXT_HIDE) &&
-                        _textTabbedDocument.Equals(DEFAULT_TEXT_TABBED_DOCUMENT) &&
-                        _textWindowLocation.Equals(DEFAULT_TEXT_WINDOW_LOCATION));
+        public override bool IsDefault => (_textAutoHide.Equals(DEFAULT_TEXT_AUTO_HIDE) &&
+                                           _textClose.Equals(DEFAULT_TEXT_CLOSE) &&
+                                           _textDock.Equals(DEFAULT_TEXT_DOCK) &&
+                                           _textFloat.Equals(DEFAULT_TEXT_FLOAT) &&
+                                           _textHide.Equals(DEFAULT_TEXT_HIDE) &&
+                                           _textTabbedDocument.Equals(DEFAULT_TEXT_TABBED_DOCUMENT) &&
+                                           _textWindowLocation.Equals(DEFAULT_TEXT_WINDOW_LOCATION));
 
-            }
-        }
         #endregion
 
         #region TextAutoHide
@@ -101,8 +95,8 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextAutoHide
         {
-            get { return _textAutoHide; }
-            
+            get => _textAutoHide;
+
             set 
             {
                 if (_textAutoHide != value)
@@ -133,8 +127,8 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextClose
         {
-            get { return _textClose; }
-            
+            get => _textClose;
+
             set 
             {
                 if (_textClose != value)
@@ -165,7 +159,7 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextCloseAllButThis
         {
-            get { return _textCloseAllButThis; }
+            get => _textCloseAllButThis;
 
             set
             {
@@ -197,7 +191,7 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextDock
         {
-            get { return _textDock; }
+            get => _textDock;
 
             set
             {
@@ -229,7 +223,7 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextFloat
         {
-            get { return _textFloat; }
+            get => _textFloat;
 
             set
             {
@@ -261,7 +255,7 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextHide
         {
-            get { return _textHide; }
+            get => _textHide;
 
             set
             {
@@ -293,7 +287,7 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextTabbedDocument
         {
-            get { return _textTabbedDocument; }
+            get => _textTabbedDocument;
 
             set
             {
@@ -325,8 +319,8 @@ namespace ComponentFactory.Krypton.Docking
         [Localizable(true)]
         public string TextWindowLocation
         {
-            get { return _textWindowLocation; }
-            
+            get => _textWindowLocation;
+
             set
             {
                 if (_textWindowLocation != value)

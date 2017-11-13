@@ -19,13 +19,12 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IContextMenuProvider _provider;
-        private KryptonContextMenuLinkLabel _linkLabel;
         private FixedContentValue _contentValues;
         private ViewDrawContent _drawContent;
         private ViewLayoutDocker _outerDocker;
         private ViewLayoutDocker _innerDocker;
         private KryptonCommand _cachedCommand;
-        private bool _itemEnabled;
+
         #endregion
 
         #region Identity
@@ -38,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      KryptonContextMenuLinkLabel linkLabel)
 		{
             _provider = provider;
-            _linkLabel = linkLabel;
+            KryptonContextMenuLinkLabel = linkLabel;
 
             // Create fixed storage of the content values
             _contentValues = new FixedContentValue(linkLabel.Text,
@@ -47,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    linkLabel.ImageTransparentColor);
 
             // Decide on the enabled state of the display
-            _itemEnabled = provider.ProviderEnabled;
+            ItemEnabled = provider.ProviderEnabled;
 
             // Give the heading object the redirector to use when inheriting values
             linkLabel.SetPaletteRedirect(provider.ProviderRedirector);
@@ -56,7 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawContent = new ViewDrawContent(linkLabel.OverrideFocusNotVisited, _contentValues, VisualOrientation.Top)
             {
                 UseMnemonic = true,
-                Enabled = _itemEnabled
+                Enabled = ItemEnabled
             };
 
             // Place label link in the center of the area but inside some separator to add spacing
@@ -86,13 +85,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
 
             // Want to know when a property changes whilst displayed
-            _linkLabel.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            KryptonContextMenuLinkLabel.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
 
             // We need to know if a property of the command changes
-            if (_linkLabel.KryptonCommand != null)
+            if (KryptonContextMenuLinkLabel.KryptonCommand != null)
             {
-                _cachedCommand = _linkLabel.KryptonCommand;
-                _linkLabel.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                _cachedCommand = KryptonContextMenuLinkLabel.KryptonCommand;
+                KryptonContextMenuLinkLabel.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
             }
         }
 
@@ -111,20 +110,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the short text value of the menu item.
         /// </summary>
-        public string ItemText
-        {
-            get { return _contentValues.GetShortText(); }
-        }
+        public string ItemText => _contentValues.GetShortText();
+
         #endregion
 
         #region ItemEnabled
         /// <summary>
         /// Gets the enabled state of the item.
         /// </summary>
-        public bool ItemEnabled
-        {
-            get { return _itemEnabled; }
-        }
+        public bool ItemEnabled { get; private set; }
+
         #endregion
 
         #region ResolveImage
@@ -141,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _linkLabel.Image;
+                    return KryptonContextMenuLinkLabel.Image;
                 }
             }
         }
@@ -161,7 +156,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _linkLabel.ImageTransparentColor;
+                    return KryptonContextMenuLinkLabel.ImageTransparentColor;
                 }
             }
         }
@@ -181,7 +176,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _linkLabel.Text;
+                    return KryptonContextMenuLinkLabel.Text;
                 }
             }
         }
@@ -201,7 +196,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return _linkLabel.ExtraText;
+                    return KryptonContextMenuLinkLabel.ExtraText;
                 }
             }
         }
@@ -215,8 +210,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             set 
             {
-                _linkLabel.OverrideFocusNotVisited.Apply = value;
-                _linkLabel.OverridePressedFocus.Apply = value;
+                KryptonContextMenuLinkLabel.OverrideFocusNotVisited.Apply = value;
+                KryptonContextMenuLinkLabel.OverridePressedFocus.Apply = value;
             }
         }
         #endregion
@@ -227,11 +222,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Pressed
         {
-            set 
-            {
-                _drawContent.SetPalette(value ? _linkLabel.OverridePressedFocus : 
-                                                _linkLabel.OverrideFocusNotVisited);
-            }
+            set => _drawContent.SetPalette(value ? KryptonContextMenuLinkLabel.OverridePressedFocus : 
+                KryptonContextMenuLinkLabel.OverrideFocusNotVisited);
         }
         #endregion
 
@@ -239,20 +231,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the actual link label definiton.
         /// </summary>
-        public KryptonContextMenuLinkLabel KryptonContextMenuLinkLabel
-        {
-            get { return _linkLabel; }
-        }
+        public KryptonContextMenuLinkLabel KryptonContextMenuLinkLabel { get; }
+
         #endregion
 
         #region CanCloseMenu
         /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
-        public bool CanCloseMenu
-        {
-            get { return _provider.ProviderCanCloseMenu; }
-        }
+        public bool CanCloseMenu => _provider.ProviderCanCloseMenu;
+
         #endregion
 
         #region Closing
@@ -293,10 +281,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _contentValues.ImageTransparentColor = ResolveImageTransparentColor;
 
             // Find new enabled state
-            _itemEnabled = _provider.ProviderEnabled;
+            ItemEnabled = _provider.ProviderEnabled;
 
             // Update with enabled state
-            _drawContent.Enabled = _itemEnabled;
+            _drawContent.Enabled = ItemEnabled;
 
             return base.GetPreferredSize(context);
         }
@@ -343,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // Hook into the new command
-                    _cachedCommand = _linkLabel.KryptonCommand;
+                    _cachedCommand = KryptonContextMenuLinkLabel.KryptonCommand;
                     if (_cachedCommand != null)
                     {
                         _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
@@ -371,7 +359,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnClick(object sender, EventArgs e)
         {
-            _linkLabel.PerformClick();
+            KryptonContextMenuLinkLabel.PerformClick();
         }
         #endregion
     }

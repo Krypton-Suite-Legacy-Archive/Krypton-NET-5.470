@@ -141,9 +141,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 bool moveNext = false;
                 bool moveLast = false;
 
-                if ((_ribbonSeparator != null) && 
-                    (_ribbonSeparator.Ribbon != null) && 
-                    _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+                if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
                 {
                     moveFirst = (_ribbonSeparator.RibbonGroup.Items.IndexOf(_ribbonSeparator) > 0);
                     movePrev = (_ribbonSeparator.RibbonGroup.Items.IndexOf(_ribbonSeparator) > 0);
@@ -161,7 +159,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonSeparator != null) && (_ribbonSeparator.Ribbon != null))
+            if (_ribbonSeparator?.Ribbon != null)
             {
                 _ribbonSeparator.Ribbon.InDesignHelperMode = !_ribbonSeparator.Ribbon.InDesignHelperMode;
             }
@@ -169,9 +167,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveFirst");
@@ -201,9 +197,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MovePrevious");
@@ -235,9 +229,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveNext");
@@ -269,9 +261,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveLast");
@@ -301,9 +291,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteSeparator(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator DeleteSeparator");
@@ -341,9 +329,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Create the menu strip the first time around
                 if (_cms == null)
@@ -417,9 +403,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveToGroup(object sender, EventArgs e)
         {
-            if ((_ribbonSeparator != null) &&
-                (_ribbonSeparator.Ribbon != null) &&
-                 _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
+            if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Cast to correct type
                 ToolStripMenuItem groupMenuItem = (ToolStripMenuItem)sender;

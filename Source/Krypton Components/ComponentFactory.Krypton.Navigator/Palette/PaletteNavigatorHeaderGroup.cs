@@ -20,9 +20,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigatorHeaderGroup : PaletteHeaderGroup
 	{
 		#region Instance Fields
-        private PaletteTripleMetric _paletteHeaderBar;
-        private PaletteTripleMetric _paletteHeaderOverflow;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -46,8 +45,8 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(inheritHeaderBar != null);
 
 			// Create the palette storage
-            _paletteHeaderBar = new PaletteTripleMetric(inheritHeaderBar, needPaint);
-            _paletteHeaderOverflow = new PaletteTripleMetric(inheritHeaderOverflow, needPaint);
+            HeaderBar = new PaletteTripleMetric(inheritHeaderBar, needPaint);
+            HeaderOverflow = new PaletteTripleMetric(inheritHeaderOverflow, needPaint);
         }
 		#endregion
 
@@ -56,16 +55,11 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get 
-			{ 
-				return (base.IsDefault &&
-						HeaderBar.IsDefault &&
-                        HeaderOverflow.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   HeaderBar.IsDefault &&
+		                                   HeaderOverflow.IsDefault);
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -75,8 +69,8 @@ namespace ComponentFactory.Krypton.Navigator
         public void SetInherit(PaletteNavigatorHeaderGroup inheritHeaderGroup)
         {
             base.SetInherit(inheritHeaderGroup);
-            _paletteHeaderBar.SetInherit(inheritHeaderGroup.HeaderBar);
-            _paletteHeaderOverflow.SetInherit(inheritHeaderGroup.HeaderOverflow);
+            HeaderBar.SetInherit(inheritHeaderGroup.HeaderBar);
+            HeaderOverflow.SetInherit(inheritHeaderGroup.HeaderOverflow);
         }
         #endregion
 
@@ -87,14 +81,11 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Overrides for defining bar header appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric HeaderBar
-		{
-			get { return _paletteHeaderBar; }
-		}
+        public PaletteTripleMetric HeaderBar { get; }
 
-        private bool ShouldSerializeHeaderBar()
+	    private bool ShouldSerializeHeaderBar()
 		{
-			return !_paletteHeaderBar.IsDefault;
+			return !HeaderBar.IsDefault;
 		}
 		#endregion
 
@@ -105,14 +96,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining overflow header appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleMetric HeaderOverflow
-        {
-            get { return _paletteHeaderOverflow; }
-        }
+        public PaletteTripleMetric HeaderOverflow { get; }
 
-        private bool ShouldSerializeHeaderOverflow()
+	    private bool ShouldSerializeHeaderOverflow()
         {
-            return !_paletteHeaderOverflow.IsDefault;
+            return !HeaderOverflow.IsDefault;
         }
         #endregion
     }

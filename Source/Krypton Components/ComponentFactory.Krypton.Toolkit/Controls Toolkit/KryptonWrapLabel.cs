@@ -41,12 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _palette;
         private PaletteMode _paletteMode;
         private PaletteRedirect _redirector;
-        private IRenderer _renderer;
         private LabelStyle _labelStyle;
         private PaletteContentStyle _labelContentStyle;
-        private PaletteWrapLabel _stateCommon;
-        private PaletteWrapLabel _stateNormal;
-        private PaletteWrapLabel _stateDisabled;
         private KryptonContextMenu _kryptonContextMenu;
         private bool _globalEvents;
         #endregion
@@ -78,9 +74,9 @@ namespace ComponentFactory.Krypton.Toolkit
             DoubleBuffered = true;
 
             // Create the state storgage
-            _stateCommon = new PaletteWrapLabel(this);
-            _stateNormal = new PaletteWrapLabel(this);
-            _stateDisabled = new PaletteWrapLabel(this);
+            StateCommon = new PaletteWrapLabel(this);
+            StateNormal = new PaletteWrapLabel(this);
+            StateDisabled = new PaletteWrapLabel(this);
 
             // Set the palette to the defaults as specified by the manager
             _localPalette = null;
@@ -118,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = null;
                 _localPalette = null;
                 _redirector.Target = null;
-                _renderer = null;
+                Renderer = null;
             }
 
             base.Dispose(disposing);
@@ -134,8 +130,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int TabIndex
         {
-            get { return base.TabIndex; }
-            set { base.TabIndex = value; }
+            get => base.TabIndex;
+            set => base.TabIndex = value;
         }
 
         /// <summary>
@@ -146,8 +142,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new bool TabStop
         {
-            get { return base.TabStop; }
-            set { base.TabStop = value; }
+            get => base.TabStop;
+            set => base.TabStop = value;
         }
 
         /// <summary>
@@ -157,8 +153,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         /// <summary>
@@ -168,8 +164,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Font Font
         {
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         /// <summary>
@@ -179,8 +175,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         /// <summary>
@@ -190,8 +186,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override BorderStyle BorderStyle
         {
-            get { return base.BorderStyle; }
-            set { base.BorderStyle = value; }
+            get => base.BorderStyle;
+            set => base.BorderStyle = value;
         }
 
         /// <summary>
@@ -201,8 +197,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public new FlatStyle FlatStyle
         {
-            get { return base.FlatStyle; }
-            set { base.FlatStyle = value; }
+            get => base.FlatStyle;
+            set => base.FlatStyle = value;
         }
 
         /// <summary>
@@ -211,8 +207,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -221,14 +217,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common wrap label appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteWrapLabel StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteWrapLabel StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -237,14 +230,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled wrap label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteWrapLabel StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteWrapLabel StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -253,14 +243,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal wrap label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteWrapLabel StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteWrapLabel StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
 
@@ -271,7 +258,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Label style.")]
         public LabelStyle LabelStyle
         {
-            get { return _labelStyle; }
+            get => _labelStyle;
 
             set
             {
@@ -411,7 +398,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public virtual KryptonContextMenu KryptonContextMenu
         {
-            get { return _kryptonContextMenu; }
+            get => _kryptonContextMenu;
 
             set
             {
@@ -453,7 +440,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -481,22 +469,22 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get values from correct enabled/disabled state
             if (Enabled)
             {
-                font = _stateNormal.Font;
-                textColor = _stateNormal.TextColor;
-                hint = _stateNormal.Hint;
+                font = StateNormal.Font;
+                textColor = StateNormal.TextColor;
+                hint = StateNormal.Hint;
             }
             else
             {
-                font = _stateDisabled.Font;
-                textColor = _stateDisabled.TextColor;
-                hint = _stateDisabled.Hint;
+                font = StateDisabled.Font;
+                textColor = StateDisabled.TextColor;
+                hint = StateDisabled.Hint;
                 ps = PaletteState.Disabled;
             }
 
             // Recover font from state common or as last resort the inherited palette
             if (font == null)
             {
-                font = _stateCommon.Font;
+                font = StateCommon.Font;
                 if (font == null)
                 {
                     font = _redirector.GetContentShortTextFont(_labelContentStyle, ps);
@@ -506,7 +494,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Recover text color from state common or as last resort the inherited palette
             if (textColor == Color.Empty)
             {
-                textColor = _stateCommon.TextColor;
+                textColor = StateCommon.TextColor;
                 if (textColor == Color.Empty)
                 {
                     textColor = _redirector.GetContentShortTextColor1(_labelContentStyle, ps);
@@ -516,7 +504,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Recover text hint from state common or as last resort the inherited palette
             if (hint == PaletteTextHint.Inherit)
             {
-                hint = _stateCommon.Hint;
+                hint = StateCommon.Hint;
                 if (hint == PaletteTextHint.Inherit)
                 {
                     hint = _redirector.GetContentShortTextHint(_labelContentStyle, ps);
@@ -589,22 +577,22 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get values from correct enabled/disabled state
             if (Enabled)
             {
-                font = _stateNormal.Font;
-                textColor = _stateNormal.TextColor;
-                hint = _stateNormal.Hint;
+                font = StateNormal.Font;
+                textColor = StateNormal.TextColor;
+                hint = StateNormal.Hint;
             }
             else
             {
-                font = _stateDisabled.Font;
-                textColor = _stateDisabled.TextColor;
-                hint = _stateDisabled.Hint;
+                font = StateDisabled.Font;
+                textColor = StateDisabled.TextColor;
+                hint = StateDisabled.Hint;
                 ps = PaletteState.Disabled;
             }
 
             // Recover font from state common or as last resort the inherited palette
             if (font == null)
             {
-                font = _stateCommon.Font;
+                font = StateCommon.Font;
                 if (font == null)
                 {
                     font = _redirector.GetContentShortTextFont(_labelContentStyle, ps);
@@ -614,7 +602,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Recover text color from state common or as last resort the inherited palette
             if (textColor == Color.Empty)
             {
-                textColor = _stateCommon.TextColor;
+                textColor = StateCommon.TextColor;
                 if (textColor == Color.Empty)
                 {
                     textColor = _redirector.GetContentShortTextColor1(_labelContentStyle, ps);
@@ -624,7 +612,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Recover text hint from state common or as last resort the inherited palette
             if (hint == PaletteTextHint.Inherit)
             {
-                hint = _stateCommon.Hint;
+                hint = StateCommon.Hint;
                 if (hint == PaletteTextHint.Inherit)
                 {
                     hint = _redirector.GetContentShortTextHint(_labelContentStyle, ps);
@@ -797,7 +785,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Get the renderer associated with the palette
-                _renderer = _palette.GetRenderer();
+                Renderer = _palette.GetRenderer();
 
                 // Hook to new palette events
                 if (_palette != null)
@@ -817,7 +805,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnBaseChanged(object sender, EventArgs e)
         {
             // Change in base renderer or base palette require we fetch the latest renderer
-            _renderer = _palette.GetRenderer();
+            Renderer = _palette.GetRenderer();
         }
 
         private void OnGlobalPaletteChanged(object sender, EventArgs e)

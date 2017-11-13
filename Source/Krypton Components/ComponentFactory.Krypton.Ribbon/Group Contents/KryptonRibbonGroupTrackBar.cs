@@ -35,12 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private int _minimumLength;
         private int _maximumLength;
         private GroupItemSize _itemSizeCurrent;
-        private NeedPaintHandler _viewPaintDelegate;
-        private KryptonTrackBar _trackBar;
-        private KryptonTrackBar _lastTrackBar;
-        private IKryptonDesignObject _designer;
-        private Control _lastParentControl;
-        private ViewBase _trackBarView;
+
         #endregion
 
         #region Events
@@ -96,7 +91,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _maximumLength = 55;
 
             // Create the actual track barcontrol and set initial settings
-            _trackBar = new KryptonTrackBar
+            TrackBar = new KryptonTrackBar
             {
                 DrawBackground = false,
                 TickStyle = TickStyle.None,
@@ -106,12 +101,12 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            _trackBar.GotFocus += new EventHandler(OnTrackBarGotFocus);
-            _trackBar.LostFocus += new EventHandler(OnTrackBarLostFocus);
-            _trackBar.ValueChanged += new EventHandler(OnTrackBarValueChanged);
+            TrackBar.GotFocus += new EventHandler(OnTrackBarGotFocus);
+            TrackBar.LostFocus += new EventHandler(OnTrackBarLostFocus);
+            TrackBar.ValueChanged += new EventHandler(OnTrackBarValueChanged);
 
             // Ensure we can track mouse events on the track bar
-            MonitorControl(_trackBar);
+            MonitorControl(TrackBar);
         }
 
         /// <summary>
@@ -122,11 +117,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_trackBar != null)
+                if (TrackBar != null)
                 {
-                    UnmonitorControl(_trackBar);
-                    _trackBar.Dispose();
-                    _trackBar = null;
+                    UnmonitorControl(TrackBar);
+                    TrackBar.Dispose();
+                    TrackBar = null;
                 }
             }
 
@@ -151,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     // Use the same palette in the track bar as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
-                    _trackBar.Palette = Ribbon.GetResolvedPalette();
+                    TrackBar.Palette = Ribbon.GetResolvedPalette();
                     Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
                 }
             }
@@ -164,10 +159,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonTrackBar TrackBar
-        {
-            get { return _trackBar; }
-        }
+        public KryptonTrackBar TrackBar { get; private set; }
 
         /// <summary>
         /// Gets and sets the key tip for the ribbon group track bar.
@@ -179,7 +171,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("T")]
         public string KeyTip
         {
-            get { return _keyTip; }
+            get => _keyTip;
 
             set
             {
@@ -204,7 +196,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override bool Visible
         {
-            get { return _visible; }
+            get => _visible;
 
             set
             {
@@ -241,7 +233,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(true)]
         public bool Enabled
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -261,18 +253,18 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("55")]
         public int MinimumLength
         {
-            get { return _minimumLength; }
-            
+            get => _minimumLength;
+
             set 
             {
                 _minimumLength = value;
                 if (Orientation == Orientation.Horizontal)
                 {
-                    _trackBar.MinimumSize = new Size(_minimumLength, 0);
+                    TrackBar.MinimumSize = new Size(_minimumLength, 0);
                 }
                 else
                 {
-                    _trackBar.MinimumSize = new Size(0, _minimumLength);
+                    TrackBar.MinimumSize = new Size(0, _minimumLength);
                 }
             }
         }
@@ -285,18 +277,18 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("50")]
         public int MaximumLength
         {
-            get { return _maximumLength; }
+            get => _maximumLength;
 
             set
             {
                 _maximumLength = value;
                 if (Orientation == Orientation.Horizontal)
                 {
-                    _trackBar.MaximumSize = new Size(_maximumLength, 0);
+                    TrackBar.MaximumSize = new Size(_maximumLength, 0);
                 }
                 else
                 {
-                    _trackBar.MaximumSize = new Size(0, _maximumLength);
+                    TrackBar.MaximumSize = new Size(0, _maximumLength);
                 }
             }
         }
@@ -309,8 +301,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public ContextMenuStrip ContextMenuStrip
         {
-            get { return _trackBar.ContextMenuStrip; }
-            set { _trackBar.ContextMenuStrip = value; }
+            get => TrackBar.ContextMenuStrip;
+            set => TrackBar.ContextMenuStrip = value;
         }
 
         /// <summary>
@@ -321,8 +313,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(null)]
         public KryptonContextMenu KryptonContextMenu
         {
-            get { return _trackBar.KryptonContextMenu; }
-            set { _trackBar.KryptonContextMenu = value; }
+            get => TrackBar.KryptonContextMenu;
+            set => TrackBar.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -333,8 +325,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(PaletteTrackBarSize), "Medium")]
         public PaletteTrackBarSize TrackBarSize
         {
-            get { return _trackBar.TrackBarSize; }
-            set { _trackBar.TrackBarSize = value; }
+            get => TrackBar.TrackBarSize;
+            set => TrackBar.TrackBarSize = value;
         }
 
         /// <summary>
@@ -346,8 +338,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public TickStyle TickStyle
         {
-            get { return _trackBar.TickStyle; }
-            set { _trackBar.TickStyle = value; }
+            get => TrackBar.TickStyle;
+            set => TrackBar.TickStyle = value;
         }
 
         /// <summary>
@@ -358,8 +350,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(1)]
         public int TickFrequency
         {
-            get { return _trackBar.TickFrequency; }
-            set { _trackBar.TickFrequency = value; }
+            get => TrackBar.TickFrequency;
+            set => TrackBar.TickFrequency = value;
         }
 
         /// <summary>
@@ -370,8 +362,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(false)]
         public bool VolumeControl
         {
-            get { return _trackBar.VolumeControl; }
-            set { _trackBar.VolumeControl = value; }
+            get => TrackBar.VolumeControl;
+            set => TrackBar.VolumeControl = value;
         }
 
         /// <summary>
@@ -383,23 +375,23 @@ namespace ComponentFactory.Krypton.Ribbon
         [RefreshProperties(RefreshProperties.All)]
         public Orientation Orientation
         {
-            get { return _trackBar.Orientation; }
-            
+            get => TrackBar.Orientation;
+
             set 
             {
-                if (value != _trackBar.Orientation)
+                if (value != TrackBar.Orientation)
                 {
-                    _trackBar.Orientation = value;
+                    TrackBar.Orientation = value;
 
                     if (Orientation == Orientation.Horizontal)
                     {
-                        _trackBar.MinimumSize = new Size(_minimumLength, 0);
-                        _trackBar.MaximumSize = new Size(_maximumLength, 0);
+                        TrackBar.MinimumSize = new Size(_minimumLength, 0);
+                        TrackBar.MaximumSize = new Size(_maximumLength, 0);
                     }
                     else
                     {
-                        _trackBar.MinimumSize = new Size(0, _minimumLength);
-                        _trackBar.MaximumSize = new Size(0, _maximumLength);
+                        TrackBar.MinimumSize = new Size(0, _minimumLength);
+                        TrackBar.MaximumSize = new Size(0, _maximumLength);
                     }
                 }
             }
@@ -414,8 +406,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(10)]
         public int Maximum
         {
-            get { return _trackBar.Maximum; }
-            set { _trackBar.Maximum = value; }
+            get => TrackBar.Maximum;
+            set => TrackBar.Maximum = value;
         }
 
         /// <summary>
@@ -427,8 +419,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(0)]
         public int Minimum
         {
-            get { return _trackBar.Minimum; }
-            set { _trackBar.Minimum = value; }
+            get => TrackBar.Minimum;
+            set => TrackBar.Minimum = value;
         }
 
         /// <summary>
@@ -439,8 +431,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(0)]
         public int Value
         {
-            get { return _trackBar.Value; }
-            set { _trackBar.Value = value; }
+            get => TrackBar.Value;
+            set => TrackBar.Value = value;
         }
 
         /// <summary>
@@ -451,8 +443,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(1)]
         public int SmallChange
         {
-            get { return _trackBar.SmallChange; }
-            set { _trackBar.SmallChange = value; }
+            get => TrackBar.SmallChange;
+            set => TrackBar.SmallChange = value;
         }
 
         /// <summary>
@@ -463,8 +455,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(5)]
         public int LargeChange
         {
-            get { return _trackBar.LargeChange; }
-            set { _trackBar.LargeChange = value; }
+            get => TrackBar.LargeChange;
+            set => TrackBar.LargeChange = value;
         }
 
         /// <summary>
@@ -474,7 +466,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="maxValue">The upper limit of the range of the track bar.</param>
         public void SetRange(int minValue, int maxValue)
         {
-            _trackBar.SetRange(minValue, maxValue);
+            TrackBar.SetRange(minValue, maxValue);
         }
 
         /// <summary>
@@ -509,7 +501,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override GroupItemSize ItemSizeCurrent
         {
-            get { return _itemSizeCurrent; }
+            get => _itemSizeCurrent;
 
             set
             {
@@ -540,11 +532,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject TrackBarDesigner
-        {
-            get { return _designer; }
-            set { _designer = value; }
-        }
+        public IKryptonDesignObject TrackBarDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.
@@ -552,11 +540,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public ViewBase TrackBarView
-        {
-            get { return _trackBarView; }
-            set { _trackBarView = value; }
-        }
+        public ViewBase TrackBarView { get; set; }
+
         #endregion
 
         #region Protected Virtual
@@ -589,23 +574,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Internal
-        internal Control LastParentControl
-        {
-            get { return _lastParentControl; }
-            set { _lastParentControl = value; }
-        }
+        internal Control LastParentControl { get; set; }
 
-        internal KryptonTrackBar LastTrackBar
-        {
-            get { return _lastTrackBar; }
-            set { _lastTrackBar = value; }
-        }
+        internal KryptonTrackBar LastTrackBar { get; set; }
 
-        internal NeedPaintHandler ViewPaintDelegate
-        {
-            get { return _viewPaintDelegate; }
-            set { _viewPaintDelegate = value; }
-        }
+        internal NeedPaintHandler ViewPaintDelegate { get; set; }
 
         internal void OnDesignTimeContextMenu(MouseEventArgs e)
         {
@@ -644,7 +617,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnPaletteNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             // Pass request onto the view provided paint delegate
-            _viewPaintDelegate?.Invoke(this, e);
+            ViewPaintDelegate?.Invoke(this, e);
         }
 
         private void OnTrackBarGotFocus(object sender, EventArgs e)
@@ -664,7 +637,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnRibbonPaletteChanged(object sender, EventArgs e)
         {
-            _trackBar.Palette = Ribbon.GetResolvedPalette();
+            TrackBar.Palette = Ribbon.GetResolvedPalette();
         }
         #endregion
     }

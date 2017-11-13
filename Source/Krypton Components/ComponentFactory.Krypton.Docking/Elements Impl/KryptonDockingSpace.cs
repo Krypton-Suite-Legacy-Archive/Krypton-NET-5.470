@@ -28,11 +28,10 @@ namespace ComponentFactory.Krypton.Docking
     public abstract class KryptonDockingSpace : DockingElementClosedCollection
     {
         #region Instance Fields
-        private KryptonStorePage _ignoreStorePage;
+
         private KryptonSpace _space;
         private string _storeName;
-        private Size _loadSize;
-        private int _order;
+
         #endregion
 
         #region Identity
@@ -356,7 +355,7 @@ namespace ComponentFactory.Krypton.Docking
                         {
                             // Only remove a matching unique name if it is a placeholder page
                             KryptonPage removePage = SpaceControl.PageForUniqueName(uniqueName);
-                            if ((removePage != null) && (removePage is KryptonStorePage))
+                            if (removePage is KryptonStorePage)
                             {
                                 // Check if the page is one marked to be ignored in this operation
                                 if (removePage != IgnoreStorePage)
@@ -380,7 +379,7 @@ namespace ComponentFactory.Krypton.Docking
                             {
                                 // Remove all placeholders
                                 KryptonPage page = cell.Pages[i];
-                                if ((page != null) && (page is KryptonStorePage))
+                                if (page is KryptonStorePage)
                                 {
                                     cell.Pages.Remove(page);
                                 }
@@ -417,7 +416,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Swap pages that are placeholders for the actual pages
                         KryptonPage storePage = SpaceControl.PageForUniqueName(page.UniqueName);
-                        if ((storePage != null) && (storePage is KryptonStorePage))
+                        if (storePage is KryptonStorePage)
                         {
                             KryptonWorkspaceCell cell = SpaceControl.CellForPage(storePage);
                             cell.Pages.Insert(cell.Pages.IndexOf(storePage), page);
@@ -454,7 +453,7 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Return definitive answer 'true' if the group controls contains a store page for the unique name.
                         KryptonPage page = SpaceControl.PageForUniqueName(uniqueName);
-                        if ((page != null) && (page is KryptonStorePage))
+                        if (page is KryptonStorePage)
                         {
                             return true;
                         }
@@ -587,10 +586,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the number of visible pages.
         /// </summary>
-        public int VisiblePages
-        {
-            get { return SpaceControl.PageVisibleCount; }
-        }
+        public int VisiblePages => SpaceControl.PageVisibleCount;
 
         /// <summary>
         /// Return an array of the visible pages that are inside the cell that contains the provided unique name.
@@ -755,7 +751,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         protected KryptonSpace SpaceControl
         {
-            get { return _space; }
+            get => _space;
 
             set
             {
@@ -779,20 +775,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets the ordering of the associated control used during loading.
         /// </summary>
-        protected int Order
-        {
-            get { return _order; }
-            set { _order = value; }
-        }
+        protected int Order { get; set; }
 
         /// <summary>
         /// Gets and sets the size of the control found during loading.
         /// </summary>
-        protected Size LoadSize
-        {
-            get { return _loadSize; }
-            set { _loadSize = value; }
-        }
+        protected Size LoadSize { get; set; }
 
         /// <summary>
         /// Occurs when a page is added to a cell in the workspace.
@@ -876,11 +864,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets reference to store page to be ignored during action.
         /// </summary>
-        protected KryptonStorePage IgnoreStorePage
-        {
-            get { return _ignoreStorePage; }
-            set { _ignoreStorePage = value; }
-        }
+        protected KryptonStorePage IgnoreStorePage { get; set; }
+
         #endregion
 
         #region Implementation

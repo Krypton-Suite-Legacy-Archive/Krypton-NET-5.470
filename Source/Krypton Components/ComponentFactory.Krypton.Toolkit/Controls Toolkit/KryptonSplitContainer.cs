@@ -37,13 +37,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawPanel _drawPanel;
         private ViewDrawSeparator _drawSeparator;
         private SeparatorController _separatorController;
-        private PaletteSplitContainerRedirect _stateCommon;
-        private PaletteSplitContainer _stateDisabled;
-        private PaletteSplitContainer _stateNormal;
-        private PaletteSeparatorPadding _stateTracking;
-        private PaletteSeparatorPadding _statePressed;
-        private KryptonSplitterPanel _panel1;
-        private KryptonSplitterPanel _panel2;
         private Orientation _orientation;
         private FixedPanel _fixedPanel;
         private Point _designLastPt;
@@ -56,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _fixedDistance;
         private bool _forcedLayout;
         private bool _resizing;
-        private bool _fixed;
+
         #endregion
 
         #region Events
@@ -122,21 +115,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		public KryptonSplitContainer()
 		{
             // Create the palette storage
-            _stateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient, 
+            StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient, 
                                                              PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorLowProfile, 
                                                              PaletteBorderStyle.SeparatorLowProfile, NeedPaintDelegate);
 
-            _stateDisabled = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateNormal = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateTracking = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _statePressed = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
+            StateDisabled = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateNormal = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateTracking = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StatePressed = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
 
             // Our view contains just a simple canvas that covers entire client area and a separator view
-            _drawSeparator = new ViewDrawSeparator(_stateDisabled.Separator, _stateNormal.Separator, _stateTracking, _statePressed,
-                                                   _stateDisabled.Separator, _stateNormal.Separator, _stateTracking, _statePressed,
+            _drawSeparator = new ViewDrawSeparator(StateDisabled.Separator, StateNormal.Separator, StateTracking, StatePressed,
+                                                   StateDisabled.Separator, StateNormal.Separator, StateTracking, StatePressed,
                                                     PaletteMetricPadding.SeparatorPaddingLowProfile, Orientation.Vertical);
 
-            _drawPanel = new ViewDrawPanel(_stateNormal.Back)
+            _drawPanel = new ViewDrawPanel(StateNormal.Back)
             {
                 _drawSeparator
             };
@@ -164,12 +157,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _orientation = Orientation.Vertical;
 
             // Create the two fixed child panels
-            _panel1 = new KryptonSplitterPanel(this);
-            _panel2 = new KryptonSplitterPanel(this);
+            Panel1 = new KryptonSplitterPanel(this);
+            Panel2 = new KryptonSplitterPanel(this);
 
             // Add both panels to the controls collection
-            ((KryptonReadOnlyControls)Controls).AddInternal(_panel1);
-            ((KryptonReadOnlyControls)Controls).AddInternal(_panel2);
+            ((KryptonReadOnlyControls)Controls).AddInternal(Panel1);
+            ((KryptonReadOnlyControls)Controls).AddInternal(Panel2);
         }
 
         /// <summary>
@@ -196,13 +189,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public new string Name
         {
-            get { return base.Name; }
+            get => base.Name;
 
             set
             {
                 base.Name = value;
-                _panel1.Name = value + ".Panel1";
-                _panel2.Name = value + ".Panel2";
+                Panel1.Name = value + ".Panel1";
+                Panel2.Name = value + ".Panel2";
             }
         }
 
@@ -213,13 +206,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Container background style.")]
         public PaletteBackStyle ContainerBackStyle
         {
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
             set
             {
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
                 {
-                    _stateCommon.BackStyle = value;
+                    StateCommon.BackStyle = value;
                     PerformNeedPaint(true);
                 }
             }
@@ -242,7 +235,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Separator style.")]
         public SeparatorStyle SeparatorStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
@@ -272,14 +265,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common split container appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainerRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteSplitContainerRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -288,14 +278,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled split container appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteSplitContainer StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -304,14 +291,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal split container appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteSplitContainer StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -320,14 +304,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteSeparatorPadding StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -336,14 +317,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteSeparatorPadding StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -353,10 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("The Left or Top panel in the KryptonSplitContainer.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonSplitterPanel Panel1
-        {
-            get { return _panel1; }
-        }
+        public KryptonSplitterPanel Panel1 { get; }
 
         /// <summary>
         /// Gets and sets the minium size of panel1.
@@ -367,7 +342,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "25")]
         public int Panel1MinSize
         {
-            get { return _panel1MinSize; }
+            get => _panel1MinSize;
 
             set
             {
@@ -406,15 +381,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Panel1Collapsed
         {
-            get { return Panel1.Collapsed; }
+            get => Panel1.Collapsed;
 
             set
             {
                 // Only interested in changes of value
-                if (_panel1.Collapsed != value)
+                if (Panel1.Collapsed != value)
                 {
                     // If making Panel1 collapsed then make sure Panel2 is not
-                    if (value && _panel2.Collapsed)
+                    if (value && Panel2.Collapsed)
                     {
                         Panel2.Collapsed = false;
                         Panel2.Visible = true;
@@ -460,10 +435,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("The Right or Bottom panel in the KryptonSplitContainer.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonSplitterPanel Panel2
-        {
-            get { return _panel2; }
-        }
+        public KryptonSplitterPanel Panel2 { get; }
 
         /// <summary>
         /// Gets and sets the minium size of panel2.
@@ -474,7 +446,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "25")]
         public int Panel2MinSize
         {
-            get { return _panel2MinSize; }
+            get => _panel2MinSize;
 
             set
             {
@@ -513,7 +485,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool Panel2Collapsed
         {
-            get { return _panel2.Collapsed; }
+            get => Panel2.Collapsed;
 
             set
             {
@@ -521,7 +493,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (Panel2.Collapsed != value)
                 {
                     // If making Panel1 collapsed then make sure Panel1 is not
-                    if (value && _panel1.Collapsed)
+                    if (value && Panel1.Collapsed)
                     {
                         Panel1.Collapsed = false;
                         Panel1.Visible = true;
@@ -567,11 +539,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Determines if the splitter is fixed.")]
         [Localizable(true)]
         [DefaultValue(false)]
-        public bool IsSplitterFixed
-        {
-            get { return _fixed; }
-            set { _fixed = value; }
-        }
+        public bool IsSplitterFixed { get; set; }
 
         /// <summary>
         /// Gets and sets the panel to keep the same size when resizing.
@@ -582,7 +550,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         public FixedPanel FixedPanel
         {
-            get { return _fixedPanel; }
+            get => _fixedPanel;
 
             set
             {
@@ -629,7 +597,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "50")]
         public int SplitterDistance
         {
-            get { return _splitterDistance; }
+            get => _splitterDistance;
 
             set
             {
@@ -722,7 +690,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "5")]
         public int SplitterWidth
         {
-            get { return _splitterWidth; }
+            get => _splitterWidth;
 
             set
             {
@@ -762,7 +730,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "1")]
         public int SplitterIncrement
         {
-            get { return _splitterIncrement; }
+            get => _splitterIncrement;
 
             set
             {
@@ -790,7 +758,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Orientation), "Vertical")]
         public Orientation Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
 
             set
             {
@@ -852,10 +820,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Control SeparatorControl
-        {
-            get { return this; }
-        }
+        public Control SeparatorControl => this;
 
         /// <summary>
         /// Gets the orientation of the separator.
@@ -863,10 +828,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Orientation SeparatorOrientation 
-        {
-            get { return Orientation; }
-        }
+        public Orientation SeparatorOrientation => Orientation;
 
         /// <summary>
         /// Can the separator be moved by the user.
@@ -874,10 +836,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool SeparatorCanMove
-        {
-            get { return (!IsSplitterFixed && !Collapsed); }
-        }
+        public bool SeparatorCanMove => (!IsSplitterFixed && !Collapsed);
 
         /// <summary>
         /// Gets the amount the splitter can be incremented.
@@ -885,10 +844,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int SeparatorIncrements 
-        {
-            get { return SplitterIncrement; }
-        }
+        public int SeparatorIncrements => SplitterIncrement;
 
         /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
@@ -1019,10 +975,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Control.ControlCollection Controls
-        {
-            get { return base.Controls; }
-        }
+        public new Control.ControlCollection Controls => base.Controls;
 
         /// <summary>
         /// Gets or sets padding within the control.
@@ -1032,8 +985,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
         #endregion
 
@@ -1181,10 +1134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(150, 150); }
-        }
+        protected override Size DefaultSize => new Size(150, 150);
 
         /// <summary>
         /// Raises the Initialized event.
@@ -1208,11 +1158,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Push correct palettes into the view
             if (Enabled)
             {
-                _drawPanel.SetPalettes(_stateNormal.Back);
+                _drawPanel.SetPalettes(StateNormal.Back);
             }
             else
             {
-                _drawPanel.SetPalettes(_stateDisabled.Back);
+                _drawPanel.SetPalettes(StateDisabled.Back);
             }
 
             _drawPanel.Enabled = Enabled;
@@ -1544,14 +1494,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Implementation
-        private bool Collapsed
-        {
-            get { return Panel1.Collapsed || Panel2.Collapsed; }
-        }
+        private bool Collapsed => Panel1.Collapsed || Panel2.Collapsed;
 
         private void SetStyles(SeparatorStyle separatorStyle)
         {
-            _stateCommon.Separator.SetStyles(separatorStyle);
+            StateCommon.Separator.SetStyles(separatorStyle);
         }
 		#endregion
     }

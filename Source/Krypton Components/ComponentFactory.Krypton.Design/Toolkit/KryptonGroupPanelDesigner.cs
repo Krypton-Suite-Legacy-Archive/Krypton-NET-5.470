@@ -102,29 +102,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.
         /// </summary>
-        public override DesignerActionListCollection ActionLists
-        {
-            get
-            {
-                // This group panel does not have any smart tag actions
-                return new DesignerActionListCollection();
-            }
-        }
+        public override DesignerActionListCollection ActionLists => new DesignerActionListCollection();
 
-        /// <summary>
+	    /// <summary>
         /// Should painting be performed for the selection glyph.
         /// </summary>
-        public bool CanPaint 
-        {
-            get { return true; }
-        }
+        public bool CanPaint => true;
 
-        /// <summary>
+	    /// <summary>
         /// Select the control that contains the group panel.
         /// </summary>
         public void SelectParentControl()
         {
-            if ((_panel != null) && (_panel.Parent != null))
+            if (_panel?.Parent != null)
             {
                 _selectionService.SetSelectedComponents(new object[] { _panel.Parent }, SelectionTypes.Primary);
             }
@@ -192,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			get
 			{
 				// If we have a valid Krypton splitter panel instance
-				if ((_panel != null) && (_panel.Parent != null))
+				if (_panel?.Parent != null)
 				{
 					// Then get the attribute associated with the parent of the panel
 					return (InheritanceAttribute)TypeDescriptor.GetAttributes(_panel.Parent)[typeof(InheritanceAttribute)];

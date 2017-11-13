@@ -20,30 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteButtonSpecs : Storage
     {
         #region Instance Fields
-        private KryptonPaletteButtonSpecTyped _common;
-        private KryptonPaletteButtonSpecTyped _close;
-        private KryptonPaletteButtonSpecTyped _context;
-        private KryptonPaletteButtonSpecTyped _next;
-        private KryptonPaletteButtonSpecTyped _previous;
-        private KryptonPaletteButtonSpecTyped _generic;
-        private KryptonPaletteButtonSpecTyped _arrowLeft;
-        private KryptonPaletteButtonSpecTyped _arrowRight;
-        private KryptonPaletteButtonSpecTyped _arrowUp;
-        private KryptonPaletteButtonSpecTyped _arrowDown;
-        private KryptonPaletteButtonSpecTyped _dropDown;
-        private KryptonPaletteButtonSpecTyped _pinVertical;
-        private KryptonPaletteButtonSpecTyped _pinHorizontal;
-        private KryptonPaletteButtonSpecTyped _formClose;
-        private KryptonPaletteButtonSpecTyped _formMax;
-        private KryptonPaletteButtonSpecTyped _formMin;
-        private KryptonPaletteButtonSpecTyped _formRestore;
-        private KryptonPaletteButtonSpecTyped _pendantClose;
-        private KryptonPaletteButtonSpecTyped _pendantMin;
-        private KryptonPaletteButtonSpecTyped _pendantRestore;
-        private KryptonPaletteButtonSpecTyped _workspaceMaximize;
-        private KryptonPaletteButtonSpecTyped _workspaceRestore;
-        private KryptonPaletteButtonSpecTyped _ribbonMinimize;
-        private KryptonPaletteButtonSpecTyped _ribbonExpand;
+
         #endregion
 
         #region Events
@@ -63,84 +40,84 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create exposed button specifications
-            _common = new KryptonPaletteButtonSpecTyped(redirector);
-            _generic = new KryptonPaletteButtonSpecTyped(redirector);
-            _close = new KryptonPaletteButtonSpecTyped(redirector);
-            _context = new KryptonPaletteButtonSpecTyped(redirector);
-            _next = new KryptonPaletteButtonSpecTyped(redirector);
-            _previous = new KryptonPaletteButtonSpecTyped(redirector);
-            _arrowLeft = new KryptonPaletteButtonSpecTyped(redirector);
-            _arrowRight = new KryptonPaletteButtonSpecTyped(redirector);
-            _arrowUp = new KryptonPaletteButtonSpecTyped(redirector);
-            _arrowDown = new KryptonPaletteButtonSpecTyped(redirector);
-            _dropDown = new KryptonPaletteButtonSpecTyped(redirector);
-            _pinVertical = new KryptonPaletteButtonSpecTyped(redirector);
-            _pinHorizontal = new KryptonPaletteButtonSpecTyped(redirector);
-            _formClose = new KryptonPaletteButtonSpecTyped(redirector);
-            _formMax = new KryptonPaletteButtonSpecTyped(redirector);
-            _formMin = new KryptonPaletteButtonSpecTyped(redirector);
-            _formRestore = new KryptonPaletteButtonSpecTyped(redirector);
-            _pendantClose = new KryptonPaletteButtonSpecTyped(redirector);
-            _pendantMin = new KryptonPaletteButtonSpecTyped(redirector);
-            _pendantRestore = new KryptonPaletteButtonSpecTyped(redirector);
-            _workspaceMaximize = new KryptonPaletteButtonSpecTyped(redirector);
-            _workspaceRestore = new KryptonPaletteButtonSpecTyped(redirector);
-            _ribbonMinimize = new KryptonPaletteButtonSpecTyped(redirector);
-            _ribbonExpand = new KryptonPaletteButtonSpecTyped(redirector);
+            Common = new KryptonPaletteButtonSpecTyped(redirector);
+            Generic = new KryptonPaletteButtonSpecTyped(redirector);
+            Close = new KryptonPaletteButtonSpecTyped(redirector);
+            Context = new KryptonPaletteButtonSpecTyped(redirector);
+            Next = new KryptonPaletteButtonSpecTyped(redirector);
+            Previous = new KryptonPaletteButtonSpecTyped(redirector);
+            ArrowLeft = new KryptonPaletteButtonSpecTyped(redirector);
+            ArrowRight = new KryptonPaletteButtonSpecTyped(redirector);
+            ArrowUp = new KryptonPaletteButtonSpecTyped(redirector);
+            ArrowDown = new KryptonPaletteButtonSpecTyped(redirector);
+            DropDown = new KryptonPaletteButtonSpecTyped(redirector);
+            PinVertical = new KryptonPaletteButtonSpecTyped(redirector);
+            PinHorizontal = new KryptonPaletteButtonSpecTyped(redirector);
+            FormClose = new KryptonPaletteButtonSpecTyped(redirector);
+            FormMax = new KryptonPaletteButtonSpecTyped(redirector);
+            FormMin = new KryptonPaletteButtonSpecTyped(redirector);
+            FormRestore = new KryptonPaletteButtonSpecTyped(redirector);
+            PendantClose = new KryptonPaletteButtonSpecTyped(redirector);
+            PendantMin = new KryptonPaletteButtonSpecTyped(redirector);
+            PendantRestore = new KryptonPaletteButtonSpecTyped(redirector);
+            WorkspaceMaximize = new KryptonPaletteButtonSpecTyped(redirector);
+            WorkspaceRestore = new KryptonPaletteButtonSpecTyped(redirector);
+            RibbonMinimize = new KryptonPaletteButtonSpecTyped(redirector);
+            RibbonExpand = new KryptonPaletteButtonSpecTyped(redirector);
 
             // Create redirector for inheriting from style specific to style common
-            PaletteRedirectButtonSpec redirectCommon = new PaletteRedirectButtonSpec(redirector, _common);
+            PaletteRedirectButtonSpec redirectCommon = new PaletteRedirectButtonSpec(redirector, Common);
 
             // Inform the button spec to use the new redirector
-            _generic.SetRedirector(redirectCommon);
-            _close.SetRedirector(redirectCommon);
-            _context.SetRedirector(redirectCommon);
-            _next.SetRedirector(redirectCommon);
-            _previous.SetRedirector(redirectCommon);
-            _arrowLeft.SetRedirector(redirectCommon);
-            _arrowRight.SetRedirector(redirectCommon);
-            _arrowUp.SetRedirector(redirectCommon);
-            _arrowDown.SetRedirector(redirectCommon);
-            _dropDown.SetRedirector(redirectCommon);
-            _pinVertical.SetRedirector(redirectCommon);
-            _pinHorizontal.SetRedirector(redirectCommon);
-            _formClose.SetRedirector(redirectCommon);
-            _formMax.SetRedirector(redirectCommon);
-            _formMin.SetRedirector(redirectCommon);
-            _formRestore.SetRedirector(redirectCommon);
-            _pendantClose.SetRedirector(redirectCommon);
-            _pendantMin.SetRedirector(redirectCommon);
-            _pendantRestore.SetRedirector(redirectCommon);
-            _workspaceMaximize.SetRedirector(redirectCommon);
-            _workspaceRestore.SetRedirector(redirectCommon);
-            _ribbonMinimize.SetRedirector(redirectCommon);
-            _ribbonExpand.SetRedirector(redirectCommon);
+            Generic.SetRedirector(redirectCommon);
+            Close.SetRedirector(redirectCommon);
+            Context.SetRedirector(redirectCommon);
+            Next.SetRedirector(redirectCommon);
+            Previous.SetRedirector(redirectCommon);
+            ArrowLeft.SetRedirector(redirectCommon);
+            ArrowRight.SetRedirector(redirectCommon);
+            ArrowUp.SetRedirector(redirectCommon);
+            ArrowDown.SetRedirector(redirectCommon);
+            DropDown.SetRedirector(redirectCommon);
+            PinVertical.SetRedirector(redirectCommon);
+            PinHorizontal.SetRedirector(redirectCommon);
+            FormClose.SetRedirector(redirectCommon);
+            FormMax.SetRedirector(redirectCommon);
+            FormMin.SetRedirector(redirectCommon);
+            FormRestore.SetRedirector(redirectCommon);
+            PendantClose.SetRedirector(redirectCommon);
+            PendantMin.SetRedirector(redirectCommon);
+            PendantRestore.SetRedirector(redirectCommon);
+            WorkspaceMaximize.SetRedirector(redirectCommon);
+            WorkspaceRestore.SetRedirector(redirectCommon);
+            RibbonMinimize.SetRedirector(redirectCommon);
+            RibbonExpand.SetRedirector(redirectCommon);
 
             // Hook into the storage change events
-            _common.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _generic.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _close.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _context.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _next.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _previous.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _arrowLeft.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _arrowRight.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _arrowUp.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _arrowDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _dropDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _pinVertical.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _pinHorizontal.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _formClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _formMax.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _formMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _formRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _pendantClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _pendantMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _pendantRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _workspaceMaximize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _workspaceRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _ribbonMinimize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            _ribbonExpand.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Common.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Generic.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Close.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Context.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Next.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Previous.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            ArrowLeft.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            ArrowRight.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            ArrowUp.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            ArrowDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            DropDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            PinVertical.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            PinHorizontal.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            FormClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            FormMax.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            FormMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            FormRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            PendantClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            PendantMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            PendantRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            WorkspaceMaximize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            WorkspaceRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            RibbonMinimize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            RibbonExpand.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
         }
         #endregion
 
@@ -148,36 +125,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _common.IsDefault &&
-                       _generic.IsDefault &&
-                       _close.IsDefault &&
-                       _context.IsDefault &&
-                       _next.IsDefault &&
-                       _previous.IsDefault &&
-                       _arrowLeft.IsDefault &&
-                       _arrowRight.IsDefault &&
-                       _arrowUp.IsDefault &&
-                       _arrowDown.IsDefault &&
-                       _dropDown.IsDefault &&
-                       _pinVertical.IsDefault &&
-                       _pinHorizontal.IsDefault &&
-                       _formClose.IsDefault &&
-                       _formMax.IsDefault &&
-                       _formMin.IsDefault &&
-                       _formRestore.IsDefault &&
-                       _pendantClose.IsDefault &&
-                       _pendantMin.IsDefault &&
-                       _pendantRestore.IsDefault &&
-                       _workspaceMaximize.IsDefault &&
-                       _workspaceRestore.IsDefault &&
-                       _ribbonMinimize.IsDefault &&
-                       _ribbonExpand.IsDefault;
-            }
-        }
+        public override bool IsDefault => Common.IsDefault &&
+                                          Generic.IsDefault &&
+                                          Close.IsDefault &&
+                                          Context.IsDefault &&
+                                          Next.IsDefault &&
+                                          Previous.IsDefault &&
+                                          ArrowLeft.IsDefault &&
+                                          ArrowRight.IsDefault &&
+                                          ArrowUp.IsDefault &&
+                                          ArrowDown.IsDefault &&
+                                          DropDown.IsDefault &&
+                                          PinVertical.IsDefault &&
+                                          PinHorizontal.IsDefault &&
+                                          FormClose.IsDefault &&
+                                          FormMax.IsDefault &&
+                                          FormMin.IsDefault &&
+                                          FormRestore.IsDefault &&
+                                          PendantClose.IsDefault &&
+                                          PendantMin.IsDefault &&
+                                          PendantRestore.IsDefault &&
+                                          WorkspaceMaximize.IsDefault &&
+                                          WorkspaceRestore.IsDefault &&
+                                          RibbonMinimize.IsDefault &&
+                                          RibbonExpand.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -187,30 +159,30 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _generic.PopulateFromBase(PaletteButtonSpecStyle.Generic);
-            _close.PopulateFromBase(PaletteButtonSpecStyle.Close);
-            _context.PopulateFromBase(PaletteButtonSpecStyle.Context);
-            _next.PopulateFromBase(PaletteButtonSpecStyle.Next);
-            _previous.PopulateFromBase(PaletteButtonSpecStyle.Previous);
-            _arrowLeft.PopulateFromBase(PaletteButtonSpecStyle.ArrowLeft);
-            _arrowRight.PopulateFromBase(PaletteButtonSpecStyle.ArrowRight);
-            _arrowUp.PopulateFromBase(PaletteButtonSpecStyle.ArrowUp);
-            _arrowDown.PopulateFromBase(PaletteButtonSpecStyle.ArrowDown);
-            _dropDown.PopulateFromBase(PaletteButtonSpecStyle.DropDown);
-            _pinVertical.PopulateFromBase(PaletteButtonSpecStyle.PinVertical);
-            _pinHorizontal.PopulateFromBase(PaletteButtonSpecStyle.PinHorizontal);
-            _formClose.PopulateFromBase(PaletteButtonSpecStyle.FormClose);
-            _formMax.PopulateFromBase(PaletteButtonSpecStyle.FormMax);
-            _formMin.PopulateFromBase(PaletteButtonSpecStyle.FormMin);
-            _formRestore.PopulateFromBase(PaletteButtonSpecStyle.FormRestore);
-            _pendantClose.PopulateFromBase(PaletteButtonSpecStyle.PendantClose);
-            _pendantRestore.PopulateFromBase(PaletteButtonSpecStyle.PendantRestore);
-            _pendantMin.PopulateFromBase(PaletteButtonSpecStyle.PendantMin);
-            _pendantRestore.PopulateFromBase(PaletteButtonSpecStyle.PendantRestore);
-            _workspaceMaximize.PopulateFromBase(PaletteButtonSpecStyle.WorkspaceMaximize);
-            _workspaceRestore.PopulateFromBase(PaletteButtonSpecStyle.WorkspaceRestore);
-            _ribbonMinimize.PopulateFromBase(PaletteButtonSpecStyle.RibbonMinimize);
-            _ribbonExpand.PopulateFromBase(PaletteButtonSpecStyle.RibbonExpand);
+            Generic.PopulateFromBase(PaletteButtonSpecStyle.Generic);
+            Close.PopulateFromBase(PaletteButtonSpecStyle.Close);
+            Context.PopulateFromBase(PaletteButtonSpecStyle.Context);
+            Next.PopulateFromBase(PaletteButtonSpecStyle.Next);
+            Previous.PopulateFromBase(PaletteButtonSpecStyle.Previous);
+            ArrowLeft.PopulateFromBase(PaletteButtonSpecStyle.ArrowLeft);
+            ArrowRight.PopulateFromBase(PaletteButtonSpecStyle.ArrowRight);
+            ArrowUp.PopulateFromBase(PaletteButtonSpecStyle.ArrowUp);
+            ArrowDown.PopulateFromBase(PaletteButtonSpecStyle.ArrowDown);
+            DropDown.PopulateFromBase(PaletteButtonSpecStyle.DropDown);
+            PinVertical.PopulateFromBase(PaletteButtonSpecStyle.PinVertical);
+            PinHorizontal.PopulateFromBase(PaletteButtonSpecStyle.PinHorizontal);
+            FormClose.PopulateFromBase(PaletteButtonSpecStyle.FormClose);
+            FormMax.PopulateFromBase(PaletteButtonSpecStyle.FormMax);
+            FormMin.PopulateFromBase(PaletteButtonSpecStyle.FormMin);
+            FormRestore.PopulateFromBase(PaletteButtonSpecStyle.FormRestore);
+            PendantClose.PopulateFromBase(PaletteButtonSpecStyle.PendantClose);
+            PendantRestore.PopulateFromBase(PaletteButtonSpecStyle.PendantRestore);
+            PendantMin.PopulateFromBase(PaletteButtonSpecStyle.PendantMin);
+            PendantRestore.PopulateFromBase(PaletteButtonSpecStyle.PendantRestore);
+            WorkspaceMaximize.PopulateFromBase(PaletteButtonSpecStyle.WorkspaceMaximize);
+            WorkspaceRestore.PopulateFromBase(PaletteButtonSpecStyle.WorkspaceRestore);
+            RibbonMinimize.PopulateFromBase(PaletteButtonSpecStyle.RibbonMinimize);
+            RibbonExpand.PopulateFromBase(PaletteButtonSpecStyle.RibbonExpand);
         }
         #endregion
 
@@ -222,14 +194,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Common
-        {
-            get { return _common; }
-        }
+        public KryptonPaletteButtonSpecTyped Common { get; }
 
         private bool ShouldSerializeCommon()
         {
-            return !_common.IsDefault;
+            return !Common.IsDefault;
         }
         #endregion
 
@@ -241,14 +210,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining generic button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Generic
-        {
-            get { return _generic; }
-        }
+        public KryptonPaletteButtonSpecTyped Generic { get; }
 
         private bool ShouldSerializeGeneric()
         {
-            return !_generic.IsDefault;
+            return !Generic.IsDefault;
         }
         #endregion
 
@@ -260,14 +226,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining close button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Close
-        {
-            get { return _close ; }
-        }
+        public KryptonPaletteButtonSpecTyped Close { get; }
 
         private bool ShouldSerializeClose()
         {
-            return !_close.IsDefault;
+            return !Close.IsDefault;
         }
         #endregion
 
@@ -279,14 +242,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Context
-        {
-            get { return _context; }
-        }
+        public KryptonPaletteButtonSpecTyped Context { get; }
 
         private bool ShouldSerializeContext()
         {
-            return !_context.IsDefault;
+            return !Context.IsDefault;
         }
         #endregion
 
@@ -298,14 +258,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining next button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Next
-        {
-            get { return _next; }
-        }
+        public KryptonPaletteButtonSpecTyped Next { get; }
 
         private bool ShouldSerializeNext()
         {
-            return !_next.IsDefault;
+            return !Next.IsDefault;
         }
         #endregion
 
@@ -317,14 +274,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining previous button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped Previous
-        {
-            get { return _previous; }
-        }
+        public KryptonPaletteButtonSpecTyped Previous { get; }
 
         private bool ShouldSerializePrevious()
         {
-            return !_previous.IsDefault;
+            return !Previous.IsDefault;
         }
         #endregion
 
@@ -336,14 +290,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining left arrow button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped ArrowLeft
-        {
-            get { return _arrowLeft; }
-        }
+        public KryptonPaletteButtonSpecTyped ArrowLeft { get; }
 
         private bool ShouldSerializeArrowLeft()
         {
-            return !_arrowLeft.IsDefault;
+            return !ArrowLeft.IsDefault;
         }
         #endregion
 
@@ -355,14 +306,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining right arrow button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped ArrowRight
-        {
-            get { return _arrowRight; }
-        }
+        public KryptonPaletteButtonSpecTyped ArrowRight { get; }
 
         private bool ShouldSerializeArrowRight()
         {
-            return !_arrowRight.IsDefault;
+            return !ArrowRight.IsDefault;
         }
         #endregion
 
@@ -374,14 +322,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining up arrow button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped ArrowUp
-        {
-            get { return _arrowUp; }
-        }
+        public KryptonPaletteButtonSpecTyped ArrowUp { get; }
 
         private bool ShouldSerializeArrowUp()
         {
-            return !_arrowUp.IsDefault;
+            return !ArrowUp.IsDefault;
         }
         #endregion
 
@@ -393,14 +338,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining up arrow button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped ArrowDown
-        {
-            get { return _arrowDown; }
-        }
+        public KryptonPaletteButtonSpecTyped ArrowDown { get; }
 
         private bool ShouldSerializeArrowDown()
         {
-            return !_arrowDown.IsDefault;
+            return !ArrowDown.IsDefault;
         }
         #endregion
 
@@ -412,14 +354,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining drop down button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped DropDown
-        {
-            get { return _dropDown; }
-        }
+        public KryptonPaletteButtonSpecTyped DropDown { get; }
 
         private bool ShouldSerializeDropDown()
         {
-            return !_dropDown.IsDefault;
+            return !DropDown.IsDefault;
         }
         #endregion
 
@@ -431,14 +370,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pin vertical button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped PinVertical
-        {
-            get { return _pinVertical; }
-        }
+        public KryptonPaletteButtonSpecTyped PinVertical { get; }
 
         private bool ShouldSerializePinVertical()
         {
-            return !_pinVertical.IsDefault;
+            return !PinVertical.IsDefault;
         }
         #endregion
 
@@ -450,14 +386,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pin horizontal button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped PinHorizontal
-        {
-            get { return _pinHorizontal; }
-        }
+        public KryptonPaletteButtonSpecTyped PinHorizontal { get; }
 
         private bool ShouldSerializePinHorizontal()
         {
-            return !_pinHorizontal.IsDefault;
+            return !PinHorizontal.IsDefault;
         }
         #endregion
 
@@ -469,14 +402,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining form close button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped FormClose
-        {
-            get { return _formClose; }
-        }
+        public KryptonPaletteButtonSpecTyped FormClose { get; }
 
         private bool ShouldSerializeFormClose()
         {
-            return !_formClose.IsDefault;
+            return !FormClose.IsDefault;
         }
         #endregion
 
@@ -488,14 +418,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining form minimize button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped FormMin
-        {
-            get { return _formMin; }
-        }
+        public KryptonPaletteButtonSpecTyped FormMin { get; }
 
         private bool ShouldSerializeFormMin()
         {
-            return !_formMin.IsDefault;
+            return !FormMin.IsDefault;
         }
         #endregion
 
@@ -507,14 +434,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining form maximize button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped FormMax
-        {
-            get { return _formMax; }
-        }
+        public KryptonPaletteButtonSpecTyped FormMax { get; }
 
         private bool ShouldSerializeFormMax()
         {
-            return !_formMax.IsDefault;
+            return !FormMax.IsDefault;
         }
         #endregion
 
@@ -526,14 +450,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining form restore button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped FormRestore
-        {
-            get { return _formRestore; }
-        }
+        public KryptonPaletteButtonSpecTyped FormRestore { get; }
 
         private bool ShouldSerializeFormRestore()
         {
-            return !_formRestore.IsDefault;
+            return !FormRestore.IsDefault;
         }
         #endregion
 
@@ -545,14 +466,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pendant close button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped PendantClose
-        {
-            get { return _pendantClose; }
-        }
+        public KryptonPaletteButtonSpecTyped PendantClose { get; }
 
         private bool ShouldSerializePendantClose()
         {
-            return !_pendantClose.IsDefault;
+            return !PendantClose.IsDefault;
         }
         #endregion
 
@@ -564,14 +482,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pendant minimize button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped PendantMin
-        {
-            get { return _pendantMin; }
-        }
+        public KryptonPaletteButtonSpecTyped PendantMin { get; }
 
         private bool ShouldSerializePendantMin()
         {
-            return !_pendantMin.IsDefault;
+            return !PendantMin.IsDefault;
         }
         #endregion
 
@@ -583,14 +498,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pendant restore button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped PendantRestore
-        {
-            get { return _pendantRestore; }
-        }
+        public KryptonPaletteButtonSpecTyped PendantRestore { get; }
 
         private bool ShouldSerializePendantRestore()
         {
-            return !_pendantRestore.IsDefault;
+            return !PendantRestore.IsDefault;
         }
         #endregion
 
@@ -602,14 +514,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining workspace maximize button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped WorkspaceMaximize
-        {
-            get { return _workspaceMaximize; }
-        }
+        public KryptonPaletteButtonSpecTyped WorkspaceMaximize { get; }
 
         private bool ShouldSerializeWorkspaceMaximize()
         {
-            return !_workspaceMaximize.IsDefault;
+            return !WorkspaceMaximize.IsDefault;
         }
         #endregion
 
@@ -621,14 +530,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining workspace restore button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped WorkspaceRestore
-        {
-            get { return _workspaceRestore; }
-        }
+        public KryptonPaletteButtonSpecTyped WorkspaceRestore { get; }
 
         private bool ShouldSerializeWorkspaceRestore()
         {
-            return !_workspaceRestore.IsDefault;
+            return !WorkspaceRestore.IsDefault;
         }
         #endregion
 
@@ -640,14 +546,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ribbon minimize button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped RibbonMinimize
-        {
-            get { return _ribbonMinimize; }
-        }
+        public KryptonPaletteButtonSpecTyped RibbonMinimize { get; }
 
         private bool ShouldSerializeRibbonMinimize()
         {
-            return !_ribbonMinimize.IsDefault;
+            return !RibbonMinimize.IsDefault;
         }
         #endregion
 
@@ -659,14 +562,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ribbon expand button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecTyped RibbonExpand
-        {
-            get { return _ribbonExpand; }
-        }
+        public KryptonPaletteButtonSpecTyped RibbonExpand { get; }
 
         private bool ShouldSerializeRibbonExpand()
         {
-            return !_ribbonExpand.IsDefault;
+            return !RibbonExpand.IsDefault;
         }
         #endregion
 

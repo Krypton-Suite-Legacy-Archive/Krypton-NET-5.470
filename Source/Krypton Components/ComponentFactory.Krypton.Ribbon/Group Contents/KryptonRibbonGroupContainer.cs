@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                                         IRibbonGroupContainer
     {
         #region Instance Fields
-        private KryptonRibbonGroup _ribbonGroup;
+
         #endregion
 
         #region Identity
@@ -41,11 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual KryptonRibbonGroup RibbonGroup
-        {
-            get { return _ribbonGroup; }
-            set { _ribbonGroup = value; }
-        }
+        public virtual KryptonRibbonGroup RibbonGroup { get; set; }
 
         /// <summary>
         /// Gets an array of all the contained components.

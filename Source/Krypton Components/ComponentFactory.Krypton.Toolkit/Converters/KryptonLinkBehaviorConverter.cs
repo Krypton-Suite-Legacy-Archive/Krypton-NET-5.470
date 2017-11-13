@@ -16,9 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonLinkBehaviorConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(KryptonLinkBehavior.AlwaysUnderline,  "Always Underline"),
-                                             new Pair(KryptonLinkBehavior.HoverUnderline,   "Hover Underline"),
-                                             new Pair(KryptonLinkBehavior.NeverUnderline,   "Never Underline") };
+
         #endregion
 
         #region Identity
@@ -35,10 +33,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(KryptonLinkBehavior.AlwaysUnderline,  "Always Underline"),
+            new Pair(KryptonLinkBehavior.HoverUnderline,   "Hover Underline"),
+            new Pair(KryptonLinkBehavior.NeverUnderline,   "Never Underline") };
+
         #endregion
     }
 }

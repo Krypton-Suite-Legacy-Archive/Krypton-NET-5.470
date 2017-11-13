@@ -59,20 +59,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the palette content to use for remapping.
         /// </summary>
-        public override IPaletteContent PaletteContent
-        {
-            get { return _paletteContent; }
-        }
+        public override IPaletteContent PaletteContent => _paletteContent;
+
         #endregion
 
         #region PaletteState
         /// <summary>
         /// Gets the state of the remapping area
         /// </summary>
-        public override PaletteState PaletteState
-        {
-            get { return _paletteState; }
-        }
+        public override PaletteState PaletteState => _paletteState;
+
         #endregion
     }
 }

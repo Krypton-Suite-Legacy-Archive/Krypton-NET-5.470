@@ -18,10 +18,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class PageReorderEventArgs : CancelEventArgs
 	{
 		#region Instance Fields
-        private KryptonPage _pageMoving;
-        private KryptonPage _pageTarget;
-        private bool _movingBefore;
-        #endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -34,9 +32,9 @@ namespace ComponentFactory.Krypton.Navigator
                                     KryptonPage pageTarget, 
                                     bool movingBefore)
 		{
-            _pageMoving = pageMoving;
-            _pageTarget = pageTarget;
-            _movingBefore = movingBefore;
+            PageMoving = pageMoving;
+            PageTarget = pageTarget;
+            MovingBefore = movingBefore;
 		}
 		#endregion
 
@@ -44,30 +42,24 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
 		/// Gets the page that is being moved.
 		/// </summary>
-        public KryptonPage PageMoving
-		{
-            get { return _pageMoving; }
-		}
-		#endregion
+        public KryptonPage PageMoving { get; }
+
+	    #endregion
 
         #region PageTarget
         /// <summary>
         /// Gets the page that is the target for the move.
         /// </summary>
-        public KryptonPage PageTarget
-        {
-            get { return _pageTarget; }
-        }
-        #endregion
+        public KryptonPage PageTarget { get; }
+
+	    #endregion
 
         #region MovingBefore
         /// <summary>
         /// Gets a value indicating if the page being moved is to be placed before the target page.
         /// </summary>
-        public bool MovingBefore
-        {
-            get { return _movingBefore; }
-        }
-        #endregion
+        public bool MovingBefore { get; }
+
+	    #endregion
     }
 }

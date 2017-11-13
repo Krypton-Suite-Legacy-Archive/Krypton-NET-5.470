@@ -20,9 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ToolTipEventArgs : EventArgs
 	{
 		#region Instance Fields
-		private ViewBase _target;
-		private Point _screenPt;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -35,8 +34,8 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(target != null);
 
 			// Remember parameter details
-            _target = target;
-            _screenPt = screenPt;
+            Target = target;
+            ScreenPt = screenPt;
 		}
 		#endregion
 
@@ -44,18 +43,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets the view element that is related to the tooltip.
 		/// </summary>
-        public ViewBase Target
-		{
-            get { return _target; }
-		}
+        public ViewBase Target { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the screen point of the mouse where tooltip is required.
 		/// </summary>
-        public Point ScreenPt
-		{
-            get { return _screenPt; }
-		}
-		#endregion
+        public Point ScreenPt { get; }
+
+	    #endregion
 	}
 }

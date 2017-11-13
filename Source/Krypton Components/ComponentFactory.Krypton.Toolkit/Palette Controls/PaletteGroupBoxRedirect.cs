@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteGroupBoxRedirect : PaletteDoubleRedirect
 	{
 		#region Instance Fields
-        private PaletteContent _content;
-        private PaletteContentInheritRedirect _contentInherit;
+
+	    private PaletteContentInheritRedirect _contentInherit;
         #endregion
 
 		#region Identity
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirectContent != null);
 
             _contentInherit = new PaletteContentInheritRedirect(redirectContent, PaletteContentStyle.LabelGroupBoxCaption);
-            _content = new PaletteContent(_contentInherit, needPaint);
+            Content = new PaletteContent(_contentInherit, needPaint);
 		}
 		#endregion
 
@@ -59,11 +59,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get { return (base.IsDefault && _content.IsDefault); }
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault && Content.IsDefault);
+
+	    #endregion
 
         #region Content
         /// <summary>
@@ -73,14 +71,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining content appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteContent Content
-        {
-            get { return _content; }
-        }
+        public PaletteContent Content { get; }
 
-        private bool ShouldSerializeContent()
+	    private bool ShouldSerializeContent()
         {
-            return !_content.IsDefault;
+            return !Content.IsDefault;
         }
 
         /// <summary>
@@ -89,12 +84,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IPaletteContent PaletteContent
-        {
-            get { return Content; }
-        }
+        public IPaletteContent PaletteContent => Content;
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the content palette style.
         /// </summary>
         [Browsable(false)]
@@ -102,8 +94,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PaletteContentStyle ContentStyle
         {
-            get { return _contentInherit.Style; }
-            set { _contentInherit.Style = value; }
+            get => _contentInherit.Style;
+            set => _contentInherit.Style = value;
         }
 		#endregion
     }

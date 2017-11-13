@@ -16,9 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class GridStyleConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(GridStyle.List,       "List"),
-                                             new Pair(GridStyle.Sheet,      "Sheet"),
-                                             new Pair(GridStyle.Custom1,    "Custom1") };
+
         #endregion
 
         #region Identity
@@ -35,10 +33,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(GridStyle.List,       "List"),
+            new Pair(GridStyle.Sheet,      "Sheet"),
+            new Pair(GridStyle.Custom1,    "Custom1") };
+
         #endregion
     }
 }

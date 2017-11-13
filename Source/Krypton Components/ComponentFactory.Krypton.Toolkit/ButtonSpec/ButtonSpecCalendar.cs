@@ -20,8 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private ViewDrawMonth _month;
         private RelativeEdgeAlign _edge;
-        private bool _visible;
-        private bool _enabled;
+
         #endregion
 
         #region Identity
@@ -40,8 +39,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Remember back reference to owning navigator.
             _month = month;
             _edge = edge;
-            _enabled = true;
-            _visible = true;
+            Enabled = true;
+            Visible = true;
 
             // Fix the type
             ProtectedType = fixedStyle;
@@ -52,28 +51,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the visible state.
         /// </summary>
-        public bool Visible
-        {
-            get { return _visible; }
-            set { _visible = value; }
-        }
+        public bool Visible { get; set; }
 
         /// <summary>
         /// Gets and sets the enabled state.
         /// </summary>
-        public bool Enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Can a component be associated with the view.
         /// </summary>
-        public override bool AllowComponent
-        {
-            get { return false; }
-        }
+        public override bool AllowComponent => false;
 
         /// <summary>
         /// Gets the button visible value.

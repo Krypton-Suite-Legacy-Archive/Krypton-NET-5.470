@@ -27,13 +27,11 @@ namespace ComponentFactory.Krypton.Ribbon
 	{
 		#region Instance Fields
         private KryptonRibbon _ribbon;
-        private ViewBase _targetMain;
-        private ViewDrawRibbonGroupRadioButtonImage _targetImage;
+	    private ViewDrawRibbonGroupRadioButtonImage _targetImage;
         private NeedPaintHandler _needPaint;
         private bool _rightButtonDown;
         private bool _fixedPressed;
-		private bool _captured;
-        private bool _mouseOver;
+	    private bool _mouseOver;
         private bool _hasFocus;
 		#endregion
 
@@ -68,7 +66,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(needPaint != null);
 
             _ribbon = ribbon;
-            _targetMain = targetMain;
+            TargetMain = targetMain;
             _targetImage = targetImage;
             NeedPaint = needPaint;
         }
@@ -83,7 +81,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_fixedPressed)
             {
                 // Mouse no longer considered pressed down
-                _captured = false;
+                Captured = false;
 
                 // No longer in fixed state mode
                 _fixedPressed = false;
@@ -124,7 +122,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (button == MouseButtons.Left)
             {
                // Capturing mouse input
-                _captured = true;
+                Captured = true;
 
                 // Update the visual state
                 UpdateTargetState(pt);
@@ -136,7 +134,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _rightButtonDown = true;
             }
 
-		    return _captured;
+		    return Captured;
 		}
 
         /// <summary>
@@ -158,10 +156,10 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
 		{
-            if (_captured)
+            if (Captured)
             {
                 // Not capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Only interested in left mouse being released
                 if (button == MouseButtons.Left)
@@ -222,7 +220,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!_fixedPressed)
             {
                 // If leaving the view then cannot be capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 UpdateTargetState(c);
             }
@@ -240,11 +238,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Focus Notifications
         /// <summary>
@@ -334,7 +330,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -349,12 +345,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated target of the controller.
         /// </summary>
-        public ViewBase TargetMain
-        {
-            get { return _targetMain; }
-        }
+        public ViewBase TargetMain { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Fires the NeedPaint event.
 		/// </summary>
 		public void PerformNeedPaint()
@@ -376,13 +369,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -411,9 +400,9 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_targetImage.Enabled)
             {
                 // If capturing input....
-                if (_captured)
+                if (Captured)
                 {
-                    if (_fixedPressed || _targetMain.ClientRectangle.Contains(pt))
+                    if (_fixedPressed || TargetMain.ClientRectangle.Contains(pt))
                     {
                         pressed = true;
                     }
@@ -446,7 +435,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">An EventArgs containing the event data.</param>
 		protected virtual void OnClick(EventArgs e)
 		{
-            Click?.Invoke(_targetMain, e);
+            Click?.Invoke(TargetMain, e);
         }
 
         /// <summary>
@@ -464,7 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="needLayout">Does the palette change require a layout.</param>
 		protected virtual void OnNeedPaint(bool needLayout)
 		{
-            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _targetMain.ClientRectangle));
+            _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, TargetMain.ClientRectangle));
         }
 		#endregion
 
@@ -478,7 +467,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Tab | Keys.Shift:
                 case Keys.Left:
                     // Get the previous focus item for the currently selected page
-                    newView = ribbon.GroupsArea.ViewGroups.GetPreviousFocusItem(_targetMain);
+                    newView = ribbon.GroupsArea.ViewGroups.GetPreviousFocusItem(TargetMain);
 
                     // Got to the actual tab header
                     if (newView == null)
@@ -489,7 +478,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 case Keys.Tab:
                 case Keys.Right:
                     // Get the next focus item for the currently selected page
-                    newView = ribbon.GroupsArea.ViewGroups.GetNextFocusItem(_targetMain);
+                    newView = ribbon.GroupsArea.ViewGroups.GetNextFocusItem(TargetMain);
 
                     // Move across to any far defined buttons
                     if (newView == null)

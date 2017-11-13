@@ -37,8 +37,7 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private Control _control;
-        private DockingEdge _edge;
+
         private SeparatorToDockspace _lookupSeparator;
         private DockspaceToSeparator _lookupDockspace;
         private bool _update;
@@ -54,8 +53,8 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingEdgeDocked(string name, Control control, DockingEdge edge)
             : base(name)
         {
-            _control = control ?? throw new ArgumentNullException("control");
-            _edge = edge;
+            Control = control ?? throw new ArgumentNullException("control");
+            Edge = edge;
             _lookupSeparator = new SeparatorToDockspace();
             _lookupDockspace = new DockspaceToSeparator();
         }
@@ -65,18 +64,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public Control Control
-        {
-            get { return _control; }
-        }
+        public Control Control { get; }
 
         /// <summary>
         /// Gets the docking edge this element is managing.
         /// </summary>
-        public DockingEdge Edge
-        {
-            get { return _edge; }
-        }
+        public DockingEdge Edge { get; }
 
         /// <summary>
         /// Create and add a new dockspace instance to the correct edge of the owning control.
@@ -158,10 +151,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DED"; }
-        }
+        protected override string XmlElementName => "DED";
 
         /// <summary>
         /// Perform docking element specific actions for loading a child xml.

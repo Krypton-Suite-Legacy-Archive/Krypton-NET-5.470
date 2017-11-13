@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class StorePageEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonStorePage _storePage;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="storePage">Reference to store page that is associated with the event.</param>
         public StorePageEventArgs(KryptonStorePage storePage)
 		{
-            _storePage = storePage;
+            StorePage = storePage;
 		}
         #endregion
 
@@ -36,10 +36,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to store page that is associated with the event.
         /// </summary>
-        public KryptonStorePage StorePage
-        {
-            get { return _storePage; }
-        }
-        #endregion
+        public KryptonStorePage StorePage { get; }
+
+	    #endregion
 	}
 }

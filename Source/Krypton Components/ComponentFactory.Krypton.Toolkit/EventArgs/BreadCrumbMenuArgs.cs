@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class BreadCrumbMenuArgs : ContextPositionMenuArgs
 	{
 		#region Instance Fields
-        private KryptonBreadCrumbItem _crumb;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                   KryptonContextMenuPositionV positionV)
             : base(null, kcm, positionH, positionV)
         {
-            _crumb = crumb;
+            Crumb = crumb;
         }
         #endregion
 
@@ -41,11 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
         /// Gets and sets the crumb related to the event.
 		/// </summary>
-        public KryptonBreadCrumbItem Crumb
-		{
-            get { return _crumb; }
-            set { _crumb = value; }
-		}
-        #endregion
+        public KryptonBreadCrumbItem Crumb { get; set; }
+
+	    #endregion
 	}
 }

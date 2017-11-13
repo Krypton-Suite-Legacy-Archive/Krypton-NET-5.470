@@ -53,14 +53,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((GroupBackStyle == PaletteBackStyle.ControlClient) &&
-                        (GroupBorderStyle == PaletteBorderStyle.ControlClient));
-            }
-        }
+        public override bool IsDefault => ((GroupBackStyle == PaletteBackStyle.ControlClient) &&
+                                           (GroupBorderStyle == PaletteBorderStyle.ControlClient));
+
         #endregion
 
         #region GroupBackStyle
@@ -72,7 +67,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteBackStyle), "ControlClient")]
         public PaletteBackStyle GroupBackStyle
         {
-            get { return _groupBackStyle; }
+            get => _groupBackStyle;
 
             set
             {
@@ -94,7 +89,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteBorderStyle), "ControlClient")]
         public PaletteBorderStyle GroupBorderStyle
         {
-            get { return _groupBorderStyle; }
+            get => _groupBorderStyle;
 
             set
             {

@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _richTextBox.PaletteMode; }
-            
+            get => _richTextBox.PaletteMode;
+
             set 
             {
                 if (_richTextBox.PaletteMode != value)
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public InputControlStyle InputControlStyle
         {
-            get { return _richTextBox.InputControlStyle; }
+            get => _richTextBox.InputControlStyle;
 
             set
             {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Multiline
         {
-            get { return _richTextBox.Multiline; }
+            get => _richTextBox.Multiline;
 
             set
             {
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool WordWrap
         {
-            get { return _richTextBox.WordWrap; }
+            get => _richTextBox.WordWrap;
 
             set
             {

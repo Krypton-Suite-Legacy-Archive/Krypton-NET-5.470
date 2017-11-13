@@ -72,15 +72,10 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (RibbonGalleryBack.IsDefault &
-                        RibbonGalleryBorder.IsDefault);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (RibbonGalleryBack.IsDefault &
+		                                   RibbonGalleryBorder.IsDefault);
+
+	    #endregion
 
         #region RibbonGalleryBack
         /// <summary>
@@ -89,12 +84,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining gallery background appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonGalleryBack
-        {
-            get { return _ribbonBack; }
-        }
+        public virtual PaletteRibbonBack RibbonGalleryBack => _ribbonBack;
 
-        private bool ShouldSerializeRibbonGalleryBack()
+	    private bool ShouldSerializeRibbonGalleryBack()
         {
             return !_ribbonBack.IsDefault;
         }
@@ -107,12 +99,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining gallery border appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonBack RibbonGalleryBorder
-        {
-            get { return _ribbonBorder; }
-        }
+        public virtual PaletteRibbonBack RibbonGalleryBorder => _ribbonBorder;
 
-        private bool ShouldSerializeRibbonGalleryBorder()
+	    private bool ShouldSerializeRibbonGalleryBorder()
         {
             return !_ribbonBorder.IsDefault;
         }

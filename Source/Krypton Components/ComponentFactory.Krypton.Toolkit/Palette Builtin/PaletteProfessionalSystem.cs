@@ -9018,12 +9018,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets access to the color table instance.
         /// </summary>
-        public override KryptonColorTable ColorTable
-        {
-            get { return Table; }
-        }
+        public override KryptonColorTable ColorTable => Table;
 
-        internal KryptonProfessionalKCT Table
+	    internal KryptonProfessionalKCT Table
         {
             get
             {

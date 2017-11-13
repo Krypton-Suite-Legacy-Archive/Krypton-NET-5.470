@@ -19,15 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteNavigator : PaletteDoubleMetric
     {
         #region Instance Fields
-        private PalettePage _palettePage;
-        private PaletteNavigatorHeaderGroup _paletteHeaderGroup;
-        private PaletteTriple _paletteCheckButton;
-        private PaletteTriple _paletteOverflowButton;
-        private PaletteTriple _paletteMiniButton;
-        private PaletteTabTriple _paletteTab;
-        private PaletteBorderEdge _paletteBorderEdge;
-        private PaletteSeparatorPadding _paletteSeparator;
-        private PaletteRibbonTabContent _paletteRibbonTab;
+
         #endregion
 
         #region Identity
@@ -41,15 +33,15 @@ namespace ComponentFactory.Krypton.Navigator
             : base(redirect, needPaint)
 		{
             // Create the palette storage
-            _palettePage = new PalettePage(redirect.PalettePage, needPaint);
-            _paletteHeaderGroup = new PaletteNavigatorHeaderGroup(redirect.HeaderGroup, redirect.HeaderGroup.HeaderPrimary, redirect.HeaderGroup.HeaderSecondary, redirect.HeaderGroup.HeaderBar, redirect.HeaderGroup.HeaderOverflow, needPaint);
-            _paletteCheckButton = new PaletteTriple(redirect.CheckButton, needPaint);
-            _paletteOverflowButton = new PaletteTriple(redirect.OverflowButton, needPaint);
-            _paletteMiniButton = new PaletteTriple(redirect.MiniButton, needPaint);
-            _paletteBorderEdge = new PaletteBorderEdge(redirect.BorderEdge, needPaint);
-            _paletteSeparator = new PaletteSeparatorPadding(redirect.Separator, redirect.Separator, needPaint);
-            _paletteTab = new PaletteTabTriple(redirect.Tab, needPaint);
-            _paletteRibbonTab = new PaletteRibbonTabContent(redirect.RibbonTab.TabDraw, redirect.RibbonTab.TabDraw, redirect.RibbonTab.Content, needPaint);
+            PalettePage = new PalettePage(redirect.PalettePage, needPaint);
+            HeaderGroup = new PaletteNavigatorHeaderGroup(redirect.HeaderGroup, redirect.HeaderGroup.HeaderPrimary, redirect.HeaderGroup.HeaderSecondary, redirect.HeaderGroup.HeaderBar, redirect.HeaderGroup.HeaderOverflow, needPaint);
+            CheckButton = new PaletteTriple(redirect.CheckButton, needPaint);
+            OverflowButton = new PaletteTriple(redirect.OverflowButton, needPaint);
+            MiniButton = new PaletteTriple(redirect.MiniButton, needPaint);
+            BorderEdge = new PaletteBorderEdge(redirect.BorderEdge, needPaint);
+            Separator = new PaletteSeparatorPadding(redirect.Separator, redirect.Separator, needPaint);
+            Tab = new PaletteTabTriple(redirect.Tab, needPaint);
+            RibbonTab = new PaletteRibbonTabContent(redirect.RibbonTab.TabDraw, redirect.RibbonTab.TabDraw, redirect.RibbonTab.Content, needPaint);
         }
 		#endregion
 
@@ -58,23 +50,18 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-				return (base.IsDefault &&
-                        _palettePage.IsDefault &&
-                        _paletteHeaderGroup.IsDefault &&
-                        _paletteCheckButton.IsDefault &&
-                        _paletteOverflowButton.IsDefault &&
-                        _paletteMiniButton.IsDefault &&
-                        _paletteBorderEdge.IsDefault &&
-                        _paletteSeparator.IsDefault &&
-                        _paletteTab.IsDefault &&
-                        _paletteRibbonTab.IsDefault);
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   PalettePage.IsDefault &&
+		                                   HeaderGroup.IsDefault &&
+		                                   CheckButton.IsDefault &&
+		                                   OverflowButton.IsDefault &&
+		                                   MiniButton.IsDefault &&
+		                                   BorderEdge.IsDefault &&
+		                                   Separator.IsDefault &&
+		                                   Tab.IsDefault &&
+		                                   RibbonTab.IsDefault);
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -85,15 +72,15 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Setup inheritance references for storage objects
             base.SetInherit(inheritNavigator);
-            _palettePage.SetInherit(inheritNavigator.PalettePage);
-            _paletteHeaderGroup.SetInherit(inheritNavigator.HeaderGroup);
-            _paletteCheckButton.SetInherit(inheritNavigator.CheckButton);
-            _paletteOverflowButton.SetInherit(inheritNavigator.OverflowButton);
-            _paletteMiniButton.SetInherit(inheritNavigator.MiniButton);
-            _paletteBorderEdge.SetInherit(inheritNavigator.BorderEdge);
-            _paletteSeparator.SetInherit(inheritNavigator.Separator);
-            _paletteTab.SetInherit(inheritNavigator.Tab);
-            _paletteRibbonTab.SetInherit(inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.Content);
+            PalettePage.SetInherit(inheritNavigator.PalettePage);
+            HeaderGroup.SetInherit(inheritNavigator.HeaderGroup);
+            CheckButton.SetInherit(inheritNavigator.CheckButton);
+            OverflowButton.SetInherit(inheritNavigator.OverflowButton);
+            MiniButton.SetInherit(inheritNavigator.MiniButton);
+            BorderEdge.SetInherit(inheritNavigator.BorderEdge);
+            Separator.SetInherit(inheritNavigator.Separator);
+            Tab.SetInherit(inheritNavigator.Tab);
+            RibbonTab.SetInherit(inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.TabDraw, inheritNavigator.RibbonTab.Content);
         }
         #endregion
 
@@ -104,10 +91,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override PaletteBack Back
-        {
-            get { return base.Back; }
-        }
+        public override PaletteBack Back => base.Back;
 
 
         /// <summary>
@@ -116,10 +100,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override IPaletteBack PaletteBack
-        {
-            get { return base.PaletteBack; }
-        }
+        public override IPaletteBack PaletteBack => base.PaletteBack;
+
         #endregion
 
         #region Border
@@ -129,10 +111,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override PaletteBorder Border
-        {
-            get { return base.Border; }
-        }
+        public override PaletteBorder Border => base.Border;
 
         /// <summary>
         /// Gets the border palette.
@@ -140,10 +119,8 @@ namespace ComponentFactory.Krypton.Navigator
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override IPaletteBorder PaletteBorder
-        {
-            get { return base.PaletteBorder; }
-        }
+        public override IPaletteBorder PaletteBorder => base.PaletteBorder;
+
         #endregion
 
         #region Panel
@@ -153,10 +130,7 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack Panel
-        {
-            get { return base.Back; }
-        }
+        public PaletteBack Panel => base.Back;
 
         private bool ShouldSerializePanel()
         {
@@ -171,14 +145,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining check button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple CheckButton
-        {
-            get { return _paletteCheckButton; }
-        }
+        public PaletteTriple CheckButton { get; }
 
         private bool ShouldSerializeCheckButton()
         {
-            return !_paletteCheckButton.IsDefault;
+            return !CheckButton.IsDefault;
         }
         #endregion
 
@@ -189,14 +160,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook overflow button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple OverflowButton
-        {
-            get { return _paletteOverflowButton; }
-        }
+        public PaletteTriple OverflowButton { get; }
 
         private bool ShouldSerializeOverflowButton()
         {
-            return !_paletteOverflowButton.IsDefault;
+            return !OverflowButton.IsDefault;
         }
         #endregion
 
@@ -207,14 +175,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining outlook mini button appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple MiniButton
-        {
-            get { return _paletteMiniButton; }
-        }
+        public PaletteTriple MiniButton { get; }
 
         private bool ShouldSerializeMiniButton()
         {
-            return !_paletteMiniButton.IsDefault;
+            return !MiniButton.IsDefault;
         }
         #endregion
 
@@ -225,14 +190,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining header group appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteNavigatorHeaderGroup HeaderGroup
-        {
-            get { return _paletteHeaderGroup; }
-        }
+        public PaletteNavigatorHeaderGroup HeaderGroup { get; }
 
         private bool ShouldSerializeHeaderGroup()
         {
-            return !_paletteHeaderGroup.IsDefault;
+            return !HeaderGroup.IsDefault;
         }
         #endregion
 
@@ -243,14 +205,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining page appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack Page
-        {
-            get { return _palettePage.Back; }
-        }
+        public PaletteBack Page => PalettePage.Back;
 
         private bool ShouldSerializePage()
         {
-            return !_palettePage.Back.IsDefault;
+            return !PalettePage.Back.IsDefault;
         }
         #endregion
 
@@ -261,14 +220,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining border edge appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBorderEdge BorderEdge
-        {
-            get { return _paletteBorderEdge; }
-        }
+        public PaletteBorderEdge BorderEdge { get; }
 
         private bool ShouldSerializeBorderEdge()
         {
-            return !_paletteBorderEdge.IsDefault;
+            return !BorderEdge.IsDefault;
         }
         #endregion
 
@@ -279,14 +235,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding Separator
-        {
-            get { return _paletteSeparator; }
-        }
+        public PaletteSeparatorPadding Separator { get; }
 
         private bool ShouldSerializeSeparator()
         {
-            return !_paletteSeparator.IsDefault;
+            return !Separator.IsDefault;
         }
         #endregion
 
@@ -297,14 +250,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTabTriple Tab
-        {
-            get { return _paletteTab; }
-        }
+        public PaletteTabTriple Tab { get; }
 
         private bool ShouldSerializeTab()
         {
-            return !_paletteTab.IsDefault;
+            return !Tab.IsDefault;
         }
         #endregion
 
@@ -315,22 +265,17 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Overrides for defining ribbon tab appearance entries.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonTabContent RibbonTab
-        {
-            get { return _paletteRibbonTab; }
-        }
+        public PaletteRibbonTabContent RibbonTab { get; }
 
         private bool ShouldSerializeRibbonTab()
         {
-            return !_paletteRibbonTab.IsDefault;
+            return !RibbonTab.IsDefault;
         }
         #endregion
 
         #region Internal
-        internal PalettePage PalettePage
-        {
-            get { return _palettePage; }
-        }
+        internal PalettePage PalettePage { get; }
+
         #endregion
     }
 }

@@ -83,16 +83,11 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return (base.IsDefault &&
-                        (MapImage == GetMapImageDefault()) &&
-                        (MapHeading == GetMapHeadingDefault()) &&
-                        (MapDescription == GetMapDescriptionDefault()));
-            }
-        }
+        public override bool IsDefault => (base.IsDefault &&
+                                           (MapImage == GetMapImageDefault()) &&
+                                           (MapHeading == GetMapHeadingDefault()) &&
+                                           (MapDescription == GetMapDescriptionDefault()));
+
         #endregion
 
         #region GetImage
@@ -164,7 +159,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual MapKryptonPageImage MapImage
         {
-            get { return _mapImage; }
+            get => _mapImage;
 
             set
             {
@@ -199,7 +194,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual MapKryptonPageText MapHeading
         {
-            get { return _mapHeading; }
+            get => _mapHeading;
 
             set
             {
@@ -234,7 +229,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual MapKryptonPageText MapDescription
         {
-            get { return _mapDescription; }
+            get => _mapDescription;
 
             set
             {

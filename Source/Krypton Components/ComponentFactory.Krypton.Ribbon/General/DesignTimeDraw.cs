@@ -27,20 +27,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the width of the design time flap.
         /// </summary>
-        public static int FlapWidth
-        {
-            get { return DESIGN_FLAP_WIDTH; }
-        }
+        public static int FlapWidth => DESIGN_FLAP_WIDTH;
+
         #endregion
 
         #region SepWidth
         /// <summary>
         /// Gets the width of the design time separation.
         /// </summary>
-        public static int SepWidth
-        {
-            get { return DESIGN_SEP_WIDTH; }
-        }
+        public static int SepWidth => DESIGN_SEP_WIDTH;
+
         #endregion
 
         #region DrawArea

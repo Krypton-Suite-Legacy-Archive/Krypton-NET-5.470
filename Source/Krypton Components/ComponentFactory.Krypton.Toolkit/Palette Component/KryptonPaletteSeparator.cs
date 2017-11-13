@@ -18,11 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteSeparator : Storage
     {
         #region Instance Fields
-        private PaletteSeparatorPaddingRedirect _stateCommon;
-        private PaletteSeparatorPadding _stateDisabled;
-        private PaletteSeparatorPadding _stateNormal;
-        private PaletteSeparatorPadding _stateTracking;
-        private PaletteSeparatorPadding _statePressed;
+
         #endregion
 
         #region Identity
@@ -39,11 +35,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                        NeedPaintHandler needPaint) 
 		{
             // Create the storage objects
-            _stateCommon = new PaletteSeparatorPaddingRedirect(redirect, backStyle, borderStyle, needPaint);
-            _stateDisabled = new PaletteSeparatorPadding(_stateCommon, _stateCommon, needPaint);
-            _stateNormal = new PaletteSeparatorPadding(_stateCommon, _stateCommon, needPaint);
-            _stateTracking = new PaletteSeparatorPadding(_stateCommon, _stateCommon, needPaint);
-            _statePressed = new PaletteSeparatorPadding(_stateCommon, _stateCommon, needPaint);
+            StateCommon = new PaletteSeparatorPaddingRedirect(redirect, backStyle, borderStyle, needPaint);
+            StateDisabled = new PaletteSeparatorPadding(StateCommon, StateCommon, needPaint);
+            StateNormal = new PaletteSeparatorPadding(StateCommon, StateCommon, needPaint);
+            StateTracking = new PaletteSeparatorPadding(StateCommon, StateCommon, needPaint);
+            StatePressed = new PaletteSeparatorPadding(StateCommon, StateCommon, needPaint);
         }
         #endregion
 
@@ -54,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="redirect">Target redirector.</param>
         public void SetRedirector(PaletteRedirect redirect)
         {
-            _stateCommon.SetRedirector(redirect);
+            StateCommon.SetRedirector(redirect);
         }
         #endregion
 
@@ -63,18 +59,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateTracking.IsDefault &&
-                       _statePressed.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault &&
+		                                  StateTracking.IsDefault &&
+		                                  StatePressed.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -84,10 +75,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase(PaletteMetricPadding metric)
         {
             // Populate only the designated styles
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled, metric);
-            _stateNormal.PopulateFromBase(PaletteState.Normal, metric);
-            _stateTracking.PopulateFromBase(PaletteState.Tracking, metric);
-            _statePressed.PopulateFromBase(PaletteState.Pressed, metric);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled, metric);
+            StateNormal.PopulateFromBase(PaletteState.Normal, metric);
+            StateTracking.PopulateFromBase(PaletteState.Tracking, metric);
+            StatePressed.PopulateFromBase(PaletteState.Pressed, metric);
         }
         #endregion
 
@@ -99,14 +90,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common separator appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPaddingRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteSeparatorPaddingRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -118,14 +106,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteSeparatorPadding StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -137,14 +122,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteSeparatorPadding StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
 
@@ -156,14 +138,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteSeparatorPadding StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
         #endregion
 
@@ -175,14 +154,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteSeparatorPadding StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
         #endregion
     }

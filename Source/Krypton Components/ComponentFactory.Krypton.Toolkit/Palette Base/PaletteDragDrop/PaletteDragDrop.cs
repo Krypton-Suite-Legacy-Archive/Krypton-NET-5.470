@@ -63,20 +63,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((Feedback == PaletteDragFeedback.Inherit) &&
-                        (SolidBack == Color.Empty) &&
-                        (SolidBorder == Color.Empty) &&
-                        (SolidOpacity == -1.0f) &&
-                        (DropDockBack == Color.Empty) &&
-                        (DropDockBorder == Color.Empty) &&
-                        (DropDockActive == Color.Empty) &&
-                        (DropDockInactive == Color.Empty));
-            }
-        }
+        public override bool IsDefault => ((Feedback == PaletteDragFeedback.Inherit) &&
+                                           (SolidBack == Color.Empty) &&
+                                           (SolidBorder == Color.Empty) &&
+                                           (SolidOpacity == -1.0f) &&
+                                           (DropDockBack == Color.Empty) &&
+                                           (DropDockBorder == Color.Empty) &&
+                                           (DropDockActive == Color.Empty) &&
+                                           (DropDockInactive == Color.Empty));
+
         #endregion
 
         #region SetInherit
@@ -117,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public PaletteDragFeedback Feedback
         {
-            get { return _feedback; }
+            get => _feedback;
 
             set
             {
@@ -165,7 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color SolidBack
         {
-            get { return _solidBack; }
+            get => _solidBack;
 
             set
             {
@@ -213,7 +208,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color SolidBorder
         {
-            get { return _solidBorder; }
+            get => _solidBorder;
 
             set
             {
@@ -261,7 +256,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public float SolidOpacity
         {
-            get { return _solidOpacity; }
+            get => _solidOpacity;
 
             set
             {
@@ -309,7 +304,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropDockBack
         {
-            get { return _dropDockBack; }
+            get => _dropDockBack;
 
             set
             {
@@ -358,7 +353,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropDockBorder
         {
-            get { return _dropDockBorder; }
+            get => _dropDockBorder;
 
             set
             {
@@ -406,7 +401,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropDockActive
         {
-            get { return _dropDockActive; }
+            get => _dropDockActive;
 
             set
             {
@@ -454,7 +449,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropDockInactive
         {
-            get { return _dropDockInactive; }
+            get => _dropDockInactive;
 
             set
             {

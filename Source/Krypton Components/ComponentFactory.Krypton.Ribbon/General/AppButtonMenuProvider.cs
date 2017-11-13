@@ -22,26 +22,11 @@ namespace ComponentFactory.Krypton.Ribbon
     public class AppButtonMenuProvider : IContextMenuProvider
     {
         #region Instance Fields
-        private bool _enabled;
-        private bool _canCloseMenu;
-        private IPalette _palette;
-        private PaletteMode _paletteMode;
-        private PaletteRedirect _redirector;
+
         private IContextMenuProvider _parent;
-        private ViewLayoutStack _viewColumns;
-        private NeedPaintHandler _needPaintDelegate;
-        private ViewContextMenuManager _viewManager;
-        private KryptonContextMenuPositionH _showHorz;
-        private KryptonContextMenuPositionV _showVert;
-        private PaletteContextMenuRedirect _stateCommon;
-        private PaletteContextMenuItemState _stateDisabled;
-        private PaletteContextMenuItemState _stateNormal;
-        private PaletteRedirectContextMenu _redirectorImages;
-        private PaletteContextMenuItemStateHighlight _stateHighlight;
-        private PaletteContextMenuItemStateChecked _stateChecked;
         private Nullable<ToolStripDropDownCloseReason> _closeReason;
         private KryptonContextMenuItemCollection _menuCollection;
-        private ViewBase _fixedViewElement;
+
         #endregion
 
         #region Events
@@ -81,26 +66,26 @@ namespace ComponentFactory.Krypton.Ribbon
                                      NeedPaintHandler needPaintDelegate)
         {
             // Store incoming state
-            _viewManager = viewManager;
+            ProviderViewManager = viewManager;
             _menuCollection = menuCollection;
-            _viewColumns = viewColumns;
-            _palette = palette;
-            _paletteMode = paletteMode;
-            _redirector = redirector;
-            _needPaintDelegate = needPaintDelegate;
+            ProviderViewColumns = viewColumns;
+            ProviderPalette = palette;
+            ProviderPaletteMode = paletteMode;
+            ProviderRedirector = redirector;
+            ProviderNeedPaintDelegate = needPaintDelegate;
 
             // Create all other state
             _parent = null;
-            _enabled = true;
-            _canCloseMenu = true;
-            _showHorz = KryptonContextMenuPositionH.After;
-            _showVert = KryptonContextMenuPositionV.Top;
-            _stateCommon = new PaletteContextMenuRedirect(redirector, needPaintDelegate);
-            _stateNormal = new PaletteContextMenuItemState(_stateCommon);
-            _stateDisabled = new PaletteContextMenuItemState(_stateCommon);
-            _stateHighlight = new PaletteContextMenuItemStateHighlight(_stateCommon);
-            _stateChecked = new PaletteContextMenuItemStateChecked(_stateCommon);
-            _redirectorImages = new PaletteRedirectContextMenu(redirector, new ContextMenuImages(needPaintDelegate));
+            ProviderEnabled = true;
+            ProviderCanCloseMenu = true;
+            ProviderShowHorz = KryptonContextMenuPositionH.After;
+            ProviderShowVert = KryptonContextMenuPositionV.Top;
+            ProviderStateCommon = new PaletteContextMenuRedirect(redirector, needPaintDelegate);
+            ProviderStateNormal = new PaletteContextMenuItemState(ProviderStateCommon);
+            ProviderStateDisabled = new PaletteContextMenuItemState(ProviderStateCommon);
+            ProviderStateHighlight = new PaletteContextMenuItemStateHighlight(ProviderStateCommon);
+            ProviderStateChecked = new PaletteContextMenuItemStateChecked(ProviderStateCommon);
+            ProviderImages = new PaletteRedirectContextMenu(redirector, new ContextMenuImages(needPaintDelegate));
         }
         #endregion
 
@@ -108,11 +93,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the view to use as the fixed sub menu area.
         /// </summary>
-        public ViewBase FixedViewBase
-        {
-            get { return _fixedViewElement; }
-            set { _fixedViewElement = value; }
-        }
+        public ViewBase FixedViewBase { get; set; }
+
         #endregion
 
         #region IContextMenuProvider
@@ -161,26 +143,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Does this provider have a parent provider.
         /// </summary>
-        public bool HasParentProvider 
-        {
-            get { return _parent != null; }
-        }
+        public bool HasParentProvider => _parent != null;
 
         /// <summary>
         /// Is the entire context menu enabled.
         /// </summary>
-        public bool ProviderEnabled
-        {
-            get { return _enabled; }
-        }
+        public bool ProviderEnabled { get; }
 
         /// <summary>
         /// Is context menu capable of being closed.
         /// </summary>
-        public bool ProviderCanCloseMenu 
-        {
-            get { return _canCloseMenu; }
-        }
+        public bool ProviderCanCloseMenu { get; }
 
         /// <summary>
         /// Should the sub menu be shown at fixed screen location for this menu item.
@@ -201,7 +174,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (ProviderShowSubMenuFixed(menuItem))
             {
-                Rectangle screenRect = _fixedViewElement.OwningControl.RectangleToScreen(_fixedViewElement.ClientRectangle);
+                Rectangle screenRect = FixedViewBase.OwningControl.RectangleToScreen(FixedViewBase.ClientRectangle);
                 screenRect.Y++;
                 screenRect.Width -= 3;
                 screenRect.Height -= 4;
@@ -246,116 +219,73 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the horizontal setting used to position the menu.
         /// </summary>
-        public KryptonContextMenuPositionH ProviderShowHorz 
-        {
-            get { return _showHorz; }
-            set { _showHorz = value; } 
-        }
+        public KryptonContextMenuPositionH ProviderShowHorz { get; set; }
 
         /// <summary>
         /// Gets and sets the vertical setting used to position the menu.
         /// </summary>
-        public KryptonContextMenuPositionV ProviderShowVert 
-        { 
-            get { return _showVert; }
-            set { _showVert = value; } 
-        }
+        public KryptonContextMenuPositionV ProviderShowVert { get; set; }
 
         /// <summary>
         /// Gets access to the layout for context menu columns.
         /// </summary>
-        public ViewLayoutStack ProviderViewColumns
-        {
-            get { return _viewColumns; }
-        }
+        public ViewLayoutStack ProviderViewColumns { get; }
 
         /// <summary>
         /// Gets access to the context menu specific view manager.
         /// </summary>
-        public ViewContextMenuManager ProviderViewManager
-        {
-            get { return _viewManager; }
-        }
+        public ViewContextMenuManager ProviderViewManager { get; }
 
         /// <summary>
         /// Gets access to the context menu common state.
         /// </summary>
-        public PaletteContextMenuRedirect ProviderStateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteContextMenuRedirect ProviderStateCommon { get; }
 
         /// <summary>
         /// Gets access to the context menu disabled state.
         /// </summary>
-        public PaletteContextMenuItemState ProviderStateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteContextMenuItemState ProviderStateDisabled { get; }
 
         /// <summary>
         /// Gets access to the context menu normal state.
         /// </summary>
-        public PaletteContextMenuItemState ProviderStateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteContextMenuItemState ProviderStateNormal { get; }
 
         /// <summary>
         /// Gets access to the context menu highlight state.
         /// </summary>
-        public PaletteContextMenuItemStateHighlight ProviderStateHighlight
-        {
-            get { return _stateHighlight; }
-        }
+        public PaletteContextMenuItemStateHighlight ProviderStateHighlight { get; }
 
         /// <summary>
         /// Gets access to the context menu checked state.
         /// </summary>
-        public PaletteContextMenuItemStateChecked ProviderStateChecked
-        {
-            get { return _stateChecked; }
-        }
+        public PaletteContextMenuItemStateChecked ProviderStateChecked { get; }
 
         /// <summary>
         /// Gets access to the context menu images.
         /// </summary>
-        public PaletteRedirectContextMenu ProviderImages
-        {
-            get { return _redirectorImages; }
-        }
+        public PaletteRedirectContextMenu ProviderImages { get; }
 
         /// <summary>
         /// Gets access to the custom palette.
         /// </summary>
-        public IPalette ProviderPalette
-        {
-            get { return _palette; }
-        }
+        public IPalette ProviderPalette { get; }
 
         /// <summary>
         /// Gets access to the palette mode.
         /// </summary>
-        public PaletteMode ProviderPaletteMode
-        {
-            get { return _paletteMode; }
-        }
+        public PaletteMode ProviderPaletteMode { get; }
 
         /// <summary>
         /// Gets access to the context menu redirector.
         /// </summary>
-        public PaletteRedirect ProviderRedirector
-        {
-            get { return _redirector; }
-        }
+        public PaletteRedirect ProviderRedirector { get; }
 
         /// <summary>
         /// Gets a delegate used to indicate a repaint is required.
         /// </summary>
-        public NeedPaintHandler ProviderNeedPaintDelegate
-        {
-            get { return _needPaintDelegate; }
-        }
+        public NeedPaintHandler ProviderNeedPaintDelegate { get; }
+
         #endregion
     }
 }

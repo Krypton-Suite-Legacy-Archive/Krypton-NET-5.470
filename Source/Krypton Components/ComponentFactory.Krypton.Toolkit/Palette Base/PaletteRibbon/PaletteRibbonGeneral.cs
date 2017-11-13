@@ -90,32 +90,27 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((ContextTextAlign == PaletteRelativeAlign.Inherit) &&
-                        (ContextTextColor == Color.Empty) &&
-                        (ContextTextFont == null) &&
-                        (DisabledDark == Color.Empty) &&
-                        (DisabledLight == Color.Empty) &&
-                        (DropArrowLight == Color.Empty) &&
-                        (DropArrowDark == Color.Empty) &&
-                        (GroupDialogDark == Color.Empty) &&
-                        (GroupDialogLight == Color.Empty) &&
-                        (GroupSeparatorDark == Color.Empty) &&
-                        (GroupSeparatorLight == Color.Empty) &&
-                        (MinimizeBarDarkColor == Color.Empty) &&
-                        (MinimizeBarLightColor == Color.Empty) &&
-                        (RibbonShape == PaletteRibbonShape.Inherit) &&
-                        (TextFont == null) &&
-                        (TextHint == PaletteTextHint.Inherit) &&
-                        (TabSeparatorColor == Color.Empty) &&
-                        (TabSeparatorContextColor == Color.Empty) &&
-                        (QATButtonDarkColor == Color.Empty) &&
-                        (QATButtonLightColor == Color.Empty));
-            }
-        }
+        public override bool IsDefault => ((ContextTextAlign == PaletteRelativeAlign.Inherit) &&
+                                           (ContextTextColor == Color.Empty) &&
+                                           (ContextTextFont == null) &&
+                                           (DisabledDark == Color.Empty) &&
+                                           (DisabledLight == Color.Empty) &&
+                                           (DropArrowLight == Color.Empty) &&
+                                           (DropArrowDark == Color.Empty) &&
+                                           (GroupDialogDark == Color.Empty) &&
+                                           (GroupDialogLight == Color.Empty) &&
+                                           (GroupSeparatorDark == Color.Empty) &&
+                                           (GroupSeparatorLight == Color.Empty) &&
+                                           (MinimizeBarDarkColor == Color.Empty) &&
+                                           (MinimizeBarLightColor == Color.Empty) &&
+                                           (RibbonShape == PaletteRibbonShape.Inherit) &&
+                                           (TextFont == null) &&
+                                           (TextHint == PaletteTextHint.Inherit) &&
+                                           (TabSeparatorColor == Color.Empty) &&
+                                           (TabSeparatorContextColor == Color.Empty) &&
+                                           (QATButtonDarkColor == Color.Empty) &&
+                                           (QATButtonLightColor == Color.Empty));
+
         #endregion
 
         #region SetInherit
@@ -168,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public PaletteRelativeAlign ContextTextAlign
         {
-            get { return _contextTextAlign; }
+            get => _contextTextAlign;
 
             set
             {
@@ -217,7 +212,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Font ContextTextFont
         {
-            get { return _contextTextFont; }
+            get => _contextTextFont;
 
             set
             {
@@ -266,7 +261,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color ContextTextColor
         {
-            get { return _contextTextColor; }
+            get => _contextTextColor;
 
             set
             {
@@ -315,7 +310,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DisabledDark
         {
-            get { return _disabledDarkColor; }
+            get => _disabledDarkColor;
 
             set
             {
@@ -364,7 +359,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DisabledLight
         {
-            get { return _disabledLightColor; }
+            get => _disabledLightColor;
 
             set
             {
@@ -413,7 +408,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color GroupDialogDark
         {
-            get { return _dialogDarkColor; }
+            get => _dialogDarkColor;
 
             set
             {
@@ -462,7 +457,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color GroupDialogLight
         {
-            get { return _dialogLightColor; }
+            get => _dialogLightColor;
 
             set
             {
@@ -511,7 +506,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropArrowDark
         {
-            get { return _dropArrowDarkColor; }
+            get => _dropArrowDarkColor;
 
             set
             {
@@ -560,7 +555,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color DropArrowLight
         {
-            get { return _dropArrowLightColor; }
+            get => _dropArrowLightColor;
 
             set
             {
@@ -609,7 +604,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color GroupSeparatorDark
         {
-            get { return _groupSeparatorDark; }
+            get => _groupSeparatorDark;
 
             set
             {
@@ -658,7 +653,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color GroupSeparatorLight
         {
-            get { return _groupSeparatorLight; }
+            get => _groupSeparatorLight;
 
             set
             {
@@ -707,7 +702,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color MinimizeBarDarkColor
         {
-            get { return _minimizeBarDarkColor; }
+            get => _minimizeBarDarkColor;
 
             set
             {
@@ -756,7 +751,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color MinimizeBarLightColor
         {
-            get { return _minimizeBarLightColor; }
+            get => _minimizeBarLightColor;
 
             set
             {
@@ -804,7 +799,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(PaletteRibbonShape), "Inherit")]
         public PaletteRibbonShape RibbonShape
         {
-            get { return _ribbonShape; }
+            get => _ribbonShape;
 
             set
             {
@@ -852,9 +847,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color TabSeparatorColor
         {
-            get { return _tabSeparatorColor; }
+            get => _tabSeparatorColor;
 
-			set
+            set
 			{
                 if (_tabSeparatorColor != value)
 				{
@@ -901,7 +896,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color TabSeparatorContextColor
         {
-            get { return _tabSeparatorContextColor; }
+            get => _tabSeparatorContextColor;
 
             set
             {
@@ -950,7 +945,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Font TextFont
         {
-            get { return _textFont; }
+            get => _textFont;
 
             set
             {
@@ -999,7 +994,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public PaletteTextHint TextHint
         {
-            get { return _textHint; }
+            get => _textHint;
 
             set
             {
@@ -1048,7 +1043,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color QATButtonDarkColor
         {
-            get { return _qatButtonDarkColor; }
+            get => _qatButtonDarkColor;
 
             set
             {
@@ -1097,7 +1092,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color QATButtonLightColor
         {
-            get { return _qatButtonLightColor; }
+            get => _qatButtonLightColor;
 
             set
             {

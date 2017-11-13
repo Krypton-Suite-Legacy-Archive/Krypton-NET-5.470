@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawMenuSeparator : ViewDrawDocker
     {
         #region Instance Fields
-        private bool _draw;
+
         #endregion
 
         #region Identity
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(separator.StateNormal.Back, separator.StateNormal.Border)
 		{
             // Draw the separator by default
-            _draw = true;
+            Draw = true;
 
             // Give the separator object the redirector to use when inheriting values
             separator.SetPaletteRedirect(palette);
@@ -77,11 +77,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the drawing of the separator.
         /// </summary>
-        public bool Draw
-        {
-            get { return _draw; }
-            set { _draw = value; }
-        }
+        public bool Draw { get; set; }
+
         #endregion
 
         #region Paint

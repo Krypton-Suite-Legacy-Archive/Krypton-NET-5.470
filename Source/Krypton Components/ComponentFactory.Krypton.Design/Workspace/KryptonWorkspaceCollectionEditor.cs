@@ -59,64 +59,43 @@ namespace ComponentFactory.Krypton.Workspace
                 /// Gets access to the common page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorRedirect StateCommon
-                {
-                    get { return _item.StateCommon; }
-                }
+                public PaletteNavigatorRedirect StateCommon => _item.StateCommon;
 
                 /// <summary>
                 /// Gets access to the disabled page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigator StateDisabled
-                {
-                    get { return _item.StateDisabled; }
-                }
+                public PaletteNavigator StateDisabled => _item.StateDisabled;
 
                 /// <summary>
                 /// Gets access to the normal page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigator StateNormal
-                {
-                    get { return _item.StateNormal; }
-                }
+                public PaletteNavigator StateNormal => _item.StateNormal;
 
                 /// <summary>
                 /// Gets access to the tracking page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherEx StateTracking
-                {
-                    get { return _item.StateTracking; }
-                }
+                public PaletteNavigatorOtherEx StateTracking => _item.StateTracking;
 
                 /// <summary>
                 /// Gets access to the pressed page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherEx StatePressed
-                {
-                    get { return _item.StatePressed; }
-                }
+                public PaletteNavigatorOtherEx StatePressed => _item.StatePressed;
 
                 /// <summary>
                 /// Gets access to the selected page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOther StateSelected
-                {
-                    get { return _item.StateSelected; }
-                }
+                public PaletteNavigatorOther StateSelected => _item.StateSelected;
 
                 /// <summary>
                 /// Gets access to the focus page appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherRedirect OverrideFocus
-                {
-                    get { return _item.OverrideFocus; }
-                }
+                public PaletteNavigatorOtherRedirect OverrideFocus => _item.OverrideFocus;
 
                 /// <summary>
                 /// Gets and sets the page text.
@@ -125,8 +104,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("Page")]
                 public string Text
                 {
-                    get { return _item.Text; }
-                    set { _item.Text = value; }
+                    get => _item.Text;
+                    set => _item.Text = value;
                 }
 
                 /// <summary>
@@ -136,8 +115,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("Page Title")]
                 public string TextTitle
                 {
-                    get { return _item.TextTitle; }
-                    set { _item.TextTitle = value; }
+                    get => _item.TextTitle;
+                    set => _item.TextTitle = value;
                 }
 
                 /// <summary>
@@ -147,8 +126,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("Page Description")]
                 public string TextDescription
                 {
-                    get { return _item.TextDescription; }
-                    set { _item.TextDescription = value; }
+                    get => _item.TextDescription;
+                    set => _item.TextDescription = value;
                 }
 
                 /// <summary>
@@ -158,8 +137,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public Image ImageSmall
                 {
-                    get { return _item.ImageSmall; }
-                    set { _item.ImageSmall = value; }
+                    get => _item.ImageSmall;
+                    set => _item.ImageSmall = value;
                 }
 
                 /// <summary>
@@ -169,8 +148,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public Image ImageMedium
                 {
-                    get { return _item.ImageMedium; }
-                    set { _item.ImageMedium = value; }
+                    get => _item.ImageMedium;
+                    set => _item.ImageMedium = value;
                 }
 
                 /// <summary>
@@ -180,8 +159,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public Image ImageLarge
                 {
-                    get { return _item.ImageLarge; }
-                    set { _item.ImageLarge = value; }
+                    get => _item.ImageLarge;
+                    set => _item.ImageLarge = value;
                 }
 
                 /// <summary>
@@ -191,8 +170,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public Image ToolTipImage
                 {
-                    get { return _item.ToolTipImage; }
-                    set { _item.ToolTipImage = value; }
+                    get => _item.ToolTipImage;
+                    set => _item.ToolTipImage = value;
                 }
 
                 /// <summary>
@@ -202,8 +181,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [Description("Page tooltip image transparent color.")]
                 public Color ToolTipImageTransparentColor
                 {
-                    get { return _item.ToolTipImageTransparentColor; }
-                    set { _item.ToolTipImageTransparentColor = value; }
+                    get => _item.ToolTipImageTransparentColor;
+                    set => _item.ToolTipImageTransparentColor = value;
                 }
 
                 /// <summary>
@@ -214,8 +193,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("")]
                 public string ToolTipTitle
                 {
-                    get { return _item.ToolTipTitle; }
-                    set { _item.ToolTipTitle = value; }
+                    get => _item.ToolTipTitle;
+                    set => _item.ToolTipTitle = value;
                 }
 
                 /// <summary>
@@ -226,8 +205,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("")]
                 public string ToolTipBody
                 {
-                    get { return _item.ToolTipBody; }
-                    set { _item.ToolTipBody = value; }
+                    get => _item.ToolTipBody;
+                    set => _item.ToolTipBody = value;
                 }
 
                 /// <summary>
@@ -237,8 +216,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(LabelStyle), "ToolTip")]
                 public LabelStyle ToolTipStyle
                 {
-                    get { return _item.ToolTipStyle; }
-                    set { _item.ToolTipStyle = value; }
+                    get => _item.ToolTipStyle;
+                    set => _item.ToolTipStyle = value;
                 }
 
                 /// <summary>
@@ -247,8 +226,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [Category("Appearance")]
                 public string UniqueName
                 {
-                    get { return _item.UniqueName; }
-                    set { _item.UniqueName = value; }
+                    get => _item.UniqueName;
+                    set => _item.UniqueName = value;
                 }
 
                 /// <summary>
@@ -258,8 +237,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool Visible
                 {
-                    get { return _item.LastVisibleSet; }
-                    set { _item.LastVisibleSet = value; }
+                    get => _item.LastVisibleSet;
+                    set => _item.LastVisibleSet = value;
                 }
 
                 /// <summary>
@@ -269,8 +248,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool Enabled
                 {
-                    get { return _item.Enabled; }
-                    set { _item.Enabled = value; }
+                    get => _item.Enabled;
+                    set => _item.Enabled = value;
                 }
 
                 /// <summary>
@@ -280,8 +259,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public KryptonContextMenu KryptonContextMenu
                 {
-                    get { return _item.KryptonContextMenu; }
-                    set { _item.KryptonContextMenu = value; }
+                    get => _item.KryptonContextMenu;
+                    set => _item.KryptonContextMenu = value;
                 }
 
                 /// <summary>
@@ -291,8 +270,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Size), "50,50")]
                 public Size MinimumSize
                 {
-                    get { return _item.MinimumSize; }
-                    set { _item.MinimumSize = value; }
+                    get => _item.MinimumSize;
+                    set => _item.MinimumSize = value;
                 }
 
                 /// <summary>
@@ -302,8 +281,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Size), "0,0")]
                 public Size MaximumSize
                 {
-                    get { return _item.MaximumSize; }
-                    set { _item.MaximumSize = value; }
+                    get => _item.MaximumSize;
+                    set => _item.MaximumSize = value;
                 }
 
                 /// <summary>
@@ -313,8 +292,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Padding), "0,0,0,0")]
                 public Padding Padding
                 {
-                    get { return _item.Padding; }
-                    set { _item.Padding = value; }
+                    get => _item.Padding;
+                    set => _item.Padding = value;
                 }
 
                 /// <summary>
@@ -325,8 +304,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public object Tag
                 {
-                    get { return _item.Tag; }
-                    set { _item.Tag = value; }
+                    get => _item.Tag;
+                    set => _item.Tag = value;
                 }
                 #endregion
             }
@@ -359,8 +338,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Size), "0,0")]
                 public Size MinimumSize
                 {
-                    get { return _item.MinimumSize; }
-                    set { _item.MinimumSize = value; }
+                    get => _item.MinimumSize;
+                    set => _item.MinimumSize = value;
                 }
 
                 /// <summary>
@@ -370,8 +349,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Size), "0,0")]
                 public Size MaximumSize
                 {
-                    get { return _item.MaximumSize; }
-                    set { _item.MaximumSize = value; }
+                    get => _item.MaximumSize;
+                    set => _item.MaximumSize = value;
                 }
 
                 /// <summary>
@@ -381,8 +360,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool AllowResizing
                 {
-                    get { return _item.AllowResizing; }
-                    set { _item.AllowResizing = value; }
+                    get => _item.AllowResizing;
+                    set => _item.AllowResizing = value;
                 }
 
                 /// <summary>
@@ -392,8 +371,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("50*,50*")]
                 public string StarSize
                 {
-                    get { return _item.StarSize; }
-                    set { _item.StarSize = value; }
+                    get => _item.StarSize;
+                    set => _item.StarSize = value;
                 }
 
                 /// <summary>
@@ -403,153 +382,105 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool DisposeOnRemove
                 {
-                    get { return _item.DisposeOnRemove; }
-                    set { _item.DisposeOnRemove = value; }
+                    get => _item.DisposeOnRemove;
+                    set => _item.DisposeOnRemove = value;
                 }
 
                 /// <summary>
                 /// Gets access to the bar specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorBar Bar
-                {
-                    get { return _item.Bar; }
-                }
+                public NavigatorBar Bar => _item.Bar;
 
                 /// <summary>
                 /// Gets access to the stack specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorStack Stack
-                {
-                    get { return _item.Stack; }
-                }
+                public NavigatorStack Stack => _item.Stack;
 
                 /// <summary>
                 /// Gets access to the outlook mode specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorOutlook Outlook
-                {
-                    get { return _item.Outlook; }
-                }
+                public NavigatorOutlook Outlook => _item.Outlook;
 
                 /// <summary>
                 /// Gets access to button specifications and fixed button logic.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorButton Button
-                {
-                    get { return _item.Button; }
-                }
+                public NavigatorButton Button => _item.Button;
 
                 /// <summary>
                 /// Gets access to the group specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorGroup Group
-                {
-                    get { return _item.Group; }
-                }
+                public NavigatorGroup Group => _item.Group;
 
                 /// <summary>
                 /// Gets access to the header specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorHeader Header
-                {
-                    get { return _item.Header; }
-                }
+                public NavigatorHeader Header => _item.Header;
 
                 /// <summary>
                 /// Gets access to the panels specific settings.
                 /// </summary>
                 [Category("Visuals (Modes)")]
-                public NavigatorPanel Panel
-                {
-                    get { return _item.Panel; }
-                }
+                public NavigatorPanel Panel => _item.Panel;
 
                 /// <summary>
                 /// Gets access to the popup page specific settings.
                 /// </summary>
                 [Category("Visuals")]
-                public NavigatorPopupPages PopupPages
-                {
-                    get { return _item.PopupPages; }
-                }
+                public NavigatorPopupPages PopupPages => _item.PopupPages;
 
                 /// <summary>
                 /// Gets access to the tooltip specific settings.
                 /// </summary>
                 [Category("Visuals")]
-                public NavigatorToolTips ToolTips
-                {
-                    get { return _item.ToolTips; }
-                }
+                public NavigatorToolTips ToolTips => _item.ToolTips;
 
                 /// <summary>
                 /// Gets access to the common navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorRedirect StateCommon
-                {
-                    get { return _item.StateCommon; }
-                }
+                public PaletteNavigatorRedirect StateCommon => _item.StateCommon;
 
                 /// <summary>
                 /// Gets access to the disabled navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigator StateDisabled
-                {
-                    get { return _item.StateDisabled; }
-                }
+                public PaletteNavigator StateDisabled => _item.StateDisabled;
 
                 /// <summary>
                 /// Gets access to the normal navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigator StateNormal
-                {
-                    get { return _item.StateNormal; }
-                }
+                public PaletteNavigator StateNormal => _item.StateNormal;
 
                 /// <summary>
                 /// Gets access to the tracking navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherEx StateTracking
-                {
-                    get { return _item.StateTracking; }
-                }
+                public PaletteNavigatorOtherEx StateTracking => _item.StateTracking;
 
                 /// <summary>
                 /// Gets access to the pressed navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherEx StatePressed
-                {
-                    get { return _item.StatePressed; }
-                }
+                public PaletteNavigatorOtherEx StatePressed => _item.StatePressed;
 
                 /// <summary>
                 /// Gets access to the selected navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOther StateSelected
-                {
-                    get { return _item.StateSelected; }
-                }
+                public PaletteNavigatorOther StateSelected => _item.StateSelected;
 
                 /// <summary>
                 /// Gets access to the focus navigator appearance entries.
                 /// </summary>
                 [Category("Visuals")]
-                public PaletteNavigatorOtherRedirect OverrideFocus
-                {
-                    get { return _item.OverrideFocus; }
-                }
+                public PaletteNavigatorOtherRedirect OverrideFocus => _item.OverrideFocus;
 
                 /// <summary>
                 /// Gets and sets the display mode.
@@ -558,8 +489,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(NavigatorMode), "BarTabGroup")]
                 public NavigatorMode NavigatorMode
                 {
-                    get { return _item.NavigatorMode; }
-                    set { _item.NavigatorMode = value; }
+                    get => _item.NavigatorMode;
+                    set => _item.NavigatorMode = value;
                 }
 
                 /// <summary>
@@ -569,8 +500,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(PaletteBackStyle), "ControlClient")]
                 public PaletteBackStyle PageBackStyle
                 {
-                    get { return _item.PageBackStyle; }
-                    set { _item.PageBackStyle = value; }
+                    get => _item.PageBackStyle;
+                    set => _item.PageBackStyle = value;
                 }
 
                 /// <summary>
@@ -580,8 +511,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool AllowPageDrag
                 {
-                    get { return _item.AllowPageDrag; }
-                    set { _item.AllowPageDrag = value; }
+                    get => _item.AllowPageDrag;
+                    set => _item.AllowPageDrag = value;
                 }
 
                 /// <summary>
@@ -591,8 +522,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(false)]
                 public bool AllowTabFocus
                 {
-                    get { return _item.AllowTabFocus; }
-                    set { _item.AllowTabFocus = value; }
+                    get => _item.AllowTabFocus;
+                    set => _item.AllowTabFocus = value;
                 }
 
                 /// <summary>
@@ -602,8 +533,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool Visible
                 {
-                    get { return _item.LastVisibleSet; }
-                    set { _item.LastVisibleSet = value; }
+                    get => _item.LastVisibleSet;
+                    set => _item.LastVisibleSet = value;
                 }
 
                 /// <summary>
@@ -613,8 +544,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool Enabled
                 {
-                    get { return _item.Enabled; }
-                    set { _item.Enabled = value; }
+                    get => _item.Enabled;
+                    set => _item.Enabled = value;
                 }
 
                 /// <summary>
@@ -624,8 +555,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public KryptonPage SelectedPage
                 {
-                    get { return _item.SelectedPage; }
-                    
+                    get => _item.SelectedPage;
+
                     set 
                     { 
                         // Check that the target cell allows selected tabs
@@ -643,8 +574,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public KryptonContextMenu KryptonContextMenu
                 {
-                    get { return _item.KryptonContextMenu; }
-                    set { _item.KryptonContextMenu = value; }
+                    get => _item.KryptonContextMenu;
+                    set => _item.KryptonContextMenu = value;
                 }
 
                 /// <summary>
@@ -654,8 +585,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool UseMnemonic
                 {
-                    get { return _item.UseMnemonic; }
-                    set { _item.UseMnemonic = value; }
+                    get => _item.UseMnemonic;
+                    set => _item.UseMnemonic = value;
                 }
 
                 /// <summary>
@@ -666,8 +597,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(null)]
                 public object Tag
                 {
-                    get { return _item.Tag; }
-                    set { _item.Tag = value; }
+                    get => _item.Tag;
+                    set => _item.Tag = value;
                 }
                 #endregion
             }
@@ -700,8 +631,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(true)]
                 public bool Visible
                 {
-                    get { return _item.Visible; }
-                    set { _item.Visible = value; }
+                    get => _item.Visible;
+                    set => _item.Visible = value;
                 }
 
                 /// <summary>
@@ -711,8 +642,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue(typeof(Orientation), "Horizontal")]
                 public Orientation Orientation
                 {
-                    get { return _item.Orientation; }
-                    set { _item.Orientation = value; }
+                    get => _item.Orientation;
+                    set => _item.Orientation = value;
                 }
 
                 /// <summary>
@@ -722,8 +653,8 @@ namespace ComponentFactory.Krypton.Workspace
                 [DefaultValue("50*,50*")]
                 public string StarSize
                 {
-                    get { return _item.StarSize; }
-                    set { _item.StarSize = value; }
+                    get => _item.StarSize;
+                    set => _item.StarSize = value;
                 }
                 #endregion
             }
@@ -738,10 +669,7 @@ namespace ComponentFactory.Krypton.Workspace
                 #endregion
 
                 #region Instance Fields
-                private int _instanceId;
-                private KryptonPage _page;
-                private KryptonWorkspaceCell _cell;
-                private KryptonWorkspaceSequence _sequence;
+
                 #endregion
 
                 #region Identity
@@ -751,27 +679,27 @@ namespace ComponentFactory.Krypton.Workspace
                 /// <param name="item">Item to represent.</param>
                 public MenuTreeNode(Component item)
                 {
-                    _instanceId = _id++;
+                    InstanceId = _id++;
 
-                    _page = item as KryptonPage;
-                    if (_page != null)
+                    PageItem = item as KryptonPage;
+                    if (PageItem != null)
                     {
-                        _page.TextChanged += new EventHandler(OnPageTextChanged);
-                        Text = "Page (" + _page.Text.ToString() + ")";
+                        PageItem.TextChanged += new EventHandler(OnPageTextChanged);
+                        Text = "Page (" + PageItem.Text.ToString() + ")";
                     }
 
-                    _cell = item as KryptonWorkspaceCell;
-                    if (_cell != null)
+                    CellItem = item as KryptonWorkspaceCell;
+                    if (CellItem != null)
                     {
-                        _cell.PropertyChanged += new PropertyChangedEventHandler(OnCellPropertyChanged);
-                        Text = "Cell (" + _cell.StarSize.ToString() + ")";
+                        CellItem.PropertyChanged += new PropertyChangedEventHandler(OnCellPropertyChanged);
+                        Text = "Cell (" + CellItem.StarSize.ToString() + ")";
                     }
 
-                    _sequence = item as KryptonWorkspaceSequence;
-                    if (_sequence != null)
+                    SequenceItem = item as KryptonWorkspaceSequence;
+                    if (SequenceItem != null)
                     {
-                        _sequence.PropertyChanged += new PropertyChangedEventHandler(OnSequencePropertyChanged);
-                        Text = _sequence.Orientation + " (" + _sequence.StarSize.ToString() + ")";
+                        SequenceItem.PropertyChanged += new PropertyChangedEventHandler(OnSequencePropertyChanged);
+                        Text = SequenceItem.Orientation + " (" + SequenceItem.StarSize.ToString() + ")";
                     }
                 }
                 #endregion
@@ -780,58 +708,44 @@ namespace ComponentFactory.Krypton.Workspace
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
                 /// </summary>
-                public Component Item
-                {
-                    get { return (PageItem != null ? (Component)PageItem : (CellItem != null ? (Component)CellItem : (Component)SequenceItem)); }
-                }
+                public Component Item => (PageItem != null ? (Component)PageItem : (CellItem != null ? (Component)CellItem : (Component)SequenceItem));
 
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
                 /// </summary>
-                public KryptonPage PageItem
-                {
-                    get { return _page; }
-                }
+                public KryptonPage PageItem { get; }
 
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
                 /// </summary>
-                public KryptonWorkspaceCell CellItem
-                {
-                    get { return _cell; }
-                }
+                public KryptonWorkspaceCell CellItem { get; }
 
                 /// <summary>
                 /// Gets access to the associated workspace sequence item.
                 /// </summary>
-                public KryptonWorkspaceSequence SequenceItem
-                {
-                    get { return _sequence; }
-                }
+                public KryptonWorkspaceSequence SequenceItem { get; }
 
                 /// <summary>
                 /// Gets the instance identifier.
                 /// </summary>
-                public int InstanceId
-                {
-                    get { return _instanceId; }
-                }
+                public int InstanceId { get; }
+
                 #endregion
 
                 #region Implementation
                 private void OnPageTextChanged(object sender, EventArgs e)
                 {
-                    Text = "Page (" + _page.Text.ToString() + ")";
+                    Text = "Page (" + PageItem.Text.ToString() + ")";
                 }
 
                 private void OnCellPropertyChanged(object sender, PropertyChangedEventArgs e)
                 {
-                    Text = "Cell (" + _cell.StarSize.ToString() + ")";
+                    Text = "Cell (" + CellItem.StarSize.ToString() + ")";
                 }
 
                 private void OnSequencePropertyChanged(object sender, PropertyChangedEventArgs e)
                 {
-                    Text = _sequence.Orientation + " (" + _sequence.StarSize.ToString() + ")";
+                    Text = SequenceItem.Orientation + " (" + SequenceItem.StarSize.ToString() + ")";
                 }
                 #endregion
             }
@@ -842,7 +756,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class PropertyGridSite : ISite, IServiceProvider
             {
                 #region Instance Fields
-                private IComponent _component;
+
                 private IServiceProvider _serviceProvider;
                 private bool _inGetService;
                 #endregion
@@ -857,7 +771,7 @@ namespace ComponentFactory.Krypton.Workspace
                                         IComponent component)
                 {
                     _serviceProvider = servicePovider;
-                    _component = component;
+                    Component = component;
                 }
                 #endregion
 
@@ -888,26 +802,17 @@ namespace ComponentFactory.Krypton.Workspace
                 /// <summary>
                 /// Gets the component associated with the ISite when implemented by a class.
                 /// </summary>
-                public IComponent Component
-                {
-                    get { return _component; }
-                }
+                public IComponent Component { get; }
 
                 /// <summary>
                 /// Gets the IContainer associated with the ISite when implemented by a class.
                 /// </summary>
-                public IContainer Container
-                {
-                    get { return null; }
-                }
+                public IContainer Container => null;
 
                 /// <summary>
                 /// Determines whether the component is in design mode when implemented by a class.
                 /// </summary>
-                public bool DesignMode
-                {
-                    get { return false; }
-                }
+                public bool DesignMode => false;
 
                 /// <summary>
                 /// Gets or sets the name of the component associated with the ISite when implemented by a class.
@@ -1623,9 +1528,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             private void NodeToType(MenuTreeNode node, out bool isPage, out bool isCell, out bool isSequence)
             {
-                isPage = (node != null) && (node.PageItem != null);
-                isCell = (node != null) && (node.CellItem != null);
-                isSequence = (node != null) && (node.SequenceItem != null);
+                isPage = node?.PageItem != null;
+                isCell = node?.CellItem != null;
+                isSequence = node?.SequenceItem != null;
             }
 
             private bool ContainsNode(TreeNode node, TreeNode find)
@@ -1809,9 +1714,9 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 MenuTreeNode node = (MenuTreeNode)treeView.SelectedNode;
                 bool isNone = (node == null);
-                bool isPage = (node != null) && (node.PageItem != null);
-                bool isCell = (node != null) && (node.CellItem != null);
-                bool isSequence = (node != null) && (node.SequenceItem != null);
+                bool isPage = node?.PageItem != null;
+                bool isCell = node?.CellItem != null;
+                bool isSequence = node?.SequenceItem != null;
 
                 buttonMoveUp.Enabled = !isNone && (PreviousNode(node) != null);
                 buttonMoveDown.Enabled = !isNone && (NextNode(node) != null);

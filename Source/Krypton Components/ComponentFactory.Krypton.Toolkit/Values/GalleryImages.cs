@@ -18,9 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class GalleryImages : Storage
     {
         #region Instance Fields
-        private GalleryButtonImages _up;
-        private GalleryButtonImages _down;
-        private GalleryButtonImages _dropDown;
+
         #endregion
 
         #region Identity
@@ -34,9 +32,9 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Create the storage
-            _up = new GalleryButtonImages(needPaint);
-            _down = new GalleryButtonImages(needPaint);
-            _dropDown = new GalleryButtonImages(needPaint);
+            Up = new GalleryButtonImages(needPaint);
+            Down = new GalleryButtonImages(needPaint);
+            DropDown = new GalleryButtonImages(needPaint);
         }
         #endregion
 
@@ -45,16 +43,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _up.IsDefault &&
-                       _down.IsDefault &&
-                       _dropDown.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => Up.IsDefault &&
+		                                  Down.IsDefault &&
+		                                  DropDown.IsDefault;
+
+        #endregion
 
         #region Up
         /// <summary>
@@ -64,10 +57,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Gallery up button images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public GalleryButtonImages Up
-        {
-            get { return _up; }
-        }
+        public GalleryButtonImages Up { get; }
+
         #endregion
 
         #region Down
@@ -78,10 +69,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Gallery down button images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public GalleryButtonImages Down
-        {
-            get { return _down; }
-        }
+        public GalleryButtonImages Down { get; }
+
         #endregion
 
         #region DropDown
@@ -92,10 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Gallery drop down button images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public GalleryButtonImages DropDown
-        {
-            get { return _dropDown; }
-        }
+        public GalleryButtonImages DropDown { get; }
+
         #endregion
     }
 }

@@ -20,9 +20,8 @@ namespace ComponentFactory.Krypton.Workspace
 	public class PagesUnmatchedEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonWorkspace _workspace;
-        private List<KryptonPage> _unmatched;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -33,8 +32,8 @@ namespace ComponentFactory.Krypton.Workspace
         public PagesUnmatchedEventArgs(KryptonWorkspace workspace,
                                        List<KryptonPage> unmatched)
 		{
-            _workspace = workspace;
-            _unmatched = unmatched;
+            Workspace = workspace;
+            Unmatched = unmatched;
 		}
 		#endregion
 
@@ -42,18 +41,13 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the workspace reference.
 		/// </summary>
-        public KryptonWorkspace Workspace
-		{
-            get { return _workspace; }
-		}
+        public KryptonWorkspace Workspace { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the xml reader.
         /// </summary>
-        public List<KryptonPage> Unmatched
-        {
-            get { return _unmatched; }
-        }
-        #endregion
+        public List<KryptonPage> Unmatched { get; }
+
+	    #endregion
 	}
 }

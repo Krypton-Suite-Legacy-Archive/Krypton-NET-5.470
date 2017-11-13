@@ -69,23 +69,18 @@ namespace ComponentFactory.Krypton.Navigator
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-				return (base.IsDefault &&
-                        BarPaddingTabs.Equals(CommonHelper.InheritPadding) &&
-                        BarPaddingInside.Equals(CommonHelper.InheritPadding) &&
-                        BarPaddingOutside.Equals(CommonHelper.InheritPadding) &&
-                        BarPaddingOnly.Equals(CommonHelper.InheritPadding) &&
-                        ButtonPadding.Equals(CommonHelper.InheritPadding) &&
-                        (ButtonEdgeOutside == -1) &&
-                        (ButtonEdgeInside == -1) &&
-                        (CheckButtonGap == -1) &&
-                        (RibbonTabGap == -1));
-			}
-		}
-		#endregion
+		public override bool IsDefault => (base.IsDefault &&
+		                                   BarPaddingTabs.Equals(CommonHelper.InheritPadding) &&
+		                                   BarPaddingInside.Equals(CommonHelper.InheritPadding) &&
+		                                   BarPaddingOutside.Equals(CommonHelper.InheritPadding) &&
+		                                   BarPaddingOnly.Equals(CommonHelper.InheritPadding) &&
+		                                   ButtonPadding.Equals(CommonHelper.InheritPadding) &&
+		                                   (ButtonEdgeOutside == -1) &&
+		                                   (ButtonEdgeInside == -1) &&
+		                                   (CheckButtonGap == -1) &&
+		                                   (RibbonTabGap == -1));
+
+	    #endregion
 
         #region BarPaddingTabs
         /// <summary>
@@ -97,7 +92,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding BarPaddingTabs
         {
-            get { return _barPaddingTabs; }
+            get => _barPaddingTabs;
 
             set
             {
@@ -128,7 +123,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding BarPaddingInside
         {
-            get { return _barPaddingInside; }
+            get => _barPaddingInside;
 
             set
             {
@@ -159,7 +154,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding BarPaddingOutside
         {
-            get { return _barPaddingOutside; }
+            get => _barPaddingOutside;
 
             set
             {
@@ -190,7 +185,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding BarPaddingOnly
         {
-            get { return _barPaddingOnly; }
+            get => _barPaddingOnly;
 
             set
             {
@@ -221,7 +216,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding ButtonPadding
         {
-            get { return _buttonPadding; }
+            get => _buttonPadding;
 
             set
             {
@@ -252,7 +247,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int ButtonEdgeOutside
         {
-            get { return _buttonEdgeOutside; }
+            get => _buttonEdgeOutside;
 
             set
             {
@@ -283,7 +278,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int ButtonEdgeInside
         {
-            get { return _buttonEdgeInside; }
+            get => _buttonEdgeInside;
 
             set
             {
@@ -314,7 +309,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int CheckButtonGap
         {
-            get { return _checkButtonGap; }
+            get => _checkButtonGap;
 
             set
             {
@@ -345,7 +340,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public int RibbonTabGap
         {
-            get { return _ribbonTabGap; }
+            get => _ribbonTabGap;
 
             set
             {

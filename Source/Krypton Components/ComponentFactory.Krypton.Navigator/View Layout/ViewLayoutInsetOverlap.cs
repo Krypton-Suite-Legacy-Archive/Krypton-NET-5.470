@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     {
         #region Instance Fields
         private ViewDrawCanvas _drawCanvas;
-        private VisualOrientation _orientation;
+
         #endregion
 
         #region Identity
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Navigator
             _drawCanvas = drawCanvas;
 
             // Default other state
-            _orientation = VisualOrientation.Top;
+            Orientation = VisualOrientation.Top;
         }
 
 		/// <summary>
@@ -57,9 +57,10 @@ namespace ComponentFactory.Krypton.Navigator
         public VisualOrientation Orientation
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _orientation; }
-            set { _orientation = value; }
+            get;
+            set;
         }
+
         #endregion
 
         #region Rounding
@@ -75,7 +76,7 @@ namespace ComponentFactory.Krypton.Navigator
                 int width = _drawCanvas.PaletteBorder.GetBorderWidth(_drawCanvas.State);
 
                 // We have to add half the width as that increases the rounding effect
-                return rounding + width / 2;
+                return rounding + (width / 2);
             }
         }
         #endregion
@@ -84,10 +85,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the rounding value to apply on the edges.
         /// </summary>
-        public int BorderWidth
-        {
-            get { return _drawCanvas.PaletteBorder.GetBorderWidth(_drawCanvas.State); }
-        }
+        public int BorderWidth => _drawCanvas.PaletteBorder.GetBorderWidth(_drawCanvas.State);
+
         #endregion
 
         #region Layout

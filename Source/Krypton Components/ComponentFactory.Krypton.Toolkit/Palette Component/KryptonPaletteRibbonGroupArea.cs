@@ -19,9 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRibbonBackInheritRedirect _stateInherit;
-        private PaletteRibbonBack _stateCommon;
-        private PaletteRibbonBack _stateCheckedNormal;
-        private PaletteRibbonBack _stateContextCheckedTracking;
+
         #endregion
 
         #region Identity
@@ -35,9 +33,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonGroupArea);
-            _stateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
-            _stateCheckedNormal = new PaletteRibbonBack(_stateCommon, needPaint);
-            _stateContextCheckedTracking = new PaletteRibbonBack(_stateCommon, needPaint);
+            StateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
+            StateCheckedNormal = new PaletteRibbonBack(StateCommon, needPaint);
+            StateContextCheckedNormal = new PaletteRibbonBack(StateCommon, needPaint);
         }
         #endregion
 
@@ -57,16 +55,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateCheckedNormal.IsDefault &&
-                       _stateContextCheckedTracking.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateCheckedNormal.IsDefault &&
+		                                  StateContextCheckedNormal.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -75,8 +68,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
-            _stateContextCheckedTracking.PopulateFromBase(PaletteState.ContextCheckedNormal);
+            StateCheckedNormal.PopulateFromBase(PaletteState.CheckedNormal);
+            StateContextCheckedNormal.PopulateFromBase(PaletteState.ContextCheckedNormal);
         }
         #endregion
 
@@ -88,14 +81,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common ribbon application button appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteRibbonBack StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
 
@@ -107,14 +97,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining checked ribbon group area appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateCheckedNormal
-        {
-            get { return _stateCheckedNormal; }
-        }
+        public PaletteRibbonBack StateCheckedNormal { get; }
 
         private bool ShouldSerializeStateCheckedNormal()
         {
-            return !_stateCheckedNormal.IsDefault;
+            return !StateCheckedNormal.IsDefault;
         }
         #endregion
 
@@ -126,14 +113,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining context checked ribbon group area appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteRibbonBack StateContextCheckedNormal
-        {
-            get { return _stateContextCheckedTracking; }
-        }
+        public PaletteRibbonBack StateContextCheckedNormal { get; }
 
         private bool ShouldSerializeStateContextCheckedNormal()
         {
-            return !_stateContextCheckedTracking.IsDefault;
+            return !StateContextCheckedNormal.IsDefault;
         }
         #endregion
     }

@@ -152,12 +152,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets a value indicating whether the collection has a fixed size. 
 		/// </summary>
-		public bool IsFixedSize
-		{
-			get { return false; }
-		}
+		public bool IsFixedSize => false;
 
-		/// <summary>
+	    /// <summary>
 		/// Removes first occurance of specified item.
 		/// </summary>
 		/// <param name="value">Object reference.</param>
@@ -174,12 +171,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Object at specified index.</returns>
 		object IList.this[int index]
 		{
-			get { return _list[index]; }
-			
-			set
-			{
-				throw new NotImplementedException("Cannot set a collection index with a new value");
-			}
+			get => _list[index];
+
+		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
 		}
 		#endregion
 
@@ -252,12 +246,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Item at specified index.</returns>
 		public T this[int index]
 		{
-			get { return _list[index]; }
-			
-			set
-			{
-				throw new NotImplementedException("Cannot set a collection index with a new value");
-			}
+			get => _list[index];
+
+		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
 		}
 
         /// <summary>
@@ -265,16 +256,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="name">Name of the ribbon tab instance.</param>
         /// <returns>Item at specified index.</returns>
-        public virtual T this[string name]
-        {
-            get
-            {
-                // No match found
-                return null;
-            }
-        }
+        public virtual T this[string name] => null;
 
-        /// <summary>
+	    /// <summary>
         /// Move the source item to be immediately after the target item.
         /// </summary>
         /// <param name="source">Source item to be moved.</param>
@@ -373,20 +357,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
         /// Gets the number of items in collection.
 		/// </summary>
-		public int Count
-		{
-			get { return _list.Count; }
-		}
+		public int Count => _list.Count;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets a value indicating whether the collection is read-only.
 		/// </summary>
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
+		public bool IsReadOnly => false;
 
-		/// <summary>
+	    /// <summary>
         /// Removes first occurance of specified item.
 		/// </summary>
 		/// <param name="item">Item reference.</param>
@@ -437,19 +415,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets a value indicating whether access to the collection is synchronized (thread safe).
 		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
+		public bool IsSynchronized => false;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets an object that can be used to synchronize access to the collection. 
 		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
-		#endregion
+		public object SyncRoot => this;
+
+	    #endregion
 
 		#region IEnumerable
 		/// <summary>

@@ -16,13 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class PaletteTextTrimConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(PaletteTextTrim.Inherit,              "Inherit"),
-                                             new Pair(PaletteTextTrim.Hide,                 "Hide"),
-                                             new Pair(PaletteTextTrim.Character,            "Character"),
-                                             new Pair(PaletteTextTrim.Word,                 "Word"),
-                                             new Pair(PaletteTextTrim.EllipsisCharacter,    "Ellipsis Character"),
-                                             new Pair(PaletteTextTrim.EllipsisWord,         "Ellipsis Word"),
-                                             new Pair(PaletteTextTrim.EllipsisPath,         "Ellipsis Path") };
+
         #endregion
 
         #region Identity
@@ -39,10 +33,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(PaletteTextTrim.Inherit,              "Inherit"),
+            new Pair(PaletteTextTrim.Hide,                 "Hide"),
+            new Pair(PaletteTextTrim.Character,            "Character"),
+            new Pair(PaletteTextTrim.Word,                 "Word"),
+            new Pair(PaletteTextTrim.EllipsisCharacter,    "Ellipsis Character"),
+            new Pair(PaletteTextTrim.EllipsisWord,         "Ellipsis Word"),
+            new Pair(PaletteTextTrim.EllipsisPath,         "Ellipsis Path") };
+
         #endregion
     }
 }

@@ -21,11 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public abstract class DragFeedback : IDisposable
     {
         #region Instance Fields
-        private IPaletteDragDrop _paletteDragDrop;
-        private IRenderer _renderer;
-        private PageDragEndData _pageDragEndData;
-        private DragTargetList _dragTargets;
-        private bool _disposed;
+
         #endregion
 
         #region Identity
@@ -67,21 +63,19 @@ namespace ComponentFactory.Krypton.Navigator
 				// No need to call destructor once dispose has occured
 				GC.SuppressFinalize(this);
 
-                _pageDragEndData = null;
-                _dragTargets = null;
+                PageDragEndData = null;
+                DragTargets = null;
 			}
 
 			// Mark as disposed
-			_disposed = true;
+			IsDisposed = true;
 		}
 
         /// <summary>
         /// Gets a value indicating if the view has been disposed.
         /// </summary>
-        public bool IsDisposed
-        {
-            get { return _disposed; }
-        }
+        public bool IsDisposed { get; private set; }
+
         #endregion
 
         #region Public
@@ -102,10 +96,10 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(pageDragEndData != null);
             Debug.Assert(dragTargets != null);
 
-            _paletteDragDrop = paletteDragDrop;
-            _renderer = renderer;
-            _pageDragEndData = pageDragEndData;
-            _dragTargets = dragTargets;
+            PaletteDragDrop = paletteDragDrop;
+            Renderer = renderer;
+            PageDragEndData = pageDragEndData;
+            DragTargets = dragTargets;
         }
 
         /// <summary>
@@ -121,8 +115,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public virtual void Quit()
         {
-            _pageDragEndData = null;
-            _dragTargets = null;
+            PageDragEndData = null;
+            DragTargets = null;
         }
         #endregion
 
@@ -130,34 +124,23 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the cached drawing palette.
         /// </summary>
-        protected IPaletteDragDrop PaletteDragDrop
-        {
-            get { return _paletteDragDrop; }
-        }
+        protected IPaletteDragDrop PaletteDragDrop { get; private set; }
 
         /// <summary>
         /// Gets access to the cached drawing renderer.
         /// </summary>
-        protected IRenderer Renderer
-        {
-            get { return _renderer; }
-        }
+        protected IRenderer Renderer { get; private set; }
 
         /// <summary>
         /// Gets access to the cached drag data.
         /// </summary>
-        protected PageDragEndData PageDragEndData
-        {
-            get { return _pageDragEndData; }
-        }
+        protected PageDragEndData PageDragEndData { get; private set; }
 
         /// <summary>
         /// Gets access to the cached drag target list.
         /// </summary>
-        protected DragTargetList DragTargets
-        {
-            get { return _dragTargets; }
-        }
-       #endregion
+        protected DragTargetList DragTargets { get; private set; }
+
+        #endregion
     }
 }

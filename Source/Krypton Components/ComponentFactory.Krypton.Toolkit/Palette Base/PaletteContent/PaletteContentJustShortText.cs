@@ -83,10 +83,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonPersist]
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override PaletteContentText LongText
-        {
-            get { return base.LongText; }
-        }
+        public override PaletteContentText LongText => base.LongText;
+
         #endregion
 
         #region AdjacentGap
@@ -98,8 +96,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int AdjacentGap
         {
-            get { return base.AdjacentGap; }
-            set { base.AdjacentGap = value; }
+            get => base.AdjacentGap;
+            set => base.AdjacentGap = value;
         }
         #endregion
     }

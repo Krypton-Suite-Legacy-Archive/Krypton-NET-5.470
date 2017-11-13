@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Image _image;
         private Color _imageTransparentColor;
         private DialogResult _dialogResult;
-        private object _tag;
+
         #endregion
 
         #region Events
@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public DialogResult DialogResult
         {
-            get { return _dialogResult; }
+            get => _dialogResult;
 
             set
             {
@@ -115,7 +115,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool Enabled 
         {
-            get { return _enabled; }
+            get => _enabled;
 
             set
             {
@@ -137,7 +137,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
         {
-            get { return _text; }
+            get => _text;
 
             set
             {
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string ExtraText
         {
-            get { return _extraText; }
+            get => _extraText;
 
             set
             {
@@ -200,7 +200,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Command small image.")]
         public Image Image
         {
-            get { return _image; }
+            get => _image;
 
             set
             {
@@ -232,7 +232,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageTransparentColor
         {
-            get { return _imageTransparentColor; }
+            get => _imageTransparentColor;
 
             set
             {
@@ -251,11 +251,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("User-defined data associated with the object.")]
         [TypeConverter(typeof(StringConverter))]
         [DefaultValue(null)]
-        public object Tag
-        {
-            get { return _tag; }
-            set { _tag = value; }
-        }
+        public object Tag { get; set; }
 
         /// <summary>
         /// Generates a Execute event for a button.
@@ -292,8 +288,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Image IKryptonCommand.ImageSmall 
         {
-            get { return Image; }
-            set { Image = value; }
+            get => Image;
+            set => Image = value;
         }
 
         /// <summary>

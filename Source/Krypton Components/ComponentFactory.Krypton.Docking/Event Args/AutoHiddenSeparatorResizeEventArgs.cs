@@ -21,11 +21,8 @@ namespace ComponentFactory.Krypton.Docking
     public class AutoHiddenSeparatorResizeEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonSeparator _separator;
-        private KryptonDockspace _dockspace;
-        private KryptonPage _page;
-        private Rectangle _resizeRect;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -40,10 +37,10 @@ namespace ComponentFactory.Krypton.Docking
                                                   KryptonPage page,
                                                   Rectangle resizeRect)
 		{
-            _separator = separator;
-            _dockspace = dockspace;
-            _page = page;
-            _resizeRect = resizeRect;
+            SeparatorControl = separator;
+            DockspaceControl = dockspace;
+            Page = page;
+            ResizeRect = resizeRect;
 		}
 		#endregion
 
@@ -51,35 +48,23 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonSeparator control.
         /// </summary>
-        public KryptonSeparator SeparatorControl
-        {
-            get { return _separator; }
-        }
+        public KryptonSeparator SeparatorControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockspace control.
         /// </summary>
-        public KryptonDockspace DockspaceControl
-        {
-            get { return _dockspace; }
-        }
+        public KryptonDockspace DockspaceControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonPage instance.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
+        public KryptonPage Page { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets and sets the rectangle that limits resizing of the dockspace using the separator.
         /// </summary>
-        public Rectangle ResizeRect
-        {
-            get { return _resizeRect; }
-            set { _resizeRect = value; }
-        }
-        #endregion
+        public Rectangle ResizeRect { get; set; }
+
+	    #endregion
 	}
 }

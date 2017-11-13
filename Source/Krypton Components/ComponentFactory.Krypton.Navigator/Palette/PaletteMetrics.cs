@@ -50,14 +50,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((PageButtonSpecInset == -1) && 
-                         PageButtonSpecPadding.Equals(CommonHelper.InheritPadding));
-            }
-        }
+        public override bool IsDefault => ((PageButtonSpecInset == -1) && 
+                                           PageButtonSpecPadding.Equals(CommonHelper.InheritPadding));
+
         #endregion
 
         #region PageButtonSpecInset
@@ -70,7 +65,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(-1)]
         public int PageButtonSpecInset
         {
-            get { return _pageButtonSpecInset; }
+            get => _pageButtonSpecInset;
 
             set
             {
@@ -101,7 +96,7 @@ namespace ComponentFactory.Krypton.Navigator
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Padding PageButtonSpecPadding
         {
-            get { return _pageButtonSpecPadding; }
+            get => _pageButtonSpecPadding;
 
             set
             {

@@ -16,8 +16,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ContextToContent : RibbonToContent
     {
         #region Instance Fields
-        private Color _overrideTextColor;
-        private PaletteTextHint _overrideTextHint;
+
         #endregion
 
         #region Identity
@@ -28,8 +27,8 @@ namespace ComponentFactory.Krypton.Ribbon
         public ContextToContent(PaletteRibbonGeneral ribbonGeneral)
             : base(ribbonGeneral)
         {
-            _overrideTextColor = Color.Empty;
-            _overrideTextHint = PaletteTextHint.Inherit;
+            OverrideTextColor = Color.Empty;
+            OverrideTextHint = PaletteTextHint.Inherit;
         }
         #endregion
 
@@ -37,22 +36,16 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the text color override.
         /// </summary>
-        public Color OverrideTextColor
-        {
-            get { return _overrideTextColor; }
-            set { _overrideTextColor = value; }
-        }
+        public Color OverrideTextColor { get; set; }
+
         #endregion
 
         #region OverrideTextHint
         /// <summary>
         /// Gets and sets the text hint.
         /// </summary>
-        public PaletteTextHint OverrideTextHint
-        {
-            get { return _overrideTextHint; }
-            set { _overrideTextHint = value; }
-        }
+        public PaletteTextHint OverrideTextHint { get; set; }
+
         #endregion
 
         #region IPaletteContent
@@ -93,9 +86,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>PaletteTextHint value.</returns>
         public override PaletteTextHint GetContentShortTextHint(PaletteState state)
         {
-            if (_overrideTextHint != PaletteTextHint.Inherit)
+            if (OverrideTextHint != PaletteTextHint.Inherit)
             {
-                return _overrideTextHint;
+                return OverrideTextHint;
             }
             else
             {
@@ -110,9 +103,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor1(PaletteState state)
         {
-            if (_overrideTextColor != Color.Empty)
+            if (OverrideTextColor != Color.Empty)
             {
-                return _overrideTextColor;
+                return OverrideTextColor;
             }
             else
             {
@@ -127,9 +120,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentShortTextColor2(PaletteState state)
         {
-            if (_overrideTextColor != Color.Empty)
+            if (OverrideTextColor != Color.Empty)
             {
-                return _overrideTextColor;
+                return OverrideTextColor;
             }
             else
             {
@@ -164,9 +157,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>PaletteTextHint value.</returns>
         public override PaletteTextHint GetContentLongTextHint(PaletteState state)
         {
-            if (_overrideTextHint != PaletteTextHint.Inherit)
+            if (OverrideTextHint != PaletteTextHint.Inherit)
             {
-                return _overrideTextHint;
+                return OverrideTextHint;
             }
             else
             {
@@ -181,9 +174,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor1(PaletteState state)
         {
-            if (_overrideTextColor != Color.Empty)
+            if (OverrideTextColor != Color.Empty)
             {
-                return _overrideTextColor;
+                return OverrideTextColor;
             }
             else
             {
@@ -198,9 +191,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor2(PaletteState state)
         {
-            if (_overrideTextColor != Color.Empty)
+            if (OverrideTextColor != Color.Empty)
             {
-                return _overrideTextColor;
+                return OverrideTextColor;
             }
             else
             {

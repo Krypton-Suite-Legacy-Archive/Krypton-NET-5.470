@@ -18,8 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class ContextButtonActionConverter : StringLookupConverter
     {
         #region Static Fields
-        private Pair[] _pairs = { new Pair(ContextButtonAction.None,         "None (Do nothing)"),
-                                             new Pair(ContextButtonAction.SelectPage,   "Select Page") };
+
         #endregion
                                              
         #region Identity
@@ -36,10 +35,10 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets an array of lookup pairs.
         /// </summary>
-        protected override Pair[] Pairs 
-        {
-            get { return _pairs; }
-        }
+        protected override Pair[] Pairs { get; } =
+        { new Pair(ContextButtonAction.None,         "None (Do nothing)"),
+            new Pair(ContextButtonAction.SelectPage,   "Select Page") };
+
         #endregion
     }
 }

@@ -31,11 +31,8 @@ namespace ComponentFactory.Krypton.Toolkit
         internal IPaletteMetric _metricPressed;
         internal IPaletteDouble _palette;
         internal IPaletteMetric _metric;
-        private ISeparatorSource _source;
-        private PaletteMetricPadding _metricPadding;
-        private Orientation _orientation;
-        private int _length;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -76,11 +73,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _metricNormal = metricNormal;
             _metricTracking = metricTracking;
             _metricPressed = metricPressed;
-            _metricPadding = metricPadding;
-            _orientation = orientation;
+            MetricPadding = metricPadding;
+            Orientation = orientation;
 
             // Default other state
-            _length = 0;
+            Length = 0;
 		}
 
 		/// <summary>
@@ -98,46 +95,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the metric used to calculate the padding.
         /// </summary>
-        public PaletteMetricPadding MetricPadding
-        {
-            get { return _metricPadding; }
-            set { _metricPadding = value; }
-        }
-        #endregion
+        public PaletteMetricPadding MetricPadding { get; set; }
+
+	    #endregion
 
         #region Source
         /// <summary>
         /// Gets and sets the associated separator source.
         /// </summary>
-        public ISeparatorSource Source
-        {
-            get { return _source; }
-            set { _source = value; }
-        }
-        #endregion
+        public ISeparatorSource Source { get; set; }
+
+	    #endregion
 
         #region Orientation
         /// <summary>
         /// Gets and sets the visual orientation.
         /// </summary>
-        public Orientation Orientation
-        {
-            get { return _orientation; }
-            set { _orientation = value; }
-        }
-        #endregion
+        public Orientation Orientation { get; set; }
+
+	    #endregion
 
         #region Length
         /// <summary>
         /// Gets and sets the length of the separator.
         /// </summary>
-        public int Length
-        {
-            get { return _length; }
-            set { _length = value; }
+        public int Length { get; set; }
 
-        }
-        #endregion
+	    #endregion
 
         #region SetPalettes
         /// <summary>
@@ -189,7 +173,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		public override Size GetPreferredSize(ViewLayoutContext context)
 		{
             Debug.Assert(context != null);
-            return new Size(_length, _length);
+            return new Size(Length, Length);
 		}
 
 		/// <summary>
@@ -223,7 +207,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Apply padding needed outside the border of the separator
             Rectangle rect = CommonHelper.ApplyPadding(Orientation, ClientRectangle, 
-                                                       _metric.GetMetricPadding(ElementState, _metricPadding));
+                                                       _metric.GetMetricPadding(ElementState, MetricPadding));
 
             // Ask the renderer to perform drawing of the separator glyph
             context.Renderer.RenderGlyph.DrawSeparator(context, rect, _palette.PaletteBack, _palette.PaletteBorder,

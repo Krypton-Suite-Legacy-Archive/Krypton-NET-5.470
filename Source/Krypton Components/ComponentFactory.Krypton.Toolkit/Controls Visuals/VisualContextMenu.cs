@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private ContextMenuProvider _provider;
         private ViewDrawDocker _drawDocker;
         private ViewLayoutStack _viewColumns;
-        private PaletteRedirect _redirector;
+
         #endregion
 
         #region Identity
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                  bool keyboardActivated)
             : base(true)
         {
-            _redirector = provider.ProviderRedirector;
+            Redirector = provider.ProviderRedirector;
 
             // Create the view manager instance with root element
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(true)
         {
             _contextMenu = contextMenu;
-            _redirector = redirector;
+            Redirector = redirector;
 
             // Create the view manager instance with root element
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
@@ -146,10 +146,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Sets the reason for the context menu being closed.
         /// </summary>
-        public Nullable<ToolStripDropDownCloseReason> CloseReason 
-        {
-            get { return _provider.ProviderCloseReason; }
-        }
+        public Nullable<ToolStripDropDownCloseReason> CloseReason => _provider.ProviderCloseReason;
 
         /// <summary>
         /// Show the context menu relative to the current mouse location.
@@ -363,8 +360,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public KryptonContextMenuPositionH ShowHorz
         {
-            get { return _provider.ProviderShowHorz; }
-            set { _provider.ProviderShowHorz = value; }
+            get => _provider.ProviderShowHorz;
+            set => _provider.ProviderShowHorz = value;
         }
 
         /// <summary>
@@ -372,17 +369,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public KryptonContextMenuPositionV ShowVert
         {
-            get { return _provider.ProviderShowVert; }
-            set { _provider.ProviderShowVert = value; }
+            get => _provider.ProviderShowVert;
+            set => _provider.ProviderShowVert = value;
         }
 
         /// <summary>
         /// Gets access to the view manager for the context menu.
         /// </summary>
-        public ViewContextMenuManager ViewContextMenuManager
-        {
-            get { return (ViewContextMenuManager)ViewManager; }
-        }
+        public ViewContextMenuManager ViewContextMenuManager => (ViewContextMenuManager)ViewManager;
 
         /// <summary>
         /// Should a mouse down at the provided point cause it to become the current tracking popup.
@@ -404,7 +398,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected PaletteRedirect Redirector
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _redirector; }
+            get;
         }
 
         /// <summary>
@@ -541,7 +535,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _palette = palette;
 
                 // Update redirector to use palette as source for obtaining values
-                _redirector.Target = _palette;
+                Redirector.Target = _palette;
 
                 // Get the renderer associated with the palette
                 Renderer = _palette.GetRenderer();

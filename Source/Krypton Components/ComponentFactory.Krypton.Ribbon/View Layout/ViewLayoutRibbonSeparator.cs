@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Size SeparatorSize
         {
-            get { return new Size(_width, _height); }
+            get => new Size(_width, _height);
 
             set
             {

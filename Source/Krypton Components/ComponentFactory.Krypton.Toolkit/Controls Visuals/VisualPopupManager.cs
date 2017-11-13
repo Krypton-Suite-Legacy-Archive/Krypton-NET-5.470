@@ -36,11 +36,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
         private PopupStack _stack;
-        private VisualPopup _current;
         private IntPtr _activeWindow;
         private bool _filtering;
         private int _suspended;
-        private bool _showingCMS;
         private ContextMenuStrip _cms;
         private EventHandler _cmsFinishDelegate;
         #endregion
@@ -78,20 +76,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if currently showing a context menu strip.
         /// </summary>
-        public bool IsShowingCMS
-        {
-            get { return _showingCMS; }
-        }
+        public bool IsShowingCMS { get; private set; }
+
         #endregion
         
         #region IsTracking
         /// <summary>
         /// Gets a value indicating if currently tracking a popup.
         /// </summary>
-        public bool IsTracking
-        {
-            get { return (_current != null); }
-        }
+        public bool IsTracking => (CurrentPopup != null);
+
         #endregion
 
         #region CurrentPopup
@@ -101,18 +95,18 @@ namespace ComponentFactory.Krypton.Toolkit
         public VisualPopup CurrentPopup
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _current; }
+            get;
+            private set;
         }
+
         #endregion
 
         #region StackedPopups
         /// <summary>
         /// Gets the stacked set of popups as an array.
         /// </summary>
-        public VisualPopup[] StackedPopups
-        {
-            get { return _stack.ToArray(); }
-        }
+        public VisualPopup[] StackedPopups => _stack.ToArray();
+
         #endregion
 
         #region TrackingByType
@@ -168,10 +162,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_suspended == 0)
                 {
                     // If we already have a popup...
-                    if (_current != null)
+                    if (CurrentPopup != null)
                     {
                         // Then stack it
-                        _stack.Push(_current);
+                        _stack.Push(CurrentPopup);
                     }
                     else
                     {
@@ -183,7 +177,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // Store reference
-                    _current = popup;
+                    CurrentPopup = popup;
                 }
             }
         }
@@ -196,24 +190,24 @@ namespace ComponentFactory.Krypton.Toolkit
         public void EndAllTracking()
         {
             // Are we tracking a popup?
-            if (_current != null)
+            if (CurrentPopup != null)
             {
                 // Kill the popup window
-                if (!_current.IsDisposed)
+                if (!CurrentPopup.IsDisposed)
                 {
-                    _current.Dispose();
-                    _current = null;
+                    CurrentPopup.Dispose();
+                    CurrentPopup = null;
                 }
 
                 // Is there anything stacked?
                 while (_stack.Count > 0)
                 {
                     // Pop back the popup
-                    _current = _stack.Pop();
+                    CurrentPopup = _stack.Pop();
 
                     // Kill the popup
-                    _current.Dispose();
-                    _current = null;
+                    CurrentPopup.Dispose();
+                    CurrentPopup = null;
                 }
 
                 // No longer need to filter
@@ -230,33 +224,33 @@ namespace ComponentFactory.Krypton.Toolkit
         public void EndPopupTracking(VisualPopup popup)
         {
             // Are we tracking a popup?
-            if (_current != null)
+            if (CurrentPopup != null)
             {
                 bool found = false;
 
                 do
                 {
                     // Is this the target?
-                    found = (_current == popup);
+                    found = (CurrentPopup == popup);
 
                     // If possible then kill the current popup
-                    if (!_current.IsDisposed)
+                    if (!CurrentPopup.IsDisposed)
                     {
-                        _current.Dispose();
+                        CurrentPopup.Dispose();
                     }
 
-                    _current = null;
+                    CurrentPopup = null;
 
                     // If anything on stack, then it becomes the current one
                     if (_stack.Count > 0)
                     {
-                        _current = _stack.Pop();
+                        CurrentPopup = _stack.Pop();
                     }
                 }
-                while (!found && (_current != null));
+                while (!found && (CurrentPopup != null));
 
                 // If we removed all the popups
-                if (_current == null)
+                if (CurrentPopup == null)
                 {
                     // No longer need to filter
                     FilterMessages(false);
@@ -272,24 +266,24 @@ namespace ComponentFactory.Krypton.Toolkit
         public void EndCurrentTracking()
         {
             // Are we tracking a popup?
-            if (_current != null)
+            if (CurrentPopup != null)
             {
                 // Kill the popup window
-                if (!_current.IsDisposed)
+                if (!CurrentPopup.IsDisposed)
                 {
-                    _current.Dispose();
+                    CurrentPopup.Dispose();
                 }
 
                 // Is there anything stacked?
                 if (_stack.Count > 0)
                 {
                     // Pop back and now track
-                    _current = _stack.Pop();
+                    CurrentPopup = _stack.Pop();
                 }
                 else
                 {
                     // No longer tracking any popup
-                    _current = null;
+                    CurrentPopup = null;
 
                     // Last popup removed, so unhook from message processing
                     FilterMessages(false);
@@ -337,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 FilterMessages(true);
 
                 // We are showing a context menu strip
-                _showingCMS = true;
+                IsShowingCMS = true;
 
                 // Remember the strip reference for use in message processing
                 _cms = cms;
@@ -376,10 +370,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 return false;
             }
 
-            if (_current != null)
+            if (CurrentPopup != null)
             {
                 // If the popup has been become disposed
-                if (_current.IsDisposed)
+                if (CurrentPopup.IsDisposed)
                 {
                     EndCurrentTracking();
                     return false;
@@ -393,13 +387,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (activeWindow != _activeWindow)
                     {
                         // If the current window has become active, ask popup if that is allowed
-                        if ((activeWindow == _current.Handle) && _current.AllowBecomeActiveWhenCurrent)
+                        if ((activeWindow == CurrentPopup.Handle) && CurrentPopup.AllowBecomeActiveWhenCurrent)
                         {
-                            _activeWindow = _current.Handle;
+                            _activeWindow = CurrentPopup.Handle;
                         }
                         else
                         {
-                            bool focus = _current.ContainsFocus;
+                            bool focus = CurrentPopup.ContainsFocus;
 
                             if (!focus)
                             {
@@ -442,12 +436,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_KEYDOWN:
                     case PI.WM_SYSKEYDOWN:
                         // If the popup is telling us to redirect keyboard to itself
-                        if (!_current.KeyboardInert)
+                        if (!CurrentPopup.KeyboardInert)
                         {
                             // If the focus is not inside the actual current tracking popup
                             // then we need to manually translate the message to ensure that
                             // KeyPress events occur for the current popup.
-                            if (!_current.ContainsFocus)
+                            if (!CurrentPopup.ContainsFocus)
                             {
                                 PI.MSG msg = new PI.MSG
                                 {
@@ -468,7 +462,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_SYSKEYUP:
                     case PI.WM_SYSDEADCHAR:
                         // If the popup is telling us to redirect keyboard to itself
-                        if (!_current.KeyboardInert)
+                        if (!CurrentPopup.KeyboardInert)
                         {
                             return ProcessKeyboard(ref m);
                         }
@@ -496,12 +490,12 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ProcessKeyboard(ref Message m)
         {
             // If focus is not inside the current popup...
-            if (!_current.ContainsFocus)
+            if (!CurrentPopup.ContainsFocus)
             {
                 // ...then redirect the message to the popup so it can process all
                 // keyboard input. We just send the message on by altering the handle
                 // to the current popup and then suppress processing of current message.
-                PI.SendMessage(_current.Handle, m.Msg, m.WParam, m.LParam);
+                PI.SendMessage(CurrentPopup.Handle, m.Msg, m.WParam, m.LParam);
                 return true;
             }
             else
@@ -519,12 +513,12 @@ namespace ComponentFactory.Krypton.Toolkit
             Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(m);
 
             // Is this message for the current popup?
-            if (m.HWnd == _current.Handle)
+            if (m.HWnd == CurrentPopup.Handle)
             {
                 // Message is intended for the current popup which means we ask the popup if it
                 // would like to kill the entire stack because it knows the mouse down should
                 // cancel the showing of popups.
-                if (_current.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
+                if (CurrentPopup.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
                 {
                     EndAllTracking();
                 }
@@ -534,7 +528,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the current popup is not the intended recipient but the current popup knows
                 // that the mouse down is safe because it is within the client area of itself, then
                 // just let the message carry on as normal.
-                if (_current.DoesCurrentMouseDownContinueTracking(m, ScreenPtToClientPt(screenPt)))
+                if (CurrentPopup.DoesCurrentMouseDownContinueTracking(m, ScreenPtToClientPt(screenPt)))
                 {
                     return processed;
                 }
@@ -559,12 +553,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                 if (popup.DoesStackedClientMouseDownBecomeCurrent(m, ScreenPtToClientPt(screenPt, popup.Handle)))
                                 {
                                     // Kill the popups until back at the requested popup
-                                    while ((_current != null) && (_current != popup))
+                                    while ((CurrentPopup != null) && (CurrentPopup != popup))
                                     {
-                                        _current.Dispose();
+                                        CurrentPopup.Dispose();
                                         if (_stack.Count > 0)
                                         {
-                                            _current = _stack.Pop();
+                                            CurrentPopup = _stack.Pop();
                                         }
                                     }
                                 }
@@ -575,9 +569,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     // Do any of the current popups want the mouse down to be eaten?
-                    if (_current != null)
+                    if (CurrentPopup != null)
                     {
-                        processed = _current.DoesMouseDownGetEaten(m, screenPt);
+                        processed = CurrentPopup.DoesMouseDownGetEaten(m, screenPt);
                         if (!processed)
                         {
                             // Search from end towards the front, the last entry is the most recent 'Push'
@@ -611,16 +605,16 @@ namespace ComponentFactory.Krypton.Toolkit
             Point screenPt = new Point(PI.LOWORD((int)m.LParam), PI.HIWORD((int)m.LParam));
 
             // Ask the popup if this message causes the entire stack to be killed
-            if (_current.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
+            if (CurrentPopup.DoesCurrentMouseDownEndAllTracking(m, ScreenPtToClientPt(screenPt)))
             {
                 EndAllTracking();
             }
 
             // Do any of the current popups want the mouse down to be eaten?
             bool processed = false;
-            if (_current != null)
+            if (CurrentPopup != null)
             {
-                processed = _current.DoesMouseDownGetEaten(m, screenPt);
+                processed = CurrentPopup.DoesMouseDownGetEaten(m, screenPt);
                 if (!processed)
                 {
                     // Search from end towards the front, the last entry is the most recent 'Push'
@@ -647,13 +641,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ProcessMouseMove(ref Message m)
         {
             // Is this message for a different window?
-            if (m.HWnd != _current.Handle)
+            if (m.HWnd != CurrentPopup.Handle)
             {
                 // Convert the client position to screen point
                 Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(m);
 
                 // Ask the current popup if it allows the mouse move
-                if (_current.AllowMouseMove(m, screenPt))
+                if (CurrentPopup.AllowMouseMove(m, screenPt))
                 {
                     return false;
                 }
@@ -684,7 +678,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private bool ProcessMouseMoveWithCMS(ref Message m)
         {
-            if (_current == null)
+            if (CurrentPopup == null)
             {
                 return false;
             }
@@ -703,7 +697,7 @@ namespace ComponentFactory.Krypton.Toolkit
             IntPtr hWnd = PI.WindowFromPoint(screenPIPt);
 
             // Is the window handle that of the currently tracking popup
-            if (_current.Handle == hWnd)
+            if (CurrentPopup.Handle == hWnd)
             {
                 return true;
             }
@@ -727,7 +721,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private Point ScreenPtToClientPt(Point pt)
         {
-            return ScreenPtToClientPt(pt, _current.Handle);
+            return ScreenPtToClientPt(pt, CurrentPopup.Handle);
         }
 
         private Point ScreenPtToClientPt(Point pt, IntPtr handle)
@@ -813,7 +807,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _suspended--;
 
             // If we are filtering messages but no longer need to filter
-            if (_filtering && (_current == null))
+            if (_filtering && (CurrentPopup == null))
             {
                 Application.RemoveMessageFilter(this);
                 _filtering = false;
@@ -821,7 +815,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // No longer showing a context menu strip
             _cms = null;
-            _showingCMS = false;
+            IsShowingCMS = false;
 
             // Do we fire a delegate to notify end of the strip?
             if (_cmsFinishDelegate != null)

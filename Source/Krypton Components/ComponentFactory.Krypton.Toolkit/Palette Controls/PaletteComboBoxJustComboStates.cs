@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteComboBoxJustComboStates : Storage
 	{
 		#region Instance Fields
-        private PaletteInputControlTripleStates _comboBoxState;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaint = needPaint;
 
             // Create storage that maps onto the inherit instances
-            _comboBoxState = new PaletteInputControlTripleStates(inheritComboBox, needPaint);
+            ComboBox = new PaletteInputControlTripleStates(inheritComboBox, needPaint);
 		}
 		#endregion
 
@@ -46,11 +46,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get { return ComboBox.IsDefault; }
-		}
-		#endregion
+		public override bool IsDefault => ComboBox.IsDefault;
+
+	    #endregion
 
         #region SetInherit
         /// <summary>
@@ -59,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="inheritComboBox">Source for inheriting combo box values.</param>
         public void SetInherit(IPaletteTriple inheritComboBox)
         {
-            _comboBoxState.SetInherit(inheritComboBox);
+            ComboBox.SetInherit(inheritComboBox);
         }
         #endregion
 
@@ -70,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette state to use when populating.</param>
         public void PopulateFromBase(PaletteState state)
         {
-            _comboBoxState.PopulateFromBase(state);
+            ComboBox.PopulateFromBase(state);
         }
         #endregion
 
@@ -82,14 +80,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining combo box appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteInputControlTripleStates ComboBox
-        {
-            get { return _comboBoxState; }
-        }
+        public PaletteInputControlTripleStates ComboBox { get; }
 
-        private bool ShouldSerializeComboBox()
+	    private bool ShouldSerializeComboBox()
         {
-            return !_comboBoxState.IsDefault;
+            return !ComboBox.IsDefault;
         }
         #endregion
 

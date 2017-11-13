@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class DockGlobalSavingEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonDockingManager _manager;
-        private XmlWriter _xmlWriter;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -32,8 +31,8 @@ namespace ComponentFactory.Krypton.Docking
         public DockGlobalSavingEventArgs(KryptonDockingManager manager,
                                          XmlWriter xmlWriter)
 		{
-            _manager = manager;
-            _xmlWriter = xmlWriter;
+            DockingManager = manager;
+            XmlWriter = xmlWriter;
 		}
 		#endregion
 
@@ -41,18 +40,13 @@ namespace ComponentFactory.Krypton.Docking
 		/// <summary>
         /// Gets the docking manager reference.
 		/// </summary>
-        public KryptonDockingManager DockingManager
-		{
-            get { return _manager; }
-		}
+        public KryptonDockingManager DockingManager { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the xml writer.
         /// </summary>
-        public XmlWriter XmlWriter
-        {
-            get { return _xmlWriter; }
-        }
-        #endregion
+        public XmlWriter XmlWriter { get; }
+
+	    #endregion
 	}
 }

@@ -27,8 +27,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Instance Fields
         private bool _lastHitTest;
         private bool _ignoreOnAddPage;
-        private KryptonNavigator _navigator;
-        private DesignerVerbCollection _verbs;
+	    private DesignerVerbCollection _verbs;
         private DesignerVerb _verbAddPage;
         private DesignerVerb _verbRemovePage;
         private DesignerVerb _verbClearPages;
@@ -53,26 +52,26 @@ namespace ComponentFactory.Krypton.Navigator
             AutoResizeHandles = true;
 
             // Cast to correct type
-            _navigator = (KryptonNavigator)component;
+            Navigator = (KryptonNavigator)component;
 
             // Must enable the child panel so that copy and paste of navigator
             // correctly copies across copies of the child pages. Also allows the
             // child panel to be viewed in the document outline and modified.
-            EnableDesignMode(_navigator.ChildPanel, "PageContainer");
+            EnableDesignMode(Navigator.ChildPanel, "PageContainer");
 
             // Make sure that all the pages in control can be designed
-            foreach (KryptonPage page in _navigator.Pages)
+            foreach (KryptonPage page in Navigator.Pages)
             {
                 EnableDesignMode(page, page.Name);
             }
 
             // Monitor navigator events
-            _navigator.GetViewManager().MouseDownProcessed += new MouseEventHandler(OnNavigatorMouseUp);
-            _navigator.GetViewManager().DoubleClickProcessed += new PointHandler(OnNavigatorDoubleClick);
-            _navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            _navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            _navigator.Pages.Cleared += new EventHandler(OnPagesCleared);
-            _navigator.SelectedPageChanged += new EventHandler(OnSelectedPageChanged);
+            Navigator.GetViewManager().MouseDownProcessed += new MouseEventHandler(OnNavigatorMouseUp);
+            Navigator.GetViewManager().DoubleClickProcessed += new PointHandler(OnNavigatorDoubleClick);
+            Navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
+            Navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
+            Navigator.Pages.Cleared += new EventHandler(OnPagesCleared);
+            Navigator.SelectedPageChanged += new EventHandler(OnSelectedPageChanged);
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
@@ -99,7 +98,7 @@ namespace ComponentFactory.Krypton.Navigator
             _ignoreOnAddPage = false;
 
             // Get access to the Pages property
-            MemberDescriptor propertyPages = TypeDescriptor.GetProperties(_navigator)["Pages"];
+            MemberDescriptor propertyPages = TypeDescriptor.GetProperties(Navigator)["Pages"];
 
             // Notify that the pages collection has been updated
             RaiseComponentChanging(propertyPages);
@@ -160,8 +159,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ArrayList compound = new ArrayList();
 
                 // Add all the navigator components
-                compound.AddRange(_navigator.Button.ButtonSpecs);
-                compound.AddRange(_navigator.Pages);
+                compound.AddRange(Navigator.Button.ButtonSpecs);
+                compound.AddRange(Navigator.Pages);
 
                 return compound;
             }
@@ -178,7 +177,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (control is KryptonPage)
             {
                 // Cannot add the same page more than once
-                return !_navigator.Controls.Contains(control);
+                return !Navigator.Controls.Contains(control);
             }
 
             return false;
@@ -191,7 +190,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>A ControlDesigner at the specified index.</returns>
         public override ControlDesigner InternalControlDesigner(int internalControlIndex)
         {
-            return (ControlDesigner)_designerHost.GetDesigner(_navigator.Pages[internalControlIndex]);
+            return (ControlDesigner)_designerHost.GetDesigner(Navigator.Pages[internalControlIndex]);
         }
 
         /// <summary>
@@ -200,7 +199,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>The number of internal control designers in the ControlDesigner.</returns>
         public override int NumberOfInternalControlDesigners()
         {
-            return _navigator.Pages.Count;
+            return Navigator.Pages.Count;
         }
 
         /// <summary>
@@ -240,12 +239,12 @@ namespace ComponentFactory.Krypton.Navigator
                 if (disposing)
                 {
                     // Unhook from navigator events
-                    _navigator.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnNavigatorMouseUp);
-                    _navigator.GetViewManager().DoubleClickProcessed -= new PointHandler(OnNavigatorDoubleClick);
-                    _navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnPageInserted);
-                    _navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnPageRemoved);
-                    _navigator.Pages.Cleared -= new EventHandler(OnPagesCleared);
-                    _navigator.SelectedPageChanged -= new EventHandler(OnSelectedPageChanged);
+                    Navigator.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnNavigatorMouseUp);
+                    Navigator.GetViewManager().DoubleClickProcessed -= new PointHandler(OnNavigatorDoubleClick);
+                    Navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnPageInserted);
+                    Navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnPageRemoved);
+                    Navigator.Pages.Cleared -= new EventHandler(OnPagesCleared);
+                    Navigator.SelectedPageChanged -= new EventHandler(OnSelectedPageChanged);
 
                     // Unhook from designer events
                     _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
@@ -266,13 +265,13 @@ namespace ComponentFactory.Krypton.Navigator
         protected override bool GetHitTest(Point point)
         {
             // Ask the control if it wants to process the point
-            bool ret = _navigator.DesignerGetHitTest(_navigator.PointToClient(point));
+            bool ret = Navigator.DesignerGetHitTest(Navigator.PointToClient(point));
 
             // If the navigator does not want the mouse point then make sure the 
             // tracking element is informed that the mouse has left the control
             if (!ret && _lastHitTest)
             {
-                _navigator.DesignerMouseLeave();
+                Navigator.DesignerMouseLeave();
             }
 
             // Cache the last answer recovered
@@ -286,7 +285,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         protected override void OnMouseLeave()
         {
-            _navigator.DesignerMouseLeave();
+            Navigator.DesignerMouseLeave();
             base.OnMouseLeave();
         }
 
@@ -322,12 +321,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the associated navigator instance.
         /// </summary>
-        protected KryptonNavigator Navigator
-        {
-            get { return _navigator; }
-        }
+        protected KryptonNavigator Navigator { get; private set; }
 
-        /// <summary>
+	    /// <summary>
         /// Occurs when the component is being removed from the designer.
         /// </summary>
         /// <param name="sender">Source of the event.</param>
@@ -335,29 +331,29 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void OnComponentRemoving(object sender, ComponentEventArgs e)
         {
             // If our control is being removed
-            if (e.Component == _navigator)
+            if (e.Component == Navigator)
             {
                 // Need access to host in order to delete a component
                 IDesignerHost host = (IDesignerHost)GetService(typeof(IDesignerHost));
 
                 // We need to remove all the button spec instances
-                for (int i = _navigator.Button.ButtonSpecs.Count - 1; i >= 0; i--)
+                for (int i = Navigator.Button.ButtonSpecs.Count - 1; i >= 0; i--)
                 {
-                    ButtonSpec spec = _navigator.Button.ButtonSpecs[i];
-                    _changeService.OnComponentChanging(_navigator, null);
-                    _navigator.Button.ButtonSpecs.Remove(spec);
+                    ButtonSpec spec = Navigator.Button.ButtonSpecs[i];
+                    _changeService.OnComponentChanging(Navigator, null);
+                    Navigator.Button.ButtonSpecs.Remove(spec);
                     host.DestroyComponent(spec);
-                    _changeService.OnComponentChanged(_navigator, null, null, null);
+                    _changeService.OnComponentChanged(Navigator, null, null, null);
                 }
 
                 // We need to remove all the page instances
-                for (int i = _navigator.Pages.Count - 1; i >= 0; i--)
+                for (int i = Navigator.Pages.Count - 1; i >= 0; i--)
                 {
-                    KryptonPage page = _navigator.Pages[i];
-                    _changeService.OnComponentChanging(_navigator, null);
-                    _navigator.Pages.Remove(page);
+                    KryptonPage page = Navigator.Pages[i];
+                    _changeService.OnComponentChanging(Navigator, null);
+                    Navigator.Pages.Remove(page);
                     host.DestroyComponent(page);
-                    _changeService.OnComponentChanged(_navigator, null, null, null);
+                    _changeService.OnComponentChanged(Navigator, null, null, null);
                 }
             }
         }
@@ -372,7 +368,7 @@ namespace ComponentFactory.Krypton.Navigator
             try
             {
                 // Get access to the Pages property
-                MemberDescriptor propertyPages = TypeDescriptor.GetProperties(_navigator)["Pages"];
+                MemberDescriptor propertyPages = TypeDescriptor.GetProperties(Navigator)["Pages"];
 
                 // Do we need to raise the changing notification?
                 if (!_ignoreOnAddPage)
@@ -403,7 +399,7 @@ namespace ComponentFactory.Krypton.Navigator
                 }
 
                 // Add a new defaulted page to the navigator
-                _navigator.Pages.Add(page);
+                Navigator.Pages.Add(page);
 
                 // Do we need to raise the changed notification?
                 if (!_ignoreOnAddPage)
@@ -426,13 +422,13 @@ namespace ComponentFactory.Krypton.Navigator
             try
             {
                 // Get access to the Pages property
-                MemberDescriptor propertyPages = TypeDescriptor.GetProperties(_navigator)["Pages"];
+                MemberDescriptor propertyPages = TypeDescriptor.GetProperties(Navigator)["Pages"];
 
                 // Remove the selected page from the navigator
                 RaiseComponentChanging(propertyPages);
                 
                 // Get the page we are going to remove
-                KryptonPage removePage = _navigator.SelectedPage;
+                KryptonPage removePage = Navigator.SelectedPage;
 
                 // Get designer to destroy it
                 _designerHost.DestroyComponent(removePage);
@@ -459,15 +455,15 @@ namespace ComponentFactory.Krypton.Navigator
                 try
                 {
                     // Get access to the Pages property
-                    MemberDescriptor propertyPages = TypeDescriptor.GetProperties(_navigator)["Pages"];
+                    MemberDescriptor propertyPages = TypeDescriptor.GetProperties(Navigator)["Pages"];
 
                     // Remove all pages from the navigator
                     RaiseComponentChanging(propertyPages);
 
                     // Get the designer to destroy each page in turn
-                    for(int i=_navigator.Pages.Count; i>0; i--)
+                    for(int i=Navigator.Pages.Count; i>0; i--)
                     {
-                        _designerHost.DestroyComponent(_navigator.Pages[0]);
+                        _designerHost.DestroyComponent(Navigator.Pages[0]);
                     }
 
                     RaiseComponentChanged(propertyPages, null, null);
@@ -508,12 +504,12 @@ namespace ComponentFactory.Krypton.Navigator
             if (e.Button == MouseButtons.Left)
             {
                 // Get any component associated with the current mouse position
-                Component component = _navigator.DesignerComponentFromPoint(new Point(e.X, e.Y));
+                Component component = Navigator.DesignerComponentFromPoint(new Point(e.X, e.Y));
 
                 if (component != null)
                 {
                     // Force the layout to be update for any change in selection
-                    _navigator.PerformLayout();
+                    Navigator.PerformLayout();
 
                     // Select the component
                     ArrayList selectionList = new ArrayList
@@ -528,7 +524,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnNavigatorDoubleClick(object sender, Point pt)
         {
             // Get any component associated with the current mouse position
-            Component component = _navigator.DesignerComponentFromPoint(pt);
+            Component component = Navigator.DesignerComponentFromPoint(pt);
 
             // We are only interested in the button spec components and not the tab/check buttons
             if ((component != null) && !(component is Control))
@@ -546,15 +542,15 @@ namespace ComponentFactory.Krypton.Navigator
             // Can only update verbs, if the verbs have been created
             if (_verbs != null)
             {
-                _verbRemovePage.Enabled = (_navigator.SelectedPage != null);
-                _verbClearPages.Enabled = (_navigator.Pages.Count > 0);
+                _verbRemovePage.Enabled = (Navigator.SelectedPage != null);
+                _verbClearPages.Enabled = (Navigator.Pages.Count > 0);
             }
         }
 
         private void MarkSelectionAsChanged()
         {
             // Get access to the SelectedPage property
-            MemberDescriptor propertyPage = TypeDescriptor.GetProperties(_navigator)["SelectedPage"];
+            MemberDescriptor propertyPage = TypeDescriptor.GetProperties(Navigator)["SelectedPage"];
 
             // Notify that the selected page has been updated
             RaiseComponentChanging(propertyPage);

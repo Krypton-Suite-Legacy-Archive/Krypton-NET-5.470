@@ -63,16 +63,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault &&
-                       _stateActive.IsDefault;
-            }
-        }
+        public override bool IsDefault => _stateCommon.IsDefault &&
+                                          _stateDisabled.IsDefault &&
+                                          _stateNormal.IsDefault &&
+                                          _stateActive.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -96,10 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common input control appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteTripleRedirect StateCommon => _stateCommon;
 
         private bool ShouldSerializeStateCommon()
         {
@@ -115,10 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteTriple StateDisabled => _stateDisabled;
 
         private bool ShouldSerializeStateDisabled()
         {
@@ -134,10 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteTriple StateNormal => _stateNormal;
 
         private bool ShouldSerializeStateNormal()
         {
@@ -153,10 +139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining active input control appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTriple StateActive
-        {
-            get { return _stateActive; }
-        }
+        public PaletteTriple StateActive => _stateActive;
 
         private bool ShouldSerializeStateActive()
         {

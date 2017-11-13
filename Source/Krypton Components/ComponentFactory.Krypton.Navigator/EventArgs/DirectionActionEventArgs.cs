@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class DirectionActionEventArgs : KryptonPageEventArgs
 	{
 		#region Instance Fields
-		private DirectionButtonAction _action;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Navigator
                                         DirectionButtonAction action)
 			: base(page, index)
 		{
-            _action = action;
+            Action = action;
 		}
 		#endregion
 
@@ -39,11 +39,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
 		/// Gets and sets the next/previous action to take.
 		/// </summary>
-        public DirectionButtonAction Action
-		{
-            get { return _action; }
-            set { _action = value; }
-		}
-		#endregion
+        public DirectionButtonAction Action { get; set; }
+
+	    #endregion
 	}
 }

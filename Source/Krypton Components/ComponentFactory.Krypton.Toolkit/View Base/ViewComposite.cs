@@ -22,8 +22,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private List<ViewBase> _views;
-        private bool _reverseRenderOrder;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -69,12 +69,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the use of reverse order when rendering.
         /// </summary>
-        public bool ReverseRenderOrder
-        {
-            get { return _reverseRenderOrder; }
-            set { _reverseRenderOrder = value; }
-        }
-        #endregion
+        public bool ReverseRenderOrder { get; set; }
+
+	    #endregion
 
         #region Eval
         /// <summary>
@@ -397,12 +394,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>ViewBase at specified index.</returns>
 		public override ViewBase this[int index] 
 		{ 
-			get
-			{
-			    return _views?[index];
-			}
+			get => _views?[index];
 
-			set
+		    set
 			{
 				// We do not allow null references in the collection
 				if (value == null)
@@ -513,7 +507,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override PaletteState FixedState
         {
-            get { return base.FixedState; }
+            get => base.FixedState;
 
             set
             {

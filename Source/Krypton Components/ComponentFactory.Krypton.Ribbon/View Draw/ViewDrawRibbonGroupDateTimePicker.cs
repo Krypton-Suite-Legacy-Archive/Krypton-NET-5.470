@@ -31,7 +31,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupDateTimePicker _ribbonDateTimePicker;
         private ViewDrawRibbonGroup _activeGroup;
         private DateTimePickerController _controller;
         private NeedPaintHandler _needPaint;
@@ -55,16 +54,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonDateTimePicker = ribbonDateTimePicker;
+            GroupDateTimePicker = ribbonDateTimePicker;
             _needPaint = needPaint;
-            _currentSize = _ribbonDateTimePicker.ItemSizeCurrent;
+            _currentSize = GroupDateTimePicker.ItemSizeCurrent;
 
             // Hook into the date time picker events
-            _ribbonDateTimePicker.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            _ribbonDateTimePicker.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupDateTimePicker.MouseEnterControl += new EventHandler(OnMouseEnterControl);
+            GroupDateTimePicker.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonDateTimePicker;
+            Component = GroupDateTimePicker;
 
             if (_ribbon.InDesignMode)
             {
@@ -75,7 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Create controller needed for handling focus and key tip actions
-            _controller = new DateTimePickerController(_ribbon, _ribbonDateTimePicker, this);
+            _controller = new DateTimePickerController(_ribbon, GroupDateTimePicker, this);
             SourceController = _controller;
             KeyController = _controller;
 
@@ -84,13 +83,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
 
             // Define back reference to view for the text box definition
-            _ribbonDateTimePicker.DateTimePickerView = this;
+            GroupDateTimePicker.DateTimePickerView = this;
 
             // Give paint delegate to date time picker so its palette changes are redrawn
-            _ribbonDateTimePicker.ViewPaintDelegate = needPaint;
+            GroupDateTimePicker.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            _ribbonDateTimePicker.PropertyChanged += new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
+            GroupDateTimePicker.PropertyChanged += new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
         }
 
 		/// <summary>
@@ -111,19 +110,19 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonDateTimePicker != null)
+                if (GroupDateTimePicker != null)
                 {
                     // Must unhook to prevent memory leaks
-                    _ribbonDateTimePicker.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    _ribbonDateTimePicker.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
-                    _ribbonDateTimePicker.ViewPaintDelegate = null;
-                    _ribbonDateTimePicker.PropertyChanged -= new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
+                    GroupDateTimePicker.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
+                    GroupDateTimePicker.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupDateTimePicker.ViewPaintDelegate = null;
+                    GroupDateTimePicker.PropertyChanged -= new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
                     _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
                     _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
 
                     // Remove association with definition
-                    _ribbonDateTimePicker.DateTimePickerView = null; 
-                    _ribbonDateTimePicker = null;
+                    GroupDateTimePicker.DateTimePickerView = null; 
+                    GroupDateTimePicker = null;
                 }
             }
 
@@ -135,10 +134,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group date time picker instance.
         /// </summary>
-        public KryptonRibbonGroupDateTimePicker GroupDateTimePicker
-        {
-            get { return _ribbonDateTimePicker; }
-        }
+        public KryptonRibbonGroupDateTimePicker GroupDateTimePicker { get; private set; }
+
         #endregion
 
         #region LostFocus
@@ -149,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void LostFocus(Control c)
         {
             // Ask ribbon to shift focus to the hidden control
-            _ribbon.HideFocus(_ribbonDateTimePicker.DateTimePicker);
+            _ribbon.HideFocus(GroupDateTimePicker.DateTimePicker);
             base.LostFocus(c);
         }
         #endregion
@@ -161,9 +158,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetFirstFocusItem()
         {
-            if ((_ribbonDateTimePicker.Visible) &&
-                (_ribbonDateTimePicker.LastDateTimePicker != null) &&
-                (_ribbonDateTimePicker.LastDateTimePicker.CanSelect))
+            if ((GroupDateTimePicker.Visible) &&
+                (GroupDateTimePicker.LastDateTimePicker != null) &&
+                (GroupDateTimePicker.LastDateTimePicker.CanSelect))
             {
                 return this;
             }
@@ -181,9 +178,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetLastFocusItem()
         {
-            if ((_ribbonDateTimePicker.Visible) &&
-                (_ribbonDateTimePicker.LastDateTimePicker != null) &&
-                (_ribbonDateTimePicker.LastDateTimePicker.CanSelect))
+            if ((GroupDateTimePicker.Visible) &&
+                (GroupDateTimePicker.LastDateTimePicker != null) &&
+                (GroupDateTimePicker.LastDateTimePicker.CanSelect))
             {
                 return this;
             }
@@ -253,8 +250,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         break;
                 }
 
-                keyTipList.Add(new KeyTipInfo(_ribbonDateTimePicker.Enabled, 
-                                              _ribbonDateTimePicker.KeyTip,
+                keyTipList.Add(new KeyTipInfo(GroupDateTimePicker.Enabled, 
+                                              GroupDateTimePicker.KeyTip,
                                               screenPt, 
                                               ClientRectangle,
                                               _controller));
@@ -277,7 +274,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public void ResetGroupItemSize()
         {
-            _currentSize = _ribbonDateTimePicker.ItemSizeCurrent;
+            _currentSize = GroupDateTimePicker.ItemSizeCurrent;
         }
 
         /// <summary>
@@ -355,7 +352,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(context != null);
 
             // If we do not have a date time picker
-            if (_ribbonDateTimePicker.DateTimePicker == null)
+            if (GroupDateTimePicker.DateTimePicker == null)
             {
                 // And we are in design time
                 if (_ribbon.InDesignMode)
@@ -405,7 +402,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void OnContextClick(object sender, MouseEventArgs e)
         {
-            _ribbonDateTimePicker.OnDesignTimeContextMenu(e);
+            GroupDateTimePicker.OnDesignTimeContextMenu(e);
         }
 
         private void OnDateTimePickerPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -430,8 +427,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonDateTimePicker.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonDateTimePicker.RibbonTab))
+                if ((GroupDateTimePicker.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupDateTimePicker.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -442,11 +439,11 @@ namespace ComponentFactory.Krypton.Ribbon
 #pragma warning disable 162
             {
                 // If this button is actually defined as visible...
-                if (_ribbonDateTimePicker.Visible || _ribbon.InDesignMode)
+                if (GroupDateTimePicker.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonDateTimePicker.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonDateTimePicker.RibbonTab))
+                    if ((GroupDateTimePicker.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupDateTimePicker.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);
@@ -458,14 +455,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private Control LastParentControl
         {
-            get { return _ribbonDateTimePicker.LastParentControl; }
-            set { _ribbonDateTimePicker.LastParentControl = value; }
+            get => GroupDateTimePicker.LastParentControl;
+            set => GroupDateTimePicker.LastParentControl = value;
         }
 
         private KryptonDateTimePicker LastDateTimePicker
         {
-            get { return _ribbonDateTimePicker.LastDateTimePicker; }
-            set { _ribbonDateTimePicker.LastDateTimePicker = value; }
+            get => GroupDateTimePicker.LastDateTimePicker;
+            set => GroupDateTimePicker.LastDateTimePicker = value;
         }
 
         private void UpdateParent(Control parentControl)
@@ -473,11 +470,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // Is there a change in the date time picker or a change in 
             // the parent control that is hosting the control...
             if ((parentControl != LastParentControl) ||
-                (LastDateTimePicker != _ribbonDateTimePicker.DateTimePicker))
+                (LastDateTimePicker != GroupDateTimePicker.DateTimePicker))
             {
                 // We only modify the parent and visible state if processing for correct container
-                if ((_ribbonDateTimePicker.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
-                    (!_ribbonDateTimePicker.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
+                if ((GroupDateTimePicker.RibbonContainer.RibbonGroup.ShowingAsPopup && (parentControl is VisualPopupGroup)) ||
+                    (!GroupDateTimePicker.RibbonContainer.RibbonGroup.ShowingAsPopup && !(parentControl is VisualPopupGroup)))
                 {
                     // If we have added the custrom control to a parent before
                     if ((LastDateTimePicker != null) && (LastParentControl != null))
@@ -491,7 +488,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Remember the current control and new parent
-                    LastDateTimePicker = _ribbonDateTimePicker.DateTimePicker;
+                    LastDateTimePicker = GroupDateTimePicker.DateTimePicker;
                     LastParentControl = parentControl;
 
                     // If we have a new date time picker and parent
@@ -515,13 +512,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the enabled state of the group element
-                bool enabled = _ribbonDateTimePicker.Enabled;
+                bool enabled = GroupDateTimePicker.Enabled;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonDateTimePicker.DateTimePickerDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupDateTimePicker.DateTimePickerDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    enabled = _ribbonDateTimePicker.DateTimePickerDesigner.DesignEnabled;
+                    enabled = GroupDateTimePicker.DateTimePickerDesigner.DesignEnabled;
                 }
 
                 c.Enabled = enabled;
@@ -533,13 +530,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonDateTimePicker.Visible;
+                bool visible = GroupDateTimePicker.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonDateTimePicker.DateTimePickerDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupDateTimePicker.DateTimePickerDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonDateTimePicker.DateTimePickerDesigner.DesignVisible;
+                    visible = GroupDateTimePicker.DateTimePickerDesigner.DesignVisible;
                 }
 
                 return visible;
@@ -553,46 +550,43 @@ namespace ComponentFactory.Krypton.Ribbon
             if (c != null)
             {
                 // Start with the visible state of the group element
-                bool visible = _ribbonDateTimePicker.Visible;
+                bool visible = GroupDateTimePicker.Visible;
 
                 // If we have an associated designer setup...
-                if (!_ribbon.InDesignHelperMode && (_ribbonDateTimePicker.DateTimePickerDesigner != null))
+                if (!_ribbon.InDesignHelperMode && (GroupDateTimePicker.DateTimePickerDesigner != null))
                 {
                     // And we are not using the design helpers, then use the design specified value
-                    visible = _ribbonDateTimePicker.DateTimePickerDesigner.DesignVisible;
+                    visible = GroupDateTimePicker.DateTimePickerDesigner.DesignVisible;
                 }
 
                 if (visible)
                 {
                     // Only visible if on the currently selected page
-                    if ((_ribbonDateTimePicker.RibbonTab == null) ||
-                        (_ribbon.SelectedTab != _ribbonDateTimePicker.RibbonTab))
+                    if ((GroupDateTimePicker.RibbonTab == null) ||
+                        (_ribbon.SelectedTab != GroupDateTimePicker.RibbonTab))
                     {
                         visible = false;
                     }
                     else
                     {
                         // Check the owning group is visible
-                        if ((_ribbonDateTimePicker.RibbonContainer != null) &&
-                            (_ribbonDateTimePicker.RibbonContainer.RibbonGroup != null) &&
-                            !_ribbonDateTimePicker.RibbonContainer.RibbonGroup.Visible &&
-                            !_ribbon.InDesignMode)
+                        if ((GroupDateTimePicker.RibbonContainer?.RibbonGroup != null) && !GroupDateTimePicker.RibbonContainer.RibbonGroup.Visible && !_ribbon.InDesignMode)
                         {
                             visible = false;
                         }
                         else
                         {
                             // Check that the group is not collapsed
-                            if ((_ribbonDateTimePicker.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(_ribbonDateTimePicker.DateTimePicker) is KryptonRibbon) ||
-                                 (_ribbon.GetControllerControl(_ribbonDateTimePicker.DateTimePicker) is VisualPopupMinimized)))
+                            if ((GroupDateTimePicker.RibbonContainer.RibbonGroup.IsCollapsed) &&
+                                ((_ribbon.GetControllerControl(GroupDateTimePicker.DateTimePicker) is KryptonRibbon) ||
+                                 (_ribbon.GetControllerControl(GroupDateTimePicker.DateTimePicker) is VisualPopupMinimized)))
                             {
                                 visible = false;
                             }
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = _ribbonDateTimePicker.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupDateTimePicker.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)
@@ -619,7 +613,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnLayoutAction(object sender, EventArgs e)
         {
             // If not disposed then we still have a element reference
-            if (_ribbonDateTimePicker != null)
+            if (GroupDateTimePicker != null)
             {
                 // Change in selected tab requires a retest of the control visibility
                 UpdateVisible(LastDateTimePicker);

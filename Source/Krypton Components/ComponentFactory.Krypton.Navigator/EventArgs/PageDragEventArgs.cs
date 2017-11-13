@@ -19,9 +19,8 @@ namespace ComponentFactory.Krypton.Navigator
 	public class PageDragEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private Point _screenPoint;
-        private KryptonPageCollection _pages;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -32,12 +31,12 @@ namespace ComponentFactory.Krypton.Navigator
         public PageDragEventArgs(Point screenPoint,
                                  KryptonPage[] pages)
 		{
-            _screenPoint = screenPoint;
-            _pages = new KryptonPageCollection();
+            ScreenPoint = screenPoint;
+            Pages = new KryptonPageCollection();
 
             if (pages != null)
             {
-                _pages.AddRange(pages);
+                Pages.AddRange(pages);
             }
 		}
 
@@ -49,8 +48,8 @@ namespace ComponentFactory.Krypton.Navigator
         public PageDragEventArgs(Point screenPoint,
                                  KryptonPageCollection pages)
         {
-            _screenPoint = screenPoint;
-            _pages = pages;
+            ScreenPoint = screenPoint;
+            Pages = pages;
         }
         #endregion
 
@@ -58,20 +57,16 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the associated screen point.
         /// </summary>
-        public Point ScreenPoint
-        {
-            get { return _screenPoint; }
-        }
-        #endregion
+        public Point ScreenPoint { get; }
+
+	    #endregion
 
         #region Pages
         /// <summary>
         /// Gets access to the collection of pages.
         /// </summary>
-        public KryptonPageCollection Pages
-        {
-            get { return _pages; }
-        }
-        #endregion
+        public KryptonPageCollection Pages { get; }
+
+	    #endregion
     }
 }

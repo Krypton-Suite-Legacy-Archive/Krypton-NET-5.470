@@ -28,26 +28,17 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the top level control of the source.
         /// </summary>
-        public override Control SeparatorControl
-        {
-            get { return Navigator; }
-        }
+        public override Control SeparatorControl => Navigator;
 
         /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
         /// </summary>
-        public override Rectangle SeparatorMoveBox
-        {
-            get { return _viewLayout.ClientRectangle; }
-        }
+        public override Rectangle SeparatorMoveBox => _viewLayout.ClientRectangle;
 
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
-        public override bool IsTabStripMode
-        {
-            get { return true; }
-        }
+        public override bool IsTabStripMode => true;
 
         /// <summary>
         /// Process a change in the selected page

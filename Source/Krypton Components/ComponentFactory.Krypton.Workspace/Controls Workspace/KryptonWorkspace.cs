@@ -97,20 +97,10 @@ namespace ComponentFactory.Krypton.Workspace
         private int _cacheCellVisibleCount;
 
         // Exposed fields
-        private KryptonWorkspaceSequence _root;
-        private PaletteSplitContainerRedirect _stateCommon;
-        private PaletteSplitContainer _stateDisabled;
-        private PaletteSplitContainer _stateNormal;
-        private PaletteSeparatorPadding _stateTracking;
-        private PaletteSeparatorPadding _statePressed;
-        private WorkspaceMenus _paletteMenus;
         private CompactFlags _compactFlags;
-        private IDragPageNotify _dragPageNotify;
         private KryptonWorkspaceCell _maximizedCell;
         private KryptonWorkspaceCell _activeCell;
-        private KryptonPage _activePage;
         private bool _allowResizing;
-        private bool _allowPageDrag;
         private bool _showMaximizeButton;
         private int _splitterWidth;
 
@@ -253,16 +243,16 @@ namespace ComponentFactory.Krypton.Workspace
 		/// </summary>
         public KryptonWorkspace()
 		{
-            _root = new KryptonWorkspaceSequence();
-            _root.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
-            _root.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
-            _root.WorkspaceControl = this;
-            _paletteMenus = new WorkspaceMenus(this);
+            Root = new KryptonWorkspaceSequence();
+            Root.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
+            Root.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
+            Root.WorkspaceControl = this;
+            ContextMenus = new WorkspaceMenus(this);
             _workspaceToSeparator = new WorkspaceItemToSeparator();
             _cellPageNotify = new CellPageNotify(this);
             _compactFlags = CompactFlags.All;
             _allowResizing = true;
-            _allowPageDrag = true;
+            AllowPageDrag = true;
             _showMaximizeButton = true;
             _splitterWidth = 5;
             _cacheCellCount = 0;
@@ -270,17 +260,17 @@ namespace ComponentFactory.Krypton.Workspace
             _separatorNeedPaint = new NeedPaintHandler(OnSeparatorNeedsPaint);
 
             // Create the palette storage
-            _stateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
+            StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
                                                              PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorLowProfile,
                                                              PaletteBorderStyle.SeparatorLowProfile, NeedPaintDelegate);
 
-            _stateDisabled = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateNormal = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateTracking = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _statePressed = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
+            StateDisabled = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateNormal = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateTracking = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StatePressed = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
 
             // Create view element
-            _drawPanel = new ViewDrawPanel(_stateNormal.Back);
+            _drawPanel = new ViewDrawPanel(StateNormal.Back);
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawPanel);
@@ -299,7 +289,7 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Recurse down the hierarchy and dispose each cell/sequence
                 SuspendLayout();
-                _root.Dispose();
+                Root.Dispose();
 
                 // Ensure any drag manager has a chance to cleanup
                 if (_dragManager != null)
@@ -323,8 +313,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(false)]
         public new bool TabStop
         {
-            get { return base.TabStop; }
-            set { base.TabStop = value; }
+            get => base.TabStop;
+            set => base.TabStop = value;
         }
 
         /// <summary>
@@ -335,8 +325,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override bool AllowDrop
         {
-            get { return base.AllowDrop; }
-            set { base.AllowDrop = value; }
+            get => base.AllowDrop;
+            set => base.AllowDrop = value;
         }
 
         /// <summary>
@@ -347,8 +337,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
+            get => base.AutoSize;
+            set => base.AutoSize = value;
         }
 
         /// <summary>
@@ -359,8 +349,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -371,8 +361,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         /// <summary>
@@ -383,8 +373,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override Font Font
         {
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         /// <summary>
@@ -395,8 +385,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Bindable(false)]
         public override Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         /// <summary>
@@ -407,8 +397,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override KryptonContextMenu KryptonContextMenu
         {
-            get { return base.KryptonContextMenu; }
-            set { base.KryptonContextMenu = value; }
+            get => base.KryptonContextMenu;
+            set => base.KryptonContextMenu = value;
         }
 
         /// <summary>
@@ -417,10 +407,7 @@ namespace ComponentFactory.Krypton.Workspace
         [Browsable(false)]
         [Bindable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Control.ControlCollection Controls
-        {
-            get { return base.Controls; }
-        }
+        public new Control.ControlCollection Controls => base.Controls;
 
         /// <summary>
         /// Gets and sets the active cell.
@@ -429,8 +416,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public KryptonWorkspaceCell ActiveCell
         {
-            get { return _activeCell; }
-            
+            get => _activeCell;
+
             set 
             { 
                 // You cannot set the active cell to 'null' as if we have any cells then one of them
@@ -447,10 +434,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonPage ActivePage
-        {
-            get { return _activePage; }
-        }
+        public KryptonPage ActivePage { get; private set; }
 
         /// <summary>
         /// Gets and sets the compacting options to be applied.
@@ -460,7 +444,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(typeof(CompactFlags), "All")]
         public CompactFlags CompactFlags
         {
-            get { return _compactFlags; }
+            get => _compactFlags;
 
             set
             {
@@ -480,7 +464,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(null)]
         public KryptonWorkspaceCell MaximizedCell
         {
-            get { return _maximizedCell; }
+            get => _maximizedCell;
 
             set
             {
@@ -502,7 +486,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(typeof(int), "5")]
         public int SplitterWidth
         {
-            get { return _splitterWidth; }
+            get => _splitterWidth;
 
             set
             {
@@ -532,8 +516,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(true)]
         public bool AllowResizing
         {
-            get { return _allowResizing; }
-            
+            get => _allowResizing;
+
             set
             {
                 if (_allowResizing != value)
@@ -552,13 +536,13 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(typeof(PaletteBackStyle), "PanelClient")]
         public PaletteBackStyle ContainerBackStyle
         {
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
             set
             {
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
                 {
-                    _stateCommon.BackStyle = value;
+                    StateCommon.BackStyle = value;
                     PerformNeedPaint(true);
                 }
             }
@@ -572,14 +556,14 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(typeof(SeparatorStyle), "Low Profile")]
         public SeparatorStyle SeparatorStyle
         {
-            get { return _separatorStyle; }
+            get => _separatorStyle;
 
             set
             {
                 if (_separatorStyle != value)
                 {
                     _separatorStyle = value;
-                    _stateCommon.Separator.SetStyles(_separatorStyle);
+                    StateCommon.Separator.SetStyles(_separatorStyle);
 
                     // Update all the separators to match control state
                     PaletteMetricPadding metricPadding = CommonHelper.SeparatorStyleToMetricPadding(_separatorStyle);
@@ -599,14 +583,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Overrides for defining common split container appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainerRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteSplitContainerRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -615,14 +596,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Overrides for defining disabled split container appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteSplitContainer StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -631,14 +609,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Overrides for defining normal split container appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteSplitContainer StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -647,14 +622,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteSeparatorPadding StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -663,14 +635,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Overrides for defining pressed separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteSeparatorPadding StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -679,14 +648,11 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Properties for managing the workspace context menus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public WorkspaceMenus ContextMenus
-        {
-            get { return _paletteMenus; }
-        }
+        public WorkspaceMenus ContextMenus { get; }
 
         private bool ShouldSerializeWorkspaceMenus()
         {
-            return !_paletteMenus.IsDefault;
+            return !ContextMenus.IsDefault;
         }
 
         /// <summary>
@@ -696,10 +662,7 @@ namespace ComponentFactory.Krypton.Workspace
         [Description("Root sequence.")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonWorkspaceSequence Root
-        {
-            get { return _root; }
-        }
+        public KryptonWorkspaceSequence Root { get; }
 
         /// <summary>
         /// Gets or sets the default setting for allowing the dragging of cells.
@@ -707,11 +670,7 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Visuals")]
         [Description("Defines the default setting for allowing the dragging of cells.")]
         [DefaultValue(true)]
-        public bool AllowPageDrag
-        {
-            get { return _allowPageDrag; }
-            set { _allowPageDrag = value; }
-        }
+        public bool AllowPageDrag { get; set; }
 
         /// <summary>
         /// Gets or sets if the maximized/restore button is displayed. 
@@ -721,7 +680,7 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(true)]
         public bool ShowMaximizeButton
         {
-            get { return _showMaximizeButton; }
+            get => _showMaximizeButton;
 
             set
             {
@@ -1418,7 +1377,7 @@ namespace ComponentFactory.Krypton.Workspace
             PageList pages = ClearToPageList();
 
             // Do we need to create a root cell?
-            if (createCellIfNoPages || pages.Count > 0)
+            if (createCellIfNoPages || (pages.Count > 0))
             {
                 // Create a new cell with entire list of pages as the only workspace item
                 KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
@@ -1519,7 +1478,7 @@ namespace ComponentFactory.Krypton.Workspace
             CellList cells = ClearToCellList();
 
             // Do we need to layout/create any cells?
-            if (createCellIfEmpty || cells.Count > 0)
+            if (createCellIfEmpty || (cells.Count > 0))
             {
                 // Change root direction to that specified
                 Root.Orientation = rootOrientation;
@@ -1545,7 +1504,7 @@ namespace ComponentFactory.Krypton.Workspace
                         for (int j = 0; j < sequenceItems; j++)
                         {
                             // If no cells then do we need to create a cell?
-                            if (createCellIfEmpty || cells.Count > 0)
+                            if (createCellIfEmpty || (cells.Count > 0))
                             {
                                 KryptonWorkspaceCell cell;
 
@@ -1659,7 +1618,7 @@ namespace ComponentFactory.Krypton.Workspace
             PageList pages = ClearToPageList();
 
             // Do we need to create any cells?
-            if (createCellIfNoPages || pages.Count > 0)
+            if (createCellIfNoPages || (pages.Count > 0))
             {
                 // Change root direction to that specified
                 Root.Orientation = rootOrientation;
@@ -1685,7 +1644,7 @@ namespace ComponentFactory.Krypton.Workspace
                         for (int j = 0; j < sequenceItems; j++)
                         {
                             // If no pages then do we need to create a cell?
-                            if (createCellIfNoPages || pages.Count > 0)
+                            if (createCellIfNoPages || (pages.Count > 0))
                             {
                                 KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
 
@@ -1753,11 +1712,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IDragPageNotify DragPageNotify
-        {
-            get { return _dragPageNotify; }
-            set { _dragPageNotify = value; }
-        }
+        public IDragPageNotify DragPageNotify { get; set; }
 
         /// <summary>
         /// Generate a list of drag targets that are relevant to the provided end data.
@@ -1809,7 +1764,7 @@ namespace ComponentFactory.Krypton.Workspace
             // We do not allow docking at control edges if there are no pages and we are compacting away empty cells. As that would
             // result in compacting away the empty cell and leaving just the dropped created cell. Instead it would be better to allow
             // just the transfer to the original empty cell.
-            bool preventEdges = ((numPages == 0) && (!DesignMode && (CompactFlags & CompactFlags.RemoveEmptyCells) == CompactFlags.RemoveEmptyCells));
+            bool preventEdges = ((numPages == 0) && (!DesignMode && ((CompactFlags & CompactFlags.RemoveEmptyCells) == CompactFlags.RemoveEmptyCells)));
 
             // If the root sequence is visible then there must be at least one cell showing
             Rectangle screenRect = RectangleToScreen(ClientRectangle);
@@ -2063,7 +2018,7 @@ namespace ComponentFactory.Krypton.Workspace
                     UniqueNameToPage existingPages = BuildUniqueNameDictionary(availablePages);
 
                     // Remove all existing contents
-                    _root.Children.Clear();
+                    Root.Children.Clear();
 
                     // Read to custom data element
                     if (!xmlReader.Read())
@@ -2501,10 +2456,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(250, 250); }
-        }
+        protected override Size DefaultSize => new Size(250, 250);
 
         /// <summary>
         /// Activates a child control. Optionally specifies the direction in the tab order to select the control from.
@@ -2615,11 +2567,11 @@ namespace ComponentFactory.Krypton.Workspace
             // Push correct palettes into the view
             if (Enabled)
             {
-                _drawPanel.SetPalettes(_stateNormal.Back);
+                _drawPanel.SetPalettes(StateNormal.Back);
             }
             else
             {
-                _drawPanel.SetPalettes(_stateDisabled.Back);
+                _drawPanel.SetPalettes(StateDisabled.Back);
             }
 
             _drawPanel.Enabled = Enabled;
@@ -2651,7 +2603,7 @@ namespace ComponentFactory.Krypton.Workspace
 
                 // Perform compacting before laying out the results of the compact
                 // (Do not compact at design time as it prevents setting up the hierarchy)
-                if (!DesignMode && CompactFlags != CompactFlags.None)
+                if (!DesignMode && (CompactFlags != CompactFlags.None))
                 {
                     Root.Compact(CompactFlags);
                     if ((CompactFlags & CompactFlags.AtLeastOneVisibleCell) == CompactFlags.AtLeastOneVisibleCell)
@@ -2809,15 +2761,8 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
-        protected override bool EvalInvokePaint
-        {
-            get
-            {
-                // Always use an invoke to request a repaint and perform layout. Sometimes the entire client area is covered
-                // by a child control and so a regular repaint method will not occur because non of the client area is visible.
-                return true;
-            }
-        }
+        protected override bool EvalInvokePaint => true;
+
         #endregion
 
         #region Protected Virtual
@@ -3274,7 +3219,7 @@ namespace ComponentFactory.Krypton.Workspace
             }
 
             // Reduce available space by that needed for a splitter between each visible item
-            availableSpace = Math.Max(0, availableSpace - Math.Max(0, visibleChildren - 1) * SplitterWidth);
+            availableSpace = Math.Max(0, availableSpace - (Math.Max(0, visibleChildren - 1) * SplitterWidth));
 
             // Pass #2, Allocate space to fixed size items
             bool displayMaximizeButton = (visibleChildren > 1) && ShowMaximizeButton;
@@ -3341,7 +3286,7 @@ namespace ComponentFactory.Krypton.Workspace
                                 int itemSpace = availableSpace;
                                 if (visibleStarChildren > 1)
                                 {
-                                    itemSpace = (int)(availableSpace / starTotal * info[i].CacheStarSize.StarSize);
+                                    itemSpace = (int)((availableSpace / starTotal) * info[i].CacheStarSize.StarSize);
                                 }
 
                                 // If the calculation is less than the minimum
@@ -3392,7 +3337,7 @@ namespace ComponentFactory.Krypton.Workspace
                                 // If not the last item then find correct proportional size
                                 if (visibleStarChildren > 1)
                                 {
-                                    itemSpace = (int)(availableSpace / starTotal * info[i].CacheStarSize.StarSize);
+                                    itemSpace = (int)((availableSpace / starTotal) * info[i].CacheStarSize.StarSize);
                                     visibleStarChildren--;
                                 }
 
@@ -3859,7 +3804,7 @@ namespace ComponentFactory.Krypton.Workspace
             // If the cell has no pages and we compact away empty cells then do not allow the user to drop at edges
             // of the cell as this will only cause the exsiting cell to be compacted away and leave the new drop in
             // exactly the place as the original cell. The same effect is to just transfer the page into the cell
-            if ((cell.Pages.VisibleCount > 0) || (!DesignMode && (CompactFlags & CompactFlags.RemoveEmptyCells) == 0))
+            if ((cell.Pages.VisibleCount > 0) || (!DesignMode && ((CompactFlags & CompactFlags.RemoveEmptyCells) == 0)))
             {
                 // Generate targets for the four control edges
                 targets.Add(new DragTargetWorkspaceCellEdge(screenRect, rectsHot[0], rectsHot[0], DragTargetHint.EdgeLeft, this, cell, allowFlags));
@@ -3884,7 +3829,7 @@ namespace ComponentFactory.Krypton.Workspace
                                     new Rectangle(area.X, area.Y, area.Width, length),
                                     new Rectangle(area.X, area.Bottom - length, area.Width, length),
                                     new Rectangle(area.X + length, area.Y + length, 
-                                                  area.Width - length * 2, area.Height - length * 2)};
+                                                  area.Width - (length * 2), area.Height - (length * 2))};
         }
 
         private void CompactAtLeastOneVisibleCell()
@@ -3927,11 +3872,11 @@ namespace ComponentFactory.Krypton.Workspace
                     page = _activeCell.SelectedPage;
                 }
 
-                if (_activePage != page)
+                if (ActivePage != page)
                 {
-                    KryptonPage oldPage = _activePage;
-                    _activePage = page;
-                    OnActivePageChanged(new ActivePageChangedEventArgs(oldPage, _activePage));
+                    KryptonPage oldPage = ActivePage;
+                    ActivePage = page;
+                    OnActivePageChanged(new ActivePageChangedEventArgs(oldPage, ActivePage));
                 }
             }
         }
@@ -3950,11 +3895,11 @@ namespace ComponentFactory.Krypton.Workspace
                 KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
                 if (cell == ActiveCell)
                 {
-                    if (cell.SelectedPage != _activePage)
+                    if (cell.SelectedPage != ActivePage)
                     {
-                        KryptonPage oldPage = _activePage;
-                        _activePage = cell.SelectedPage;
-                        OnActivePageChanged(new ActivePageChangedEventArgs(oldPage, _activePage));
+                        KryptonPage oldPage = ActivePage;
+                        ActivePage = cell.SelectedPage;
+                        OnActivePageChanged(new ActivePageChangedEventArgs(oldPage, ActivePage));
                     }
                 }
             }
@@ -4238,10 +4183,7 @@ namespace ComponentFactory.Krypton.Workspace
             _suspendActivePageChangedEvent--;
         }
 
-        private bool IsActivePageChangedEventSuspended
-        {
-            get { return (_suspendActivePageChangedEvent > 0); }
-        }
+        private bool IsActivePageChangedEventSuspended => (_suspendActivePageChangedEvent > 0);
 
         private Control GetActiverPageControlWithFocus()
         {

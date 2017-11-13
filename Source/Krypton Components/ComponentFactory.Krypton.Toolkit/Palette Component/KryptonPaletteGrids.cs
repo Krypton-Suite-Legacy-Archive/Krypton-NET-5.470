@@ -19,10 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteGrids : Storage
     {
         #region Instance Fields
-        private KryptonPaletteGrid _gridCommon;
-        private KryptonPaletteGrid _gridList;
-        private KryptonPaletteGrid _gridSheet;
-        private KryptonPaletteGrid _gridCustom1;
+
         #endregion
 
         #region Identity
@@ -36,18 +33,18 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             Debug.Assert(redirector != null);
 
-            _gridCommon = new KryptonPaletteGrid(redirector, GridStyle.List, needPaint);
-            _gridList = new KryptonPaletteGrid(redirector, GridStyle.List, needPaint);
-            _gridSheet = new KryptonPaletteGrid(redirector, GridStyle.Sheet, needPaint);
-            _gridCustom1 = new KryptonPaletteGrid(redirector, GridStyle.Custom1, needPaint);
+            GridCommon = new KryptonPaletteGrid(redirector, GridStyle.List, needPaint);
+            GridList = new KryptonPaletteGrid(redirector, GridStyle.List, needPaint);
+            GridSheet = new KryptonPaletteGrid(redirector, GridStyle.Sheet, needPaint);
+            GridCustom1 = new KryptonPaletteGrid(redirector, GridStyle.Custom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectGrids redirectCommon = new PaletteRedirectGrids(redirector, _gridCommon);
+            PaletteRedirectGrids redirectCommon = new PaletteRedirectGrids(redirector, GridCommon);
 
             // Ensure the specific styles inherit to the common grid style
-            _gridList.SetRedirector(redirectCommon);
-            _gridSheet.SetRedirector(redirectCommon);
-            _gridCustom1.SetRedirector(redirectCommon);
+            GridList.SetRedirector(redirectCommon);
+            GridSheet.SetRedirector(redirectCommon);
+            GridCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -55,16 +52,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _gridCommon.IsDefault &&
-                       _gridList.IsDefault &&
-                       _gridSheet.IsDefault &&
-                       _gridCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => GridCommon.IsDefault &&
+                                          GridList.IsDefault &&
+                                          GridSheet.IsDefault &&
+                                          GridCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -75,8 +67,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase(KryptonPaletteCommon common)
         {
             // Populate only the designated styles
-            _gridList.PopulateFromBase(common, GridStyle.List);
-            _gridSheet.PopulateFromBase(common, GridStyle.Sheet);
+            GridList.PopulateFromBase(common, GridStyle.List);
+            GridSheet.PopulateFromBase(common, GridStyle.Sheet);
         }
         #endregion
 
@@ -88,14 +80,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteGrid GridCommon
-        {
-            get { return _gridCommon; }
-        }
+        public KryptonPaletteGrid GridCommon { get; }
 
         private bool ShouldSerializeGridCommon()
         {
-            return !_gridCommon.IsDefault;
+            return !GridCommon.IsDefault;
         }
         #endregion
 
@@ -107,14 +96,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining list grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteGrid GridList
-        {
-            get { return _gridList; }
-        }
+        public KryptonPaletteGrid GridList { get; }
 
         private bool ShouldSerializeGridList()
         {
-            return !_gridList.IsDefault;
+            return !GridList.IsDefault;
         }
         #endregion
 
@@ -126,14 +112,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining sheet grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteGrid GridSheet
-        {
-            get { return _gridSheet; }
-        }
+        public KryptonPaletteGrid GridSheet { get; }
 
         private bool ShouldSerializeGridSheet()
         {
-            return !_gridSheet.IsDefault;
+            return !GridSheet.IsDefault;
         }
         #endregion
 
@@ -145,14 +128,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom grid appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteGrid GridCustom1
-        {
-            get { return _gridCustom1; }
-        }
+        public KryptonPaletteGrid GridCustom1 { get; }
 
         private bool ShouldSerializeGridCustom1()
         {
-            return !_gridCustom1.IsDefault;
+            return !GridCustom1.IsDefault;
         }
         #endregion
     }

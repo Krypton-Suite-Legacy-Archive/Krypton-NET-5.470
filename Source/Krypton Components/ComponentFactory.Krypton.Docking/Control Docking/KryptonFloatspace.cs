@@ -56,10 +56,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a value indicating if docking specific pin actions should be applied.
         /// </summary>
-        protected override bool ApplyDockingPinAction
-        {
-            get { return false; }
-        }      
+        protected override bool ApplyDockingPinAction => false;
+
         #endregion
     }
 }

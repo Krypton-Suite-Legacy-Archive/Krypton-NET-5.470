@@ -37,67 +37,38 @@ namespace ComponentFactory.Krypton.Docking
         protected class CachedCellState
         {
             #region Instance Fields
-            private KryptonWorkspaceCell _cell;
-            private bool _focusState;
-            private KryptonPage _selectedPage;
-            private ButtonSpecNavigator _closeButtonSpec;
-            private ButtonSpecNavigator _pinButtonSpec;
-            private ButtonSpecNavigator _dropDownButtonSpec;
+
             #endregion
 
             /// <summary>
             /// Gets and sets the workspace cell for which this state relates.
             /// </summary>
-            public KryptonWorkspaceCell Cell
-            {
-                get { return _cell; }
-                set { _cell = value; }
-            }
+            public KryptonWorkspaceCell Cell { get; set; }
 
             /// <summary>
             /// Gets and sets the focus state of the cell.
             /// </summary>
-            public bool FocusState 
-            {
-                get { return _focusState; }
-                set { _focusState = value; }
-            }
+            public bool FocusState { get; set; }
 
             /// <summary>
             /// Gets and sets the selected page.
             /// </summary>
-            public KryptonPage SelectedPage
-            {
-                get { return _selectedPage; }
-                set { _selectedPage = value; }
-            }
+            public KryptonPage SelectedPage { get; set; }
 
             /// <summary>
             /// Gets and sets the button spec used to represent a close button.
             /// </summary>
-            public ButtonSpecNavigator CloseButtonSpec
-            {
-                get { return _closeButtonSpec; }
-                set { _closeButtonSpec = value; }
-            }
+            public ButtonSpecNavigator CloseButtonSpec { get; set; }
 
             /// <summary>
             /// Gets and sets the button spec used to represent a pin button.
             /// </summary>
-            public ButtonSpecNavigator PinButtonSpec
-            {
-                get { return _pinButtonSpec; }
-                set { _pinButtonSpec = value; }
-            }
+            public ButtonSpecNavigator PinButtonSpec { get; set; }
 
             /// <summary>
             /// Gets and sets the button spec used to represent a drop down button.
             /// </summary>
-            public ButtonSpecNavigator DropDownButtonSpec
-            {
-                get { return _dropDownButtonSpec; }
-                set { _dropDownButtonSpec = value; }
-            }
+            public ButtonSpecNavigator DropDownButtonSpec { get; set; }
         }
         #endregion
 
@@ -107,7 +78,6 @@ namespace ComponentFactory.Krypton.Docking
         private EventHandler _visibleUpdate;
         private bool _awaitingFocusUpdate;
         private bool _awaitingVisibleUpdate;
-        private bool _autoHiddenHost;
         private bool _setFocus;
         private string _closeTooltip;
         private string _pinTooltip;
@@ -188,7 +158,7 @@ namespace ComponentFactory.Krypton.Docking
             _visibleUpdate = new EventHandler(OnVisibleUpdate);
             _focusUpdate = new EventHandler(OnFocusUpdate);
             _awaitingFocusUpdate = false;
-            _autoHiddenHost = false;
+            AutoHiddenHost = false;
             _closeTooltip = "Close";
             _pinTooltip = "Auto Hidden";
             _dropDownTooltip = "Window Position";
@@ -219,7 +189,7 @@ namespace ComponentFactory.Krypton.Docking
         [DefaultValue("Close")]
         public string CloseTooltip
         {
-            get { return _closeTooltip; }
+            get => _closeTooltip;
 
             set
             {
@@ -236,7 +206,7 @@ namespace ComponentFactory.Krypton.Docking
         [DefaultValue("Auto Hidden")]
         public string PinTooltip
         {
-            get { return _pinTooltip; }
+            get => _pinTooltip;
 
             set
             {
@@ -253,7 +223,7 @@ namespace ComponentFactory.Krypton.Docking
         [DefaultValue("Window Position")]
         public string DropDownTooltip
         {
-            get { return _dropDownTooltip; }
+            get => _dropDownTooltip;
 
             set
             {
@@ -266,11 +236,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets the button spec type for the pin button.
         /// </summary>
         [Browsable(false)]
-        public bool AutoHiddenHost
-        {
-            get { return _autoHiddenHost; }
-            set { _autoHiddenHost = value; }
-        }
+        public bool AutoHiddenHost { get; set; }
 
         /// <summary>
         /// Requests the visible state be updated.
@@ -378,42 +344,27 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a value indicating if docking specific appearance should be applied.
         /// </summary>
-        protected virtual bool ApplyDockingAppearance
-        {
-            get { return true; }
-        }
+        protected virtual bool ApplyDockingAppearance => true;
 
         /// <summary>
         /// Gets a value indicating if docking specific close action should be applied.
         /// </summary>
-        protected virtual bool ApplyDockingCloseAction
-        {
-            get { return true; }
-        }
+        protected virtual bool ApplyDockingCloseAction => true;
 
         /// <summary>
         /// Gets a value indicating if docking specific pin actions should be applied.
         /// </summary>
-        protected virtual bool ApplyDockingPinAction
-        {
-            get { return true; }
-        }
+        protected virtual bool ApplyDockingPinAction => true;
 
         /// <summary>
         /// Gets a value indicating if docking specific drop down actions should be applied.
         /// </summary>
-        protected virtual bool ApplyDockingDropDownAction
-        {
-            get { return true; }
-        }
+        protected virtual bool ApplyDockingDropDownAction => true;
 
         /// <summary>
         /// Gets a value indicating if docking specific visible changes should be applied.
         /// </summary>
-        protected virtual bool ApplyDockingVisibility
-        {
-            get { return true; }
-        }
+        protected virtual bool ApplyDockingVisibility => true;
 
         /// <summary>
         /// Raises the CellGainsFocus event.

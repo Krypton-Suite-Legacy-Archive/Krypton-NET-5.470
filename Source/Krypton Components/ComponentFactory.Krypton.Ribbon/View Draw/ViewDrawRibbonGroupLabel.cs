@@ -29,7 +29,6 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupLabel _ribbonLabel;
         private NeedPaintHandler _needPaint;
         private ViewLayoutDocker _viewLarge;
         private ViewLayoutRibbonCenterPadding _viewLargeImage;
@@ -62,14 +61,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Remember incoming references
             _ribbon = ribbon;
-            _ribbonLabel = ribbonLabel;
+            GroupLabel = ribbonLabel;
             _needPaint = needPaint;
 
             // Associate this view with the source component (required for design time selection)
-            Component = _ribbonLabel;
+            Component = GroupLabel;
 
             // Give paint delegate to label so its palette changes are redrawn
-            _ribbonLabel.ViewPaintDelegate = needPaint;
+            GroupLabel.ViewPaintDelegate = needPaint;
 
             // Create the different views for different sizes of the label
             CreateLargeLabelView();
@@ -81,7 +80,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon button definition
-            _ribbonLabel.PropertyChanged += new PropertyChangedEventHandler(OnLabelPropertyChanged);
+            GroupLabel.PropertyChanged += new PropertyChangedEventHandler(OnLabelPropertyChanged);
         }
 
 		/// <summary>
@@ -102,17 +101,17 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                if (_ribbonLabel != null)
+                if (GroupLabel != null)
                 {
                     // Remove back reference to the paint delegate
-                    _ribbonLabel.ViewPaintDelegate = null;
+                    GroupLabel.ViewPaintDelegate = null;
 
                     // Must unhook to prevent memory leaks
-                    _ribbonLabel.PropertyChanged -= new PropertyChangedEventHandler(OnLabelPropertyChanged);
+                    GroupLabel.PropertyChanged -= new PropertyChangedEventHandler(OnLabelPropertyChanged);
 
                     // Remove association with definition
-                    _ribbonLabel.LabelView = null;
-                    _ribbonLabel = null;
+                    GroupLabel.LabelView = null;
+                    GroupLabel = null;
                 }
             }
 
@@ -124,10 +123,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group label instance.
         /// </summary>
-        public KryptonRibbonGroupLabel GroupLabel
-        {
-            get { return _ribbonLabel; }
-        }
+        public KryptonRibbonGroupLabel GroupLabel { get; private set; }
+
         #endregion
 
         #region GetFirstFocusItem
@@ -297,7 +294,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Add the large button at the top
-            _viewLargeLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, _ribbonLabel, true);
+            _viewLargeLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, GroupLabel, true);
             _viewLargeImage = new ViewLayoutRibbonCenterPadding(_largeImagePadding)
             {
                 _viewLargeLabelImage
@@ -305,11 +302,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewLarge.Add(_viewLargeImage, ViewDockStyle.Top);
 
             // Add the first line of text
-            _viewLargeText1 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, true);
+            _viewLargeText1 = new ViewDrawRibbonGroupLabelText(_ribbon, GroupLabel, true);
             _viewLarge.Add(_viewLargeText1, ViewDockStyle.Bottom);
 
             // Add the second line of text
-            _viewLargeText2 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, false);
+            _viewLargeText2 = new ViewDrawRibbonGroupLabelText(_ribbon, GroupLabel, false);
             _viewLarge.Add(_viewLargeText2, ViewDockStyle.Bottom);
 
             // Add a 1 pixel separator at bottom of button before the text
@@ -334,9 +331,9 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Create the image and drop down content
-            _viewMediumSmallLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, _ribbonLabel, false);
-            _viewMediumSmallText1 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, true);
-            _viewMediumSmallText2 = new ViewDrawRibbonGroupLabelText(_ribbon, _ribbonLabel, false);
+            _viewMediumSmallLabelImage = new ViewDrawRibbonGroupLabelImage(_ribbon, GroupLabel, false);
+            _viewMediumSmallText1 = new ViewDrawRibbonGroupLabelText(_ribbon, GroupLabel, true);
+            _viewMediumSmallText2 = new ViewDrawRibbonGroupLabelText(_ribbon, GroupLabel, false);
             _viewMediumSmallImage = new ViewLayoutRibbonCenterPadding(_smallImagePadding)
             {
                 _viewMediumSmallLabelImage
@@ -367,16 +364,16 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(view);
 
             // Provide back reference to the button definition
-            _ribbonLabel.LabelView = view;
+            GroupLabel.LabelView = view;
         }
 
         private void UpdateEnabledState()
         {
             // Get the correct enabled state from the button definition
-            bool buttonEnabled = _ribbonLabel.Enabled;
-            if (_ribbonLabel.KryptonCommand != null)
+            bool buttonEnabled = GroupLabel.Enabled;
+            if (GroupLabel.KryptonCommand != null)
             {
-                buttonEnabled = _ribbonLabel.KryptonCommand.Enabled;
+                buttonEnabled = GroupLabel.KryptonCommand.Enabled;
             }
 
             // Take into account the ribbon state and mode
@@ -399,12 +396,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void UpdateImageSmallState()
         {
-            _viewMediumSmallImage.Visible = (_ribbonLabel.ImageSmall != null);
+            _viewMediumSmallImage.Visible = (GroupLabel.ImageSmall != null);
         }
 
         private void UpdateItemSizeState()
         {
-            UpdateItemSizeState(_ribbonLabel.ItemSizeCurrent);
+            UpdateItemSizeState(GroupLabel.ItemSizeCurrent);
         }
 
         private void UpdateItemSizeState(GroupItemSize size)
@@ -429,7 +426,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextClick(object sender, MouseEventArgs e)
         {
-            _ribbonLabel.OnDesignTimeContextMenu(e);
+            GroupLabel.OnDesignTimeContextMenu(e);
         }
 
         private void OnLabelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -481,8 +478,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updateLayout)
             {
                 // If we are on the currently selected tab then...
-                if ((_ribbonLabel.RibbonTab != null) &&
-                    (_ribbon.SelectedTab == _ribbonLabel.RibbonTab))
+                if ((GroupLabel.RibbonTab != null) &&
+                    (_ribbon.SelectedTab == GroupLabel.RibbonTab))
                 {
                     // ...layout so the visible change is made
                     OnNeedPaint(true);
@@ -492,11 +489,11 @@ namespace ComponentFactory.Krypton.Ribbon
             if (updatePaint)
             {
                 // If this button is actually defined as visible...
-                if (_ribbonLabel.Visible || _ribbon.InDesignMode)
+                if (GroupLabel.Visible || _ribbon.InDesignMode)
                 {
                     // ...and on the currently selected tab then...
-                    if ((_ribbonLabel.RibbonTab != null) &&
-                        (_ribbon.SelectedTab == _ribbonLabel.RibbonTab))
+                    if ((GroupLabel.RibbonTab != null) &&
+                        (_ribbon.SelectedTab == GroupLabel.RibbonTab))
                     {
                         // ...repaint it right now
                         OnNeedPaint(false, ClientRectangle);

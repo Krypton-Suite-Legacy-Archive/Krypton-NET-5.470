@@ -63,28 +63,22 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Gets a value indicating if all values are default.
             /// </summary>
-            public bool IsDefault
-            {
-                get
-                {
-                    return ((ContentTextFont == null) &&
-                            (ContentTextHint == PaletteTextHint.Inherit) &&
-                            (ContentTextTrim == PaletteTextTrim.Inherit) &&
-                            (ContentTextPrefix == PaletteTextHotkeyPrefix.Inherit) &&
-                            (ContentTextH == PaletteRelativeAlign.Inherit) &&
-                            (ContentTextV == PaletteRelativeAlign.Inherit) &&
-                            (ContentTextMultiLineH == PaletteRelativeAlign.Inherit) &&
-                            (ContentTextMultiLine == InheritBool.Inherit) &&
-                            (ContentTextColor1 == Color.Empty) &&
-                            (ContentTextColor2 == Color.Empty) &&
-                            (ContentTextColorStyle == PaletteColorStyle.Inherit) &&
-                            (ContentTextColorAlign == PaletteRectangleAlign.Inherit) &&
-                            (ContentTextColorAngle == -1) &&
-                            (ContentTextImage == null) &&
-                            (ContentTextImageStyle == PaletteImageStyle.Inherit) &&
-                            (ContentTextImageAlign == PaletteRectangleAlign.Inherit));
-                }
-            }
+            public bool IsDefault => ((ContentTextFont == null) &&
+                                      (ContentTextHint == PaletteTextHint.Inherit) &&
+                                      (ContentTextTrim == PaletteTextTrim.Inherit) &&
+                                      (ContentTextPrefix == PaletteTextHotkeyPrefix.Inherit) &&
+                                      (ContentTextH == PaletteRelativeAlign.Inherit) &&
+                                      (ContentTextV == PaletteRelativeAlign.Inherit) &&
+                                      (ContentTextMultiLineH == PaletteRelativeAlign.Inherit) &&
+                                      (ContentTextMultiLine == InheritBool.Inherit) &&
+                                      (ContentTextColor1 == Color.Empty) &&
+                                      (ContentTextColor2 == Color.Empty) &&
+                                      (ContentTextColorStyle == PaletteColorStyle.Inherit) &&
+                                      (ContentTextColorAlign == PaletteRectangleAlign.Inherit) &&
+                                      (ContentTextColorAngle == -1) &&
+                                      (ContentTextImage == null) &&
+                                      (ContentTextImageStyle == PaletteImageStyle.Inherit) &&
+                                      (ContentTextImageAlign == PaletteRectangleAlign.Inherit));
         }
         #endregion
 
@@ -118,11 +112,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get { return ((_storage == null) || _storage.IsDefault); }
-		}
-		#endregion
+		public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
+
+	    #endregion
 
 		#region Font
 		/// <summary>
@@ -135,12 +127,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public virtual Font Font
 		{
-            get
-            {
-                return _storage?.ContentTextFont;
-            }
+            get => _storage?.ContentTextFont;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -778,10 +767,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Image Image
         {
-            get
-            {
-                return _storage?.ContentTextImage;
-            }
+            get => _storage?.ContentTextImage;
 
             set
             {

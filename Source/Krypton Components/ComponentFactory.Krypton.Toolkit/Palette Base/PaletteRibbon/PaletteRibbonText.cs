@@ -58,14 +58,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (TextColor == Color.Empty);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (TextColor == Color.Empty);
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -102,7 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Color TextColor
         {
-            get { return _textColor; }
+            get => _textColor;
 
             set
             {

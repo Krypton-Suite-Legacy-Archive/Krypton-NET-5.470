@@ -18,9 +18,8 @@ namespace ComponentFactory.Krypton.Docking
 	public class DockableNavigatorEventArgs : EventArgs
 	{
 		#region Instance Fields
-        private KryptonDockableNavigator _navigator;
-        private KryptonDockingNavigator _element;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -31,8 +30,8 @@ namespace ComponentFactory.Krypton.Docking
         public DockableNavigatorEventArgs(KryptonDockableNavigator navigator,
                                           KryptonDockingNavigator element)
 		{
-            _navigator = navigator;
-            _element = element;
+            DockableNavigatorControl = navigator;
+            DockingNavigatorElement = element;
 		}
         #endregion
 
@@ -40,18 +39,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets a reference to the KryptonDockableNavigator control.
         /// </summary>
-        public KryptonDockableNavigator DockableNavigatorControl
-        {
-            get { return _navigator; }
-        }
+        public KryptonDockableNavigator DockableNavigatorControl { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a reference to the KryptonDockingNavigator that is managing the dockable workspace control.
         /// </summary>
-        public KryptonDockingNavigator DockingNavigatorElement
-        {
-            get { return _element; }
-        }
-        #endregion
+        public KryptonDockingNavigator DockingNavigatorElement { get; }
+
+	    #endregion
 	}
 }

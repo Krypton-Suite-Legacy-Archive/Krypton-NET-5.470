@@ -42,9 +42,7 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private KryptonPage _page;
-        private KryptonNavigator _navigator;
-        private ButtonSpecNavManagerLayoutBar _buttonManager;
+
         private PageButtonController _buttonController;
         private IPaletteRibbonGeneral _paletteGeneral;
         private PaletteRibbonTabContentInheritOverride _overrideStateNormal;
@@ -62,7 +60,7 @@ namespace ComponentFactory.Krypton.Navigator
         private PaletteRibbonShape _lastRibbonShape;
         private IDisposable[] _mementos;
         private DateTime _lastClick;
-        private bool _checked;
+
         #endregion
 
         #region Identity
@@ -77,8 +75,8 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(navigator != null);
             Debug.Assert(page != null);
 
-            _navigator = navigator;
-            _page = page;
+            Navigator = navigator;
+            Page = page;
             _lastClick = DateTime.Now.AddDays(-1);
 
             // Associate the page component with this view element
@@ -109,18 +107,18 @@ namespace ComponentFactory.Krypton.Navigator
             KeyController = _buttonController;
 
             // Create a decorator to interface with the tooltip manager
-            ToolTipController toolTipController = new ToolTipController(_navigator.ToolTipManager, this, _buttonController);
-            ToolTipController hoverController = new ToolTipController(_navigator.HoverManager, this, toolTipController);
+            ToolTipController toolTipController = new ToolTipController(Navigator.ToolTipManager, this, _buttonController);
+            ToolTipController hoverController = new ToolTipController(Navigator.HoverManager, this, toolTipController);
 
             // Assign controller for handing mouse input
             MouseController = hoverController;
 
             // Create overrides for handling a focus state
-            _paletteGeneral = _navigator.StateCommon.RibbonGeneral;
-            _overrideStateNormal = new PaletteRibbonTabContentInheritOverride(_page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.Content, _page.StateNormal.RibbonTab.TabDraw, _page.StateNormal.RibbonTab.TabDraw, _page.StateNormal.RibbonTab.Content, PaletteState.FocusOverride);
-            _overrideStateTracking = new PaletteRibbonTabContentInheritOverride(_page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.Content, _page.StateTracking.RibbonTab.TabDraw, _page.StateTracking.RibbonTab.TabDraw, _page.StateTracking.RibbonTab.Content, PaletteState.FocusOverride);
-            _overrideStatePressed = new PaletteRibbonTabContentInheritOverride(_page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.Content, _page.StatePressed.RibbonTab.TabDraw, _page.StatePressed.RibbonTab.TabDraw, _page.StatePressed.RibbonTab.Content, PaletteState.FocusOverride);
-            _overrideStateSelected = new PaletteRibbonTabContentInheritOverride(_page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.TabDraw, _page.OverrideFocus.RibbonTab.Content, _page.StateSelected.RibbonTab.TabDraw, _page.StateSelected.RibbonTab.TabDraw, _page.StateSelected.RibbonTab.Content, PaletteState.FocusOverride);
+            _paletteGeneral = Navigator.StateCommon.RibbonGeneral;
+            _overrideStateNormal = new PaletteRibbonTabContentInheritOverride(Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.Content, Page.StateNormal.RibbonTab.TabDraw, Page.StateNormal.RibbonTab.TabDraw, Page.StateNormal.RibbonTab.Content, PaletteState.FocusOverride);
+            _overrideStateTracking = new PaletteRibbonTabContentInheritOverride(Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.Content, Page.StateTracking.RibbonTab.TabDraw, Page.StateTracking.RibbonTab.TabDraw, Page.StateTracking.RibbonTab.Content, PaletteState.FocusOverride);
+            _overrideStatePressed = new PaletteRibbonTabContentInheritOverride(Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.Content, Page.StatePressed.RibbonTab.TabDraw, Page.StatePressed.RibbonTab.TabDraw, Page.StatePressed.RibbonTab.Content, PaletteState.FocusOverride);
+            _overrideStateSelected = new PaletteRibbonTabContentInheritOverride(Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.TabDraw, Page.OverrideFocus.RibbonTab.Content, Page.StateSelected.RibbonTab.TabDraw, Page.StateSelected.RibbonTab.TabDraw, Page.StateSelected.RibbonTab.Content, PaletteState.FocusOverride);
 
             // Use a class to convert from ribbon tab to content interface
             _contentProvider = new RibbonTabToContent(_paletteGeneral, _overrideStateNormal, _overrideStateNormal);
@@ -137,7 +135,7 @@ namespace ComponentFactory.Krypton.Navigator
             Add(_layoutDocker);
 
             // Create button specification collection manager
-            _buttonManager = new ButtonSpecNavManagerLayoutBar(Navigator, Navigator.InternalRedirector, Page.ButtonSpecs, null,
+            ButtonSpecManager = new ButtonSpecNavManagerLayoutBar(Navigator, Navigator.InternalRedirector, Page.ButtonSpecs, null,
                                                                new ViewLayoutDocker[] { _layoutDocker },
                                                                new IPaletteMetric[] { Navigator.StateCommon },
                                                                new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
@@ -153,7 +151,7 @@ namespace ComponentFactory.Krypton.Navigator
             };
 
             // Ensure current button specs are created
-            _buttonManager.RecreateButtons();
+            ButtonSpecManager.RecreateButtons();
 
             // Create the state specific memento array
             _mementos = new IDisposable[Enum.GetValues(typeof(PaletteState)).Length];
@@ -191,10 +189,10 @@ namespace ComponentFactory.Krypton.Navigator
                     _mementos = null;
                 }
 
-                if (_buttonManager != null)
+                if (ButtonSpecManager != null)
                 {
-                    _buttonManager.Destruct();
-                    _buttonManager = null;
+                    ButtonSpecManager.Destruct();
+                    ButtonSpecManager = null;
                 }
             }
 
@@ -206,43 +204,30 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the view associated with the ribbon tab.
         /// </summary>
-        public ViewBase View
-        {
-            get { return this; }
-        }
+        public ViewBase View => this;
 
         /// <summary>
         /// Gets the page this ribbon tab represents.
         /// </summary>
-        public KryptonPage Page
-        {
-            get { return _page; }
-        }
+        public KryptonPage Page { get; }
 
         /// <summary>
         /// Gets the navigator this check item is inside.
         /// </summary>
-        public KryptonNavigator Navigator 
-        {
-            get { return _navigator; }
-        }
+        public KryptonNavigator Navigator { get; }
 
         /// <summary>
         /// Gets and sets the checked state of the ribbon tab.
         /// </summary>
-        public bool Checked 
-        {
-            get { return _checked; }
-            set { _checked = value; }
-        }
+        public bool Checked { get; set; }
 
         /// <summary>
         /// Gets and sets if the ribbon tab has the focus.
         /// </summary>
         public bool HasFocus
         {
-            get { return _overrideStateNormal.Apply; }
-            
+            get => _overrideStateNormal.Apply;
+
             set 
             {
                 if (_overrideStateNormal.Apply != value)
@@ -260,7 +245,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -279,16 +264,13 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Reference to ButtonSpec; otherwise null.</returns>
         public ButtonSpec ButtonSpecFromView(ViewBase element)
         {
-            return _buttonManager?.ButtonSpecFromView(element);
+            return ButtonSpecManager?.ButtonSpecFromView(element);
         }
 
         /// <summary>
         /// Gets access to the button spec manager used for this button.
         /// </summary>
-        public ButtonSpecNavManagerLayoutBar ButtonSpecManager
-        {
-            get { return _buttonManager; }
-        }
+        public ButtonSpecNavManagerLayoutBar ButtonSpecManager { get; private set; }
 
         /// <summary>
         /// Raises the Click event for the button.
@@ -335,7 +317,7 @@ namespace ComponentFactory.Krypton.Navigator
             CheckPaletteState(context);
             
             // Cache the ribbon shape
-            _lastRibbonShape = (_navigator.Palette == null ? PaletteRibbonShape.Office2007 : _navigator.Palette.GetRibbonShape());
+            _lastRibbonShape = (Navigator.Palette == null ? PaletteRibbonShape.Office2007 : Navigator.Palette.GetRibbonShape());
             
             // We take on all the provided size
             ClientRectangle = context.DisplayRectangle;
@@ -402,7 +384,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>String value.</returns>
         public string GetShortText()
         {
-            return _page.GetTextMapping(_navigator.Bar.BarMapText);
+            return Page.GetTextMapping(Navigator.Bar.BarMapText);
         }
 
         /// <summary>
@@ -412,7 +394,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state)
         {
-            return _page.GetImageMapping(_navigator.Bar.BarMapImage);
+            return Page.GetImageMapping(Navigator.Bar.BarMapImage);
         }
 
         /// <summary>
@@ -431,7 +413,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>String value.</returns>
         public string GetLongText()
         {
-            return _page.GetTextMapping(_navigator.Bar.BarMapExtraText);
+            return Page.GetTextMapping(Navigator.Bar.BarMapExtraText);
         }
         #endregion
 
@@ -444,27 +426,27 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void OnRightClick(object sender, MouseEventArgs e)
         {
             // Can only select the page if not already selected and allowed to select a tab
-            if ((_navigator.SelectedPage != _page) && _navigator.AllowTabSelect)
+            if ((Navigator.SelectedPage != Page) && Navigator.AllowTabSelect)
             {
-                _navigator.SelectedPage = _page;
+                Navigator.SelectedPage = Page;
             }
 
             // Generate event so user can decide what, if any, context menu to show
-            ShowContextMenuArgs scma = new ShowContextMenuArgs(_page, _navigator.Pages.IndexOf(_page));
-            _navigator.OnShowContextMenu(scma);
+            ShowContextMenuArgs scma = new ShowContextMenuArgs(Page, Navigator.Pages.IndexOf(Page));
+            Navigator.OnShowContextMenu(scma);
 
             // Do we need to show a context menu
             if (!scma.Cancel)
             {
                 if (CommonHelper.ValidKryptonContextMenu(scma.KryptonContextMenu))
                 {
-                    scma.KryptonContextMenu.Show(_navigator, _navigator.PointToScreen(new Point(e.X, e.Y)));
+                    scma.KryptonContextMenu.Show(Navigator, Navigator.PointToScreen(new Point(e.X, e.Y)));
                 }
                 else if (scma.ContextMenuStrip != null)
                 {
                     if (CommonHelper.ValidContextMenuStrip(scma.ContextMenuStrip) )
                     {
-                        scma.ContextMenuStrip.Show(_navigator.PointToScreen(new Point(e.X, e.Y)));
+                        scma.ContextMenuStrip.Show(Navigator.PointToScreen(new Point(e.X, e.Y)));
                     }
                 }
             }
@@ -600,7 +582,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnClick(object sender, EventArgs e)
         {
             // Generate click event for the page header
-            Navigator.OnTabClicked(new KryptonPageEventArgs(_page, Navigator.Pages.IndexOf(_page)));
+            Navigator.OnTabClicked(new KryptonPageEventArgs(Page, Navigator.Pages.IndexOf(Page)));
 
             // If this click is within the double click time of the last one, generate the double click event.
             DateTime now = DateTime.Now;
@@ -610,7 +592,7 @@ namespace ComponentFactory.Krypton.Navigator
                 _buttonController.ClearDragRect();
 
                 // Generate click event for the page header
-                Navigator.OnTabDoubleClicked(new KryptonPageEventArgs(_page, Navigator.Pages.IndexOf(_page)));
+                Navigator.OnTabDoubleClicked(new KryptonPageEventArgs(Page, Navigator.Pages.IndexOf(Page)));
 
                 // Prevent a third click causing another double click by resetting the now time backwards
                 now = now.AddDays(-1);
@@ -619,13 +601,13 @@ namespace ComponentFactory.Krypton.Navigator
             _lastClick = now;
 
             // Can only select the page if not already selected and allowed a selected tab
-            if ((Navigator.SelectedPage != _page) && Navigator.AllowTabSelect)
+            if ((Navigator.SelectedPage != Page) && Navigator.AllowTabSelect)
             {
-                Navigator.SelectedPage = _page;
+                Navigator.SelectedPage = Page;
             }
 
             // If the page is actually now selected
-            if (Navigator.SelectedPage == _page)
+            if (Navigator.SelectedPage == Page)
             {
                 // If in a tabs only mode then show the popup for the page
                 if (Navigator.NavigatorMode == NavigatorMode.BarRibbonTabOnly)
@@ -637,22 +619,22 @@ namespace ComponentFactory.Krypton.Navigator
 
         private void OnDragStart(object sender, DragStartEventCancelArgs e)
         {
-            _navigator.InternalDragStart(e, _page);
+            Navigator.InternalDragStart(e, Page);
         }
 
         private void OnDragMove(object sender, PointEventArgs e)
         {
-            _navigator.InternalDragMove(e);
+            Navigator.InternalDragMove(e);
         }
 
         private void OnDragEnd(object sender, PointEventArgs e)
         {
-            _navigator.InternalDragEnd(e);
+            Navigator.InternalDragEnd(e);
         }
 
         private void OnDragQuit(object sender, EventArgs e)
         {
-            _navigator.InternalDragQuit();
+            Navigator.InternalDragQuit();
         }
 
         private void OnButtonDragRectangle(object sender, ButtonDragRectangleEventArgs e)

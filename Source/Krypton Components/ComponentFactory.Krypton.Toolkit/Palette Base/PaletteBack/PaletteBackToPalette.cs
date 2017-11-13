@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPalette _palette;
-        private PaletteBackStyle _style;
+
         #endregion
 
         #region Identity
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
 			// Remember source palette
             _palette = palette;
-            _style = style;
+            BackStyle = style;
         }
 		#endregion
 
@@ -40,11 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the fixed background style.
         /// </summary>
-        public PaletteBackStyle BackStyle
-        {
-            get { return _style; }
-            set { _style = value; }
-        }
+        public PaletteBackStyle BackStyle { get; set; }
+
         #endregion
 
         #region Draw
@@ -55,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
 		public InheritBool GetBackDraw(PaletteState state)
 		{
-            return _palette.GetBackDraw(_style, state);
+            return _palette.GetBackDraw(BackStyle, state);
 		}
 		#endregion
 
@@ -67,7 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteGraphicsHint value.</returns>
 		public PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
 		{
-            return _palette.GetBackGraphicsHint(_style, state);
+            return _palette.GetBackGraphicsHint(BackStyle, state);
         }
 		#endregion
 
@@ -79,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public Color GetBackColor1(PaletteState state)
 		{
-            return _palette.GetBackColor1(_style, state);
+            return _palette.GetBackColor1(BackStyle, state);
         }
 		#endregion
 
@@ -91,7 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color value.</returns>
 		public Color GetBackColor2(PaletteState state)
 		{
-            return _palette.GetBackColor2(_style, state);
+            return _palette.GetBackColor2(BackStyle, state);
         }
 		#endregion
 
@@ -103,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color drawing style.</returns>
 		public PaletteColorStyle GetBackColorStyle(PaletteState state)
 		{
-            return _palette.GetBackColorStyle(_style, state);
+            return _palette.GetBackColorStyle(BackStyle, state);
         }
 		#endregion
 
@@ -115,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Color alignment style.</returns>
 		public PaletteRectangleAlign GetBackColorAlign(PaletteState state)
 		{
-            return _palette.GetBackColorAlign(_style, state);
+            return _palette.GetBackColorAlign(BackStyle, state);
         }
 		#endregion
 
@@ -127,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Angle used for color drawing.</returns>
 		public float GetBackColorAngle(PaletteState state)
 		{
-            return _palette.GetBackColorAngle(_style, state);
+            return _palette.GetBackColorAngle(BackStyle, state);
         }
 		#endregion
 
@@ -139,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image instance.</returns>
 		public Image GetBackImage(PaletteState state)
 		{
-            return _palette.GetBackImage(_style, state);
+            return _palette.GetBackImage(BackStyle, state);
         }
 		#endregion
 
@@ -151,7 +148,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image style value.</returns>
 		public PaletteImageStyle GetBackImageStyle(PaletteState state)
 		{
-            return _palette.GetBackImageStyle(_style, state);
+            return _palette.GetBackImageStyle(BackStyle, state);
         }
 		#endregion
 
@@ -163,7 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Image alignment style.</returns>
 		public PaletteRectangleAlign GetBackImageAlign(PaletteState state)
 		{
-            return _palette.GetBackImageAlign(_style, state);
+            return _palette.GetBackImageAlign(BackStyle, state);
 		}
 		#endregion
     }

@@ -19,11 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPalettePanels : Storage
     {
         #region Instance Fields
-        private KryptonPalettePanel _panelCommon;
-        private KryptonPalettePanel _panelClient;
-        private KryptonPalettePanel _panelAlternate;
-        private KryptonPalettePanel _panelRibbonInactive;
-        private KryptonPalettePanel _panelCustom1;
+
         #endregion
 
         #region Identity
@@ -38,20 +34,20 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(redirector != null);
 
             // Create the button style specific and common palettes
-            _panelCommon = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelClient, needPaint);
-            _panelClient = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelClient, needPaint);
-            _panelAlternate = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelAlternate, needPaint);
-            _panelRibbonInactive = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelRibbonInactive, needPaint);
-            _panelCustom1 = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelCustom1, needPaint);
+            PanelCommon = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelClient, needPaint);
+            PanelClient = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelClient, needPaint);
+            PanelAlternate = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelAlternate, needPaint);
+            PanelRibbonInactive = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelRibbonInactive, needPaint);
+            PanelCustom1 = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelCustom1, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
-            PaletteRedirectBack redirectCommon = new PaletteRedirectBack(redirector, _panelCommon.StateDisabled, _panelCommon.StateNormal);
+            PaletteRedirectBack redirectCommon = new PaletteRedirectBack(redirector, PanelCommon.StateDisabled, PanelCommon.StateNormal);
 
             // Inform the button style to use the new redirector
-            _panelClient.SetRedirector(redirectCommon);
-            _panelAlternate.SetRedirector(redirectCommon);
-            _panelRibbonInactive.SetRedirector(redirectCommon);
-            _panelCustom1.SetRedirector(redirectCommon);
+            PanelClient.SetRedirector(redirectCommon);
+            PanelAlternate.SetRedirector(redirectCommon);
+            PanelRibbonInactive.SetRedirector(redirectCommon);
+            PanelCustom1.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -59,17 +55,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating if all values are default.
         /// </summary>
-        public override bool IsDefault
-        {
-            get
-            {
-                return _panelCommon.IsDefault &&
-                       _panelClient.IsDefault &&
-                       _panelAlternate.IsDefault &&
-                       _panelRibbonInactive.IsDefault &&
-                       _panelCustom1.IsDefault;
-            }
-        }
+        public override bool IsDefault => PanelCommon.IsDefault &&
+                                          PanelClient.IsDefault &&
+                                          PanelAlternate.IsDefault &&
+                                          PanelRibbonInactive.IsDefault &&
+                                          PanelCustom1.IsDefault;
+
         #endregion
 
         #region PopulateFromBase
@@ -81,11 +72,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Populate only the designated styles
             common.StateCommon.BackStyle = PaletteBackStyle.PanelClient;
-            _panelClient.PopulateFromBase();
+            PanelClient.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.PanelAlternate;
-            _panelAlternate.PopulateFromBase();
+            PanelAlternate.PopulateFromBase();
             common.StateCommon.BackStyle = PaletteBackStyle.PanelRibbonInactive;
-            _panelRibbonInactive.PopulateFromBase();
+            PanelRibbonInactive.PopulateFromBase();
         }
         #endregion
 
@@ -97,14 +88,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanel PanelCommon
-        {
-            get { return _panelCommon; }
-        }
+        public KryptonPalettePanel PanelCommon { get; }
 
         private bool ShouldSerializePanelCommon()
         {
-            return !_panelCommon.IsDefault;
+            return !PanelCommon.IsDefault;
         }
         #endregion
 
@@ -116,14 +104,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining a client panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanel PanelClient
-        {
-            get { return _panelClient; }
-        }
+        public KryptonPalettePanel PanelClient { get; }
 
         private bool ShouldSerializePanelClient()
         {
-            return !_panelClient.IsDefault;
+            return !PanelClient.IsDefault;
         }
         #endregion
 
@@ -135,14 +120,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining alternate panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanel PanelAlternate
-        {
-            get { return _panelAlternate; }
-        }
+        public KryptonPalettePanel PanelAlternate { get; }
 
         private bool ShouldSerializePanelAlternate()
         {
-            return !_panelAlternate.IsDefault;
+            return !PanelAlternate.IsDefault;
         }
         #endregion
 
@@ -154,14 +136,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining ribbon inactive panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanel PanelRibbonInactive
-        {
-            get { return _panelRibbonInactive; }
-        }
+        public KryptonPalettePanel PanelRibbonInactive { get; }
 
         private bool ShouldSerializePanelRibbonInactive()
         {
-            return !_panelRibbonInactive.IsDefault;
+            return !PanelRibbonInactive.IsDefault;
         }
         #endregion
 
@@ -173,14 +152,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining the first custom panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanel PanelCustom1
-        {
-            get { return _panelCustom1; }
-        }
+        public KryptonPalettePanel PanelCustom1 { get; }
 
         private bool ShouldSerializePanelCustom1()
         {
-            return !_panelCustom1.IsDefault;
+            return !PanelCustom1.IsDefault;
         }
         #endregion
     }

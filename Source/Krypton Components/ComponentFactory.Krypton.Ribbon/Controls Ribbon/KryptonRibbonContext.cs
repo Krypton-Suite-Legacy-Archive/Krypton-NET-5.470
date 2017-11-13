@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("Context")]
         public string ContextName
         {
-            get { return _contextName; }
-            
+            get => _contextName;
+
             set 
             {
                 // We never allow an empty text value
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue("Context")]
         public string ContextTitle
         {
-            get { return _contextTitle; }
+            get => _contextTitle;
 
             set
             {
@@ -115,7 +115,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DefaultValue(typeof(Color), "Red")]
         public Color ContextColor
         {
-            get { return _contextColor; }
+            get => _contextColor;
 
             set
             {
@@ -142,7 +142,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public object Tag
         {
-            get { return _tag; }
+            get => _tag;
 
             set
             {

@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public bool DrawChecked
         {
-            set { _drawChecked = value; }
+            set => _drawChecked = value;
         }
         #endregion
 

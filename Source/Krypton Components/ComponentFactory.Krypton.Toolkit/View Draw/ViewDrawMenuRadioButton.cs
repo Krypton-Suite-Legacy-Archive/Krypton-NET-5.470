@@ -18,14 +18,11 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IContextMenuProvider _provider;
-        private KryptonContextMenuRadioButton _radioButton;
         private FixedContentValue _contentValues;
-        private ViewDrawContent _drawContent;
-        private ViewDrawRadioButton _drawRadioButton;
         private ViewLayoutCenter _layoutCenter;
         private ViewLayoutDocker _outerDocker;
         private ViewLayoutDocker _innerDocker;
-        private bool _itemEnabled;
+
         #endregion
 
         #region Identity
@@ -38,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        KryptonContextMenuRadioButton radioButton)
 		{
             _provider = provider;
-            _radioButton = radioButton;
+            KryptonContextMenuRadioButton = radioButton;
 
             // Create fixed storage of the content values
             _contentValues = new FixedContentValue(radioButton.Text,
@@ -47,34 +44,34 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    radioButton.ImageTransparentColor);
 
             // Decide on the enabled state of the display
-            _itemEnabled = provider.ProviderEnabled && _radioButton.Enabled;
+            ItemEnabled = provider.ProviderEnabled && KryptonContextMenuRadioButton.Enabled;
 
             // Give the heading object the redirector to use when inheriting values
-            _radioButton.SetPaletteRedirect(provider.ProviderRedirector);
+            KryptonContextMenuRadioButton.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            _drawContent = new ViewDrawContent((_itemEnabled ? (IPaletteContent)_radioButton.OverrideNormal : (IPaletteContent)_radioButton.OverrideDisabled),
+            ViewDrawContent = new ViewDrawContent((ItemEnabled ? (IPaletteContent)KryptonContextMenuRadioButton.OverrideNormal : (IPaletteContent)KryptonContextMenuRadioButton.OverrideDisabled),
                                                _contentValues, VisualOrientation.Top)
             {
                 UseMnemonic = true,
-                Enabled = _itemEnabled
+                Enabled = ItemEnabled
             };
 
             // Create the radio button image drawer and place inside element so it is always centered
-            _drawRadioButton = new ViewDrawRadioButton(_radioButton.StateRadioButtonImages)
+            ViewDrawRadioButton = new ViewDrawRadioButton(KryptonContextMenuRadioButton.StateRadioButtonImages)
             {
-                CheckState = _radioButton.Checked,
-                Enabled = _itemEnabled
+                CheckState = KryptonContextMenuRadioButton.Checked,
+                Enabled = ItemEnabled
             };
             _layoutCenter = new ViewLayoutCenter
             {
-                _drawRadioButton
+                ViewDrawRadioButton
             };
 
             // Place the radio button on the left of the available space but inside separators
             _innerDocker = new ViewLayoutDocker
             {
-                { _drawContent, ViewDockStyle.Fill },
+                { ViewDrawContent, ViewDockStyle.Fill },
                 { _layoutCenter, ViewDockStyle.Left },
                 { new ViewLayoutSeparator(1), ViewDockStyle.Right },
                 { new ViewLayoutSeparator(3), ViewDockStyle.Left },
@@ -96,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _innerDocker.KeyController = mrbc;
 
             // We need to be notified whenever the checked state changes
-            _radioButton.CheckedChanged += new EventHandler(OnCheckedChanged);
+            KryptonContextMenuRadioButton.CheckedChanged += new EventHandler(OnCheckedChanged);
 
             // Add docker as the composite content
             Add(_outerDocker);
@@ -119,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             // Unhook event handlers to prevent memory leak
-            _radioButton.CheckedChanged -= new EventHandler(OnCheckedChanged);
+            KryptonContextMenuRadioButton.CheckedChanged -= new EventHandler(OnCheckedChanged);
 
             // Must call base class to finish disposing
             base.Dispose(disposing);
@@ -130,60 +127,48 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the enabled state of the item.
         /// </summary>
-        public bool ItemEnabled
-        {
-            get { return _itemEnabled; }
-        }
+        public bool ItemEnabled { get; }
+
         #endregion
 
         #region ViewDrawRadioButton
         /// <summary>
         /// Gets access to the radio button image drawing element.
         /// </summary>
-        public ViewDrawRadioButton ViewDrawRadioButton
-        {
-            get { return _drawRadioButton; }
-        }
+        public ViewDrawRadioButton ViewDrawRadioButton { get; }
+
         #endregion
 
         #region ViewDrawContent
         /// <summary>
         /// Gets access to the content drawing element.
         /// </summary>
-        public ViewDrawContent ViewDrawContent
-        {
-            get { return _drawContent; }
-        }
+        public ViewDrawContent ViewDrawContent { get; }
+
         #endregion
 
         #region ItemText
         /// <summary>
         /// Gets the short text value of the radio button item.
         /// </summary>
-        public string ItemText
-        {
-            get { return _contentValues.GetShortText(); }
-        }
+        public string ItemText => _contentValues.GetShortText();
+
         #endregion
 
         #region KryptonContextMenuRadioButton
         /// <summary>
         /// Gets access to the actual radio button definiton.
         /// </summary>
-        public KryptonContextMenuRadioButton KryptonContextMenuRadioButton
-        {
-            get { return _radioButton; }
-        }
+        public KryptonContextMenuRadioButton KryptonContextMenuRadioButton { get; }
+
         #endregion
 
         #region CanCloseMenu
         /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
-        public bool CanCloseMenu
-        {
-            get { return _provider.ProviderCanCloseMenu; }
-        }
+        public bool CanCloseMenu => _provider.ProviderCanCloseMenu;
+
         #endregion
 
         #region Closing
@@ -234,13 +219,13 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Private
         private void OnCheckedChanged(object sender, EventArgs e)
         {
-            _drawRadioButton.CheckState = _radioButton.Checked;
+            ViewDrawRadioButton.CheckState = KryptonContextMenuRadioButton.Checked;
             _provider.ProviderNeedPaintDelegate(this, new NeedLayoutEventArgs(false));
         }
 
         private void OnClick(object sender, EventArgs e)
         {
-            _radioButton.PerformClick();
+            KryptonContextMenuRadioButton.PerformClick();
         }
         #endregion
     }

@@ -19,9 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteBackInheritRedirect _stateInherit;
-        private PaletteBack _stateCommon;
-        private PaletteBack _stateNormal;
-        private PaletteBack _stateDisabled;
+
         #endregion
 
         #region Identity
@@ -37,9 +35,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             // Create the storage objects
             _stateInherit = new PaletteBackInheritRedirect(redirect, backStyle);
-            _stateCommon = new PaletteBack(_stateInherit, needPaint);
-            _stateDisabled = new PaletteBack(_stateCommon, needPaint);
-            _stateNormal = new PaletteBack(_stateCommon, needPaint);
+            StateCommon = new PaletteBack(_stateInherit, needPaint);
+            StateDisabled = new PaletteBack(StateCommon, needPaint);
+            StateNormal = new PaletteBack(StateCommon, needPaint);
         }
         #endregion
 
@@ -59,16 +57,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _stateCommon.IsDefault &&
-                       _stateDisabled.IsDefault &&
-                       _stateNormal.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => StateCommon.IsDefault &&
+		                                  StateDisabled.IsDefault &&
+		                                  StateNormal.IsDefault;
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -77,8 +70,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public void PopulateFromBase()
         {
             // Populate only the designated styles
-            _stateDisabled.PopulateFromBase(PaletteState.Disabled);
-            _stateNormal.PopulateFromBase(PaletteState.Normal);
+            StateDisabled.PopulateFromBase(PaletteState.Disabled);
+            StateNormal.PopulateFromBase(PaletteState.Normal);
         }
         #endregion
 
@@ -90,14 +83,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common panel appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteBack StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
         #endregion
     
@@ -109,14 +99,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteBack StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
         #endregion
 
@@ -128,14 +115,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal panel appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteBack StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteBack StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
         #endregion
     }

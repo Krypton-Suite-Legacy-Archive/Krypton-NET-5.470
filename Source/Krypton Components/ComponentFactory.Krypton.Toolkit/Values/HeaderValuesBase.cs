@@ -62,17 +62,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return ((Image == GetImageDefault()) &&
-                        (ImageTransparentColor == Color.Empty) &&
-						(Heading == GetHeadingDefault()) &&
-						(Description == GetDescriptionDefault()));
-			}
-		}
-		#endregion
+		public override bool IsDefault => ((Image == GetImageDefault()) &&
+		                                   (ImageTransparentColor == Color.Empty) &&
+		                                   (Heading == GetHeadingDefault()) &&
+		                                   (Description == GetDescriptionDefault()));
+
+	    #endregion
 
 		#region Default Values
         /// <summary>
@@ -107,9 +102,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Image Image
 		{
-			get { return _image; }
+			get => _image;
 
-			set
+		    set
 			{
 				if (_image != value)
 				{
@@ -154,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [KryptonDefaultColorAttribute()]
         public Color ImageTransparentColor
         {
-            get { return _transparent; }
+            get => _transparent;
 
             set
             {
@@ -201,9 +196,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public virtual string Heading
 		{
-			get { return _heading; }
+			get => _heading;
 
-			set
+		    set
 			{
 				if (_heading != value)
 				{
@@ -247,9 +242,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
 		public virtual string Description
 		{
-			get { return _description; }
+			get => _description;
 
-			set
+		    set
 			{
 				if (_description != value)
 				{

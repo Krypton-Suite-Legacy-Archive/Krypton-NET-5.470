@@ -33,11 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _refresh;
         private bool _refreshAll;
         private SimpleCall _refreshCall;
-        private ViewManager _viewManager;
-        private IRenderer _renderer;
-        private NeedPaintHandler _needPaintDelegate;
-        private EventHandler _dismissedDelegate;
-        private VisualPopupShadow _shadow;
+	    private VisualPopupShadow _shadow;
         #endregion
 
         #region Identity
@@ -103,11 +99,11 @@ namespace ComponentFactory.Krypton.Toolkit
             SetStyle(ControlStyles.Selectable, false);
 
             // Cache incoming references
-            _renderer = renderer;
-            _viewManager = viewManager;
+            Renderer = renderer;
+            ViewManager = viewManager;
 
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
 
             // Setup the invokes
             _refreshCall = new SimpleCall(OnPerformRefresh);
@@ -150,10 +146,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Do we have a delegate to fire when popup is dismissed?
-            if (_dismissedDelegate != null)
+            if (DismissedDelegate != null)
             {
-                _dismissedDelegate(this, EventArgs.Empty);
-                _dismissedDelegate = null;
+                DismissedDelegate(this, EventArgs.Empty);
+                DismissedDelegate = null;
             }
         }
 		#endregion
@@ -292,12 +288,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Is a change in active window to this popup when it is current allowed.
         /// </summary>
-        public virtual bool AllowBecomeActiveWhenCurrent
-        {
-            get { return true; }
-        }
+        public virtual bool AllowBecomeActiveWhenCurrent => true;
 
-        /// <summary>
+	    /// <summary>
         /// Should the mouse move at provided screen point be allowed.
         /// </summary>
         /// <param name="m">Original message.</param>
@@ -346,11 +339,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public IRenderer Renderer
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _renderer; }
-            set { _renderer = value; }
-        }
+            get;
+            set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Fires the NeedPaint event.
         /// </summary>
         /// <param name="needLayout">Does the palette change require a layout.</param>
@@ -366,23 +359,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public EventHandler DismissedDelegate
-        {
-            get { return _dismissedDelegate; }
-            set { _dismissedDelegate = value; }
-        }
+        public EventHandler DismissedDelegate { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the keyboard is passed to this popup.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public virtual bool KeyboardInert
-        {
-            get { return false; }
-        }
+        public virtual bool KeyboardInert => false;
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the view manager of the popup.
         /// </summary>
         /// <returns></returns>
@@ -399,37 +385,28 @@ namespace ComponentFactory.Krypton.Toolkit
         protected ViewManager ViewManager
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _viewManager; }
-            set { _viewManager = value; }
-        }
+            get;
+            set;
+	    }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return _needPaintDelegate; }
-        }
-        #endregion
+	    {
+	        [System.Diagnostics.DebuggerStepThrough]
+	        get;
+	    }
+
+	    #endregion
 
         #region Protected Virtual
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
-        protected virtual bool EvalInvokePaint
-        {
-            get
-            {
-                // By default the paint can occur safely via a simple Invalidate() call,
-                // but some controls might need to override this the entire client area can
-                // be covered by child controls and so Invalidate() becomes redundant and the
-                // control is never layed out.
-                return false;
-            }
-        }
+        protected virtual bool EvalInvokePaint => false;
 
-        /// <summary>
+	    /// <summary>
         /// Processes a notification from palette storage of a paint and optional layout required.
         /// </summary>
         /// <param name="sender">Source of notification.</param>

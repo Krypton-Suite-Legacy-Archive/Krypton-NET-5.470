@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteTreeNodeTripleRedirect : Storage                                            
 	{
 		#region Instance Fields
-        private PaletteTripleRedirect _nodeRedirect;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              NeedPaintHandler needPaint)
 		{
             Debug.Assert(redirect != null);
-            _nodeRedirect = new PaletteTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
+            Node = new PaletteTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
 		}
 		#endregion
 
@@ -47,14 +47,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return _nodeRedirect.IsDefault;
-			}
-		}
-		#endregion
+		public override bool IsDefault => Node.IsDefault;
+
+	    #endregion
 
         #region Node
         /// <summary>
@@ -64,14 +59,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining node appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteTripleRedirect Node
-        {
-            get { return _nodeRedirect; }
-        }
+        public PaletteTripleRedirect Node { get; }
 
-        private bool ShouldSerializeItem()
+	    private bool ShouldSerializeItem()
         {
-            return !_nodeRedirect.IsDefault;
+            return !Node.IsDefault;
         }
         #endregion
     }

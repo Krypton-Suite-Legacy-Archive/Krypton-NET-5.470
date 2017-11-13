@@ -18,11 +18,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class KeyTipInfo
     {
         #region Instance Fields
-        private bool _enabled;
-        private bool _visible;
-        private string _keyString;
-        private Point _screenPt;
-        private Rectangle _clientRect;
+
         private IRibbonKeyTipTarget _target;
         #endregion
 
@@ -41,12 +37,12 @@ namespace ComponentFactory.Krypton.Ribbon
                           Rectangle clientRect,
                           IRibbonKeyTipTarget target)
         {
-            _enabled = enabled;
-            _keyString = keyString;
-            _screenPt = screenPt;
-            _clientRect = clientRect;
+            Enabled = enabled;
+            KeyString = keyString;
+            ScreenPt = screenPt;
+            ClientRect = clientRect;
             _target = target;
-            _visible = true;
+            Visible = true;
         }
         #endregion
 
@@ -54,43 +50,27 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the enabled state of the source item.
         /// </summary>
-        public bool Enabled 
-        {
-            get { return _enabled; }
-        }
+        public bool Enabled { get; }
 
         /// <summary>
         /// Gets and sets the visible state of the key tip.
         /// </summary>
-        public bool Visible
-        {
-            get { return _visible; }
-            set { _visible = value; }
-        }
+        public bool Visible { get; set; }
 
         /// <summary>
         /// Gets the string used to select the item.
         /// </summary>
-        public string KeyString 
-        {
-            get { return _keyString; }
-        }
+        public string KeyString { get; }
 
         /// <summary>
         /// Gets the center screen location for showing the keytip.
         /// </summary>
-        public Point ScreenPt 
-        {
-            get { return _screenPt; }
-        }
+        public Point ScreenPt { get; }
 
         /// <summary>
         /// Gets the client rectangle for showing the keytip.
         /// </summary>
-        public Rectangle ClientRect
-        {
-            get { return _clientRect; }
-        }
+        public Rectangle ClientRect { get; }
 
         /// <summary>
         /// Perform actual selection of the item.

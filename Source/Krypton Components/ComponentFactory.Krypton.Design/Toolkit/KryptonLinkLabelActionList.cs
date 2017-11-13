@@ -58,8 +58,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public LabelStyle LabelStyle
         {
-            get { return _linkLabel.LabelStyle; }
-            
+            get => _linkLabel.LabelStyle;
+
             set 
             {
                 if (_linkLabel.LabelStyle != value)
@@ -75,8 +75,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation
         {
-            get { return _linkLabel.Orientation; }
-            
+            get => _linkLabel.Orientation;
+
             set
             {
                 if (_linkLabel.Orientation != value)
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public KryptonLinkBehavior LinkBehavior
         {
-            get { return _linkLabel.LinkBehavior; }
+            get => _linkLabel.LinkBehavior;
 
             set
             {
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool LinkVisited
         {
-            get { return _linkLabel.LinkVisited; }
+            get => _linkLabel.LinkVisited;
 
             set
             {
@@ -126,8 +126,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Text
         {
-            get { return _linkLabel.Values.Text; }
-            
+            get => _linkLabel.Values.Text;
+
             set 
             {
                 if (_linkLabel.Values.Text != value)
@@ -143,8 +143,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string ExtraText
         {
-            get { return _linkLabel.Values.ExtraText; }
-            
+            get => _linkLabel.Values.ExtraText;
+
             set 
             {
                 if (_linkLabel.Values.ExtraText != value)
@@ -160,8 +160,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Image Image
         {
-            get { return _linkLabel.Values.Image; }
-            
+            get => _linkLabel.Values.Image;
+
             set 
             {
                 if (_linkLabel.Values.Image != value)
@@ -177,8 +177,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _linkLabel.PaletteMode; }
-            
+            get => _linkLabel.PaletteMode;
+
             set 
             {
                 if (_linkLabel.PaletteMode != value)

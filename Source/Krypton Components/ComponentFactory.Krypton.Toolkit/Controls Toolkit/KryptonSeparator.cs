@@ -36,17 +36,11 @@ namespace ComponentFactory.Krypton.Toolkit
         private ViewDrawDocker _drawDocker;
         private ViewDrawSeparator _drawSeparator;
         private SeparatorController _separatorController;
-        private PaletteSplitContainerRedirect _stateCommon;
-        private PaletteSplitContainer _stateDisabled;
-        private PaletteSplitContainer _stateNormal;
-        private PaletteSeparatorPadding _stateTracking;
-        private PaletteSeparatorPadding _statePressed;
         private Orientation _orientation;
         private Timer _redrawTimer;
         private Point _designLastPt;
         private int _splitterWidth;
-        private int _splitterIncrements;
-        private bool _allowMove;
+
         #endregion
 
         #region Events
@@ -129,25 +123,25 @@ namespace ComponentFactory.Krypton.Toolkit
             SetStyle(ControlStyles.Selectable, false);
 
             // Create the palette storage
-            _stateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
+            StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
                                                              PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorHighProfile,
                                                              PaletteBorderStyle.SeparatorHighProfile, NeedPaintDelegate);
 
             // Never draw the border around the background
-            _stateCommon.BorderRedirect.OverrideBorderToFalse = true;
+            StateCommon.BorderRedirect.OverrideBorderToFalse = true;
 
-            _stateDisabled = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateNormal = new PaletteSplitContainer(_stateCommon, _stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _stateTracking = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
-            _statePressed = new PaletteSeparatorPadding(_stateCommon.Separator, _stateCommon.Separator, NeedPaintDelegate);
+            StateDisabled = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateNormal = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StateTracking = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
+            StatePressed = new PaletteSeparatorPadding(StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
 
             // Our view contains just a simple canvas that covers entire client area and a separator view
-            _drawSeparator = new ViewDrawSeparator(_stateDisabled.Separator, _stateNormal.Separator, _stateTracking, _statePressed,
-                                                   _stateDisabled.Separator, _stateNormal.Separator, _stateTracking, _statePressed,
+            _drawSeparator = new ViewDrawSeparator(StateDisabled.Separator, StateNormal.Separator, StateTracking, StatePressed,
+                                                   StateDisabled.Separator, StateNormal.Separator, StateTracking, StatePressed,
                                                     PaletteMetricPadding.SeparatorPaddingLowProfile, Orientation.Vertical);
 
             // Get the separator to fill the entire client area
-            _drawDocker = new ViewDrawDocker(_stateNormal.Back, _stateNormal.Border)
+            _drawDocker = new ViewDrawDocker(StateNormal.Back, StateNormal.Border)
             {
                 IgnoreAllBorderAndPadding = true
             };
@@ -174,8 +168,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Set other internal starting values
             _style = SeparatorStyle.HighProfile;
             _orientation = Orientation.Vertical;
-            _allowMove = true;
-            _splitterIncrements = 1;
+            AllowMove = true;
+            SplitterIncrements = 1;
             _splitterWidth = 5;
         }
 
@@ -212,8 +206,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -223,8 +217,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         /// <summary>
@@ -234,8 +228,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Font Font
         {
-            get { return base.Font; }
-            set { base.Font = value; }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         /// <summary>
@@ -245,8 +239,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(false)]
         public override Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         /// <summary>
@@ -256,13 +250,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Separator background style.")]
         public PaletteBackStyle ContainerBackStyle
         {
-            get { return _stateCommon.BackStyle; }
+            get => StateCommon.BackStyle;
 
             set
             {
-                if (_stateCommon.BackStyle != value)
+                if (StateCommon.BackStyle != value)
                 {
-                    _stateCommon.BackStyle = value;
+                    StateCommon.BackStyle = value;
                     PerformNeedPaint(true);
                 }
             }
@@ -285,14 +279,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Separator style.")]
         public SeparatorStyle SeparatorStyle
         {
-            get { return _style; }
+            get => _style;
 
             set
             {
                 if (_style != value)
                 {
                     _style = value;
-                    _stateCommon.Separator.SetStyles(_style);
+                    StateCommon.Separator.SetStyles(_style);
                     _drawSeparator.MetricPadding = CommonHelper.SeparatorStyleToMetricPadding(_style);
                     PerformNeedPaint(true);
                 }
@@ -315,14 +309,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common separator appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainerRedirect StateCommon
-        {
-            get { return _stateCommon; }
-        }
+        public PaletteSplitContainerRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon()
         {
-            return !_stateCommon.IsDefault;
+            return !StateCommon.IsDefault;
         }
 
         /// <summary>
@@ -331,14 +322,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining disabled separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateDisabled
-        {
-            get { return _stateDisabled; }
-        }
+        public PaletteSplitContainer StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
         {
-            return !_stateDisabled.IsDefault;
+            return !StateDisabled.IsDefault;
         }
 
         /// <summary>
@@ -347,14 +335,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining normal separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSplitContainer StateNormal
-        {
-            get { return _stateNormal; }
-        }
+        public PaletteSplitContainer StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
         {
-            return !_stateNormal.IsDefault;
+            return !StateNormal.IsDefault;
         }
 
         /// <summary>
@@ -363,14 +348,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining hot tracking separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StateTracking
-        {
-            get { return _stateTracking; }
-        }
+        public PaletteSeparatorPadding StateTracking { get; }
 
         private bool ShouldSerializeStateTracking()
         {
-            return !_stateTracking.IsDefault;
+            return !StateTracking.IsDefault;
         }
 
         /// <summary>
@@ -379,14 +361,11 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining pressed separator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteSeparatorPadding StatePressed
-        {
-            get { return _statePressed; }
-        }
+        public PaletteSeparatorPadding StatePressed { get; }
 
         private bool ShouldSerializeStatePressed()
         {
-            return !_statePressed.IsDefault;
+            return !StatePressed.IsDefault;
         }
 
         /// <summary>
@@ -398,7 +377,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(int), "5")]
         public int SplitterWidth
         {
-            get { return _splitterWidth; }
+            get => _splitterWidth;
 
             set
             {
@@ -426,11 +405,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Layout")]
         [Description("Determines the increment used for moving.")]
         [DefaultValue(typeof(int), "1")]
-        public int SplitterIncrements
-        {
-            get { return _splitterIncrements; }
-            set { _splitterIncrements = value; }
-        }
+        public int SplitterIncrements { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating the horizontal or vertical orientation of the separator.
         /// </summary>
@@ -440,7 +416,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(Orientation), "Vertical")]
         public Orientation Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
 
             set
             {
@@ -465,11 +441,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Determines if the separator is allowed to notify a move.")]
         [DefaultValue(true)]
-        public bool AllowMove
-        {
-            get { return _allowMove; }
-            set { _allowMove = value; }
-        }
+        public bool AllowMove { get; set; }
 
         /// <summary>
         /// Gets and sets the drawing of the movement indicator.
@@ -479,8 +451,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool DrawMoveIndicator
         {
-            get { return _separatorController.DrawMoveIndicator; }
-            set { _separatorController.DrawMoveIndicator = value; }
+            get => _separatorController.DrawMoveIndicator;
+            set => _separatorController.DrawMoveIndicator = value;
         }
         #endregion
 
@@ -491,10 +463,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Control SeparatorControl
-        {
-            get { return this; }
-        }
+        public Control SeparatorControl => this;
 
         /// <summary>
         /// Gets the orientation of the separator.
@@ -502,10 +471,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Orientation SeparatorOrientation
-        {
-            get { return Orientation; }
-        }
+        public Orientation SeparatorOrientation => Orientation;
 
         /// <summary>
         /// Can the separator be moved by the user.
@@ -513,10 +479,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool SeparatorCanMove
-        {
-            get { return AllowMove; }
-        }
+        public bool SeparatorCanMove => AllowMove;
 
         /// <summary>
         /// Gets the amount the splitter can be incremented.
@@ -524,10 +487,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int SeparatorIncrements
-        {
-            get { return SplitterIncrements; }
-        }
+        public int SeparatorIncrements => SplitterIncrements;
 
         /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
@@ -608,8 +568,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Padding Padding
         {
-            get { return base.Padding; }
-            set { base.Padding = value; }
+            get => base.Padding;
+            set => base.Padding = value;
         }
         #endregion
 
@@ -655,10 +615,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the default size of the control.
         /// </summary>
-        protected override Size DefaultSize
-        {
-            get { return new Size(5, 5); }
-        }
+        protected override Size DefaultSize => new Size(5, 5);
 
         /// <summary>
         /// Raises the Initialized event.
@@ -689,11 +646,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Push correct palettes into the view
             if (Enabled)
             {
-                _drawDocker.SetPalettes(_stateNormal.Back, _stateNormal.Border);
+                _drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
             }
             else
             {
-                _drawDocker.SetPalettes(_stateDisabled.Back, _stateDisabled.Border);
+                _drawDocker.SetPalettes(StateDisabled.Back, StateDisabled.Border);
             }
 
             _drawDocker.Enabled = Enabled;

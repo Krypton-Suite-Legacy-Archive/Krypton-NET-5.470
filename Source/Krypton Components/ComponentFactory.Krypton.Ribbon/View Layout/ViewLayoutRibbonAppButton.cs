@@ -29,9 +29,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private KryptonForm _ownerForm;
         private ViewLayoutRibbonSeparator _separator;
-        private ViewDrawRibbonAppButton _appButton;
+
         #endregion
 
         #region Identity
@@ -46,11 +45,11 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
 
-            _appButton = new ViewDrawRibbonAppButton(ribbon, bottomHalf);
+            AppButton = new ViewDrawRibbonAppButton(ribbon, bottomHalf);
             _separator = new ViewLayoutRibbonSeparator(APPBUTTON_GAP, true);
 
             // Dock it against the appropriate edge
-            Add(_appButton, (bottomHalf ? ViewDockStyle.Top : ViewDockStyle.Bottom));
+            Add(AppButton, (bottomHalf ? ViewDockStyle.Top : ViewDockStyle.Bottom));
 
             // Place a separator between edge of control and start of the app button
             Add(_separator, ViewDockStyle.Left);
@@ -74,11 +73,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the owning form instance.
         /// </summary>
-        public KryptonForm OwnerForm
-        {
-            get { return _ownerForm; }
-            set { _ownerForm = value; }
-        }
+        public KryptonForm OwnerForm { get; set; }
+
         #endregion
 
         #region Visible
@@ -89,7 +85,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get 
             {
-                if (_ownerForm == null)
+                if (OwnerForm == null)
                 {
                     return base.Visible;
                 }
@@ -99,7 +95,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
 
-            set { base.Visible = value; }
+            set => base.Visible = value;
         }
         #endregion
 
@@ -107,10 +103,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the view element that represents the button.
         /// </summary>
-        public ViewDrawRibbonAppButton AppButton
-        {
-            get { return _appButton; }
-        }
+        public ViewDrawRibbonAppButton AppButton { get; }
+
         #endregion
 
         #region Layout
@@ -141,10 +135,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Size separatorSize = new Size(APPBUTTON_GAP, APPBUTTON_GAP);
 
             // Do we need to add on extra sizing to the separator?
-            if (_ownerForm != null)
+            if (OwnerForm != null)
             {
                 // Get the actual owning window border settings
-                Padding borders = _ownerForm.RealWindowBorders;
+                Padding borders = OwnerForm.RealWindowBorders;
 
                 // Add the left border side to the sizing
                 separatorSize.Width += borders.Left;

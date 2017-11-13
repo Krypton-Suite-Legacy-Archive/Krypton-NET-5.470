@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Checked
         {
-            get { return _checkBox.Checked; }
+            get => _checkBox.Checked;
 
             set
             {
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public CheckState CheckState
         {
-            get { return _checkBox.CheckState; }
+            get => _checkBox.CheckState;
 
             set
             {
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ThreeState
         {
-            get { return _checkBox.ThreeState; }
+            get => _checkBox.ThreeState;
 
             set
             {
@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool AutoCheck
         {
-            get { return _checkBox.AutoCheck; }
+            get => _checkBox.AutoCheck;
 
             set
             {
@@ -111,8 +111,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public LabelStyle LabelStyle
         {
-            get { return _checkBox.LabelStyle; }
-            
+            get => _checkBox.LabelStyle;
+
             set 
             {
                 if (_checkBox.LabelStyle != value)
@@ -128,8 +128,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation
         {
-            get { return _checkBox.Orientation; }
-            
+            get => _checkBox.Orientation;
+
             set
             {
                 if (_checkBox.Orientation != value)
@@ -145,8 +145,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string Text
         {
-            get { return _checkBox.Values.Text; }
-            
+            get => _checkBox.Values.Text;
+
             set 
             {
                 if (_checkBox.Values.Text != value)
@@ -162,8 +162,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public string ExtraText
         {
-            get { return _checkBox.Values.ExtraText; }
-            
+            get => _checkBox.Values.ExtraText;
+
             set 
             {
                 if (_checkBox.Values.ExtraText != value)
@@ -179,8 +179,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Image Image
         {
-            get { return _checkBox.Values.Image; }
-            
+            get => _checkBox.Values.Image;
+
             set 
             {
                 if (_checkBox.Values.Image != value)
@@ -196,8 +196,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMode PaletteMode
         {
-            get { return _checkBox.PaletteMode; }
-            
+            get => _checkBox.PaletteMode;
+
             set 
             {
                 if (_checkBox.PaletteMode != value)

@@ -57,18 +57,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return (Color1 == Color.Empty) &&
-                       (Color2 == Color.Empty) &&
-                       (Color3 == Color.Empty) &&
-                       (Color4 == Color.Empty) &&
-                       (Color5 == Color.Empty);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (Color1 == Color.Empty) &&
+		                                  (Color2 == Color.Empty) &&
+		                                  (Color3 == Color.Empty) &&
+		                                  (Color4 == Color.Empty) &&
+		                                  (Color5 == Color.Empty);
+
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -106,7 +101,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color1
         {
-            get { return _color1; }
+            get => _color1;
 
             set
             {
@@ -155,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color2
         {
-            get { return _color2; }
+            get => _color2;
 
             set
             {
@@ -204,7 +199,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color3
         {
-            get { return _color3; }
+            get => _color3;
 
             set
             {
@@ -253,7 +248,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color4
         {
-            get { return _color4; }
+            get => _color4;
 
             set
             {
@@ -302,7 +297,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color5
         {
-            get { return _color5; }
+            get => _color5;
 
             set
             {

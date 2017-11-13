@@ -37,8 +37,8 @@ namespace ComponentFactory.Krypton.Navigator
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new PaletteButtonSpecStyle Type
         {
-            get { return ProtectedType; }
-            set { ProtectedType = value; }
+            get => ProtectedType;
+            set => ProtectedType = value;
         }
         #endregion
 
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(PaletteNavButtonSpecStyle), "Generic")]
         public PaletteNavButtonSpecStyle TypeRestricted
         {
-            get { return PaletteTypeToNavigator(ProtectedType); }
+            get => PaletteTypeToNavigator(ProtectedType);
 
             set
             {

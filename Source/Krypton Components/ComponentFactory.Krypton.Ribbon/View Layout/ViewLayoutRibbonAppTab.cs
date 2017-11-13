@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private KryptonRibbon _ribbon;
-        private ViewDrawRibbonAppTab _appTab;
+
         #endregion
 
         #region Identity
@@ -33,10 +33,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
 
-            _appTab = new ViewDrawRibbonAppTab(ribbon);
+            AppTab = new ViewDrawRibbonAppTab(ribbon);
 
             // Dock it against the appropriate edge
-            Add(_appTab, ViewDockStyle.Bottom);
+            Add(AppTab, ViewDockStyle.Bottom);
             Add(new ViewLayoutSeparator(1), ViewDockStyle.Left);
         }
 
@@ -55,10 +55,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the view element that represents the button.
         /// </summary>
-        public ViewDrawRibbonAppTab AppTab
-        {
-            get { return _appTab; }
-        }
+        public ViewDrawRibbonAppTab AppTab { get; }
+
         #endregion
     }
 }

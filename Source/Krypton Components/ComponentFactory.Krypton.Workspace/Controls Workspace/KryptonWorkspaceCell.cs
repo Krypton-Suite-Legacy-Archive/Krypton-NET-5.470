@@ -32,13 +32,9 @@ namespace ComponentFactory.Krypton.Workspace
                                         IWorkspaceItem
     {
         #region Instance Fields
-        private string _uniqueName;
-        private StarSize _starSize;
+
         private IWorkspaceItem _parent;
-        private ButtonSpecNavigator _maxamizeRestoreButton;
         private bool _disposeOnRemove;
-        private bool _setVisible;
-        private bool _allowResizing;
         private bool _events;
         #endregion
 
@@ -75,10 +71,10 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Initialize internal fields
             _disposeOnRemove = true;
-            _setVisible = true;
-            _starSize = new StarSize(starSize);
-            _allowResizing = true;
-            _uniqueName = CommonHelper.UniqueString;
+            WorkspaceVisible = true;
+            WorkspaceStarSize = new StarSize(starSize);
+            WorkspaceAllowResizing = true;
+            UniqueName = CommonHelper.UniqueString;
 
             // We need to know when the set of pages has changed
             Pages.Cleared += new EventHandler(OnPagesChanged);
@@ -87,12 +83,12 @@ namespace ComponentFactory.Krypton.Workspace
             _events = true;
 
             // Add a button spec used to handle maximize/restore functionality
-            _maxamizeRestoreButton = new ButtonSpecNavigator
+            MaximizeRestoreButton = new ButtonSpecNavigator
             {
                 Type = PaletteButtonSpecStyle.WorkspaceMaximize
             };
-            _maxamizeRestoreButton.Click += new EventHandler(OnMaximizeRestoreButtonClicked);
-            Button.ButtonSpecs.Add(_maxamizeRestoreButton);
+            MaximizeRestoreButton.Click += new EventHandler(OnMaximizeRestoreButtonClicked);
+            Button.ButtonSpecs.Add(MaximizeRestoreButton);
         }
 
         /// <summary>
@@ -148,8 +144,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
         /// <summary>
@@ -161,8 +157,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Point Location
         {
-            get { return base.Location; }
-            set { base.Location = value; }
+            get => base.Location;
+            set => base.Location = value;
         }
 
         /// <summary>
@@ -174,8 +170,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new Size Size
         {
-            get { return base.Size; }
-            set { base.Size = value; }
+            get => base.Size;
+            set => base.Size = value;
         }
 
         /// <summary>
@@ -186,8 +182,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int TabIndex
         {
-            get { return base.TabIndex; }
-            set { base.TabIndex = value; }
+            get => base.TabIndex;
+            set => base.TabIndex = value;
         }
 
         /// <summary>
@@ -206,30 +202,21 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool WorkspaceVisible
-        {
-            get { return _setVisible; }
-        }
+        public bool WorkspaceVisible { get; private set; }
 
         /// <summary>
         /// Gets and sets if the user can a separator to resize this workspace cell.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool WorkspaceAllowResizing 
-        {
-            get { return _allowResizing; }
-        }
+        public bool WorkspaceAllowResizing { get; private set; }
 
         /// <summary>
         /// Current pixel size of the item.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Size WorkspaceActualSize 
-        {
-            get { return Size; }
-        }
+        public Size WorkspaceActualSize => Size;
 
         /// <summary>
         /// Current preferred size of the item.
@@ -256,38 +243,29 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public StarSize WorkspaceStarSize 
-        {
-            get { return _starSize; }
-        }
+        public StarSize WorkspaceStarSize { get; }
 
         /// <summary>
         /// Get the defined minimum size.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Size WorkspaceMinSize 
-        {
-            get { return MinimumSize; }
-        }
+        public Size WorkspaceMinSize => MinimumSize;
 
         /// <summary>
         /// Get the defined maximum size.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Size WorkspaceMaxSize
-        {
-            get { return MaximumSize; }
-        }
+        public Size WorkspaceMaxSize => MaximumSize;
 
         /// <summary>
         /// Gets or sets the size that is the lower limit that GetPreferredSize can specify.
         /// </summary>
         public override Size MinimumSize
         {
-            get { return base.MinimumSize; }
-            
+            get => base.MinimumSize;
+
             set
             {
                 if (!base.MinimumSize.Equals(value))
@@ -303,7 +281,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public override Size MaximumSize
         {
-            get { return base.MaximumSize; }
+            get => base.MaximumSize;
 
             set
             {
@@ -323,8 +301,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IWorkspaceItem WorkspaceParent
         {
-            get { return _parent; }
-            
+            get => _parent;
+
             internal set 
             {
                 if (_parent != value)
@@ -350,13 +328,13 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(true)]
         public bool AllowResizing
         {
-            get { return _allowResizing; }
+            get => WorkspaceAllowResizing;
 
             set
             {
-                if (_allowResizing != value)
+                if (WorkspaceAllowResizing != value)
                 {
-                    _allowResizing = value;
+                    WorkspaceAllowResizing = value;
                     OnPropertyChanged("AllowResizing");
                 }
             }
@@ -370,11 +348,11 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue("50*,50*")]
         public string StarSize
         {
-            get { return _starSize.Value; }
+            get => WorkspaceStarSize.Value;
 
             set
             {
-                _starSize.Value = value;
+                WorkspaceStarSize.Value = value;
                 OnPropertyChanged("StarSize");
             }
         }
@@ -387,8 +365,8 @@ namespace ComponentFactory.Krypton.Workspace
         [DefaultValue(true)]
         public virtual bool DisposeOnRemove
         {
-            get { return _disposeOnRemove; }
-            set { _disposeOnRemove = value; }
+            get => _disposeOnRemove;
+            set => _disposeOnRemove = value;
         }
 
         /// <summary>
@@ -399,10 +377,9 @@ namespace ComponentFactory.Krypton.Workspace
         public string UniqueName
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _uniqueName; }
-
+            get;
             [System.Diagnostics.DebuggerStepThrough]
-            set { _uniqueName = value; }
+            set;
         }
 
 
@@ -412,12 +389,9 @@ namespace ComponentFactory.Krypton.Workspace
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ButtonSpecNavigator MaximizeRestoreButton
-        {
-            get { return _maxamizeRestoreButton; }
-        }
+        public ButtonSpecNavigator MaximizeRestoreButton { get; }
 
-		/// <summary>
+        /// <summary>
 		/// Request this cell save its information.
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace instance..</param>
@@ -570,8 +544,8 @@ namespace ComponentFactory.Krypton.Workspace
         [Browsable(false)]
         public bool LastVisibleSet
         {
-            get { return _setVisible; }
-            set { _setVisible = value; }
+            get => WorkspaceVisible;
+            set => WorkspaceVisible = value;
         }
 
         /// <summary>
@@ -581,7 +555,7 @@ namespace ComponentFactory.Krypton.Workspace
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void DebugOutput(int indent)
         {
-            Console.WriteLine("{0}Cell Count:{1} Visible:{1}", new string(' ', indent++ * 2), Pages.Count, LastVisibleSet);
+            Console.WriteLine("{0}Cell Count:{1} Visible:{2}", new string(' ', indent++ * 2), Pages.Count, LastVisibleSet);
 
             string prefix = new string(' ', indent * 2);
             foreach (KryptonPage page in Pages)
@@ -595,10 +569,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Should the OnInitialized call perform layout.
         /// </summary>
-        protected override bool LayoutOnInitialized
-        {
-            get { return false; }
-        }
+        protected override bool LayoutOnInitialized => false;
 
         /// <summary>
         /// Sets the control to the specified visible state. 
@@ -606,9 +577,9 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="value">true to make the control visible; otherwise, false.</param>
         protected override void SetVisibleCore(bool value)
         {
-            if (_setVisible != value)
+            if (WorkspaceVisible != value)
             {
-                _setVisible = value;
+                WorkspaceVisible = value;
                 OnPropertyChanged("Visible");
             }
 
@@ -618,10 +589,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets the child panel used for displaying actual pages.
         /// </summary>
-        protected internal KryptonGroupPanel CellChildPanel
-        {
-            get { return ChildPanel; }
-        }
+        protected internal KryptonGroupPanel CellChildPanel => ChildPanel;
 
         /// <summary>
         /// Called by the designer to hit test a point.

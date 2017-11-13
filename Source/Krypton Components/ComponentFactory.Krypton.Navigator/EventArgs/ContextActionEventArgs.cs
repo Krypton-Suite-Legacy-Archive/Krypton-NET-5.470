@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class ContextActionEventArgs : KryptonContextMenuEventArgs
 	{
 		#region Instance Fields
-		private ContextButtonAction _action;
-		#endregion
+
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Navigator
                                       KryptonContextMenu contextMenu)
             : base(page, index, contextMenu)
 		{
-            _action = action;
+            Action = action;
 		}
 		#endregion
 
@@ -43,11 +43,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
 		/// Gets and sets the close action to take.
 		/// </summary>
-        public ContextButtonAction Action
-		{
-            get { return _action; }
-            set { _action = value; }
-		}
-		#endregion
+        public ContextButtonAction Action { get; set; }
+
+	    #endregion
     }
 }

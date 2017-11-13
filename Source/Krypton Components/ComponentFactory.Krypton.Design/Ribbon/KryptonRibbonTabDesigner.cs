@@ -170,9 +170,7 @@ namespace ComponentFactory.Krypton.Ribbon
             bool moveLast = false;
             bool clearGroups = false;
 
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 moveFirst = (_ribbonTab.Ribbon.RibbonTabs.IndexOf(_ribbonTab) > 0);
                 movePrev = (_ribbonTab.Ribbon.RibbonTabs.IndexOf(_ribbonTab) > 0);
@@ -191,7 +189,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnToggleHelpers(object sender, EventArgs e)
         {
             // Invert the current toggle helper mode
-            if ((_ribbonTab != null) && (_ribbonTab.Ribbon != null))
+            if (_ribbonTab?.Ribbon != null)
             {
                 _ribbonTab.Ribbon.InDesignHelperMode = !_ribbonTab.Ribbon.InDesignHelperMode;
             }
@@ -199,9 +197,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveFirst(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveFirst");
@@ -232,9 +228,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMovePrevious(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveNext");
@@ -267,9 +261,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveNext(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MovePrevious");
@@ -302,9 +294,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnMoveLast(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveLast");
@@ -335,9 +325,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnAddGroup(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab AddGroup");
@@ -365,9 +353,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnClearGroups(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab ClearGroups");
@@ -402,9 +388,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnDeleteTab(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
                 DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab DeleteTab");
@@ -437,9 +421,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnVisible(object sender, EventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 _changeService.OnComponentChanged(_ribbonTab, null, _ribbonTab.Visible, !_ribbonTab.Visible);
                 _ribbonTab.Visible = !_ribbonTab.Visible;
@@ -471,9 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private void OnContextMenu(object sender, MouseEventArgs e)
         {
-            if ((_ribbonTab != null) &&
-                (_ribbonTab.Ribbon != null) &&
-                 _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
+            if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Create the menu strip the first time around
                 if (_cms == null)

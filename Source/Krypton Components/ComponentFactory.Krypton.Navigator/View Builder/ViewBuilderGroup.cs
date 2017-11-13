@@ -63,10 +63,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
-        public override bool IsTabStripMode
-        {
-            get { return false; }
-        }
+        public override bool IsTabStripMode => false;
 
         /// <summary>
         /// Gets the KryptonPage associated with the provided view element.

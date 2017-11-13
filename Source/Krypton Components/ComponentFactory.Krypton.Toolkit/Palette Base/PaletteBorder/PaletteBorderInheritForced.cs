@@ -20,11 +20,9 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IPaletteBorder _inherit;
-        private PaletteDrawBorders _maxBorderEdges;
         private PaletteDrawBorders _forceBorderEdges;
-        private PaletteGraphicsHint _forceGraphicsHint;
         private bool _forceBorders;
-        private bool _borderIgnoreNormal;
+
         #endregion
 
         #region Identity
@@ -38,9 +36,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _inherit = inherit;
 
             // Default values
-            _maxBorderEdges = PaletteDrawBorders.All;
-            _forceGraphicsHint = PaletteGraphicsHint.Inherit;
-            _borderIgnoreNormal = false;
+            MaxBorderEdges = PaletteDrawBorders.All;
+            ForceGraphicsHint = PaletteGraphicsHint.Inherit;
+            BorderIgnoreNormal = false;
         }
         #endregion
 
@@ -71,33 +69,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the maximum edges allowed.
         /// </summary>
-        public PaletteDrawBorders MaxBorderEdges
-        {
-            get { return _maxBorderEdges; }
-            set { _maxBorderEdges = value; }
-        }
+        public PaletteDrawBorders MaxBorderEdges { get; set; }
+
         #endregion
 
         #region BorderIgnoreNormal
         /// <summary>
         /// Gets and sets the ignoring of normal borders.
         /// </summary>
-        public bool BorderIgnoreNormal
-        {
-            get { return _borderIgnoreNormal; }
-            set { _borderIgnoreNormal = value; }
-        }
+        public bool BorderIgnoreNormal { get; set; }
+
         #endregion
 
         #region ForceGraphicsHint
         /// <summary>
         /// Gets and sets the forced value for the graphics hint.
         /// </summary>
-        public PaletteGraphicsHint ForceGraphicsHint
-        {
-            get { return _forceGraphicsHint; }
-            set { _forceGraphicsHint = value; }
-        }
+        public PaletteGraphicsHint ForceGraphicsHint { get; set; }
+
         #endregion
 
         #region IPaletteBorder
@@ -125,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
             else
             {
                 // If no border edges are allowed then provide none
-                if ((_maxBorderEdges == PaletteDrawBorders.None) || (_borderIgnoreNormal && (state == PaletteState.Normal)))
+                if ((MaxBorderEdges == PaletteDrawBorders.None) || (BorderIgnoreNormal && (state == PaletteState.Normal)))
                 {
                     return PaletteDrawBorders.None;
                 }
@@ -135,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     PaletteDrawBorders inheritEdges = _inherit.GetBorderDrawBorders(state);
 
                     // Limit the edges to those allowed
-                    return (inheritEdges & _maxBorderEdges);
+                    return (inheritEdges & MaxBorderEdges);
                 }
             }
         }
@@ -147,9 +136,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteGraphicsHint value.</returns>
         public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
         {
-            if (_forceGraphicsHint != PaletteGraphicsHint.Inherit)
+            if (ForceGraphicsHint != PaletteGraphicsHint.Inherit)
             {
-                return _forceGraphicsHint;
+                return ForceGraphicsHint;
             }
             else
             {

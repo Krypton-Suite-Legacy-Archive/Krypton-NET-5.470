@@ -91,8 +91,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Visible
         {
-            get { return (base.Visible && ((Parent == null) ? true : Parent.Visible)); }
-            set { base.Visible = value; }
+            get => (base.Visible && ((Parent == null) ? true : Parent.Visible));
+            set => base.Visible = value;
         }
         #endregion
 

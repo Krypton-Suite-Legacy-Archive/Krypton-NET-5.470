@@ -22,12 +22,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                             IMouseController
 	{
 		#region Instance Fields
-        private KryptonRibbon _ribbon;
-        private bool _active;
-		private bool _captured;
-        private bool _mouseOver;
-		private ViewBase _target;
-		private NeedPaintHandler _needPaint;
+
+	    private bool _active;
+	    private bool _mouseOver;
+	    private NeedPaintHandler _needPaint;
 		#endregion
 
 		#region Events
@@ -52,8 +50,8 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(target != null);
 
 			// Remember target for state changes
-            _ribbon = ribbon;
-			_target = target;
+            Ribbon = ribbon;
+			Target = target;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
@@ -64,21 +62,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon instance.
         /// </summary>
-        public KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-        }
-        #endregion
+        public KryptonRibbon Ribbon { get; }
+
+	    #endregion
 
         #region Target
         /// <summary>
         /// Gets access to the target view for this controller.
         /// </summary>
-        public ViewBase Target
-        {
-            get { return _target; }
-        }
-        #endregion
+        public ViewBase Target { get; }
+
+	    #endregion
 
 		#region Mouse Notifications
 		/// <summary>
@@ -91,10 +85,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _mouseOver = true;
 
             // Get the form we are inside
-            KryptonForm ownerForm = _ribbon.FindKryptonForm();
+            KryptonForm ownerForm = Ribbon.FindKryptonForm();
             _active = ((ownerForm != null) && ownerForm.WindowActive) ||
                       VisualPopupManager.Singleton.IsTracking ||
-                      _ribbon.InDesignMode ||
+                      Ribbon.InDesignMode ||
                       (CommonHelper.ActiveFloatingWindow != null);
 
             // Update the visual state
@@ -128,13 +122,13 @@ namespace ComponentFactory.Krypton.Ribbon
             if (button == MouseButtons.Left)
             {
                 // Capturing mouse input
-                _captured = true;
+                Captured = true;
 
                 // Update the visual state
                 UpdateTargetState(pt);
             }
 
-			return _captured;
+			return Captured;
 		}
 
 		/// <summary>
@@ -146,26 +140,26 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
 		{
             // If the mouse is currently captured
-            if (_captured)
+            if (Captured)
             {
                 // Not capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Only interested in left mouse being released
                 if (button == MouseButtons.Left)
                 {
                     // Only if the button is still pressed, do we generate a click
-                    if (_target.ElementState == PaletteState.Pressed)
+                    if (Target.ElementState == PaletteState.Pressed)
                     {
                         // Move back to hot tracking state, we have to do this
                         // before the click is generated because the click processing
                         // might change focus and so cause the MouseLeave to be
                         // called and change the state. If this was after the click
                         // then it would overwrite and lose that leave state change.
-                        _target.ElementState = PaletteState.Tracking;
+                        Target.ElementState = PaletteState.Tracking;
 
                         // Can only click if enabled
-                        if (_target.Enabled)
+                        if (Target.Enabled)
                         {
                             // Generate a click event
                             OnClick(new MouseEventArgs(MouseButtons.Left, 1, pt.X, pt.Y, 0));
@@ -191,13 +185,13 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual void MouseLeave(Control c, ViewBase next)
 		{
             // Only if mouse is leaving all the children monitored by controller.
-            if (!_target.ContainsRecurse(next))
+            if (!Target.ContainsRecurse(next))
             {
                 // Mouse is no longer over the target
                 _mouseOver = false;
 
                 // If leaving the view then cannot be capturing mouse input anymore
-                _captured = false;
+                Captured = false;
 
                 // Update the visual state
                 UpdateTargetState(c);
@@ -215,11 +209,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public virtual bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return false; }
-        }
-        #endregion
+        public virtual bool IgnoreVisualFormLeftButtonDown => false;
+
+	    #endregion
 
         #region Public
         /// <summary>
@@ -227,7 +219,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
+            get => _needPaint;
 
             set
             {
@@ -253,13 +245,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
-        protected bool Captured
-        {
-            get { return _captured; }
-            set { _captured = value; }
-        }
+        protected bool Captured { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -285,7 +273,7 @@ namespace ComponentFactory.Krypton.Ribbon
             PaletteState newState;
 
             // If the button is disabled then show as disabled
-            if (!_target.Enabled)
+            if (!Target.Enabled)
             {
                 newState = PaletteState.Disabled;
             }
@@ -294,12 +282,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 newState = PaletteState.Normal;
 
                 // If capturing input....
-                if (_captured)
+                if (Captured)
                 {
                     // Do we show the button as pressed only when over the button?
                     if (IsOnlyPressedWhenOver)
                     {
-                        if (_target.ClientRectangle.Contains(pt))
+                        if (Target.ClientRectangle.Contains(pt))
                         {
                             newState = PaletteState.Pressed;
                         }
@@ -330,10 +318,10 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // If state has changed
-            if (_target.ElementState != newState)
+            if (Target.ElementState != newState)
             {
                 // Update target to reflect new state
-                _target.ElementState = newState;
+                Target.ElementState = newState;
 
                 // Redraw to show the change in visual state
                 OnNeedPaint(false);
@@ -346,7 +334,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <param name="e">A MouseEventArgs containing the event data.</param>
 		protected virtual void OnClick(MouseEventArgs e)
 		{
-            Click?.Invoke(_target, e);
+            Click?.Invoke(Target, e);
         }
 
 		/// <summary>

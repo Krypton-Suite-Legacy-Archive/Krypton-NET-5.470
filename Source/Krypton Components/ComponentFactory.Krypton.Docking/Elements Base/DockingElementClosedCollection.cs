@@ -37,20 +37,14 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the number of child docking elements.
         /// </summary>
-        public override int Count 
-        {
-            get { return _elements.Count; }
-        }
+        public override int Count => _elements.Count;
 
         /// <summary>
         /// Gets the docking element at the specified index.
         /// </summary>
         /// <param name="index">Index.</param>
         /// <returns>Docking element at specified index.</returns>
-        public override IDockingElement this[int index] 
-        {
-            get { return _elements[index]; }
-        }
+        public override IDockingElement this[int index] => _elements[index];
 
         /// <summary>
         /// Gets the docking element with the specified name.

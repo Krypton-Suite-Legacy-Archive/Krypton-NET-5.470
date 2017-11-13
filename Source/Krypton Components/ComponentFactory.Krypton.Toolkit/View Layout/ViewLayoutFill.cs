@@ -21,8 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private Control _control;
-        private Rectangle _fillRect;
-        private Padding _displayPadding;
+
         #endregion
 
         #region Identity
@@ -32,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewLayoutFill()
             : this(null)
         {
-            _displayPadding = Padding.Empty;
+            DisplayPadding = Padding.Empty;
         }
 
         /// <summary>
@@ -59,21 +58,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the padding used around the control.
         /// </summary>
-        public Padding DisplayPadding
-        {
-            get { return _displayPadding; }
-            set { _displayPadding = value; }
-        }
+        public Padding DisplayPadding { get; set; }
+
         #endregion
 
         #region FillRect
         /// <summary>
         /// Gets the latest calculated fill rectangle.
         /// </summary>
-        public Rectangle FillRect
-        {
-            get { return _fillRect; }
-        }
+        public Rectangle FillRect { get; private set; }
+
         #endregion
 
         #region Layout
@@ -103,10 +97,10 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = context.DisplayRectangle;
 
             // Cache the fill rectangle
-            _fillRect = ClientRectangle;
+            FillRect = ClientRectangle;
 
             // Reduce the fill rectangle to account for the display padding
-            _fillRect = CommonHelper.ApplyPadding(Orientation.Horizontal, _fillRect, DisplayPadding);
+            FillRect = CommonHelper.ApplyPadding(Orientation.Horizontal, FillRect, DisplayPadding);
 
             // We let the OnLayout override for the control perform the
             // actually positioning of the fill contents.

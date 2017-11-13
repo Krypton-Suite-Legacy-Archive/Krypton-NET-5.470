@@ -20,10 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
         #region Instance Fields
         private IPaletteBack _inherit;
-        private PaletteGraphicsHint _forceGraphicsHint;
-        private InheritBool _forceDraw;
-        private bool _borderIgnoreNormal;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -38,8 +36,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _inherit = inherit;
 
             // Default values
-            _borderIgnoreNormal = false;
-            _forceGraphicsHint = PaletteGraphicsHint.Inherit;
+            BorderIgnoreNormal = false;
+            ForceGraphicsHint = PaletteGraphicsHint.Inherit;
         }
         #endregion
 
@@ -58,34 +56,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the ignoring of normal borders.
         /// </summary>
-        public bool BorderIgnoreNormal
-        {
-            get { return _borderIgnoreNormal; }
-            set { _borderIgnoreNormal = value; }
-        }
-        #endregion
+        public bool BorderIgnoreNormal { get; set; }
+
+	    #endregion
 
         #region ForceGraphicsHint
         /// <summary>
         /// Gets and sets the forced value for the graphics hint.
         /// </summary>
-        public PaletteGraphicsHint ForceGraphicsHint
-        {
-            get { return _forceGraphicsHint; }
-            set { _forceGraphicsHint = value; }
-        }
-        #endregion
+        public PaletteGraphicsHint ForceGraphicsHint { get; set; }
+
+	    #endregion
 
         #region ForceDraw
         /// <summary>
         /// Gets and sets the forced value for the draw property.
         /// </summary>
-        public InheritBool ForceDraw
-        {
-            get { return _forceDraw; }
-            set { _forceDraw = value; }
-        }
-        #endregion
+        public InheritBool ForceDraw { get; set; }
+
+	    #endregion
 
         #region IPaletteBack
 		/// <summary>
@@ -95,13 +84,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>InheritBool value.</returns>
         public override InheritBool GetBackDraw(PaletteState state)
         {
-            if (_forceDraw != InheritBool.Inherit)
+            if (ForceDraw != InheritBool.Inherit)
             {
-                return _forceDraw;
+                return ForceDraw;
             }
             else
             {
-                if (_borderIgnoreNormal && (state == PaletteState.Normal))
+                if (BorderIgnoreNormal && (state == PaletteState.Normal))
                 {
                     return InheritBool.False;
                 }
@@ -119,9 +108,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>PaletteGraphicsHint value.</returns>
         public override PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
         {
-            if (_forceGraphicsHint != PaletteGraphicsHint.Inherit)
+            if (ForceGraphicsHint != PaletteGraphicsHint.Inherit)
             {
-                return _forceGraphicsHint;
+                return ForceGraphicsHint;
             }
             else
             {

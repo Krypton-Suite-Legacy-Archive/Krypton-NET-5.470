@@ -25,7 +25,6 @@ namespace ComponentFactory.Krypton.Docking
     {
         #region Instance Fields
         private KryptonDockingManager _manager;
-        private KryptonFloatingWindow _window;
         private Point _offset;
         private Point _screenPt;
         private Timer _moveTimer;
@@ -76,19 +75,15 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets the window that is moved in sync with the mouse movement.
         /// </summary>
-        public KryptonFloatingWindow FloatingWindow
-        {
-            get { return _window; }
-            set { _window = value; }
-        }
+        public KryptonFloatingWindow FloatingWindow { get; set; }
 
         /// <summary>
         /// Gets and sets the offset of the floating window from the screen cursor.
         /// </summary>
         public Point FloatingWindowOffset
         {
-            get { return _offset; }
-            set { _offset = value; }
+            get => _offset;
+            set => _offset = value;
         }
 
         /// <summary>
@@ -299,9 +294,9 @@ namespace ComponentFactory.Krypton.Docking
 
         private void RemoveFilter()
         {
-            if (_window != null)
+            if (FloatingWindow != null)
             {
-                _window.FloatingMessages = null;
+                FloatingWindow.FloatingMessages = null;
             }
 
             // Must remove filter to prevent memory leaks

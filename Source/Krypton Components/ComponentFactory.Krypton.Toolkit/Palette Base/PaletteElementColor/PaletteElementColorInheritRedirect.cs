@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private PaletteRedirect _redirect;
-        private PaletteElement _element;
-        #endregion
+
+	    #endregion
 
 		#region Identity
         /// <summary>
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			Debug.Assert(redirect != null);
 
 			_redirect = redirect;
-            _element = element;
+            Element = element;
 		}
 		#endregion
 
@@ -54,12 +54,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the element to use when inheriting.
         /// </summary>
-        public PaletteElement Element
-        {
-            get { return _element; }
-            set { _element = value; }
-        }
-        #endregion
+        public PaletteElement Element { get; set; }
+
+	    #endregion
 
         #region IPaletteElementColor
         /// <summary>
@@ -69,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetElementColor1(PaletteState state)
         {
-            return _redirect.GetElementColor1(_element, state);
+            return _redirect.GetElementColor1(Element, state);
         }
 
         /// <summary>
@@ -79,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetElementColor2(PaletteState state)
         {
-            return _redirect.GetElementColor2(_element, state);
+            return _redirect.GetElementColor2(Element, state);
         }
 
         /// <summary>
@@ -89,7 +86,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetElementColor3(PaletteState state)
         {
-            return _redirect.GetElementColor3(_element, state);
+            return _redirect.GetElementColor3(Element, state);
         }
 
         /// <summary>
@@ -99,7 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetElementColor4(PaletteState state)
         {
-            return _redirect.GetElementColor4(_element, state);
+            return _redirect.GetElementColor4(Element, state);
         }
 
         /// <summary>
@@ -109,7 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Color value.</returns>
         public override Color GetElementColor5(PaletteState state)
         {
-            return _redirect.GetElementColor5(_element, state);
+            return _redirect.GetElementColor5(Element, state);
         }
         #endregion
     }

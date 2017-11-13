@@ -55,8 +55,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual NeedPaintHandler NeedPaint
         {
-            get { return _needPaint; }
-            set { _needPaint = value; }
+            get => _needPaint;
+            set => _needPaint = value;
         }
         #endregion
 

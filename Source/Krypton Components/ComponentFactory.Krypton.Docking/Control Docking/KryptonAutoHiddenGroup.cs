@@ -132,7 +132,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // If a matching page exists and it is not a store placeholder already
                 KryptonPage storePage = Pages[page.UniqueName];
-                if ((storePage != null) && (storePage is KryptonStorePage))
+                if (storePage is KryptonStorePage)
                 {
                     // Replace the existing placeholder with the actual page
                     Pages.Insert(Pages.IndexOf(storePage), page);

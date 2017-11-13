@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public abstract class ButtonSpecCollectionBase : GlobalId
     {
         #region Instance Fields
-        private object _owner;
+
         #endregion
 
         #region Events
@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public ButtonSpecCollectionBase(object owner)
         {
             Debug.Assert(owner != null);
-            _owner = owner;
+            Owner = owner;
         }
         #endregion
 
@@ -70,11 +70,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the owner of the collection.
         /// </summary>
-        public object Owner
-        {
-            get { return _owner; }
-            set { _owner = value; }
-        }
+        public object Owner { get; set; }
+
         #endregion
 
         #region Protected
@@ -84,7 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A NavButtonSpecEventArgs instance containing event data.</param>
         protected void OnInserting(ButtonSpecEventArgs e)
         {
-            e.ButtonSpec.Owner = _owner;
+            e.ButtonSpec.Owner = Owner;
             Inserting?.Invoke(this, e);
         }
 
@@ -218,12 +215,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
 		/// Gets a value indicating whether the collection has a fixed size. 
 		/// </summary>
-		public bool IsFixedSize
-		{
-			get { return false; }
-		}
+		public bool IsFixedSize => false;
 
-		/// <summary>
+	    /// <summary>
 		/// Removes first occurance of specified object.
 		/// </summary>
 		/// <param name="value">Object reference.</param>
@@ -240,12 +234,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>Object at specified index.</returns>
 		object IList.this[int index]
 		{
-			get { return _specs[index]; }
-			
-			set
-			{
-				throw new NotImplementedException("Cannot set a collection index with a new value");
-			}
+			get => _specs[index];
+
+		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
 		}
 		#endregion
 
@@ -318,12 +309,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>T at specified index.</returns>
         public T this[int index]
 		{
-			get { return _specs[index]; }
-			
-			set
-			{
-				throw new NotImplementedException("Cannot set a collection index with a new value");
-			}
+			get => _specs[index];
+
+		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
 		}
 
         /// <summary>
@@ -415,20 +403,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <summary>
         /// Gets the number of button specs in collection.
 		/// </summary>
-		public int Count
-		{
-			get { return _specs.Count; }
-		}
+		public int Count => _specs.Count;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets a value indicating whether the collection is read-only.
 		/// </summary>
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
+		public bool IsReadOnly => false;
 
-		/// <summary>
+	    /// <summary>
         /// Removes first occurance of specified spec.
 		/// </summary>
         /// <param name="item">T reference.</param>
@@ -491,19 +473,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets a value indicating whether access to the collection is synchronized (thread safe).
         /// </summary>
-        public bool IsSynchronized
-		{
-			get { return false; }
-		}
+        public bool IsSynchronized => false;
 
-		/// <summary>
+	    /// <summary>
         /// Gets an object that can be used to synchronize access to the collection. 
 		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
-		#endregion
+		public object SyncRoot => this;
+
+	    #endregion
 
 		#region IEnumerable
         /// <summary>

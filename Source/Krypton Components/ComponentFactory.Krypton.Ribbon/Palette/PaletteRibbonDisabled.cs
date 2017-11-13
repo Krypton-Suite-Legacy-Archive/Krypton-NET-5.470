@@ -47,17 +47,12 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-            get
-            {
-                return RibbonGroupCheckBoxText.IsDefault &&
-                       RibbonGroupButtonText.IsDefault &&
-                       RibbonGroupLabelText.IsDefault &&
-                       RibbonGroupRadioButtonText.IsDefault;
-            }
-		}
-		#endregion
+		public override bool IsDefault => RibbonGroupCheckBoxText.IsDefault &&
+		                                  RibbonGroupButtonText.IsDefault &&
+		                                  RibbonGroupLabelText.IsDefault &&
+		                                  RibbonGroupRadioButtonText.IsDefault;
+
+	    #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -93,12 +88,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining ribbon group check box label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonGroupCheckBoxText
-        {
-            get { return _ribbonGroupCheckBoxText; }
-        }
+        public virtual PaletteRibbonText RibbonGroupCheckBoxText => _ribbonGroupCheckBoxText;
 
-        private bool ShouldSerializeRibbonGroupCheckBoxText()
+	    private bool ShouldSerializeRibbonGroupCheckBoxText()
         {
             return !_ribbonGroupCheckBoxText.IsDefault;
         }
@@ -111,12 +103,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining ribbon group button text appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonGroupButtonText
-        {
-            get { return _ribbonGroupButtonText; }
-        }
+        public virtual PaletteRibbonText RibbonGroupButtonText => _ribbonGroupButtonText;
 
-        private bool ShouldSerializeRibbonGroupButtonText()
+	    private bool ShouldSerializeRibbonGroupButtonText()
         {
             return !_ribbonGroupButtonText.IsDefault;
         }
@@ -129,12 +118,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining ribbon group label label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonGroupLabelText
-        {
-            get { return _ribbonGroupLabelText; }
-        }
+        public virtual PaletteRibbonText RibbonGroupLabelText => _ribbonGroupLabelText;
 
-        private bool ShouldSerializeRibbonGroupLabelText()
+	    private bool ShouldSerializeRibbonGroupLabelText()
         {
             return !_ribbonGroupLabelText.IsDefault;
         }
@@ -147,12 +133,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Overrides for defining ribbon group radio button label appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual PaletteRibbonText RibbonGroupRadioButtonText
-        {
-            get { return _ribbonGroupRadioButtonText; }
-        }
+        public virtual PaletteRibbonText RibbonGroupRadioButtonText => _ribbonGroupRadioButtonText;
 
-        private bool ShouldSerializeRibbonGroupRadioButtonText()
+	    private bool ShouldSerializeRibbonGroupRadioButtonText()
         {
             return !_ribbonGroupRadioButtonText.IsDefault;
         }

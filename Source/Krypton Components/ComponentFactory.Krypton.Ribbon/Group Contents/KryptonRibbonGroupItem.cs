@@ -26,9 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
         private object _tag;
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonTab _ribbonTab;
-        private KryptonRibbonGroupContainer _ribbonContainer;
+
         #endregion
 
         #region Identity
@@ -47,11 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-            set { _ribbon = value; }
-        }
+        public virtual KryptonRibbon Ribbon { get; set; }
 
         /// <summary>
         /// Gets access to the owning ribbon tab.
@@ -59,11 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual KryptonRibbonTab RibbonTab
-        {
-            get { return _ribbonTab; }
-            set { _ribbonTab = value; }
-        }
+        public virtual KryptonRibbonTab RibbonTab { get; set; }
 
         /// <summary>
         /// Gets and sets the owning ribbon container instance.
@@ -71,11 +61,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual KryptonRibbonGroupContainer RibbonContainer
-        {
-            get { return _ribbonContainer; }
-            set { _ribbonContainer = value; }
-        }
+        public virtual KryptonRibbonGroupContainer RibbonContainer { get; set; }
 
         /// <summary>
         /// Gets the visible state of the item.
@@ -145,7 +131,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Bindable(true)]
         public object Tag
         {
-            get { return _tag; }
+            get => _tag;
 
             set
             {
@@ -198,30 +184,16 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Internal
         internal abstract bool ProcessCmdKey(ref Message msg, Keys keyData);
 
-        internal virtual Image InternalToolTipImage 
-        {
-            get { return null; }
-        }
+        internal virtual Image InternalToolTipImage => null;
 
-        internal virtual LabelStyle InternalToolTipStyle
-        {
-            get { return LabelStyle.SuperTip; }
-        }
+        internal virtual LabelStyle InternalToolTipStyle => LabelStyle.SuperTip;
 
-        internal virtual Color InternalToolTipImageTransparentColor 
-        {
-            get { return Color.Empty; }
-        }
+        internal virtual Color InternalToolTipImageTransparentColor => Color.Empty;
 
-        internal virtual string InternalToolTipTitle 
-        {
-            get { return string.Empty; }
-        }
+        internal virtual string InternalToolTipTitle => string.Empty;
 
-        internal virtual string InternalToolTipBody 
-        {
-            get { return string.Empty; }
-        }
+        internal virtual string InternalToolTipBody => string.Empty;
+
         #endregion
     }
 }

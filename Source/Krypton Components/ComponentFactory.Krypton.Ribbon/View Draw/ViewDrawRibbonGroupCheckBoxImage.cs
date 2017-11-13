@@ -75,8 +75,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Enabled
         {
-            get { return _drawCheckBox.Enabled; }
-            set { _drawCheckBox.Enabled = value; }
+            get => _drawCheckBox.Enabled;
+            set => _drawCheckBox.Enabled = value;
         }
         #endregion
 
@@ -86,8 +86,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public CheckState CheckState
         {
-            get { return _drawCheckBox.CheckState; }
-            set { _drawCheckBox.CheckState = value; }
+            get => _drawCheckBox.CheckState;
+            set => _drawCheckBox.CheckState = value;
         }
         #endregion
 
@@ -97,8 +97,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Tracking
         {
-            get { return _drawCheckBox.Tracking; }
-            set { _drawCheckBox.Tracking = value; }
+            get => _drawCheckBox.Tracking;
+            set => _drawCheckBox.Tracking = value;
         }
         #endregion
 
@@ -108,8 +108,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Pressed
         {
-            get { return _drawCheckBox.Pressed; }
-            set { _drawCheckBox.Pressed = value; }
+            get => _drawCheckBox.Pressed;
+            set => _drawCheckBox.Pressed = value;
         }
         #endregion
 
@@ -146,14 +146,14 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_large)
             {
                 // Place horizontal centered at the bottom of area
-                checkBoxRect.X = ClientLocation.X + (ClientWidth - checkBoxRect.Width) / 2;
+                checkBoxRect.X = ClientLocation.X + ((ClientWidth - checkBoxRect.Width) / 2);
                 checkBoxRect.Y = ClientRectangle.Bottom - checkBoxRect.Height;
             }
             else
             {
                 // Place vertically centered at the right of area
                 checkBoxRect.X = ClientRectangle.Right - checkBoxRect.Width;
-                checkBoxRect.Y = ClientLocation.Y + (ClientHeight - checkBoxRect.Height) / 2;
+                checkBoxRect.Y = ClientLocation.Y + ((ClientHeight - checkBoxRect.Height) / 2);
             }
 
             // Layout the check box draw element

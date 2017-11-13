@@ -56,10 +56,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the control this element is managing.
         /// </summary>
-        public KryptonDockableWorkspace DockableWorkspaceControl
-        {
-            get { return (KryptonDockableWorkspace)SpaceControl; }
-        }    
+        public KryptonDockableWorkspace DockableWorkspaceControl => (KryptonDockableWorkspace)SpaceControl;
 
         /// <summary>
         /// Gets and sets access to the parent docking element.
@@ -497,7 +494,7 @@ namespace ComponentFactory.Krypton.Docking
             if (location == DockingLocation.Workspace)
             {
                 KryptonPage page = DockableWorkspaceControl.PageForUniqueName(uniqueName);
-                if ((page != null) && (page is KryptonStorePage))
+                if (page is KryptonStorePage)
                 {
                     return this;
                 }
@@ -521,10 +518,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the proprogate action used to clear a store page for this implementation.
         /// </summary>
-        protected override DockingPropogateAction ClearStoreAction
-        {
-            get { return DockingPropogateAction.ClearFillerStoredPages; }
-        }
+        protected override DockingPropogateAction ClearStoreAction => DockingPropogateAction.ClearFillerStoredPages;
 
         /// <summary>
         /// Raises the type specific space control removed event determinated by the derived class.
@@ -592,10 +586,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName
-        {
-            get { return "DW"; }
-        }
+        protected override string XmlElementName => "DW";
+
         #endregion    
 
         #region Implementation

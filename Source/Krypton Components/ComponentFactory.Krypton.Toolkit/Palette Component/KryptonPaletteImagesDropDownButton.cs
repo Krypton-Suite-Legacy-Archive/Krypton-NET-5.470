@@ -56,18 +56,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets a value indicating if all values are default.
 		/// </summary>
 		[Browsable(false)]
-		public override bool IsDefault
-		{
-			get
-			{
-                return (_common == null) &&
-                       (_disabled == null) &&
-                       (_normal == null) &&
-                       (_tracking == null) &&
-                       (_pressed == null);
-            }
-		}
-		#endregion
+		public override bool IsDefault => (_common == null) &&
+		                                  (_disabled == null) &&
+		                                  (_normal == null) &&
+		                                  (_tracking == null) &&
+		                                  (_pressed == null);
+
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -105,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Common
         {
-            get { return _common; }
+            get => _common;
 
             set
             {
@@ -137,7 +132,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Disabled
         {
-            get { return _disabled; }
+            get => _disabled;
 
             set
             {
@@ -169,7 +164,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Normal
         {
-            get { return _normal; }
+            get => _normal;
 
             set
             {
@@ -201,7 +196,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Tracking
         {
-            get { return _tracking; }
+            get => _tracking;
 
             set
             {
@@ -233,7 +228,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public Image Pressed
         {
-            get { return _pressed; }
+            get => _pressed;
 
             set
             {

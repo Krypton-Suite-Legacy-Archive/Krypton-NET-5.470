@@ -46,10 +46,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public override bool IgnoreVisualFormLeftButtonDown
-        {
-            get { return true; }
-        }
+        public override bool IgnoreVisualFormLeftButtonDown => true;
 
         public override void MouseEnter(Control c)
         {

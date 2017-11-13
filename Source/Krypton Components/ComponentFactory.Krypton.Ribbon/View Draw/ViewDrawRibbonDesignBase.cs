@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IContentValues
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+
         private NeedPaintHandler _needPaint;
         private DesignTextToContent _contentProvider;
         #endregion
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(needPaint != null);
 
             // Cache incoming values
-            _ribbon = ribbon;
+            Ribbon = ribbon;
             _needPaint = needPaint;
 
             // Create and add the draw content for display inside the tab
@@ -69,10 +69,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the ribbon control instance.
         /// </summary>
-        public KryptonRibbon Ribbon
-        {
-            get { return _ribbon; }
-        }
+        public KryptonRibbon Ribbon { get; }
+
         #endregion
 
         #region Layout
@@ -132,7 +130,7 @@ namespace ComponentFactory.Krypton.Ribbon
             this[0].ElementState = ElementState;
 
             // Draw background using the design time colors
-            DesignTimeDraw.DrawArea(_ribbon, context, ClientRectangle, State);
+            DesignTimeDraw.DrawArea(Ribbon, context, ClientRectangle, State);
 
             base.RenderBefore(context);
         }
@@ -182,26 +180,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the padding to use when calculating the preferred size.
         /// </summary>
-        protected virtual Padding PreferredPadding
-        {
-            get { return Padding.Empty; }
-        }
+        protected virtual Padding PreferredPadding => Padding.Empty;
 
         /// <summary>
         /// Gets the padding to use when laying out the view.
         /// </summary>
-        protected virtual Padding LayoutPadding
-        {
-            get { return Padding.Empty; }
-        }
+        protected virtual Padding LayoutPadding => Padding.Empty;
 
         /// <summary>
         /// Gets the padding to shrink the client area by when laying out.
         /// </summary>
-        protected virtual Padding OuterPadding
-        {
-            get { return Padding.Empty; }
-        }
+        protected virtual Padding OuterPadding => Padding.Empty;
 
         /// <summary>
         /// Raises the Click event.

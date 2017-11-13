@@ -30,8 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
         private VisualOrientation _headerPositionPrimary;
         private VisualOrientation _headerPositionSecondary;
         private VisualOrientation _headerPositionBar;
-        private HeaderGroupMappingPrimary _headerValuesPrimary;
-        private HeaderGroupMappingSecondary _headerValuesSecondary;
+
         #endregion
 
         #region Identity
@@ -61,8 +60,8 @@ namespace ComponentFactory.Krypton.Navigator
             _headerVisiblePrimary = true;
             _headerVisibleSecondary = true;
             _headerVisibleBar = true;
-            _headerValuesPrimary = new HeaderGroupMappingPrimary(_navigator, needPaint);
-            _headerValuesSecondary = new HeaderGroupMappingSecondary(_navigator, needPaint);
+            HeaderValuesPrimary = new HeaderGroupMappingPrimary(_navigator, needPaint);
+            HeaderValuesSecondary = new HeaderGroupMappingSecondary(_navigator, needPaint);
         }
 		#endregion
 
@@ -71,23 +70,18 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault
-        {
-            get
-            {
-                return ((HeaderStylePrimary == HeaderStyle.Primary) &&
-                        (HeaderStyleSecondary == HeaderStyle.Secondary) &&
-                        (HeaderStyleBar == HeaderStyle.Secondary) &&
-                        (HeaderPositionPrimary == VisualOrientation.Top) &&
-                        (HeaderPositionSecondary == VisualOrientation.Bottom) &&
-                        (HeaderPositionBar == VisualOrientation.Top) &&
-                        HeaderVisiblePrimary &&
-                        HeaderVisibleSecondary &&
-                        HeaderVisibleBar &&
-                        HeaderValuesPrimary.IsDefault &&
-                        HeaderValuesSecondary.IsDefault);
-            }
-        }
+        public override bool IsDefault => ((HeaderStylePrimary == HeaderStyle.Primary) &&
+                                           (HeaderStyleSecondary == HeaderStyle.Secondary) &&
+                                           (HeaderStyleBar == HeaderStyle.Secondary) &&
+                                           (HeaderPositionPrimary == VisualOrientation.Top) &&
+                                           (HeaderPositionSecondary == VisualOrientation.Bottom) &&
+                                           (HeaderPositionBar == VisualOrientation.Top) &&
+                                           HeaderVisiblePrimary &&
+                                           HeaderVisibleSecondary &&
+                                           HeaderVisibleBar &&
+                                           HeaderValuesPrimary.IsDefault &&
+                                           HeaderValuesSecondary.IsDefault);
+
         #endregion
 
         #region HeaderStylePrimary
@@ -99,7 +93,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(HeaderStyle), "Primary")]
         public HeaderStyle HeaderStylePrimary
         {
-            get { return _headerStylePrimary; }
+            get => _headerStylePrimary;
 
             set
             {
@@ -121,7 +115,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(HeaderStyle), "Secondary")]
         public HeaderStyle HeaderStyleSecondary
         {
-            get { return _headerStyleSecondary; }
+            get => _headerStyleSecondary;
 
             set
             {
@@ -143,7 +137,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(HeaderStyle), "Secondary")]
         public HeaderStyle HeaderStyleBar
         {
-            get { return _headerStyleBar; }
+            get => _headerStyleBar;
 
             set
             {
@@ -165,7 +159,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public VisualOrientation HeaderPositionPrimary
         {
-            get { return _headerPositionPrimary; }
+            get => _headerPositionPrimary;
 
             set
             {
@@ -187,7 +181,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(VisualOrientation), "Bottom")]
         public VisualOrientation HeaderPositionSecondary
         {
-            get { return _headerPositionSecondary; }
+            get => _headerPositionSecondary;
 
             set
             {
@@ -209,7 +203,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public VisualOrientation HeaderPositionBar
         {
-            get { return _headerPositionBar; }
+            get => _headerPositionBar;
 
             set
             {
@@ -231,7 +225,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool HeaderVisiblePrimary
         {
-            get { return _headerVisiblePrimary; }
+            get => _headerVisiblePrimary;
 
             set
             {
@@ -253,7 +247,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool HeaderVisibleSecondary
         {
-            get { return _headerVisibleSecondary; }
+            get => _headerVisibleSecondary;
 
             set
             {
@@ -275,7 +269,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(true)]
         public bool HeaderVisibleBar
         {
-            get { return _headerVisibleBar; }
+            get => _headerVisibleBar;
 
             set
             {
@@ -295,14 +289,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Primary header values")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public HeaderGroupMappingPrimary HeaderValuesPrimary
-        {
-            get { return _headerValuesPrimary; }
-        }
+        public HeaderGroupMappingPrimary HeaderValuesPrimary { get; }
 
         private bool ShouldSerializeHeaderValuesPrimary()
         {
-            return !_headerValuesPrimary.IsDefault;
+            return !HeaderValuesPrimary.IsDefault;
         }
         #endregion
 
@@ -313,14 +304,11 @@ namespace ComponentFactory.Krypton.Navigator
         [Category("Visuals")]
         [Description("Secondary header values")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public HeaderGroupMappingSecondary HeaderValuesSecondary
-        {
-            get { return _headerValuesSecondary; }
-        }
+        public HeaderGroupMappingSecondary HeaderValuesSecondary { get; }
 
         private bool ShouldSerializeHeaderValuesSecondary()
         {
-            return !_headerValuesSecondary.IsDefault;
+            return !HeaderValuesSecondary.IsDefault;
         }
         #endregion
     }

@@ -99,8 +99,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageImage), "None (Null image)")]
         public override MapKryptonPageImage MapImage
         {
-            get { return base.MapImage; }
-            set { base.MapImage = value; }
+            get => base.MapImage;
+            set => base.MapImage = value;
         }
         #endregion
 
@@ -111,8 +111,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "Description")]
         public override MapKryptonPageText MapHeading
         {
-            get { return base.MapHeading; }
-            set { base.MapHeading = value; }
+            get => base.MapHeading;
+            set => base.MapHeading = value;
         }
         #endregion
 
@@ -123,8 +123,8 @@ namespace ComponentFactory.Krypton.Navigator
         [DefaultValue(typeof(MapKryptonPageText), "None (Empty string)")]
         public override MapKryptonPageText MapDescription
         {
-            get { return base.MapDescription; }
-            set { base.MapDescription = value; }
+            get => base.MapDescription;
+            set => base.MapDescription = value;
         }
         #endregion
     }

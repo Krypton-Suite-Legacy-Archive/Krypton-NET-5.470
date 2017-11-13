@@ -26,11 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 		#region Instance Fields
         private bool _disposeFont;
-        private string _text;
-        private Size _size;
-        private Font _font;
-        private StringFormat _format;
-        private TextRenderingHint _hint;
+	    private TextRenderingHint _hint;
 		#endregion
 
 		#region Identity
@@ -50,10 +46,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                      TextRenderingHint hint,
                                      bool disposeFont)
 		{
-            _text = text;
-            _size = new Size((int)sizeF.Width + 1, (int)sizeF.Height + 1);
-            _font = font;
-            _format = format;
+            Text = text;
+            Size = new Size((int)sizeF.Width + 1, (int)sizeF.Height + 1);
+            Font = font;
+            Format = format;
             _hint = hint;
             _disposeFont = disposeFont;
 		}
@@ -63,10 +59,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public void Dispose()
         {
-            if (_disposeFont && (_font != null))
+            if (_disposeFont && (Font != null))
             {
-                _font.Dispose();
-                _font = null;
+                Font.Dispose();
+                Font = null;
             }
         }
 		#endregion
@@ -75,67 +71,44 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the text to draw.
         /// </summary>
-        public string Text
-        {
-            get { return _text; }
-        }
-        
-        /// <summary>
+        public string Text { get; }
+
+	    /// <summary>
         /// Gets the drawing font.
         /// </summary>
-        public Font Font
-        {
-            get { return _font; }
-            set { _font = value; }
-        }
+        public Font Font { get; set; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the pixel size of the text area.
         /// </summary>
-        public Size Size
-        {
-            get { return _size; }
-        }
+        public Size Size { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets the pixel size of the text area.
         /// </summary>
-        public StringFormat Format
-        {
-            get { return _format; }
-        }
+        public StringFormat Format { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the memento represents nothing that can be drawn.
         /// </summary>
-        public bool IsEmpty
-        {
-            get { return (_size == Size.Empty); }
-        }
-        #endregion
+        public bool IsEmpty => (Size == Size.Empty);
+
+	    #endregion
 
 		#region Internal Static Properties
 		/// <summary>
 		/// Get access to an empty TextMemento instance.
 		/// </summary>
-		internal static AccurateTextMemento Empty
-		{
-			get
-			{
-				// Only create the single instance when first requested
-				if (_empty == null)
-				{
-				    _empty = new AccurateTextMemento(string.Empty,
-				        null,
-				        Size.Empty,
-				        StringFormat.GenericDefault,
-				        TextRenderingHint.SystemDefault,
-				        false);
-				}
+		/// <remarks>
+		/// Only create the single instance when first requested
+		/// </remarks>
+		internal static AccurateTextMemento Empty => _empty ?? (_empty = new AccurateTextMemento(string.Empty,
+		                                                 null,
+		                                                 Size.Empty,
+		                                                 StringFormat.GenericDefault,
+		                                                 TextRenderingHint.SystemDefault,
+		                                                 false));
 
-			    return _empty;
-			}
-		}
-		#endregion
+	    #endregion
     }
 }

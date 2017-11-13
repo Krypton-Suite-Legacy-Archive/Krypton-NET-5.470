@@ -23,10 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
 	{
         #region Instance Fields
         private int _maxWidth;
-        private string _shortcutText;
-        private IContextMenuProvider _provider;
-        private KryptonRibbonRecentDoc _recentDoc;
-        #endregion
+
+	    #endregion
 
         #region Identity
         /// <summary>
@@ -51,9 +49,9 @@ namespace ComponentFactory.Krypton.Ribbon
                    VisualOrientation.Top)
         {
             _maxWidth = maxWidth;
-            _provider = provider;
-            _recentDoc = recentDoc;
-            _shortcutText = (index < 10 ? @"&" + index.ToString() : "A");
+            Provider = provider;
+            RecentDoc = recentDoc;
+            ShortcutText = (index < 10 ? @"&" + index.ToString() : "A");
 
             // Use docker to organize horizontal items
             ViewLayoutDocker docker = new ViewLayoutDocker
@@ -73,7 +71,7 @@ namespace ComponentFactory.Krypton.Ribbon
             docker.Add(new ViewLayoutSeparator(5), ViewDockStyle.Left);
 
             // Add the shortcut column
-            FixedContentValue shortcutContent = new FixedContentValue(_shortcutText, null, null, Color.Empty);
+            FixedContentValue shortcutContent = new FixedContentValue(ShortcutText, null, null, Color.Empty);
             RibbonRecentDocsShortcutToContent shortcutPalette = new RibbonRecentDocsShortcutToContent(ribbon.StateCommon.RibbonGeneral, ribbon.StateCommon.RibbonAppMenuDocsEntry);
             ViewDrawRibbonRecentShortcut shortcutDraw = new ViewDrawRibbonRecentShortcut(shortcutPalette, shortcutContent);
             docker.Add(shortcutDraw, ViewDockStyle.Left);
@@ -82,7 +80,7 @@ namespace ComponentFactory.Krypton.Ribbon
             docker.Add(new ViewLayoutSeparator(3), ViewDockStyle.Left);
 
             // Attach a controller so menu item can be tracked and pressed
-            RecentDocController controller = new RecentDocController(_provider.ProviderViewManager, this, needPaintDelegate);
+            RecentDocController controller = new RecentDocController(Provider.ProviderViewManager, this, needPaintDelegate);
             MouseController = controller;
             KeyController = controller;
             SourceController = controller;
@@ -125,34 +123,25 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the originating recent doc definition.
         /// </summary>
-        public KryptonRibbonRecentDoc RecentDoc
-        {
-            get { return _recentDoc; }
-        }
+        public KryptonRibbonRecentDoc RecentDoc { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the items shortcut text.
         /// </summary>
-        public string ShortcutText
-        {
-            get { return _shortcutText; }
-        }
+        public string ShortcutText { get; }
 
-        /// <summary>
+	    /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
-        public bool CanCloseMenu
-        {
-            get { return _provider.ProviderCanCloseMenu; }
-        }
+        public bool CanCloseMenu => Provider.ProviderCanCloseMenu;
 
-        /// <summary>
+	    /// <summary>
         /// Raises the Closing event on the provider.
         /// </summary>
         /// <param name="cea">A CancelEventArgs containing the event data.</param>
         public void Closing(CancelEventArgs cea)
         {
-            _provider.OnClosing(cea);
+            Provider.OnClosing(cea);
         }
 
         /// <summary>
@@ -161,16 +150,14 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="e">A CancelEventArgs containing the event data.</param>
         public void Close(CloseReasonEventArgs e)
         {
-            _provider.OnClose(e);
+            Provider.OnClose(e);
         }
 
         /// <summary>
         /// Gets direct access to the context menu provider.
         /// </summary>
-        public IContextMenuProvider Provider
-        {
-            get { return _provider; }
-        }
-        #endregion
+        public IContextMenuProvider Provider { get; }
+
+	    #endregion
     }
 }
