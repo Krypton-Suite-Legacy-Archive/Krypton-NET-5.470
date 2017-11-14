@@ -6,7 +6,6 @@
 * Change the solution to reflect Visual Studio 2017 usage
 * Change Test apps to use .Net 4.7 Target framework
 * Add designer dll to test apps to allow visual design and testing without GAC'ing
-* [end]
 
 ## 2017-11-04 Toolkit solution only:
 * Add braces to if statements
