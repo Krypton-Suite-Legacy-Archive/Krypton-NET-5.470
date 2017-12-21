@@ -1,5 +1,8 @@
 ﻿# Krypton-NET-4.7
 
+## 2018-01-07 CherryPick Merge from ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
+* Message content size adjustment in KryptonTaskDialog
+
 ## 2018-01-06 Toolkit solution and Examples II changes:
 * Remove "redundant delegate constructors" for callbacks
 * Fix "OnClick" routing for 
