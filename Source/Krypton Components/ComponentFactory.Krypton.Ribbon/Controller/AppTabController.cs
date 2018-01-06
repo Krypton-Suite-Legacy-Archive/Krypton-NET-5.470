@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                       IRibbonKeyTipTarget
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _mouseOver;
         private bool _mouseDown;
         private bool _fixedPressed;

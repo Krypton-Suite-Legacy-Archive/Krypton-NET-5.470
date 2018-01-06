@@ -184,21 +184,21 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via our container
-            MaskedTextBox.TextAlignChanged += new EventHandler(OnMaskedTextBoxTextAlignChanged);
-            MaskedTextBox.TextChanged += new EventHandler(OnMaskedTextBoxTextChanged);
-            MaskedTextBox.HideSelectionChanged += new EventHandler(OnMaskedTextBoxHideSelectionChanged);
-            MaskedTextBox.ModifiedChanged += new EventHandler(OnMaskedTextBoxModifiedChanged);
-            MaskedTextBox.ReadOnlyChanged += new EventHandler(OnMaskedTextBoxReadOnlyChanged);
-            MaskedTextBox.MaskChanged += new EventHandler(OnMaskedMaskChanged);
-            MaskedTextBox.IsOverwriteModeChanged += new EventHandler(OnMaskedIsOverwriteModeChanged);
-            MaskedTextBox.MaskInputRejected += new MaskInputRejectedEventHandler(OnMaskedMaskInputRejected);
-            MaskedTextBox.TypeValidationCompleted += new TypeValidationEventHandler(OnMaskedTypeValidationCompleted);
-            MaskedTextBox.GotFocus += new EventHandler(OnMaskedTextBoxGotFocus);
-            MaskedTextBox.LostFocus += new EventHandler(OnMaskedTextBoxLostFocus);
-            MaskedTextBox.KeyDown += new KeyEventHandler(OnMaskedTextBoxKeyDown);
-            MaskedTextBox.KeyUp += new KeyEventHandler(OnMaskedTextBoxKeyUp);
-            MaskedTextBox.KeyPress += new KeyPressEventHandler(OnMaskedTextBoxKeyPress);
-            MaskedTextBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnMaskedTextBoxPreviewKeyDown);
+            MaskedTextBox.TextAlignChanged += OnMaskedTextBoxTextAlignChanged;
+            MaskedTextBox.TextChanged += OnMaskedTextBoxTextChanged;
+            MaskedTextBox.HideSelectionChanged += OnMaskedTextBoxHideSelectionChanged;
+            MaskedTextBox.ModifiedChanged += OnMaskedTextBoxModifiedChanged;
+            MaskedTextBox.ReadOnlyChanged += OnMaskedTextBoxReadOnlyChanged;
+            MaskedTextBox.MaskChanged += OnMaskedMaskChanged;
+            MaskedTextBox.IsOverwriteModeChanged += OnMaskedIsOverwriteModeChanged;
+            MaskedTextBox.MaskInputRejected += OnMaskedMaskInputRejected;
+            MaskedTextBox.TypeValidationCompleted += OnMaskedTypeValidationCompleted;
+            MaskedTextBox.GotFocus += OnMaskedTextBoxGotFocus;
+            MaskedTextBox.LostFocus += OnMaskedTextBoxLostFocus;
+            MaskedTextBox.KeyDown += OnMaskedTextBoxKeyDown;
+            MaskedTextBox.KeyUp += OnMaskedTextBoxKeyUp;
+            MaskedTextBox.KeyPress += OnMaskedTextBoxKeyPress;
+            MaskedTextBox.PreviewKeyDown += OnMaskedTextBoxPreviewKeyDown;
 
             // Ensure we can track mouse events on the masked text box
             MonitorControl(MaskedTextBox);
@@ -242,7 +242,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the masked text box as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     MaskedTextBox.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -1045,18 +1045,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonMaskedTextBox c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
-            c.TrackMouseEnter += new EventHandler(OnControlEnter);
-            c.TrackMouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
+            c.TrackMouseEnter += OnControlEnter;
+            c.TrackMouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonMaskedTextBox c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
-            c.TrackMouseEnter -= new EventHandler(OnControlEnter);
-            c.TrackMouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
+            c.TrackMouseEnter -= OnControlEnter;
+            c.TrackMouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

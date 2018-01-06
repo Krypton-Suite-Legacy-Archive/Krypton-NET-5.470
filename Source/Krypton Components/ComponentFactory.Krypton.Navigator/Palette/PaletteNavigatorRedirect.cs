@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
 	{
         #region Instance Fields
 
-	    private PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
+	    private readonly PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
 
 	    #endregion
 

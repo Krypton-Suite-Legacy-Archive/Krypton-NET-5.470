@@ -57,9 +57,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _basePalette;
         private PaletteMode _basePaletteMode;
         private InheritBool _allowFormChrome;
-        private PaletteRedirect _redirector;
-        private PaletteRedirectCommon _redirectCommon;
-        private NeedPaintHandler _needTMSPaintDelegate;
+        private readonly PaletteRedirect _redirector;
+        private readonly PaletteRedirectCommon _redirectCommon;
+        private readonly NeedPaintHandler _needTMSPaintDelegate;
         #endregion
 
         #region Events
@@ -106,8 +106,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonPalette()
         {
             // Setup the need paint delegate
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
-            _needTMSPaintDelegate = new NeedPaintHandler(OnMenuToolStatusPaint);
+            NeedPaintDelegate = OnNeedPaint;
+            _needTMSPaintDelegate = OnMenuToolStatusPaint;
 
             // Set the default palette/palette mode
             _basePalette = KryptonManager.GetPaletteForMode(PaletteMode.Office2010Blue);
@@ -153,15 +153,15 @@ namespace ComponentFactory.Krypton.Toolkit
             ToolMenuStatus = new KryptonPaletteTMS(this, _basePalette.ColorTable, _needTMSPaintDelegate);
 
             // Hook into the storage change events
-            ButtonSpecs.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            ButtonSpecs.ButtonSpecChanged += OnButtonSpecChanged;
 
             // Hook to palette events
             if (_basePalette != null)
             {
-                _basePalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
-                _basePalette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-                _basePalette.BasePaletteChanged += new EventHandler(OnBasePaletteChanged);
-                _basePalette.BaseRendererChanged += new EventHandler(OnBaseRendererChanged);
+                _basePalette.PalettePaint += OnPalettePaint;
+                _basePalette.ButtonSpecChanged += OnButtonSpecChanged;
+                _basePalette.BasePaletteChanged += OnBasePaletteChanged;
+                _basePalette.BaseRendererChanged += OnBaseRendererChanged;
             }
         }
 
@@ -194,10 +194,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must unhook from the palette paint event
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
-                    _basePalette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
-                    _basePalette.BasePaletteChanged -= new EventHandler(OnBasePaletteChanged);
-                    _basePalette.BaseRendererChanged -= new EventHandler(OnBaseRendererChanged);
+                    _basePalette.PalettePaint -= OnPalettePaint;
+                    _basePalette.ButtonSpecChanged -= OnButtonSpecChanged;
+                    _basePalette.BasePaletteChanged -= OnBasePaletteChanged;
+                    _basePalette.BaseRendererChanged -= OnBaseRendererChanged;
                 }
             }
 
@@ -2520,7 +2520,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the reset operation on a separate worker thread
-                    CommonHelper.PerformOperation(new Operation(ResetOperation), null);
+                    CommonHelper.PerformOperation(ResetOperation, null);
 
                     MessageBox.Show("Reset of palette is completed.",
                                     "Palette Reset",
@@ -2562,7 +2562,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the reset operation on a separate worker thread
-                    CommonHelper.PerformOperation(new Operation(PopulateFromBaseOperation), null);
+                    CommonHelper.PerformOperation(PopulateFromBaseOperation, null);
 
                     MessageBox.Show("Relevant values have been populated.",
                                     "Populate Values",
@@ -2646,7 +2646,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (string)CommonHelper.PerformOperation(new Operation(ImportFromFile), filename);
+                    ret = (string)CommonHelper.PerformOperation(ImportFromFile, filename);
 
                     MessageBox.Show("Import from file '" + filename + "' completed.",
                                     "Palette Import",
@@ -2705,7 +2705,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(new Operation(ImportFromStream), stream);
+                    CommonHelper.PerformOperation(ImportFromStream, stream);
 
                     MessageBox.Show("Import completed with success.",
                                     "Palette Import",
@@ -2762,7 +2762,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(new Operation(ImportFromByteArray), byteArray);
+                    CommonHelper.PerformOperation(ImportFromByteArray, byteArray);
 
                     MessageBox.Show("Import completed with success.",
                                     "Palette Import",
@@ -2852,7 +2852,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (string)CommonHelper.PerformOperation(new Operation(ExportToFile), 
+                    ret = (string)CommonHelper.PerformOperation(ExportToFile, 
                                                                 new object[] { filename, ignoreDefaults });
 
                     MessageBox.Show("Export to file '" + filename + "' completed.",
@@ -2916,7 +2916,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(new Operation(ExportToStream),
+                    CommonHelper.PerformOperation(ExportToStream,
                                                   new object[] { stream, ignoreDefaults });
 
                     MessageBox.Show("Export completed with success.",
@@ -2976,7 +2976,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (byte[])CommonHelper.PerformOperation(new Operation(ExportToByteArray),
+                    ret = (byte[])CommonHelper.PerformOperation(ExportToByteArray,
                                                                 new object[] { ignoreDefaults });
 
                     MessageBox.Show("Export completed with success.",
@@ -6177,10 +6177,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
-                    _basePalette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
-                    _basePalette.BasePaletteChanged -= new EventHandler(OnBasePaletteChanged);
-                    _basePalette.BaseRendererChanged -= new EventHandler(OnBaseRendererChanged);
+                    _basePalette.PalettePaint -= OnPalettePaint;
+                    _basePalette.ButtonSpecChanged -= OnButtonSpecChanged;
+                    _basePalette.BasePaletteChanged -= OnBasePaletteChanged;
+                    _basePalette.BaseRendererChanged -= OnBaseRendererChanged;
                 }
 
                 // Remember the new palette
@@ -6195,10 +6195,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
-                    _basePalette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-                    _basePalette.BasePaletteChanged += new EventHandler(OnBasePaletteChanged);
-                    _basePalette.BaseRendererChanged += new EventHandler(OnBaseRendererChanged);
+                    _basePalette.PalettePaint += OnPalettePaint;
+                    _basePalette.ButtonSpecChanged += OnButtonSpecChanged;
+                    _basePalette.BasePaletteChanged += OnBasePaletteChanged;
+                    _basePalette.BaseRendererChanged += OnBaseRendererChanged;
                 }
             }
         }

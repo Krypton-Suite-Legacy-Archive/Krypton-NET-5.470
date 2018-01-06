@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private DateTimePickerController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly DateTimePickerController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupDateTimePicker.ItemSizeCurrent;
 
             // Hook into the date time picker events
-            GroupDateTimePicker.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupDateTimePicker.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupDateTimePicker.MouseEnterControl += OnMouseEnterControl;
+            GroupDateTimePicker.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupDateTimePicker;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the date time picker
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the date time picker for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the text box definition
             GroupDateTimePicker.DateTimePickerView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupDateTimePicker.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupDateTimePicker.PropertyChanged += new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
+            GroupDateTimePicker.PropertyChanged += OnDateTimePickerPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupDateTimePicker != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupDateTimePicker.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupDateTimePicker.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupDateTimePicker.MouseEnterControl -= OnMouseEnterControl;
+                    GroupDateTimePicker.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupDateTimePicker.ViewPaintDelegate = null;
-                    GroupDateTimePicker.PropertyChanged -= new PropertyChangedEventHandler(OnDateTimePickerPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupDateTimePicker.PropertyChanged -= OnDateTimePickerPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupDateTimePicker.DateTimePickerView = null; 

@@ -44,7 +44,9 @@ namespace DockingFlags
             {
                 // If the content does not have the focus then give it focus now
                 if (!ContainsFocus)
+                {
                     kryptonPanel.SelectNextControl(this, true, true, true, false);
+                }
             }
         }
 
@@ -63,57 +65,85 @@ namespace DockingFlags
         private void cbDocked_CheckedChanged(object sender, EventArgs e)
         {
             if (cbDocked.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowDocked);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowDocked);
+            }
         }
 
         private void cbAutoHidden_CheckedChanged(object sender, EventArgs e)
         {
             if (cbAutoHidden.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowAutoHidden);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowAutoHidden);
+            }
         }
 
         private void cbFloating_CheckedChanged(object sender, EventArgs e)
         {
             if (cbFloating.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowFloating);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowFloating);
+            }
         }
 
         private void cbWorkspace_CheckedChanged(object sender, EventArgs e)
         {
             if (cbWorkspace.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowWorkspace);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowWorkspace);
+            }
         }
 
         private void cbNavigator_CheckedChanged(object sender, EventArgs e)
         {
             if (cbNavigator.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowNavigator);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowNavigator);
+            }
         }
 
         private void cbDropDown_CheckedChanged(object sender, EventArgs e)
         {
             if (cbDropDown.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowDropDown);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowDropDown);
+            }
         }
 
         private void cbClose_CheckedChanged(object sender, EventArgs e)
         {
             if (cbClose.Checked)
+            {
                 _page.SetFlags(KryptonPageFlags.DockingAllowClose);
+            }
             else
+            {
                 _page.ClearFlags(KryptonPageFlags.DockingAllowClose);
+            }
         }
     }
 }

@@ -84,13 +84,13 @@ namespace ComponentFactory.Krypton.Workspace
 
         #region Instance Fields
         // Internal fields
-        private ViewDrawPanel _drawPanel;
+        private readonly ViewDrawPanel _drawPanel;
         private SeparatorStyle _separatorStyle;
-        private WorkspaceItemToSeparator _workspaceToSeparator;
-        private CellPageNotify _cellPageNotify;
+        private readonly WorkspaceItemToSeparator _workspaceToSeparator;
+        private readonly CellPageNotify _cellPageNotify;
         private DragManager _dragManager;
         private KryptonPage[] _dragPages;
-        private NeedPaintHandler _separatorNeedPaint;
+        private readonly NeedPaintHandler _separatorNeedPaint;
         private int _suspendWorkspace;
         private int _suspendActivePageChangedEvent;
         private int _cacheCellCount;
@@ -244,8 +244,8 @@ namespace ComponentFactory.Krypton.Workspace
         public KryptonWorkspace()
 		{
             Root = new KryptonWorkspaceSequence();
-            Root.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
-            Root.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
+            Root.PropertyChanged += OnChildrenPropertyChanged;
+            Root.MaximizeRestoreClicked += OnChildrenMaximizeRestoreClicked;
             Root.WorkspaceControl = this;
             ContextMenus = new WorkspaceMenus(this);
             _workspaceToSeparator = new WorkspaceItemToSeparator();
@@ -257,7 +257,7 @@ namespace ComponentFactory.Krypton.Workspace
             _splitterWidth = 5;
             _cacheCellCount = 0;
             _cacheCellVisibleCount = 0;
-            _separatorNeedPaint = new NeedPaintHandler(OnSeparatorNeedsPaint);
+            _separatorNeedPaint = OnSeparatorNeedsPaint;
 
             // Create the palette storage
             StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
@@ -2870,10 +2870,10 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="cell">Cell being added to the control.</param>
         protected virtual void NewCellInitialize(KryptonWorkspaceCell cell)
         {
-            cell.Enter += new EventHandler(OnCellEnter);
-            cell.SelectedPageChanged += new EventHandler(OnCellSelectedPageChanged);
-            cell.ShowContextMenu += new EventHandler<ShowContextMenuArgs>(OnCellShowContextMenu);
-            cell.CtrlTabWrap += new EventHandler<CtrlTabCancelEventArgs>(OnCellCtrlTabWrap);
+            cell.Enter += OnCellEnter;
+            cell.SelectedPageChanged += OnCellSelectedPageChanged;
+            cell.ShowContextMenu += OnCellShowContextMenu;
+            cell.CtrlTabWrap += OnCellCtrlTabWrap;
         }
 
         /// <summary>
@@ -2882,10 +2882,10 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="cell">Cell being removed from the control.</param>
         protected virtual void ExistingCellDetach(KryptonWorkspaceCell cell)
         {
-            cell.CtrlTabWrap -= new EventHandler<CtrlTabCancelEventArgs>(OnCellCtrlTabWrap);
-            cell.ShowContextMenu -= new EventHandler<ShowContextMenuArgs>(OnCellShowContextMenu);
-            cell.SelectedPageChanged -= new EventHandler(OnCellSelectedPageChanged);
-            cell.Enter -= new EventHandler(OnCellEnter);
+            cell.CtrlTabWrap -= OnCellCtrlTabWrap;
+            cell.ShowContextMenu -= OnCellShowContextMenu;
+            cell.SelectedPageChanged -= OnCellSelectedPageChanged;
+            cell.Enter -= OnCellEnter;
         }
         #endregion
 
@@ -3919,18 +3919,18 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // Create individual items
                     _menuSeparator1 = new KryptonContextMenuSeparator();
-                    _menuClose = new KryptonContextMenuItem(ContextMenus.TextClose, new EventHandler(OnPageClose), ContextMenus.ShortcutClose);
-                    _menuCloseAllButThis = new KryptonContextMenuItem(ContextMenus.TextCloseAllButThis, new EventHandler(OnPageCloseAllButThis), ContextMenus.ShortcutCloseAllButThis);
+                    _menuClose = new KryptonContextMenuItem(ContextMenus.TextClose, OnPageClose, ContextMenus.ShortcutClose);
+                    _menuCloseAllButThis = new KryptonContextMenuItem(ContextMenus.TextCloseAllButThis, OnPageCloseAllButThis, ContextMenus.ShortcutCloseAllButThis);
                     _menuSeparator2 = new KryptonContextMenuSeparator();
-                    _menuMoveNext = new KryptonContextMenuItem(ContextMenus.TextMoveNext, new EventHandler(OnPageMoveNext), ContextMenus.ShortcutMoveNext);
-                    _menuMovePrevious = new KryptonContextMenuItem(ContextMenus.TextMovePrevious, new EventHandler(OnPageMovePrevious), ContextMenus.ShortcutMovePrevious);
+                    _menuMoveNext = new KryptonContextMenuItem(ContextMenus.TextMoveNext, OnPageMoveNext, ContextMenus.ShortcutMoveNext);
+                    _menuMovePrevious = new KryptonContextMenuItem(ContextMenus.TextMovePrevious, OnPageMovePrevious, ContextMenus.ShortcutMovePrevious);
                     _menuSeparator3 = new KryptonContextMenuSeparator();
-                    _menuSplitVert = new KryptonContextMenuItem(ContextMenus.TextSplitVertical, new EventHandler(OnPageSplitVert), ContextMenus.ShortcutSplitVertical);
-                    _menuSplitHorz = new KryptonContextMenuItem(ContextMenus.TextSplitHorizontal, new EventHandler(OnPageSplitHorz), ContextMenus.ShortcutSplitHorizontal);
+                    _menuSplitVert = new KryptonContextMenuItem(ContextMenus.TextSplitVertical, OnPageSplitVert, ContextMenus.ShortcutSplitVertical);
+                    _menuSplitHorz = new KryptonContextMenuItem(ContextMenus.TextSplitHorizontal, OnPageSplitHorz, ContextMenus.ShortcutSplitHorizontal);
                     _menuSeparator4 = new KryptonContextMenuSeparator();
-                    _menuMaximizeRestore = new KryptonContextMenuItem(ContextMenus.TextMaximize, new EventHandler(OnPageMaximizeRestore), ContextMenus.ShortcutMaximizeRestore);
+                    _menuMaximizeRestore = new KryptonContextMenuItem(ContextMenus.TextMaximize, OnPageMaximizeRestore, ContextMenus.ShortcutMaximizeRestore);
                     _menuSeparator5 = new KryptonContextMenuSeparator();
-                    _menuRebalance = new KryptonContextMenuItem(ContextMenus.TextRebalance, new EventHandler(OnPageRebalance), ContextMenus.ShortcutRebalance);
+                    _menuRebalance = new KryptonContextMenuItem(ContextMenus.TextRebalance, OnPageRebalance, ContextMenus.ShortcutRebalance);
 
                     // Add items inside an items collection (apart from separator1 which is only added if required)
                     _menuItems = new KryptonContextMenuItems(new KryptonContextMenuItemBase[] { _menuClose,
@@ -3978,7 +3978,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Need to know when menu is removed so we can undo our actions
-                e.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnCellClosedContextMenu);
+                e.KryptonContextMenu.Closed += OnCellClosedContextMenu;
 
                 // Show the menu!
                 e.Cancel = false;
@@ -3989,7 +3989,7 @@ namespace ComponentFactory.Krypton.Workspace
         {
             // Unhook from context menu
             KryptonContextMenu contextMenu = (KryptonContextMenu)sender;
-            contextMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnCellClosedContextMenu);
+            contextMenu.Closed -= OnCellClosedContextMenu;
 
             // Remove our menu items as we only want them to be inside the currently showing context menu
             contextMenu.Items.Remove(_menuSeparator1);

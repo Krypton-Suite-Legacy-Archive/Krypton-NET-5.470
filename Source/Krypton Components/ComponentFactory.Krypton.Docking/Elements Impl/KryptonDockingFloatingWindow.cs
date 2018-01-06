@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Docking
     {
         #region Instance Fields
 
-        private ObscureControl _obscure;
+        private readonly ObscureControl _obscure;
         private int _updateCount;
         #endregion
 
@@ -49,13 +49,13 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             FloatspaceElement = floatspace ?? throw new ArgumentNullException("floatspace");
-            FloatspaceElement.Disposed += new EventHandler(OnDockingFloatspaceDisposed);
+            FloatspaceElement.Disposed += OnDockingFloatspaceDisposed;
 
             // Create the actual window control and hook into events
             FloatingWindow = new KryptonFloatingWindow(owner, floatspace.FloatspaceControl);
-            FloatingWindow.WindowCloseClicked += new EventHandler<UniqueNamesEventArgs>(OnFloatingWindowCloseClicked);
-            FloatingWindow.WindowCaptionDragging += new EventHandler<ScreenAndOffsetEventArgs>(OnFloatingWindowCaptionDragging);
-            FloatingWindow.Disposed += new EventHandler(OnFloatingWindowDisposed);
+            FloatingWindow.WindowCloseClicked += OnFloatingWindowCloseClicked;
+            FloatingWindow.WindowCaptionDragging += OnFloatingWindowCaptionDragging;
+            FloatingWindow.Disposed += OnFloatingWindowDisposed;
 
             // Create and add a control we use to obscure the floating window client area during multi-part operations
             _obscure = new ObscureControl
@@ -283,7 +283,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
             KryptonDockingFloatspace floatspaceElement = (KryptonDockingFloatspace)sender;
-            floatspaceElement.Disposed -= new EventHandler(OnDockingFloatspaceDisposed);
+            floatspaceElement.Disposed -= OnDockingFloatspaceDisposed;
 
             // Kill the floatspace window
             if (!FloatingWindow.IsDisposed)
@@ -295,7 +295,7 @@ namespace ComponentFactory.Krypton.Docking
         private void OnFloatingWindowDisposed(object sender, EventArgs e)
         {
             // Unhook from events so the control can be garbage collected
-            FloatingWindow.Disposed -= new EventHandler(OnFloatingWindowDisposed);
+            FloatingWindow.Disposed -= OnFloatingWindowDisposed;
 
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;

@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                    IPaletteMetric
     {
         #region Instance Fields
-        private PaletteRedirect _redirect;
+        private readonly PaletteRedirect _redirect;
         private Padding _barPaddingTabs;
         private Padding _barPaddingInside;
         private Padding _barPaddingOutside;

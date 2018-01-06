@@ -26,8 +26,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                              IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private KryptonRibbon _ribbon;
-	    private ViewDrawRibbonGroupCheckBoxImage _targetImage;
+        private readonly KryptonRibbon _ribbon;
+	    private readonly ViewDrawRibbonGroupCheckBoxImage _targetImage;
         private NeedPaintHandler _needPaint;
         private bool _rightButtonDown;
         private bool _fixedPressed;

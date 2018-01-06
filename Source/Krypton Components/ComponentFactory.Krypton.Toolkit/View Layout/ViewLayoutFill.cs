@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewLayoutFill : ViewLayoutNull
     {
         #region Instance Fields
-        private Control _control;
+        private readonly Control _control;
 
         #endregion
 

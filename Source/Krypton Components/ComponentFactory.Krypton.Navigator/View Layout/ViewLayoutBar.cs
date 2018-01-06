@@ -25,10 +25,10 @@ namespace ComponentFactory.Krypton.Navigator
         #region LineDetails
         private struct LineDetails
         {
-            public int InlineLength;
-            public int CrossLength;
-            public int StartIndex;
-            public int ItemCount;
+            public readonly int InlineLength;
+            public readonly int CrossLength;
+            public readonly int StartIndex;
+            public readonly int ItemCount;
 
             public LineDetails(int inlineLength,
                                int crossLength,

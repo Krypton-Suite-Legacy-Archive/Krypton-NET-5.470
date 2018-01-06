@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectRadioButton : PaletteRedirect
     {
         #region Instance Fields
-        private RadioButtonImages _images;
+        private readonly RadioButtonImages _images;
 		#endregion
 
 		#region Identity

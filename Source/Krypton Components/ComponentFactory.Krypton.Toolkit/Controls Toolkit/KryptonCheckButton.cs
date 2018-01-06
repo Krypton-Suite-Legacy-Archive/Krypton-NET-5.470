@@ -31,10 +31,10 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private PaletteTripleOverride _overrideCheckedFocus;
-        private PaletteTripleOverride _overrideCheckedNormal;
-        private PaletteTripleOverride _overrideCheckedTracking;
-        private PaletteTripleOverride _overrideCheckedPressed;
+	    private readonly PaletteTripleOverride _overrideCheckedFocus;
+        private readonly PaletteTripleOverride _overrideCheckedNormal;
+        private readonly PaletteTripleOverride _overrideCheckedTracking;
+        private readonly PaletteTripleOverride _overrideCheckedPressed;
         private CheckButtonValues _checkedValues;
         private bool _wasChecked;
         #endregion

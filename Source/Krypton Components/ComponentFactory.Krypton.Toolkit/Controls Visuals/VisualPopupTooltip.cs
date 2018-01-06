@@ -29,10 +29,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private PaletteTripleMetricRedirect _palette;
-        private ViewDrawDocker _drawDocker;
-        private ViewDrawContent _drawContent;
-        private IContentValues _contentValues;
+        private readonly PaletteTripleMetricRedirect _palette;
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewDrawContent _drawContent;
+        private readonly IContentValues _contentValues;
         #endregion
 
         #region Identity

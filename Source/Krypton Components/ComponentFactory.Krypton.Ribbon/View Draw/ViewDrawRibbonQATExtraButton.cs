@@ -28,9 +28,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable _mementoBack;
-        private EventHandler _finishDelegate;
+        private readonly EventHandler _finishDelegate;
 
         #endregion
 
@@ -56,11 +56,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
 
             // Create delegate used to process end of click action
-            _finishDelegate = new EventHandler(ClickFinished);
+            _finishDelegate = ClickFinished;
 
             // Attach a controller to this element for the pressing of the button
             QATExtraButtonController controller = new QATExtraButtonController(ribbon, this, needPaint);
-            controller.Click += new MouseEventHandler(OnClick);
+            controller.Click += OnClick;
             MouseController = controller;
             SourceController = controller;
             KeyController = controller;

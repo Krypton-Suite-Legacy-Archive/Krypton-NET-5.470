@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteMetrics : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private int _pageButtonSpecInset;
         private Padding _pageButtonSpecPadding;
         #endregion

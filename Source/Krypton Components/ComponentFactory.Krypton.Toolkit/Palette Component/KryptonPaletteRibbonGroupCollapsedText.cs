@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteRibbonGroupCollapsedText : Storage
     {
         #region Instance Fields
-        private PaletteRibbonTextInheritRedirect _stateInherit;
+        private readonly PaletteRibbonTextInheritRedirect _stateInherit;
 
         #endregion
 

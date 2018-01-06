@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Instance Fields
-            private KryptonRichTextBox _kryptonRichTextBox;
+            private readonly KryptonRichTextBox _kryptonRichTextBox;
             private bool _mouseOver;
             #endregion
 
@@ -280,11 +280,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
 
         private VisualPopupToolTip _visualPopupToolTip;
-        private ButtonSpecManagerLayout _buttonManager;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutFill _layoutFill;
-        private InternalRichTextBox _richTextBox;
+        private readonly ButtonSpecManagerLayout _buttonManager;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly InternalRichTextBox _richTextBox;
         private InputControlStyle _inputControlStyle;
         private Nullable<bool> _fixedActive;
         private bool _forcedLayout;
@@ -439,27 +439,27 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal text box used for containing content
             _richTextBox = new InternalRichTextBox(this);
-            _richTextBox.TrackMouseEnter += new EventHandler(OnRichTextBoxMouseChange);
-            _richTextBox.TrackMouseLeave += new EventHandler(OnRichTextBoxMouseChange);
-            _richTextBox.AcceptsTabChanged += new EventHandler(OnRichTextBoxAcceptsTabChanged);
-            _richTextBox.TextChanged += new EventHandler(OnRichTextBoxTextChanged);
-            _richTextBox.HideSelectionChanged += new EventHandler(OnRichTextBoxHideSelectionChanged);
-            _richTextBox.ModifiedChanged += new EventHandler(OnRichTextBoxModifiedChanged);
-            _richTextBox.MultilineChanged += new EventHandler(OnRichTextBoxMultilineChanged);
-            _richTextBox.ReadOnlyChanged += new EventHandler(OnRichTextBoxReadOnlyChanged);
-            _richTextBox.GotFocus += new EventHandler(OnRichTextBoxGotFocus);
-            _richTextBox.LostFocus += new EventHandler(OnRichTextBoxLostFocus);
-            _richTextBox.KeyDown += new KeyEventHandler(OnRichTextBoxKeyDown);
-            _richTextBox.KeyUp += new KeyEventHandler(OnRichTextBoxKeyUp);
-            _richTextBox.KeyPress += new KeyPressEventHandler(OnRichTextBoxKeyPress);
-            _richTextBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnRichTextBoxPreviewKeyDown);
-            _richTextBox.LinkClicked += new LinkClickedEventHandler(OnRichTextBoxLinkClicked);
-            _richTextBox.Protected += new EventHandler(OnRichTextBoxProtected);
-            _richTextBox.SelectionChanged += new EventHandler(OnRichTextBoxSelectionChanged);
-            _richTextBox.HScroll += new EventHandler(OnRichTextBoxHScroll);
-            _richTextBox.VScroll += new EventHandler(OnRichTextBoxVScroll);
-            _richTextBox.Validating += new CancelEventHandler(OnRichTextBoxValidating);
-            _richTextBox.Validated += new EventHandler(OnRichTextBoxValidated);
+            _richTextBox.TrackMouseEnter += OnRichTextBoxMouseChange;
+            _richTextBox.TrackMouseLeave += OnRichTextBoxMouseChange;
+            _richTextBox.AcceptsTabChanged += OnRichTextBoxAcceptsTabChanged;
+            _richTextBox.TextChanged += OnRichTextBoxTextChanged;
+            _richTextBox.HideSelectionChanged += OnRichTextBoxHideSelectionChanged;
+            _richTextBox.ModifiedChanged += OnRichTextBoxModifiedChanged;
+            _richTextBox.MultilineChanged += OnRichTextBoxMultilineChanged;
+            _richTextBox.ReadOnlyChanged += OnRichTextBoxReadOnlyChanged;
+            _richTextBox.GotFocus += OnRichTextBoxGotFocus;
+            _richTextBox.LostFocus += OnRichTextBoxLostFocus;
+            _richTextBox.KeyDown += OnRichTextBoxKeyDown;
+            _richTextBox.KeyUp += OnRichTextBoxKeyUp;
+            _richTextBox.KeyPress += OnRichTextBoxKeyPress;
+            _richTextBox.PreviewKeyDown += OnRichTextBoxPreviewKeyDown;
+            _richTextBox.LinkClicked += OnRichTextBoxLinkClicked;
+            _richTextBox.Protected += OnRichTextBoxProtected;
+            _richTextBox.SelectionChanged += OnRichTextBoxSelectionChanged;
+            _richTextBox.HScroll += OnRichTextBoxHScroll;
+            _richTextBox.VScroll += OnRichTextBoxVScroll;
+            _richTextBox.Validating += OnRichTextBoxValidating;
+            _richTextBox.Validated += OnRichTextBoxValidated;
 
             // Create the element that fills the remainder space and remembers fill rectange
             _layoutFill = new ViewLayoutFill(_richTextBox);
@@ -485,13 +485,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                          new IPaletteMetric[] { StateCommon },
                                                          new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetInputControl },
                                                          new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingInputControl },
-                                                         new GetToolStripRenderer(CreateToolStripRenderer),
+                                                         CreateToolStripRenderer,
                                                          NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // Add text box to the controls collection
@@ -2475,7 +2475,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -2494,7 +2494,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

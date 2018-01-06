@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private KryptonCheckSet _checkSet;
+        private readonly KryptonCheckSet _checkSet;
         #endregion
 
         #region Identity

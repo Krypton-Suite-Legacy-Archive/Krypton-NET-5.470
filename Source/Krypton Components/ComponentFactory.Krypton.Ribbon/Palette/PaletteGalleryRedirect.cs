@@ -21,12 +21,12 @@ namespace ComponentFactory.Krypton.Ribbon
 	{
 		#region Instance Fields
         // Storage
-        private PaletteRibbonBack _ribbonBack;
-        private PaletteRibbonBack _ribbonBorder;
+        private readonly PaletteRibbonBack _ribbonBack;
+        private readonly PaletteRibbonBack _ribbonBorder;
 
         // Redirection
-        private PaletteRibbonBackInheritRedirect _ribbonBackInherit;
-        private PaletteRibbonBackInheritRedirect _ribbonBorderInherit;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonBackInherit;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonBorderInherit;
         #endregion
 
 		#region Identity

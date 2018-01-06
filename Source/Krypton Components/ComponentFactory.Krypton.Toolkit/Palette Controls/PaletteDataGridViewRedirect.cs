@@ -19,10 +19,10 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteDataGridViewRedirect : Storage
 	{
 		#region Instance Fields
-        private PaletteDoubleRedirect _background;
-        private PaletteDataGridViewTripleRedirect _dataCell;
-        private PaletteDataGridViewTripleRedirect _headerColumn;
-        private PaletteDataGridViewTripleRedirect _headerRow;
+        private readonly PaletteDoubleRedirect _background;
+        private readonly PaletteDataGridViewTripleRedirect _dataCell;
+        private readonly PaletteDataGridViewTripleRedirect _headerColumn;
+        private readonly PaletteDataGridViewTripleRedirect _headerRow;
         #endregion
 
 		#region Identity

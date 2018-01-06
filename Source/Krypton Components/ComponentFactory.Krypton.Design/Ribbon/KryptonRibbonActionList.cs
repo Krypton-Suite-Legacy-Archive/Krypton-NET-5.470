@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class KryptonRibbonActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private IComponentChangeService _service;
+        private readonly KryptonRibbon _ribbon;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

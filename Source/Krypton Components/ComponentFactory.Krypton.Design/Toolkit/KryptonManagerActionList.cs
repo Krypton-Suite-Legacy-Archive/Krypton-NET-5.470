@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonManagerActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonManager _manager;
-        private IComponentChangeService _service;
+        private readonly KryptonManager _manager;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

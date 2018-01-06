@@ -21,10 +21,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawMenuColorBlock : ViewLeaf
     {
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private Size _blockSize;
-        private bool _first;
-        private bool _last;
+        private readonly IContextMenuProvider _provider;
+        private readonly Size _blockSize;
+        private readonly bool _first;
+        private readonly bool _last;
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use context menu specific version of the radio button controller
             MenuColorBlockController mcbc = new MenuColorBlockController(provider.ProviderViewManager, this, this, provider.ProviderNeedPaintDelegate);
-            mcbc.Click += new EventHandler(OnClick);
+            mcbc.Click += OnClick;
             MouseController = mcbc;
             KeyController = mcbc;
         }

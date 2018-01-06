@@ -29,10 +29,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private IDisposable[] _mementos;
-        private KryptonRibbon _ribbon;
-        private bool _bottomHalf;
+        private readonly KryptonRibbon _ribbon;
+        private readonly bool _bottomHalf;
         private Rectangle _clipRect;
-        private Size _size;
+        private readonly Size _size;
         #endregion
 
         #region Identity

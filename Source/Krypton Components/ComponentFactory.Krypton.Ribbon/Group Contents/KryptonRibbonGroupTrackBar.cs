@@ -101,9 +101,9 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            TrackBar.GotFocus += new EventHandler(OnTrackBarGotFocus);
-            TrackBar.LostFocus += new EventHandler(OnTrackBarLostFocus);
-            TrackBar.ValueChanged += new EventHandler(OnTrackBarValueChanged);
+            TrackBar.GotFocus += OnTrackBarGotFocus;
+            TrackBar.LostFocus += OnTrackBarLostFocus;
+            TrackBar.ValueChanged += OnTrackBarValueChanged;
 
             // Ensure we can track mouse events on the track bar
             MonitorControl(TrackBar);
@@ -147,7 +147,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the track bar as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     TrackBar.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -594,14 +594,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonTrackBar c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonTrackBar c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

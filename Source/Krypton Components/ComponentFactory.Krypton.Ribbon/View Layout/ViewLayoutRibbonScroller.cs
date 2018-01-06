@@ -30,9 +30,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private VisualOrientation _orientation;
-        private ViewDrawRibbonScrollButton _button;
-        private ViewLayoutRibbonSeparator _separator;
-        private bool _insetForTabs;
+        private readonly ViewDrawRibbonScrollButton _button;
+        private readonly ViewLayoutRibbonSeparator _separator;
+        private readonly bool _insetForTabs;
         #endregion
 
         #region Events
@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create button controller for clicking the button
             RepeatButtonController rbc = new RepeatButtonController(ribbon, _button, needPaintDelegate);
-            rbc.Click += new MouseEventHandler(OnButtonClick);
+            rbc.Click += OnButtonClick;
             _button.MouseController = rbc;
 
             // Add as child elements

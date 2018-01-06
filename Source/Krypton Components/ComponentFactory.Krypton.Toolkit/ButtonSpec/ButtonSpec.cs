@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private PaletteButtonStyle _style;
         private PaletteButtonOrientation _orientation;
         private PaletteRelativeEdgeAlign _edge;
-        private CheckButtonImageStates _imageStates;
+        private readonly CheckButtonImageStates _imageStates;
 
         #endregion
         
@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _edge = PaletteRelativeEdgeAlign.Inherit;
             _imageStates = new CheckButtonImageStates
             {
-                NeedPaint = new NeedPaintHandler(OnImageStateChanged)
+                NeedPaint = OnImageStateChanged
             };
             ContextMenuStrip = null;
             KryptonContextMenu = null;
@@ -840,7 +840,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     _command = value;
@@ -848,7 +848,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                 }
             }

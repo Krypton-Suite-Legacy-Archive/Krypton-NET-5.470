@@ -16,7 +16,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal partial class KryptonPageFormEditFlags : Form
     {
         #region Instance Fields
-        private KryptonPage _page;
+        private readonly KryptonPage _page;
         #endregion
 
         #region Identity

@@ -23,8 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                    IContextMenuTarget
     {
         #region Instance Fields
-        private ViewDrawButton _target;
-        private ViewContextMenuManager _viewManager;
+        private readonly ViewDrawButton _target;
+        private readonly ViewContextMenuManager _viewManager;
         #endregion
 
         #region Identity

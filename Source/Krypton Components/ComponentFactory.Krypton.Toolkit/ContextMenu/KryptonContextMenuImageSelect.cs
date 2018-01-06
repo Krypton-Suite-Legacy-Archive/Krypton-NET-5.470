@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _trackingIndex;
         private int _cacheTrackingIndex;
         private int _eventTrackingIndex;
-        private Timer _trackingEventTimer;
+        private readonly Timer _trackingEventTimer;
         #endregion
 
         #region Events
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 Interval = 120
             };
-            _trackingEventTimer.Tick += new EventHandler(OnTrackingTick);
+            _trackingEventTimer.Tick += OnTrackingTick;
         }
 
         /// <summary>

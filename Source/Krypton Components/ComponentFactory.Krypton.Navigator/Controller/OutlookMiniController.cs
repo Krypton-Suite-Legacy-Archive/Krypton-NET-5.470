@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Navigator
 	{
 		#region Instance Fields
         private NeedPaintHandler _needPaint;
-        private ViewBase _target;
+        private readonly ViewBase _target;
         private bool _fixedTracking;
 	    private bool _mouseOver;
 		#endregion

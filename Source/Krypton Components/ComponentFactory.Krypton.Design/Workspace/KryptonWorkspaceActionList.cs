@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Workspace
     internal class KryptonWorkspaceActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonWorkspace _workspace;
-        private IComponentChangeService _service;
+        private readonly KryptonWorkspace _workspace;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

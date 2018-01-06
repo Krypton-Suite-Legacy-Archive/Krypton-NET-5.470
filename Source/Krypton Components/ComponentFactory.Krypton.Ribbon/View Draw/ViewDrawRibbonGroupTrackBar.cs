@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private TrackBarController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly TrackBarController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupTrackBar.ItemSizeCurrent;
 
             // Hook into the textbox events
-            GroupTrackBar.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupTrackBar.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupTrackBar.MouseEnterControl += OnMouseEnterControl;
+            GroupTrackBar.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupTrackBar;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the textbox
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the textbox for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the text box definition
             GroupTrackBar.TrackBarView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupTrackBar.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupTrackBar.PropertyChanged += new PropertyChangedEventHandler(OnTextBoxPropertyChanged);
+            GroupTrackBar.PropertyChanged += OnTextBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupTrackBar != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupTrackBar.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupTrackBar.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupTrackBar.MouseEnterControl -= OnMouseEnterControl;
+                    GroupTrackBar.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupTrackBar.ViewPaintDelegate = null;
-                    GroupTrackBar.PropertyChanged -= new PropertyChangedEventHandler(OnTextBoxPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupTrackBar.PropertyChanged -= OnTextBoxPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupTrackBar.TrackBarView = null; 

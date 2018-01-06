@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Instance Fields
 
         private NeedPaintHandler _needPaint;
-        private DesignTextToContent _contentProvider;
+        private readonly DesignTextToContent _contentProvider;
         #endregion
 
 		#region Identity
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Use a controller to change state because of mouse movement
             ViewHightlightController controller = new ViewHightlightController(this, needPaint);
-            controller.Click += new EventHandler(OnClick);
+            controller.Click += OnClick;
             MouseController = controller;
         }
 

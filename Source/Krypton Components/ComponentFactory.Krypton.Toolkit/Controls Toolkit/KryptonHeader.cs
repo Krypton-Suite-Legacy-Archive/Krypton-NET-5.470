@@ -55,9 +55,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
 	    private HeaderStyle _style;
 	    private VisualOrientation _orientation;
-        private ViewDrawDocker _drawDocker;
-		private ViewDrawContent _drawContent;
-	    private ButtonSpecManagerDraw _buttonManager;
+        private readonly ViewDrawDocker _drawDocker;
+		private readonly ViewDrawContent _drawContent;
+	    private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
 
 	    #endregion
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Create storage objects
             Values = new HeaderValues(NeedPaintDelegate);
-            Values.TextChanged += new EventHandler(OnHeaderTextChanged);
+            Values.TextChanged += OnHeaderTextChanged;
             ButtonSpecs = new HeaderButtonSpecCollection(this);
 
 			// Create the palette storage
@@ -100,13 +100,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        new IPaletteMetric[] { StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary },
-                                                       new GetToolStripRenderer(CreateToolStripRenderer),
+                                                       CreateToolStripRenderer,
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // We want to be auto sized by default, but not the property default!
@@ -597,7 +597,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -616,7 +616,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteTreeNodeTriple : Storage
     {
         #region Instance Fields
-        private PaletteTriple _paletteNode;
+        private readonly PaletteTriple _paletteNode;
         #endregion
 
         #region Identity

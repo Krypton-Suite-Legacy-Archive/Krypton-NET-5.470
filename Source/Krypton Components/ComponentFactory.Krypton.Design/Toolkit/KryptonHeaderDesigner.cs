@@ -38,13 +38,13 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager vm = _header?.GetViewManager();
             if (vm != null)
             {
-                vm.MouseUpProcessed -= new MouseEventHandler(OnHeaderMouseUp);
-                vm.DoubleClickProcessed -= new PointHandler(OnHeaderDoubleClick);
+                vm.MouseUpProcessed -= OnHeaderMouseUp;
+                vm.DoubleClickProcessed -= OnHeaderDoubleClick;
             }
 
             if (_changeService != null)
             {
-                _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+                _changeService.ComponentRemoving -= OnComponentRemoving;
             }
 
             // Must let base class do standard stuff
@@ -73,8 +73,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_header != null)
             {
                 // Hook into header event
-                _header.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnHeaderMouseUp);
-                _header.GetViewManager().DoubleClickProcessed += new PointHandler(OnHeaderDoubleClick);
+                _header.GetViewManager().MouseUpProcessed += OnHeaderMouseUp;
+                _header.GetViewManager().DoubleClickProcessed += OnHeaderDoubleClick;
             }
 
             // Get access to the design services
@@ -83,7 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>

@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private NumericUpDownController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly NumericUpDownController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupNumericUpDown.ItemSizeCurrent;
 
             // Hook into the numeric up-down events
-            GroupNumericUpDown.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupNumericUpDown.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupNumericUpDown.MouseEnterControl += OnMouseEnterControl;
+            GroupNumericUpDown.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupNumericUpDown;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the numeric up-down
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the numeric up-down for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the numeric up-down definition
             GroupNumericUpDown.NumericUpDownView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupNumericUpDown.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupNumericUpDown.PropertyChanged += new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
+            GroupNumericUpDown.PropertyChanged += OnNumericUpDownPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupNumericUpDown != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupNumericUpDown.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupNumericUpDown.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupNumericUpDown.MouseEnterControl -= OnMouseEnterControl;
+                    GroupNumericUpDown.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupNumericUpDown.ViewPaintDelegate = null;
-                    GroupNumericUpDown.PropertyChanged -= new PropertyChangedEventHandler(OnNumericUpDownPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupNumericUpDown.PropertyChanged -= OnNumericUpDownPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupNumericUpDown.NumericUpDownView = null; 

@@ -34,9 +34,9 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private PaletteDoubleRedirect _stateCommon;
-        private PaletteDouble _stateDisabled;
-		private PaletteDouble _stateNormal;
+	    private readonly PaletteDoubleRedirect _stateCommon;
+        private readonly PaletteDouble _stateDisabled;
+		private readonly PaletteDouble _stateNormal;
 		#endregion
 
 		#region Identity

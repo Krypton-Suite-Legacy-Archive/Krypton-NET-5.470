@@ -27,10 +27,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable[] _mementos;
-        private PaletteRibbonGeneral _paletteGeneral;
-        private ApplicationTabToContent _contentProvider;
+        private readonly PaletteRibbonGeneral _paletteGeneral;
+        private readonly ApplicationTabToContent _contentProvider;
         #endregion
 
         #region Identity

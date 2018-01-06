@@ -77,14 +77,14 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Cast to correct type
             _ribbonButton = (KryptonRibbonGroupButton)component;
-            _ribbonButton.DesignTimeContextMenu += new MouseEventHandler(OnContextMenu);
+            _ribbonButton.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (disposing)
                 {
                     // Unhook from events
-                    _ribbonButton.DesignTimeContextMenu -= new MouseEventHandler(OnContextMenu);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _ribbonButton.DesignTimeContextMenu -= OnContextMenu;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally
@@ -131,12 +131,12 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_verbs == null)
             {
                 _verbs = new DesignerVerbCollection();
-                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                _moveFirstVerb = new DesignerVerb("Move Button First", new EventHandler(OnMoveFirst));
-                _movePrevVerb = new DesignerVerb("Move Button Previous", new EventHandler(OnMovePrevious));
-                _moveNextVerb = new DesignerVerb("Move Button Next", new EventHandler(OnMoveNext));
-                _moveLastVerb = new DesignerVerb("Move Button Last", new EventHandler(OnMoveLast));
-                _deleteButtonVerb = new DesignerVerb("Delete Button", new EventHandler(OnDeleteButton));
+                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                _moveFirstVerb = new DesignerVerb("Move Button First", OnMoveFirst);
+                _movePrevVerb = new DesignerVerb("Move Button Previous", OnMovePrevious);
+                _moveNextVerb = new DesignerVerb("Move Button Next", OnMoveNext);
+                _moveLastVerb = new DesignerVerb("Move Button Last", OnMoveLast);
+                _deleteButtonVerb = new DesignerVerb("Delete Button", OnDeleteButton);
                 _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _moveFirstVerb, _movePrevVerb, 
                                                          _moveNextVerb, _moveLastVerb, _deleteButtonVerb });
             }
@@ -414,21 +414,21 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_cms == null)
                 {
                     _cms = new ContextMenuStrip();
-                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, new EventHandler(OnToggleHelpers));
-                    _visibleMenu = new ToolStripMenuItem("Visible", null, new EventHandler(OnVisible));
-                    _enabledMenu = new ToolStripMenuItem("Enabled", null, new EventHandler(OnEnabled));
-                    _checkedMenu = new ToolStripMenuItem("Checked", null, new EventHandler(OnChecked));
-                    _typePushMenu = new ToolStripMenuItem("Push", null, new EventHandler(OnTypePush));
-                    _typeCheckMenu = new ToolStripMenuItem("Check", null, new EventHandler(OnTypeCheck));
-                    _typeDropDownMenu = new ToolStripMenuItem("DropDown", null, new EventHandler(OnTypeDropDown));
-                    _typeSplitMenu = new ToolStripMenuItem("Split", null, new EventHandler(OnTypeSplit));
+                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
+                    _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
+                    _enabledMenu = new ToolStripMenuItem("Enabled", null, OnEnabled);
+                    _checkedMenu = new ToolStripMenuItem("Checked", null, OnChecked);
+                    _typePushMenu = new ToolStripMenuItem("Push", null, OnTypePush);
+                    _typeCheckMenu = new ToolStripMenuItem("Check", null, OnTypeCheck);
+                    _typeDropDownMenu = new ToolStripMenuItem("DropDown", null, OnTypeDropDown);
+                    _typeSplitMenu = new ToolStripMenuItem("Split", null, OnTypeSplit);
                     _typeMenu = new ToolStripMenuItem("Type");
                     _typeMenu.DropDownItems.AddRange(new ToolStripItem[] { _typePushMenu, _typeCheckMenu, _typeDropDownMenu, _typeSplitMenu });
-                    _moveFirstMenu = new ToolStripMenuItem("Move Button First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, new EventHandler(OnMoveFirst));
-                    _movePreviousMenu = new ToolStripMenuItem("Move Button Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, new EventHandler(OnMovePrevious));
-                    _moveNextMenu = new ToolStripMenuItem("Move Button Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, new EventHandler(OnMoveNext));
-                    _moveLastMenu = new ToolStripMenuItem("Move Button Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, new EventHandler(OnMoveLast));
-                    _deleteButtonMenu = new ToolStripMenuItem("Delete Button", ComponentFactory.Krypton.Design.Properties.Resources.delete2, new EventHandler(OnDeleteButton));
+                    _moveFirstMenu = new ToolStripMenuItem("Move Button First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move Button Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move Button Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move Button Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteButtonMenu = new ToolStripMenuItem("Delete Button", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteButton);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, _enabledMenu, _checkedMenu, _typeMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewLayoutPageShow : ViewLayoutNull
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private bool _minimumAsPreferred;
 		#endregion
 

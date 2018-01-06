@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private KryptonColorTable _baseKCT;
-        private Color[] _colors;
+        private readonly Color[] _colors;
 
         #endregion
 

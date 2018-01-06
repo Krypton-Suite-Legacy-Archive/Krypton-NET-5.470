@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Docking
         #region Instance Fields
 
         private KryptonSpace _space;
-        private string _storeName;
+        private readonly string _storeName;
 
         #endregion
 
@@ -670,9 +670,9 @@ namespace ComponentFactory.Krypton.Docking
             xmlWriter.WriteAttributeString("S", CommonHelper.SizeToString(SpaceControl.Size));
 
             // Output an xml for the contained workspace
-            SpaceControl.PageSaving += new EventHandler<PageSavingEventArgs>(OnSpaceControlPageSaving);
+            SpaceControl.PageSaving += OnSpaceControlPageSaving;
             SpaceControl.SaveLayoutToXml(xmlWriter);
-            SpaceControl.PageSaving -= new EventHandler<PageSavingEventArgs>(OnSpaceControlPageSaving);
+            SpaceControl.PageSaving -= OnSpaceControlPageSaving;
 
             // Terminate the workspace element
             xmlWriter.WriteFullEndElement();
@@ -766,9 +766,9 @@ namespace ComponentFactory.Krypton.Docking
                 _space = value ?? throw new ArgumentNullException("value");
 
                 // Hook into space events we need to monitor
-                SpaceControl.Disposed += new EventHandler(OnSpaceDisposed);
-                SpaceControl.WorkspaceCellAdding += new EventHandler<WorkspaceCellEventArgs>(OnSpaceCellAdding);
-                SpaceControl.PageDrop += new EventHandler<PageDropEventArgs>(RaiseSpacePageDrop);
+                SpaceControl.Disposed += OnSpaceDisposed;
+                SpaceControl.WorkspaceCellAdding += OnSpaceCellAdding;
+                SpaceControl.PageDrop += RaiseSpacePageDrop;
             }
         }
 
@@ -854,11 +854,11 @@ namespace ComponentFactory.Krypton.Docking
         protected override void LoadDockingElement(XmlReader xmlReader, KryptonPageCollection pages)
         {
             // Load layout information and use any matching pages in the provided collection
-            SpaceControl.PageLoading += new EventHandler<PageLoadingEventArgs>(OnSpaceControlPageLoading);
-            SpaceControl.RecreateLoadingPage += new EventHandler<RecreateLoadingPageEventArgs>(OnSpaceControlRecreateLoadingPage);
+            SpaceControl.PageLoading += OnSpaceControlPageLoading;
+            SpaceControl.RecreateLoadingPage += OnSpaceControlRecreateLoadingPage;
             SpaceControl.LoadLayoutFromXml(xmlReader, pages);
-            SpaceControl.PageLoading -= new EventHandler<PageLoadingEventArgs>(OnSpaceControlPageLoading);
-            SpaceControl.RecreateLoadingPage -= new EventHandler<RecreateLoadingPageEventArgs>(OnSpaceControlRecreateLoadingPage);
+            SpaceControl.PageLoading -= OnSpaceControlPageLoading;
+            SpaceControl.RecreateLoadingPage -= OnSpaceControlRecreateLoadingPage;
         }
 
         /// <summary>
@@ -872,9 +872,9 @@ namespace ComponentFactory.Krypton.Docking
         private void OnSpaceDisposed(object sender, EventArgs e)
         {
             // Unhook from events to prevent memory leaking
-            SpaceControl.Disposed -= new EventHandler(OnSpaceDisposed);
-            SpaceControl.WorkspaceCellAdding -= new EventHandler<WorkspaceCellEventArgs>(OnSpaceCellAdding);
-            SpaceControl.PageDrop -= new EventHandler<PageDropEventArgs>(RaiseSpacePageDrop);
+            SpaceControl.Disposed -= OnSpaceDisposed;
+            SpaceControl.WorkspaceCellAdding -= OnSpaceCellAdding;
+            SpaceControl.PageDrop -= RaiseSpacePageDrop;
 
             // Raise event to indicate the space control has been removed
             RaiseRemoved();
@@ -885,14 +885,14 @@ namespace ComponentFactory.Krypton.Docking
             RaiseCellAdding(e.Cell);
 
             // Need to generate the removed event to match this adding event
-            e.Cell.Disposed += new EventHandler(OnSpaceCellRemoved);
+            e.Cell.Disposed += OnSpaceCellRemoved;
         }
 
         private void OnSpaceCellRemoved(object sender, EventArgs e)
         {
             // Remove event hooks so cell can be garbage collected
             KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
-            cell.Disposed -= new EventHandler(OnSpaceCellRemoved);
+            cell.Disposed -= OnSpaceCellRemoved;
 
             RaiseCellRemoved(cell);
         }

@@ -39,24 +39,24 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupLines _ribbonLines;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupLines _ribbonLines;
         private ViewDrawRibbonDesignGroupLines _viewAddItem;
-        private NeedPaintHandler _needPaint;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         private ItemToView _itemToView;
         private ViewToItem _viewToItem;
-        private ViewToGap _viewToLargeGap;
-        private ViewToGap _viewToMediumGap;
-        private ViewToGap _viewToSmallGap;
+        private readonly ViewToGap _viewToLargeGap;
+        private readonly ViewToGap _viewToMediumGap;
+        private readonly ViewToGap _viewToSmallGap;
         private ViewToGap _viewToGap;
-        private SizeList _sizeLargeList;
-        private SizeList _sizeMediumList;
-        private SizeList _sizeSmallList;
+        private readonly SizeList _sizeLargeList;
+        private readonly SizeList _sizeMediumList;
+        private readonly SizeList _sizeSmallList;
         private SizeList _sizeList;
-        private ViewList _viewLargeList;
-        private ViewList _viewMediumList;
-        private ViewList _viewSmallList;
+        private readonly ViewList _viewLargeList;
+        private readonly ViewList _viewMediumList;
+        private readonly ViewList _viewSmallList;
         private ViewList _viewList;
         private int _split1Large;
         private int _split1Medium;
@@ -104,14 +104,14 @@ namespace ComponentFactory.Krypton.Ribbon
             ApplySize(ribbonLines.ItemSizeCurrent);
 
             // Hook into changes in the ribbon triple definition
-            _ribbonLines.PropertyChanged += new PropertyChangedEventHandler(OnLinesPropertyChanged);
+            _ribbonLines.PropertyChanged += OnLinesPropertyChanged;
             _ribbonLines.LinesView = this;
 
             // At design time we want to track the mouse and show feedback
             if (_ribbon.InDesignMode)
             {
                 ViewHightlightController controller = new ViewHightlightController(this, needPaint);
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
         }
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (disposing)
             {
                 // Must unhook to prevent memory leaks
-                _ribbonLines.PropertyChanged -= new PropertyChangedEventHandler(OnLinesPropertyChanged);
+                _ribbonLines.PropertyChanged -= OnLinesPropertyChanged;
             }
 
             base.Dispose(disposing);

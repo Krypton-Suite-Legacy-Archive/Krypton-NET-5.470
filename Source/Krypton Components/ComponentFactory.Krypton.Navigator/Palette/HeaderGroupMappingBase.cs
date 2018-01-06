@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
 	public abstract class HeaderGroupMappingBase : HeaderValuesBase
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private MapKryptonPageText _mapHeading;
         private MapKryptonPageText _mapDescription;
         private MapKryptonPageImage _mapImage;

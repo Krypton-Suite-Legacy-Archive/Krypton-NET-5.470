@@ -20,19 +20,19 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class VisualPopupAppMenu : VisualPopup
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IPalette _palette;
         private IPaletteBack _drawOutsideBack;
         private IPaletteBorder _drawOutsideBorder;
-        private AppButtonMenuProvider _provider;
+        private readonly AppButtonMenuProvider _provider;
         private ViewDrawRibbonAppMenu _drawOutsideDocker;
         private ViewDrawRibbonAppMenuOuter _drawOutsideBacking;
         private ViewDrawRibbonAppMenuInner _drawInnerBacking;
         private ViewDrawRibbonAppButton _appButtonBottom;
-        private ViewLayoutStack _viewColumns;
+        private readonly ViewLayoutStack _viewColumns;
         private ViewLayoutDocker _viewButtonSpecDocker;
         private ButtonSpecManagerLayout _buttonManager;
-        private Rectangle _rectAppButtonBottomHalf;
+        private readonly Rectangle _rectAppButtonBottomHalf;
         private Rectangle _rectAppButtonTopHalf;
         #endregion
 
@@ -86,9 +86,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                                   _viewColumns, palette, paletteMode, 
                                                   redirector, NeedPaintDelegate);
 
-            _provider.Closing += new CancelEventHandler(OnProviderClosing);
-            _provider.Close += new EventHandler<CloseReasonEventArgs>(OnProviderClose);
-            _provider.Dispose += new EventHandler(OnProviderClose);
+            _provider.Closing += OnProviderClosing;
+            _provider.Close += OnProviderClose;
+            _provider.Dispose += OnProviderClose;
 
             CreateAppButtonBottom();
             CreateButtonSpecView();
@@ -245,8 +245,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                   new IPaletteMetric[] { _ribbon.StateCommon },
                                                                   new PaletteMetricInt[] { PaletteMetricInt.None },
                                                                   new PaletteMetricPadding[] { PaletteMetricPadding.RibbonAppButton },
-                                                                  new GetToolStripRenderer(CreateToolStripRenderer),
-                                                                  new NeedPaintHandler(OnButtonSpecPaint));
+                                                                  CreateToolStripRenderer,
+                                                                  OnButtonSpecPaint);
 
             _buttonManager.RecreateButtons();
         }
@@ -262,9 +262,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 if (_buttonManager != null)
@@ -524,9 +524,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 // Remember the new palette
@@ -541,9 +541,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged += new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged += new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint += OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged += OnBaseChanged;
+                    _palette.BaseRendererChanged += OnBaseChanged;
                 }
             }
         }
@@ -574,7 +574,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Unhook from event source
             IContextMenuProvider provider = (IContextMenuProvider)sender;
-            _provider.Dispose -= new EventHandler(OnProviderClose);
+            _provider.Dispose -= OnProviderClose;
 
             // Kill this poup window
             Dispose();

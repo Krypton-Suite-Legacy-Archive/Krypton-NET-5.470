@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteBase()
         {
             // We need to notice when system color settings change
-            SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
 
             // Inherit means we need to calculate the value next time it is requested
             _dragFeedback = PaletteDragFeedback.Inherit;

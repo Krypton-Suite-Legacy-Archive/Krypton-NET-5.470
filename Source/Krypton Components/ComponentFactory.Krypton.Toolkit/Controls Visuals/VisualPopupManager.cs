@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private PopupStack _stack;
+        private readonly PopupStack _stack;
         private IntPtr _activeWindow;
         private bool _filtering;
         private int _suspended;
@@ -319,7 +319,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (cms != null)
             {
                 // Need to know when the context strip is removed
-                cms.Closed += new ToolStripDropDownClosedEventHandler(OnCMSClosed);
+                cms.Closed += OnCMSClosed;
 
                 // Remember delegate to fire when context menu is dismissed
                 _cmsFinishDelegate = cmsFinishDelegate;
@@ -801,7 +801,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook event from object
             ContextMenuStrip cms = sender as ContextMenuStrip;
-            cms.Closed -= new ToolStripDropDownClosedEventHandler(OnCMSClosed);
+            cms.Closed -= OnCMSClosed;
 
             // Revoke the suspended state
             _suspended--;

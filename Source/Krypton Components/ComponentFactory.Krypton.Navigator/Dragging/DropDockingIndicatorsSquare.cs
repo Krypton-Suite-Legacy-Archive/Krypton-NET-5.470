@@ -22,9 +22,9 @@ namespace ComponentFactory.Krypton.Navigator
                                                IDropDockingIndicator
     {
         #region Instance Fields
-        private IRenderer _renderer;
-        private IPaletteDragDrop _paletteDragDrop;
-        private RenderDragDockingData _dragData;
+        private readonly IRenderer _renderer;
+        private readonly IPaletteDragDrop _paletteDragDrop;
+        private readonly RenderDragDockingData _dragData;
         #endregion
 
         #region Identity
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Navigator
             StartPosition = FormStartPosition.Manual;
             Text = "DropIndicators";
             TransparencyKey = System.Drawing.Color.Silver;
-            Paint += new PaintEventHandler(DropIndicators_Paint);
+            Paint += DropIndicators_Paint;
         }
         #endregion
 

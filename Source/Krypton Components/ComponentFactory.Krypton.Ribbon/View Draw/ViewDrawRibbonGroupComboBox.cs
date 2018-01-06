@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private ComboBoxController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly ComboBoxController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupComboBox.ItemSizeCurrent;
 
             // Hook into the combobox events
-            GroupComboBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupComboBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupComboBox.MouseEnterControl += OnMouseEnterControl;
+            GroupComboBox.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupComboBox;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the combobox
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the combobox for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the combo box definition
             GroupComboBox.ComboBoxView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupComboBox.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupComboBox.PropertyChanged += new PropertyChangedEventHandler(OnComboBoxPropertyChanged);
+            GroupComboBox.PropertyChanged += OnComboBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupComboBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupComboBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupComboBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupComboBox.MouseEnterControl -= OnMouseEnterControl;
+                    GroupComboBox.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupComboBox.ViewPaintDelegate = null;
-                    GroupComboBox.PropertyChanged -= new PropertyChangedEventHandler(OnComboBoxPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupComboBox.PropertyChanged -= OnComboBoxPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupComboBox.ComboBoxView = null; 

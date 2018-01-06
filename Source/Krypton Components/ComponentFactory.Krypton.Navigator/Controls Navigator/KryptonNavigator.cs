@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Static Fields
 
         private const int WM_KEYUP = 0x0101;
-        private static MethodInfo _containerSelect;
+        private static readonly MethodInfo _containerSelect;
         #endregion
 
         #region Instance Fields
@@ -2143,7 +2143,7 @@ namespace ComponentFactory.Krypton.Navigator
                             // We need to know when disposed so the pressed state can be reversed
                             DismissedDelegate = finishDelegate
                         };
-                        _visualPopupPage.Disposed += new EventHandler(OnVisualPopupPageDisposed);
+                        _visualPopupPage.Disposed += OnVisualPopupPageDisposed;
 
                         // Get the client rectangle for the appropriate relative element
                         Rectangle clientRect = (PopupPages.Element == PopupPageElement.Item ?
@@ -2316,11 +2316,11 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Create page collection and monitor changes
             Pages = new KryptonPageCollection();
-            Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            Pages.Removing += new TypedHandler<KryptonPage>(OnPageRemoving);
-            Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            Pages.Clearing += new EventHandler(OnPageClearing);
-            Pages.Cleared += new EventHandler(OnPageCleared);
+            Pages.Inserted += OnPageInserted;
+            Pages.Removing += OnPageRemoving;
+            Pages.Removed += OnPageRemoved;
+            Pages.Clearing += OnPageClearing;
+            Pages.Cleared += OnPageCleared;
 
             // Init fields used to notice a change in the page/page visible counts
             _cachePageCount = 0;
@@ -2330,7 +2330,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void CreateStorageObjects()
         {
             // Create the page print specific delegate
-            _needPagePaint = new NeedPaintHandler(OnNeedPagePaint);
+            _needPagePaint = OnNeedPagePaint;
 
             // Create state storage objects
             StateCommon = new PaletteNavigatorRedirect(this, Redirector, _needPagePaint);
@@ -2355,7 +2355,7 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Need to know when the context button is about to show a context menu, so we
             // can then populate it with the correct set of values dependant on the current pages
-            Button.ContextButton.KryptonContextMenu.Opening += new CancelEventHandler(OnOpeningContextMenu);
+            Button.ContextButton.KryptonContextMenu.Opening += OnOpeningContextMenu;
         }
 
         private void CreateViewManager()
@@ -2368,8 +2368,8 @@ namespace ComponentFactory.Krypton.Navigator
             ViewBuilder.Construct(this, ViewManager, Redirector);
 
             // We need to know when the layout cycle is starting/ending
-            ViewManager.LayoutBefore += new EventHandler(OnViewManagerLayoutBefore);
-            ViewManager.LayoutAfter += new EventHandler(OnViewManagerLayoutAfter);
+            ViewManager.LayoutBefore += OnViewManagerLayoutBefore;
+            ViewManager.LayoutAfter += OnViewManagerLayoutAfter;
         }
 
         private void CreateChildControl()
@@ -2379,7 +2379,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                 StateCommon.HeaderGroup,
                                                 StateDisabled.HeaderGroup,
                                                 StateNormal.HeaderGroup,
-                                                new NeedPaintHandler(OnGroupPanelPaint))
+                                                OnGroupPanelPaint)
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -2387,7 +2387,7 @@ namespace ComponentFactory.Krypton.Navigator
             };
 
             // We need to know whenever a control is removed from the child panel
-            ChildPanel.ControlRemoved += new ControlEventHandler(OnChildPanelControlRemoved);
+            ChildPanel.ControlRemoved += OnChildPanelControlRemoved;
 
             // Add panel to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(ChildPanel);
@@ -2397,8 +2397,8 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
 
             // Create the manager for handling hovering
             HoverManager = new ToolTipManager
@@ -2406,8 +2406,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ShowInterval = 400,
                 CloseInterval = 400
             };
-            HoverManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnStartHover);
-            HoverManager.CancelToolTip += new EventHandler(OnEndHover);
+            HoverManager.ShowToolTip += OnStartHover;
+            HoverManager.CancelToolTip += OnEndHover;
         }
         #endregion
 
@@ -2421,10 +2421,10 @@ namespace ComponentFactory.Krypton.Navigator
                 DismissPopups();
 
                 // Hook into page events
-                e.Item.VisibleChanged += new EventHandler(OnPageVisibleChanged);
-                e.Item.EnabledChanged += new EventHandler(OnPageEnabledChanged);
-                e.Item.AppearancePropertyChanged += new PropertyChangedEventHandler(OnPageAppearanceChanged);
-                e.Item.FlagsChanged += new KryptonPageFlagsEventHandler(OnPageFlagsChanged);
+                e.Item.VisibleChanged += OnPageVisibleChanged;
+                e.Item.EnabledChanged += OnPageEnabledChanged;
+                e.Item.AppearancePropertyChanged += OnPageAppearanceChanged;
+                e.Item.FlagsChanged += OnPageFlagsChanged;
 
                 // Make the page inherit palette values from the navigator
                 e.Item.SetInherit(this, StateCommon, StateDisabled, StateNormal,
@@ -2473,10 +2473,10 @@ namespace ComponentFactory.Krypton.Navigator
                 e.Item.ResetInherit(this);
 
                 // Unhook from page events
-                e.Item.FlagsChanged -= new KryptonPageFlagsEventHandler(OnPageFlagsChanged);
-                e.Item.AppearancePropertyChanged -= new PropertyChangedEventHandler(OnPageAppearanceChanged);
-                e.Item.VisibleChanged -= new EventHandler(OnPageVisibleChanged);
-                e.Item.EnabledChanged -= new EventHandler(OnPageEnabledChanged);
+                e.Item.FlagsChanged -= OnPageFlagsChanged;
+                e.Item.AppearancePropertyChanged -= OnPageAppearanceChanged;
+                e.Item.VisibleChanged -= OnPageVisibleChanged;
+                e.Item.EnabledChanged -= OnPageEnabledChanged;
 
                 // Remove page from the child panel
                 if (ChildPanel.Controls.Contains(e.Item))
@@ -2512,10 +2512,10 @@ namespace ComponentFactory.Krypton.Navigator
                 page.ResetInherit(this);
 
                 // Unhook from page events
-                page.FlagsChanged -= new KryptonPageFlagsEventHandler(OnPageFlagsChanged);
-                page.AppearancePropertyChanged -= new PropertyChangedEventHandler(OnPageAppearanceChanged);
-                page.VisibleChanged -= new EventHandler(OnPageVisibleChanged);
-                page.EnabledChanged -= new EventHandler(OnPageEnabledChanged);
+                page.FlagsChanged -= OnPageFlagsChanged;
+                page.AppearancePropertyChanged -= OnPageAppearanceChanged;
+                page.VisibleChanged -= OnPageVisibleChanged;
+                page.EnabledChanged -= OnPageEnabledChanged;
             }
         }
 
@@ -2939,7 +2939,7 @@ namespace ComponentFactory.Krypton.Navigator
                             // Create a menu item for the page
                             KryptonContextMenuItem pageMenuItem = new KryptonContextMenuItem(page.GetTextMapping(Button.ContextMenuMapText),
                                                                                              page.GetImageMapping(Button.ContextMenuMapImage),
-                                                                                             new EventHandler(OnContextMenuClick))
+                                                                                             OnContextMenuClick)
                             {
 
                                 // Should the item be enabled?
@@ -3058,7 +3058,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen point
                         _visualPopupToolTip.ShowCalculatingSize(e.ScreenPt);
@@ -3112,7 +3112,7 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;
@@ -3122,7 +3122,7 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Unhook events from the specific instance that generated event
             VisualPopupPage popupPage = (VisualPopupPage)sender;
-            popupPage.Disposed -= new EventHandler(OnVisualPopupPageDisposed);
+            popupPage.Disposed -= OnVisualPopupPageDisposed;
 
             // Not showing a popup page any more
             _visualPopupPage = null;

@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // We monitor changes to the checked state of radio buttons
             if (e.Item is KryptonContextMenuRadioButton radioButton)
             {
-                radioButton.CheckedChanged += new EventHandler(OnRadioButtonCheckedChanged);
+                radioButton.CheckedChanged += OnRadioButtonCheckedChanged;
             }
         }
 
@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Must unhook from the change event to prevent memory leak
             if (e.Item is KryptonContextMenuRadioButton radioButton)
             {
-                radioButton.CheckedChanged -= new EventHandler(OnRadioButtonCheckedChanged);
+                radioButton.CheckedChanged -= OnRadioButtonCheckedChanged;
             }
 
             base.OnRemoving(e);

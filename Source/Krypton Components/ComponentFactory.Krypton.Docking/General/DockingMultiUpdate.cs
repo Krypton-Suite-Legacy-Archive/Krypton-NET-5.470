@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Docking
     public class DockingMultiUpdate : IDisposable
     {
         #region Instance Fields
-        private IDockingElement _dockingElement;
+        private readonly IDockingElement _dockingElement;
         #endregion
 
         #region Identity

@@ -27,8 +27,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _mouseReallyOver;
         private bool _highlight;
         private bool _mouseDown;
-        private ViewDrawContent _target;
-        private ViewDrawMenuLinkLabel _menuLinkLabel;
+        private readonly ViewDrawContent _target;
+        private readonly ViewDrawMenuLinkLabel _menuLinkLabel;
         private NeedPaintHandler _needPaint;
 
 	    #endregion

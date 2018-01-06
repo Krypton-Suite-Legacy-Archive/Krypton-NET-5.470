@@ -17,7 +17,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class RibbonRecentDocsEntryToContent : RibbonToContent
     {
         #region Instance Fields
-        private IPaletteRibbonText _ribbonRecentDocEntryText;
+        private readonly IPaletteRibbonText _ribbonRecentDocEntryText;
         #endregion
 
         #region Identity

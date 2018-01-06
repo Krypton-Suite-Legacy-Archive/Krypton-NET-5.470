@@ -160,18 +160,18 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            DateTimePicker.ValueChanged += new EventHandler(OnDateTimePickerValueChanged);
-            DateTimePicker.ValueNullableChanged += new EventHandler(OnDateTimePickerValueNullableChanged);
-            DateTimePicker.DropDown += new EventHandler<DateTimePickerDropArgs>(OnDateTimePickerDropDown);
-            DateTimePicker.CloseUp += new EventHandler<DateTimePickerCloseArgs>(OnDateTimePickerCloseUp);
-            DateTimePicker.CheckedChanged += new EventHandler(OnDateTimePickerCheckedChanged);
-            DateTimePicker.FormatChanged += new EventHandler(OnDateTimePickerFormatChanged);
-            DateTimePicker.GotFocus += new EventHandler(OnDateTimePickerGotFocus);
-            DateTimePicker.LostFocus += new EventHandler(OnDateTimePickerLostFocus);
-            DateTimePicker.KeyDown += new KeyEventHandler(OnDateTimePickerKeyDown);
-            DateTimePicker.KeyUp += new KeyEventHandler(OnDateTimePickerKeyUp);
-            DateTimePicker.KeyPress += new KeyPressEventHandler(OnDateTimePickerKeyPress);
-            DateTimePicker.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDateTimePickerKeyDown);
+            DateTimePicker.ValueChanged += OnDateTimePickerValueChanged;
+            DateTimePicker.ValueNullableChanged += OnDateTimePickerValueNullableChanged;
+            DateTimePicker.DropDown += OnDateTimePickerDropDown;
+            DateTimePicker.CloseUp += OnDateTimePickerCloseUp;
+            DateTimePicker.CheckedChanged += OnDateTimePickerCheckedChanged;
+            DateTimePicker.FormatChanged += OnDateTimePickerFormatChanged;
+            DateTimePicker.GotFocus += OnDateTimePickerGotFocus;
+            DateTimePicker.LostFocus += OnDateTimePickerLostFocus;
+            DateTimePicker.KeyDown += OnDateTimePickerKeyDown;
+            DateTimePicker.KeyUp += OnDateTimePickerKeyUp;
+            DateTimePicker.KeyPress += OnDateTimePickerKeyPress;
+            DateTimePicker.PreviewKeyDown += OnDateTimePickerKeyDown;
 
             // Ensure we can track mouse events on the date time picker
             MonitorControl(DateTimePicker);
@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the date time picker as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     DateTimePicker.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -1079,14 +1079,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonDateTimePicker c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonDateTimePicker c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

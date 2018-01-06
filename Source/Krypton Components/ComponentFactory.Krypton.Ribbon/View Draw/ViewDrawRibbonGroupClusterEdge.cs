@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonGroupClusterEdge : ViewDrawBorderEdge
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private PaletteBorderEdge _palette;
+        private readonly KryptonRibbon _ribbon;
+        private readonly PaletteBorderEdge _palette;
         #endregion
 
         #region Identity

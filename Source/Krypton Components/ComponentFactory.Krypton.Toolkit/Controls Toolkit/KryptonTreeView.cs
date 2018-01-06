@@ -44,9 +44,9 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Instance Fields
-            private ViewManager _viewManager;
-            private KryptonTreeView _kryptonTreeView;
-            private IntPtr _screenDC;
+            private readonly ViewManager _viewManager;
+            private readonly KryptonTreeView _kryptonTreeView;
+            private readonly IntPtr _screenDC;
             private bool _mouseOver;
             #endregion
 
@@ -323,32 +323,32 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private PaletteTripleOverride _overrideNormal;
-        private PaletteTripleOverride _overrideTracking;
-        private PaletteTripleOverride _overridePressed;
-        private PaletteTripleOverride _overrideCheckedNormal;
-        private PaletteTripleOverride _overrideCheckedTracking;
-        private PaletteTripleOverride _overrideCheckedPressed;
-        private PaletteNodeOverride _overrideNormalNode;
-        private PaletteRedirectTreeView _redirectImages;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutFill _layoutFill;
-        private ViewDrawButton _drawButton;
-        private ViewDrawCheckBox _drawCheckBox;
-        private ViewLayoutCenter _layoutCheckBox;
-        private ViewLayoutDocker _layoutDocker;
-        private ViewLayoutStack _layoutImageStack;
-        private ViewLayoutCenter _layoutImageCenter;
-        private ViewLayoutCenter _layoutImageCenterState;
-        private ViewLayoutSeparator _layoutImage;
-        private ViewLayoutSeparator _layoutImageState;
-        private ViewLayoutSeparator _layoutImageAfter;
-        private InternalTreeView _treeView;
-        private FixedContentValue _contentValues;
+        private readonly PaletteTripleOverride _overrideNormal;
+        private readonly PaletteTripleOverride _overrideTracking;
+        private readonly PaletteTripleOverride _overridePressed;
+        private readonly PaletteTripleOverride _overrideCheckedNormal;
+        private readonly PaletteTripleOverride _overrideCheckedTracking;
+        private readonly PaletteTripleOverride _overrideCheckedPressed;
+        private readonly PaletteNodeOverride _overrideNormalNode;
+        private readonly PaletteRedirectTreeView _redirectImages;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly ViewDrawButton _drawButton;
+        private readonly ViewDrawCheckBox _drawCheckBox;
+        private readonly ViewLayoutCenter _layoutCheckBox;
+        private readonly ViewLayoutDocker _layoutDocker;
+        private readonly ViewLayoutStack _layoutImageStack;
+        private readonly ViewLayoutCenter _layoutImageCenter;
+        private readonly ViewLayoutCenter _layoutImageCenterState;
+        private readonly ViewLayoutSeparator _layoutImage;
+        private readonly ViewLayoutSeparator _layoutImageState;
+        private readonly ViewLayoutSeparator _layoutImageAfter;
+        private readonly InternalTreeView _treeView;
+        private readonly FixedContentValue _contentValues;
         private Nullable<bool> _fixedActive;
         private ButtonStyle _style;
-        private IntPtr _screenDC;
+        private readonly IntPtr _screenDC;
         private bool _itemHeightDefault;
         private bool _mouseOver;
         private bool _alwaysActive;
@@ -621,32 +621,33 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal tree view used for containing content
             _treeView = new InternalTreeView(this);
-            _treeView.TrackMouseEnter += new EventHandler(OnTreeViewMouseChange);
-            _treeView.TrackMouseLeave += new EventHandler(OnTreeViewMouseChange);
-            _treeView.GotFocus += new EventHandler(OnTreeViewGotFocus);
-            _treeView.LostFocus += new EventHandler(OnTreeViewLostFocus);
-            _treeView.KeyDown += new KeyEventHandler(OnTreeViewKeyDown);
-            _treeView.KeyUp += new KeyEventHandler(OnTreeViewKeyUp);
-            _treeView.KeyPress += new KeyPressEventHandler(OnTreeViewKeyPress);
-            _treeView.PreviewKeyDown += new PreviewKeyDownEventHandler(OnTreeViewPreviewKeyDown);
-            _treeView.Validating += new CancelEventHandler(OnTreeViewValidating);
-            _treeView.Validated += new EventHandler(OnTreeViewValidated);
-            _treeView.AfterCheck += new TreeViewEventHandler(OnTreeViewAfterCheck);
-            _treeView.AfterCollapse += new TreeViewEventHandler(OnTreeViewAfterCollapse);
-            _treeView.AfterExpand += new TreeViewEventHandler(OnTreeViewAfterExpand);
-            _treeView.AfterLabelEdit += new NodeLabelEditEventHandler(OnTreeViewAfterLabelEdit);
-            _treeView.AfterSelect += new TreeViewEventHandler(OnTreeViewAfterSelect);
-            _treeView.BeforeCheck += new TreeViewCancelEventHandler(OnTreeViewBeforeCheck);
-            _treeView.BeforeCollapse += new TreeViewCancelEventHandler(OnTreeViewBeforeCollapse);
-            _treeView.BeforeExpand += new TreeViewCancelEventHandler(OnTreeViewBeforeExpand);
-            _treeView.BeforeLabelEdit += new NodeLabelEditEventHandler(OnTreeViewBeforeLabelEdit);
-            _treeView.BeforeSelect += new TreeViewCancelEventHandler(OnTreeViewBeforeSelect);
-            _treeView.ItemDrag += new ItemDragEventHandler(OnTreeViewItemDrag);
-            _treeView.NodeMouseClick += new TreeNodeMouseClickEventHandler(OnTreeViewNodeMouseClick);
-            _treeView.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnTreeViewNodeMouseDoubleClick);
-            _treeView.NodeMouseHover += new TreeNodeMouseHoverEventHandler(OnTreeViewNodeMouseHover);
-            _treeView.DrawNode += new DrawTreeNodeEventHandler(OnTreeViewDrawNode);
+            _treeView.TrackMouseEnter += OnTreeViewMouseChange;
+            _treeView.TrackMouseLeave += OnTreeViewMouseChange;
+            _treeView.GotFocus += OnTreeViewGotFocus;
+            _treeView.LostFocus += OnTreeViewLostFocus;
+            _treeView.KeyDown += OnTreeViewKeyDown;
+            _treeView.KeyUp += OnTreeViewKeyUp;
+            _treeView.KeyPress += OnTreeViewKeyPress;
+            _treeView.PreviewKeyDown += OnTreeViewPreviewKeyDown;
+            _treeView.Validating += OnTreeViewValidating;
+            _treeView.Validated += OnTreeViewValidated;
+            _treeView.AfterCheck += OnTreeViewAfterCheck;
+            _treeView.AfterCollapse += OnTreeViewAfterCollapse;
+            _treeView.AfterExpand += OnTreeViewAfterExpand;
+            _treeView.AfterLabelEdit += OnTreeViewAfterLabelEdit;
+            _treeView.AfterSelect += OnTreeViewAfterSelect;
+            _treeView.BeforeCheck += OnTreeViewBeforeCheck;
+            _treeView.BeforeCollapse += OnTreeViewBeforeCollapse;
+            _treeView.BeforeExpand += OnTreeViewBeforeExpand;
+            _treeView.BeforeLabelEdit += OnTreeViewBeforeLabelEdit;
+            _treeView.BeforeSelect += OnTreeViewBeforeSelect;
+            _treeView.ItemDrag += OnTreeViewItemDrag;
+            _treeView.NodeMouseClick += OnTreeViewNodeMouseClick;
+            _treeView.NodeMouseDoubleClick += OnTreeViewNodeMouseDoubleClick;
+            _treeView.NodeMouseHover += OnTreeViewNodeMouseHover;
+            _treeView.DrawNode += OnTreeViewDrawNode;
             _treeView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
+            _treeView.Click += OnTreeClick;  // SKC: make sure that the default click is also routed.
 
             // Create the element that fills the remainder space and remembers fill rectange
             _layoutFill = new ViewLayoutFill(_treeView)
@@ -674,6 +675,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Add tree view to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(_treeView);
+        }
+
+        private void OnTreeClick(object sender, EventArgs e)
+        {
+            base.OnClick(e);
         }
 
         /// <summary>

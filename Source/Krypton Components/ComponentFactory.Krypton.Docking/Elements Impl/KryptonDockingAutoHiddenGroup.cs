@@ -61,12 +61,12 @@ namespace ComponentFactory.Krypton.Docking
 
             // Create a control that will draw tabs for auto hidden pages
             AutoHiddenGroupControl = new KryptonAutoHiddenGroup(edge);
-            AutoHiddenGroupControl.StoringPage += new EventHandler<UniqueNameEventArgs>(OnAutoHiddenGroupStoringPage);
-            AutoHiddenGroupControl.TabClicked += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupTabClicked);
-            AutoHiddenGroupControl.TabMouseHoverStart += new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupHoverStart);
-            AutoHiddenGroupControl.TabMouseHoverEnd += new EventHandler(OnAutoHiddenGroupHoverEnd);
-            AutoHiddenGroupControl.TabVisibleCountChanged += new EventHandler(OnAutoHiddenGroupTabVisibleCountChanged);
-            AutoHiddenGroupControl.Disposed += new EventHandler(OnAutoHiddenGroupDisposed);
+            AutoHiddenGroupControl.StoringPage += OnAutoHiddenGroupStoringPage;
+            AutoHiddenGroupControl.TabClicked += OnAutoHiddenGroupTabClicked;
+            AutoHiddenGroupControl.TabMouseHoverStart += OnAutoHiddenGroupHoverStart;
+            AutoHiddenGroupControl.TabMouseHoverEnd += OnAutoHiddenGroupHoverEnd;
+            AutoHiddenGroupControl.TabVisibleCountChanged += OnAutoHiddenGroupTabVisibleCountChanged;
+            AutoHiddenGroupControl.Disposed += OnAutoHiddenGroupDisposed;
         }
         #endregion
 
@@ -705,12 +705,12 @@ namespace ComponentFactory.Krypton.Docking
         private void OnAutoHiddenGroupDisposed(object sender, EventArgs e)
         {
             // Unhook from events so the control can be garbage collected
-            AutoHiddenGroupControl.StoringPage -= new EventHandler<UniqueNameEventArgs>(OnAutoHiddenGroupStoringPage);
-            AutoHiddenGroupControl.TabClicked -= new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupTabClicked);
-            AutoHiddenGroupControl.TabMouseHoverStart -= new EventHandler<KryptonPageEventArgs>(OnAutoHiddenGroupHoverStart);
-            AutoHiddenGroupControl.TabMouseHoverEnd -= new EventHandler(OnAutoHiddenGroupHoverEnd);
-            AutoHiddenGroupControl.TabVisibleCountChanged -= new EventHandler(OnAutoHiddenGroupTabVisibleCountChanged);
-            AutoHiddenGroupControl.Disposed -= new EventHandler(OnAutoHiddenGroupDisposed);
+            AutoHiddenGroupControl.StoringPage -= OnAutoHiddenGroupStoringPage;
+            AutoHiddenGroupControl.TabClicked -= OnAutoHiddenGroupTabClicked;
+            AutoHiddenGroupControl.TabMouseHoverStart -= OnAutoHiddenGroupHoverStart;
+            AutoHiddenGroupControl.TabMouseHoverEnd -= OnAutoHiddenGroupHoverEnd;
+            AutoHiddenGroupControl.TabVisibleCountChanged -= OnAutoHiddenGroupTabVisibleCountChanged;
+            AutoHiddenGroupControl.Disposed -= OnAutoHiddenGroupDisposed;
 
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;

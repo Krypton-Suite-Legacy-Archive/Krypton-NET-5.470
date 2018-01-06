@@ -22,10 +22,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  IContentValues
 	{
 		#region Instance Fields
-        private KryptonContextMenuImageSelect _imageSelect;
-        private ViewLayoutMenuItemSelect _layout;
-        private MenuImageSelectController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly KryptonContextMenuImageSelect _imageSelect;
+        private readonly ViewLayoutMenuItemSelect _layout;
+        private readonly MenuImageSelectController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private ImageList _imageList;
         private int _imageIndex;
         #endregion
@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need controller to handle tracking/pressing etc
             _controller = new MenuImageSelectController(viewManager, this, layout, needPaint);
-            _controller.Click += new MouseEventHandler(OnItemClick);
+            _controller.Click += OnItemClick;
             MouseController = _controller;
             SourceController = _controller;
             KeyController = _controller;

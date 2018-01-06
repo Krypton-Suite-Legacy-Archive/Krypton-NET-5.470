@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteLabel : Storage
     {
         #region Instance Fields
-        private PaletteContentInheritRedirect _stateInherit;
+        private readonly PaletteContentInheritRedirect _stateInherit;
 
         #endregion
 

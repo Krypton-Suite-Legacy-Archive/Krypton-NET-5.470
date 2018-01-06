@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                                    new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
                                                                    new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
                                                                    new PaletteMetricPadding[] { PaletteMetricPadding.PageButtonPadding },
-                                                                   new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
+                                                                   Navigator.CreateToolStripRenderer,
                                                                    null)
                 {
 
@@ -387,21 +387,21 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual IMouseController CreateMouseController()
         {
             // Create the button controller
-            _buttonController = new PageButtonController(this, new NeedPaintHandler(OnNeedPaint))
+            _buttonController = new PageButtonController(this, OnNeedPaint)
             {
                 ClickOnDown = true
             };
-            _buttonController.Click += new MouseEventHandler(OnClick);
-            _buttonController.RightClick += new MouseEventHandler(OnRightClick);
+            _buttonController.Click += OnClick;
+            _buttonController.RightClick += OnRightClick;
 
             // Allow the page to be dragged and hook into drag events
             _buttonController.AllowDragging = true;
-            _buttonController.DragStart += new EventHandler<DragStartEventCancelArgs>(OnDragStart);
-            _buttonController.DragMove += new EventHandler<PointEventArgs>(OnDragMove);
-            _buttonController.DragEnd += new EventHandler<PointEventArgs>(OnDragEnd);
-            _buttonController.DragQuit += new EventHandler(OnDragQuit);
-            _buttonController.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnButtonDragRectangle);
-            _buttonController.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnButtonDragOffset);
+            _buttonController.DragStart += OnDragStart;
+            _buttonController.DragMove += OnDragMove;
+            _buttonController.DragEnd += OnDragEnd;
+            _buttonController.DragQuit += OnDragQuit;
+            _buttonController.ButtonDragRectangle += OnButtonDragRectangle;
+            _buttonController.ButtonDragOffset += OnButtonDragOffset;
 
             // Should the item be selected on the mouse down or the mouse up?
             _buttonController.ClickOnDown = ButtonClickOnDown;

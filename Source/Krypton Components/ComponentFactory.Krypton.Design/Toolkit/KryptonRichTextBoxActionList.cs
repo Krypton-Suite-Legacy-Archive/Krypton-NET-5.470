@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonRichTextBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonRichTextBox _richTextBox;
-        private IComponentChangeService _service;
+        private readonly KryptonRichTextBox _richTextBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

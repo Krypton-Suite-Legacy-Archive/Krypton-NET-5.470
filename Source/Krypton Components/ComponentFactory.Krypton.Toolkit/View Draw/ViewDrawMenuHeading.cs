@@ -16,9 +16,9 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewDrawMenuHeading : ViewComposite
     {
         #region Instance Fields
-        private FixedContentValue _contentValues;
-        private ViewDrawDocker _drawDocker;
-        private ViewDrawContent _drawContent;
+        private readonly FixedContentValue _contentValues;
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewDrawContent _drawContent;
         #endregion
 
         #region Identity

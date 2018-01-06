@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorPanel : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private PaletteBackStyle _panelBackStyle;
         #endregion
 

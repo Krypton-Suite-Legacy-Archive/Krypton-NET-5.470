@@ -48,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_domainUpDown != null)
             {
                 // Hook into numeric updown events
-                _domainUpDown.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnDomainUpDownMouseUp);
-                _domainUpDown.GetViewManager().DoubleClickProcessed += new PointHandler(OnDomainUpDownDoubleClick);
+                _domainUpDown.GetViewManager().MouseUpProcessed += OnDomainUpDownMouseUp;
+                _domainUpDown.GetViewManager().DoubleClickProcessed += OnDomainUpDownDoubleClick;
             }
 
             // Get access to the design services
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>

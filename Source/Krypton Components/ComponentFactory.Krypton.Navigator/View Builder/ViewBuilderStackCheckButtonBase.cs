@@ -61,8 +61,8 @@ namespace ComponentFactory.Krypton.Navigator
             PostConstruct();
 
 			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
-            Navigator.AutoSizeChanged += new EventHandler(OnAutoSizeChanged);
+			Navigator.EnabledChanged += OnEnabledChanged;
+            Navigator.AutoSizeChanged += OnAutoSizeChanged;
         }
 
         /// <summary>
@@ -295,9 +295,9 @@ namespace ComponentFactory.Krypton.Navigator
 		public override void Destruct()
 		{
 			// Unhook from events
-            _viewScrollViewport.AnimateStep -= new EventHandler(OnViewportAnimation);
-            Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
-            Navigator.AutoSizeChanged -= new EventHandler(OnAutoSizeChanged);
+            _viewScrollViewport.AnimateStep -= OnViewportAnimation;
+            Navigator.EnabledChanged -= OnEnabledChanged;
+            Navigator.AutoSizeChanged -= OnAutoSizeChanged;
 
             // Pull down the view hierarchy
             DestructNavCheckButtons();
@@ -563,7 +563,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void PostConstruct()
         {
             // Hook into the viewport animation steps
-            _viewScrollViewport.AnimateStep += new EventHandler(OnViewportAnimation);
+            _viewScrollViewport.AnimateStep += OnViewportAnimation;
 
             UpdateStatePalettes();
         }
@@ -641,8 +641,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawNavCheckButtonStack checkButton = new ViewDrawNavCheckButtonStack(Navigator, page, checkButtonOrient);
 
                 // Provide the drag rectangle when requested for this button
-                checkButton.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check button needs repainting
                 checkButton.NeedPaint = NeedPaintDelegate;
@@ -686,9 +686,9 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // Need to monitor changes in the page collection to reflect in layout bar
-            Navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            Navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            Navigator.Pages.Cleared += new EventHandler(OnPagesCleared);
+            Navigator.Pages.Inserted += OnPageInserted;
+            Navigator.Pages.Removed += OnPageRemoved;
+            Navigator.Pages.Cleared += OnPagesCleared;
             _events = true;
         }
 
@@ -696,9 +696,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Unhook from monitoring the pages collection
             _events = false;
-            Navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnPageInserted);
-            Navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnPageRemoved);
-            Navigator.Pages.Cleared -= new EventHandler(OnPagesCleared);
+            Navigator.Pages.Inserted -= OnPageInserted;
+            Navigator.Pages.Removed -= OnPageRemoved;
+            Navigator.Pages.Cleared -= OnPagesCleared;
 
             // Must clean up buttons in way that removes all event hooks
             DestructCheckButtons();
@@ -710,8 +710,8 @@ namespace ComponentFactory.Krypton.Navigator
             foreach (ViewDrawNavCheckButtonBase checkButton in _pageLookup.Values)
             {
                 // Must unhook from events
-                checkButton.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset -= OnCheckButtonDragOffset;
                 checkButton.NeedPaint = null;
 
                 // Dispose of element gracefully
@@ -803,8 +803,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawNavCheckButtonStack checkButton = new ViewDrawNavCheckButtonStack(Navigator, e.Item, ResolveButtonOrientation());
 
                 // Provide the drag rectangle when requested for this button
-                checkButton.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check button needs repainting
                 checkButton.NeedPaint = NeedPaintDelegate;
@@ -845,8 +845,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[e.Item];
 
                 // Must unhook from events
-                checkButton.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset -= OnCheckButtonDragOffset;
                 checkButton.NeedPaint = null;
 
                 // Tell the views they are no longer required

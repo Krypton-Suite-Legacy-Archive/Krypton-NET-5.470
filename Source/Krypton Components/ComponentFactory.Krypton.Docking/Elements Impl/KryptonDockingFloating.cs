@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Docking
             // Create a floatspace and floating window for hosting the floatspace
             KryptonDockingFloatspace floatSpaceElement = new KryptonDockingFloatspace("Floatspace");
             KryptonDockingFloatingWindow floatingWindowElement = new KryptonDockingFloatingWindow(name, OwnerForm, floatSpaceElement);
-            floatingWindowElement.Disposed += new EventHandler(OnDockingFloatingWindowDisposed);
+            floatingWindowElement.Disposed += OnDockingFloatingWindowDisposed;
             InternalAdd(floatingWindowElement);
 
             // Events are generated from the parent docking manager
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
             KryptonDockingFloatingWindow floatingWindowElement = (KryptonDockingFloatingWindow)sender;
-            floatingWindowElement.Disposed -= new EventHandler(OnDockingFloatingWindowDisposed);
+            floatingWindowElement.Disposed -= OnDockingFloatingWindowDisposed;
 
             // Remove the elemenet from our child collection as it is no longer valid
             InternalRemove(floatingWindowElement);

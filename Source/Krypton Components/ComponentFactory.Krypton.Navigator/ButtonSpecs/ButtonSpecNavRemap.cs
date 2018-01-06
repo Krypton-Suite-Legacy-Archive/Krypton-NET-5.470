@@ -118,8 +118,8 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private ButtonSpecRemapTarget _remapTarget;
-        private ButtonSpec _buttonSpec;
+        private readonly ButtonSpecRemapTarget _remapTarget;
+        private readonly ButtonSpec _buttonSpec;
         #endregion
 
         #region Identity

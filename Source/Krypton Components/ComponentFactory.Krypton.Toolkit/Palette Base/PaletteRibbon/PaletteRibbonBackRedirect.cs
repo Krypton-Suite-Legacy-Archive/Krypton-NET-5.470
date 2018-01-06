@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Color _backColor3;
         private Color _backColor4;
         private Color _backColor5;
-        private PaletteRibbonBackInheritRedirect _inheritBack;
+        private readonly PaletteRibbonBackInheritRedirect _inheritBack;
         #endregion
 
         #region Identity

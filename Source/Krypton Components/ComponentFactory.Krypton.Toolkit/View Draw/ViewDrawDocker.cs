@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewDrawDocker : ViewDrawCanvas
 	{
 		#region Instance Fields
-        private PaletteMetricBool _metricOverlay;
-        private ViewDockStyleLookup _childDocking;
+        private readonly PaletteMetricBool _metricOverlay;
+        private readonly ViewDockStyleLookup _childDocking;
 
 	    #endregion
 

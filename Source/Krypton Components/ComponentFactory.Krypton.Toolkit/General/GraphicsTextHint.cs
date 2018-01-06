@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                     IDisposable
 	{
 		#region Instance Fields
-		private Graphics _graphics;
-		private TextRenderingHint _textHint;
+		private readonly Graphics _graphics;
+		private readonly TextRenderingHint _textHint;
 		#endregion
 
 		#region Identity

@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonAppMenuRecentDec : ViewDrawCanvas
 	{
         #region Instance Fields
-        private int _maxWidth;
+        private readonly int _maxWidth;
 
 	    #endregion
 

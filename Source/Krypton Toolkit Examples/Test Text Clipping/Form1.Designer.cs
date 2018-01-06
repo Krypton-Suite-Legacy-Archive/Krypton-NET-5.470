@@ -30,8 +30,43 @@ namespace ThreePaneApplication
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroupDetails = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonWrapLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.kryptonWrapLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.kryptonCheckBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
             this.kryptonOffice2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonSparkleOrange = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -47,29 +82,20 @@ namespace ThreePaneApplication
             this.kryptonOffice2007Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPaletteCustom = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonWrapLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this.kryptonWrapLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+            this.kryptonCheckedListBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+            this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+            this.kryptonTreeView2 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMain)).BeginInit();
             this.kryptonPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails.Panel)).BeginInit();
             this.kryptonHeaderGroupDetails.Panel.SuspendLayout();
-            this.kryptonHeaderGroupDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.Panel.SuspendLayout();
-            this.kryptonGroup1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanelMain
@@ -90,15 +116,160 @@ namespace ThreePaneApplication
             this.kryptonHeaderGroupDetails.Location = new System.Drawing.Point(4, 4);
             this.kryptonHeaderGroupDetails.Name = "kryptonHeaderGroupDetails";
             // 
-            // kryptonHeaderGroupDetails.Panel
+            // 
             // 
             this.kryptonHeaderGroupDetails.Panel.Controls.Add(this.kryptonPanel1);
             this.kryptonHeaderGroupDetails.Size = new System.Drawing.Size(703, 376);
+            this.kryptonHeaderGroupDetails.StateNormal.HeaderPrimary.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Inherit;
             this.kryptonHeaderGroupDetails.StateNormal.HeaderPrimary.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.kryptonHeaderGroupDetails.StateNormal.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonHeaderGroupDetails.StateNormal.HeaderPrimary.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonHeaderGroupDetails.StateNormal.HeaderPrimary.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonHeaderGroupDetails.TabIndex = 0;
             this.kryptonHeaderGroupDetails.ValuesPrimary.Heading = "DesignerDefault -> FixedSize";
             this.kryptonHeaderGroupDetails.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeaderGroupDetails.ValuesPrimary.Image")));
+            this.kryptonHeaderGroupDetails.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.kryptonTreeView2);
+            this.kryptonPanel1.Controls.Add(this.kryptonTreeView1);
+            this.kryptonPanel1.Controls.Add(this.kryptonCheckedListBox2);
+            this.kryptonPanel1.Controls.Add(this.kryptonCheckedListBox1);
+            this.kryptonPanel1.Controls.Add(this.kryptonTextBox2);
+            this.kryptonPanel1.Controls.Add(this.kryptonTextBox1);
+            this.kryptonPanel1.Controls.Add(this.kryptonWrapLabel2);
+            this.kryptonPanel1.Controls.Add(this.kryptonWrapLabel1);
+            this.kryptonPanel1.Controls.Add(this.kryptonLabel2);
+            this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel1.Controls.Add(this.kryptonHeader2);
+            this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
+            this.kryptonPanel1.Controls.Add(this.kryptonCheckBox2);
+            this.kryptonPanel1.Controls.Add(this.kryptonCheckBox1);
+            this.kryptonPanel1.Controls.Add(this.kryptonButton2);
+            this.kryptonPanel1.Controls.Add(this.kryptonButton1);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(701, 339);
+            this.kryptonPanel1.TabIndex = 0;
+            // 
+            // kryptonTextBox2
+            // 
+            this.kryptonTextBox2.Location = new System.Drawing.Point(161, 177);
+            this.kryptonTextBox2.Name = "kryptonTextBox2";
+            this.kryptonTextBox2.Size = new System.Drawing.Size(100, 14);
+            this.kryptonTextBox2.TabIndex = 9;
+            this.kryptonTextBox2.Text = "kryptonTextBox2";
+            this.kryptonTextBox2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonTextBox1
+            // 
+            this.kryptonTextBox1.Location = new System.Drawing.Point(8, 177);
+            this.kryptonTextBox1.Name = "kryptonTextBox1";
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.kryptonTextBox1.TabIndex = 8;
+            this.kryptonTextBox1.Text = "kryptonTextBox1";
+            this.kryptonTextBox1.Click += new System.EventHandler(this.OnClick);
+            this.kryptonTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            // 
+            // kryptonWrapLabel2
+            // 
+            this.kryptonWrapLabel2.AutoSize = false;
+            this.kryptonWrapLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.kryptonWrapLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            this.kryptonWrapLabel2.Location = new System.Drawing.Point(153, 123);
+            this.kryptonWrapLabel2.Name = "kryptonWrapLabel2";
+            this.kryptonWrapLabel2.Size = new System.Drawing.Size(48, 41);
+            this.kryptonWrapLabel2.Text = "krypton\r\nWrap\r\nLabel";
+            this.kryptonWrapLabel2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonWrapLabel1
+            // 
+            this.kryptonWrapLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.kryptonWrapLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            this.kryptonWrapLabel1.Location = new System.Drawing.Point(8, 128);
+            this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
+            this.kryptonWrapLabel1.Size = new System.Drawing.Size(48, 45);
+            this.kryptonWrapLabel1.Text = "krypton\r\nWrap\r\nLabel";
+            this.kryptonWrapLabel1.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.AutoSize = false;
+            this.kryptonLabel2.Location = new System.Drawing.Point(153, 105);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(88, 10);
+            this.kryptonLabel2.TabIndex = 7;
+            this.kryptonLabel2.Values.Text = "kryptonLabel2";
+            this.kryptonLabel2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(8, 101);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(88, 20);
+            this.kryptonLabel1.TabIndex = 6;
+            this.kryptonLabel1.Values.Text = "kryptonLabel1";
+            this.kryptonLabel1.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonHeader2
+            // 
+            this.kryptonHeader2.AutoSize = false;
+            this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
+            this.kryptonHeader2.Location = new System.Drawing.Point(272, 69);
+            this.kryptonHeader2.Name = "kryptonHeader2";
+            this.kryptonHeader2.Size = new System.Drawing.Size(251, 20);
+            this.kryptonHeader2.TabIndex = 5;
+            this.kryptonHeader2.Values.Heading = "kryptonHeader2";
+            this.kryptonHeader2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonHeader1
+            // 
+            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
+            this.kryptonHeader1.Location = new System.Drawing.Point(5, 63);
+            this.kryptonHeader1.Name = "kryptonHeader1";
+            this.kryptonHeader1.Size = new System.Drawing.Size(251, 31);
+            this.kryptonHeader1.TabIndex = 4;
+            this.kryptonHeader1.Values.Heading = "kryptonHeader1";
+            this.kryptonHeader1.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonCheckBox2
+            // 
+            this.kryptonCheckBox2.AutoSize = false;
+            this.kryptonCheckBox2.Location = new System.Drawing.Point(153, 41);
+            this.kryptonCheckBox2.Name = "kryptonCheckBox2";
+            this.kryptonCheckBox2.Size = new System.Drawing.Size(125, 10);
+            this.kryptonCheckBox2.TabIndex = 3;
+            this.kryptonCheckBox2.Values.Text = "kryptonCheckBox2";
+            this.kryptonCheckBox2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonCheckBox1
+            // 
+            this.kryptonCheckBox1.Location = new System.Drawing.Point(5, 36);
+            this.kryptonCheckBox1.Name = "kryptonCheckBox1";
+            this.kryptonCheckBox1.Size = new System.Drawing.Size(125, 20);
+            this.kryptonCheckBox1.TabIndex = 2;
+            this.kryptonCheckBox1.Values.Text = "kryptonCheckBox1";
+            this.kryptonCheckBox1.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonButton2
+            // 
+            this.kryptonButton2.Location = new System.Drawing.Point(153, 9);
+            this.kryptonButton2.Name = "kryptonButton2";
+            this.kryptonButton2.Size = new System.Drawing.Size(144, 13);
+            this.kryptonButton2.TabIndex = 1;
+            this.kryptonButton2.Values.Text = "kryptonButton2";
+            this.kryptonButton2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(5, 4);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(123, 25);
+            this.kryptonButton1.TabIndex = 0;
+            this.kryptonButton1.Values.Text = "kryptonButton1";
+            this.kryptonButton1.Click += new System.EventHandler(this.OnClick);
             // 
             // kryptonGroup1
             // 
@@ -106,7 +277,7 @@ namespace ThreePaneApplication
             this.kryptonGroup1.Location = new System.Drawing.Point(4, 380);
             this.kryptonGroup1.Name = "kryptonGroup1";
             // 
-            // kryptonGroup1.Panel
+            // 
             // 
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonOffice2010Black);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonSparkleOrange);
@@ -232,6 +403,10 @@ namespace ThreePaneApplication
             this.kryptonOffice2007Blue.Values.Text = "Office 2007 - Blue";
             this.kryptonOffice2007Blue.CheckedChanged += new System.EventHandler(this.kryptonOffice2007Blue_CheckedChanged);
             // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Blue;
+            // 
             // kryptonPaletteCustom
             // 
             this.kryptonPaletteCustom.AllowFormChrome = ComponentFactory.Krypton.Toolkit.InheritBool.False;
@@ -240,105 +415,158 @@ namespace ThreePaneApplication
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonButtonSpec.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(5, 5, 1, 1);
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.Rounding = 3;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Border.Width = 2;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Border.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.LongText.Color1 = System.Drawing.Color.Silver;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.ShortText.Color1 = System.Drawing.Color.Silver;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateDisabled.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StatePressed.Content.Padding = new System.Windows.Forms.Padding(5, 5, 1, 1);
             this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonCommon.StateTracking.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateDisabled.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateDisabled.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.ButtonStyles.ButtonLowProfile.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonStandalone.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonStandalone.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ButtonStyles.ButtonStandalone.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.kryptonPaletteCustom.ButtonStyles.ButtonStandalone.StateDisabled.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.Rounding = 9;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateCommon.Border.Width = 3;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateDisabled.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(212)))), ((int)(((byte)(192)))));
             this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.ControlStyles.ControlCommon.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderGroup.StateCommon.OverlayHeaders = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteCustom.HeaderGroup.StateCommon.PrimaryHeaderPadding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteCustom.HeaderGroup.StateCommon.SecondaryHeaderPadding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Border.Rounding = 7;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Border.Width = 3;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.AdjacentGap = 2;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.LongText.Color1 = System.Drawing.Color.Silver;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.ShortText.Color1 = System.Drawing.Color.Silver;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderCommon.StateDisabled.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateDisabled.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateDisabled.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(213)))), ((int)(((byte)(194)))));
             this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateNormal.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonPaletteCustom.HeaderStyles.HeaderPrimary.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateDisabled.Back.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateDisabled.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateNormal.Back.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(213)))), ((int)(((byte)(194)))));
+            this.kryptonPaletteCustom.HeaderStyles.HeaderSecondary.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.PanelStyles.PanelAlternate.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(212)))), ((int)(((byte)(192)))));
+            this.kryptonPaletteCustom.PanelStyles.PanelAlternate.StateCommon.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.PanelStyles.PanelClient.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.kryptonPaletteCustom.PanelStyles.PanelClient.StateCommon.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.PanelStyles.PanelCommon.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteCustom.PanelStyles.PanelCommon.StateCommon.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPaletteCustom.ToolMenuStatus.Button.ButtonCheckedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             this.kryptonPaletteCustom.ToolMenuStatus.Button.ButtonCheckedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             this.kryptonPaletteCustom.ToolMenuStatus.Button.ButtonCheckedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
@@ -401,109 +629,81 @@ namespace ThreePaneApplication
             this.kryptonPaletteCustom.ToolMenuStatus.ToolStrip.ToolStripText = System.Drawing.Color.WhiteSmoke;
             this.kryptonPaletteCustom.ToolMenuStatus.UseRoundedEdges = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             // 
-            // kryptonPanel1
+            // kryptonCheckedListBox1
             // 
-            this.kryptonPanel1.Controls.Add(this.kryptonWrapLabel2);
-            this.kryptonPanel1.Controls.Add(this.kryptonWrapLabel1);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel2);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
-            this.kryptonPanel1.Controls.Add(this.kryptonHeader2);
-            this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
-            this.kryptonPanel1.Controls.Add(this.kryptonCheckBox2);
-            this.kryptonPanel1.Controls.Add(this.kryptonCheckBox1);
-            this.kryptonPanel1.Controls.Add(this.kryptonButton2);
-            this.kryptonPanel1.Controls.Add(this.kryptonButton1);
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(701, 339);
-            this.kryptonPanel1.TabIndex = 0;
+            this.kryptonCheckedListBox1.Items.AddRange(new object[] {
+            "Long piece of text off the side",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.kryptonCheckedListBox1.Location = new System.Drawing.Point(7, 208);
+            this.kryptonCheckedListBox1.Name = "kryptonCheckedListBox1";
+            this.kryptonCheckedListBox1.Size = new System.Drawing.Size(120, 96);
+            this.kryptonCheckedListBox1.TabIndex = 15;
+            this.kryptonCheckedListBox1.Click += new System.EventHandler(this.OnClick);
             // 
-            // kryptonButton1
+            // kryptonCheckedListBox2
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(5, 4);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(123, 25);
-            this.kryptonButton1.TabIndex = 0;
-            this.kryptonButton1.Values.Text = "kryptonButton1";
+            this.kryptonCheckedListBox2.Items.AddRange(new object[] {
+            "Long piece of text off the side",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.kryptonCheckedListBox2.Location = new System.Drawing.Point(166, 208);
+            this.kryptonCheckedListBox2.Name = "kryptonCheckedListBox2";
+            this.kryptonCheckedListBox2.Size = new System.Drawing.Size(120, 96);
+            this.kryptonCheckedListBox2.TabIndex = 16;
+            this.kryptonCheckedListBox2.Click += new System.EventHandler(this.OnClick);
             // 
-            // kryptonButton2
+            // kryptonTreeView1
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(153, 4);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.Size = new System.Drawing.Size(144, 23);
-            this.kryptonButton2.TabIndex = 1;
-            this.kryptonButton2.Values.Text = "kryptonButton2";
+            this.kryptonTreeView1.Location = new System.Drawing.Point(350, 215);
+            this.kryptonTreeView1.Name = "kryptonTreeView1";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Node1";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Node2";
+            treeNode9.Name = "Node3";
+            treeNode9.Text = "Node3";
+            treeNode10.Name = "Node4";
+            treeNode10.Text = "Node4";
+            treeNode11.Name = "Node5";
+            treeNode11.Text = "Node5";
+            treeNode12.Name = "Node0";
+            treeNode12.Text = "Node0";
+            this.kryptonTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            this.kryptonTreeView1.Size = new System.Drawing.Size(120, 96);
+            this.kryptonTreeView1.TabIndex = 17;
+            this.kryptonTreeView1.Click += new System.EventHandler(this.OnClick);
             // 
-            // kryptonCheckBox1
+            // kryptonTreeView2
             // 
-            this.kryptonCheckBox1.Location = new System.Drawing.Point(5, 36);
-            this.kryptonCheckBox1.Name = "kryptonCheckBox1";
-            this.kryptonCheckBox1.Size = new System.Drawing.Size(125, 20);
-            this.kryptonCheckBox1.TabIndex = 2;
-            this.kryptonCheckBox1.Values.Text = "kryptonCheckBox1";
-            // 
-            // kryptonCheckBox2
-            // 
-            this.kryptonCheckBox2.AutoSize = false;
-            this.kryptonCheckBox2.Location = new System.Drawing.Point(153, 36);
-            this.kryptonCheckBox2.Name = "kryptonCheckBox2";
-            this.kryptonCheckBox2.Size = new System.Drawing.Size(125, 19);
-            this.kryptonCheckBox2.TabIndex = 3;
-            this.kryptonCheckBox2.Values.Text = "kryptonCheckBox2";
-            // 
-            // kryptonHeader1
-            // 
-            this.kryptonHeader1.Location = new System.Drawing.Point(5, 63);
-            this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(251, 31);
-            this.kryptonHeader1.TabIndex = 4;
-            this.kryptonHeader1.Values.Heading = "kryptonHeader1";
-            // 
-            // kryptonHeader2
-            // 
-            this.kryptonHeader2.AutoSize = false;
-            this.kryptonHeader2.Location = new System.Drawing.Point(272, 62);
-            this.kryptonHeader2.Name = "kryptonHeader2";
-            this.kryptonHeader2.Size = new System.Drawing.Size(251, 30);
-            this.kryptonHeader2.TabIndex = 5;
-            this.kryptonHeader2.Values.Heading = "kryptonHeader2";
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(8, 101);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(88, 20);
-            this.kryptonLabel1.TabIndex = 6;
-            this.kryptonLabel1.Values.Text = "kryptonLabel1";
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.AutoSize = false;
-            this.kryptonLabel2.Location = new System.Drawing.Point(153, 100);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(88, 19);
-            this.kryptonLabel2.TabIndex = 7;
-            this.kryptonLabel2.Values.Text = "kryptonLabel2";
-            // 
-            // kryptonWrapLabel1
-            // 
-            this.kryptonWrapLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.kryptonWrapLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this.kryptonWrapLabel1.Location = new System.Drawing.Point(8, 128);
-            this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
-            this.kryptonWrapLabel1.Size = new System.Drawing.Size(48, 45);
-            this.kryptonWrapLabel1.Text = "krypton\r\nWrap\r\nLabel";
-            // 
-            // kryptonWrapLabel2
-            // 
-            this.kryptonWrapLabel2.AutoSize = false;
-            this.kryptonWrapLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.kryptonWrapLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this.kryptonWrapLabel2.Location = new System.Drawing.Point(153, 123);
-            this.kryptonWrapLabel2.Name = "kryptonWrapLabel2";
-            this.kryptonWrapLabel2.Size = new System.Drawing.Size(48, 41);
-            this.kryptonWrapLabel2.Text = "krypton\r\nWrap\r\nLabel";
+            this.kryptonTreeView2.Location = new System.Drawing.Point(494, 211);
+            this.kryptonTreeView2.Name = "kryptonTreeView2";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node3";
+            treeNode3.Text = "Node3";
+            treeNode4.Name = "Node4";
+            treeNode4.Text = "Node4";
+            treeNode5.Name = "Node5";
+            treeNode5.Text = "Node5";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Node0";
+            this.kryptonTreeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            this.kryptonTreeView2.Size = new System.Drawing.Size(58, 96);
+            this.kryptonTreeView2.TabIndex = 18;
+            this.kryptonTreeView2.Click += new System.EventHandler(this.OnClick);
             // 
             // Form1
             // 
@@ -522,15 +722,13 @@ namespace ThreePaneApplication
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails.Panel)).EndInit();
             this.kryptonHeaderGroupDetails.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails)).EndInit();
-            this.kryptonHeaderGroupDetails.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);
             this.kryptonGroup1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).EndInit();
-            this.kryptonGroup1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -564,6 +762,12 @@ namespace ThreePaneApplication
         private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox1;
     }
 }
 

@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Font _font;
         private Color _textColor;
         private PaletteTextHint _hint;
-        private KryptonWrapLabel _wrapLabel;
+        private readonly KryptonWrapLabel _wrapLabel;
         #endregion
 
         #region Identity

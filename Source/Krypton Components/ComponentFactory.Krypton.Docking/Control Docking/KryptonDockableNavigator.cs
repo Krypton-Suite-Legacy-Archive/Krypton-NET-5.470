@@ -45,8 +45,8 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockableNavigator()
         {
             // Hook into cell specific events
-            ShowContextMenu += new EventHandler<ShowContextMenuArgs>(OnShowContextMenu);
-            Pages.Inserting += new TypedHandler<KryptonPage>(OnPagesInserting);
+            ShowContextMenu += OnShowContextMenu;
+            Pages.Inserting += OnPagesInserting;
         }
         #endregion
 

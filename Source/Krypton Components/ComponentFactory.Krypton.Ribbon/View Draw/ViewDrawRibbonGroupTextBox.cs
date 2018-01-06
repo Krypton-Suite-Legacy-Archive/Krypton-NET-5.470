@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private TextBoxController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly TextBoxController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupTextBox.ItemSizeCurrent;
 
             // Hook into the textbox events
-            GroupTextBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupTextBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupTextBox.MouseEnterControl += OnMouseEnterControl;
+            GroupTextBox.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupTextBox;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the textbox
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the textbox for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the text box definition
             GroupTextBox.TextBoxView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupTextBox.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupTextBox.PropertyChanged += new PropertyChangedEventHandler(OnTextBoxPropertyChanged);
+            GroupTextBox.PropertyChanged += OnTextBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupTextBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupTextBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupTextBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupTextBox.MouseEnterControl -= OnMouseEnterControl;
+                    GroupTextBox.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupTextBox.ViewPaintDelegate = null;
-                    GroupTextBox.PropertyChanged -= new PropertyChangedEventHandler(OnTextBoxPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupTextBox.PropertyChanged -= OnTextBoxPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupTextBox.TextBoxView = null; 

@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Docking
     {
         #region Instance Fields
 
-        private bool _outsideEdge;
+        private readonly bool _outsideEdge;
         #endregion
 
         #region Identity

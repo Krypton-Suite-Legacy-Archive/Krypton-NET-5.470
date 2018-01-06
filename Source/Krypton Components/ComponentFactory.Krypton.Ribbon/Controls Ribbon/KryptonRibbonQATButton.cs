@@ -313,7 +313,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     _command = value;
@@ -321,7 +321,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
 
                     // Only need to update display if we are visible

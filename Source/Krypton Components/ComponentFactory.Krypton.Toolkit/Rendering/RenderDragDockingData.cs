@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
         private int _showTotal;
         private BoolFlags31 _flags;
-        private Rectangle[] _rects;
+        private readonly Rectangle[] _rects;
 
         #endregion
 

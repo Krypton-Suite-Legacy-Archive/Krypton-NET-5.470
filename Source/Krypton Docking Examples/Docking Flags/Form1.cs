@@ -35,16 +35,20 @@ namespace DockingFlags
         private KryptonPage NewDocument()
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = "Document " + _count.ToString();
+            KryptonPage p = new KryptonPage
+            {
+                Text = "Document " + _count.ToString()
+            };
             p.TextTitle = p.Text;
             p.TextDescription = p.Text;
             p.UniqueName = p.Text;
             p.ImageSmall = imageListSmall.Images[0];
 
             // Add the control for display inside the page
-            ContentDocument contentDoc = new ContentDocument();
-            contentDoc.Dock = DockStyle.Fill;
+            ContentDocument contentDoc = new ContentDocument
+            {
+                Dock = DockStyle.Fill
+            };
             p.Controls.Add(contentDoc);
 
             _count++;
@@ -54,16 +58,20 @@ namespace DockingFlags
         private KryptonPage NewFlags()
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = "Flags " + _count.ToString();
+            KryptonPage p = new KryptonPage
+            {
+                Text = "Flags " + _count.ToString()
+            };
             p.TextTitle = p.Text;
             p.TextDescription = p.Text;
             p.UniqueName = p.Text;
             p.ImageSmall = imageListSmall.Images[1];
 
             // Add the control for display inside the page
-            ContentFlags contentFlags = new ContentFlags(p);
-            contentFlags.Dock = DockStyle.Fill;
+            ContentFlags contentFlags = new ContentFlags(p)
+            {
+                Dock = DockStyle.Fill
+            };
             p.Controls.Add(contentFlags);
 
             _count++;

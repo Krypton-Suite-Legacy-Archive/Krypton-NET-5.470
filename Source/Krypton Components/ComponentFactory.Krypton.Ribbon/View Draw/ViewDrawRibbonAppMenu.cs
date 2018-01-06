@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonAppMenu : ViewDrawDocker
     {
         #region Instance Fields
-        private ViewBase _fixedElement;
+        private readonly ViewBase _fixedElement;
         private Rectangle _fixedScreenRect;
         #endregion
 

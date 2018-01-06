@@ -28,11 +28,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewDrawRibbonQATBorder _border;
-        private ViewLayoutRibbonQATFromRibbon _borderContents;
-        private ViewDrawRibbonQATExtraButtonMini _extraButton;
-        private ViewLayoutSeparator _extraSeparator;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewDrawRibbonQATBorder _border;
+        private readonly ViewLayoutRibbonQATFromRibbon _borderContents;
+        private readonly ViewDrawRibbonQATExtraButtonMini _extraButton;
+        private readonly ViewLayoutSeparator _extraSeparator;
         #endregion
 
         #region Identity
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Need the extra button to show after the border area
             _extraButton = new ViewDrawRibbonQATExtraButtonMini(ribbon, needPaintDelegate);
-            _extraButton.ClickAndFinish += new ClickAndFinishHandler(OnExtraButtonClick);
+            _extraButton.ClickAndFinish += OnExtraButtonClick;
 
             // Add layout contents
             Add(_border, ViewDockStyle.Fill);
@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (disposing)
             {
-                _extraButton.ClickAndFinish -= new ClickAndFinishHandler(OnExtraButtonClick);
+                _extraButton.ClickAndFinish -= OnExtraButtonClick;
             }
 
             base.Dispose(disposing);

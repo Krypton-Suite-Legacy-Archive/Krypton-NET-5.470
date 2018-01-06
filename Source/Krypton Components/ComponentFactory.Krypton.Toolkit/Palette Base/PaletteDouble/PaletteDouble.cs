@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 								 IPaletteDouble
 	{
 		#region Instance Fields
-		private PaletteBack _back;
-		private PaletteBorder _border;
+		private readonly PaletteBack _back;
+		private readonly PaletteBorder _border;
 		#endregion
 
 		#region Identity

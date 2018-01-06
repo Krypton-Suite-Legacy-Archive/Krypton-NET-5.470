@@ -21,9 +21,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IMouseController
     {
         #region Instance Fields
-        private ToolTipManager _manager;
-        private ViewBase _targetElement;
-        private IMouseController _targetController;
+        private readonly ToolTipManager _manager;
+        private readonly ViewBase _targetElement;
+        private readonly IMouseController _targetController;
         #endregion
 
         #region Identity

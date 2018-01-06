@@ -24,10 +24,10 @@ namespace ComponentFactory.Krypton.Docking
                                       IMessageFilter
     {
         #region Instance Fields
-        private KryptonDockingManager _manager;
+        private readonly KryptonDockingManager _manager;
         private Point _offset;
         private Point _screenPt;
-        private Timer _moveTimer;
+        private readonly Timer _moveTimer;
         private bool _addedFilter;
         private bool _monitorMouse;
         #endregion
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 Interval = 10
             };
-            _moveTimer.Tick += new EventHandler(OnFloatingWindowMove);
+            _moveTimer.Tick += OnFloatingWindowMove;
         }
 
 		/// <summary>
@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Docking
             _manager.PropogateAction(DockingPropogateAction.ClearStoredPages, new string[] { "TemporaryPage" });
 
             // Remember to unhook event and dispose timer to prevent resource leak
-            _moveTimer.Tick -= new EventHandler(OnFloatingWindowMove);
+            _moveTimer.Tick -= OnFloatingWindowMove;
             _moveTimer.Stop();
             _moveTimer.Dispose();
 

@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonContextBack: IPaletteRibbonBack
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IPaletteRibbonBack _inherit;
         #endregion
 

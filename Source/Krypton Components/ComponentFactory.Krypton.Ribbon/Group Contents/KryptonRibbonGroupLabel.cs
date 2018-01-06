@@ -36,9 +36,9 @@ namespace ComponentFactory.Krypton.Ribbon
         private string _textLine2;
         private GroupItemSize _itemSizeCurrent;
         private KryptonCommand _command;
-        private NeedPaintHandler _needPaintDelegate;
-        private PaletteRibbonText _stateNormal;
-        private PaletteRibbonText _stateDisabled;
+        private readonly NeedPaintHandler _needPaintDelegate;
+        private readonly PaletteRibbonText _stateNormal;
+        private readonly PaletteRibbonText _stateDisabled;
 
         #endregion
 
@@ -80,7 +80,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ToolTipStyle = LabelStyle.SuperTip;
 
             // Create delegate fired by a change to one of the state palettes
-            _needPaintDelegate = new NeedPaintHandler(OnPaletteNeedPaint);
+            _needPaintDelegate = OnPaletteNeedPaint;
 
             // Create palette entries for customizing the label text color
             _stateNormal = new PaletteRibbonText(_needPaintDelegate);
@@ -349,7 +349,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     _command = value;
@@ -357,7 +357,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                 }
             }

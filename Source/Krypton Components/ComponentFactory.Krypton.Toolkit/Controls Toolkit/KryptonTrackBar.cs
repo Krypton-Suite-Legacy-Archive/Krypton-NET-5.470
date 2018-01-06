@@ -31,10 +31,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonTrackBar : VisualSimpleBase
 	{
 		#region Instance Fields
-        private ViewDrawTrackBar _drawTrackBar;
-	    private PaletteTrackBarStatesOverride _overrideNormal;
-        private PaletteTrackBarPositionStatesOverride _overrideTracking;
-        private PaletteTrackBarPositionStatesOverride _overridePressed;
+        private readonly ViewDrawTrackBar _drawTrackBar;
+	    private readonly PaletteTrackBarStatesOverride _overrideNormal;
+        private readonly PaletteTrackBarPositionStatesOverride _overrideTracking;
+        private readonly PaletteTrackBarPositionStatesOverride _overridePressed;
         private bool _autoSize;
 	    private int _requestedDim;
         #endregion
@@ -80,8 +80,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the view manager instance
             _drawTrackBar = new ViewDrawTrackBar(_overrideNormal, StateDisabled, _overrideTracking, _overridePressed, NeedPaintDelegate);
-            _drawTrackBar.ValueChanged += new EventHandler(OnDrawValueChanged);
-            _drawTrackBar.Scroll += new EventHandler(OnDrawScroll);
+            _drawTrackBar.ValueChanged += OnDrawValueChanged;
+            _drawTrackBar.Scroll += OnDrawScroll;
             _drawTrackBar.RightToLeft = RightToLeft;
             ViewManager = new ViewManager(this, _drawTrackBar);
 		}

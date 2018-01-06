@@ -53,9 +53,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
         private InternalStorage _storage;
-        private PaletteContentImage _image;
-        private PaletteContentText _shortText;
-        private PaletteContentText _longText;
+        private readonly PaletteContentImage _image;
+        private readonly PaletteContentText _shortText;
+        private readonly PaletteContentText _longText;
         private IPaletteContent _inherit;
         #endregion
 

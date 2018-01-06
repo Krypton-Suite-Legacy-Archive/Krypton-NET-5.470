@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
         #region Instance Fields
         private Padding _rectPadding;
-        private IPaletteMetric _paletteMetric;
+        private readonly IPaletteMetric _paletteMetric;
 
 	    #endregion
 

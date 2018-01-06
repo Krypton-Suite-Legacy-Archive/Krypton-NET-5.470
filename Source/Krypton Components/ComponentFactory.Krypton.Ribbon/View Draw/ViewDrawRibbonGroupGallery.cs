@@ -31,10 +31,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private GalleryController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly GalleryController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         private ViewDrawRibbonGroupButtonBackBorder _viewLarge;
         private ViewLayoutRibbonRowCenter _viewLargeCenter;
@@ -71,8 +71,8 @@ namespace ComponentFactory.Krypton.Ribbon
             CreateLargeButtonView();
 
             // Hook into the gallery events
-            GroupGallery.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupGallery.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupGallery.MouseEnterControl += OnMouseEnterControl;
+            GroupGallery.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupGallery;
@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the gallery
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -91,8 +91,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the gallery for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the gallery definition
             GroupGallery.GalleryView = this;
@@ -101,7 +101,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupGallery.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupGallery.PropertyChanged += new PropertyChangedEventHandler(OnGalleryPropertyChanged);
+            GroupGallery.PropertyChanged += OnGalleryPropertyChanged;
         }
 
 		/// <summary>
@@ -130,12 +130,12 @@ namespace ComponentFactory.Krypton.Ribbon
                         GroupGallery.LastGallery.Ribbon = null;
                     }
 
-                    GroupGallery.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupGallery.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupGallery.MouseEnterControl -= OnMouseEnterControl;
+                    GroupGallery.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupGallery.ViewPaintDelegate = null;
-                    GroupGallery.PropertyChanged -= new PropertyChangedEventHandler(OnGalleryPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupGallery.PropertyChanged -= OnGalleryPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupGallery.GalleryView = null; 
@@ -568,11 +568,11 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 ButtonType = GroupButtonType.DropDown
             };
-            _viewLarge.DropDown += new EventHandler(OnLargeButtonDropDown);
+            _viewLarge.DropDown += OnLargeButtonDropDown;
 
             if (_ribbon.InDesignMode)
             {
-                _viewLarge.ContextClick += new MouseEventHandler(OnContextClick);
+                _viewLarge.ContextClick += OnContextClick;
             }
 
             // Create the layout docker for the contents of the button

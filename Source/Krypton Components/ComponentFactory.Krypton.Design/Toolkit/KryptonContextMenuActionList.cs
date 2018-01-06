@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonContextMenuActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonContextMenu _contextMenu;
-        private IComponentChangeService _service;
+        private readonly KryptonContextMenu _contextMenu;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

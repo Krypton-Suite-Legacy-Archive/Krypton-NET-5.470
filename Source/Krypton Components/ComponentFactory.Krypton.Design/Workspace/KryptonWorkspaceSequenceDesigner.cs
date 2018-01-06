@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Workspace
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 if (disposing)
                 {
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
                 }
             }
             finally

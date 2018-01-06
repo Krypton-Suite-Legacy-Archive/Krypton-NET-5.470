@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteRibbonAppButton : Storage
     {
         #region Instance Fields
-        private PaletteRibbonBackInheritRedirect _stateInherit;
+        private readonly PaletteRibbonBackInheritRedirect _stateInherit;
 
         #endregion
 

@@ -58,18 +58,18 @@ namespace ComponentFactory.Krypton.Toolkit
 	    #endregion
         
         #region Instance Fields
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewLayoutStretch _dropStretch;
-        private ViewLayoutFit _upDownFit;
-        private PaletteTripleToPalette _paletteDropDown;
-        private PaletteTripleToPalette _paletteUpDown;
-        private ViewDrawDateTimeButton _buttonDropDown;
-        private ViewDrawDateTimeButton _buttonUp;
-        private ViewDrawDateTimeButton _buttonDown;
-        private ViewDrawDateTimeText _drawText;
-	    private ViewLayoutCenter _layoutCheckBox;
-	    private ButtonSpecManagerDraw _buttonManager;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewLayoutStretch _dropStretch;
+        private readonly ViewLayoutFit _upDownFit;
+        private readonly PaletteTripleToPalette _paletteDropDown;
+        private readonly PaletteTripleToPalette _paletteUpDown;
+        private readonly ViewDrawDateTimeButton _buttonDropDown;
+        private readonly ViewDrawDateTimeButton _buttonUp;
+        private readonly ViewDrawDateTimeButton _buttonDown;
+        private readonly ViewDrawDateTimeText _drawText;
+	    private readonly ViewLayoutCenter _layoutCheckBox;
+	    private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
 	    private KryptonContextMenuMonthCalendar _kmc;
         private InputControlStyle _inputControlStyle;
@@ -81,9 +81,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private DateTime _minDateTime;
         private DateTime _dateTime;
         private DateTime _todayDate;
-	    private DateTimeList _annualDates;
-        private DateTimeList _monthlyDates;
-        private DateTimeList _dates;
+	    private readonly DateTimeList _annualDates;
+        private readonly DateTimeList _monthlyDates;
+        private readonly DateTimeList _dates;
         private string _customFormat;
 	    private string _today;
         private string _customNullText;
@@ -240,7 +240,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need a controller for handling check box mouse input
             CheckBoxController controller = new CheckBoxController(InternalViewDrawCheckBox, InternalViewDrawCheckBox, NeedPaintDelegate);
-            controller.Click += new EventHandler(OnCheckBoxClick);
+            controller.Click += OnCheckBoxClick;
             controller.Enabled = true;
             InternalViewDrawCheckBox.MouseController = controller;
             InternalViewDrawCheckBox.KeyController = controller;
@@ -264,9 +264,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonDropDown = new ViewDrawDateTimeButton(this, _paletteDropDown, new PaletteMetricRedirect(Redirector), this, ViewDrawDateTimeButton.DrawDateTimeGlyph.DropDownButton, NeedPaintDelegate, false);
             _buttonUp = new ViewDrawDateTimeButton(this, _paletteUpDown, new PaletteMetricRedirect(Redirector), this, ViewDrawDateTimeButton.DrawDateTimeGlyph.UpButton, NeedPaintDelegate, true);
             _buttonDown = new ViewDrawDateTimeButton(this, _paletteUpDown, new PaletteMetricRedirect(Redirector), this, ViewDrawDateTimeButton.DrawDateTimeGlyph.DownButton, NeedPaintDelegate, true);
-            _buttonDropDown.Click += new EventHandler(OnDropDownClick);
-            _buttonUp.Click += new EventHandler(OnUpClick);
-            _buttonDown.Click += new EventHandler(OnDownClick);
+            _buttonDropDown.Click += OnDropDownClick;
+            _buttonUp.Click += OnUpClick;
+            _buttonDown.Click += OnDownClick;
 
             // Stretch the drop down button to be the height of the available area
             _dropStretch = new ViewLayoutStretch(Orientation.Vertical)
@@ -299,13 +299,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        new IPaletteMetric[] { StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary },
-                                                       new GetToolStripRenderer(CreateToolStripRenderer),
+                                                       CreateToolStripRenderer,
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // Update alignment to match current RightToLeft settings
@@ -2289,7 +2289,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -2341,7 +2341,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     DayStyle = CalendarDayStyle,
                     HeaderStyle = CalendarHeaderStyle
                 };
-                _kmc.DateChanged += new DateRangeEventHandler(OnMonthCalendarDateChanged);
+                _kmc.DateChanged += OnMonthCalendarDateChanged;
                 kcm.Items.Add(_kmc);
 
                 // Update the krypton menu with this controls palette state
@@ -2396,7 +2396,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 
                             // Show relative to the screen rectangle
-                            dtpda.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                            dtpda.KryptonContextMenu.Closed += OnKryptonContextMenuClosed;
                             dtpda.KryptonContextMenu.Show(this, screenRect, dtpda.PositionH, dtpda.PositionV);
                             return;
                         }
@@ -2438,12 +2438,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Must unhook from menu so it can be garbage collected
             KryptonContextMenu kcm = (KryptonContextMenu)sender;
-            kcm.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+            kcm.Closed -= OnKryptonContextMenuClosed;
 
             // Unhook from month calendar events
             if (_kmc != null)
             {
-                _kmc.DateChanged -= new DateRangeEventHandler(OnMonthCalendarDateChanged);
+                _kmc.DateChanged -= OnMonthCalendarDateChanged;
                 _kmc = null;
             }
 
@@ -2496,7 +2496,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;
@@ -2514,7 +2514,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class DTPContextMenu : KryptonContextMenu
     {
         #region Instance Fields
-        private Rectangle _dropScreenRect;
+        private readonly Rectangle _dropScreenRect;
         #endregion
 
         #region Identity

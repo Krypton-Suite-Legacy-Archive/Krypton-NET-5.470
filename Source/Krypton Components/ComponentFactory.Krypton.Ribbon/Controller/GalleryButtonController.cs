@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
 	    private bool _pressed;
         private bool _mouseOver;
 		private NeedPaintHandler _needPaint;
-        private Timer _repeatTimer;
+        private readonly Timer _repeatTimer;
         #endregion
 
 		#region Events
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     Interval = 250
                 };
-                _repeatTimer.Tick += new EventHandler(OnRepeatTick);
+                _repeatTimer.Tick += OnRepeatTick;
             }
         }
 		#endregion

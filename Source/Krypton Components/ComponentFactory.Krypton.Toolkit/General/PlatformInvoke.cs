@@ -516,7 +516,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [StructLayout(LayoutKind.Sequential)]
         internal struct PAINTSTRUCT
         {
-            private IntPtr hdc;
+            private readonly IntPtr hdc;
             public bool fErase;
             public RECT rcPaint;
             public bool fRestore;

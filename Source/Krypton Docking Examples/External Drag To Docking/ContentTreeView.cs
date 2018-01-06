@@ -54,7 +54,9 @@ namespace ExternalDragToDocking
             {
                 // Ensure the node is selected
                 if (SelectedNode != nodeDown)
+                {
                     SelectedNode = nodeDown;
+                }
 
                 // Left mouse down means we might be starting a drag operation
                 if (e.Button == MouseButtons.Left)

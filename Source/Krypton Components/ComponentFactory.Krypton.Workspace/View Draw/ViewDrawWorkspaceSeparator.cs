@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Workspace
                                               ISeparatorSource
     {
         #region Instance Fields
-        private KryptonWorkspace _workspace;
+        private readonly KryptonWorkspace _workspace;
 
         #endregion
 

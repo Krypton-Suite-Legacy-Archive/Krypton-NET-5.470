@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewLayoutMenuSepGap : ViewLayoutSeparator
     {
         #region Instance Fields
-        private PaletteContextMenuRedirect _stateCommon;
-        private bool _standardStyle;
+        private readonly PaletteContextMenuRedirect _stateCommon;
+        private readonly bool _standardStyle;
         #endregion
 
         #region Identity

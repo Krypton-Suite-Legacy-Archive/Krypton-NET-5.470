@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private DomainUpDownController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly DomainUpDownController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupDomainUpDown.ItemSizeCurrent;
 
             // Hook into the domain up-down events
-            GroupDomainUpDown.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupDomainUpDown.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupDomainUpDown.MouseEnterControl += OnMouseEnterControl;
+            GroupDomainUpDown.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupDomainUpDown;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the domain up-down
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the domain up-down for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the domain up-down definition
             GroupDomainUpDown.DomainUpDownView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupDomainUpDown.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupDomainUpDown.PropertyChanged += new PropertyChangedEventHandler(OnDomainUpDownPropertyChanged);
+            GroupDomainUpDown.PropertyChanged += OnDomainUpDownPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupDomainUpDown != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupDomainUpDown.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupDomainUpDown.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupDomainUpDown.MouseEnterControl -= OnMouseEnterControl;
+                    GroupDomainUpDown.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupDomainUpDown.ViewPaintDelegate = null;
-                    GroupDomainUpDown.PropertyChanged -= new PropertyChangedEventHandler(OnDomainUpDownPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupDomainUpDown.PropertyChanged -= OnDomainUpDownPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupDomainUpDown.DomainUpDownView = null; 

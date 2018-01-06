@@ -20,10 +20,10 @@ namespace ComponentFactory.Krypton.Navigator
     internal class PageToToolTipMapping : IContentValues
     {
         #region Instance Fields
-        private KryptonPage _page;
-        private MapKryptonPageImage _mapImage;
-        private MapKryptonPageText _mapText;
-        private MapKryptonPageText _mapExtraText;
+        private readonly KryptonPage _page;
+        private readonly MapKryptonPageImage _mapImage;
+        private readonly MapKryptonPageText _mapText;
+        private readonly MapKryptonPageText _mapExtraText;
         #endregion
 
         #region Identity

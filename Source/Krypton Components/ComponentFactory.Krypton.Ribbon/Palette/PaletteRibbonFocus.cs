@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonFocus : PaletteMetricRedirect
 	{
 		#region Instance Fields
-        private PaletteRibbonDouble _ribbonTab;
-        private PaletteRibbonDoubleInheritRedirect _ribbonTabInherit;
+        private readonly PaletteRibbonDouble _ribbonTab;
+        private readonly PaletteRibbonDoubleInheritRedirect _ribbonTabInherit;
         #endregion
 
 		#region Identity

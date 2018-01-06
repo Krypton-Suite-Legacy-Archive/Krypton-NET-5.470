@@ -22,8 +22,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                IContentValues
 	{
 		#region Instance Fields
-        private KryptonGallery _gallery;
-        private GalleryItemController _controller;
+        private readonly KryptonGallery _gallery;
+        private readonly GalleryItemController _controller;
         private ImageList _imageList;
         private Image _image;
         private int _imageIndex;
@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Need controller to handle tracking/pressing etc
             _controller = new GalleryItemController(this, layout, needPaint);
-            _controller.Click += new MouseEventHandler(OnItemClick);
+            _controller.Click += OnItemClick;
             MouseController = _controller;
             SourceController = _controller;
             KeyController = _controller;

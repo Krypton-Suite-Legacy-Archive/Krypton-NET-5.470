@@ -36,14 +36,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private LabelStyle _captionStyle;
 		private VisualOrientation _captionEdge;
         private ButtonOrientation _captionOrientation;
-        private ViewDrawGroupBoxDocker _drawDocker;
-        private ViewDrawContent _drawContent;
-        private ViewLayoutFill _layoutFill;
+        private readonly ViewDrawGroupBoxDocker _drawDocker;
+        private readonly ViewDrawContent _drawContent;
+        private readonly ViewLayoutFill _layoutFill;
         private ScreenObscurer _obscurer;
-        private EventHandler _removeObscurer;
+        private readonly EventHandler _removeObscurer;
         private bool _forcedLayout;
         private bool _captionVisible;
-        private bool _ignoreLayout;
+        private readonly bool _ignoreLayout;
         private bool _layingOut;
         #endregion
 
@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Create storage objects
             Values = new CaptionValues(NeedPaintDelegate);
-            Values.TextChanged += new EventHandler(OnValuesTextChanged);
+            Values.TextChanged += OnValuesTextChanged;
 
 			// Create the palette storage
             StateCommon = new PaletteGroupBoxRedirect(Redirector, NeedPaintDelegate);
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Toolkit
             StateNormal = new PaletteGroupBox(StateCommon, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, OnGroupPanelPaint)
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             // Create the delegate used when we need to ensure obscurer is removed
-            _removeObscurer = new EventHandler(OnRemoveObscurer);
+            _removeObscurer = OnRemoveObscurer;
 
             // Need to prevent the AddInternal from causing a layout, otherwise the
             // layout will probably try to measure text which causes the handle for the

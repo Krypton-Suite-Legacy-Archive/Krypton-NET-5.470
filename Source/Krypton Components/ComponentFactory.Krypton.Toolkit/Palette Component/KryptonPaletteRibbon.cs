@@ -20,24 +20,24 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private PaletteRedirect _redirect;
-        private PaletteRibbonBackInheritRedirect _ribbonAppMenuOuterInherit;
-        private PaletteRibbonBackInheritRedirect _ribbonAppMenuInnerInherit;
-        private PaletteRibbonBackInheritRedirect _ribbonAppMenuDocsInherit;
-        private PaletteRibbonTextInheritRedirect _ribbonAppMenuDocsTitleInherit;
-        private PaletteRibbonTextInheritRedirect _ribbonAppMenuDocsEntryInherit;
-        private PaletteRibbonGeneralInheritRedirect _ribbonGeneralRedirect;
-        private PaletteRibbonBackInheritRedirect _ribbonQATFullRedirect;
-        private PaletteRibbonBackInheritRedirect _ribbonQATOverRedirect;
-        private PaletteRibbonBackInheritRedirect _ribbonGalleryBackRedirect;
-        private PaletteRibbonBackInheritRedirect _ribbonGalleryBorderRedirect;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonAppMenuOuterInherit;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonAppMenuInnerInherit;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonAppMenuDocsInherit;
+        private readonly PaletteRibbonTextInheritRedirect _ribbonAppMenuDocsTitleInherit;
+        private readonly PaletteRibbonTextInheritRedirect _ribbonAppMenuDocsEntryInherit;
+        private readonly PaletteRibbonGeneralInheritRedirect _ribbonGeneralRedirect;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonQATFullRedirect;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonQATOverRedirect;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonGalleryBackRedirect;
+        private readonly PaletteRibbonBackInheritRedirect _ribbonGalleryBorderRedirect;
 
-        private PaletteRibbonBack _ribbonAppMenuInner;
-        private PaletteRibbonBack _ribbonAppMenuOuter;
-        private PaletteRibbonBack _ribbonAppMenuDocs;
-        private PaletteRibbonText _ribbonAppMenuDocsTitle;
-        private PaletteRibbonText _ribbonAppMenuDocsEntry;
-        private PaletteRibbonBack _ribbonGalleryBack;
-        private PaletteRibbonBack _ribbonGalleryBorder;
+        private readonly PaletteRibbonBack _ribbonAppMenuInner;
+        private readonly PaletteRibbonBack _ribbonAppMenuOuter;
+        private readonly PaletteRibbonBack _ribbonAppMenuDocs;
+        private readonly PaletteRibbonText _ribbonAppMenuDocsTitle;
+        private readonly PaletteRibbonText _ribbonAppMenuDocsEntry;
+        private readonly PaletteRibbonBack _ribbonGalleryBack;
+        private readonly PaletteRibbonBack _ribbonGalleryBorder;
         #endregion
 
         #region Identity

@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private ButtonStyle _checkButtonStyle;
         private ButtonStyle _overflowButtonStyle;
         private PaletteBorderStyle _borderEdgeStyle;

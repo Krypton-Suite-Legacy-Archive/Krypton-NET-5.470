@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
 
-        private IContextMenuProvider _parent;
+        private readonly IContextMenuProvider _parent;
         private Nullable<ToolStripDropDownCloseReason> _closeReason;
 
         #endregion

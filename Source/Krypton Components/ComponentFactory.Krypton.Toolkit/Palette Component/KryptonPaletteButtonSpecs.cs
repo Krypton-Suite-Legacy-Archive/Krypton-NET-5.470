@@ -94,30 +94,30 @@ namespace ComponentFactory.Krypton.Toolkit
             RibbonExpand.SetRedirector(redirectCommon);
 
             // Hook into the storage change events
-            Common.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            Generic.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            Close.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            Context.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            Next.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            Previous.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            ArrowLeft.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            ArrowRight.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            ArrowUp.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            ArrowDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            DropDown.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            PinVertical.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            PinHorizontal.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            FormClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            FormMax.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            FormMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            FormRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            PendantClose.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            PendantMin.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            PendantRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            WorkspaceMaximize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            WorkspaceRestore.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            RibbonMinimize.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-            RibbonExpand.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+            Common.ButtonSpecChanged += OnButtonSpecChanged;
+            Generic.ButtonSpecChanged += OnButtonSpecChanged;
+            Close.ButtonSpecChanged += OnButtonSpecChanged;
+            Context.ButtonSpecChanged += OnButtonSpecChanged;
+            Next.ButtonSpecChanged += OnButtonSpecChanged;
+            Previous.ButtonSpecChanged += OnButtonSpecChanged;
+            ArrowLeft.ButtonSpecChanged += OnButtonSpecChanged;
+            ArrowRight.ButtonSpecChanged += OnButtonSpecChanged;
+            ArrowUp.ButtonSpecChanged += OnButtonSpecChanged;
+            ArrowDown.ButtonSpecChanged += OnButtonSpecChanged;
+            DropDown.ButtonSpecChanged += OnButtonSpecChanged;
+            PinVertical.ButtonSpecChanged += OnButtonSpecChanged;
+            PinHorizontal.ButtonSpecChanged += OnButtonSpecChanged;
+            FormClose.ButtonSpecChanged += OnButtonSpecChanged;
+            FormMax.ButtonSpecChanged += OnButtonSpecChanged;
+            FormMin.ButtonSpecChanged += OnButtonSpecChanged;
+            FormRestore.ButtonSpecChanged += OnButtonSpecChanged;
+            PendantClose.ButtonSpecChanged += OnButtonSpecChanged;
+            PendantMin.ButtonSpecChanged += OnButtonSpecChanged;
+            PendantRestore.ButtonSpecChanged += OnButtonSpecChanged;
+            WorkspaceMaximize.ButtonSpecChanged += OnButtonSpecChanged;
+            WorkspaceRestore.ButtonSpecChanged += OnButtonSpecChanged;
+            RibbonMinimize.ButtonSpecChanged += OnButtonSpecChanged;
+            RibbonExpand.ButtonSpecChanged += OnButtonSpecChanged;
         }
         #endregion
 

@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonGroupActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonGroup _group;
-        private IComponentChangeService _service;
+        private readonly KryptonGroup _group;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

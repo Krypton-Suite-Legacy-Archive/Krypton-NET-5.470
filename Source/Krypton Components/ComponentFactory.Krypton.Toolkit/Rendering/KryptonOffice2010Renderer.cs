@@ -336,7 +336,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Blend _separatorLightBlend;
         private static readonly Blend _separatorDarkBlend;
         private static readonly Color _disabled = Color.FromArgb(167, 167, 167);
-        private static GradientItemColors _disabledItem = new GradientItemColorsDisabled(Color.FromArgb(236, 199, 87), Color.FromArgb(251, 242, 215), Color.FromArgb(247, 224, 137));
+        private static readonly GradientItemColors _disabledItem = new GradientItemColorsDisabled(Color.FromArgb(236, 199, 87), Color.FromArgb(251, 242, 215), Color.FromArgb(247, 224, 137));
         #endregion
 
         #region Instance Fields

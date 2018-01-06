@@ -70,8 +70,8 @@ namespace ComponentFactory.Krypton.Navigator
             ViewManager.Root = _newRoot;
 
 			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += new EventHandler(OnNavigatorEnabledChanged);
-            Navigator.RightToLeftChanged += new EventHandler(OnNavigatorRightToLeftChanged);
+			Navigator.EnabledChanged += OnNavigatorEnabledChanged;
+            Navigator.RightToLeftChanged += OnNavigatorRightToLeftChanged;
 		}
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ComponentFactory.Krypton.Navigator
             DestructCheckItemView();
 
             // Unhook from navigator enabled event
-            Navigator.EnabledChanged -= new EventHandler(OnNavigatorEnabledChanged);
-            Navigator.RightToLeftChanged -= new EventHandler(OnNavigatorRightToLeftChanged);
+            Navigator.EnabledChanged -= OnNavigatorEnabledChanged;
+            Navigator.RightToLeftChanged -= OnNavigatorRightToLeftChanged;
 
             // Put the old root back again
             ViewManager.Root = _oldRoot;
@@ -725,7 +725,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void CreateCheckItemView()
         {
             // Hook into the events from created view elements
-            _layoutBarViewport.AnimateStep += new EventHandler(OnViewportAnimation);
+            _layoutBarViewport.AnimateStep += OnViewportAnimation;
         }
 
         /// <summary>
@@ -740,7 +740,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                                new PaletteMetricInt[] { PaletteMetricInt.BarButtonEdgeInside },
                                                                new PaletteMetricInt[] { PaletteMetricInt.BarButtonEdgeOutside },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.BarButtonPadding },
-                                                               new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
+                                                               Navigator.CreateToolStripRenderer,
                                                                NeedPaintDelegate)
             {
 
@@ -775,7 +775,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void DestructCheckItemView()
         {
             // Unhook from events
-            _layoutBarViewport.AnimateStep -= new EventHandler(OnViewportAnimation);
+            _layoutBarViewport.AnimateStep -= OnViewportAnimation;
 
             // Remove the old root from the canvas
             _drawPanel?.Clear();
@@ -990,8 +990,8 @@ namespace ComponentFactory.Krypton.Navigator
                 INavCheckItem checkItem = CreateCheckItem(page, orientation);
 
                 // Provide the drag rectangle when requested for this button
-                checkItem.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkItem.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkItem.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkItem.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check button needs repainting
                 checkItem.NeedPaint = NeedPaintDelegate;
@@ -1009,9 +1009,9 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // Need to monitor changes in the page collection to reflect in layout bar
-            Navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnItemPageInserted);
-            Navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnItemPageRemoved);
-            Navigator.Pages.Cleared += new EventHandler(OnItemPagesCleared);
+            Navigator.Pages.Inserted += OnItemPageInserted;
+            Navigator.Pages.Removed += OnItemPageRemoved;
+            Navigator.Pages.Cleared += OnItemPagesCleared;
             _events++;
         }
 
@@ -1019,9 +1019,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
             // Unhook from monitoring the pages collection
             _events--;
-            Navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnItemPageInserted);
-            Navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnItemPageRemoved);
-            Navigator.Pages.Cleared -= new EventHandler(OnItemPagesCleared);
+            Navigator.Pages.Inserted -= OnItemPageInserted;
+            Navigator.Pages.Removed -= OnItemPageRemoved;
+            Navigator.Pages.Cleared -= OnItemPagesCleared;
 
             // Must clean up buttons in way that removes all event hooks
             DestructCheckButtons();
@@ -1087,8 +1087,8 @@ namespace ComponentFactory.Krypton.Navigator
                 INavCheckItem checkItem = (INavCheckItem)child;
 
                 // Must unhook from events
-                checkItem.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkItem.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkItem.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkItem.ButtonDragOffset -= OnCheckButtonDragOffset;
                 checkItem.NeedPaint = null;
             
                 // Dispose of element gracefully
@@ -1164,8 +1164,8 @@ namespace ComponentFactory.Krypton.Navigator
                 INavCheckItem checkItem = _pageLookup[e.Item];
 
                 // Must unhook from events
-                checkItem.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkItem.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkItem.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkItem.ButtonDragOffset -= OnCheckButtonDragOffset;
                 checkItem.NeedPaint = null;
 
                 // Tell the checkbutton it is not longer required
@@ -1190,8 +1190,8 @@ namespace ComponentFactory.Krypton.Navigator
                 INavCheckItem checkItem = CreateCheckItem(e.Item, ConvertButtonBorderBackOrientation());
 
                 // Provide the drag rectangle when requested for this button
-                checkItem.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkItem.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkItem.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkItem.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check button needs repainting
                 checkItem.NeedPaint = NeedPaintDelegate;

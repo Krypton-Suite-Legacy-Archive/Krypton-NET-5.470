@@ -84,23 +84,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
         private KryptonTaskDialog _taskDialog;
-        private string _windowTitle;
-        private string _mainInstruction;
-        private string _content;
-        private MessageBoxIcon _mainIcon;
-        private Image _customMainIcon;
-        private KryptonTaskDialogCommandCollection _radioButtons;
-        private KryptonTaskDialogCommandCollection _commandButtons;
+        private readonly string _windowTitle;
+        private readonly string _mainInstruction;
+        private readonly string _content;
+        private readonly MessageBoxIcon _mainIcon;
+        private readonly Image _customMainIcon;
+        private readonly KryptonTaskDialogCommandCollection _radioButtons;
+        private readonly KryptonTaskDialogCommandCollection _commandButtons;
         private KryptonTaskDialogCommand _defaultRadioButton;
-        private TaskDialogButtons _commonButtons;
-        private TaskDialogButtons _defaultButton;
-        private MessageBoxIcon _footerIcon;
-        private Image _customFooterIcon;
-        private string _footerText;
-        private string _footerHyperlink;
-        private string _checkboxText;
+        private readonly TaskDialogButtons _commonButtons;
+        private readonly TaskDialogButtons _defaultButton;
+        private readonly MessageBoxIcon _footerIcon;
+        private readonly Image _customFooterIcon;
+        private readonly string _footerText;
+        private readonly string _footerHyperlink;
+        private readonly string _checkboxText;
         private bool _checkboxState;
-        private bool _allowDialogClose;
+        private readonly bool _allowDialogClose;
 
         // User Interface
         private KryptonPanel _panelMain;
@@ -265,7 +265,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     button.Values.Image = command.Image;
                     button.Values.ImageTransparentColor = command.ImageTransparentColor;
                     button.Enabled = command.Enabled;
-                    button.CheckedChanged += new EventHandler(OnRadioButtonCheckedChanged);
+                    button.CheckedChanged += OnRadioButtonCheckedChanged;
                     button.Tag = command;
                     if (_defaultRadioButton == command)
                     {
@@ -326,7 +326,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     button.Enabled = command.Enabled;
                     button.DialogResult = command.DialogResult;
                     button.Tag = command;
-                    button.Click += new EventHandler(OnCommandClicked);
+                    button.Click += OnCommandClicked;
                     _panelMainCommands.Controls.Add(button);
 
                     // Note that largest button encountered
@@ -1139,7 +1139,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._checkBox.Size = new System.Drawing.Size(75, 20);
             this._checkBox.TabIndex = 0;
             this._checkBox.Values.Text = "checkBox";
-            this._checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            this._checkBox.CheckedChanged += this.checkBox_CheckedChanged;
             // 
             // _panelButtonsBorderTop
             // 
@@ -1163,7 +1163,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonOK.Size = new System.Drawing.Size(50, 26);
             this._buttonOK.TabIndex = 1;
             this._buttonOK.Values.Text = "OK";
-            this._buttonOK.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonOK.KeyDown += this.button_keyDown;
             // 
             // _buttonYes
             // 
@@ -1178,7 +1178,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonYes.Size = new System.Drawing.Size(50, 26);
             this._buttonYes.TabIndex = 2;
             this._buttonYes.Values.Text = "Yes";
-            this._buttonYes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonYes.KeyDown += this.button_keyDown;
             // 
             // _buttonNo
             // 
@@ -1193,7 +1193,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonNo.Size = new System.Drawing.Size(50, 26);
             this._buttonNo.TabIndex = 3;
             this._buttonNo.Values.Text = "No";
-            this._buttonNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonNo.KeyDown += this.button_keyDown;
             // 
             // _buttonRetry
             // 
@@ -1208,7 +1208,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonRetry.Size = new System.Drawing.Size(50, 26);
             this._buttonRetry.TabIndex = 5;
             this._buttonRetry.Values.Text = "Retry";
-            this._buttonRetry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonRetry.KeyDown += this.button_keyDown;
             // 
             // _buttonCancel
             // 
@@ -1223,7 +1223,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonCancel.Size = new System.Drawing.Size(57, 26);
             this._buttonCancel.TabIndex = 4;
             this._buttonCancel.Values.Text = "Cancel";
-            this._buttonCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonCancel.KeyDown += this.button_keyDown;
             // 
             // _buttonClose
             // 
@@ -1237,8 +1237,8 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonClose.Size = new System.Drawing.Size(50, 26);
             this._buttonClose.TabIndex = 6;
             this._buttonClose.Values.Text = "Close";
-            this._buttonClose.Click += new System.EventHandler(this._buttonClose_Click);
-            this._buttonClose.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonClose.Click += this._buttonClose_Click;
+            this._buttonClose.KeyDown += this.button_keyDown;
             // 
             // _panelFooter
             // 
@@ -1261,7 +1261,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._linkLabelFooter.Size = new System.Drawing.Size(110, 20);
             this._linkLabelFooter.TabIndex = 0;
             this._linkLabelFooter.Values.Text = "kryptonLinkLabel1";
-            this._linkLabelFooter.LinkClicked += new System.EventHandler(this._linkLabelFooter_LinkClicked);
+            this._linkLabelFooter.LinkClicked += this._linkLabelFooter_LinkClicked;
             // 
             // _iconFooter
             // 
@@ -1310,7 +1310,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnTaskDialogFormClosing);
+            this.FormClosing += this.OnTaskDialogFormClosing;
             ((System.ComponentModel.ISupportInitialize)(this._panelMain)).EndInit();
             this._panelMain.ResumeLayout(false);
             this._panelMain.PerformLayout();

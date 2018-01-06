@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonDateTimePickerActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonDateTimePicker _dateTimePicker;
-        private IComponentChangeService _service;
+        private readonly KryptonDateTimePicker _dateTimePicker;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

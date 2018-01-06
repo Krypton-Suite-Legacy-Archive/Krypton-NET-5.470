@@ -20,9 +20,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                          IPaletteTriple
 	{
 		#region Intance Fields
-		private PaletteBackInheritOverride _overrideBack;
-		private PaletteBorderInheritOverride _overrideBorder;
-		private PaletteContentInheritOverride _overrideContent;
+		private readonly PaletteBackInheritOverride _overrideBack;
+		private readonly PaletteBorderInheritOverride _overrideBorder;
+		private readonly PaletteContentInheritOverride _overrideContent;
 		#endregion
 
 		#region Identity

@@ -74,10 +74,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create the collection for defining groups
             Groups = new KryptonRibbonGroupCollection();
-            Groups.Clearing += new EventHandler(OnRibbonGroupsClearing);
-            Groups.Cleared += new EventHandler(OnRibbonGroupsCleared);
-            Groups.Inserted += new TypedHandler<KryptonRibbonGroup>(OnRibbonGroupsInserted);
-            Groups.Removed += new TypedHandler<KryptonRibbonGroup>(OnRibbonGroupsRemoved);
+            Groups.Clearing += OnRibbonGroupsClearing;
+            Groups.Cleared += OnRibbonGroupsCleared;
+            Groups.Inserted += OnRibbonGroupsInserted;
+            Groups.Removed += OnRibbonGroupsRemoved;
         }
 
         /// <summary>

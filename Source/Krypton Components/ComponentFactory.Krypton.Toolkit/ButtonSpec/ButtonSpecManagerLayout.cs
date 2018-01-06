@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ButtonSpecManagerLayout : ButtonSpecManagerBase
     {
         #region Instance Fields
-        private ViewLayoutDocker[] _viewDockers;
+        private readonly ViewLayoutDocker[] _viewDockers;
         #endregion
 
         #region Identity

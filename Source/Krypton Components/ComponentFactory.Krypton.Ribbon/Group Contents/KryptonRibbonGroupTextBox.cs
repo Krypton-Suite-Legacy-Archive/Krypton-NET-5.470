@@ -169,19 +169,19 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            TextBox.AcceptsTabChanged += new EventHandler(OnTextBoxAcceptsTabChanged);
-            TextBox.TextAlignChanged += new EventHandler(OnTextBoxTextAlignChanged);
-            TextBox.TextChanged += new EventHandler(OnTextBoxTextChanged);
-            TextBox.HideSelectionChanged += new EventHandler(OnTextBoxHideSelectionChanged);
-            TextBox.ModifiedChanged += new EventHandler(OnTextBoxModifiedChanged);
-            TextBox.MultilineChanged += new EventHandler(OnTextBoxMultilineChanged);
-            TextBox.ReadOnlyChanged += new EventHandler(OnTextBoxReadOnlyChanged);
-            TextBox.GotFocus += new EventHandler(OnTextBoxGotFocus);
-            TextBox.LostFocus += new EventHandler(OnTextBoxLostFocus);
-            TextBox.KeyDown += new KeyEventHandler(OnTextBoxKeyDown);
-            TextBox.KeyUp += new KeyEventHandler(OnTextBoxKeyUp);
-            TextBox.KeyPress += new KeyPressEventHandler(OnTextBoxKeyPress);
-            TextBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnTextBoxPreviewKeyDown);
+            TextBox.AcceptsTabChanged += OnTextBoxAcceptsTabChanged;
+            TextBox.TextAlignChanged += OnTextBoxTextAlignChanged;
+            TextBox.TextChanged += OnTextBoxTextChanged;
+            TextBox.HideSelectionChanged += OnTextBoxHideSelectionChanged;
+            TextBox.ModifiedChanged += OnTextBoxModifiedChanged;
+            TextBox.MultilineChanged += OnTextBoxMultilineChanged;
+            TextBox.ReadOnlyChanged += OnTextBoxReadOnlyChanged;
+            TextBox.GotFocus += OnTextBoxGotFocus;
+            TextBox.LostFocus += OnTextBoxLostFocus;
+            TextBox.KeyDown += OnTextBoxKeyDown;
+            TextBox.KeyUp += OnTextBoxKeyUp;
+            TextBox.KeyPress += OnTextBoxKeyPress;
+            TextBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
 
             // Ensure we can track mouse events on the text box
             MonitorControl(TextBox);
@@ -225,7 +225,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the text box as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     TextBox.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -1095,18 +1095,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonTextBox c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
-            c.TrackMouseEnter += new EventHandler(OnControlEnter);
-            c.TrackMouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
+            c.TrackMouseEnter += OnControlEnter;
+            c.TrackMouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonTextBox c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
-            c.TrackMouseEnter -= new EventHandler(OnControlEnter);
-            c.TrackMouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
+            c.TrackMouseEnter -= OnControlEnter;
+            c.TrackMouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

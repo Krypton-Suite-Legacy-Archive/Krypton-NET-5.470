@@ -19,11 +19,11 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewDrawMenuCheckBox : ViewComposite
     {
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private FixedContentValue _contentValues;
-        private ViewLayoutCenter _layoutCenter;
-        private ViewLayoutDocker _outerDocker;
-        private ViewLayoutDocker _innerDocker;
+        private readonly IContextMenuProvider _provider;
+        private readonly FixedContentValue _contentValues;
+        private readonly ViewLayoutCenter _layoutCenter;
+        private readonly ViewLayoutDocker _outerDocker;
+        private readonly ViewLayoutDocker _innerDocker;
         private KryptonCommand _cachedCommand;
 
         #endregion
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use context menu specific version of the check box controller
             MenuCheckBoxController mcbc = new MenuCheckBoxController(provider.ProviderViewManager, _innerDocker, this, provider.ProviderNeedPaintDelegate);
-            mcbc.Click += new EventHandler(OnClick);
+            mcbc.Click += OnClick;
             _innerDocker.MouseController = mcbc;
             _innerDocker.KeyController = mcbc;
 
@@ -99,13 +99,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
 
             // Want to know when a property changes whilst displayed
-            KryptonContextMenuCheckBox.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            KryptonContextMenuCheckBox.PropertyChanged += OnPropertyChanged;
 
             // We need to know if a property of the command changes
             if (KryptonContextMenuCheckBox.KryptonCommand != null)
             {
                 _cachedCommand = KryptonContextMenuCheckBox.KryptonCommand;
-                KryptonContextMenuCheckBox.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                KryptonContextMenuCheckBox.KryptonCommand.PropertyChanged += OnCommandPropertyChanged;
             }
         }
 
@@ -128,11 +128,11 @@ namespace ComponentFactory.Krypton.Toolkit
             if (disposing)
             {
                 // Unhook from events
-                KryptonContextMenuCheckBox.PropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
+                KryptonContextMenuCheckBox.PropertyChanged -= OnPropertyChanged;
 
                 if (_cachedCommand != null)
                 {
-                    _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    _cachedCommand.PropertyChanged -= OnCommandPropertyChanged;
                     _cachedCommand = null;
                 }
             }
@@ -401,14 +401,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Unhook from any existing command
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     // Hook into the new command
                     _cachedCommand = KryptonContextMenuCheckBox.KryptonCommand;
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged += OnCommandPropertyChanged;
                     }
 
                     // Update to show new state

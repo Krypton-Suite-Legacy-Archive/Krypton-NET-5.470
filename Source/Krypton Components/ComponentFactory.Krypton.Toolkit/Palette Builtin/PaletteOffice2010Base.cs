@@ -142,11 +142,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
         private KryptonColorTable2010 _table;
-        private Color[] _ribbonColors;
-        private Color[] _trackBarColors;
-        private ImageList _checkBoxList;
-        private ImageList _galleryButtonList;
-        private Image[] _radioButtonArray;
+        private readonly Color[] _ribbonColors;
+        private readonly Color[] _trackBarColors;
+        private readonly ImageList _checkBoxList;
+        private readonly ImageList _galleryButtonList;
+        private readonly Image[] _radioButtonArray;
         private Font _header1ShortFont;
         private Font _header2ShortFont;
         private Font _header1LongFont;

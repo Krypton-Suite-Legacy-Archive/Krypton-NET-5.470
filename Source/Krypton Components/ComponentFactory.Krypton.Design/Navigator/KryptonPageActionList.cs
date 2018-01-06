@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Navigator
     internal class KryptonPageActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonPage _page;
-        private IComponentChangeService _serviceComponentChange;
+        private readonly KryptonPage _page;
+        private readonly IComponentChangeService _serviceComponentChange;
         private DesignerActionItemCollection _actions;
         #endregion
 

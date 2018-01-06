@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteImagesGalleryButton : Storage
     {
         #region Instance Fields
-        private PaletteRibbonGalleryButton _button;
+        private readonly PaletteRibbonGalleryButton _button;
         private PaletteRedirect _redirect;
         private Image _common;
         private Image _disabled;

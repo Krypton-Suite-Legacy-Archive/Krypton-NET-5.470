@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Image _image;
         private Color _imageTransparentColor;
         private CheckState _checkState;
-        private PaletteContentInheritRedirect _stateCommonRedirect;
+        private readonly PaletteContentInheritRedirect _stateCommonRedirect;
         private KryptonCommand _command;
         private LabelStyle _style;
         #endregion

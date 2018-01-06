@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
 
-        private IRibbonKeyTipTarget _target;
+        private readonly IRibbonKeyTipTarget _target;
         #endregion
 
         #region Identity

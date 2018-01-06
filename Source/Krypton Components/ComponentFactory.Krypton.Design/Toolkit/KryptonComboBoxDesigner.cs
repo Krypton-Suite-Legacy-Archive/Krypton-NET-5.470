@@ -48,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_comboBox != null)
             {
                 // Hook into combobox events
-                _comboBox.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnComboBoxMouseUp);
-                _comboBox.GetViewManager().DoubleClickProcessed += new PointHandler(OnComboBoxDoubleClick);
+                _comboBox.GetViewManager().MouseUpProcessed += OnComboBoxMouseUp;
+                _comboBox.GetViewManager().DoubleClickProcessed += OnComboBoxDoubleClick;
             }
 
             // Get access to the design services
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>

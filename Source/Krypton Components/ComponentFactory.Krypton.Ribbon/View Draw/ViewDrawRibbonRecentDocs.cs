@@ -22,8 +22,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IContentValues
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private RibbonRecentDocsTitleToContent _contentProvider;
+        private readonly KryptonRibbon _ribbon;
+        private readonly RibbonRecentDocsTitleToContent _contentProvider;
         private IDisposable _memento;
         #endregion
 

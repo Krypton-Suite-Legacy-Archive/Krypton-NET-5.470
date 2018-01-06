@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawNull : ViewLayoutNull
     {
         #region Instance Fields
-        private Color _fillColor;
+        private readonly Color _fillColor;
         #endregion
 
         #region Identity

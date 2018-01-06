@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
 	internal class ViewLayoutInsetOverlap : ViewComposite
     {
         #region Instance Fields
-        private ViewDrawCanvas _drawCanvas;
+        private readonly ViewDrawCanvas _drawCanvas;
 
         #endregion
 

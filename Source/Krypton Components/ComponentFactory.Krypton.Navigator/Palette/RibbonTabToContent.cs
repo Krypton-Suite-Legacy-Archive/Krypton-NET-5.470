@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class RibbonTabToContent : IPaletteContent
     {
         #region Instance Fields
-        private IPaletteRibbonGeneral _ribbonGeneral;
+        private readonly IPaletteRibbonGeneral _ribbonGeneral;
 
         #endregion
 

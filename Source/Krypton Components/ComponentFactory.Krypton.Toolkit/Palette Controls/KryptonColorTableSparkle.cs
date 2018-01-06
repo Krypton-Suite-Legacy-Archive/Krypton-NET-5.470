@@ -30,8 +30,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private Color[] _colors;
-        private Color[] _sparkleColors;
+        private readonly Color[] _colors;
+        private readonly Color[] _sparkleColors;
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
             DefineFonts();
 
             // We need to notice when system color settings change
-            SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
         }
 
         /// <summary>

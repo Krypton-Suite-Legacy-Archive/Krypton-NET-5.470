@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region Instance Fields
-        private bool _disposeFont;
+        private readonly bool _disposeFont;
 	    private TextRenderingHint _hint;
 		#endregion
 

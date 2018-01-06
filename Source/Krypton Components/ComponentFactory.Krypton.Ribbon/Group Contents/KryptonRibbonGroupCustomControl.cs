@@ -357,8 +357,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private void MonitorControl(Control c)
         {
             // Monitor the mouse enter and leave
-            c.MouseEnter += new EventHandler(OnCustomControlEnter);
-            c.MouseLeave += new EventHandler(OnCustomControlLeave);
+            c.MouseEnter += OnCustomControlEnter;
+            c.MouseLeave += OnCustomControlLeave;
 
             // Hook into child controls
             foreach (Control child in c.Controls)
@@ -370,8 +370,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private void UnmonitorControl(Control c)
         {
             // Unhook from events
-            c.MouseEnter -= new EventHandler(OnCustomControlEnter);
-            c.MouseLeave -= new EventHandler(OnCustomControlLeave);
+            c.MouseEnter -= OnCustomControlEnter;
+            c.MouseLeave -= OnCustomControlLeave;
 
             // Unhook from child controls
             foreach (Control child in c.Controls)

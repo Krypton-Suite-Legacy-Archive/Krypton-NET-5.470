@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonListBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonListBox _listBox;
-        private IComponentChangeService _service;
+        private readonly KryptonListBox _listBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

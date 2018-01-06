@@ -17,8 +17,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonPaletteActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonPalette _palette;
-        private IComponentChangeService _service;
+        private readonly KryptonPalette _palette;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity
@@ -51,10 +51,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_palette != null)
             {
                 // Add the list of panel specific actions
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Reset to Defaults", new EventHandler(OnResetClick)), "Actions"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Populate from Base", new EventHandler(OnPopulateClick)), "Actions"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Import from Xml file...", new EventHandler(OnImportClick)), "Actions"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Export to Xml file...", new EventHandler(OnExportClick)), "Actions"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Reset to Defaults", OnResetClick), "Actions"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Populate from Base", OnPopulateClick), "Actions"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Import from Xml file...", OnImportClick), "Actions"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb("Export to Xml file...", OnExportClick), "Actions"));
             }
 
             return actions;

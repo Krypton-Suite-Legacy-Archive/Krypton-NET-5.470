@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _rootControl = rootControl;
 
             // Create delegate so child elements can request a repaint
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = OnNeedPaint;
         }
         #endregion
 

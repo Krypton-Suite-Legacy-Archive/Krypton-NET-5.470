@@ -32,14 +32,14 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonButton : VisualSimpleBase, IButtonControl, IContentValues
 	{
 		#region Instance Fields
-        private ViewDrawButton _drawButton;
+        private readonly ViewDrawButton _drawButton;
         private ButtonStyle _style;
-	    private ButtonController _buttonController;
+	    private readonly ButtonController _buttonController;
         private VisualOrientation _orientation;
-	    private PaletteTripleOverride _overrideFocus;
-		private PaletteTripleOverride _overrideNormal;
-		private PaletteTripleOverride _overrideTracking;
-		private PaletteTripleOverride _overridePressed;
+	    private readonly PaletteTripleOverride _overrideFocus;
+		private readonly PaletteTripleOverride _overrideNormal;
+		private readonly PaletteTripleOverride _overrideTracking;
+		private readonly PaletteTripleOverride _overridePressed;
         private IKryptonCommand _command;
 	    private bool _isDefault;
 		private bool _useMnemonic;
@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create content storage
             Values = CreateButtonValues(NeedPaintDelegate);
-            Values.TextChanged += new EventHandler(OnButtonTextChanged);
+            Values.TextChanged += OnButtonTextChanged;
 
             // Create the palette storage
             StateCommon = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
@@ -115,8 +115,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawButton.SourceController = _buttonController;
 
             // Need to know when user clicks the button view or mouse selects it
-            _buttonController.Click += new MouseEventHandler(OnButtonClick);
-            _buttonController.MouseSelect += new MouseEventHandler(OnButtonSelect);
+            _buttonController.Click += OnButtonClick;
+            _buttonController.MouseSelect += OnButtonSelect;
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawButton);
@@ -359,7 +359,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
                     else
                     {
@@ -371,7 +371,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                     else
                     {

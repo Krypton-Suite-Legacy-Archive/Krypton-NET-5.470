@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Navigator
 			ViewManager.Root = _drawCanvas;
 
 			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
+			Navigator.EnabledChanged += OnEnabledChanged;
 		}
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace ComponentFactory.Krypton.Navigator
 		public override void Destruct()
 		{
 			// Unhook from events
-			Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
+			Navigator.EnabledChanged -= OnEnabledChanged;
 
 			// Remove the old root from the canvas
 			_drawCanvas.Clear();

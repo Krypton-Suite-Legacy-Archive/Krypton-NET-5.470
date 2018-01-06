@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
 
-        private ViewDrawContent _drawContent;
+        private readonly ViewDrawContent _drawContent;
         #endregion
 
         #region Identity

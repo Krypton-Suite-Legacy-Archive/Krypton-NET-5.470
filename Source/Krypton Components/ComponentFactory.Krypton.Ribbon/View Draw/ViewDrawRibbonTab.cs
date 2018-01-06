@@ -26,29 +26,29 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Static Fields
         private static readonly string _empty = "<Empty>";
-        private static Padding _preferredBorder2007 = new Padding(12, 3, 12, 1);
-        private static Padding _preferredBorder2010 = new Padding(8, 4, 8, 3);
-        private static Padding _layoutBorder2007 = new Padding(4, 3, 4, 1);
-        private static Padding _layoutBorder2010 = new Padding(1, 4, 0, 3);
-        private static Blend _contextBlend2007;
-        private static Blend _contextBlend2010;
+        private static readonly Padding _preferredBorder2007 = new Padding(12, 3, 12, 1);
+        private static readonly Padding _preferredBorder2010 = new Padding(8, 4, 8, 3);
+        private static readonly Padding _layoutBorder2007 = new Padding(4, 3, 4, 1);
+        private static readonly Padding _layoutBorder2010 = new Padding(1, 4, 0, 3);
+        private static readonly Blend _contextBlend2007;
+        private static readonly Blend _contextBlend2010;
         #endregion
 
         #region Instance Fields
 
         private KryptonRibbonTab _ribbonTab;
-        private PaletteRibbonGeneral _paletteGeneral;
-        private PaletteRibbonDoubleInheritOverride _overrideStateNormal;
-        private PaletteRibbonDoubleInheritOverride _overrideStateTracking;
-        private PaletteRibbonDoubleInheritOverride _overrideStateCheckedNormal;
-        private PaletteRibbonDoubleInheritOverride _overrideStateCheckedTracking;
-        private PaletteRibbonDoubleInheritOverride _overrideStateContextTracking;
-        private PaletteRibbonDoubleInheritOverride _overrideStateContextCheckedNormal;
-        private PaletteRibbonDoubleInheritOverride _overrideStateContextCheckedTracking;
+        private readonly PaletteRibbonGeneral _paletteGeneral;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateNormal;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateTracking;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateCheckedNormal;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateCheckedTracking;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateContextTracking;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateContextCheckedNormal;
+        private readonly PaletteRibbonDoubleInheritOverride _overrideStateContextCheckedTracking;
         private PaletteRibbonDoubleInheritOverride _overrideCurrent;
-        private PaletteRibbonContextDouble _paletteContextCurrent;
-        private RibbonTabToContent _contentProvider;
-        private NeedPaintHandler _needPaint;
+        private readonly PaletteRibbonContextDouble _paletteContextCurrent;
+        private readonly RibbonTabToContent _contentProvider;
+        private readonly NeedPaintHandler _needPaint;
         private IDisposable[] _mementos;
         private Size _preferredSize;
         private Rectangle _displayRect;
@@ -112,8 +112,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Use a controller to change state because of mouse movement
             RibbonTabController controller = new RibbonTabController(Ribbon, this, _needPaint);
-            controller.Click += new MouseEventHandler(OnTabClicked);
-            controller.ContextClick += new MouseEventHandler(OnTabContextClicked);
+            controller.Click += OnTabClicked;
+            controller.ContextClick += OnTabContextClicked;
             MouseController = controller;
             SourceController = controller;
             KeyController = controller;
@@ -148,7 +148,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (_ribbonTab != null)
                 {
-                    _ribbonTab.PropertyChanged -= new System.ComponentModel.PropertyChangedEventHandler(OnTabPropertyChanged);
+                    _ribbonTab.PropertyChanged -= OnTabPropertyChanged;
                     _ribbonTab.TabView = null;
                 }
 
@@ -239,7 +239,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Unhook from current event handler
                     if (_ribbonTab != null)
                     {
-                        _ribbonTab.PropertyChanged -= new PropertyChangedEventHandler(OnTabPropertyChanged);
+                        _ribbonTab.PropertyChanged -= OnTabPropertyChanged;
                         _ribbonTab.TabView = null;
                     }
 
@@ -251,7 +251,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Hook into new tab changes
                     if (_ribbonTab != null)
                     {
-                        _ribbonTab.PropertyChanged += new PropertyChangedEventHandler(OnTabPropertyChanged);
+                        _ribbonTab.PropertyChanged += OnTabPropertyChanged;
                         _ribbonTab.TabView = this;
                     }
 

@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private PaletteContentInheritRedirect _contentInherit;
+	    private readonly PaletteContentInheritRedirect _contentInherit;
         #endregion
 
 		#region Identity

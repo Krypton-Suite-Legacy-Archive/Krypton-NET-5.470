@@ -33,9 +33,9 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
 
-        private PaletteRedirectContextMenu _redirectorImages;
-        private PaletteRedirect _redirector;
-        private NeedPaintHandler _needPaintDelegate;
+        private readonly PaletteRedirectContextMenu _redirectorImages;
+        private readonly PaletteRedirect _redirector;
+        private readonly NeedPaintHandler _needPaintDelegate;
 
         #endregion
 
@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public KryptonContextMenu()
         {
             // Setup the need paint delegate
-            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            _needPaintDelegate = OnNeedPaint;
 
             // Set default settings
             Palette = null;
@@ -409,7 +409,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                      Items, Enabled, keyboardActivated);
 
                     // Need to know when the visual control is removed
-                    VisualContextMenu.Disposed += new EventHandler(OnContextMenuDisposed);
+                    VisualContextMenu.Disposed += OnContextMenuDisposed;
 
                     // Request the menu be shown immediately
                     VisualContextMenu.Show(screenRect, horz, vert, false, constrain);
@@ -557,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (VisualContextMenu != null)
             {
                 // Unhook from control, so it can be garbage collected
-                VisualContextMenu.Disposed -= new EventHandler(OnContextMenuDisposed);
+                VisualContextMenu.Disposed -= OnContextMenuDisposed;
 
                 // Copy to ourself the close reason
                 if (VisualContextMenu.CloseReason.HasValue)

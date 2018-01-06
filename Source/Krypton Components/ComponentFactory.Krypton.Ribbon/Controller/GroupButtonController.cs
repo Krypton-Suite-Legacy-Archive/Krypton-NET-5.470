@@ -26,8 +26,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                            IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewDrawRibbonGroupButtonBackBorder _target;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewDrawRibbonGroupButtonBackBorder _target;
         private NeedPaintHandler _needPaint;
 	    private Rectangle _splitRectangle;
         private bool _rightButtonDown;

@@ -218,7 +218,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private const float CUT_TOOL_ITEM_MENU = 1.0f;
         private static readonly Blend _statusStripBlend;
         private static readonly Color _disabled = Color.FromArgb(167, 167, 167);
-        private static GradientItemColors _disabledItem = new GradientItemColors(Color.FromArgb(250, 250, 250), Color.FromArgb(243, 243, 243),
+        private static readonly GradientItemColors _disabledItem = new GradientItemColors(Color.FromArgb(250, 250, 250), Color.FromArgb(243, 243, 243),
                                                                                  Color.FromArgb(236, 236, 236), Color.FromArgb(230, 230, 230),
                                                                                  Color.FromArgb(243, 243, 243), Color.FromArgb(224, 224, 224),
                                                                                  Color.FromArgb(200, 200, 200), Color.FromArgb(210, 210, 210),

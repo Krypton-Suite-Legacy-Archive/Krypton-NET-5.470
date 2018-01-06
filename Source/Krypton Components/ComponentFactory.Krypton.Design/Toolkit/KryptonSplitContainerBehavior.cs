@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonSplitContainerBehavior : Behavior
     {
         #region Instance Fields
-        private KryptonSplitContainer _splitContainer;
+        private readonly KryptonSplitContainer _splitContainer;
         #endregion
 
         #region Identity

@@ -15,7 +15,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonProfessionalCustomKCT : KryptonProfessionalKCT
     {
         #region Instance Fields
-        private Color[] _colors;
+        private readonly Color[] _colors;
         #endregion
 
         #region Identity

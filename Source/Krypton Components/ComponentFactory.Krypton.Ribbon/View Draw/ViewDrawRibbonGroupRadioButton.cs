@@ -30,21 +30,21 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewLayoutRibbonRadioButton _viewLarge;
         private ViewDrawRibbonGroupRadioButtonImage _viewLargeImage;
         private ViewDrawRibbonGroupRadioButtonText _viewLargeText1;
         private ViewDrawRibbonGroupRadioButtonText _viewLargeText2;
         private GroupRadioButtonController _viewLargeController;
-        private EventHandler _finishDelegateLarge;
+        private readonly EventHandler _finishDelegateLarge;
         private ViewLayoutRibbonRadioButton _viewMediumSmall;
         private ViewLayoutRibbonRowCenter _viewMediumSmallCenter;
         private ViewDrawRibbonGroupRadioButtonImage _viewMediumSmallImage;
         private ViewDrawRibbonGroupRadioButtonText _viewMediumSmallText1;
         private ViewDrawRibbonGroupRadioButtonText _viewMediumSmallText2;
         private GroupRadioButtonController _viewMediumSmallController;
-        private EventHandler _finishDelegateMediumSmall;
-        private NeedPaintHandler _needPaint;
+        private readonly EventHandler _finishDelegateMediumSmall;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -70,8 +70,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupRadioButton.ItemSizeCurrent;
 
             // Create delegate used to process end of click action
-            _finishDelegateLarge = new EventHandler(ActionFinishedLarge);
-            _finishDelegateMediumSmall = new EventHandler(ActionFinishedMediumSmall);
+            _finishDelegateLarge = ActionFinishedLarge;
+            _finishDelegateMediumSmall = ActionFinishedMediumSmall;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupRadioButton;
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon radio button definition
-            GroupRadioButton.PropertyChanged += new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
+            GroupRadioButton.PropertyChanged += OnRadioButtonPropertyChanged;
         }
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupRadioButton != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupRadioButton.PropertyChanged -= new PropertyChangedEventHandler(OnRadioButtonPropertyChanged);
+                    GroupRadioButton.PropertyChanged -= OnRadioButtonPropertyChanged;
 
                     // Remove association with definition
                     GroupRadioButton.RadioButtonView = null;
@@ -365,8 +365,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create controller for handling mouse, keyboard and focus
             _viewLargeController = new GroupRadioButtonController(_ribbon, _viewLarge, _viewLargeImage, _needPaint);
-            _viewLargeController.Click += new EventHandler(OnLargeRadioButtonClick);
-            _viewLargeController.ContextClick += new MouseEventHandler(OnContextClick);
+            _viewLargeController.Click += OnLargeRadioButtonClick;
+            _viewLargeController.ContextClick += OnContextClick;
             _viewLarge.MouseController = _viewLargeController;
             _viewLarge.SourceController = _viewLargeController;
             _viewLarge.KeyController = _viewLargeController;
@@ -403,8 +403,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create controller for handling mouse, keyboard and focus
             _viewMediumSmallController = new GroupRadioButtonController(_ribbon, _viewMediumSmall, _viewMediumSmallImage, _needPaint);
-            _viewMediumSmallController.Click += new EventHandler(OnMediumSmallRadioButtonClick);
-            _viewMediumSmallController.ContextClick += new MouseEventHandler(OnContextClick);
+            _viewMediumSmallController.Click += OnMediumSmallRadioButtonClick;
+            _viewMediumSmallController.ContextClick += OnContextClick;
             _viewMediumSmall.MouseController = _viewMediumSmallController;
             _viewMediumSmall.SourceController = _viewMediumSmallController;
             _viewMediumSmall.KeyController = _viewMediumSmallController;

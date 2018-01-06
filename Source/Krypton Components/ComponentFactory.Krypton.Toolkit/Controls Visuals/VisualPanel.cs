@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _localPalette;
         private IPalette _palette;
 	    private PaletteMode _paletteMode;
-	    private SimpleCall _refreshCall;
+	    private readonly SimpleCall _refreshCall;
 
 	    #endregion
 
@@ -113,10 +113,10 @@ namespace ComponentFactory.Krypton.Toolkit
             DoubleBuffered = true;
 
             // Setup the invoke used to refresh display
-            _refreshCall = new SimpleCall(OnPerformRefresh);
+            _refreshCall = OnPerformRefresh;
 
             // Setup the need paint delegate
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = OnNeedPaint;
 
             // Must layout before first draw attempt
             _layoutDirty = true;
@@ -145,16 +145,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from any current menu strip
                 if (base.ContextMenuStrip != null)
                 {
-                    base.ContextMenuStrip.Opening -= new CancelEventHandler(OnContextMenuStripOpening);
-                    base.ContextMenuStrip.Closed -= new ToolStripDropDownClosedEventHandler(OnContextMenuClosed);
+                    base.ContextMenuStrip.Opening -= OnContextMenuStripOpening;
+                    base.ContextMenuStrip.Closed -= OnContextMenuClosed;
                     base.ContextMenuStrip = null;
                 }
                 
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint -= OnNeedPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
                 }
 
                 UnattachGlobalEvents();
@@ -241,8 +241,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from any current menu strip
                 if (base.ContextMenuStrip != null)
                 {
-                    base.ContextMenuStrip.Opening -= new CancelEventHandler(OnContextMenuStripOpening);
-                    base.ContextMenuStrip.Closed -= new ToolStripDropDownClosedEventHandler(OnContextMenuClosed);
+                    base.ContextMenuStrip.Opening -= OnContextMenuStripOpening;
+                    base.ContextMenuStrip.Closed -= OnContextMenuClosed;
                 }
 
                 // Let parent handle actual storage
@@ -251,8 +251,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook into the strip being shown (so we can set the correct renderer)
                 if (base.ContextMenuStrip != null)
                 {
-                    base.ContextMenuStrip.Opening += new CancelEventHandler(OnContextMenuStripOpening);
-                    base.ContextMenuStrip.Closed += new ToolStripDropDownClosedEventHandler(OnContextMenuClosed);
+                    base.ContextMenuStrip.Opening += OnContextMenuStripOpening;
+                    base.ContextMenuStrip.Closed += OnContextMenuClosed;
                 }
             }
         }
@@ -721,13 +721,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (attach)
             {
-                KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
             }
             else
             {
-                KryptonManager.GlobalPaletteChanged -= new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged -= new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged -= OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
             }
         }
         #endregion
@@ -993,8 +993,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint -= OnNeedPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
                 }
 
                 // Remember the new palette
@@ -1006,8 +1006,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint += OnNeedPaint;
+                    _palette.ButtonSpecChanged += OnButtonSpecChanged;
                 }
             }
         }

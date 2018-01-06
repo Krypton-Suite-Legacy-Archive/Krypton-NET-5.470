@@ -72,8 +72,8 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Create the child collection for holding items
             Children = new KryptonWorkspaceCollection(this);
-            Children.PropertyChanged += new PropertyChangedEventHandler(OnChildrenPropertyChanged);
-            Children.MaximizeRestoreClicked += new EventHandler(OnChildrenMaximizeRestoreClicked);
+            Children.PropertyChanged += OnChildrenPropertyChanged;
+            Children.MaximizeRestoreClicked += OnChildrenMaximizeRestoreClicked;
 
             // Default properties
             _setVisible = true;
@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Workspace
                         Children[i].Dispose();
                     }
 
-                    Children.PropertyChanged -= new PropertyChangedEventHandler(OnChildrenPropertyChanged);
+                    Children.PropertyChanged -= OnChildrenPropertyChanged;
                     Children.Clear();
                 }
             }

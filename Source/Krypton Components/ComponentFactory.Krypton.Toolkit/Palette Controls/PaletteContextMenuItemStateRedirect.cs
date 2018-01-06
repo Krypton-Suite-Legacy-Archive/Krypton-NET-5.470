@@ -16,12 +16,12 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteContextMenuItemStateRedirect : Storage
 	{
 		#region Instance Fields
-        private PaletteRedirectDouble _itemHighlight;
-        private PaletteRedirectTriple _itemImage;
-        private PaletteRedirectContent _itemShortcutText;
-        private PaletteRedirectDouble _itemSplit;
-        private PaletteRedirectContent _itemStandard;
-        private PaletteRedirectContent _itemAlternate;
+        private readonly PaletteRedirectDouble _itemHighlight;
+        private readonly PaletteRedirectTriple _itemImage;
+        private readonly PaletteRedirectContent _itemShortcutText;
+        private readonly PaletteRedirectDouble _itemSplit;
+        private readonly PaletteRedirectContent _itemStandard;
+        private readonly PaletteRedirectContent _itemAlternate;
 
 	    #endregion
 

@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Docking
     public class KryptonDockingNavigator : DockingElementClosedCollection
     {
         #region Instance Fields
-        private string _storeName;
+        private readonly string _storeName;
 
         #endregion
 
@@ -55,10 +55,10 @@ namespace ComponentFactory.Krypton.Docking
             _storeName = storeName;
             DockableNavigatorControl = navigator ?? throw new ArgumentNullException("navigator");
 
-            DockableNavigatorControl.Disposed += new EventHandler(OnDockableNavigatorDisposed);
-            DockableNavigatorControl.CellPageInserting += new EventHandler<KryptonPageEventArgs>(OnDockableNavigatorPageInserting);
-            DockableNavigatorControl.BeforePageDrag += new EventHandler<PageDragCancelEventArgs>(OnDockableNavigatorBeforePageDrag);
-            DockableNavigatorControl.PageDrop += new EventHandler<PageDropEventArgs>(OnDockableNavigatorPageDrop);
+            DockableNavigatorControl.Disposed += OnDockableNavigatorDisposed;
+            DockableNavigatorControl.CellPageInserting += OnDockableNavigatorPageInserting;
+            DockableNavigatorControl.BeforePageDrag += OnDockableNavigatorBeforePageDrag;
+            DockableNavigatorControl.PageDrop += OnDockableNavigatorPageDrop;
         }
         #endregion
 
@@ -929,10 +929,10 @@ namespace ComponentFactory.Krypton.Docking
         private void OnDockableNavigatorDisposed(object sender, EventArgs e)
         {
             // Unhook from events to prevent memory leaking
-            DockableNavigatorControl.Disposed -= new EventHandler(OnDockableNavigatorDisposed);
-            DockableNavigatorControl.CellPageInserting -= new EventHandler<KryptonPageEventArgs>(OnDockableNavigatorPageInserting);
-            DockableNavigatorControl.BeforePageDrag -= new EventHandler<PageDragCancelEventArgs>(OnDockableNavigatorBeforePageDrag);
-            DockableNavigatorControl.PageDrop -= new EventHandler<PageDropEventArgs>(OnDockableNavigatorPageDrop);
+            DockableNavigatorControl.Disposed -= OnDockableNavigatorDisposed;
+            DockableNavigatorControl.CellPageInserting -= OnDockableNavigatorPageInserting;
+            DockableNavigatorControl.BeforePageDrag -= OnDockableNavigatorBeforePageDrag;
+            DockableNavigatorControl.PageDrop -= OnDockableNavigatorPageDrop;
 
             // Generate event so the any dockable navigator customization can be reversed.
             KryptonDockingManager dockingManager = DockingManager;

@@ -327,7 +327,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         Interval = SystemInformation.DoubleClickTime
                                     };
-                                    _repeatTimer.Tick += new EventHandler(OnRepeatTimer);
+                                    _repeatTimer.Tick += OnRepeatTimer;
                                     _repeatTimer.Start();
                                 }
                             }

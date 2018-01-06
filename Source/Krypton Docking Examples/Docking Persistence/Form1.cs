@@ -57,10 +57,12 @@ namespace DockingPersistence
         private KryptonPage NewPage(string name, int image, Control content)
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = name + _count.ToString();
-            p.TextTitle = name + _count.ToString();
-            p.TextDescription = name + _count.ToString();
+            KryptonPage p = new KryptonPage
+            {
+                Text = name + _count.ToString(),
+                TextTitle = name + _count.ToString(),
+                TextDescription = name + _count.ToString()
+            };
             p.UniqueName = p.Text;
             p.ImageSmall = imageListSmall.Images[image];
 
@@ -107,7 +109,9 @@ namespace DockingPersistence
         private void buttonSaveFile_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
                 kryptonDockingManager.SaveConfigToFile(saveFileDialog.FileName);
+            }
         }
 
         private void buttonLoadArray1_Click(object sender, EventArgs e)
@@ -128,7 +132,9 @@ namespace DockingPersistence
         private void buttonLoadFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
                 kryptonDockingManager.LoadConfigFromFile(openFileDialog.FileName);
+            }
         }
 
 

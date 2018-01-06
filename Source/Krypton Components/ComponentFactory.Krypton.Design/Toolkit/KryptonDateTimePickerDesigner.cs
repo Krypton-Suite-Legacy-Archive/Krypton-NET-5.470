@@ -48,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_dateTimePicker != null)
             {
                 // Hook into date time picker events
-                _dateTimePicker.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnDateTimePickerMouseUp);
-                _dateTimePicker.GetViewManager().DoubleClickProcessed += new PointHandler(OnDateTimePickerDoubleClick);
+                _dateTimePicker.GetViewManager().MouseUpProcessed += OnDateTimePickerMouseUp;
+                _dateTimePicker.GetViewManager().DoubleClickProcessed += OnDateTimePickerDoubleClick;
             }
 
             // Acquire service interfaces
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>
@@ -121,11 +121,11 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_dateTimePicker != null)
             {
                 // Unhook from events
-                _dateTimePicker.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnDateTimePickerMouseUp);
-                _dateTimePicker.GetViewManager().DoubleClickProcessed -= new PointHandler(OnDateTimePickerDoubleClick);
+                _dateTimePicker.GetViewManager().MouseUpProcessed -= OnDateTimePickerMouseUp;
+                _dateTimePicker.GetViewManager().DoubleClickProcessed -= OnDateTimePickerDoubleClick;
             }
 
-            _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving -= OnComponentRemoving;
 
             // Must let base class do standard stuff
             base.Dispose(disposing);

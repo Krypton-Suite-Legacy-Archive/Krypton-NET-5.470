@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Navigator
             base.Construct(navigator, manager, redirector);
 
             // Need to monitor changes in the enabled state
-            Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
+            Navigator.EnabledChanged += OnEnabledChanged;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void Destruct()
         {
             // Unhook from events
-            Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
+            Navigator.EnabledChanged -= OnEnabledChanged;
 
             // Let base class do standard work
             base.Destruct();
@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                                      new PaletteMetricInt[] { PaletteMetricInt.BarButtonEdgeInside },
                                                                      new PaletteMetricInt[] { PaletteMetricInt.BarButtonEdgeOutside },
                                                                      new PaletteMetricPadding[] { PaletteMetricPadding.BarButtonPadding },
-                                                                     new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
+                                                                     Navigator.CreateToolStripRenderer,
                                                                      NeedPaintDelegate,
                                                                      GetRemappingPaletteContent(),
                                                                      GetRemappingPaletteState())

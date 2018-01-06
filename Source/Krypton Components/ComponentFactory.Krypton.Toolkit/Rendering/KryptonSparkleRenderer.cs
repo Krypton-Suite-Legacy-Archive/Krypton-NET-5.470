@@ -24,9 +24,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private class LinearItemColors
         {
             #region Public Fields
-            public Color Fill1;
-            public Color Fill2;
-            public Color Border;
+            public readonly Color Fill1;
+            public readonly Color Fill2;
+            public readonly Color Border;
             #endregion
 
             #region Identity
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private class GradientItemColors
         {
             #region Public Fields
-            public Color Border;
-            public Color Begin;
-            public Color End;
+            public readonly Color Border;
+            public readonly Color Begin;
+            public readonly Color End;
             #endregion
 
             #region Identity

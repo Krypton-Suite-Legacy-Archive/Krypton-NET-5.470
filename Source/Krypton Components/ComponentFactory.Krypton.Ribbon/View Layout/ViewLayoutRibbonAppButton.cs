@@ -28,8 +28,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewLayoutRibbonSeparator _separator;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewLayoutRibbonSeparator _separator;
 
         #endregion
 

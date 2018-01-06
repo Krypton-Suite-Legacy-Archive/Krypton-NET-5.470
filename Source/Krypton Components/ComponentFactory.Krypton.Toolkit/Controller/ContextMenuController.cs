@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                          IKeyController
     {
         #region Instance Fields
-        private ViewContextMenuManager _viewManager;
+        private readonly ViewContextMenuManager _viewManager;
         #endregion
 
         #region Identity

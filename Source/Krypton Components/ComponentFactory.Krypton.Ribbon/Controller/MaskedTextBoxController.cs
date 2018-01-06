@@ -23,9 +23,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                              IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupMaskedTextBox _maskedTextBox;
-        private ViewDrawRibbonGroupMaskedTextBox _target;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupMaskedTextBox _maskedTextBox;
+        private readonly ViewDrawRibbonGroupMaskedTextBox _target;
         #endregion
 
 		#region Identity

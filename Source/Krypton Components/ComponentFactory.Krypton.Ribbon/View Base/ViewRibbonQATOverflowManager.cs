@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewRibbonQATOverflowManager : ViewManager
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewBase _focusView;
         private bool _layingOut;
         #endregion

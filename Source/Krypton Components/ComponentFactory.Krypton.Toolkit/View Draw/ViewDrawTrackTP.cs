@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
 
-        private ViewDrawTrackTrack _drawTrack;
+        private readonly ViewDrawTrackTrack _drawTrack;
 
         #endregion
 

@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			IComponentChangeService service = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 			if (service != null)
 			{
-			    service.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+			    service.ComponentChanged += OnComponentChanged;
 			}
 
 		    // If inside a Krypton split container then always lock the component from user size/location change
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Must unhook our event from the service so we can be garbage collected
                     if (service != null)
                     {
-                        service.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                        service.ComponentChanged -= OnComponentChanged;
                     }
                 }
             }

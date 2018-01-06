@@ -122,10 +122,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create collection for holding child items
             Items = new KryptonRibbonGroupContainerCollection();
-            Items.Clearing += new EventHandler(OnRibbonGroupItemsClearing);
-            Items.Cleared += new EventHandler(OnRibbonGroupItemsCleared);
-            Items.Inserted += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsInserted);
-            Items.Removed += new TypedHandler<KryptonRibbonGroupContainer>(OnRibbonGroupItemsRemoved);
+            Items.Clearing += OnRibbonGroupItemsClearing;
+            Items.Cleared += OnRibbonGroupItemsCleared;
+            Items.Inserted += OnRibbonGroupItemsInserted;
+            Items.Removed += OnRibbonGroupItemsRemoved;
         }
 
         /// <summary>

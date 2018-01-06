@@ -321,8 +321,8 @@ namespace ComponentFactory.Krypton.Docking
 
             // Hook into events on the target control
             Control = control;
-            Control.SizeChanged += new EventHandler(OnControlSizeChanged);
-            Control.Disposed += new EventHandler(OnControlDisposed);
+            Control.SizeChanged += OnControlSizeChanged;
+            Control.Disposed += OnControlDisposed;
 
             // Create and add a control we use to obscure the client area during multi-part operations
             _obscure = new ObscureControl
@@ -342,8 +342,8 @@ namespace ComponentFactory.Krypton.Docking
         private void OnControlDisposed(object sender, EventArgs e)
         {
             // Unhook events to allow garbage collection
-            Control.SizeChanged -= new EventHandler(OnControlSizeChanged);
-            Control.Disposed -= new EventHandler(OnControlDisposed);
+            Control.SizeChanged -= OnControlSizeChanged;
+            Control.Disposed -= OnControlDisposed;
         }
 
         private void OnControlSizeChanged(object sender, EventArgs e)

@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonSplitContainerActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonSplitContainer _splitContainer;
-        private IComponentChangeService _service;
+        private readonly KryptonSplitContainer _splitContainer;
+        private readonly IComponentChangeService _service;
         private string _action;
         #endregion
 
@@ -129,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionHeaderItem("Appearance"));
                 actions.Add(new DesignerActionPropertyItem("ContainerBackStyle", "Back style", "Appearance", "Background style"));
                 actions.Add(new DesignerActionHeaderItem("Splitter"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, new EventHandler(OnOrientationClick)), "Splitter"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Splitter"));
                 actions.Add(new DesignerActionPropertyItem("SeparatorStyle", "Separator style", "Splitter", "Separator style"));
                 actions.Add(new DesignerActionHeaderItem("Visuals"));
                 actions.Add(new DesignerActionPropertyItem("PaletteMode", "Palette", "Visuals", "Palette applied to drawing"));

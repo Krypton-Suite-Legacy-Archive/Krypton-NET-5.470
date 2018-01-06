@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
 										 
 	{
 		#region Instance Fields
-		private List<T> _list;
+		private readonly List<T> _list;
 		#endregion
 
 		#region Events

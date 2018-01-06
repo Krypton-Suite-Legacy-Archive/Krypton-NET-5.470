@@ -53,11 +53,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
 
 	    private bool _dropDownNavigaton;
-        private ViewDrawDocker _drawDocker;
-	    private ButtonSpecManagerDraw _buttonManager;
+        private readonly ViewDrawDocker _drawDocker;
+	    private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
 	    private KryptonBreadCrumbItem _selectedItem;
-        private ViewLayoutCrumbs _layoutCrumbs;
+        private readonly ViewLayoutCrumbs _layoutCrumbs;
         private ButtonStyle _buttonStyle;
         #endregion
 
@@ -105,7 +105,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _dropDownNavigaton = true;
             _buttonStyle = ButtonStyle.BreadCrumb;
             RootItem = new KryptonBreadCrumbItem("Root");
-            RootItem.PropertyChanged += new PropertyChangedEventHandler(OnCrumbItemChanged);
+            RootItem.PropertyChanged += OnCrumbItemChanged;
             AllowButtonSpecToolTips = false;
 
 			// Create storage objects
@@ -134,13 +134,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        new IPaletteMetric[] { StateCommon },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.None },
-                                                       new GetToolStripRenderer(CreateToolStripRenderer),
+                                                       CreateToolStripRenderer,
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 		}
 
@@ -779,7 +779,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -798,7 +798,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

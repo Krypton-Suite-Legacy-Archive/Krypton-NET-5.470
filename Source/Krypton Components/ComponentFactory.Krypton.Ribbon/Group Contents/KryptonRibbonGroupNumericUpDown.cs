@@ -126,13 +126,13 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            NumericUpDown.ValueChanged += new EventHandler(OnNumericUpDownValueChanged);
-            NumericUpDown.GotFocus += new EventHandler(OnNumericUpDownGotFocus);
-            NumericUpDown.LostFocus += new EventHandler(OnNumericUpDownLostFocus);
-            NumericUpDown.KeyDown += new KeyEventHandler(OnNumericUpDownKeyDown);
-            NumericUpDown.KeyUp += new KeyEventHandler(OnNumericUpDownKeyUp);
-            NumericUpDown.KeyPress += new KeyPressEventHandler(OnNumericUpDownKeyPress);
-            NumericUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnNumericUpDownPreviewKeyDown);
+            NumericUpDown.ValueChanged += OnNumericUpDownValueChanged;
+            NumericUpDown.GotFocus += OnNumericUpDownGotFocus;
+            NumericUpDown.LostFocus += OnNumericUpDownLostFocus;
+            NumericUpDown.KeyDown += OnNumericUpDownKeyDown;
+            NumericUpDown.KeyUp += OnNumericUpDownKeyUp;
+            NumericUpDown.KeyPress += OnNumericUpDownKeyPress;
+            NumericUpDown.PreviewKeyDown += OnNumericUpDownPreviewKeyDown;
 
             // Ensure we can track mouse events on the numeric up-down
             MonitorControl(NumericUpDown);
@@ -176,7 +176,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the numeric up-down as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     NumericUpDown.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -703,18 +703,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonNumericUpDown c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
-            c.TrackMouseEnter += new EventHandler(OnControlEnter);
-            c.TrackMouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
+            c.TrackMouseEnter += OnControlEnter;
+            c.TrackMouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonNumericUpDown c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
-            c.TrackMouseEnter -= new EventHandler(OnControlEnter);
-            c.TrackMouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
+            c.TrackMouseEnter -= OnControlEnter;
+            c.TrackMouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

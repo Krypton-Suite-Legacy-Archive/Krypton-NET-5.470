@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ButtonSpecToContent : IContentValues
     {
         #region Instance Fields
-        private ButtonSpec _buttonSpec;
-        private IPalette _palette;
+        private readonly ButtonSpec _buttonSpec;
+        private readonly IPalette _palette;
         #endregion
 
         #region Identity

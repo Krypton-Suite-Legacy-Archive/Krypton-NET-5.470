@@ -23,9 +23,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupDateTimePicker _dateTimePicker;
-        private ViewDrawRibbonGroupDateTimePicker _target;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupDateTimePicker _dateTimePicker;
+        private readonly ViewDrawRibbonGroupDateTimePicker _target;
         #endregion
 
 		#region Identity

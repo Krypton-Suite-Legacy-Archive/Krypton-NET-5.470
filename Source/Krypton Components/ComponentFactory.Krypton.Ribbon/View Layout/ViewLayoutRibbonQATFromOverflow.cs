@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
 
-        private ViewLayoutRibbonQATContents _contents;
+        private readonly ViewLayoutRibbonQATContents _contents;
         #endregion
 
         #region Identity

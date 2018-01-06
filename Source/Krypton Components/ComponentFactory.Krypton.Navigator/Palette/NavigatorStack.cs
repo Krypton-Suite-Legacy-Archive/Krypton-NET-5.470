@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorStack : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private ButtonStyle _checkButtonStyle;
         private PaletteBorderStyle _borderEdgeStyle;
         private bool _stackAnimation;

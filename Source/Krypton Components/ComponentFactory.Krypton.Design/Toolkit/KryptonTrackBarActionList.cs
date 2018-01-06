@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonTrackBarActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonTrackBar _trackBar;
-        private IComponentChangeService _service;
+        private readonly KryptonTrackBar _trackBar;
+        private readonly IComponentChangeService _service;
         private string _action;
         #endregion
 
@@ -197,7 +197,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionHeaderItem("Layout"));
                 actions.Add(new DesignerActionPropertyItem("TickStyle", "Tick Style", "Layout", "Tick style"));
                 actions.Add(new DesignerActionPropertyItem("TrackBarSize", "TrackBar Size", "Layout", "Size of the track bar"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, new EventHandler(OnOrientationClick)), "Layout"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Layout"));
                 actions.Add(new DesignerActionHeaderItem("Values"));
                 actions.Add(new DesignerActionPropertyItem("Minimum", "Minimum", "Values", "Minium value"));
                 actions.Add(new DesignerActionPropertyItem("Maximum", "Maximum", "Values", "Maximum value"));

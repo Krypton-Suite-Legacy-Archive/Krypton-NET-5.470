@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class ButtonSpecMdiChildMin : ButtonSpecMdiChildFixed
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         #endregion
 
         #region Identity

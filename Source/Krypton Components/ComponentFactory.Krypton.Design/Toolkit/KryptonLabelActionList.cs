@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonLabelActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonLabel _label;
-        private IComponentChangeService _service;
+        private readonly KryptonLabel _label;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

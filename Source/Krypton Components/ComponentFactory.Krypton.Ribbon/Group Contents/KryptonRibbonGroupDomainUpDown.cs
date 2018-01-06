@@ -141,15 +141,15 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            DomainUpDown.Scroll += new ScrollEventHandler(OnDomainUpDownScroll);
-            DomainUpDown.SelectedItemChanged += new EventHandler(OnDomainUpDownSelectedItemChanged);
-            DomainUpDown.GotFocus += new EventHandler(OnDomainUpDownGotFocus);
-            DomainUpDown.LostFocus += new EventHandler(OnDomainUpDownLostFocus);
-            DomainUpDown.KeyDown += new KeyEventHandler(OnDomainUpDownKeyDown);
-            DomainUpDown.KeyUp += new KeyEventHandler(OnDomainUpDownKeyUp);
-            DomainUpDown.KeyPress += new KeyPressEventHandler(OnDomainUpDownKeyPress);
-            DomainUpDown.PreviewKeyDown += new PreviewKeyDownEventHandler(OnDomainUpDownPreviewKeyDown);
-            DomainUpDown.TextChanged += new EventHandler(OnDomainUpDownTextChanged);
+            DomainUpDown.Scroll += OnDomainUpDownScroll;
+            DomainUpDown.SelectedItemChanged += OnDomainUpDownSelectedItemChanged;
+            DomainUpDown.GotFocus += OnDomainUpDownGotFocus;
+            DomainUpDown.LostFocus += OnDomainUpDownLostFocus;
+            DomainUpDown.KeyDown += OnDomainUpDownKeyDown;
+            DomainUpDown.KeyUp += OnDomainUpDownKeyUp;
+            DomainUpDown.KeyPress += OnDomainUpDownKeyPress;
+            DomainUpDown.PreviewKeyDown += OnDomainUpDownPreviewKeyDown;
+            DomainUpDown.TextChanged += OnDomainUpDownTextChanged;
 
             // Ensure we can track mouse events on the domain up-down
             MonitorControl(DomainUpDown);
@@ -193,7 +193,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the domain up-down as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     DomainUpDown.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -707,18 +707,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonDomainUpDown c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
-            c.TrackMouseEnter += new EventHandler(OnControlEnter);
-            c.TrackMouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
+            c.TrackMouseEnter += OnControlEnter;
+            c.TrackMouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonDomainUpDown c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
-            c.TrackMouseEnter -= new EventHandler(OnControlEnter);
-            c.TrackMouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
+            c.TrackMouseEnter -= OnControlEnter;
+            c.TrackMouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

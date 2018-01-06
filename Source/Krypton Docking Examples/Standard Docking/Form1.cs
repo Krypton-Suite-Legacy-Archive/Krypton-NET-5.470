@@ -54,11 +54,13 @@ namespace StandardDocking
         private KryptonPage NewPage(string name, int image, Control content)
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = name + _count.ToString();
-            p.TextTitle = name + _count.ToString();
-            p.TextDescription = name + _count.ToString();
-            p.ImageSmall = imageListSmall.Images[image];
+            KryptonPage p = new KryptonPage
+            {
+                Text = name + _count.ToString(),
+                TextTitle = name + _count.ToString(),
+                TextDescription = name + _count.ToString(),
+                ImageSmall = imageListSmall.Images[image]
+            };
 
             // Add the control for display inside the page
             content.Dock = DockStyle.Fill;

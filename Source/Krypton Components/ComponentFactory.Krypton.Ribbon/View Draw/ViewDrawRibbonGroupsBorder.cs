@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         private IPaletteRibbonBack _inherit;
         private IDisposable _memento;
-        private bool _borderOutside;
+        private readonly bool _borderOutside;
         #endregion
 
         #region Identity

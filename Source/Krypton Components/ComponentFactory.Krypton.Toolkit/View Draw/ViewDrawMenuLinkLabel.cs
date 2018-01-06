@@ -18,11 +18,11 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewDrawMenuLinkLabel : ViewComposite
     {
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private FixedContentValue _contentValues;
-        private ViewDrawContent _drawContent;
-        private ViewLayoutDocker _outerDocker;
-        private ViewLayoutDocker _innerDocker;
+        private readonly IContextMenuProvider _provider;
+        private readonly FixedContentValue _contentValues;
+        private readonly ViewDrawContent _drawContent;
+        private readonly ViewLayoutDocker _outerDocker;
+        private readonly ViewLayoutDocker _innerDocker;
         private KryptonCommand _cachedCommand;
 
         #endregion
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use context menu specific version of the link label controller
             MenuLinkLabelController mllc = new MenuLinkLabelController(provider.ProviderViewManager, _drawContent, this, provider.ProviderNeedPaintDelegate);
-            mllc.Click += new EventHandler(OnClick);
+            mllc.Click += OnClick;
             _drawContent.MouseController = mllc;
             _drawContent.KeyController = mllc;
 
@@ -85,13 +85,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
 
             // Want to know when a property changes whilst displayed
-            KryptonContextMenuLinkLabel.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            KryptonContextMenuLinkLabel.PropertyChanged += OnPropertyChanged;
 
             // We need to know if a property of the command changes
             if (KryptonContextMenuLinkLabel.KryptonCommand != null)
             {
                 _cachedCommand = KryptonContextMenuLinkLabel.KryptonCommand;
-                KryptonContextMenuLinkLabel.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                KryptonContextMenuLinkLabel.KryptonCommand.PropertyChanged += OnCommandPropertyChanged;
             }
         }
 
@@ -327,14 +327,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Unhook from any existing command
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     // Hook into the new command
                     _cachedCommand = KryptonContextMenuLinkLabel.KryptonCommand;
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged += OnCommandPropertyChanged;
                     }
 
                     // Update to show new state

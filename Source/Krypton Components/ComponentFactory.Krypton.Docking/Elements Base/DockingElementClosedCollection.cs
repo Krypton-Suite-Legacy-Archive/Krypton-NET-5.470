@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Docking
     public abstract class DockingElementClosedCollection : DockingElement
     {
         #region Instance Fields
-        private List<IDockingElement> _elements;
+        private readonly List<IDockingElement> _elements;
         #endregion
 
         #region Identity

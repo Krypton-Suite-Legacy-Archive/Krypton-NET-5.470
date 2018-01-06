@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                       ISourceController
 	{
 		#region Instance Fields
-        private ViewDrawTP _drawTB;
+        private readonly ViewDrawTP _drawTB;
         private Timer _repeatTimer;
         private bool _captured;
         private bool _targetHigher;
@@ -123,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         Interval = SystemInformation.DoubleClickTime
                     };
-                    _repeatTimer.Tick += new EventHandler(OnRepeatTimer);
+                    _repeatTimer.Tick += OnRepeatTimer;
                     _repeatTimer.Start();
                 }
             }

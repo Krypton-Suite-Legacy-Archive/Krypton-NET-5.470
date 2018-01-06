@@ -28,8 +28,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needPaint;
+        private readonly KryptonRibbon _ribbon;
+        private readonly NeedPaintHandler _needPaint;
         private PaletteBackInheritForced _backForced;
         private PaletteBorderInheritForced _borderForced;
         private ViewDrawRibbonGroupButtonBackBorder _viewMediumSmall;
@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon button definition
-            GroupClusterColorButton.PropertyChanged += new PropertyChangedEventHandler(OnButtonPropertyChanged);
+            GroupClusterColorButton.PropertyChanged += OnButtonPropertyChanged;
         }
 
 		/// <summary>
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupClusterColorButton != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupClusterColorButton.PropertyChanged -= new PropertyChangedEventHandler(OnButtonPropertyChanged);
+                    GroupClusterColorButton.PropertyChanged -= OnButtonPropertyChanged;
 
                     // Remove association with definition
                     GroupClusterColorButton.ClusterColorButtonView = null;
@@ -364,12 +364,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 SplitVertical = false
             };
-            _viewMediumSmall.Click += new EventHandler(OnSmallButtonClick);
-            _viewMediumSmall.DropDown += new EventHandler(OnSmallButtonDropDown);
+            _viewMediumSmall.Click += OnSmallButtonClick;
+            _viewMediumSmall.DropDown += OnSmallButtonDropDown;
 
             if (_ribbon.InDesignMode)
             {
-                _viewMediumSmall.ContextClick += new MouseEventHandler(OnContextClick);
+                _viewMediumSmall.ContextClick += OnContextClick;
             }
 
             // Create the layout docker for the contents of the button

@@ -23,14 +23,14 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonGalleryButton : ViewLeaf, IContentValues
     {
         #region Instance Fields
-        private IPalette _palette;
-        private GalleryImages _images;
-        private GalleryButtonController _controller;
-        private PaletteRibbonGalleryButton _button;
-        private PaletteBackToPalette _paletteBack;
-        private PaletteBorderToPalette _paletteBorder;
-        private PaletteContentToPalette _paletteContent;
-        private PaletteRelativeAlign _alignment;
+        private readonly IPalette _palette;
+        private readonly GalleryImages _images;
+        private readonly GalleryButtonController _controller;
+        private readonly PaletteRibbonGalleryButton _button;
+        private readonly PaletteBackToPalette _paletteBack;
+        private readonly PaletteBorderToPalette _paletteBorder;
+        private readonly PaletteContentToPalette _paletteContent;
+        private readonly PaletteRelativeAlign _alignment;
         private IDisposable _mementoBack;
         private IDisposable _mementoContent;
         private NeedPaintHandler _needPaint;
@@ -67,7 +67,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _paletteBorder = new PaletteBorderToPalette(palette, PaletteBorderStyle.ButtonGallery);
             _paletteContent = new PaletteContentToPalette(palette, PaletteContentStyle.ButtonGallery);
             _controller = new GalleryButtonController(this, needPaint, (alignment != PaletteRelativeAlign.Far));
-            _controller.Click += new MouseEventHandler(OnButtonClick);
+            _controller.Click += OnButtonClick;
             MouseController = _controller;
         }
 

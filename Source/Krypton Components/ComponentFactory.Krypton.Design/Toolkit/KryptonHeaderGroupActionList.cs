@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonHeaderGroupActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonHeaderGroup _headerGroup;
-        private IComponentChangeService _service;
+        private readonly KryptonHeaderGroup _headerGroup;
+        private readonly IComponentChangeService _service;
         private DesignerVerb _visible1;
         private DesignerVerb _visible2;
         private string _text1;
@@ -183,8 +183,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 _text2 = (header2Visible ? "Hide secondary header" : "Show secondary header");
 
                 // Create the two verbs for toggling the header visibility
-                _visible1 = new DesignerVerb(_text1, new EventHandler(OnVisibleClick));
-                _visible2 = new DesignerVerb(_text2, new EventHandler(OnVisibleClick));
+                _visible1 = new DesignerVerb(_text1, OnVisibleClick);
+                _visible2 = new DesignerVerb(_text2, OnVisibleClick);
 
                 // Add the list of panel specific actions
                 actions.Add(new DesignerActionHeaderItem("Appearance"));

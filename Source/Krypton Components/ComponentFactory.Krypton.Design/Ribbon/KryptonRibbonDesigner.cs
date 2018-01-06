@@ -69,10 +69,10 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = (KryptonRibbon)component;
 
             // Hook into ribbon events
-            _ribbon.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnRibbonMouseUp);
-            _ribbon.GetViewManager().DoubleClickProcessed += new PointHandler(OnRibbonDoubleClick);
-            _ribbon.SelectedTabChanged += new EventHandler(OnSelectedTabChanged);
-            _ribbon.DesignTimeAddTab += new EventHandler(OnAddTab);
+            _ribbon.GetViewManager().MouseUpProcessed += OnRibbonMouseUp;
+            _ribbon.GetViewManager().DoubleClickProcessed += OnRibbonDoubleClick;
+            _ribbon.SelectedTabChanged += OnSelectedTabChanged;
+            _ribbon.DesignTimeAddTab += OnAddTab;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
@@ -80,8 +80,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentRemoving += OnComponentRemoving;
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -152,9 +152,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_verbs == null)
                 {
                     _verbs = new DesignerVerbCollection();
-                    _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                    _addTabVerb = new DesignerVerb("Add Tab", new EventHandler(OnAddTab));
-                    _clearTabsVerb = new DesignerVerb("Clear Tabs", new EventHandler(OnClearTabs));
+                    _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                    _addTabVerb = new DesignerVerb("Add Tab", OnAddTab);
+                    _clearTabsVerb = new DesignerVerb("Clear Tabs", OnClearTabs);
                     _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _addTabVerb, _clearTabsVerb });
                 }
 
@@ -176,14 +176,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (disposing)
                 {
                     // Unhook from navigator events
-                    _ribbon.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnRibbonMouseUp);
-                    _ribbon.GetViewManager().DoubleClickProcessed -= new PointHandler(OnRibbonDoubleClick);
-                    _ribbon.SelectedTabChanged -= new EventHandler(OnSelectedTabChanged);
-                    _ribbon.DesignTimeAddTab -= new EventHandler(OnAddTab);
+                    _ribbon.GetViewManager().MouseUpProcessed -= OnRibbonMouseUp;
+                    _ribbon.GetViewManager().DoubleClickProcessed -= OnRibbonDoubleClick;
+                    _ribbon.SelectedTabChanged -= OnSelectedTabChanged;
+                    _ribbon.DesignTimeAddTab -= OnAddTab;
                     
                     // Unhook from events
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally

@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteBackToPalette : IPaletteBack
     {
         #region Instance Fields
-        private IPalette _palette;
+        private readonly IPalette _palette;
 
         #endregion
 

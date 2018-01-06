@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawTrackTrack : ViewLeaf
     {
         #region Instance Fields
-        private ViewDrawTrackBar _drawTrackBar;
+        private readonly ViewDrawTrackBar _drawTrackBar;
         #endregion
 
         #region Identity

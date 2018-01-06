@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
 	public class PaletteRibbonJustTab : Storage
 	{
 		#region Instance Fields
-        private PaletteRibbonDouble _ribbonTab;
+        private readonly PaletteRibbonDouble _ribbonTab;
 		#endregion
 
 		#region Identity

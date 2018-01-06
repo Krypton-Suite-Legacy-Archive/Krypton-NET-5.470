@@ -28,8 +28,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needPaint;
+        private readonly KryptonRibbon _ribbon;
+        private readonly NeedPaintHandler _needPaint;
         private ViewLayoutDocker _viewLarge;
         private ViewLayoutRibbonCenterPadding _viewLargeImage;
         private ViewDrawRibbonGroupLabelImage _viewLargeLabelImage;
@@ -80,7 +80,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon button definition
-            GroupLabel.PropertyChanged += new PropertyChangedEventHandler(OnLabelPropertyChanged);
+            GroupLabel.PropertyChanged += OnLabelPropertyChanged;
         }
 
 		/// <summary>
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     GroupLabel.ViewPaintDelegate = null;
 
                     // Must unhook to prevent memory leaks
-                    GroupLabel.PropertyChanged -= new PropertyChangedEventHandler(OnLabelPropertyChanged);
+                    GroupLabel.PropertyChanged -= OnLabelPropertyChanged;
 
                     // Remove association with definition
                     GroupLabel.LabelView = null;
@@ -289,7 +289,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the label
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 _viewLarge.MouseController = controller;
             }
 
@@ -326,7 +326,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the label
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 _viewMediumSmall.MouseController = controller;
             }
 

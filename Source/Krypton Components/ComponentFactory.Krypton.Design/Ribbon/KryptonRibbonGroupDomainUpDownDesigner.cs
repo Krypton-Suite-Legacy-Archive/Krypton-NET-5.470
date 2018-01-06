@@ -86,14 +86,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonDomainUpDown.DomainUpDown.InRibbonDesignMode = true;
 
             // Hook into events
-            _ribbonDomainUpDown.DesignTimeContextMenu += new MouseEventHandler(OnContextMenu);
+            _ribbonDomainUpDown.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -139,8 +139,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (disposing)
                 {
                     // Unhook from events
-                    _ribbonDomainUpDown.DesignTimeContextMenu -= new MouseEventHandler(OnContextMenu);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _ribbonDomainUpDown.DesignTimeContextMenu -= OnContextMenu;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally
@@ -208,12 +208,12 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_verbs == null)
             {
                 _verbs = new DesignerVerbCollection();
-                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                _moveFirstVerb = new DesignerVerb("Move DomainUpDown First", new EventHandler(OnMoveFirst));
-                _movePrevVerb = new DesignerVerb("Move DomainUpDown Previous", new EventHandler(OnMovePrevious));
-                _moveNextVerb = new DesignerVerb("Move DomainUpDown Next", new EventHandler(OnMoveNext));
-                _moveLastVerb = new DesignerVerb("Move DomainUpDown Last", new EventHandler(OnMoveLast));
-                _deleteDomainUpDownVerb = new DesignerVerb("Delete DomainUpDown", new EventHandler(OnDeleteDomainUpDown));
+                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                _moveFirstVerb = new DesignerVerb("Move DomainUpDown First", OnMoveFirst);
+                _movePrevVerb = new DesignerVerb("Move DomainUpDown Previous", OnMovePrevious);
+                _moveNextVerb = new DesignerVerb("Move DomainUpDown Next", OnMoveNext);
+                _moveLastVerb = new DesignerVerb("Move DomainUpDown Last", OnMoveLast);
+                _deleteDomainUpDownVerb = new DesignerVerb("Delete DomainUpDown", OnDeleteDomainUpDown);
                 _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _moveFirstVerb, _movePrevVerb, 
                                                      _moveNextVerb, _moveLastVerb, _deleteDomainUpDownVerb });
             }
@@ -451,13 +451,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_cms == null)
                 {
                     _cms = new ContextMenuStrip();
-                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, new EventHandler(OnToggleHelpers));
-                    _visibleMenu = new ToolStripMenuItem("Visible", null, new EventHandler(OnVisible));
-                    _moveFirstMenu = new ToolStripMenuItem("Move DomainUpDown First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, new EventHandler(OnMoveFirst));
-                    _movePreviousMenu = new ToolStripMenuItem("Move DomainUpDown Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, new EventHandler(OnMovePrevious));
-                    _moveNextMenu = new ToolStripMenuItem("Move DomainUpDown Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, new EventHandler(OnMoveNext));
-                    _moveLastMenu = new ToolStripMenuItem("Move DomainUpDown Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, new EventHandler(OnMoveLast));
-                    _deleteDomainUpDownMenu = new ToolStripMenuItem("Delete DomainUpDown", ComponentFactory.Krypton.Design.Properties.Resources.delete2, new EventHandler(OnDeleteDomainUpDown));
+                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
+                    _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
+                    _moveFirstMenu = new ToolStripMenuItem("Move DomainUpDown First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move DomainUpDown Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move DomainUpDown Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move DomainUpDown Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteDomainUpDownMenu = new ToolStripMenuItem("Delete DomainUpDown", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteDomainUpDown);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

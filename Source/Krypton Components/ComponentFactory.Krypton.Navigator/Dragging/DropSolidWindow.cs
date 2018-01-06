@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Navigator
     public class DropSolidWindow : Form
     {
         #region Instance Fields
-        private IPaletteDragDrop _paletteDragDrop;
-        private IRenderer _renderer;
+        private readonly IPaletteDragDrop _paletteDragDrop;
+        private readonly IRenderer _renderer;
         private Rectangle _solidRect;
         #endregion
 

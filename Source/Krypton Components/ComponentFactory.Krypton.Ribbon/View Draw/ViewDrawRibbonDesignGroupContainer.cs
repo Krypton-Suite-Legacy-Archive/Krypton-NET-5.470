@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbonGroup _ribbonGroup;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private ContextMenuStrip _cms;
         #endregion
 
@@ -112,10 +112,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 };
 
                 // Create child items
-                ToolStripMenuItem menuTriple = new ToolStripMenuItem("Add Triple", null, new EventHandler(OnAddTriple));
-                ToolStripMenuItem menuLines = new ToolStripMenuItem("Add Lines", null, new EventHandler(OnAddLines));
-                ToolStripMenuItem menuSeparator = new ToolStripMenuItem("Add Separator", null, new EventHandler(OnAddSeparator));
-                ToolStripMenuItem menuGallery = new ToolStripMenuItem("Add Gallery", null, new EventHandler(OnAddGallery));
+                ToolStripMenuItem menuTriple = new ToolStripMenuItem("Add Triple", null, OnAddTriple);
+                ToolStripMenuItem menuLines = new ToolStripMenuItem("Add Lines", null, OnAddLines);
+                ToolStripMenuItem menuSeparator = new ToolStripMenuItem("Add Separator", null, OnAddSeparator);
+                ToolStripMenuItem menuGallery = new ToolStripMenuItem("Add Gallery", null, OnAddGallery);
 
                 // Assign correct images
                 menuTriple.ImageIndex = 0;

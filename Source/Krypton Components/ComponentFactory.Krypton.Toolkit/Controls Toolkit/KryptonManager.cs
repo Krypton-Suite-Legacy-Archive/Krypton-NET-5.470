@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
         static KryptonManager()
         {
             // We need to notice when system color settings change
-            SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
 
             // Update the tool strip global renderer with the default setting
             UpdateToolStripManager();
@@ -872,7 +872,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (InternalGlobalPalette != null)
                 {
-                    InternalGlobalPalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    InternalGlobalPalette.PalettePaint -= OnPalettePaint;
                 }
 
                 // Remember the new palette
@@ -881,7 +881,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (InternalGlobalPalette != null)
                 {
-                    InternalGlobalPalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    InternalGlobalPalette.PalettePaint += OnPalettePaint;
                 }
             }
         }

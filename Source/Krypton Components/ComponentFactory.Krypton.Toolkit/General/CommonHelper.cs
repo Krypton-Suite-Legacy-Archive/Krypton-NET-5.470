@@ -65,11 +65,11 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PropertyInfo _cachedDesignModePI;
         private static MethodInfo _cachedShortcutMI;
         private static NullContentValues _nullContentValues;
-        private static DoubleConverter _dc = new DoubleConverter();
-        private static SizeConverter _sc = new SizeConverter();
-        private static PointConverter _pc = new PointConverter();
-        private static BooleanConverter _bc = new BooleanConverter();
-        private static ColorConverter _cc = new ColorConverter();
+        private static readonly DoubleConverter _dc = new DoubleConverter();
+        private static readonly SizeConverter _sc = new SizeConverter();
+        private static readonly PointConverter _pc = new PointConverter();
+        private static readonly BooleanConverter _bc = new BooleanConverter();
+        private static readonly ColorConverter _cc = new ColorConverter();
 
         #endregion
 
@@ -461,7 +461,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 OperationThread opThread = new OperationThread(op, parameter);
 
                 // Create the actual thread and provide thread entry point
-                Thread thread = new Thread(new ThreadStart(opThread.Run));
+                Thread thread = new Thread(opThread.Run);
 
                 // Kick off the thread action
                 thread.Start();

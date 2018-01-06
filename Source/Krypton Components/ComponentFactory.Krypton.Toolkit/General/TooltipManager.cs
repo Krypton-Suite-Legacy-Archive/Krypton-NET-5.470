@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ToolTipManager
     {
         #region Instance Fields
-        private Timer _startTimer;
-        private Timer _stopTimer;
+        private readonly Timer _startTimer;
+        private readonly Timer _stopTimer;
         private ViewBase _startTarget;
         private ViewBase _currentTarget;
         private bool _showingToolTips;
@@ -49,13 +49,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 Interval = 1200
             };
-            _startTimer.Tick += new EventHandler(OnStartTimerTick);
+            _startTimer.Tick += OnStartTimerTick;
 
             _stopTimer = new Timer
             {
                 Interval = 100
             };
-            _stopTimer.Tick += new EventHandler(OnStopTimerTick);
+            _stopTimer.Tick += OnStopTimerTick;
         }
         #endregion
 

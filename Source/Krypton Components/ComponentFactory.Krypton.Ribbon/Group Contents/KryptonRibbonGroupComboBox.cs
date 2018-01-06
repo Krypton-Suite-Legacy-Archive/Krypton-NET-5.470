@@ -218,26 +218,26 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into the events that are then exposed via ourself
-            ComboBox.DropDown += new EventHandler(OnComboBoxDropDown);
-            ComboBox.DropDownClosed += new EventHandler(OnComboBoxDropDownClosed);
-            ComboBox.DropDownStyleChanged += new EventHandler(OnComboBoxDropDownStyleChanged);
-            ComboBox.SelectedIndexChanged += new EventHandler(OnComboBoxSelectedIndexChanged);
-            ComboBox.SelectionChangeCommitted += new EventHandler(OnComboBoxSelectionChangeCommitted);
-            ComboBox.TextUpdate += new EventHandler(OnComboBoxTextUpdate);
-            ComboBox.GotFocus += new EventHandler(OnComboBoxGotFocus);
-            ComboBox.LostFocus += new EventHandler(OnComboBoxLostFocus);
-            ComboBox.KeyDown += new KeyEventHandler(OnComboBoxKeyDown);
-            ComboBox.KeyUp += new KeyEventHandler(OnComboBoxKeyUp);
-            ComboBox.KeyPress += new KeyPressEventHandler(OnComboBoxKeyPress);
-            ComboBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnComboBoxPreviewKeyDown);
-            ComboBox.DataSourceChanged += new EventHandler(OnComboBoxDataSourceChanged);
-            ComboBox.DisplayMemberChanged += new EventHandler(OnComboBoxDisplayMemberChanged);
-            ComboBox.Format += new ListControlConvertEventHandler(OnComboBoxFormat);
-            ComboBox.FormatInfoChanged += new EventHandler(OnComboBoxFormatInfoChanged);
-            ComboBox.FormatStringChanged += new EventHandler(OnComboBoxFormatStringChanged);
-            ComboBox.FormattingEnabledChanged += new EventHandler(OnComboBoxFormattingEnabledChanged);
-            ComboBox.SelectedValueChanged += new EventHandler(OnComboBoxSelectedValueChanged);
-            ComboBox.ValueMemberChanged += new EventHandler(OnComboBoxValueMemberChanged);
+            ComboBox.DropDown += OnComboBoxDropDown;
+            ComboBox.DropDownClosed += OnComboBoxDropDownClosed;
+            ComboBox.DropDownStyleChanged += OnComboBoxDropDownStyleChanged;
+            ComboBox.SelectedIndexChanged += OnComboBoxSelectedIndexChanged;
+            ComboBox.SelectionChangeCommitted += OnComboBoxSelectionChangeCommitted;
+            ComboBox.TextUpdate += OnComboBoxTextUpdate;
+            ComboBox.GotFocus += OnComboBoxGotFocus;
+            ComboBox.LostFocus += OnComboBoxLostFocus;
+            ComboBox.KeyDown += OnComboBoxKeyDown;
+            ComboBox.KeyUp += OnComboBoxKeyUp;
+            ComboBox.KeyPress += OnComboBoxKeyPress;
+            ComboBox.PreviewKeyDown += OnComboBoxPreviewKeyDown;
+            ComboBox.DataSourceChanged += OnComboBoxDataSourceChanged;
+            ComboBox.DisplayMemberChanged += OnComboBoxDisplayMemberChanged;
+            ComboBox.Format += OnComboBoxFormat;
+            ComboBox.FormatInfoChanged += OnComboBoxFormatInfoChanged;
+            ComboBox.FormatStringChanged += OnComboBoxFormatStringChanged;
+            ComboBox.FormattingEnabledChanged += OnComboBoxFormattingEnabledChanged;
+            ComboBox.SelectedValueChanged += OnComboBoxSelectedValueChanged;
+            ComboBox.ValueMemberChanged += OnComboBoxValueMemberChanged;
 
             // Ensure we can track mouse events on the text box
             MonitorControl(ComboBox);
@@ -281,7 +281,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Use the same palette in the combo box as the ribbon, plus we need
                     // to know when the ribbon palette changes so we can reflect that change
                     ComboBox.Palette = Ribbon.GetResolvedPalette();
-                    Ribbon.PaletteChanged += new EventHandler(OnRibbonPaletteChanged);
+                    Ribbon.PaletteChanged += OnRibbonPaletteChanged;
                 }
             }
         }
@@ -1173,18 +1173,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonComboBox c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
-            c.TrackMouseEnter += new EventHandler(OnControlEnter);
-            c.TrackMouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
+            c.TrackMouseEnter += OnControlEnter;
+            c.TrackMouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonComboBox c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
-            c.TrackMouseEnter -= new EventHandler(OnControlEnter);
-            c.TrackMouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
+            c.TrackMouseEnter -= OnControlEnter;
+            c.TrackMouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

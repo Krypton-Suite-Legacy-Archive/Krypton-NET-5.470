@@ -16,7 +16,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewDrawMenuImageColumn : ViewDrawDocker
     {
         #region Instance Fields
-        private ViewLayoutSeparator _separator;
+        private readonly ViewLayoutSeparator _separator;
         #endregion
 
         #region Identity
