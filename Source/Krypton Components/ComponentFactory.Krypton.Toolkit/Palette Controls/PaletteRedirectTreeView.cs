@@ -63,16 +63,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetTreeViewImage(bool expanded)
         {
-            Image retImage = null;
-
-            if (expanded)
-            {
-                retImage = _plusMinusImages.Minus;
-            }
-            else
-            {
-                retImage = _plusMinusImages.Plus;
-            }
+            Image retImage = expanded ? _plusMinusImages.Minus : _plusMinusImages.Plus;
 
             // Not found, then inherit from target
             if (retImage == null)
@@ -96,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                bool tracking,
                                                bool pressed)
         {
-            Image retImage = null;
+            Image retImage;
 
             // Get the state specific image
             switch (checkState)

@@ -1279,7 +1279,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // WindowState property as it can be slightly out of date)
             uint style = PI.GetWindowLong(f.Handle, PI.GWL_STYLE);
 
-            return ((style &= PI.WS_MINIMIZE) != 0);
+            return ((style & PI.WS_MINIMIZE) != 0);
         }
 
         /// <summary>
@@ -1293,7 +1293,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // WindowState property as it can be slightly out of date)
             uint style = PI.GetWindowLong(f.Handle, PI.GWL_STYLE);
 
-            return ((style &= PI.WS_MAXIMIZE) != 0);
+            return ((style & PI.WS_MAXIMIZE) != 0);
         }
 
 
@@ -1442,7 +1442,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Reference to new instance.</returns>
         public static object CreateInstance(Type itemType, IDesignerHost host)
         {
-            object retObj = null;
+            object retObj;
 
             // Cannot use the designer host to create component unless the type implements IComponent
             if (typeof(IComponent).IsAssignableFrom(itemType) && (host != null))

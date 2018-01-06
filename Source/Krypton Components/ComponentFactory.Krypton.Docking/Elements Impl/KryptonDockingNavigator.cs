@@ -811,6 +811,7 @@ namespace ComponentFactory.Krypton.Docking
             if (count > 0)
             {
                 KryptonDockingManager manager = DockingManager;
+                KryptonPage page = null;
                 for (int i = 0; i < count; i++)
                 {
                     // Read past this element
@@ -829,8 +830,6 @@ namespace ComponentFactory.Krypton.Docking
                     string uniqueName = CommonHelper.XmlAttributeToText(xmlReader, "UN");
                     bool boolStore = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "S"));
                     bool boolVisible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "V", "True"));
-
-                    KryptonPage page = null;
 
                     // If the entry is for just a placeholder...
                     if (boolStore)

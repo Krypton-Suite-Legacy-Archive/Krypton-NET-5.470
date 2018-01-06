@@ -62,7 +62,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                   bool tracking, 
                                                   bool pressed)
         {
-            Image retImage = null;
+            Image retImage;
 
             if (checkState)
             {

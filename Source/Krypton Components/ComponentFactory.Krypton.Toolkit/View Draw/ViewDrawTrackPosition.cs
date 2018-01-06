@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="context">Rendering context.</param>
         public override void RenderBefore(RenderContext context)
         {
-            IPaletteElementColor elementColors = null;
+            IPaletteElementColor elementColors;
 
             switch (State)
             {

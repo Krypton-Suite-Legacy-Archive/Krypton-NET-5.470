@@ -1277,7 +1277,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         VisualOrientation orient)
             : base(r, color1, color2, color3, color4, color5)
         {
-            orient = orientation;
+            orientation = orient;
         }
 
         /// <summary>For internal use only.</summary>
@@ -1351,7 +1351,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                             VisualOrientation orient)
             : base(r, color1, color2, color3, color4, color5)
         {
-            orient = orientation;
+            orientation = orient;
         }
 
         /// <summary>For internal use only.</summary>
@@ -1427,7 +1427,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                VisualOrientation orient)
             : base(r, color1, color2)
         {
-            orient = orientation;
+            orientation = orient;
         }
 
         /// <summary>For internal use only.</summary>
@@ -1592,7 +1592,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        VisualOrientation orient)
             : base(r, color1, color2, color3)
         {
-            orient = orientation;
+            orientation = orient;
         }
 
         /// <summary>For internal use only.</summary>

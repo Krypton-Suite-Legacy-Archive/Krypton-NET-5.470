@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private Color GetTextColor(PaletteState state)
         {
-            Color retColor = Color.Empty;
+            Color retColor;
 
             if (state == PaletteState.Disabled)
             {

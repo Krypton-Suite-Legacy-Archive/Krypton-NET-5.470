@@ -3442,11 +3442,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Draw a marker for each value between min and max
                     float factor = (range == 0) ? float.MinValue : (float)drawRect.Width / range;
-                    float top = drawRect.Y + 1;
-                    float bottom = drawRect.Bottom - 2;
                     for (int i = minimum, y = 0; i <= maximum; i += frequency, y += frequency)
                     {
                         float offset = drawRect.X + (factor * y);
+                        float top;
+                        float bottom;
                         if (!topRight)
                         {
                             top = drawRect.Y + 2;
@@ -3478,11 +3478,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     // Draw a marker for each value between min and max
                     float factor = (range == 0) ? float.MinValue : (float)drawRect.Height / range;
-                    float left = drawRect.X + 1;
-                    float right = drawRect.Right - 2;
                     for (int i = minimum, y = 0; i <= maximum; i += frequency, y += frequency)
                     {
                         float offset = drawRect.Y + (factor * y);
+                        float left;
+                        float right;
                         if (topRight)
                         {
                             left = drawRect.X + 2;

@@ -144,25 +144,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_PRINTCLIENT:
                     case PI.WM_PAINT:
                         {
-                            IntPtr hdc;
                             PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                             // Do we need to BeginPaint or just take the given HDC?
-                            if (m.WParam == IntPtr.Zero)
-                            {
-                                hdc = PI.BeginPaint(Handle, ref ps);
-                            }
-                            else
-                            {
-                                hdc = m.WParam;
-                            }
+                            IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
                             {
                                 // Grab the client area of the control
-                                PI.RECT rect = new PI.RECT();
-                                PI.GetClientRect(Handle, out rect);
+                                PI.GetClientRect(Handle, out PI.RECT rect);
 
                                 // Drawn entire client area in the background color
                                 using (SolidBrush backBrush = new SolidBrush(BackColor))

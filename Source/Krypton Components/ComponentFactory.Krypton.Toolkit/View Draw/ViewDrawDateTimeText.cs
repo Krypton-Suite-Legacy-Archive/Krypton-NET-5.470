@@ -674,9 +674,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             private void MeasureFragments(Graphics g, Font font, DateTime dt)
             {
-                // Create a character range/characger region for each of the fragments
+                // Create a character range/character region for each of the fragments
                 CharacterRange[] charRanges = new CharacterRange[_fragments.Count];
-                Region[] charRegion = new Region[_fragments.Count];
 
                 // Generate the output for each fragment and measure the length of that fragment output
                 for (int i = 0; i < _fragments.Count; i++)
@@ -688,8 +687,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 StringFormat measureFormat = new StringFormat(StringFormatFlags.FitBlackBox);
                 measureFormat.SetMeasurableCharacterRanges(charRanges);
 
-                // Perform measuring using the output of the last fragmet (last frag must be the whole output string)
-                charRegion = g.MeasureCharacterRanges(_fragments[_fragments.Count - 1].Output, font, _measureRect, measureFormat);
+                // Perform measuring using the output of the last fragment (last frag must be the whole output string)
+                Region[] charRegion = g.MeasureCharacterRanges(_fragments[_fragments.Count - 1].Output, font, _measureRect, measureFormat);
 
                 // Push return values into the individual fragment entries
                 for (int i = 0; i < _fragments.Count; i++)

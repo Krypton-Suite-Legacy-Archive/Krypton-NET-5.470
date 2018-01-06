@@ -106,7 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 SelectionRules rules = base.SelectionRules;
-                return rules &= ~(SelectionRules.TopSizeable | SelectionRules.BottomSizeable);
+                return rules & ~(SelectionRules.TopSizeable | SelectionRules.BottomSizeable);
             }
         }
         #endregion

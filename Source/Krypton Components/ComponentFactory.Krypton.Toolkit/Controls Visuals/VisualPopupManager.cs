@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Are we tracking a popup?
             if (CurrentPopup != null)
             {
-                bool found = false;
+                bool found;
 
                 do
                 {

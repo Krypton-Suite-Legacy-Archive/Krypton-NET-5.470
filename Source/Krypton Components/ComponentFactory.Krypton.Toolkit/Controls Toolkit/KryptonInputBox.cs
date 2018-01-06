@@ -153,38 +153,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                            string caption,
                                            string defaultResponse)
         {
-            IWin32Window showOwner = null;
-
             // If do not have an owner passed in then get the active window and use that instead
-            if (owner == null)
-            {
-                showOwner = Control.FromHandle(PI.GetActiveWindow());
-            }
-            else
-            {
-                showOwner = owner;
-            }
+            IWin32Window showOwner = owner ?? Control.FromHandle(PI.GetActiveWindow());
 
             // Show input box window as a modal dialog and then dispose of it afterwards
             using (KryptonInputBox ib = new KryptonInputBox(prompt, caption, defaultResponse))
             {
-                if (showOwner == null)
-                {
-                    ib.StartPosition = FormStartPosition.CenterScreen;
-                }
-                else
-                {
-                    ib.StartPosition = FormStartPosition.CenterParent;
-                }
+                ib.StartPosition = showOwner == null ? FormStartPosition.CenterScreen : FormStartPosition.CenterParent;
 
-                if (ib.ShowDialog(showOwner) == DialogResult.OK)
-                {
-                    return ib.InputResponse;
-                }
-                else
-                {
-                    return string.Empty;
-                }
+                return ib.ShowDialog(showOwner) == DialogResult.OK ? ib.InputResponse : string.Empty;
             }
         }
 

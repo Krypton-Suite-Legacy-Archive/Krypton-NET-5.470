@@ -205,15 +205,7 @@ namespace ComponentFactory.Krypton.Toolkit
             TargetList targets = ConstructKeyboardTargets(Root);
 
             // Find the next appropriate target
-            IContextMenuTarget newTarget = null;
-            if (_target == null)
-            {
-                newTarget = FindBottomLeftTarget(targets);
-            }
-            else
-            {
-                newTarget = FindUpTarget(targets, _target);
-            }
+            IContextMenuTarget newTarget = _target == null ? FindBottomLeftTarget(targets) : FindUpTarget(targets, _target);
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
@@ -230,15 +222,7 @@ namespace ComponentFactory.Krypton.Toolkit
             TargetList targets = ConstructKeyboardTargets(Root);
 
             // Find the next appropriate target
-            IContextMenuTarget newTarget = null;
-            if (_target == null)
-            {
-                newTarget = FindTopLeftTarget(targets);
-            }
-            else
-            {
-                newTarget = FindDownTarget(targets, _target);
-            }
+            IContextMenuTarget newTarget = _target == null ? FindTopLeftTarget(targets) : FindDownTarget(targets, _target);
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
@@ -258,15 +242,7 @@ namespace ComponentFactory.Krypton.Toolkit
             TargetList targets = ConstructKeyboardTargets(Root);
 
             // Find the next appropriate target
-            IContextMenuTarget newTarget = null;
-            if (_target == null)
-            {
-                newTarget = FindTopRightTarget(targets);
-            }
-            else
-            {
-                newTarget = FindLeftTarget(targets, _target, wrap, ref hitEdge);
-            }
+            IContextMenuTarget newTarget = _target == null ? FindTopRightTarget(targets) : FindLeftTarget(targets, _target, wrap, ref hitEdge);
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))
@@ -285,15 +261,7 @@ namespace ComponentFactory.Krypton.Toolkit
             TargetList targets = ConstructKeyboardTargets(Root);
 
             // Find the next appropriate target
-            IContextMenuTarget newTarget = null;
-            if (_target == null)
-            {
-                newTarget = FindTopLeftTarget(targets);
-            }
-            else
-            {
-                newTarget = FindRightTarget(targets, _target);
-            }
+            IContextMenuTarget newTarget = _target == null ? FindTopLeftTarget(targets) : FindRightTarget(targets, _target);
 
             // If we found a new target, then make it the current target
             if ((newTarget != null) && (newTarget != _target))

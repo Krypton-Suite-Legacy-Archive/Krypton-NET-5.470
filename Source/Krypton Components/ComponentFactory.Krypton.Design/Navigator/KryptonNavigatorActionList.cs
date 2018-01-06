@@ -824,7 +824,7 @@ namespace ComponentFactory.Krypton.Navigator
             bool headerPrimary = (verb == _headerPrimaryVisible);
             bool headerSecondary = (verb == _headerSecondaryVisible);
 
-            bool newVisible = false;
+            bool newVisible;
 
             // Get the new visible values
             if (headerBar)

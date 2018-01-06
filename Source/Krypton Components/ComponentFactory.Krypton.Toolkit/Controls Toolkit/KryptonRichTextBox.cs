@@ -139,17 +139,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 fmtRange.rc = rectToPrint;
                 fmtRange.rcPage = rectPage;
 
-                IntPtr res = IntPtr.Zero;
-                IntPtr wparam = IntPtr.Zero;
-                wparam = new IntPtr(1);
+                IntPtr wparam = new IntPtr(1);
 
                 //Get the pointer to the FORMATRANGE structure in memory
-                IntPtr lparam = IntPtr.Zero;
-                lparam = Marshal.AllocCoTaskMem(Marshal.SizeOf(fmtRange));
+                IntPtr lparam = Marshal.AllocCoTaskMem(Marshal.SizeOf(fmtRange));
                 Marshal.StructureToPtr(fmtRange, lparam, false);
 
                 //Send the rendered data for printing 
-                res = (IntPtr)PI.SendMessage(Handle, PI.EM_FORMATRANGE, wparam, lparam);
+                IntPtr res = (IntPtr)PI.SendMessage(Handle, PI.EM_FORMATRANGE, wparam, lparam);
 
                 //Free the block of memory allocated
                 Marshal.FreeCoTaskMem(lparam);

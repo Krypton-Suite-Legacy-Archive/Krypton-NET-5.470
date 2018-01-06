@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewBase child = this[i];
 
                 // Find length of this item
-                int length = 0;
+                int length;
 
                 // If this is the last item then it takes the remaining space
                 if (i == (Count - 1))

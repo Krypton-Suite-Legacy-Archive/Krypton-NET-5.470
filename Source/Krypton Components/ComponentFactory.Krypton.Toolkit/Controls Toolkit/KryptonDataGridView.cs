@@ -1146,11 +1146,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         IDisposable unused =  Renderer.RenderStandardBack.DrawBack(renderContext, tempCellBackBounds, borderPath, _backInherit, VisualOrientation.Top, state, null);
 
                         // We never save the memento for reuse later
-                        if (unused != null)
-                        {
-                            unused.Dispose();
-                            unused = null;
-                        }
+                        unused?.Dispose();
 
                         Renderer.RenderStandardBorder.DrawBorder(renderContext, tempCellBounds, _borderForced, VisualOrientation.Top, state);
 

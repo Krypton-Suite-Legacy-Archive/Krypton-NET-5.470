@@ -219,16 +219,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetFirstFocusItem()
         {
-            ViewBase view = null;
-
-            if (Collapsed)
-            {
-                view = _layoutCollapsedMain;
-            }
-            else
-            {
-                view = _layoutNormalContent.GetFirstFocusItem();
-            }
+            ViewBase view = Collapsed ? _layoutCollapsedMain : _layoutNormalContent.GetFirstFocusItem();
 
             return view;
         }
@@ -241,16 +232,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>ViewBase of item; otherwise false.</returns>
         public ViewBase GetLastFocusItem()
         {
-            ViewBase view = null;
-
-            if (Collapsed)
-            {
-                view = _layoutCollapsedMain;
-            }
-            else
-            {
-                view = _layoutNormalContent.GetLastFocusItem();
-            }
+            ViewBase view = Collapsed ? _layoutCollapsedMain : _layoutNormalContent.GetLastFocusItem();
 
             return view;
         }

@@ -535,7 +535,7 @@ namespace ComponentFactory.Krypton.Ribbon
         protected void UpdateTargetState(Point pt)
         {
             // By default the button is in the normal state
-            PaletteState newState;
+            PaletteState newState = PaletteState.Normal;
 
             // When disabled the button itself is shown as normal, the 
             // content is expected to draw itself as disbled though
@@ -545,8 +545,6 @@ namespace ComponentFactory.Krypton.Ribbon
             }
             else
             {
-                newState = PaletteState.Normal;
-
                 // If capturing input....
                 if (Captured)
                 {

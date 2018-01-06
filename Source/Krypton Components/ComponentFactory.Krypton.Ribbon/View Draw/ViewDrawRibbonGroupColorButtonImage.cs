@@ -112,28 +112,14 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get
             {
-                Image newImage = null;
+                Image newImage;
                 if (_ribbonColorButton.KryptonCommand != null)
                 {
-                    if (_large)
-                    {
-                        newImage = _ribbonColorButton.KryptonCommand.ImageLarge;
-                    }
-                    else
-                    {
-                        newImage = _ribbonColorButton.KryptonCommand.ImageSmall;
-                    }
+                    newImage = _large ? _ribbonColorButton.KryptonCommand.ImageLarge : _ribbonColorButton.KryptonCommand.ImageSmall;
                 }
                 else
                 {
-                    if (_large)
-                    {
-                        newImage = _ribbonColorButton.ImageLarge;
-                    }
-                    else
-                    {
-                        newImage = _ribbonColorButton.ImageSmall;
-                    }
+                    newImage = _large ? _ribbonColorButton.ImageLarge : _ribbonColorButton.ImageSmall;
                 }
 
                 // Do we need to create another composite image?

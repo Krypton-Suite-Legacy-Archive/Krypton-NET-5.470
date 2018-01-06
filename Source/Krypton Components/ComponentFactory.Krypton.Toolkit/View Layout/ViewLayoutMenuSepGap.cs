@@ -55,17 +55,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
-            Padding paddingText = Padding.Empty;
-
             // Grab the padding used for the text/extra content of a menu item
-            if (_standardStyle)
-            {
-                paddingText = _stateCommon.ItemTextStandard.GetContentPadding(PaletteState.Normal);
-            }
-            else
-            {
-                paddingText = _stateCommon.ItemTextAlternate.GetContentPadding(PaletteState.Normal);
-            }
+            Padding paddingText = _standardStyle
+                ? _stateCommon.ItemTextStandard.GetContentPadding(PaletteState.Normal)
+                : _stateCommon.ItemTextAlternate.GetContentPadding(PaletteState.Normal);
 
             // Get padding needed for the left edge of the item highlight
             Padding paddingHighlight = context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_stateCommon.ItemHighlight.Border, PaletteState.Normal, VisualOrientation.Top);

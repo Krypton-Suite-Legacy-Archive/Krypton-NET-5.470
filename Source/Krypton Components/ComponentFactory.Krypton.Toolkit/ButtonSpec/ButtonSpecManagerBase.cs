@@ -804,16 +804,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the docker index that is the target for the button spec
             int viewDockerIndex = GetTargetDockerIndex(buttonSpec.GetLocation(_redirector));
 
-            IPaletteMetric viewPaletteMetric = null;
-            PaletteMetricPadding viewMetricPadding = PaletteMetricPadding.None;
-
             // Are we applying metrics
             if ((_viewMetrics != null) &&
                 (_viewMetrics.Length > viewDockerIndex) &&
                 (_viewMetricPaddings.Length > viewDockerIndex))
             {
-                viewPaletteMetric = _viewMetrics[viewDockerIndex];
-                viewMetricPadding = _viewMetricPaddings[viewDockerIndex];
+                IPaletteMetric viewPaletteMetric = _viewMetrics[viewDockerIndex];
+                PaletteMetricPadding viewMetricPadding = _viewMetricPaddings[viewDockerIndex];
 
                 // Create an instance to manage the individual button spec
                 ButtonSpecView buttonView = CreateButtonSpecView(_redirector, viewPaletteMetric, viewMetricPadding, buttonSpec);

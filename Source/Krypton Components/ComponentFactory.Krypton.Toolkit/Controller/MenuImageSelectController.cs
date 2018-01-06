@@ -496,7 +496,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual void UpdateTargetState(Point pt)
         {
             // By default the button is in the normal state
-            PaletteState newState;
+            PaletteState newState = PaletteState.Normal;
 
             // If the button is disabled then show as disabled
             if (!_target.Enabled)
@@ -505,8 +505,6 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             else
             {
-                newState = PaletteState.Normal;
-
                 // If capturing input....
                 if (Captured)
                 {

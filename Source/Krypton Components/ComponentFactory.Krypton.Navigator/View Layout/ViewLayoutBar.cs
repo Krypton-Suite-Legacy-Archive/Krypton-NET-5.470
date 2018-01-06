@@ -319,28 +319,14 @@ namespace ComponentFactory.Krypton.Navigator
             if (Count > 0)
             {
                 // Default to no space between each child item
-                int gap = 0;
-
                 // If we have a metric provider then get the child gap to use
-                if (_paletteMetric != null)
-                {
-                    gap = _paletteMetric.GetMetricInt(State, _metricGap);
-                }
-                else
-                {
-                    gap = context.Renderer.RenderTabBorder.GetTabBorderSpacingGap(TabBorderStyle);
-                }
+                int gap = _paletteMetric?.GetMetricInt(State, _metricGap) ?? context.Renderer.RenderTabBorder.GetTabBorderSpacingGap(TabBorderStyle);
 
                 // Line spacing gap can never be less than zero
                 int lineGap = (gap < 0 ? 0 : gap);
                 
-                bool reversed = false;
-
                 // Do we need to apply right to left by positioning children in reverse order?
-                if (IsOneLine && !BarVertical && (context.Control.RightToLeft == RightToLeft.Yes))
-                {
-                    reversed = true;
-                }
+                bool reversed = (IsOneLine && !BarVertical && (context.Control.RightToLeft == RightToLeft.Yes));
 
                 // Allocate caching for size of each child element
                 _childSizes = new Size[Count];
@@ -857,17 +843,8 @@ namespace ComponentFactory.Krypton.Navigator
             if (Count > 0)
             {
                 // Default to no space between each child item
-                int gap = 0;
-
                 // If we have a metric provider then get the child gap to use
-                if (_paletteMetric != null)
-                {
-                    gap = _paletteMetric.GetMetricInt(State, _metricGap);
-                }
-                else
-                {
-                    gap = context.Renderer.RenderTabBorder.GetTabBorderSpacingGap(TabBorderStyle);
-                }
+                int gap = _paletteMetric?.GetMetricInt(State, _metricGap) ?? context.Renderer.RenderTabBorder.GetTabBorderSpacingGap(TabBorderStyle);
 
                 // Line spacing gap can never be less than zero
                 int lineGap = (gap < 0 ? 0 : gap);

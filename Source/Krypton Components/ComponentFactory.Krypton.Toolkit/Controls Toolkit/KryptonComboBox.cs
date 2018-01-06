@@ -296,8 +296,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             // Grab the client area of the control
-                            PI.RECT rect = new PI.RECT();
-                            PI.GetClientRect(Handle, out rect);
+                            PI.GetClientRect(Handle, out PI.RECT rect);
 
                             // Get the constant used to crack open the display
                             int dropDownWidth = SystemInformation.VerticalScrollBarWidth;
@@ -326,25 +325,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_PRINTCLIENT:
                     case PI.WM_PAINT:
                         {
-                            IntPtr hdc;
                             PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                             // Do we need to BeginPaint or just take the given HDC?
-                            if (m.WParam == IntPtr.Zero)
-                            {
-                                hdc = PI.BeginPaint(Handle, ref ps);
-                            }
-                            else
-                            {
-                                hdc = m.WParam;
-                            }
+                            IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
                             {
                                 // Grab the client area of the control
-                                PI.RECT rect = new PI.RECT();
-                                PI.GetClientRect(Handle, out rect);
+                                PI.GetClientRect(Handle, out PI.RECT rect);
 
                                 // Drawn entire client area in the background color
                                 using (SolidBrush backBrush = new SolidBrush(BackColor))
@@ -407,20 +397,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         LineAlignment = StringAlignment.Center,
                                         FormatFlags = StringFormatFlags.NoWrap,
-                                        Trimming = StringTrimming.None
+                                        Trimming = StringTrimming.None,
+                                        Alignment = _kryptonComboBox.RightToLeft == RightToLeft.Yes
+                                            ? StringAlignment.Far
+                                            : StringAlignment.Near,
+                                        // Use the correct prefix setting
+                                        HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None
                                     };
 
-                                    if (_kryptonComboBox.RightToLeft == RightToLeft.Yes)
-                                    {
-                                        stringFormat.Alignment = StringAlignment.Far;
-                                    }
-                                    else
-                                    {
-                                        stringFormat.Alignment = StringAlignment.Near;
-                                    }
 
-                                    // Use the correct prefix setting
-                                    stringFormat.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
 
                                     // Draw using a solid brush
                                     try

@@ -432,7 +432,7 @@ namespace ComponentFactory.Krypton.Ribbon
             int cycleCurrent = cycleMax;
 
             // Decide if we need to break out the process and generate a new perm
-            bool breakOut = false;
+            bool breakOut;
             bool tags = true;
 
             do
