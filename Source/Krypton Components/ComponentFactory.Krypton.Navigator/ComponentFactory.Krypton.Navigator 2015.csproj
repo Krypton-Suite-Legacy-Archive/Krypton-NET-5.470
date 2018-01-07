@@ -243,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="Resources\DocumentValid.cur" />
     <None Include="Resources\DocumentInvalid.cur" />

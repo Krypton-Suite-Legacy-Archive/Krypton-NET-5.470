@@ -749,7 +749,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="Resources\SplitVertical.cur" />
   </ItemGroup>
@@ -1055,7 +1054,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

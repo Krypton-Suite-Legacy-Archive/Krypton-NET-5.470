@@ -343,7 +343,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="ToolboxBitmaps\KryptonRibbonGroupTrackBar.bmp" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupDateTimePicker.bmp" />

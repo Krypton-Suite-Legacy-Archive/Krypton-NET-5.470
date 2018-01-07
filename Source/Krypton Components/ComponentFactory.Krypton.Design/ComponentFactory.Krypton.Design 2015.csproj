@@ -231,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="Resources\KryptonRibbonGroupTrackBar.bmp" />
     <None Include="Resources\KryptonGallery.bmp" />

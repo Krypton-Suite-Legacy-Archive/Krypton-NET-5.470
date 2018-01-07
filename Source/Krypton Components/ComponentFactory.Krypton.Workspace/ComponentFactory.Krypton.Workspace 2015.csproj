@@ -107,7 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="Resources\arrow_up_blue.png" />
     <None Include="Resources\arrow_down_blue.png" />

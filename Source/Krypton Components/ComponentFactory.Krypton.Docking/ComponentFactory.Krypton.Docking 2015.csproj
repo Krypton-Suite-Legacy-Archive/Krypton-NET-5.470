@@ -158,7 +158,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ViewDraw\ViewDrawAutoHiddenTab.cs" />
-    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="StrongKrypton.snk" />
   </ItemGroup>

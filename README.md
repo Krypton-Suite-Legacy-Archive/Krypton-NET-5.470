@@ -1,6 +1,7 @@
 ﻿# Krypton-NET-4.7
 
 ## 2018-01-07 Toolkit Solution
+* Message content size adjustment in KryptonTaskDialog; ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
 * Remove "Assignment is not used"
 * Initialise orientation in mementos correctly
 * CherryPick Merges from Cocotteseb 
@@ -15,9 +16,7 @@
   * Trying to fixed rare crashed in KryptonRibbon Composition; commit [ef4a415](https://github.com/Cocotteseb/Krypton/commit/c55aeadc2224ed68a7446bf3986eb02bf0415751)
   * Add DPI Awareness for Tab images (Mixture of commits)
 * Update a few test to use Offices2013 palletes
-
-## 2018-01-07 CherryPick Merge from ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
-* Message content size adjustment in KryptonTaskDialog
+* Remove Binaries from Git
 
 ## 2018-01-06 Toolkit solution and Examples II changes:
 * Remove "redundant delegate constructors" for callbacks
