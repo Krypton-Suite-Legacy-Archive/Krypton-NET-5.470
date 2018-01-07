@@ -7,8 +7,14 @@ using System.Windows.Forms;
 //https://github.com/File-New-Project/EarTrumpet/blob/master/EarTrumpet/Services/ThemeService.cs
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ThemeService
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool IsWindowTransparencyEnabled
         {
             get { return !SystemInformation.HighContrast && UserSystemPreferencesService.IsTransparencyEnabled; }
@@ -28,6 +34,10 @@ namespace ComponentFactory.Krypton.Toolkit
         //    SetBrush(dictionary, "CottonSwabSliderThumbPressed", "ImmersiveControlDarkSliderThumbHover");
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static Color GetWindowBackgroundColor()
         {
             string resource;

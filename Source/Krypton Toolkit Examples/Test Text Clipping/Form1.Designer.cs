@@ -30,17 +30,6 @@ namespace ThreePaneApplication
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11});
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
@@ -52,9 +41,24 @@ namespace ThreePaneApplication
             treeNode3,
             treeNode4,
             treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroupDetails = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonTreeView2 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+            this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+            this.kryptonCheckedListBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+            this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
             this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonWrapLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
@@ -72,6 +76,8 @@ namespace ThreePaneApplication
             this.kryptonSparkleOrange = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonOffice2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonOffice2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonOffice2013 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonOffice2013White = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonSparklePurple = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonSparkleBlue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonCustom = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -82,10 +88,8 @@ namespace ThreePaneApplication
             this.kryptonOffice2007Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPaletteCustom = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
-            this.kryptonCheckedListBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
-            this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
-            this.kryptonTreeView2 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+            this.kryptonRadioButton1 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonRadioButton2 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMain)).BeginInit();
             this.kryptonPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails)).BeginInit();
@@ -154,11 +158,87 @@ namespace ThreePaneApplication
             this.kryptonPanel1.Size = new System.Drawing.Size(701, 339);
             this.kryptonPanel1.TabIndex = 0;
             // 
+            // kryptonTreeView2
+            // 
+            this.kryptonTreeView2.Location = new System.Drawing.Point(494, 211);
+            this.kryptonTreeView2.Name = "kryptonTreeView2";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node3";
+            treeNode3.Text = "Node3";
+            treeNode4.Name = "Node4";
+            treeNode4.Text = "Node4";
+            treeNode5.Name = "Node5";
+            treeNode5.Text = "Node5";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Node0";
+            this.kryptonTreeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            this.kryptonTreeView2.Size = new System.Drawing.Size(58, 96);
+            this.kryptonTreeView2.TabIndex = 18;
+            this.kryptonTreeView2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonTreeView1
+            // 
+            this.kryptonTreeView1.Location = new System.Drawing.Point(350, 215);
+            this.kryptonTreeView1.Name = "kryptonTreeView1";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Node1";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Node2";
+            treeNode9.Name = "Node3";
+            treeNode9.Text = "Node3";
+            treeNode10.Name = "Node4";
+            treeNode10.Text = "Node4";
+            treeNode11.Name = "Node5";
+            treeNode11.Text = "Node5";
+            treeNode12.Name = "Node0";
+            treeNode12.Text = "Node0";
+            this.kryptonTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            this.kryptonTreeView1.Size = new System.Drawing.Size(120, 96);
+            this.kryptonTreeView1.TabIndex = 17;
+            this.kryptonTreeView1.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonCheckedListBox2
+            // 
+            this.kryptonCheckedListBox2.Items.AddRange(new object[] {
+            "Long piece of text off the side",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.kryptonCheckedListBox2.Location = new System.Drawing.Point(166, 208);
+            this.kryptonCheckedListBox2.Name = "kryptonCheckedListBox2";
+            this.kryptonCheckedListBox2.Size = new System.Drawing.Size(120, 96);
+            this.kryptonCheckedListBox2.TabIndex = 16;
+            this.kryptonCheckedListBox2.Click += new System.EventHandler(this.OnClick);
+            // 
+            // kryptonCheckedListBox1
+            // 
+            this.kryptonCheckedListBox1.Items.AddRange(new object[] {
+            "Long piece of text off the side",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.kryptonCheckedListBox1.Location = new System.Drawing.Point(7, 208);
+            this.kryptonCheckedListBox1.Name = "kryptonCheckedListBox1";
+            this.kryptonCheckedListBox1.Size = new System.Drawing.Size(120, 96);
+            this.kryptonCheckedListBox1.TabIndex = 15;
+            this.kryptonCheckedListBox1.Click += new System.EventHandler(this.OnClick);
+            // 
             // kryptonTextBox2
             // 
             this.kryptonTextBox2.Location = new System.Drawing.Point(161, 177);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(100, 14);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(100, 20);
             this.kryptonTextBox2.TabIndex = 9;
             this.kryptonTextBox2.Text = "kryptonTextBox2";
             this.kryptonTextBox2.Click += new System.EventHandler(this.OnClick);
@@ -283,6 +363,8 @@ namespace ThreePaneApplication
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonSparkleOrange);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonOffice2010Blue);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonOffice2010Silver);
+            this.kryptonGroup1.Panel.Controls.Add(this.kryptonOffice2013);
+            this.kryptonGroup1.Panel.Controls.Add(this.kryptonOffice2013White);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonSparklePurple);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonSparkleBlue);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonCustom);
@@ -330,6 +412,24 @@ namespace ThreePaneApplication
             this.kryptonOffice2010Silver.TabIndex = 1;
             this.kryptonOffice2010Silver.Values.Text = "Office 2010 - Silver";
             this.kryptonOffice2010Silver.CheckedChanged += new System.EventHandler(this.kryptonOffice2010Silver_CheckedChanged);
+            // 
+            // kryptonOffice2013
+            // 
+            this.kryptonOffice2013.Location = new System.Drawing.Point(531, 10);
+            this.kryptonOffice2013.Name = "kryptonOffice2013";
+            this.kryptonOffice2013.Size = new System.Drawing.Size(85, 20);
+            this.kryptonOffice2013.TabIndex = 21;
+            this.kryptonOffice2013.Values.Text = "Office 2013";
+            this.kryptonOffice2013.CheckedChanged += new System.EventHandler(this.kryptonOffice2013_CheckedChanged);
+            // 
+            // kryptonOffice2013White
+            // 
+            this.kryptonOffice2013White.Location = new System.Drawing.Point(531, 35);
+            this.kryptonOffice2013White.Name = "kryptonOffice2013White";
+            this.kryptonOffice2013White.Size = new System.Drawing.Size(129, 20);
+            this.kryptonOffice2013White.TabIndex = 22;
+            this.kryptonOffice2013White.Values.Text = "Office 2013 - White";
+            this.kryptonOffice2013White.CheckedChanged += new System.EventHandler(this.kryptonOffice2013White_CheckedChanged);
             // 
             // kryptonSparklePurple
             // 
@@ -629,81 +729,22 @@ namespace ThreePaneApplication
             this.kryptonPaletteCustom.ToolMenuStatus.ToolStrip.ToolStripText = System.Drawing.Color.WhiteSmoke;
             this.kryptonPaletteCustom.ToolMenuStatus.UseRoundedEdges = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             // 
-            // kryptonCheckedListBox1
+            // kryptonRadioButton1
             // 
-            this.kryptonCheckedListBox1.Items.AddRange(new object[] {
-            "Long piece of text off the side",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.kryptonCheckedListBox1.Location = new System.Drawing.Point(7, 208);
-            this.kryptonCheckedListBox1.Name = "kryptonCheckedListBox1";
-            this.kryptonCheckedListBox1.Size = new System.Drawing.Size(120, 96);
-            this.kryptonCheckedListBox1.TabIndex = 15;
-            this.kryptonCheckedListBox1.Click += new System.EventHandler(this.OnClick);
+            this.kryptonRadioButton1.Checked = true;
+            this.kryptonRadioButton1.Location = new System.Drawing.Point(7, 10);
+            this.kryptonRadioButton1.Name = "kryptonRadioButton1";
+            this.kryptonRadioButton1.Size = new System.Drawing.Size(120, 20);
+            this.kryptonRadioButton1.TabIndex = 0;
+            this.kryptonRadioButton1.Values.Text = "Office 2010 - Blue";
             // 
-            // kryptonCheckedListBox2
+            // kryptonRadioButton2
             // 
-            this.kryptonCheckedListBox2.Items.AddRange(new object[] {
-            "Long piece of text off the side",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.kryptonCheckedListBox2.Location = new System.Drawing.Point(166, 208);
-            this.kryptonCheckedListBox2.Name = "kryptonCheckedListBox2";
-            this.kryptonCheckedListBox2.Size = new System.Drawing.Size(120, 96);
-            this.kryptonCheckedListBox2.TabIndex = 16;
-            this.kryptonCheckedListBox2.Click += new System.EventHandler(this.OnClick);
-            // 
-            // kryptonTreeView1
-            // 
-            this.kryptonTreeView1.Location = new System.Drawing.Point(350, 215);
-            this.kryptonTreeView1.Name = "kryptonTreeView1";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Node1";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Node2";
-            treeNode9.Name = "Node3";
-            treeNode9.Text = "Node3";
-            treeNode10.Name = "Node4";
-            treeNode10.Text = "Node4";
-            treeNode11.Name = "Node5";
-            treeNode11.Text = "Node5";
-            treeNode12.Name = "Node0";
-            treeNode12.Text = "Node0";
-            this.kryptonTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            this.kryptonTreeView1.Size = new System.Drawing.Size(120, 96);
-            this.kryptonTreeView1.TabIndex = 17;
-            this.kryptonTreeView1.Click += new System.EventHandler(this.OnClick);
-            // 
-            // kryptonTreeView2
-            // 
-            this.kryptonTreeView2.Location = new System.Drawing.Point(494, 211);
-            this.kryptonTreeView2.Name = "kryptonTreeView2";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Node3";
-            treeNode4.Name = "Node4";
-            treeNode4.Text = "Node4";
-            treeNode5.Name = "Node5";
-            treeNode5.Text = "Node5";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Node0";
-            this.kryptonTreeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            this.kryptonTreeView2.Size = new System.Drawing.Size(58, 96);
-            this.kryptonTreeView2.TabIndex = 18;
-            this.kryptonTreeView2.Click += new System.EventHandler(this.OnClick);
+            this.kryptonRadioButton2.Location = new System.Drawing.Point(7, 35);
+            this.kryptonRadioButton2.Name = "kryptonRadioButton2";
+            this.kryptonRadioButton2.Size = new System.Drawing.Size(126, 20);
+            this.kryptonRadioButton2.TabIndex = 1;
+            this.kryptonRadioButton2.Values.Text = "Office 2010 - Silver";
             // 
             // Form1
             // 
@@ -768,6 +809,10 @@ namespace ThreePaneApplication
         private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonOffice2013;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonOffice2013White;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton2;
     }
 }
 

@@ -13,15 +13,15 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws either a large or small image from a group label.
-	/// </summary>
+    /// <summary>
+    /// Draws either a large or small image from a group label.
+    /// </summary>
     internal class ViewDrawRibbonGroupLabelImage : ViewDrawRibbonGroupImageBase
-                                              
+
     {
         #region Static Fields
-        private static readonly Size _smallSize = new Size(16, 16);
-        private static readonly Size _largeSize = new Size(32, 32);
+        private static Size _smallSize; // = new Size(16, 16);
+        private static Size _largeSize;// = new Size(32, 32);
         #endregion
 
         #region Instance Fields
@@ -43,26 +43,30 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(ribbonLabel != null);
 
+            //Seb dpi aware
+            _smallSize = new Size((int)(16 * FactorDpiX), (int)(16 * FactorDpiY));
+            _largeSize = new Size((int)(32 * FactorDpiX), (int)(32 * FactorDpiY));
+
             _ribbonLabel = ribbonLabel;
             _large = large;
-        }        
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupLabelImage:" + Id;
-		}
+        }
         #endregion
 
         #region Protected
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize 
+        protected override Size DrawSize
         {
             get
             {
@@ -80,7 +84,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the image to be drawn.
         /// </summary>
-        protected override Image DrawImage 
+        protected override Image DrawImage
         {
             get
             {
@@ -97,3 +101,4 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
     }
 }
+

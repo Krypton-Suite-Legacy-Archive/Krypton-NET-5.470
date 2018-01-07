@@ -592,7 +592,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets a value indicating if the control is automatically sized.
         /// </summary>
         [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
         public override bool AutoSize
         {
             get => _autoSize;

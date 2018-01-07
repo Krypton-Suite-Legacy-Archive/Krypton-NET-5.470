@@ -47,11 +47,13 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _paintDelegate = paintDelegate;
 
-            _compBlend = new Blend();
-            //_compBlend.Positions = new float[] { 0.0f, 0.4f, 1.0f };
-            //_compBlend.Factors = new float[] { 0.0f, 0.87f, 1.0f };
-            _compBlend.Positions = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
-            _compBlend.Factors = new float[] { 0.0f, 0.10f, 0.25f, 0.50f, 0.70f, 0.80f };
+            _compBlend = new Blend
+            {
+                //_compBlend.Positions = new float[] { 0.0f, 0.4f, 1.0f };
+                //_compBlend.Factors = new float[] { 0.0f, 0.87f, 1.0f };
+                Positions = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f },
+                Factors = new float[] { 0.0f, 0.10f, 0.25f, 0.50f, 0.70f, 0.80f }
+            };
         }
         #endregion
 

@@ -14,14 +14,14 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a radio button centered in the correct location.
-	/// </summary>
-    internal class ViewDrawRibbonGroupRadioButtonImage : ViewComposite                                              
+    /// <summary>
+    /// Draws a radio button centered in the correct location.
+    /// </summary>
+    internal class ViewDrawRibbonGroupRadioButtonImage : ViewComposite
     {
         #region Static Fields
-        private static readonly Size _smallSize = new Size(16, 16);
-        private static readonly Size _largeSize = new Size(32, 32);
+        private static Size _smallSize;// = new Size(16, 16);
+        private static Size _largeSize;// = new Size(32, 32);
         #endregion
 
         #region Instance Fields
@@ -43,29 +43,33 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(ribbonRadioButton != null);
 
+            //Seb dpi aware
+            _smallSize = new Size((int)(16 * FactorDpiX), (int)(16 * FactorDpiY));
+            _largeSize = new Size((int)(32 * FactorDpiX), (int)(32 * FactorDpiY));
+
             // Remember incoming parameters
             _ribbonRadioButton = ribbonRadioButton;
             _large = large;
 
             // Use redirector to get the radio button images and redirect to parent palette
             PaletteRedirectRadioButton redirectImages = new PaletteRedirectRadioButton(ribbon.GetRedirector(), ribbon.StateCommon.RibbonImages.RadioButton);
-            
+
             // Create drawing element
             _drawRadioButton = new ViewDrawRadioButton(redirectImages);
 
             // Add as only child
             Add(_drawRadioButton);
-        }        
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupRadioButtonImage:" + Id;
-		}
+        }
         #endregion
 
         #region Enabled
@@ -74,8 +78,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Enabled
         {
-            get => _drawRadioButton.Enabled;
-            set => _drawRadioButton.Enabled = value;
+            get { return _drawRadioButton.Enabled; }
+            set { _drawRadioButton.Enabled = value; }
         }
         #endregion
 
@@ -85,8 +89,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Checked
         {
-            get => _drawRadioButton.CheckState;
-            set => _drawRadioButton.CheckState = value;
+            get { return _drawRadioButton.CheckState; }
+            set { _drawRadioButton.CheckState = value; }
         }
         #endregion
 
@@ -96,8 +100,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Tracking
         {
-            get => _drawRadioButton.Tracking;
-            set => _drawRadioButton.Tracking = value;
+            get { return _drawRadioButton.Tracking; }
+            set { _drawRadioButton.Tracking = value; }
         }
         #endregion
 
@@ -107,8 +111,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Pressed
         {
-            get => _drawRadioButton.Pressed;
-            set => _drawRadioButton.Pressed = value;
+            get { return _drawRadioButton.Pressed; }
+            set { _drawRadioButton.Pressed = value; }
         }
         #endregion
 
@@ -140,19 +144,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Get the size of the radio button when it is drawn
             Rectangle radioButtonRect = new Rectangle(Point.Empty, _drawRadioButton.GetPreferredSize(context));
-            
+
             // Decide on correct position within our rectangle
             if (_large)
             {
                 // Place horizontal centered at the bottom of area
-                radioButtonRect.X = ClientLocation.X + ((ClientWidth - radioButtonRect.Width) / 2);
+                radioButtonRect.X = ClientLocation.X + (ClientWidth - radioButtonRect.Width) / 2;
                 radioButtonRect.Y = ClientRectangle.Bottom - radioButtonRect.Height;
             }
             else
             {
                 // Place vertically centered at the right of area
                 radioButtonRect.X = ClientRectangle.Right - radioButtonRect.Width;
-                radioButtonRect.Y = ClientLocation.Y + ((ClientHeight - radioButtonRect.Height) / 2);
+                radioButtonRect.Y = ClientLocation.Y + (ClientHeight - radioButtonRect.Height) / 2;
             }
 
             // Layout the radio button draw element
@@ -163,3 +167,4 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
     }
 }
+

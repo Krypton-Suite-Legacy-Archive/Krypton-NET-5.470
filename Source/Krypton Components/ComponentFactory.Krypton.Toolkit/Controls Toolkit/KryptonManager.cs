@@ -52,6 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PaletteSparkleBlue _paletteSparkleBlue;
         private static PaletteSparkleOrange _paletteSparkleOrange;
         private static PaletteSparklePurple _paletteSparklePurple;
+        private static PaletteOffice2013 _paletteOffice2013;
         private static PaletteOffice2013White _paletteOffice2013White;
         private static RenderStandard _renderStandard;
         private static RenderProfessional _renderProfessional;
@@ -150,7 +151,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // 'GlobalPalette' property in order to get the custom mode
                             break;
                         default:
-                            // Cache the new valus
+                            // Cache the new values
                             PaletteModeManager tempMode = InternalGlobalPaletteMode;
                             IPalette tempPalette = InternalGlobalPalette;
 
@@ -372,7 +373,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Static AllowFormChrome
         /// <summary>
-        /// Gets and sets the global flag that decides if form chrom should be customized.
+        /// Gets and sets the global flag that decides if form chrome should be customized.
         /// </summary>
         public static bool AllowFormChrome
         {
@@ -433,6 +434,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         return PaletteSparkleOrange;
                     case PaletteModeManager.SparklePurple:
                         return PaletteSparklePurple;
+                    case PaletteModeManager.Office2013:
+                        return PaletteOffice2013;
                     case PaletteModeManager.Office2013White:
                         return PaletteOffice2013White;
                     case PaletteModeManager.Custom:
@@ -475,6 +478,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteSparkleOrange;
                 case PaletteMode.SparklePurple:
                     return PaletteSparklePurple;
+                case PaletteMode.Office2013:
+                    return PaletteOffice2013;
                 case PaletteMode.Office2013White:
                     return PaletteOffice2013White;
                 case PaletteMode.Global:
@@ -545,6 +550,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the single instance of the Office 2013 palette.
         /// </summary>
+        public static PaletteOffice2013 PaletteOffice2013 => _paletteOffice2013 ?? (_paletteOffice2013 = new PaletteOffice2013());
+
+        /// <summary>
+        /// Gets the single instance of the Office 2013 palette.
+        /// </summary>
         public static PaletteOffice2013White PaletteOffice2013White => _paletteOffice2013White ?? (_paletteOffice2013White = new PaletteOffice2013White());
 
         /// <summary>
@@ -560,6 +570,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return RenderSparkle;
                 case RendererMode.Office2007:
                     return RenderOffice2007;
+                case RendererMode.Office2010:
+                    return RenderOffice2010;
+                case RendererMode.Office2013:
+                    return RenderOffice2013;
                 case RendererMode.Professional:
                     return RenderProfessional;
                 case RendererMode.Standard:
@@ -576,98 +590,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the single instance of the Sparkle renderer.
         /// </summary>
-        public static RenderSparkle RenderSparkle
-        {
-            get
-            {
-                if (_renderSparkle == null)
-                {
-                    _renderSparkle = new RenderSparkle();
-                }
-
-                return _renderSparkle;
-            }
-        }
+        public static RenderSparkle RenderSparkle => _renderSparkle ?? (_renderSparkle = new RenderSparkle());
 
         /// <summary>
         /// Gets the single instance of the Office 2007 renderer.
         /// </summary>
-        public static RenderOffice2007 RenderOffice2007
-        {
-            get
-            {
-                if (_renderOffice2007 == null)
-                {
-                    _renderOffice2007 = new RenderOffice2007();
-                }
-
-                return _renderOffice2007;
-            }
-        }
+        public static RenderOffice2007 RenderOffice2007 => _renderOffice2007 ?? (_renderOffice2007 = new RenderOffice2007());
 
         /// <summary>
         /// Gets the single instance of the Office 2010 renderer.
         /// </summary>
-        public static RenderOffice2010 RenderOffice2010
-        {
-            get
-            {
-                if (_renderOffice2010 == null)
-                {
-                    _renderOffice2010 = new RenderOffice2010();
-                }
-
-                return _renderOffice2010;
-            }
-        }
+        public static RenderOffice2010 RenderOffice2010 => _renderOffice2010 ?? (_renderOffice2010 = new RenderOffice2010());
 
         /// <summary>
         /// Gets the single instance of the Office 2013 renderer.
         /// </summary>
-        public static RenderOffice2013 RenderOffice2013
-        {
-            get
-            {
-                if (_renderOffice2013 == null)
-                {
-                    _renderOffice2013 = new RenderOffice2013();
-                }
-
-                return _renderOffice2013;
-            }
-        }
+        public static RenderOffice2013 RenderOffice2013 => _renderOffice2013 ?? (_renderOffice2013 = new RenderOffice2013());
 
         /// <summary>
         /// Gets the single instance of the professional renderer.
         /// </summary>
-        public static RenderProfessional RenderProfessional
-        {
-            get
-            {
-                if (_renderProfessional == null)
-                {
-                    _renderProfessional = new RenderProfessional();
-                }
-
-                return _renderProfessional;
-            }
-        }
+        public static RenderProfessional RenderProfessional => _renderProfessional ?? (_renderProfessional = new RenderProfessional());
 
         /// <summary>
         /// Gets the single instance of the standard renderer.
         /// </summary>
-        public static RenderStandard RenderStandard
-        {
-            get
-            {
-                if (_renderStandard == null)
-                {
-                    _renderStandard = new RenderStandard();
-                }
+        public static RenderStandard RenderStandard => _renderStandard ?? (_renderStandard = new RenderStandard());
 
-                return _renderProfessional;
-            }
-        }
         #endregion
 
         #region Static Internal
@@ -760,10 +709,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteSparklePurple?.UserPreferenceChanged();
 
-            if (_paletteOffice2013White != null)
-            {
-                _paletteOffice2013White.UserPreferenceChanged();
-            }
+            _paletteOffice2013?.UserPreferenceChanged();
+
+            _paletteOffice2013White?.UserPreferenceChanged();
 
             UpdateToolStripManager();
         }

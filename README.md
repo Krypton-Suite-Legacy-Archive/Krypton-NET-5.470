@@ -1,6 +1,6 @@
 ﻿# Krypton-NET-4.7
 
-## 2018-01-## Toolkit Solution
+## 2018-01-07 Toolkit Solution
 * Remove "Assignment is not used"
 * Initialise orientation in mementos correctly
 * CherryPick Merges from Cocotteseb 
@@ -11,7 +11,10 @@
   * Fixed an exception crash in KryptonTreeView; commit [7adde64](https://github.com/Cocotteseb/Krypton/commit/8d529d7a624c71c3ce22a7205f9116f0d443bb64)
   * Improvements Office2010 Black and first try Render Office 2013; commit [8d529d7](https://github.com/Cocotteseb/Krypton/commit/f85b69403a2e4359c546fb7d959dfd2c737491f1)
   * Windows 10 1511 enhancements + maximized windows bug fix trying; commit [71e5f32](https://github.com/Cocotteseb/Krypton/commit/621ab7c5ca1d7cd47f2c527ae1c18731b622b846)
-  * 
+  * Added KryptonMenuImageSelect click event; commit [621ab7c](https://github.com/Cocotteseb/Krypton/commit/ef4a415b84ac4ce9b145db9d723701a0099ce0f1)
+  * Trying to fixed rare crashed in KryptonRibbon Composition; commit [ef4a415](https://github.com/Cocotteseb/Krypton/commit/c55aeadc2224ed68a7446bf3986eb02bf0415751)
+  * Add DPI Awareness for Tab images (Mixture of commits)
+* Update a few test to use Offices2013 palletes
 
 ## 2018-01-07 CherryPick Merge from ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
 * Message content size adjustment in KryptonTaskDialog

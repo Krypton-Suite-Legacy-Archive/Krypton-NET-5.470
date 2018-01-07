@@ -15,13 +15,14 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the group image for a collapsed group.
-	/// </summary>
+    /// <summary>
+    /// Draws the group image for a collapsed group.
+    /// </summary>
     internal class ViewDrawRibbonGroupImage : ViewLeaf
-                                              
+
     {
         #region Static Fields
+        //TODO dpi aware !! 
         private static readonly Size _viewSize_2007 = new Size(30, 31);
         private static readonly Size _viewSize_2010 = new Size(31, 31);
         private static readonly Size _imageSize = new Size(16, 16);
@@ -59,17 +60,17 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _ribbonGroup = ribbonGroup;
             _viewGroup = viewGroup;
-        }        
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupImage:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -135,7 +136,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform rendering before child elements are rendered.
         /// </summary>
         /// <param name="context">Rendering context.</param>
-        public override void RenderBefore(RenderContext context) 
+        public override void RenderBefore(RenderContext context)
         {
             IPaletteRibbonBack paletteBorder;
             IPaletteRibbonBack paletteBack;
@@ -147,7 +148,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
             else
             {
-                ElementState =  _viewGroup.Pressed ? PaletteState.Pressed : _viewGroup.Tracking ? PaletteState.Tracking : PaletteState.Normal;
+                ElementState = _viewGroup.Pressed ? PaletteState.Pressed : _viewGroup.Tracking ? PaletteState.Tracking : PaletteState.Normal;
             }
 
             // Decide on the palette to use

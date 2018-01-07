@@ -16,12 +16,12 @@ namespace ComponentFactory.Krypton.Ribbon
 	/// <summary>
 	/// Draws either a large or small image from a group button.
 	/// </summary>
-    internal class ViewDrawRibbonGroupButtonImage : ViewDrawRibbonGroupImageBase
-                                              
+	internal class ViewDrawRibbonGroupButtonImage : ViewDrawRibbonGroupImageBase
+
     {
         #region Static Fields
-        private static readonly Size _smallSize = new Size(16, 16);
-        private static readonly Size _largeSize = new Size(32, 32);
+        private static Size _smallSize;// = new Size(32 , 32); //new Size(16, 16);
+        private static Size _largeSize;// = new Size(48, 48);//new Size(32, 32);
         #endregion
 
         #region Instance Fields
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupButtonImage class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonButton">Reference to ribbon group button definition.</param>
         /// <param name="large">Show the large image.</param>
@@ -43,26 +43,30 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(ribbonButton != null);
 
+            //Seb dpi aware
+            _smallSize = new Size((int)(16 * FactorDpiX), (int)(16 * FactorDpiY));
+            _largeSize = new Size((int)(32 * FactorDpiX), (int)(32 * FactorDpiY));
+
             _ribbonButton = ribbonButton;
             _large = large;
-        }        
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupButtonImage:" + Id;
-		}
+        }
         #endregion
 
         #region Protected
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize 
+        protected override Size DrawSize
         {
             get
             {
@@ -80,7 +84,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the image to be drawn.
         /// </summary>
-        protected override Image DrawImage 
+        protected override Image DrawImage
         {
             get
             {

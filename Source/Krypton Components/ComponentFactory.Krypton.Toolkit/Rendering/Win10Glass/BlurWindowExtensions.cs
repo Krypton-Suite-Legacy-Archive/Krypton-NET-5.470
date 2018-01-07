@@ -60,6 +60,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="window"></param>
         public static void EnableBlur(this Form window)
         {
             if (SystemInformation.HighContrast)
@@ -70,6 +74,10 @@ namespace ComponentFactory.Krypton.Toolkit
             SetAccentPolicy(window, Interop.AccentState.ACCENT_ENABLE_BLURBEHIND);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="window"></param>
         public static void DisableBlur(this Form window)
         {
             SetAccentPolicy(window, Interop.AccentState.ACCENT_DISABLED);

@@ -13,14 +13,14 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a small image from a group cluster color button.
-	/// </summary>
+    /// <summary>
+    /// Draws a small image from a group cluster color button.
+    /// </summary>
     internal class ViewDrawRibbonGroupClusterColorButtonImage : ViewDrawRibbonGroupImageBase
-                                              
+
     {
         #region Static Fields
-        private static readonly Size _smallSize = new Size(16, 16);
+        private static Size _smallSize;// = new Size(16, 16);
         #endregion
 
         #region Instance Fields
@@ -46,17 +46,20 @@ namespace ComponentFactory.Krypton.Ribbon
             _selectedColor = ribbonColorButton.SelectedColor;
             _emptyBorderColor = ribbonColorButton.EmptyBorderColor;
             _selectedRect = ribbonColorButton.SelectedRect;
-        }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+            //Seb dpi aware
+            _smallSize = new Size((int)(16 * FactorDpiX), (int)(16 * FactorDpiY));
+        }
+
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupClusterColorButtonImage:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -92,16 +95,27 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize => _smallSize;
+        protected override Size DrawSize
+        {
+            get { return _smallSize; }
+        }
 
         /// <summary>
         /// Gets the image to be drawn.
         /// </summary>
-        protected override Image DrawImage 
+        protected override Image DrawImage
         {
-            get 
+            get
             {
-                Image newImage = _ribbonColorButton.KryptonCommand != null ? _ribbonColorButton.KryptonCommand.ImageSmall : _ribbonColorButton.ImageSmall;
+                Image newImage = null;
+                if (_ribbonColorButton.KryptonCommand != null)
+                {
+                    newImage = _ribbonColorButton.KryptonCommand.ImageSmall;
+                }
+                else
+                {
+                    newImage = _ribbonColorButton.ImageSmall;
+                }
 
                 // Do we need to create another composite image?
                 if ((newImage != null) && (_compositeImage == null))
@@ -118,12 +132,12 @@ namespace ComponentFactory.Krypton.Ribbon
                             // Indicate the absense of a color by drawing a border around 
                             // the selected color area, thus indicating the area inside the
                             // block is blank/empty.
-                            using(Pen borderPen = new Pen(_emptyBorderColor))
+                            using (Pen borderPen = new Pen(_emptyBorderColor))
                             {
                                 g.DrawRectangle(borderPen, new Rectangle(_selectedRect.X,
-                                    _selectedRect.Y,
-                                    _selectedRect.Width - 1,
-                                    _selectedRect.Height - 1));
+                                                                         _selectedRect.Y,
+                                                                         _selectedRect.Width - 1,
+                                                                         _selectedRect.Height - 1));
                             }
                         }
                         else
@@ -146,3 +160,4 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
     }
 }
+

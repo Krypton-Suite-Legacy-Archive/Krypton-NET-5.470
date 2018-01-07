@@ -4,8 +4,14 @@
 //https://github.com/File-New-Project/EarTrumpet/blob/master/EarTrumpet/Services/UserSystemPreferencesService.cs
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class UserSystemPreferencesService
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool IsTransparencyEnabled
         { 
             get 
@@ -17,6 +23,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool UseAccentColor
         {
             get

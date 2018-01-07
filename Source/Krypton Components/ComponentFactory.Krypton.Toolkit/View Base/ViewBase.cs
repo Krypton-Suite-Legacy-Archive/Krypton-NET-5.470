@@ -17,106 +17,115 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class from which all view types derive.
-	/// </summary>
+    /// <summary>
+    /// Base class from which all view types derive.
+    /// </summary>
     public abstract class ViewBase : GlobalId,
                                      IDisposable,
-									 IList<ViewBase>,
-									 ICollection<ViewBase>,
-									 IEnumerable<ViewBase>
-	{
-		#region Instance Fields
+                                     IList<ViewBase>,
+                                     ICollection<ViewBase>,
+                                     IEnumerable<ViewBase>
+    {
+        #region Instance Fields
 
-	    private bool _enabled;
+        private bool _enabled;
         private bool _enableDependant;
         private bool _visible;
         private bool _fixed;
-	    private ViewBase _enableDependantView;
-	    private Rectangle _clientRect;
+        private ViewBase _enableDependantView;
+        private Rectangle _clientRect;
         private PaletteState _fixedState;
         private PaletteState _elementState;
-	    private Control _owningControl;
-		#endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewBase class.
-		/// </summary>
-		protected ViewBase()
-		{
-			// Default remaining internal state
-			_enabled = true;
-			_visible = true;
+        private Control _owningControl;
+
+        #endregion
+
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewBase class.
+        /// </summary>
+        protected ViewBase()
+        {
+            // Default remaining internal state
+            _enabled = true;
+            _visible = true;
             _fixed = false;
             _enableDependant = false;
-			_clientRect = Rectangle.Empty;
+            _clientRect = Rectangle.Empty;
 
-			// Default the initial state
-			_elementState = PaletteState.Normal;
-		}
+            // Default the initial state
+            _elementState = PaletteState.Normal;
 
-		/// <summary>
-		/// Release resources.
-		/// </summary>
-		~ViewBase()
-		{
-			// Only dispose of resources once
-			if (!IsDisposed)
-			{
-				// Only dispose of managed resources
-				Dispose(false);
-			}
-		}
+            //seb Dpi aware
+            using (Graphics graphics = Graphics.FromHwnd(IntPtr.Zero))
+            {
+                FactorDpiX = graphics.DpiX > 96 ? (1f * graphics.DpiX / 96) : 1f;
+                FactorDpiY = graphics.DpiY > 96 ? (1f * graphics.DpiY / 96) : 1f;
+            }
+        }
 
-		/// <summary>
-		/// Release managed and unmanaged resources.
-		/// </summary>
-		public void Dispose()
-		{
-			// Only dispose of resources once
-			if (!IsDisposed)
-			{
-				// Dispose of managed and unmanaged resources
-				Dispose(true);
-			}
-		}
+        /// <summary>
+        /// Release resources.
+        /// </summary>
+        ~ViewBase()
+        {
+            // Only dispose of resources once
+            if (!IsDisposed)
+            {
+                // Only dispose of managed resources
+                Dispose(false);
+            }
+        }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected virtual void Dispose(bool disposing)
-		{
-			// If called from explicit call to Dispose
-			if (disposing)
-			{
+        /// <summary>
+        /// Release managed and unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            // Only dispose of resources once
+            if (!IsDisposed)
+            {
+                // Dispose of managed and unmanaged resources
+                Dispose(true);
+            }
+        }
+
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            // If called from explicit call to Dispose
+            if (disposing)
+            {
                 // Remove reference to parent view
                 Parent = null;
 
                 // No need to call destructor once dispose has occured
-				GC.SuppressFinalize(this);
-			}
+                GC.SuppressFinalize(this);
+            }
 
-			// Mark as disposed
-			IsDisposed = true;
-		}
+            // Mark as disposed
+            IsDisposed = true;
+        }
 
-		/// <summary>
-		/// Gets a value indicating if the view has been disposed.
-		/// </summary>
-		public bool IsDisposed { get; private set; }
+        /// <summary>
+        /// Gets a value indicating if the view has been disposed.
+        /// </summary>
+        public bool IsDisposed { get; private set; }
 
-	    /// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewBase:" + Id;
-		}
-		#endregion
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewBase:" + Id;
+        }
+        #endregion
 
         #region ViewControl
         /// <summary>
@@ -124,17 +133,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual Control OwningControl
         {
-            get
-            {
-                if (_owningControl != null)
-                {
-                    return _owningControl;
-                }
-                else
-                {
-                    return Parent?.OwningControl;
-                }
-            }
+            get => _owningControl ?? Parent?.OwningControl;
 
             set => _owningControl = value;
         }
@@ -145,76 +144,95 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the enabled state of the element.
 		/// </summary>
 		public virtual bool Enabled
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _enabled; }
-			set { _enabled = value; }
-		}
-		#endregion
+            set { _enabled = value; }
+        }
+        #endregion
 
-		#region Visible
-		/// <summary>
-		/// Gets and sets the enabled state of the element.
-		/// </summary>
-		public virtual bool Visible
-		{
+        #region Visible
+        /// <summary>
+        /// Gets and sets the enabled state of the element.
+        /// </summary>
+        public virtual bool Visible
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _visible; }
-			set { _visible = value; }
-		}
-		#endregion
+            set { _visible = value; }
+        }
+        #endregion
 
-		#region Size & Location
-		/// <summary>
-		/// Gets and sets the rectangle bounding the client area.
-		/// </summary>
-		public virtual Rectangle ClientRectangle
-		{
+        #region Size & Location
+        /// <summary>
+        /// Gets and sets the rectangle bounding the client area.
+        /// </summary>
+        public virtual Rectangle ClientRectangle
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _clientRect; }
-			set { _clientRect = value; }
-		}
+            set { _clientRect = value; }
+        }
 
-		/// <summary>
-		/// Gets and sets the location of the view inside the parent view.
-		/// </summary>
+        /// <summary>
+        /// Gets and sets the location of the view inside the parent view.
+        /// </summary>
         public virtual Point ClientLocation
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _clientRect.Location; }
-			set { _clientRect.Location = value; }
-		}
+            set { _clientRect.Location = value; }
+        }
 
-		/// <summary>
-		/// Gets and sets the size of the view.
-		/// </summary>
+        /// <summary>
+        /// Gets and sets the size of the view.
+        /// </summary>
         public virtual Size ClientSize
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _clientRect.Size; }
-			set { _clientRect.Size = value; }
-		}
+            set { _clientRect.Size = value; }
+        }
 
-		/// <summary>
-		/// Gets and sets the width of the view.
-		/// </summary>
+        /// <summary>
+        /// Gets and sets the width of the view.
+        /// </summary>
         public virtual int ClientWidth
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _clientRect.Width; }
-			set { _clientRect.Width = value; }
-		}
+            set { _clientRect.Width = value; }
+        }
 
-		/// <summary>
-		/// Gets and sets the height of the view.
-		/// </summary>
+        /// <summary>
+        /// Gets and sets the height of the view.
+        /// </summary>
         public virtual int ClientHeight
-		{
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _clientRect.Height; }
-			set { _clientRect.Height = value; }
-		}
-		#endregion
+            set { _clientRect.Height = value; }
+        }
+
+        /// <summary>
+        /// Gets the DpiX of the view.
+        /// </summary>
+        public float FactorDpiX
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+        }
+
+        /// <summary>
+        /// Gets the DpiY of the view.
+        /// </summary>
+        public float FactorDpiY
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+        }
+
+        #endregion
 
         #region Component
         /// <summary>
@@ -222,7 +240,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual Component Component { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Eval
         /// <summary>
@@ -240,61 +258,61 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="context">Layout context.</param>
 		public abstract Size GetPreferredSize(ViewLayoutContext context);
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public abstract void Layout(ViewLayoutContext context);
-		#endregion
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public abstract void Layout(ViewLayoutContext context);
+        #endregion
 
-		#region Paint
-		/// <summary>
-		/// Perform a render of the elements.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public abstract void Render(RenderContext context);
+        #region Paint
+        /// <summary>
+        /// Perform a render of the elements.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public abstract void Render(RenderContext context);
 
-		/// <summary>
-		/// Perform rendering before child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public virtual void RenderBefore(RenderContext context) { }
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public virtual void RenderBefore(RenderContext context) { }
 
-		/// <summary>
-		/// Perform rendering after child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public virtual void RenderAfter(RenderContext context) { }
-		#endregion
+        /// <summary>
+        /// Perform rendering after child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public virtual void RenderAfter(RenderContext context) { }
+        #endregion
 
-		#region Collection
-		/// <summary>
-		/// Gets the parent view.
-		/// </summary>
-		public ViewBase Parent
-		{
-		    [System.Diagnostics.DebuggerStepThrough]
-		    get;
-		    set;
-	    }
+        #region Collection
+        /// <summary>
+        /// Gets the parent view.
+        /// </summary>
+        public ViewBase Parent
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    /// <summary>
-		/// Append a view to the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		public abstract void Add(ViewBase item);
+        /// <summary>
+        /// Append a view to the collection.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        public abstract void Add(ViewBase item);
 
-		/// <summary>
-		/// Remove all views from the collection.
-		/// </summary>
-		public abstract void Clear();
+        /// <summary>
+        /// Remove all views from the collection.
+        /// </summary>
+        public abstract void Clear();
 
-		/// <summary>
-		/// Determines whether the collection contains the view.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>True if view found; otherwise false.</returns>
-		public abstract bool Contains(ViewBase item);
+        /// <summary>
+        /// Determines whether the collection contains the view.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>True if view found; otherwise false.</returns>
+        public abstract bool Contains(ViewBase item);
 
         /// <summary>
         /// Determines whether any part of the view hierarchy is the specified view.
@@ -303,200 +321,192 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if view found; otherwise false.</returns>
         public abstract bool ContainsRecurse(ViewBase item);
 
-		/// <summary>
-		/// Copies views to specified array starting at particular index.
-		/// </summary>
-		/// <param name="array">Target array.</param>
-		/// <param name="arrayIndex">Starting array index.</param>
-		public abstract void CopyTo(ViewBase[] array, int arrayIndex);
+        /// <summary>
+        /// Copies views to specified array starting at particular index.
+        /// </summary>
+        /// <param name="array">Target array.</param>
+        /// <param name="arrayIndex">Starting array index.</param>
+        public abstract void CopyTo(ViewBase[] array, int arrayIndex);
 
-		/// <summary>
-		/// Removes first occurance of specified view.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>True if removed; otherwise false.</returns>
-		public abstract bool Remove(ViewBase item);
+        /// <summary>
+        /// Removes first occurance of specified view.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>True if removed; otherwise false.</returns>
+        public abstract bool Remove(ViewBase item);
 
-		/// <summary>
-		/// Gets the number of views in collection.
-		/// </summary>
-		public abstract int Count { get; }
+        /// <summary>
+        /// Gets the number of views in collection.
+        /// </summary>
+        public abstract int Count { get; }
 
-		/// <summary>
-		/// Gets a value indicating whether the collection is read-only.
-		/// </summary>
-		public bool IsReadOnly 
-		{
+        /// <summary>
+        /// Gets a value indicating whether the collection is read-only.
+        /// </summary>
+        public bool IsReadOnly
+        {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return false; } 
-		}
+            get { return false; }
+        }
 
-		/// <summary>
-		/// Determines the index of the specified view in the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
-		public abstract int IndexOf(ViewBase item);
+        /// <summary>
+        /// Determines the index of the specified view in the collection.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>-1 if not found; otherwise index position.</returns>
+        public abstract int IndexOf(ViewBase item);
 
-		/// <summary>
-		/// Inserts a view to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="item">ViewBase reference.</param>
-		public abstract void Insert(int index, ViewBase item);
+        /// <summary>
+        /// Inserts a view to the collection at the specified index.
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="item">ViewBase reference.</param>
+        public abstract void Insert(int index, ViewBase item);
 
-		/// <summary>
-		/// Removes the view at the specified index.
-		/// </summary>
-		/// <param name="index">Remove index.</param>
-		public abstract void RemoveAt(int index);
+        /// <summary>
+        /// Removes the view at the specified index.
+        /// </summary>
+        /// <param name="index">Remove index.</param>
+        public abstract void RemoveAt(int index);
 
-		/// <summary>
-		/// Gets or sets the view at the specified index.
-		/// </summary>
-		/// <param name="index">ViewBase index.</param>
-		/// <returns>ViewBase at specified index.</returns>
-		public abstract ViewBase this[int index] { get; set; }
+        /// <summary>
+        /// Gets or sets the view at the specified index.
+        /// </summary>
+        /// <param name="index">ViewBase index.</param>
+        /// <returns>ViewBase at specified index.</returns>
+        public abstract ViewBase this[int index] { get; set; }
 
-		/// <summary>
-		/// Shallow enumerate forward over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public abstract IEnumerator<ViewBase> GetEnumerator();
+        /// <summary>
+        /// Shallow enumerate forward over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public abstract IEnumerator<ViewBase> GetEnumerator();
 
-		/// <summary>
-		/// Deep enumerate forward over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public abstract IEnumerable<ViewBase> Recurse();
+        /// <summary>
+        /// Deep enumerate forward over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public abstract IEnumerable<ViewBase> Recurse();
 
-		/// <summary>
-		/// Shallow enumerate backwards over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public abstract IEnumerable<ViewBase> Reverse();
+        /// <summary>
+        /// Shallow enumerate backwards over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public abstract IEnumerable<ViewBase> Reverse();
 
-		/// <summary>
-		/// Deep enumerate backwards over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public abstract IEnumerable<ViewBase> ReverseRecurse();
+        /// <summary>
+        /// Deep enumerate backwards over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public abstract IEnumerable<ViewBase> ReverseRecurse();
 
-		/// <summary>
-		/// Enumerate using non-generic interface.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
+        /// <summary>
+        /// Enumerate using non-generic interface.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
         [System.Diagnostics.DebuggerStepThrough]
         IEnumerator IEnumerable.GetEnumerator()
-		{
-			// Boilerplate code to satisfy IEnumerable<T> base class.
-			return GetEnumerator();
-		}
-		#endregion
+        {
+            // Boilerplate code to satisfy IEnumerable<T> base class.
+            return GetEnumerator();
+        }
+        #endregion
 
-		#region Controllers
-		/// <summary>
-		/// Gets and sets the associated mouse controller.
-		/// </summary>
+        #region Controllers
+        /// <summary>
+        /// Gets and sets the associated mouse controller.
+        /// </summary>
         public virtual IMouseController MouseController
-		{
-		    [System.Diagnostics.DebuggerStepThrough]
-		    get;
-		    set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the associated key controller.
         /// </summary>
         public virtual IKeyController KeyController
-	    {
-	        [System.Diagnostics.DebuggerStepThrough]
-	        get;
-	        set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the associated source controller.
         /// </summary>
         public virtual ISourceController SourceController
-	    {
-	        [System.Diagnostics.DebuggerStepThrough]
-	        get;
-	        set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    #endregion
+        #endregion
 
-		#region Mouse Events
+        #region Mouse Events
         /// <summary>
         /// Mouse has entered the view.
         /// </summary>
         public virtual IMouseController FindMouseController()
         {
             // Use mouse controller as first preference
-            if (MouseController != null)
-            {
-                return MouseController;
-            }
-            else
-            {
-                // Bubble event up to the parent
-                return Parent?.FindMouseController();
-            }
+            return MouseController ?? Parent?.FindMouseController();
         }
 
         /// <summary>
 		/// Mouse has entered the view.
 		/// </summary>
         public virtual void MouseEnter()
-		{
-			// Use mouse controller as first preference
-			if (MouseController != null)
+        {
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 MouseController.MouseEnter(OwningControl);
             }
             else
-			{
-			    // Bubble event up to the parent
-			    Parent?.MouseEnter();
-			}
-		}
+            {
+                // Bubble event up to the parent
+                Parent?.MouseEnter();
+            }
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="pt">Mouse position relative to control.</param>
-		public virtual void MouseMove(Point pt)
-		{
-			// Use mouse controller as first preference
-			if (MouseController != null)
+        public virtual void MouseMove(Point pt)
+        {
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 MouseController.MouseMove(OwningControl, pt);
             }
             else
-			{
-			    // Bubble event up to the parent
-			    Parent?.MouseMove(pt);
-			}
-		}
+            {
+                // Bubble event up to the parent
+                Parent?.MouseMove(pt);
+            }
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
-		public virtual bool MouseDown(Point pt, MouseButtons button)
-		{
-			// Use mouse controller as first preference
-			if (MouseController != null)
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
+        public virtual bool MouseDown(Point pt, MouseButtons button)
+        {
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 return MouseController.MouseDown(OwningControl, pt, button);
             }
             else
-			{
-				// Bubble event up to the parent
-				if (Parent != null)
+            {
+                // Bubble event up to the parent
+                if (Parent != null)
                 {
                     return Parent.MouseDown(pt, button);
                 }
@@ -505,44 +515,44 @@ namespace ComponentFactory.Krypton.Toolkit
                     return false;
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
-		public virtual void MouseUp(Point pt, MouseButtons button)
-		{
-			// Use mouse controller as first preference
-			if (MouseController != null)
+        /// <param name="button">Mouse button released.</param>
+        public virtual void MouseUp(Point pt, MouseButtons button)
+        {
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 MouseController.MouseUp(OwningControl, pt, button);
             }
             else
-			{
-			    // Bubble event up to the parent
-			    Parent?.MouseUp(pt, button);
-			}
-		}
+            {
+                // Bubble event up to the parent
+                Parent?.MouseUp(pt, button);
+            }
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(ViewBase next)
-		{
-			// Use mouse controller as first preference
-			if (MouseController != null)
+        {
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 MouseController.MouseLeave(OwningControl, next);
             }
             else
-			{
-			    // Bubble event up to the parent
-			    Parent?.MouseLeave(next);
-			}
-		}
+            {
+                // Bubble event up to the parent
+                Parent?.MouseLeave(next);
+            }
+        }
 
         /// <summary>
         /// Left mouse button has been double clicked.
@@ -550,16 +560,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void DoubleClick(Point pt)
         {
-			// Use mouse controller as first preference
-			if (MouseController != null)
+            // Use mouse controller as first preference
+            if (MouseController != null)
             {
                 MouseController.DoubleClick(pt);
             }
             else
-			{
-			    // Bubble event up to the parent
-			    Parent?.DoubleClick(pt);
-			}
+            {
+                // Bubble event up to the parent
+                Parent?.DoubleClick(pt);
+            }
         }
         #endregion
 
@@ -664,23 +674,23 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region ElementState
-		/// <summary>
-		/// Gets and sets the visual state of the element.
-		/// </summary>
-		public virtual PaletteState ElementState
-		{
+        /// <summary>
+        /// Gets and sets the visual state of the element.
+        /// </summary>
+        public virtual PaletteState ElementState
+        {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _elementState; }
-			set { _elementState = value; }
-		}
+            set { _elementState = value; }
+        }
 
-		/// <summary>
-		/// Gets the visual state taking into account the owning controls state.
-		/// </summary>
+        /// <summary>
+        /// Gets the visual state taking into account the owning controls state.
+        /// </summary>
         public virtual PaletteState State
-		{
+        {
             get
             {
                 // If fixed then always return the fixed state
@@ -712,8 +722,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return ElementState;
                 }
             }
-		}
-		#endregion
+        }
+        #endregion
 
         #region FixedState
         /// <summary>
@@ -792,6 +802,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="pt">Point in view coordinates.</param>
 		/// <returns>ViewBase if a match is found; otherwise false.</returns>
 		public abstract ViewBase ViewFromPoint(Point pt);
-		#endregion
+        #endregion
     }
 }
+

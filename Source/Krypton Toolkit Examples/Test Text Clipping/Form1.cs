@@ -130,5 +130,21 @@ namespace ThreePaneApplication
         {
             KryptonMessageBox.Show(this, ((Control)sender).Name, @"Mouse click detected on ...");
         }
+
+        private void kryptonOffice2013_CheckedChanged(object sender, EventArgs e)
+        {
+            if (kryptonOffice2013.Checked)
+            {
+                kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2013;
+            }
+        }
+
+        private void kryptonOffice2013White_CheckedChanged(object sender, EventArgs e)
+        {
+            if (kryptonOffice2013White.Checked)
+            {
+                kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2013White;
+            }
+        }
     }
 }

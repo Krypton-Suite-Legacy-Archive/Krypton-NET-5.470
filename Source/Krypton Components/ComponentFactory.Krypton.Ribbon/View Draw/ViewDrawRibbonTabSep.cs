@@ -90,6 +90,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         default:
                         case PaletteRibbonShape.Office2007:
+                        case PaletteRibbonShape.Office2013:
                             context.Graphics.FillRectangle(sepBrush, ClientLocation.X + 2, ClientLocation.Y, 1, ClientHeight - 1);
                             break;
                         case PaletteRibbonShape.Office2010:

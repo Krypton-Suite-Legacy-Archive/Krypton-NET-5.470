@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Static Fields
         private static readonly HandleRef NullHandleRef = new HandleRef(null, IntPtr.Zero);
         private const int BUTTON_TAB_GAP_2007 = 5;
-        private const int BUTTON_TAB_GAP_2010 = 0;
+        private const int BUTTON_TAB_GAP_2010 = 0;  //TODO dpi 12 ? 
         private const int FAR_TAB_GAP = 1;
         private const int SCROLL_SPEED = 12;
 

@@ -341,7 +341,9 @@ namespace ComponentFactory.Krypton.Toolkit
         internal virtual void OnClick(EventArgs e)
         {
             if (Click != null)
+            {
                 Click(this, e);
+            }
         }
        
 

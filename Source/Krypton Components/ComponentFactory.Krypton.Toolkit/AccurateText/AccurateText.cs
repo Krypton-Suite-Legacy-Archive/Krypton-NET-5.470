@@ -297,9 +297,13 @@ namespace ComponentFactory.Krypton.Toolkit
                             SolidBrush tmpBrush = brush as SolidBrush;
                             Color tmpColor;
                             if (tmpBrush.Color == null)
+                            {
                                 tmpColor = SystemColors.ActiveCaptionText;
+                            }
                             else
+                            {
                                 tmpColor = tmpBrush.Color;
+                            }
 
                             DrawCompositionText(g, memento.Text, memento.Font, rect, state,
                               tmpColor, true, memento.Format);

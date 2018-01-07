@@ -28,14 +28,14 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDataGridView), "ToolboxBitmaps.KryptonDataGridView.bmp")]
     [DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner, ComponentFactory.Krypton.Design, Version=4.4.0.2, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Display rows and columns of data if a grid you can customize.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonDataGridView : DataGridView
     {
         #region Type Declaractions
-        private class ColumnHeaderCache : Dictionary<int, bool> {};
+        private class ColumnHeaderCache : Dictionary<int, bool> { };
         private class RowHeaderCache : Dictionary<int, Rectangle> { };
         #endregion
 
@@ -193,12 +193,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We need to allow a transparent background
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            
+
             // We need to repaint entire control whenever resized
-			SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             // Yes, we want to be drawn double buffered by default
             DoubleBuffered = true;
+
+            //Seb : for DPi Correction  
+            using (Graphics g = CreateGraphics())
+            {
+                //float factorX = g.DpiX > 96 ? (1f * g.DpiX / 96) : 1f;  
+                float factorY = g.DpiY > 96 ? (1f * g.DpiY / 96) : 1f;
+                ColumnHeadersHeight = (int)(ColumnHeadersHeight * factorY);
+            }
 
             SetupVisuals();
             SetupViewAndStates();
@@ -1024,7 +1032,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             base.OnCellMouseMove(e);
-            
+
             byte newLocation = UpdateLocationForRowErrors(e, cell, CurrentMouseLocation(cell));
             if (cell is DataGridViewRowHeaderCell)
             {
@@ -1182,7 +1190,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Update the back interceptor class
                         _backInherit.SetInherit(paletteBack, e.CellStyle);
 
-                        IDisposable unused =  Renderer.RenderStandardBack.DrawBack(renderContext, tempCellBackBounds, borderPath, _backInherit, VisualOrientation.Top, state, null);
+                        IDisposable unused = Renderer.RenderStandardBack.DrawBack(renderContext, tempCellBackBounds, borderPath, _backInherit, VisualOrientation.Top, state, null);
 
                         // We never save the memento for reuse later
                         unused?.Dispose();
@@ -1310,7 +1318,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                 //Seb Search highlight 
                                 //Empty _restrictColumnsSearch means highlight everywhere
-                                if (!string.IsNullOrEmpty(_searchString) && (_restrictColumnsSearch.Count == 0 || (_restrictColumnsSearch.Count != 0  && _restrictColumnsSearch.Contains(e.ColumnIndex))) && e.FormattedValue.GetType().Name != "Bitmap")
+                                if (!string.IsNullOrEmpty(_searchString) && (_restrictColumnsSearch.Count == 0 || (_restrictColumnsSearch.Count != 0 && _restrictColumnsSearch.Contains(e.ColumnIndex))) && e.FormattedValue.GetType().Name != "Bitmap")
                                 {
                                     string val = (string)e.FormattedValue;
                                     int sindx = val.ToLower().IndexOf(_searchString.ToLower());
@@ -1330,8 +1338,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                         if (s1.Width > 5)
                                         {
-                                            hl_rect.X = e.CellBounds.X + e.CellStyle.Padding.Left + s1.Width-4;
-                                            hl_rect.Width = s2.Width -7;
+                                            hl_rect.X = e.CellBounds.X + e.CellStyle.Padding.Left + s1.Width - 4;
+                                            hl_rect.Width = s2.Width - 7;
                                         }
                                         else
                                         {
@@ -1409,7 +1417,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                                                                    _contentInherit, _shortTextValue,
                                                                                                                    VisualOrientation.Top, state, false, false))
                                         {
-                                           // Perform actual drawing of the content
+                                            // Perform actual drawing of the content
                                             Renderer.RenderStandardContent.DrawContent(renderContext, tempCellBounds,
                                                                                         _contentInherit, memento,
                                                                                         VisualOrientation.Top,
@@ -1471,8 +1479,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="graphics">The Graphics used to paint the background.</param>
         /// <param name="clipBounds">A Rectangle that represents the area of the DataGridView that needs to be painted.</param>
         /// <param name="gridBounds">A Rectangle that represents the area in which cells are drawn.</param>
-        protected override void PaintBackground(Graphics graphics, 
-                                                Rectangle clipBounds, 
+        protected override void PaintBackground(Graphics graphics,
+                                                Rectangle clipBounds,
                                                 Rectangle gridBounds)
         {
             if (!IsDisposed)
@@ -2057,7 +2065,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return location;
         }
 
-        private DataGridViewContentAlignment RelativeToAlign(PaletteRelativeAlign textH, 
+        private DataGridViewContentAlignment RelativeToAlign(PaletteRelativeAlign textH,
                                                              PaletteRelativeAlign textV)
         {
             switch (textH)
@@ -2103,14 +2111,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         private PaletteDrawBorders GetCellMaxBorderEdges(Rectangle cellBounds,
-                                                         int column, 
+                                                         int column,
                                                          int row)
         {
             // We always draw the bottom border and left/right depending on RTL setting
             PaletteDrawBorders maxBorders = PaletteDrawBorders.Bottom |
-                                            (RightToLeftInternal ? PaletteDrawBorders.Left : 
+                                            (RightToLeftInternal ? PaletteDrawBorders.Left :
                                                                    PaletteDrawBorders.Right);
-                                            
+
             // Do we need a top border
             if (!HideOuterBorders && ((row == -1) || ((row == 0) && !ColumnHeadersVisible)))
             {
@@ -2120,7 +2128,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we need a left/right border
             if (!HideOuterBorders && ((column == -1) || ((column == 0) && !RowHeadersVisible)))
             {
-                maxBorders |= (RightToLeftInternal ? PaletteDrawBorders.Right : 
+                maxBorders |= (RightToLeftInternal ? PaletteDrawBorders.Right :
                                                      PaletteDrawBorders.Left);
             }
 

@@ -15,14 +15,14 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a check box centered in the correct location.
-	/// </summary>
-    internal class ViewDrawRibbonGroupCheckBoxImage : ViewComposite                                              
+    /// <summary>
+    /// Draws a check box centered in the correct location.
+    /// </summary>
+    internal class ViewDrawRibbonGroupCheckBoxImage : ViewComposite
     {
         #region Static Fields
-        private static readonly Size _smallSize = new Size(16, 16);
-        private static readonly Size _largeSize = new Size(32, 32);
+        private static Size _smallSize;// = new Size(16, 16);
+        private static Size _largeSize;// = new Size(32, 32);
         #endregion
 
         #region Instance Fields
@@ -44,29 +44,33 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(ribbonCheckBox != null);
 
+            //Seb dpi aware
+            _smallSize = new Size((int)(16 * FactorDpiX), (int)(16 * FactorDpiY));
+            _largeSize = new Size((int)(32 * FactorDpiX), (int)(32 * FactorDpiY));
+
             // Remember incoming parameters
             _ribbonCheckBox = ribbonCheckBox;
             _large = large;
 
             // Use redirector to get the check box images and redirect to parent palette
             PaletteRedirectCheckBox redirectImages = new PaletteRedirectCheckBox(ribbon.GetRedirector(), ribbon.StateCommon.RibbonImages.CheckBox);
-            
+
             // Create drawing element
             _drawCheckBox = new ViewDrawCheckBox(redirectImages);
 
             // Add as only child
             Add(_drawCheckBox);
-        }        
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupCheckBoxImage:" + Id;
-		}
+        }
         #endregion
 
         #region Enabled
@@ -75,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public override bool Enabled
         {
-            get => _drawCheckBox.Enabled;
-            set => _drawCheckBox.Enabled = value;
+            get { return _drawCheckBox.Enabled; }
+            set { _drawCheckBox.Enabled = value; }
         }
         #endregion
 
@@ -86,8 +90,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public CheckState CheckState
         {
-            get => _drawCheckBox.CheckState;
-            set => _drawCheckBox.CheckState = value;
+            get { return _drawCheckBox.CheckState; }
+            set { _drawCheckBox.CheckState = value; }
         }
         #endregion
 
@@ -97,8 +101,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Tracking
         {
-            get => _drawCheckBox.Tracking;
-            set => _drawCheckBox.Tracking = value;
+            get { return _drawCheckBox.Tracking; }
+            set { _drawCheckBox.Tracking = value; }
         }
         #endregion
 
@@ -108,8 +112,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool Pressed
         {
-            get => _drawCheckBox.Pressed;
-            set => _drawCheckBox.Pressed = value;
+            get { return _drawCheckBox.Pressed; }
+            set { _drawCheckBox.Pressed = value; }
         }
         #endregion
 
@@ -141,19 +145,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Get the size of the check box when it is drawn
             Rectangle checkBoxRect = new Rectangle(Point.Empty, _drawCheckBox.GetPreferredSize(context));
-            
+
             // Decide on correct position within our rectangle
             if (_large)
             {
                 // Place horizontal centered at the bottom of area
-                checkBoxRect.X = ClientLocation.X + ((ClientWidth - checkBoxRect.Width) / 2);
+                checkBoxRect.X = ClientLocation.X + (ClientWidth - checkBoxRect.Width) / 2;
                 checkBoxRect.Y = ClientRectangle.Bottom - checkBoxRect.Height;
             }
             else
             {
                 // Place vertically centered at the right of area
                 checkBoxRect.X = ClientRectangle.Right - checkBoxRect.Width;
-                checkBoxRect.Y = ClientLocation.Y + ((ClientHeight - checkBoxRect.Height) / 2);
+                checkBoxRect.Y = ClientLocation.Y + (ClientHeight - checkBoxRect.Height) / 2;
             }
 
             // Layout the check box draw element
@@ -164,3 +168,4 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
     }
 }
+

@@ -866,6 +866,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2007,
 
+	    /// <summary>
+	    /// Specifies the RenderOffice2010 be used.
+	    /// </summary>
+	    Office2010,
+
+	    /// <summary>
+	    /// Specifies the RenderOffice2013 be used.
+	    /// </summary>
+	    Office2013,
+
         /// <summary>
 		/// Specifies the RenderProfessional be used.
 		/// </summary>
