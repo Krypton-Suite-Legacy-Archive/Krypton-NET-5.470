@@ -42,8 +42,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public class CheckedIndexCollection : IList
         {
             #region Instance Fields
-            private KryptonCheckedListBox _owner;
-            private InternalCheckedListBox _internalListBox;
+            private readonly KryptonCheckedListBox _owner;
+            private readonly InternalCheckedListBox _internalListBox;
             #endregion
 
             #region Identity
@@ -210,7 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             #region Instance Fields
             private KryptonCheckedListBox _owner;
-            private InternalCheckedListBox _internalListBox;
+            private readonly InternalCheckedListBox _internalListBox;
             #endregion
 
             #region Identity
@@ -426,7 +426,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public class ObjectCollection : ListBox.ObjectCollection
         {
             #region Instance Fields
-            private KryptonCheckedListBox _owner;
+            private readonly KryptonCheckedListBox _owner;
             #endregion
 
             #region Identity
@@ -479,15 +479,15 @@ namespace ComponentFactory.Krypton.Toolkit
             private static MethodInfo _miGetState;
             private static MethodInfo _miSetState;
             private static MethodInfo _miGetEnumerator;
-            private static uint LBC_GETCHECKSTATE;
-            private static uint LBC_SETCHECKSTATE;
+            private static readonly uint LBC_GETCHECKSTATE;
+            private static readonly uint LBC_SETCHECKSTATE;
             #endregion
 
             #region Instance Fields
             private object _innerArray;
-            private ViewManager _viewManager;
-            private KryptonCheckedListBox _kryptonCheckedListBox;
-            private IntPtr _screenDC;
+            private readonly ViewManager _viewManager;
+            private readonly KryptonCheckedListBox _kryptonCheckedListBox;
+            private readonly IntPtr _screenDC;
             private bool _mouseOver;
             private bool _killNextSelect;
             private int _lastSelected;
@@ -1058,25 +1058,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private PaletteTripleOverride _overrideNormal;
-        private PaletteTripleOverride _overrideTracking;
-        private PaletteTripleOverride _overridePressed;
-        private PaletteTripleOverride _overrideCheckedNormal;
-        private PaletteTripleOverride _overrideCheckedTracking;
-        private PaletteTripleOverride _overrideCheckedPressed;
-        private PaletteRedirectCheckBox _paletteCheckBoxImages;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutDocker _layoutDocker;
-        private ViewLayoutCenter _layoutCenter;
-        private ViewDrawCheckBox _drawCheckBox;
-        private ViewLayoutFill _layoutFill;
-        private ViewDrawButton _drawButton;
-        private InternalCheckedListBox _listBox;
-        private FixedContentValue _contentValues;
+        private readonly PaletteTripleOverride _overrideNormal;
+        private readonly PaletteTripleOverride _overrideTracking;
+        private readonly PaletteTripleOverride _overridePressed;
+        private readonly PaletteTripleOverride _overrideCheckedNormal;
+        private readonly PaletteTripleOverride _overrideCheckedTracking;
+        private readonly PaletteTripleOverride _overrideCheckedPressed;
+        private readonly PaletteRedirectCheckBox _paletteCheckBoxImages;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutDocker _layoutDocker;
+        private readonly ViewLayoutCenter _layoutCenter;
+        private readonly ViewDrawCheckBox _drawCheckBox;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly ViewDrawButton _drawButton;
+        private readonly InternalCheckedListBox _listBox;
+        private readonly FixedContentValue _contentValues;
         private Nullable<bool> _fixedActive;
         private ButtonStyle _style;
-        private IntPtr _screenDC;
+        private readonly IntPtr _screenDC;
         private int _lastSelectedIndex;
         private bool _mouseOver;
         private bool _alwaysActive;
@@ -1265,30 +1265,31 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal list box used for containing content
             _listBox = new InternalCheckedListBox(this);
-            _listBox.DrawItem += new DrawItemEventHandler(OnListBoxDrawItem);
-            _listBox.MeasureItem += new MeasureItemEventHandler(OnListBoxMeasureItem);
-            _listBox.TrackMouseEnter += new EventHandler(OnListBoxMouseChange);
-            _listBox.TrackMouseLeave += new EventHandler(OnListBoxMouseChange);
-            _listBox.SelectedIndexChanged += new EventHandler(OnListBoxSelectedIndexChanged);
-            _listBox.SelectedValueChanged += new EventHandler(OnListBoxSelectedValueChanged);
-            _listBox.Format += new ListControlConvertEventHandler(OnListBoxFormat);
-            _listBox.FormatInfoChanged += new EventHandler(OnListBoxFormatInfoChanged);
-            _listBox.FormatStringChanged += new EventHandler(OnListBoxFormatStringChanged);
-            _listBox.FormattingEnabledChanged += new EventHandler(OnListBoxFormattingEnabledChanged);
-            _listBox.GotFocus += new EventHandler(OnListBoxGotFocus);
-            _listBox.LostFocus += new EventHandler(OnListBoxLostFocus);
-            _listBox.KeyDown += new KeyEventHandler(OnListBoxKeyDown);
-            _listBox.KeyUp += new KeyEventHandler(OnListBoxKeyUp);
-            _listBox.KeyPress += new KeyPressEventHandler(OnListBoxKeyPress);
-            _listBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnListBoxPreviewKeyDown);
-            _listBox.Validating += new CancelEventHandler(OnListBoxValidating);
-            _listBox.Validated += new EventHandler(OnListBoxValidated);
+            _listBox.DrawItem += OnListBoxDrawItem;
+            _listBox.MeasureItem += OnListBoxMeasureItem;
+            _listBox.TrackMouseEnter += OnListBoxMouseChange;
+            _listBox.TrackMouseLeave += OnListBoxMouseChange;
+            _listBox.SelectedIndexChanged += OnListBoxSelectedIndexChanged;
+            _listBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
+            _listBox.Format += OnListBoxFormat;
+            _listBox.FormatInfoChanged += OnListBoxFormatInfoChanged;
+            _listBox.FormatStringChanged += OnListBoxFormatStringChanged;
+            _listBox.FormattingEnabledChanged += OnListBoxFormattingEnabledChanged;
+            _listBox.GotFocus += OnListBoxGotFocus;
+            _listBox.LostFocus += OnListBoxLostFocus;
+            _listBox.KeyDown += OnListBoxKeyDown;
+            _listBox.KeyUp += OnListBoxKeyUp;
+            _listBox.KeyPress += OnListBoxKeyPress;
+            _listBox.PreviewKeyDown += OnListBoxPreviewKeyDown;
+            _listBox.Validating += OnListBoxValidating;
+            _listBox.Validated += OnListBoxValidated;
+            _listBox.Click += OnCheckedListClick;  // SKC: make sure that the default click is also routed.
 
             // Create extra collections for storing checked state and checked items
             CheckedItems = new CheckedItemCollection(this);
             CheckedIndices = new CheckedIndexCollection(this);
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(_listBox)
             {
                 DisplayPadding = new Padding(1)
@@ -1314,6 +1315,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Add text box to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(_listBox);
+        }
+
+        private void OnCheckedListClick(object sender, EventArgs e)
+        {
+            base.OnClick(e);
         }
 
         /// <summary>

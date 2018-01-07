@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Static Fields
-        private static HandleRef NullHandleRef = new HandleRef(null, IntPtr.Zero);
+        private static readonly HandleRef NullHandleRef = new HandleRef(null, IntPtr.Zero);
         private const int BUTTON_TAB_GAP_2007 = 5;
         private const int BUTTON_TAB_GAP_2010 = 0;
         private const int FAR_TAB_GAP = 1;
@@ -52,15 +52,15 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewLayoutRibbonScrollPort _tabsViewport;
         private ViewLayoutSeparator _layoutAppButtonSep;
         private ViewLayoutRibbonSeparator _leftSeparator;
         private ViewLayoutRibbonSeparator _rightSeparator;
-        private ViewDrawRibbonCaptionArea _captionArea;
-        private ViewLayoutRibbonContextTitles _layoutContexts;
-        private AppButtonController _appButtonController;
-        private AppTabController _appTabController;
+        private readonly ViewDrawRibbonCaptionArea _captionArea;
+        private readonly ViewLayoutRibbonContextTitles _layoutContexts;
+        private readonly AppButtonController _appButtonController;
+        private readonly AppTabController _appTabController;
         private VisualPopupToolTip _visualPopupToolTip;
         private VisualPopupAppMenu _appMenu;
         private DateTime _lastAppButtonClick;
@@ -139,22 +139,22 @@ namespace ComponentFactory.Krypton.Ribbon
                 OnCancelToolTip(this, EventArgs.Empty);
 
                 // Unhook from the parent control
-                _ribbon.ParentChanged += new EventHandler(OnRibbonParentChanged);
+                _ribbon.ParentChanged += OnRibbonParentChanged;
 
                 // Unhook from watching any top level window
                 if (_formContainer != null)
                 {
-                    _formContainer.Deactivate -= new EventHandler(OnRibbonFormDeactivate);
-                    _formContainer.Activated -= new EventHandler(OnRibbonFormActivated);
-                    _formContainer.SizeChanged -= new EventHandler(OnRibbonFormSizeChanged);
-                    _formContainer.MdiChildActivate -= new EventHandler(OnRibbonMdiChildActivate);
+                    _formContainer.Deactivate -= OnRibbonFormDeactivate;
+                    _formContainer.Activated -= OnRibbonFormActivated;
+                    _formContainer.SizeChanged -= OnRibbonFormSizeChanged;
+                    _formContainer.MdiChildActivate -= OnRibbonMdiChildActivate;
                     _formContainer = null;
                 }
 
                 // Unhook from watching any mdi child window
                 if (_activeMdiChild != null)
                 {
-                    _activeMdiChild.SizeChanged -= new EventHandler(OnRibbonMdiChildSizeChanged);
+                    _activeMdiChild.SizeChanged -= OnRibbonMdiChildSizeChanged;
                     _activeMdiChild = null;
                 }
 
@@ -452,7 +452,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Use a controller to initiate context menu when using right mouse click
             RibbonTabsController controller = new RibbonTabsController(_ribbon);
-            controller.ContextClick += new MouseEventHandler(OnContextClicked);
+            controller.ContextClick += OnContextClicked;
             MouseController = controller;
         }
 
@@ -478,7 +478,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 TransparentBackground = true
             };
-            _tabsViewport.PaintBackground += new PaintEventHandler(OnTabsPaintBackground);
+            _tabsViewport.PaintBackground += OnTabsPaintBackground;
             LayoutTabs.ParentControl = _tabsViewport.ViewLayoutControl.ChildControl;
             LayoutTabs.NeedPaintDelegate = _tabsViewport.ViewControlPaintDelegate;
 
@@ -497,15 +497,15 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Connect up the application button controller to the app button element
             _appButtonController.Target3 = LayoutAppButton.AppButton;
-            _appButtonController.Click += new EventHandler(OnAppButtonClicked);
-            _appButtonController.MouseReleased += new EventHandler(OnAppButtonReleased);
+            _appButtonController.Click += OnAppButtonClicked;
+            _appButtonController.MouseReleased += OnAppButtonReleased;
             LayoutAppButton.MouseController = _appButtonController;
             LayoutAppButton.SourceController = _appButtonController;
             LayoutAppButton.KeyController = _appButtonController;
 
             _appTabController.Target1 = LayoutAppTab.AppTab;
-            _appTabController.Click += new EventHandler(OnAppButtonClicked);
-            _appTabController.MouseReleased += new EventHandler(OnAppButtonReleased);
+            _appTabController.Click += OnAppButtonClicked;
+            _appTabController.MouseReleased += OnAppButtonReleased;
             LayoutAppTab.MouseController = _appTabController;
             LayoutAppTab.SourceController = _appTabController;
             LayoutAppTab.KeyController = _appTabController;
@@ -535,13 +535,13 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                new IPaletteMetric[] { _ribbon.StateCommon },
                                                                new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.RibbonButtonPadding },
-                                                               new GetToolStripRenderer(_ribbon.CreateToolStripRenderer),
+                                                               _ribbon.CreateToolStripRenderer,
                                                                NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             ButtonSpecManager.ToolTipManager = ToolTipManager;
         }
 
@@ -550,13 +550,13 @@ namespace ComponentFactory.Krypton.Ribbon
             // We have to know when the parent of the ribbon changes so we can then hook
             // into monitoring the mdi active child status of the top level form, this is
             // required to get the pendant buttons to operate as needed.
-            _ribbon.ParentChanged += new EventHandler(OnRibbonParentChanged);
+            _ribbon.ParentChanged += OnRibbonParentChanged;
 
             _invalidateTimer = new Timer
             {
                 Interval = 1
             };
-            _invalidateTimer.Tick += new EventHandler(OnRedrawTick);
+            _invalidateTimer.Tick += OnRedrawTick;
         }
 
         private void OnRibbonParentChanged(object sender, EventArgs e)
@@ -564,10 +564,10 @@ namespace ComponentFactory.Krypton.Ribbon
             // Unhook from watching any top level window
             if (_formContainer != null)
             {
-                _formContainer.Deactivate -= new EventHandler(OnRibbonFormDeactivate);
-                _formContainer.Activated -= new EventHandler(OnRibbonFormActivated);
-                _formContainer.SizeChanged -= new EventHandler(OnRibbonFormSizeChanged);
-                _formContainer.MdiChildActivate -= new EventHandler(OnRibbonMdiChildActivate);
+                _formContainer.Deactivate -= OnRibbonFormDeactivate;
+                _formContainer.Activated -= OnRibbonFormActivated;
+                _formContainer.SizeChanged -= OnRibbonFormSizeChanged;
+                _formContainer.MdiChildActivate -= OnRibbonMdiChildActivate;
             }
 
             // Find the new top level form (which might be an mdi container)
@@ -576,10 +576,10 @@ namespace ComponentFactory.Krypton.Ribbon
             // Monitor changes in active mdi child
             if (_formContainer != null)
             {
-                _formContainer.MdiChildActivate += new EventHandler(OnRibbonMdiChildActivate);
-                _formContainer.SizeChanged += new EventHandler(OnRibbonFormSizeChanged);
-                _formContainer.Activated += new EventHandler(OnRibbonFormActivated);
-                _formContainer.Deactivate += new EventHandler(OnRibbonFormDeactivate);
+                _formContainer.MdiChildActivate += OnRibbonMdiChildActivate;
+                _formContainer.SizeChanged += OnRibbonFormSizeChanged;
+                _formContainer.Activated += OnRibbonFormActivated;
+                _formContainer.Deactivate += OnRibbonFormDeactivate;
                 _ribbon.UpdateBackStyle();
             }
         }
@@ -609,7 +609,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Unhook from watching any previous mdi child
             if (_activeMdiChild != null)
             {
-                _activeMdiChild.SizeChanged -= new EventHandler(OnRibbonMdiChildSizeChanged);
+                _activeMdiChild.SizeChanged -= OnRibbonMdiChildSizeChanged;
             }
 
             _activeMdiChild = topForm.ActiveMdiChild;
@@ -617,7 +617,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Start watching any new mdi child
             if (_activeMdiChild != null)
             {
-                _activeMdiChild.SizeChanged += new EventHandler(OnRibbonMdiChildSizeChanged);
+                _activeMdiChild.SizeChanged += OnRibbonMdiChildSizeChanged;
             }
 
             // Update the pendant buttons with reference to new child
@@ -727,7 +727,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                                           _appButtonController.Keyboard);
 
                         // Need to know when the visual control is removed
-                        _appMenu.Disposed += new EventHandler(OnAppMenuDisposed);
+                        _appMenu.Disposed += OnAppMenuDisposed;
 
                         // Adjust the screen rect of the app button/tab, so we show half way down the button
                         appRectShow.X -= 3;
@@ -756,7 +756,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_appMenu != null)
             {
                 // Unhook from control, so it can be garbage collected
-                _appMenu.Disposed -= new EventHandler(OnAppMenuDisposed);
+                _appMenu.Disposed -= OnAppMenuDisposed;
 
                 // Discover the reason for the menu close
                 ToolStripDropDownCloseReason closeReason = ToolStripDropDownCloseReason.AppFocusChange;
@@ -986,7 +986,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // The popup tooltip control always adds on a border above/below so we negate that here.
                         screenRect.Height -= 20;
@@ -1008,7 +1008,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

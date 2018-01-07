@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Navigator
             ViewManager.Root = _drawPanel;
 
             // Need to monitor changes in the enabled state
-            Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
+            Navigator.EnabledChanged += OnEnabledChanged;
 		}
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Navigator
 		public override void Destruct()
 		{
             // Unhook from events
-            Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
+            Navigator.EnabledChanged -= OnEnabledChanged;
 
             // Update the child panel to have group appearance
             Navigator.ChildPanel.PanelBackStyle = Navigator.Group.GroupBackStyle;

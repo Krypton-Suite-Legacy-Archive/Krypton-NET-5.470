@@ -27,12 +27,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
 	    private bool _mouseOver;
         private DateTime _clickTime;
-        private ViewDrawContent _target;
-        private IPaletteContent _paletteDisabled;
-        private IPaletteContent _paletteNormal;
-        private IPaletteContent _paletteTracking;
-        private IPaletteContent _palettePressed;
-        private PaletteContentInheritOverride _pressed;
+        private readonly ViewDrawContent _target;
+        private readonly IPaletteContent _paletteDisabled;
+        private readonly IPaletteContent _paletteNormal;
+        private readonly IPaletteContent _paletteTracking;
+        private readonly IPaletteContent _palettePressed;
+        private readonly PaletteContentInheritOverride _pressed;
         private NeedPaintHandler _needPaint;
         #endregion
 

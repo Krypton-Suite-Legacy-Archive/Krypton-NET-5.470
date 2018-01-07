@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void Destruct()
         {
             // Unhook from events
-            _viewOutlook.AnimateStep -= new EventHandler(OnViewportAnimation);
+            _viewOutlook.AnimateStep -= OnViewportAnimation;
 
             // Put the child panel back into the navigator
             _viewOutlook.RevertParent(Navigator, Navigator.ChildPanel);
@@ -234,7 +234,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void PostConstruct()
         {
             // Hook into the viewport animation steps
-            _viewOutlook.AnimateStep += new EventHandler(OnViewportAnimation);
+            _viewOutlook.AnimateStep += OnViewportAnimation;
             base.PostConstruct();
         }
 

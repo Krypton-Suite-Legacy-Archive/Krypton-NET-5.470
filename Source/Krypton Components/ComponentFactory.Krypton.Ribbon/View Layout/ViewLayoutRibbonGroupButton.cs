@@ -18,8 +18,8 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonGroupButton : ViewLayoutDocker
     {
         #region Instance Fields
-        private ViewDrawRibbonGroupDialogButton _groupButton;
-        private ViewLayoutRibbonCenter _centerButton;
+        private readonly ViewDrawRibbonGroupDialogButton _groupButton;
+        private readonly ViewLayoutRibbonCenter _centerButton;
         #endregion
 
         #region Identity

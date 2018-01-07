@@ -20,9 +20,9 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteRibbonTabContentRedirect : Storage
     {
         #region Instance Fields
-        private PaletteNavContent _content;
-		private PaletteRibbonDoubleRedirect _drawRedirect;
-		private PaletteContentInheritRedirect _contentInherit;
+        private readonly PaletteNavContent _content;
+		private readonly PaletteRibbonDoubleRedirect _drawRedirect;
+		private readonly PaletteContentInheritRedirect _contentInherit;
         #endregion
 
         #region Identity

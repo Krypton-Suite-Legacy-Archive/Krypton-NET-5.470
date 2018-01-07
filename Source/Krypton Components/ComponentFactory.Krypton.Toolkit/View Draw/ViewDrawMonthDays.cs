@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private IKryptonMonthCalendar _calendar;
-        private ViewLayoutMonths _months;
-        private IDisposable[] _dayMementos;
-        private Rectangle[] _dayRects;
+        private readonly IKryptonMonthCalendar _calendar;
+        private readonly ViewLayoutMonths _months;
+        private readonly IDisposable[] _dayMementos;
+        private readonly Rectangle[] _dayRects;
         private DateTime _lastDay;
         private DateTime _firstDay;
         private DateTime _month;

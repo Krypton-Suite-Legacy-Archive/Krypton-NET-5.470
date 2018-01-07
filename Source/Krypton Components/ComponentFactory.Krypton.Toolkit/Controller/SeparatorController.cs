@@ -87,14 +87,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private bool _splitCursors;
+        private readonly bool _splitCursors;
         private Point _downPosition;
         private Point _movementPoint;
         private int _separatorIncrements;
         private Rectangle _separatorBox;
         private Orientation _separatorOrientation;
         private SeparatorMessageFilter _filter;
-        private ISeparatorSource _source;
+        private readonly ISeparatorSource _source;
         #endregion
 
         #region Identity
@@ -626,7 +626,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class SeparatorMessageFilter : IMessageFilter
     {
         #region Instance Fields
-        private SeparatorController _controller;
+        private readonly SeparatorController _controller;
         #endregion
 
         #region Identity

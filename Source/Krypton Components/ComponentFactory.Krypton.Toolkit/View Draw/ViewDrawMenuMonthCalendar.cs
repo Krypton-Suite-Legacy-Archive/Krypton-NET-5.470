@@ -22,10 +22,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                              IKryptonMonthCalendar
     {
         #region Instance Fields
-        private KryptonContextMenuMonthCalendar _monthCalendar;
-        private IContextMenuProvider _provider;
-        private ViewLayoutMonths _layoutMonths;
-        private bool _itemEnabled;
+        private readonly KryptonContextMenuMonthCalendar _monthCalendar;
+        private readonly IContextMenuProvider _provider;
+        private readonly ViewLayoutMonths _layoutMonths;
+        private readonly bool _itemEnabled;
 
         #endregion
 
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get 
             {
                 VisualContextMenu contextMenu = (VisualContextMenu)_provider.ProviderViewManager.Control;
-                return new GetToolStripRenderer(contextMenu.CreateToolStripRenderer);
+                return contextMenu.CreateToolStripRenderer;
             }
         }
 

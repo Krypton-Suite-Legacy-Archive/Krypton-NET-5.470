@@ -35,8 +35,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Instance Fields
 		private LabelStyle _style;
 	    private VisualOrientation _orientation;
-        private ViewDrawContent _drawContent;
-		private PaletteContentInheritRedirect _paletteCommonRedirect;
+        private readonly ViewDrawContent _drawContent;
+		private readonly PaletteContentInheritRedirect _paletteCommonRedirect;
 	    private KryptonCommand _command;
         private bool _useMnemonic;
 	    private bool _wasEnabled;
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Create content storage
             Values = new LabelValues(NeedPaintDelegate);
-            Values.TextChanged += new EventHandler(OnLabelTextChanged);
+            Values.TextChanged += OnLabelTextChanged;
 
 			// Create palette redirector
             _paletteCommonRedirect = new PaletteContentInheritRedirect(Redirector, PaletteContentStyle.LabelNormalControl);
@@ -320,7 +320,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
                     else
                     {
@@ -332,7 +332,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                     else
                     {

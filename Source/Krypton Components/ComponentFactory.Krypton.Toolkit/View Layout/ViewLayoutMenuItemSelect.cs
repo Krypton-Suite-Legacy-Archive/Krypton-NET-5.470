@@ -22,18 +22,18 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewLayoutMenuItemSelect : ViewComposite
     {
         #region Instance Fields
-        private ViewContextMenuManager _viewManager;
-        private KryptonContextMenuImageSelect _itemSelect;
-        private IContextMenuProvider _provider;
-        private PaletteTripleToPalette _triple;
-        private NeedPaintHandler _needPaint;
-        private ImageList _imageList;
+        private readonly ViewContextMenuManager _viewManager;
+        private readonly KryptonContextMenuImageSelect _itemSelect;
+        private readonly IContextMenuProvider _provider;
+        private readonly PaletteTripleToPalette _triple;
+        private readonly NeedPaintHandler _needPaint;
+        private readonly ImageList _imageList;
         private int _selectedIndex;
-        private int _imageIndexStart;
-        private int _imageIndexEnd;
-        private int _imageIndexCount;
-        private int _imageCount;
-        private int _lineItems;
+        private readonly int _imageIndexStart;
+        private readonly int _imageIndexEnd;
+        private readonly int _imageIndexCount;
+        private readonly int _imageCount;
+        private readonly int _lineItems;
         private Padding _padding;
 
         #endregion

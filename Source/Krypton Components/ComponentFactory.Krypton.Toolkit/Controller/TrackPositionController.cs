@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            IMouseController
 	{
 		#region Instance Fields
-        private ViewDrawTP _drawTB;
+        private readonly ViewDrawTP _drawTB;
         private Point _lastMovePt;
         private bool _captured;
         private bool _mouseOver;

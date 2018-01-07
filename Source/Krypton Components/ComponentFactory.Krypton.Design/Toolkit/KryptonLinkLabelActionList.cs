@@ -17,8 +17,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonLinkLabelActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonLinkLabel _linkLabel;
-        private IComponentChangeService _service;
+        private readonly KryptonLinkLabel _linkLabel;
+        private readonly IComponentChangeService _service;
         private string _action;
         #endregion
 
@@ -208,7 +208,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionPropertyItem("LabelStyle", "Style", "Appearance", "Label style"));
                 actions.Add(new DesignerActionPropertyItem("Orientation", "Orientation", "Appearance", "Visual orientation"));
                 actions.Add(new DesignerActionPropertyItem("LinkBehavior", "Link Behavior", "Appearance", "Underline behavior"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, new EventHandler(OnLinkVisitedClick)), "Appearance"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnLinkVisitedClick), "Appearance"));
                 actions.Add(new DesignerActionHeaderItem("Values"));
                 actions.Add(new DesignerActionPropertyItem("Text", "Text", "Values", "Label text"));
                 actions.Add(new DesignerActionPropertyItem("ExtraText", "ExtraText", "Values", "Label extra text"));

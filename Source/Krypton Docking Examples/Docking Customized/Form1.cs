@@ -61,11 +61,13 @@ namespace DockingCustomized
         private KryptonPage NewPage(string name, int image, Control content)
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = name + _count.ToString();
-            p.TextTitle = name + _count.ToString();
-            p.TextDescription = name + _count.ToString();
-            p.ImageSmall = imageListSmall.Images[image];
+            KryptonPage p = new KryptonPage
+            {
+                Text = name + _count.ToString(),
+                TextTitle = name + _count.ToString(),
+                TextDescription = name + _count.ToString(),
+                ImageSmall = imageListSmall.Images[image]
+            };
 
             // Add the control for display inside the page
             content.Dock = DockStyle.Fill;
@@ -194,8 +196,10 @@ namespace DockingCustomized
             foreach (KryptonPage page in kryptonDockingManager.Pages)
             {
                 // Create a button spec and make it a random style so we get a random image
-                ButtonSpecAny bs = new ButtonSpecAny();
-                bs.Type = _buttonSpecStyles[_random.Next(_buttonSpecStyles.Length)];
+                ButtonSpecAny bs = new ButtonSpecAny
+                {
+                    Type = _buttonSpecStyles[_random.Next(_buttonSpecStyles.Length)]
+                };
                 page.ButtonSpecs.Add(bs);
             }
         }
@@ -203,7 +207,9 @@ namespace DockingCustomized
         private void buttonSpecsClear_Click(object sender, EventArgs e)
         {
             foreach (KryptonPage page in kryptonDockingManager.Pages)
+            {
                 page.ButtonSpecs.Clear();
+            }
         }
 
         private void kryptonRibbonModeButton_Click(object sender, EventArgs e)
@@ -232,10 +238,14 @@ namespace DockingCustomized
         private void UpdateAllCells()
         {
             foreach (KryptonWorkspaceCell cell in kryptonDockingManager.CellsDocked)
+            {
                 UpdateCell(cell);
+            }
 
             foreach (KryptonWorkspaceCell cell in kryptonDockingManager.CellsFloating)
+            {
                 UpdateCell(cell);
+            }
         }
 
         private void UpdateCell(KryptonWorkspaceCell cell)

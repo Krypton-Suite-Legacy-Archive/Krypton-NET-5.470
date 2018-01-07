@@ -19,10 +19,10 @@ namespace ComponentFactory.Krypton.Ribbon
 	public class PaletteRibbonDisabled : Storage
 	{
 		#region Instance Fields
-        private PaletteRibbonText _ribbonGroupCheckBoxText;
-        private PaletteRibbonText _ribbonGroupButtonText;
-        private PaletteRibbonText _ribbonGroupLabelText;
-        private PaletteRibbonText _ribbonGroupRadioButtonText;
+        private readonly PaletteRibbonText _ribbonGroupCheckBoxText;
+        private readonly PaletteRibbonText _ribbonGroupButtonText;
+        private readonly PaletteRibbonText _ribbonGroupLabelText;
+        private readonly PaletteRibbonText _ribbonGroupRadioButtonText;
         #endregion
 
 		#region Identity

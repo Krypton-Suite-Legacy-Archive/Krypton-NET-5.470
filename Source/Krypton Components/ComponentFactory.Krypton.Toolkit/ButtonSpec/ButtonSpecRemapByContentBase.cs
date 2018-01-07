@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public abstract class ButtonSpecRemapByContentBase : PaletteRedirect
     {
         #region Instance Fields
-        private ButtonSpec _buttonSpec;
+        private readonly ButtonSpec _buttonSpec;
         #endregion
 
         #region Identity

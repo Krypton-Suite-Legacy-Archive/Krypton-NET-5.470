@@ -26,10 +26,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroup _ribbonGroup;
-        private ViewDrawRibbonGroupsBorder _viewBackground;
-        private Button _hiddenFocusTarget;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly ViewDrawRibbonGroupsBorder _viewBackground;
+        private readonly Button _hiddenFocusTarget;
         #endregion
 
         #region Identity

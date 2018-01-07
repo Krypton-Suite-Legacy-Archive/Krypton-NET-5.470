@@ -25,8 +25,8 @@ namespace ComponentFactory.Krypton.Ribbon
         public class RibbonViewControl : ViewControl
         {
             #region Instance Fields
-            private KryptonRibbon _ribbon;
-            private Button _hiddenFocusTarget;
+            private readonly KryptonRibbon _ribbon;
+            private readonly Button _hiddenFocusTarget;
             #endregion
 
             #region Identity
@@ -118,17 +118,17 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needPaintDelegate;
+        private readonly KryptonRibbon _ribbon;
+        private readonly NeedPaintHandler _needPaintDelegate;
         private Orientation _orientation;
-        private ViewBase _viewFiller;
-        private ViewLayoutRibbonScroller _nearScroller;
-        private ViewLayoutRibbonScroller _farScroller;
-        private ViewLayoutRibbonTabs _ribbonTabs;
-        private RibbonViewControl _viewControlContent;
+        private readonly ViewBase _viewFiller;
+        private readonly ViewLayoutRibbonScroller _nearScroller;
+        private readonly ViewLayoutRibbonScroller _farScroller;
+        private readonly ViewLayoutRibbonTabs _ribbonTabs;
+        private readonly RibbonViewControl _viewControlContent;
         private Rectangle _viewClipRect;
         private int _scrollOffset;
-        private int _scrollSpeed;
+        private readonly int _scrollSpeed;
         #endregion
 
         #region Events
@@ -175,14 +175,14 @@ namespace ComponentFactory.Krypton.Ribbon
             // contains controls and need clipping inside this area and so prevent them
             // from drawing over the end scrollers.
             _viewControlContent = new RibbonViewControl(ribbon);
-            _viewControlContent.PaintBackground += new PaintEventHandler(OnViewControlPaintBackground);
+            _viewControlContent.PaintBackground += OnViewControlPaintBackground;
             ViewLayoutControl = new ViewLayoutControl(_viewControlContent, ribbon, _viewFiller);
 
             // For ribbon tabs we want to monitor and intercept the WM_NCHITTEST so that the remainder of the 
             // tabs area acts like the application title bar and can be used to manipulate the application
             if (_ribbonTabs != null)
             {
-                ViewLayoutControl.ChildControl.WndProcHitTest += new EventHandler<ViewControlHitTestArgs>(OnChildWndProcHitTest);
+                ViewLayoutControl.ChildControl.WndProcHitTest += OnChildWndProcHitTest;
             }
 
             // Create the two scrollers used when not enough space for filler
@@ -190,8 +190,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _farScroller = new ViewLayoutRibbonScroller(ribbon, FarOrientation, insetForTabs, needPaintDelegate);
 
             // Hook into scroller events
-            _nearScroller.Click += new EventHandler(OnNearClick);
-            _farScroller.Click += new EventHandler(OnFarClick);
+            _nearScroller.Click += OnNearClick;
+            _farScroller.Click += OnFarClick;
 
             // Add elements in correct order
             Add(ViewLayoutControl);

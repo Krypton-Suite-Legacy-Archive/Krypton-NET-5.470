@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteGalleryState : Storage
 	{
 		#region Instance Fields
-        private PaletteRibbonBack _ribbonBack;
-        private PaletteRibbonBack _ribbonBorder;
+        private readonly PaletteRibbonBack _ribbonBack;
+        private readonly PaletteRibbonBack _ribbonBorder;
         #endregion
 
 		#region Identity

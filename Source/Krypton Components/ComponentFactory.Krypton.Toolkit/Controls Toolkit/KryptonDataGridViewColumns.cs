@@ -343,7 +343,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     foreach (ButtonSpec bs in kryptonTextBox.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     kryptonTextBox.ButtonSpecs.Clear();
@@ -378,7 +378,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     textBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in textBoxColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         textBox.ButtonSpecs.Add(bs);
                     }
                 }
@@ -3324,7 +3324,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     foreach (ButtonSpec bs in numericUpDown.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     numericUpDown.ButtonSpecs.Clear();
@@ -3366,7 +3366,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     numericUpDown.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in numericColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         numericUpDown.ButtonSpecs.Add(bs);
                     }
                 }
@@ -4183,7 +4183,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     foreach (ButtonSpec bs in domainUpDown.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     domainUpDown.ButtonSpecs.Clear();
@@ -4222,7 +4222,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     domainUpDown.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in domainColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         domainUpDown.ButtonSpecs.Add(bs);
                     }
                 }
@@ -5375,7 +5375,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     foreach (ButtonSpec bs in comboBox.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     comboBox.ButtonSpecs.Clear();
@@ -5424,7 +5424,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     comboBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in comboColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         comboBox.ButtonSpecs.Add(bs);
                     }
                 }
@@ -5830,9 +5830,9 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
 
-        private DateTimeList _annualDates;
-        private DateTimeList _monthlyDates;
-        private DateTimeList _dates;
+        private readonly DateTimeList _annualDates;
+        private readonly DateTimeList _monthlyDates;
+        private readonly DateTimeList _dates;
         #endregion
 
         #region Events
@@ -6896,7 +6896,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         [ThreadStatic]
         private static KryptonDateTimePicker _paintingDateTime;
-        private static DateTimeConverter _dtc = new DateTimeConverter();
+        private static readonly DateTimeConverter _dtc = new DateTimeConverter();
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewDateTimePickerEditingControl);
         private static readonly Type _defaultValueType = typeof(System.DateTime);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
@@ -7383,7 +7383,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     foreach (ButtonSpec bs in dateTimePicker.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     dateTimePicker.ButtonSpecs.Clear();
@@ -7434,7 +7434,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     dateTime.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in dateTimeColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         dateTime.ButtonSpecs.Add(bs);
                     }
                 }
@@ -7869,7 +7869,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                    IDataGridViewEditingControl
     {
         #region Static Fields
-        private static DateTimeConverter _dtc = new DateTimeConverter();
+        private static readonly DateTimeConverter _dtc = new DateTimeConverter();
         #endregion
 
         #region Instance Fields
@@ -9327,7 +9327,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     foreach (ButtonSpec bs in maskedTextBox.ButtonSpecs)
                     {
-                        bs.Click -= new EventHandler(OnButtonClick);
+                        bs.Click -= OnButtonClick;
                     }
 
                     maskedTextBox.ButtonSpecs.Clear();
@@ -9379,7 +9379,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     maskedTextBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in maskedTextBoxColumn.ButtonSpecs)
                     {
-                        bs.Click += new EventHandler(OnButtonClick);
+                        bs.Click += OnButtonClick;
                         maskedTextBox.ButtonSpecs.Add(bs);
                     }
                 }

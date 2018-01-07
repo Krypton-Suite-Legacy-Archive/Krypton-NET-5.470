@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _layoutDirty;
         private bool _refresh;
         private bool _refreshAll;
-        private SimpleCall _refreshCall;
+        private readonly SimpleCall _refreshCall;
 	    private VisualPopupShadow _shadow;
         #endregion
 
@@ -103,10 +103,10 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager = viewManager;
 
             // Setup the need paint delegate
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = OnNeedPaint;
 
             // Setup the invokes
-            _refreshCall = new SimpleCall(OnPerformRefresh);
+            _refreshCall = OnPerformRefresh;
 
             // Default other properties
             _layoutDirty = true;

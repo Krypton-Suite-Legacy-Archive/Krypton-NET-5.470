@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class KryptonGalleryActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonGallery _gallery;
-        private IComponentChangeService _service;
+        private readonly KryptonGallery _gallery;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

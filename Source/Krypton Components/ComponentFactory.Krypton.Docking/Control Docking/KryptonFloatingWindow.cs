@@ -68,10 +68,10 @@ namespace ComponentFactory.Krypton.Docking
 
             // Hook into floatspace events and add as the content of the floating window
             FloatspaceControl = floatspace;
-            FloatspaceControl.CellCountChanged += new EventHandler(OnFloatspaceCellCountChanged);
-            FloatspaceControl.CellVisibleCountChanged += new EventHandler(OnFloatspaceCellVisibleCountChanged);
-            FloatspaceControl.WorkspaceCellAdding += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellAdding);
-            FloatspaceControl.WorkspaceCellRemoved += new EventHandler<WorkspaceCellEventArgs>(OnFloatspaceCellRemoved);
+            FloatspaceControl.CellCountChanged += OnFloatspaceCellCountChanged;
+            FloatspaceControl.CellVisibleCountChanged += OnFloatspaceCellVisibleCountChanged;
+            FloatspaceControl.WorkspaceCellAdding += OnFloatspaceCellAdding;
+            FloatspaceControl.WorkspaceCellRemoved += OnFloatspaceCellRemoved;
             Controls.Add(FloatspaceControl);
         }
 
@@ -251,12 +251,12 @@ namespace ComponentFactory.Krypton.Docking
 
         private void OnFloatspaceCellAdding(object sender, WorkspaceCellEventArgs e)
         {
-            e.Cell.TabVisibleCountChanged += new EventHandler(OnTabVisibleCountChanged);
+            e.Cell.TabVisibleCountChanged += OnTabVisibleCountChanged;
         }
 
         private void OnFloatspaceCellRemoved(object sender, WorkspaceCellEventArgs e)
         {
-            e.Cell.TabVisibleCountChanged -= new EventHandler(OnTabVisibleCountChanged);
+            e.Cell.TabVisibleCountChanged -= OnTabVisibleCountChanged;
         }
 
         private void OnLayoutWorkspace(object sender, EventArgs e)

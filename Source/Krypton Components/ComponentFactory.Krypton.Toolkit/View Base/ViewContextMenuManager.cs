@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 Interval = Math.Max(1, SystemInformation.MenuShowDelay)
             };
-            _itemDelayTimer.Tick += new EventHandler(OnDelayTimerExpire);
+            _itemDelayTimer.Tick += OnDelayTimerExpire;
 		}
 
         /// <summary>

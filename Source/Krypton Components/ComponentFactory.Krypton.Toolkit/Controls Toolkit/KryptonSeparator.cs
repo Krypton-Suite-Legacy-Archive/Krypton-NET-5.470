@@ -33,9 +33,9 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private SeparatorStyle _style;
-        private ViewDrawDocker _drawDocker;
-        private ViewDrawSeparator _drawSeparator;
-        private SeparatorController _separatorController;
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewDrawSeparator _drawSeparator;
+        private readonly SeparatorController _separatorController;
         private Orientation _orientation;
         private Timer _redrawTimer;
         private Point _designLastPt;
@@ -163,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 Interval = 1
             };
-            _redrawTimer.Tick += new EventHandler(OnRedrawTick);
+            _redrawTimer.Tick += OnRedrawTick;
 
             // Set other internal starting values
             _style = SeparatorStyle.HighProfile;

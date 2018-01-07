@@ -55,8 +55,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_monthCalendar != null)
             {
                 // Hook into header event
-                _monthCalendar.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnCalendarMouseUp);
-                _monthCalendar.GetViewManager().DoubleClickProcessed += new PointHandler(OnCalendarDoubleClick);
+                _monthCalendar.GetViewManager().MouseUpProcessed += OnCalendarMouseUp;
+                _monthCalendar.GetViewManager().DoubleClickProcessed += OnCalendarDoubleClick;
             }
 
             // Acquire service interfaces
@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
 
         }
 
@@ -139,11 +139,11 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_monthCalendar != null)
             {
                 // Unhook from events
-                _monthCalendar.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnCalendarMouseUp);
-                _monthCalendar.GetViewManager().DoubleClickProcessed -= new PointHandler(OnCalendarDoubleClick);
+                _monthCalendar.GetViewManager().MouseUpProcessed -= OnCalendarMouseUp;
+                _monthCalendar.GetViewManager().DoubleClickProcessed -= OnCalendarDoubleClick;
             }
 
-            _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving -= OnComponentRemoving;
 
             // Must let base class do standard stuff
             base.Dispose(disposing);

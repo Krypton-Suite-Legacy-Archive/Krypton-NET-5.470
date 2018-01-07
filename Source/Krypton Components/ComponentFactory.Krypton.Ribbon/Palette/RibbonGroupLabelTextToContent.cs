@@ -17,10 +17,10 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class RibbonGroupLabelTextToContent : RibbonToContent
     {
         #region Instance Fields
-        private IPaletteRibbonText _ribbonGroupTextNormal;
-        private IPaletteRibbonText _ribbonGroupTextDisabled;
-        private IPaletteRibbonText _ribbonLabelTextNormal;
-        private IPaletteRibbonText _ribbonLabelTextDisabled;
+        private readonly IPaletteRibbonText _ribbonGroupTextNormal;
+        private readonly IPaletteRibbonText _ribbonGroupTextDisabled;
+        private readonly IPaletteRibbonText _ribbonLabelTextNormal;
+        private readonly IPaletteRibbonText _ribbonLabelTextDisabled;
         #endregion
 
         #region Identity

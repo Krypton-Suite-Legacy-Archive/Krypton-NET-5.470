@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
 
         private const int DEFAULT_COMPOSITION_HEIGHT = 30;
-        private static bool _themedApp;
+        private static readonly bool _themedApp;
         #endregion
 
         #region Instance Fields
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _localPalette;
         private IPalette _palette;
         private PaletteMode _paletteMode;
-        private IntPtr _screenDC;
+        private readonly IntPtr _screenDC;
         #endregion
 
         #region Events
@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
 
             // Setup the need paint delegate
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            NeedPaintDelegate = OnNeedPaint;
 
             // Set the palette and renderer to the defaults as specified by the manager
             _localPalette = null;
@@ -120,8 +120,8 @@ namespace ComponentFactory.Krypton.Toolkit
             Redirector = CreateRedirector();
 
             // Hook into global static events
-            KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
-            SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+            KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
+            SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
         }
 
         /// <summary>
@@ -137,16 +137,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must unhook from the palette paint events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
-                    _palette.AllowFormChromeChanged -= new EventHandler(OnAllowFormChromeChanged);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnNeedPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
+                    _palette.AllowFormChromeChanged -= OnAllowFormChromeChanged;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 // Unhook from global static events
-                KryptonManager.GlobalPaletteChanged -= new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged -= new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged -= OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
             }
 
             base.Dispose(disposing);
@@ -1753,11 +1753,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
-                    _palette.AllowFormChromeChanged -= new EventHandler(OnAllowFormChromeChanged);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnNeedPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
+                    _palette.AllowFormChromeChanged -= OnAllowFormChromeChanged;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 // Remember the new palette
@@ -1769,11 +1769,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnNeedPaint);
-                    _palette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
-                    _palette.AllowFormChromeChanged += new EventHandler(OnAllowFormChromeChanged);
-                    _palette.BasePaletteChanged += new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged += new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint += OnNeedPaint;
+                    _palette.ButtonSpecChanged += OnButtonSpecChanged;
+                    _palette.AllowFormChromeChanged += OnAllowFormChromeChanged;
+                    _palette.BasePaletteChanged += OnBaseChanged;
+                    _palette.BaseRendererChanged += OnBaseChanged;
                 }
             }
         }

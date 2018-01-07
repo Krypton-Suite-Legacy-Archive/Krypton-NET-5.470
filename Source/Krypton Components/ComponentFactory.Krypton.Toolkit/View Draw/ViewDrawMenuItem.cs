@@ -19,21 +19,21 @@ namespace ComponentFactory.Krypton.Toolkit
 	internal class ViewDrawMenuItem : ViewDrawCanvas
     {
         #region Static Fields
-        private static Image _empty16x16;
+        private static readonly Image _empty16x16;
         #endregion
 
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private ViewDrawMenuImageCanvas _imageCanvas;
-        private ViewDrawContent _imageContent;
-        private ViewDrawMenuItemContent _textContent;
-        private FixedContentValue _fixedImage;
+        private readonly IContextMenuProvider _provider;
+        private readonly ViewDrawMenuImageCanvas _imageCanvas;
+        private readonly ViewDrawContent _imageContent;
+        private readonly ViewDrawMenuItemContent _textContent;
+        private readonly FixedContentValue _fixedImage;
         private VisualContextMenu _contextMenu;
-        private ViewDrawMenuItemContent _shortcutContent;
-        private ViewDrawMenuItemContent _subMenuContent;
-        private FixedContentValue _fixedTextExtraText;
+        private readonly ViewDrawMenuItemContent _shortcutContent;
+        private readonly ViewDrawMenuItemContent _subMenuContent;
+        private readonly FixedContentValue _fixedTextExtraText;
         private KryptonCommand _cachedCommand;
-        private bool _imageColumn;
+        private readonly bool _imageColumn;
         private bool _standardStyle;
 
         #endregion
@@ -161,13 +161,13 @@ namespace ComponentFactory.Krypton.Toolkit
             KeyController = mic;
 
             // Want to know when a property changes whilst displayed
-            KryptonContextMenuItem.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+            KryptonContextMenuItem.PropertyChanged += OnPropertyChanged;
             
             // We need to know if a property of the command changes
             if (KryptonContextMenuItem.KryptonCommand != null)
             {
                 _cachedCommand = KryptonContextMenuItem.KryptonCommand;
-                KryptonContextMenuItem.KryptonCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                KryptonContextMenuItem.KryptonCommand.PropertyChanged += OnCommandPropertyChanged;
             }
         }
 
@@ -190,11 +190,11 @@ namespace ComponentFactory.Krypton.Toolkit
             if (disposing)
             {
                 // Unhook from events
-                KryptonContextMenuItem.PropertyChanged -= new PropertyChangedEventHandler(OnPropertyChanged);
+                KryptonContextMenuItem.PropertyChanged -= OnPropertyChanged;
 
                 if (_cachedCommand != null)
                 {
-                    _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                    _cachedCommand.PropertyChanged -= OnCommandPropertyChanged;
                     _cachedCommand = null;
                 }
             }
@@ -492,7 +492,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _contextMenu = new VisualContextMenu(_provider, KryptonContextMenuItem.Items, keyboardActivated);
 
                     // Need to know when the visual control is removed
-                    _contextMenu.Disposed += new EventHandler(OnContextMenuDisposed);
+                    _contextMenu.Disposed += OnContextMenuDisposed;
 
                     // Get the screen rectangle for the drawing element
                     Rectangle menuDrawRect = this.OwningControl.RectangleToScreen(ClientRectangle);
@@ -685,14 +685,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Unhook from any existing command
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     // Hook into the new command
                     _cachedCommand = KryptonContextMenuItem.KryptonCommand;
                     if (_cachedCommand != null)
                     {
-                        _cachedCommand.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _cachedCommand.PropertyChanged += OnCommandPropertyChanged;
                     }
 
                     // Update to show new state
@@ -725,7 +725,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_contextMenu != null)
             {
                 // Unhook from control, so it can be garbage collected
-                _contextMenu.Disposed -= new EventHandler(OnContextMenuDisposed);
+                _contextMenu.Disposed -= OnContextMenuDisposed;
 
                 // No longer need to cache reference
                 _contextMenu = null;

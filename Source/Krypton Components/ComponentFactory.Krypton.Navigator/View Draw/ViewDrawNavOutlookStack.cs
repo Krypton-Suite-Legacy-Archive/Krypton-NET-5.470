@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewDrawNavOutlookStack : ViewDrawNavCheckButtonBase
     {
         #region Instance Fields
-        private bool _full;
+        private readonly bool _full;
         #endregion
 
         #region Identity

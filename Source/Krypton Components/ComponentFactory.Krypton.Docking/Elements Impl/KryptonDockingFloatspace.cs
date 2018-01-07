@@ -37,11 +37,11 @@ namespace ComponentFactory.Krypton.Docking
             // Create a new floatspace that will be a host for docking pages
             SpaceControl = new KryptonFloatspace();
             FloatspaceControl.Dock = DockStyle.Fill;
-            FloatspaceControl.CellPageInserting += new EventHandler<KryptonPageEventArgs>(OnSpaceCellPageInserting);
-            FloatspaceControl.PageCloseClicked += new EventHandler<UniqueNameEventArgs>(OnFloatspacePageCloseClicked);
-            FloatspaceControl.PagesDoubleClicked += new EventHandler<UniqueNamesEventArgs>(OnFloatspacePagesDoubleClicked);
-            FloatspaceControl.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnFloatspaceDropDownClicked);
-            FloatspaceControl.BeforePageDrag += new EventHandler<PageDragCancelEventArgs>(OnFloatspaceBeforePageDrag);
+            FloatspaceControl.CellPageInserting += OnSpaceCellPageInserting;
+            FloatspaceControl.PageCloseClicked += OnFloatspacePageCloseClicked;
+            FloatspaceControl.PagesDoubleClicked += OnFloatspacePagesDoubleClicked;
+            FloatspaceControl.PageDropDownClicked += OnFloatspaceDropDownClicked;
+            FloatspaceControl.BeforePageDrag += OnFloatspaceBeforePageDrag;
         }
         #endregion
 

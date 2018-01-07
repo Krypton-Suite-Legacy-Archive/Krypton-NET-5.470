@@ -22,11 +22,11 @@ namespace ComponentFactory.Krypton.Toolkit
     public class VisualContextMenu : VisualPopup
     {
         #region Instance Fields
-        private KryptonContextMenu _contextMenu;
+        private readonly KryptonContextMenu _contextMenu;
         private IPalette _palette;
-        private ContextMenuProvider _provider;
+        private readonly ContextMenuProvider _provider;
         private ViewDrawDocker _drawDocker;
-        private ViewLayoutStack _viewColumns;
+        private readonly ViewLayoutStack _viewColumns;
 
         #endregion
 
@@ -62,9 +62,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create provider instance
             _provider = new ContextMenuProvider(provider, (ViewContextMenuManager)ViewManager, _viewColumns, NeedPaintDelegate);
-            _provider.Closing += new CancelEventHandler(OnProviderClosing);
-            _provider.Close += new EventHandler<CloseReasonEventArgs>(OnProviderClose);
-            _provider.Dispose += new EventHandler(OnProviderClose);
+            _provider.Closing += OnProviderClosing;
+            _provider.Close += OnProviderClose;
+            _provider.Dispose += OnProviderClose;
 
             Construct(items, keyboardActivated);
         }
@@ -114,9 +114,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                                 palette, paletteMode, redirector, redirectorImages, 
                                                 NeedPaintDelegate, enabled);
 
-            _provider.Closing += new CancelEventHandler(OnProviderClosing);
-            _provider.Close += new EventHandler<CloseReasonEventArgs>(OnProviderClose);
-            _provider.Dispose += new EventHandler(OnProviderClose);
+            _provider.Closing += OnProviderClosing;
+            _provider.Close += OnProviderClose;
+            _provider.Dispose += OnProviderClose;
 
             Construct(items, keyboardActivated);
         }
@@ -132,9 +132,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
             }
 
@@ -526,9 +526,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 // Remember the new palette
@@ -543,9 +543,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged += new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged += new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint += OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged += OnBaseChanged;
+                    _palette.BaseRendererChanged += OnBaseChanged;
                 }
             }
         }
@@ -570,7 +570,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook from event source
             ContextMenuProvider provider = (ContextMenuProvider)sender;
-            _provider.Dispose -= new EventHandler(OnProviderClose);
+            _provider.Dispose -= OnProviderClose;
 
             // Kill this poup window
             Dispose();

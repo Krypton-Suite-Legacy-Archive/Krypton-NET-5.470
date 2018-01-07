@@ -23,9 +23,9 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
 
-        private IContextMenuProvider _parent;
+        private readonly IContextMenuProvider _parent;
         private Nullable<ToolStripDropDownCloseReason> _closeReason;
-        private KryptonContextMenuItemCollection _menuCollection;
+        private readonly KryptonContextMenuItemCollection _menuCollection;
 
         #endregion
 

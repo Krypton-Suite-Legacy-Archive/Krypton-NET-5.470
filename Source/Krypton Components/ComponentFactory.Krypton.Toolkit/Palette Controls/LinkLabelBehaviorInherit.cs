@@ -17,7 +17,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class LinkLabelBehaviorInherit : PaletteContentInherit
     {
         #region Instance Fields
-        private IPaletteContent _inherit;
+        private readonly IPaletteContent _inherit;
 
         #endregion
 

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ButtonSpecManagerDraw : ButtonSpecManagerBase
     {
         #region Instance Fields
-        private ViewDrawDocker[] _viewDockers;
+        private readonly ViewDrawDocker[] _viewDockers;
         #endregion
 
         #region Identity

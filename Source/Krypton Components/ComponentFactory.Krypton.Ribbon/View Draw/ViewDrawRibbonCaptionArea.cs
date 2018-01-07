@@ -30,11 +30,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needIntegratedDelegate;
-        private PaletteCaptionRedirect _redirect;
+        private readonly KryptonRibbon _ribbon;
+        private readonly NeedPaintHandler _needIntegratedDelegate;
+        private readonly PaletteCaptionRedirect _redirect;
         private PaletteDoubleRedirect _redirectCaption;
-        private ViewDrawRibbonComposition _compositionArea;
+        private readonly ViewDrawRibbonComposition _compositionArea;
         private ViewLayoutRibbonAppButton _captionAppButton;
         private ViewLayoutRibbonAppButton _otherAppButton;
         private ViewLayoutSeparator _spaceInsteadOfAppButton;
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _compositionArea = compositionArea;
             NeedPaintDelegate = needPaintDelegate;
-            _needIntegratedDelegate = new NeedPaintHandler(OnIntegratedNeedPaint);
+            _needIntegratedDelegate = OnIntegratedNeedPaint;
 
             // Create a special redirector for overriding the border setting
             _redirect = new PaletteCaptionRedirect(redirect);
@@ -101,9 +101,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         UsingCustomChrome = false;
                     }
 
-                    KryptonForm.ApplyCustomChromeChanged -= new EventHandler(OnFormChromeCheck);
-                    KryptonForm.ClientSizeChanged -= new EventHandler(OnFormChromeCheck);
-                    KryptonForm.WindowActiveChanged -= new EventHandler(OnWindowActiveChanged);
+                    KryptonForm.ApplyCustomChromeChanged -= OnFormChromeCheck;
+                    KryptonForm.ClientSizeChanged -= OnFormChromeCheck;
+                    KryptonForm.WindowActiveChanged -= OnWindowActiveChanged;
                     KryptonForm = null;
                 }
             }
@@ -444,11 +444,11 @@ namespace ComponentFactory.Krypton.Ribbon
                 Target1 = _captionAppButton.AppButton,
                 Target2 = _otherAppButton.AppButton
             };
-            AppButtonController.NeedPaint += new NeedPaintHandler(OnAppButtonNeedPaint);
+            AppButtonController.NeedPaint += OnAppButtonNeedPaint;
             _captionAppButton.MouseController = AppButtonController;
             _otherAppButton.MouseController = AppButtonController;
             AppTabController = new AppTabController(_ribbon);
-            AppTabController.NeedPaint += new NeedPaintHandler(OnAppButtonNeedPaint);
+            AppTabController.NeedPaint += OnAppButtonNeedPaint;
 
             // When not showing the app button we show this spacer instead
             _spaceInsteadOfAppButton = new ViewLayoutSeparator(0)
@@ -484,7 +484,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // We have to know when the parent of the ribbon changes so we can then hook
             // into monitoring the top level custom chrome control. We need information this
             // decide if we integrate with top chrome or show this control instead.
-            _ribbon.ParentChanged += new EventHandler(OnRibbonParentChanged);
+            _ribbon.ParentChanged += OnRibbonParentChanged;
         }
 
         private void OnRibbonParentChanged(object sender, EventArgs e)
@@ -492,9 +492,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Unhook from any current krypton form monitoring
             if (KryptonForm != null)
             {
-                KryptonForm.ApplyCustomChromeChanged -= new EventHandler(OnFormChromeCheck);
-                KryptonForm.ClientSizeChanged -= new EventHandler(OnFormChromeCheck);
-                KryptonForm.WindowActiveChanged -= new EventHandler(OnWindowActiveChanged);
+                KryptonForm.ApplyCustomChromeChanged -= OnFormChromeCheck;
+                KryptonForm.ClientSizeChanged -= OnFormChromeCheck;
+                KryptonForm.WindowActiveChanged -= OnWindowActiveChanged;
                 KryptonForm = null;
             }
 
@@ -510,9 +510,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         KryptonForm = ownerForm as KryptonForm;
                         KryptonForm.Composition = _compositionArea;
-                        KryptonForm.ApplyCustomChromeChanged += new EventHandler(OnFormChromeCheck);
-                        KryptonForm.ClientSizeChanged += new EventHandler(OnFormChromeCheck);
-                        KryptonForm.WindowActiveChanged += new EventHandler(OnWindowActiveChanged);
+                        KryptonForm.ApplyCustomChromeChanged += OnFormChromeCheck;
+                        KryptonForm.ClientSizeChanged += OnFormChromeCheck;
+                        KryptonForm.WindowActiveChanged += OnWindowActiveChanged;
                     }
                 }
 

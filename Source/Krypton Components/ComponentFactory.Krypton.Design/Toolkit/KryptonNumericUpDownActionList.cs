@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonNumericUpDownActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonNumericUpDown _numericUpDown;
-        private IComponentChangeService _service;
+        private readonly KryptonNumericUpDown _numericUpDown;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

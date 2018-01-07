@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		#region Instance Fields
 
 	    private int _overridePreferredWidth;
-        private bool _zeroHeight;
+        private readonly bool _zeroHeight;
         #endregion
 
 		#region Identity

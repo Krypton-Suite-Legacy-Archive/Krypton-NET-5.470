@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Ribbon
                                          IRibbonKeyTipTarget
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _mouseOver;
         private bool _mouseDown;
         private bool _fixedPressed;
         private bool _hasFocus;
-        private Timer _updateTimer;
+        private readonly Timer _updateTimer;
         #endregion
 
         #region Events
@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Interval = 1
             };
-            _updateTimer.Tick += new EventHandler(OnUpdateTimer);
+            _updateTimer.Tick += OnUpdateTimer;
             Keyboard = false;
         }
 		#endregion

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class DataGridViewStyles : Storage
     {
         #region Instance Fields
-        private KryptonDataGridView _dataGridView;
+        private readonly KryptonDataGridView _dataGridView;
         private DataGridViewStyle _gridStyle;
         private GridStyle _columnStyle;
         private GridStyle _rowStyle;

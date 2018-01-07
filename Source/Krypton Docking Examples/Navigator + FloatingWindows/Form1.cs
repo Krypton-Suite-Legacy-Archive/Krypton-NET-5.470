@@ -32,10 +32,12 @@ namespace NavigatorAndFloatingWindows
         private KryptonPage NewPage(string name, int image, Control content)
         {
             // Create new page with title and image
-            KryptonPage p = new KryptonPage();
-            p.Text = name + _count.ToString();
-            p.TextTitle = name + _count.ToString();
-            p.TextDescription = name + _count.ToString();
+            KryptonPage p = new KryptonPage
+            {
+                Text = name + _count.ToString(),
+                TextTitle = name + _count.ToString(),
+                TextDescription = name + _count.ToString()
+            };
             p.UniqueName = p.Text;
             p.ImageSmall = imageListSmall.Images[image];
 

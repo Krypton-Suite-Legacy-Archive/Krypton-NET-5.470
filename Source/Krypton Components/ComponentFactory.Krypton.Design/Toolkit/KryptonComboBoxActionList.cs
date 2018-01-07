@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonComboBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonComboBox _comboBox;
-        private IComponentChangeService _service;
+        private readonly KryptonComboBox _comboBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

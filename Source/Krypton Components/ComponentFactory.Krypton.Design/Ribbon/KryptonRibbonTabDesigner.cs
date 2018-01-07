@@ -75,16 +75,16 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Cast to correct type
             _ribbonTab = (KryptonRibbonTab)component;
-            _ribbonTab.DesignTimeAddGroup += new EventHandler(OnAddGroup);
-            _ribbonTab.DesignTimeContextMenu += new MouseEventHandler(OnContextMenu);
+            _ribbonTab.DesignTimeAddGroup += OnAddGroup;
+            _ribbonTab.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentRemoving += OnComponentRemoving;
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -132,10 +132,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     // Unhook from events
-                    _ribbonTab.DesignTimeAddGroup -= new EventHandler(OnAddGroup);
-                    _ribbonTab.DesignTimeContextMenu -= new MouseEventHandler(OnContextMenu);
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _ribbonTab.DesignTimeAddGroup -= OnAddGroup;
+                    _ribbonTab.DesignTimeContextMenu -= OnContextMenu;
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally
@@ -153,14 +153,14 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_verbs == null)
             {
                 _verbs = new DesignerVerbCollection();
-                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                _moveFirstVerb = new DesignerVerb("Move First", new EventHandler(OnMoveFirst));
-                _movePrevVerb = new DesignerVerb("Move Previous", new EventHandler(OnMovePrevious));
-                _moveNextVerb = new DesignerVerb("Move Next", new EventHandler(OnMoveNext));
-                _moveLastVerb = new DesignerVerb("Move Last", new EventHandler(OnMoveLast));
-                _addGroupVerb = new DesignerVerb("Add Group", new EventHandler(OnAddGroup));
-                _clearGroupsVerb = new DesignerVerb("Clear Groups", new EventHandler(OnClearGroups));
-                _deleteTabVerb = new DesignerVerb("Delete Tab", new EventHandler(OnDeleteTab));
+                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                _moveFirstVerb = new DesignerVerb("Move First", OnMoveFirst);
+                _movePrevVerb = new DesignerVerb("Move Previous", OnMovePrevious);
+                _moveNextVerb = new DesignerVerb("Move Next", OnMoveNext);
+                _moveLastVerb = new DesignerVerb("Move Last", OnMoveLast);
+                _addGroupVerb = new DesignerVerb("Add Group", OnAddGroup);
+                _clearGroupsVerb = new DesignerVerb("Clear Groups", OnClearGroups);
+                _deleteTabVerb = new DesignerVerb("Delete Tab", OnDeleteTab);
                 _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _moveFirstVerb, _movePrevVerb, _moveNextVerb, _moveLastVerb, _addGroupVerb, _clearGroupsVerb, _deleteTabVerb });
             }
 
@@ -459,15 +459,15 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_cms == null)
                 {
                     _cms = new ContextMenuStrip();
-                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, new EventHandler(OnToggleHelpers));
-                    _visibleMenu = new ToolStripMenuItem("Visible", null, new EventHandler(OnVisible));
-                    _moveFirstMenu = new ToolStripMenuItem("Move First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, new EventHandler(OnMoveFirst));
-                    _movePreviousMenu = new ToolStripMenuItem("Move Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, new EventHandler(OnMovePrevious));
-                    _moveNextMenu = new ToolStripMenuItem("Move Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, new EventHandler(OnMoveNext));
-                    _moveLastMenu = new ToolStripMenuItem("Move Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, new EventHandler(OnMoveLast));
-                    _addGroupMenu = new ToolStripMenuItem("Add Group", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroup, new EventHandler(OnAddGroup));
-                    _clearGroupsMenu = new ToolStripMenuItem("Clear Groups", null, new EventHandler(OnClearGroups));
-                    _deleteTabMenu = new ToolStripMenuItem("Delete Tab", ComponentFactory.Krypton.Design.Properties.Resources.delete2, new EventHandler(OnDeleteTab));
+                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
+                    _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
+                    _moveFirstMenu = new ToolStripMenuItem("Move First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _addGroupMenu = new ToolStripMenuItem("Add Group", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroup, OnAddGroup);
+                    _clearGroupsMenu = new ToolStripMenuItem("Clear Groups", null, OnClearGroups);
+                    _deleteTabMenu = new ToolStripMenuItem("Delete Tab", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteTab);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _allowInheritToolTipTitle = true;
             ImageStates = new CheckButtonImageStates
             {
-                NeedPaint = new NeedPaintHandler(OnImageStateChanged)
+                NeedPaint = OnImageStateChanged
             };
         }
 		#endregion

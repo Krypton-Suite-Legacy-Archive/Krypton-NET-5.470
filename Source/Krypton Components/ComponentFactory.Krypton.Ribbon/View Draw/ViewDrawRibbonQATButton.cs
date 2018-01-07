@@ -28,9 +28,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private QATButtonToContent _contentProvider;
-        private ViewDrawContent _drawContent;
+        private readonly KryptonRibbon _ribbon;
+        private readonly QATButtonToContent _contentProvider;
+        private readonly ViewDrawContent _drawContent;
         private IDisposable _mementoBack;
         #endregion
 
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Attach a controller to this element for the pressing of the button
             QATButtonController controller = new QATButtonController(ribbon, this, needPaint);
-            controller.Click += new MouseEventHandler(OnClick);
+            controller.Click += OnClick;
             SourceController = controller;
             KeyController = controller;
 
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(_drawContent);
 
             // Need to notice when the ribbon enable state changes
-            _ribbon.EnabledChanged += new EventHandler(OnRibbonEnableChanged);
+            _ribbon.EnabledChanged += OnRibbonEnableChanged;
 
             // Set the initial enabled state
             UpdateEnabled();

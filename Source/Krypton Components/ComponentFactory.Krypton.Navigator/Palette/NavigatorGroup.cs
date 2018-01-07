@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorGroup : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private PaletteBackStyle _groupBackStyle;
         private PaletteBorderStyle _groupBorderStyle;
         #endregion

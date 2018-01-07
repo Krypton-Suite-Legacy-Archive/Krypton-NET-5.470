@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Static Fields
         private static readonly Size _keyTipInflateSize = new Size(8, 30);
-        private static MethodInfo _containerSelect;
+        private static readonly MethodInfo _containerSelect;
         #endregion
 
         #region Instance Fields
@@ -2158,7 +2158,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         Text = qatButton.GetText(),
                         Checked = qatButton.GetVisible()
                     };
-                    menuItem.Click += new EventHandler(OnQATCustomizeClick);
+                    menuItem.Click += OnQATCustomizeClick;
                     menuItem.Tag = QATButtons.IndexOf(qatButton);
                     menuItems.Items.Add(menuItem);
                 }
@@ -2176,7 +2176,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     showQAT.Text = RibbonStrings.ShowAboveRibbon;
                 }
-                showQAT.Click += new EventHandler(OnInvertQATLocation);
+                showQAT.Click += OnInvertQATLocation;
 
                 // Add into the context menu
                 if (menuItems.Items.Count > 0)
@@ -2195,7 +2195,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     Text = RibbonStrings.Minimize,
                     Checked = MinimizedMode
                 };
-                minimize.Click += new EventHandler(OnInvertMinimizeMode);
+                minimize.Click += OnInvertMinimizeMode;
 
                 // Add into the context menu
                 if (menuItems.Items.Count > 0)
@@ -2259,7 +2259,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     showQAT.Text = RibbonStrings.ShowQATAboveRibbon;
                 }
-                showQAT.Click += new EventHandler(OnInvertQATLocation);
+                showQAT.Click += OnInvertQATLocation;
 
                 // Add into the context menu
                 menuItems.Items.Add(showQAT);
@@ -2273,7 +2273,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     Text = RibbonStrings.Minimize,
                     Checked = MinimizedMode
                 };
-                minimize.Click += new EventHandler(OnInvertMinimizeMode);
+                minimize.Click += OnInvertMinimizeMode;
 
                 // Add into the context menu
                 menuItems.Items.Add(new KryptonContextMenuSeparator());
@@ -2459,7 +2459,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_minimizedPopup != null)
             {
                 // Unhook events from popup
-                _minimizedPopup.Disposed -= new EventHandler(OnMinimizedPopupDisposed);
+                _minimizedPopup.Disposed -= OnMinimizedPopupDisposed;
 
                 // Kill all the showing popups
                 VisualPopupManager.Singleton.EndAllTracking();
@@ -2782,22 +2782,22 @@ namespace ComponentFactory.Krypton.Ribbon
         private void CreateRibbonCollections()
         {
             RibbonContexts = new KryptonRibbonContextCollection();
-            RibbonContexts.Clearing += new EventHandler(OnRibbonContextsClearing);
-            RibbonContexts.Cleared += new EventHandler(OnRibbonContextsCleared);
-            RibbonContexts.Inserted += new TypedHandler<KryptonRibbonContext>(OnRibbonContextsInserted);
-            RibbonContexts.Removed += new TypedHandler<KryptonRibbonContext>(OnRibbonContextsRemoved);
+            RibbonContexts.Clearing += OnRibbonContextsClearing;
+            RibbonContexts.Cleared += OnRibbonContextsCleared;
+            RibbonContexts.Inserted += OnRibbonContextsInserted;
+            RibbonContexts.Removed += OnRibbonContextsRemoved;
 
             RibbonTabs = new KryptonRibbonTabCollection();
-            RibbonTabs.Clearing += new EventHandler(OnRibbonTabsClearing);
-            RibbonTabs.Cleared += new EventHandler(OnRibbonTabsCleared);
-            RibbonTabs.Inserted += new TypedHandler<KryptonRibbonTab>(OnRibbonTabsInserted);
-            RibbonTabs.Removed += new TypedHandler<KryptonRibbonTab>(OnRibbonTabsRemoved);
+            RibbonTabs.Clearing += OnRibbonTabsClearing;
+            RibbonTabs.Cleared += OnRibbonTabsCleared;
+            RibbonTabs.Inserted += OnRibbonTabsInserted;
+            RibbonTabs.Removed += OnRibbonTabsRemoved;
 
             QATButtons = new KryptonRibbonQATButtonCollection();
-            QATButtons.Clearing += new EventHandler(OnRibbonQATButtonsClearing);
-            QATButtons.Cleared += new EventHandler(OnRibbonQATButtonsCleared);
-            QATButtons.Inserted += new TypedHandler<Component>(OnRibbonQATButtonsInserted);
-            QATButtons.Removed += new TypedHandler<Component>(OnRibbonQATButtonsRemoved);
+            QATButtons.Clearing += OnRibbonQATButtonsClearing;
+            QATButtons.Cleared += OnRibbonQATButtonsCleared;
+            QATButtons.Inserted += OnRibbonQATButtonsInserted;
+            QATButtons.Removed += OnRibbonQATButtonsRemoved;
         }
 
         private void CreateButtonSpecs()
@@ -2828,7 +2828,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void CreateViewManager()
         {
             // Setup the need paint delegate
-            _needPaintGroups = new NeedPaintHandler(OnNeedPaintMinimizedGroups);
+            _needPaintGroups = OnNeedPaintMinimizedGroups;
 
             // Create direct access to the redirector for panel background
             _backPanelInherit = new PaletteBackInheritRedirect(Redirector, PaletteBackStyle.PanelClient);
@@ -2854,7 +2854,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create tabs area containing the tabs, pendant buttons etc...
             TabsArea = new ViewLayoutRibbonTabsArea(this, Redirector, CaptionArea, CaptionArea.ContextTitles, NeedPaintDelegate);
-            TabsArea.PaintBackground += new PaintEventHandler(OnTabsAreaPaintBackground);
+            TabsArea.PaintBackground += OnTabsAreaPaintBackground;
 
             // Create groups area containing the groups of the selected tab
             GroupsArea = new ViewLayoutRibbonGroupsArea(this, Redirector, _needPaintGroups);
@@ -3127,7 +3127,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Unhook from all the context instances
             foreach (KryptonRibbonContext context in RibbonContexts)
             {
-                context.PropertyChanged -= new PropertyChangedEventHandler(OnContextPropertyChanged);
+                context.PropertyChanged -= OnContextPropertyChanged;
             }
         }
 
@@ -3141,7 +3141,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonContextsInserted(object sender, TypedCollectionEventArgs<KryptonRibbonContext> e)
         {
             // Hook into property changes for the context
-            e.Item.PropertyChanged += new PropertyChangedEventHandler(OnContextPropertyChanged);
+            e.Item.PropertyChanged += OnContextPropertyChanged;
             CaptionArea.UpdateVisible();
             PerformNeedPaint(true);
         }
@@ -3149,7 +3149,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonContextsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonContext> e)
         {
             // Remove context instance hook
-            e.Item.PropertyChanged -= new PropertyChangedEventHandler(OnContextPropertyChanged);
+            e.Item.PropertyChanged -= OnContextPropertyChanged;
             CaptionArea.UpdateVisible();
             PerformNeedPaint(true);
         }
@@ -3166,7 +3166,7 @@ namespace ComponentFactory.Krypton.Ribbon
             foreach (KryptonRibbonTab tab in RibbonTabs)
             {
                 // Unhook from tab property change event
-                tab.PropertyChanged -= new PropertyChangedEventHandler(OnTabPropertyChanged);
+                tab.PropertyChanged -= OnTabPropertyChanged;
 
                 // Remove back reference
                 tab.Ribbon = null;
@@ -3191,7 +3191,7 @@ namespace ComponentFactory.Krypton.Ribbon
             e.Item.Ribbon = this;
 
             // Need to monitor tab in case its properties change
-            e.Item.PropertyChanged += new PropertyChangedEventHandler(OnTabPropertyChanged);
+            e.Item.PropertyChanged += OnTabPropertyChanged;
 
             // Update selection to match ribbon settings
             ValidateSelectedTab();
@@ -3203,7 +3203,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnRibbonTabsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonTab> e)
         {
             // Unhook from tab property change event
-            e.Item.PropertyChanged -= new PropertyChangedEventHandler(OnTabPropertyChanged);
+            e.Item.PropertyChanged -= OnTabPropertyChanged;
 
             // Remove the backreference
             e.Item.Ribbon = null;
@@ -3240,7 +3240,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Stop tracking changes in button properties
             foreach (IQuickAccessToolbarButton qatButton in QATButtons)
             {
-                qatButton.PropertyChanged -= new PropertyChangedEventHandler(OnQATButtonPropertyChanged);
+                qatButton.PropertyChanged -= OnQATButtonPropertyChanged;
             }
         }
 
@@ -3265,7 +3265,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Track changes in button properties
-            qatButton.PropertyChanged += new PropertyChangedEventHandler(OnQATButtonPropertyChanged);
+            qatButton.PropertyChanged += OnQATButtonPropertyChanged;
 
             // Display not updated until a layout occurs
             PerformNeedPaint(true);
@@ -3280,7 +3280,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Debug.Assert(qatButton != null);
 
             // Stop tracking changes in button properties
-            qatButton.PropertyChanged -= new PropertyChangedEventHandler(OnQATButtonPropertyChanged);
+            qatButton.PropertyChanged -= OnQATButtonPropertyChanged;
 
             // Remove the backreference
             if (qatButton != null)
@@ -3359,7 +3359,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Create a popup control with the minimized panel as the view
             ViewRibbonMinimizedManager popupManager = new ViewRibbonMinimizedManager(this, GroupsArea.ViewGroups, _drawMinimizedPanel, true, _needPaintGroups);
             _minimizedPopup = new VisualPopupMinimized(this, popupManager, CaptionArea, Renderer);
-            _minimizedPopup.Disposed += new EventHandler(OnMinimizedPopupDisposed);
+            _minimizedPopup.Disposed += OnMinimizedPopupDisposed;
             popupManager.Attach(_minimizedPopup, _drawMinimizedPanel);
 
             // Show the groups area as a popup!
@@ -3420,7 +3420,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_kcm == null)
             {
                 _kcm = new KryptonContextMenu();
-                _kcm.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                _kcm.Closed += OnKryptonContextMenuClosed;
             }
 
             // Remove any existing items

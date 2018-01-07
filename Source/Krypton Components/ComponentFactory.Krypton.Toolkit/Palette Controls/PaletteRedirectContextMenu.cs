@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectContextMenu : PaletteRedirect
     {
         #region Instance Fields
-        private ContextMenuImages _images;
+        private readonly ContextMenuImages _images;
 		#endregion
 
 		#region Identity

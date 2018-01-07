@@ -34,10 +34,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ContextTabSet _context;
-        private IPaletteRibbonBack _inherit;
-        private ContextToContent _contentProvider;
+        private readonly IPaletteRibbonBack _inherit;
+        private readonly ContextToContent _contentProvider;
         private IDisposable _mementoBack;
         private IDisposable _mementoContentText;
         private IDisposable _mementoContentShadow1;

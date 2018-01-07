@@ -64,19 +64,25 @@ namespace ComponentFactory.Krypton.Ribbon
         private ColorScheme _schemeStandard;
         private KryptonCommand _command;
         private int _maxRecentColors;
-        private List<Color> _recentColors;
+        private readonly List<Color> _recentColors;
 
         // Context menu items
-        private KryptonContextMenu _kryptonContextMenu;
-        private KryptonContextMenuSeparator _separatorTheme, _separatorStandard, _separatorRecent;
-        private KryptonContextMenuHeading _headingTheme, _headingStandard, _headingRecent;
-        private KryptonContextMenuColorColumns _colorsTheme, _colorsStandard, _colorsRecent;
-        private KryptonContextMenuSeparator _separatorNoColor;
-        private KryptonContextMenuItems _itemsNoColor;
-        private KryptonContextMenuItem _itemNoColor;
-        private KryptonContextMenuSeparator _separatorMoreColors;
-        private KryptonContextMenuItems _itemsMoreColors;
-        private KryptonContextMenuItem _itemMoreColors;
+        private readonly KryptonContextMenu _kryptonContextMenu;
+        private readonly KryptonContextMenuSeparator _separatorTheme;
+        private readonly KryptonContextMenuSeparator _separatorStandard;
+        private readonly KryptonContextMenuSeparator _separatorRecent;
+        private readonly KryptonContextMenuHeading _headingTheme;
+        private readonly KryptonContextMenuHeading _headingStandard;
+        private readonly KryptonContextMenuHeading _headingRecent;
+        private readonly KryptonContextMenuColorColumns _colorsTheme;
+        private readonly KryptonContextMenuColorColumns _colorsStandard;
+        private readonly KryptonContextMenuColorColumns _colorsRecent;
+        private readonly KryptonContextMenuSeparator _separatorNoColor;
+        private readonly KryptonContextMenuItems _itemsNoColor;
+        private readonly KryptonContextMenuItem _itemNoColor;
+        private readonly KryptonContextMenuSeparator _separatorMoreColors;
+        private readonly KryptonContextMenuItems _itemsMoreColors;
+        private readonly KryptonContextMenuItem _itemMoreColors;
         #endregion
 
         #region Events
@@ -181,11 +187,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _headingRecent = new KryptonContextMenuHeading("Recent Colors");
             _colorsRecent = new KryptonContextMenuColorColumns(ColorScheme.None);
             _separatorNoColor = new KryptonContextMenuSeparator();
-            _itemNoColor = new KryptonContextMenuItem("&No Color", Properties.Resources.ButtonNoColor, new EventHandler(OnClickNoColor));
+            _itemNoColor = new KryptonContextMenuItem("&No Color", Properties.Resources.ButtonNoColor, OnClickNoColor);
             _itemsNoColor = new KryptonContextMenuItems();
             _itemsNoColor.Items.Add(_itemNoColor);
             _separatorMoreColors = new KryptonContextMenuSeparator();
-            _itemMoreColors = new KryptonContextMenuItem("&More Colors...", new EventHandler(OnClickMoreColors));
+            _itemMoreColors = new KryptonContextMenuItem("&More Colors...", OnClickMoreColors);
             _itemsMoreColors = new KryptonContextMenuItems();
             _itemsMoreColors.Items.Add(_itemMoreColors);
             _kryptonContextMenu.Items.AddRange(new KryptonContextMenuItemBase[] { _separatorTheme, _headingTheme, _colorsTheme, 
@@ -799,7 +805,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
 
                     _command = value;
@@ -807,7 +813,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                 }
             }
@@ -1070,7 +1076,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     HookContextMenuEvents(_kryptonContextMenu.Items, true);
 
                                     // Show at location we were provided, but need to convert to screen coordinates
-                                    contextArgs.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                                    contextArgs.KryptonContextMenu.Closed += OnKryptonContextMenuClosed;
                                     if (contextArgs.KryptonContextMenu.Show(this, new Point(screenRect.X, screenRect.Bottom + 1)))
                                     {
                                         fireDelegate = false;
@@ -1207,13 +1213,13 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     if (hook)
                     {
-                        columns.TrackingColor += new EventHandler<ColorEventArgs>(OnColumnsTrackingColor);
-                        columns.SelectedColorChanged += new EventHandler<ColorEventArgs>(OnColumnsSelectedColorChanged);
+                        columns.TrackingColor += OnColumnsTrackingColor;
+                        columns.SelectedColorChanged += OnColumnsSelectedColorChanged;
                     }
                     else
                     {
-                        columns.TrackingColor -= new EventHandler<ColorEventArgs>(OnColumnsTrackingColor);
-                        columns.SelectedColorChanged -= new EventHandler<ColorEventArgs>(OnColumnsSelectedColorChanged);
+                        columns.TrackingColor -= OnColumnsTrackingColor;
+                        columns.SelectedColorChanged -= OnColumnsSelectedColorChanged;
                     }
                 }
             }
@@ -1394,7 +1400,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnKryptonContextMenuClosed(object sender, EventArgs e)
         {
             KryptonContextMenu kcm = (KryptonContextMenu)sender;
-            kcm.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+            kcm.Closed -= OnKryptonContextMenuClosed;
 
             // Fire any associated finish delegate
             if (_kcmFinishDelegate != null)

@@ -17,8 +17,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonCheckButtonActionList : KryptonButtonActionList
     {
         #region Instance Fields
-        private KryptonCheckButton _checkButton;
-        private IComponentChangeService _service;
+        private readonly KryptonCheckButton _checkButton;
+        private readonly IComponentChangeService _service;
         private string _action;
         #endregion
 
@@ -93,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Add the list of button specific actions
                 actions.Add(new DesignerActionHeaderItem("Appearance"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, new EventHandler(OnCheckedClick)), "Appearance"));
+                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnCheckedClick), "Appearance"));
                 actions.Add(new DesignerActionPropertyItem("ButtonStyle", "Style", "Appearance", "Button style"));
                 actions.Add(new DesignerActionPropertyItem("Orientation", "Orientation", "Appearance", "Button orientation"));
                 actions.Add(new DesignerActionHeaderItem("Values"));

@@ -18,9 +18,9 @@ namespace ComponentFactory.Krypton.Docking
     public class DockingDragTargetProvider : IDragTargetProvider
     {
         #region Instance Fields
-        private KryptonDockingManager _manager;
+        private readonly KryptonDockingManager _manager;
         private KryptonPageCollection _pages;
-        private KryptonFloatingWindow _floatingWindow;
+        private readonly KryptonFloatingWindow _floatingWindow;
         #endregion
 
         #region Identity

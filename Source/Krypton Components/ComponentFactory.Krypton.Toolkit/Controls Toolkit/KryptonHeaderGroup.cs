@@ -58,21 +58,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		private VisualOrientation _position1;
 		private VisualOrientation _position2;
         private HeaderGroupCollapsedTarget _collapsedTarget;
-        private ViewDrawDocker _drawDocker;
-        private ViewDrawDocker _drawHeading1;
-		private ViewDrawContent _drawContent1;
-        private ViewDrawDocker _drawHeading2;
-		private ViewDrawContent _drawContent2;
-        private ViewLayoutFill _layoutFill;
-        private ButtonSpecManagerDraw _buttonManager;
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewDrawDocker _drawHeading1;
+		private readonly ViewDrawContent _drawContent1;
+        private readonly ViewDrawDocker _drawHeading2;
+		private readonly ViewDrawContent _drawContent2;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
         private ScreenObscurer _obscurer;
-        private EventHandler _removeObscurer;
+        private readonly EventHandler _removeObscurer;
         private bool _forcedLayout;
         private bool _visiblePrimary;
         private bool _visibleSecondary;
         private bool _collapsed;
-        private bool _ignoreLayout;
+        private readonly bool _ignoreLayout;
         private bool _layingOut;
         #endregion
 
@@ -105,13 +105,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Create storage objects
             ValuesPrimary = new HeaderGroupValuesPrimary(NeedPaintDelegate);
-            ValuesPrimary.TextChanged += new EventHandler(OnHeaderGroupTextChanged);
+            ValuesPrimary.TextChanged += OnHeaderGroupTextChanged;
             ValuesSecondary = new HeaderGroupValuesSecondary(NeedPaintDelegate);
             ButtonSpecs = new HeaderGroupButtonSpecCollection(this);
 
             // We need to monitor button spec click events
-            ButtonSpecs.Inserted += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecInserted);
-            ButtonSpecs.Removed += new EventHandler<ButtonSpecEventArgs>(OnButtonSpecRemoved);
+            ButtonSpecs.Inserted += OnButtonSpecInserted;
+            ButtonSpecs.Removed += OnButtonSpecRemoved;
 
 			// Create the palette storage
             StateCommon = new PaletteHeaderGroupRedirect(Redirector, NeedPaintDelegate);
@@ -119,7 +119,7 @@ namespace ComponentFactory.Krypton.Toolkit
             StateNormal = new PaletteHeaderGroup(StateCommon, StateCommon.HeaderPrimary, StateCommon.HeaderSecondary, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, new NeedPaintHandler(OnGroupPanelPaint))
+            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, OnGroupPanelPaint)
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -177,20 +177,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        new IPaletteMetric[] { StateCommon.HeaderPrimary, StateCommon.HeaderSecondary },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary, PaletteMetricInt.HeaderButtonEdgeInsetSecondary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary, PaletteMetricPadding.HeaderButtonPaddingSecondary },
-                                                       new GetToolStripRenderer(CreateToolStripRenderer),
+                                                       CreateToolStripRenderer,
                                                        NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // We want to default to shrinking and growing (base class defaults to GrowOnly)
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             // Create the delegate used when we need to ensure obscurer is removed
-            _removeObscurer = new EventHandler(OnRemoveObscurer);
+            _removeObscurer = OnRemoveObscurer;
 
             // Need to prevent the AddInternal from causing a layout, otherwise the
             // layout will probably try to measure text which causes the handle for the
@@ -1180,7 +1180,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -1199,7 +1199,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;
@@ -1208,13 +1208,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnButtonSpecInserted(object sender, ButtonSpecEventArgs e)
         {
             // Monitor the button spec being clicked
-            e.ButtonSpec.Click += new EventHandler(OnButtonSpecClicked);
+            e.ButtonSpec.Click += OnButtonSpecClicked;
         }
 
         private void OnButtonSpecRemoved(object sender, ButtonSpecEventArgs e)
         {
             // Unhook from monitoring the button spec
-            e.ButtonSpec.Click -= new EventHandler(OnButtonSpecClicked);
+            e.ButtonSpec.Click -= OnButtonSpecClicked;
         }
 
         private void OnButtonSpecClicked(object sender, EventArgs e)

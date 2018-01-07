@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Navigator
 			_constructed = true;
 
             // Hook into the navigator events
-            Navigator.ViewBuilderPropertyChanged += new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
+            Navigator.ViewBuilderPropertyChanged += OnViewBuilderPropertyChanged;
 		}
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace ComponentFactory.Krypton.Navigator
             Debug.Assert(Navigator != null);
 
             // Unhook from the navigator events
-            Navigator.ViewBuilderPropertyChanged -= new PropertyChangedEventHandler(OnViewBuilderPropertyChanged);
+            Navigator.ViewBuilderPropertyChanged -= OnViewBuilderPropertyChanged;
 
             // No longer constructed
             _constructed = false;
@@ -726,7 +726,7 @@ namespace ComponentFactory.Krypton.Navigator
                 // Only create the delegate when it is first needed
                 if (_needPaintDelegate == null)
                 {
-                    _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+                    _needPaintDelegate = OnNeedPaint;
                 }
 
                 return _needPaintDelegate;

@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class QATButtonToolTipToContent : IContentValues
     {
         #region Instance Fields
-        private IQuickAccessToolbarButton _qatButton;
+        private readonly IQuickAccessToolbarButton _qatButton;
         #endregion
 
         #region Identity

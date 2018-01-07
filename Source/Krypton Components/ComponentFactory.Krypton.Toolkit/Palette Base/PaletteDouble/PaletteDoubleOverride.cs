@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                          IPaletteDouble
 	{
 		#region Intance Fields
-		private PaletteBackInheritOverride _overrideBack;
-		private PaletteBorderInheritOverride _overrideBorder;
+		private readonly PaletteBackInheritOverride _overrideBack;
+		private readonly PaletteBorderInheritOverride _overrideBorder;
 		#endregion
 
 		#region Identity

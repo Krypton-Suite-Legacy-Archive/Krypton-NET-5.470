@@ -19,9 +19,9 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewRibbonPopupGroupManager : ViewManager
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewDrawRibbonGroup _viewGroup;
-        private NeedPaintHandler _needPaintDelegate;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewDrawRibbonGroup _viewGroup;
+        private readonly NeedPaintHandler _needPaintDelegate;
         private ViewBase _focusView;
         private bool _layingOut;
         #endregion

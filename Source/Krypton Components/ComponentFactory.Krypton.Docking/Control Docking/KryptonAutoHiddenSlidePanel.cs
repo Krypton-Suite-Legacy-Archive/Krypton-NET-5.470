@@ -40,14 +40,14 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private Control _control;
-        private DockingEdge _edge;
-        private KryptonAutoHiddenPanel _panel;
+        private readonly Control _control;
+        private readonly DockingEdge _edge;
+        private readonly KryptonAutoHiddenPanel _panel;
         private KryptonAutoHiddenGroup _group;
-        private KryptonDockspaceSlide _dockspaceSlide;
-        private EventHandler _checkMakeHidden; 
-        private KryptonPanel _inner;
-        private Button _dummyTarget;
+        private readonly KryptonDockspaceSlide _dockspaceSlide;
+        private readonly EventHandler _checkMakeHidden; 
+        private readonly KryptonPanel _inner;
+        private readonly Button _dummyTarget;
         private DockingAutoHiddenShowState _state;
         private Rectangle _startRect;
         private Rectangle _endRect;
@@ -121,21 +121,21 @@ namespace ComponentFactory.Krypton.Docking
             _edge = edge;
             _panel = panel;
             _state = DockingAutoHiddenShowState.Hidden;
-            _checkMakeHidden = new EventHandler(OnCheckMakeHidden);
+            _checkMakeHidden = OnCheckMakeHidden;
 
             // We need to a timer to automate sliding in and out
             _slideTimer = new Timer
             {
                 Interval = SLIDE_INTERVAL
             };
-            _slideTimer.Tick += new EventHandler(OnSlideTimerTick);
+            _slideTimer.Tick += OnSlideTimerTick;
 
             // Timer used to delay between notification of need to slide inwards and performing actual slide
             _dismissTimer = new Timer
             {
                 Interval = DISMISS_INTERVAL
             };
-            _dismissTimer.Tick += new EventHandler(OnDismissTimerTick);
+            _dismissTimer.Tick += OnDismissTimerTick;
             _dismissRunning = false;
 
             // Create inner panel that holds the actual dockspace and separator
@@ -144,14 +144,14 @@ namespace ComponentFactory.Krypton.Docking
                 Dock = DockStyle.Fill,
                 AutoHiddenHost = true
             };
-            _dockspaceSlide.PageCloseClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageCloseClicked);
-            _dockspaceSlide.PageAutoHiddenClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
-            _dockspaceSlide.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnDockspacePageDropDownClicked);
+            _dockspaceSlide.PageCloseClicked += OnDockspacePageCloseClicked;
+            _dockspaceSlide.PageAutoHiddenClicked += OnDockspacePageAutoHiddenClicked;
+            _dockspaceSlide.PageDropDownClicked += OnDockspacePageDropDownClicked;
             
             SeparatorControl = new KryptonDockspaceSeparator(edge, true);
-            SeparatorControl.SplitterMoving += new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
-            SeparatorControl.SplitterMoved += new SplitterEventHandler(OnDockspaceSeparatorMoved);
-            SeparatorControl.SplitterMoveRect += new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
+            SeparatorControl.SplitterMoving += OnDockspaceSeparatorMoving;
+            SeparatorControl.SplitterMoved += OnDockspaceSeparatorMoved;
+            SeparatorControl.SplitterMoveRect += OnDockspaceSeparatorMoveRect;
 
             _inner = new KryptonPanel();
             _inner.Controls.AddRange(new Control[] { _dockspaceSlide, SeparatorControl });
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Docking
             Controls.Add(_dummyTarget);
             
             // Add ourself into the target control for docking
-            control.SizeChanged += new EventHandler(OnControlSizeChanged);
+            control.SizeChanged += OnControlSizeChanged;
             control.Controls.Add(this);
 
             // Need to peek at windows messages so we can determine if mouse is over the slide out panel
@@ -211,13 +211,13 @@ namespace ComponentFactory.Krypton.Docking
                 _dockspaceSlide.ClearAllPages();
 
                 // Unhook from events/static references to allow garbage collection
-                SeparatorControl.SplitterMoving -= new SplitterCancelEventHandler(OnDockspaceSeparatorMoving);
-                SeparatorControl.SplitterMoved -= new SplitterEventHandler(OnDockspaceSeparatorMoved);
-                SeparatorControl.SplitterMoveRect -= new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
-                _dockspaceSlide.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
-                _dockspaceSlide.PageCloseClicked -= new EventHandler<UniqueNameEventArgs>(OnDockspacePageCloseClicked);
-                _dockspaceSlide.PageAutoHiddenClicked -= new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
-                _dockspaceSlide.PageDropDownClicked -= new EventHandler<CancelDropDownEventArgs>(OnDockspacePageDropDownClicked);
+                SeparatorControl.SplitterMoving -= OnDockspaceSeparatorMoving;
+                SeparatorControl.SplitterMoved -= OnDockspaceSeparatorMoved;
+                SeparatorControl.SplitterMoveRect -= OnDockspaceSeparatorMoveRect;
+                _dockspaceSlide.CellLosesFocus -= OnDockspaceCellLosesFocus;
+                _dockspaceSlide.PageCloseClicked -= OnDockspacePageCloseClicked;
+                _dockspaceSlide.PageAutoHiddenClicked -= OnDockspacePageAutoHiddenClicked;
+                _dockspaceSlide.PageDropDownClicked -= OnDockspacePageDropDownClicked;
                 Application.RemoveMessageFilter(this);
             }
 
@@ -306,7 +306,7 @@ namespace ComponentFactory.Krypton.Docking
                         if (select)
                         {
                             DockspaceControl.Select();
-                            DockspaceControl.CellLosesFocus += new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+                            DockspaceControl.CellLosesFocus += OnDockspaceCellLosesFocus;
                         }
                         return;
                     }
@@ -325,7 +325,7 @@ namespace ComponentFactory.Krypton.Docking
                         if (select)
                         {
                             DockspaceControl.Select();
-                            DockspaceControl.CellLosesFocus += new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+                            DockspaceControl.CellLosesFocus += OnDockspaceCellLosesFocus;
                         }
                         return;
                     }
@@ -374,7 +374,7 @@ namespace ComponentFactory.Krypton.Docking
             if (select)
             {
                 DockspaceControl.Select();
-                DockspaceControl.CellLosesFocus += new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+                DockspaceControl.CellLosesFocus += OnDockspaceCellLosesFocus;
             }
 
             // Raises event to indicate change in auto hidden showing state
@@ -618,7 +618,7 @@ namespace ComponentFactory.Krypton.Docking
                     // If the dockspace has the focus we need to push focus elsewhere
                     if (DockspaceControl.ContainsFocus)
                     {
-                        DockspaceControl.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+                        DockspaceControl.CellLosesFocus -= OnDockspaceCellLosesFocus;
                         _dummyTarget.Select();
                     }
 
@@ -644,7 +644,7 @@ namespace ComponentFactory.Krypton.Docking
                 // If the dockspace has the focus we need to push focus elsewhere
                 if (DockspaceControl.ContainsFocus)
                 {
-                    DockspaceControl.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+                    DockspaceControl.CellLosesFocus -= OnDockspaceCellLosesFocus;
                     _dummyTarget.Select();
                 }
 
@@ -895,7 +895,7 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // No longer need the lose focus because we have been notified
-            DockspaceControl.CellLosesFocus -= new EventHandler<WorkspaceCellEventArgs>(OnDockspaceCellLosesFocus);
+            DockspaceControl.CellLosesFocus -= OnDockspaceCellLosesFocus;
 
             // Action depends on the current state
             switch (_state)

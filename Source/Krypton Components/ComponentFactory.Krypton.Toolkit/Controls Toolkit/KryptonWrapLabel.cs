@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _localPalette;
         private IPalette _palette;
         private PaletteMode _paletteMode;
-        private PaletteRedirect _redirector;
+        private readonly PaletteRedirect _redirector;
         private LabelStyle _labelStyle;
         private PaletteContentStyle _labelContentStyle;
         private KryptonContextMenu _kryptonContextMenu;
@@ -104,9 +104,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 UnattachGlobalEvents();
@@ -406,16 +406,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (_kryptonContextMenu != null)
                     {
-                        _kryptonContextMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnContextMenuClosed);
-                        _kryptonContextMenu.Disposed -= new EventHandler(OnKryptonContextMenuDisposed);
+                        _kryptonContextMenu.Closed -= OnContextMenuClosed;
+                        _kryptonContextMenu.Disposed -= OnKryptonContextMenuDisposed;
                     }
 
                     _kryptonContextMenu = value;
 
                     if (_kryptonContextMenu != null)
                     {
-                        _kryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnContextMenuClosed);
-                        _kryptonContextMenu.Disposed += new EventHandler(OnKryptonContextMenuDisposed);
+                        _kryptonContextMenu.Closed += OnContextMenuClosed;
+                        _kryptonContextMenu.Disposed += OnKryptonContextMenuDisposed;
                     }
                 }
             }
@@ -685,13 +685,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (attach)
             {
-                KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
             }
             else
             {
-                KryptonManager.GlobalPaletteChanged -= new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged -= new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged -= OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
             }
         }
 
@@ -776,9 +776,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged -= new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged -= new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint -= OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged -= OnBaseChanged;
+                    _palette.BaseRendererChanged -= OnBaseChanged;
                 }
 
                 // Remember the new palette
@@ -790,9 +790,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPaletteNeedPaint);
-                    _palette.BasePaletteChanged += new EventHandler(OnBaseChanged);
-                    _palette.BaseRendererChanged += new EventHandler(OnBaseChanged);
+                    _palette.PalettePaint += OnPaletteNeedPaint;
+                    _palette.BasePaletteChanged += OnBaseChanged;
+                    _palette.BaseRendererChanged += OnBaseChanged;
                 }
             }
         }

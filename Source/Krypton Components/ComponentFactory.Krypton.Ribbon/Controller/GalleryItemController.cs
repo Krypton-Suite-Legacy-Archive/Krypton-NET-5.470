@@ -25,8 +25,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                            IKeyController
 	{
 		#region Instance Fields
-        private ViewDrawRibbonGalleryItem _target;
-        private ViewLayoutRibbonGalleryItems _layout;
+        private readonly ViewDrawRibbonGalleryItem _target;
+        private readonly ViewLayoutRibbonGalleryItems _layout;
         private NeedPaintHandler _needPaint;
 	    private bool _mouseOver;
         #endregion

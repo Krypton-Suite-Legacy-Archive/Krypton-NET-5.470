@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Navigator
         private ViewDrawDocker _viewHeadingSecondary;
         private ViewDrawContent _viewContentSecondary;
         private ButtonSpecManagerDraw _buttonManager;
-        private NeedPaintHandler _needPaintDelegate;
+        private readonly NeedPaintHandler _needPaintDelegate;
         #endregion
 
         #region Identity
@@ -363,13 +363,13 @@ namespace ComponentFactory.Krypton.Navigator
             _viewHeadingPrimary.SourceController = controller;
 
             // Hook into the dragging events for forwarding to the navigator
-            controller.DragStart += new EventHandler<DragStartEventCancelArgs>(OnDragStart);
-            controller.DragMove += new EventHandler<PointEventArgs>(OnDragMove);
-            controller.DragEnd += new EventHandler<PointEventArgs>(OnDragEnd);
-            controller.DragQuit += new EventHandler(OnDragQuit);
-            controller.LeftMouseDown += new EventHandler(OnLeftMouseDown);
-            controller.RightMouseDown += new EventHandler(OnRightMouseDown);
-            controller.LeftDoubleClick += new EventHandler(OnLeftDoubleClick);
+            controller.DragStart += OnDragStart;
+            controller.DragMove += OnDragMove;
+            controller.DragEnd += OnDragEnd;
+            controller.DragQuit += OnDragQuit;
+            controller.LeftMouseDown += OnLeftMouseDown;
+            controller.RightMouseDown += OnRightMouseDown;
+            controller.LeftDoubleClick += OnLeftDoubleClick;
         }
 
         private void CreateButtonSpecManager()
@@ -380,7 +380,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                        new IPaletteMetric[] { Navigator.StateCommon.HeaderGroup.HeaderPrimary, Navigator.StateCommon.HeaderGroup.HeaderSecondary },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetPrimary, PaletteMetricInt.HeaderButtonEdgeInsetSecondary },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingPrimary, PaletteMetricPadding.HeaderButtonPaddingSecondary },
-                                                       new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
+                                                       Navigator.CreateToolStripRenderer,
                                                        _needPaintDelegate)
             {
 

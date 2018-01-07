@@ -142,12 +142,12 @@ namespace ComponentFactory.Krypton.Ribbon
             };
 
             // Hook into events to expose via this container
-            Gallery.SelectedIndexChanged += new EventHandler(OnGallerySelectedIndexChanged);
-            Gallery.ImageListChanged += new EventHandler(OnGalleryImageListChanged);
-            Gallery.TrackingImage += new EventHandler<ImageSelectEventArgs>(OnGalleryTrackingImage);
-            Gallery.GalleryDropMenu += new EventHandler<GalleryDropMenuEventArgs>(OnGalleryGalleryDropMenu);
-            Gallery.GotFocus += new EventHandler(OnGalleryGotFocus);
-            Gallery.LostFocus += new EventHandler(OnGalleryLostFocus);
+            Gallery.SelectedIndexChanged += OnGallerySelectedIndexChanged;
+            Gallery.ImageListChanged += OnGalleryImageListChanged;
+            Gallery.TrackingImage += OnGalleryTrackingImage;
+            Gallery.GalleryDropMenu += OnGalleryGalleryDropMenu;
+            Gallery.GotFocus += OnGalleryGotFocus;
+            Gallery.LostFocus += OnGalleryLostFocus;
 
             // Ensure we can track mouse events on the gallery
             MonitorControl(Gallery);
@@ -810,14 +810,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Implementation
         private void MonitorControl(KryptonGallery c)
         {
-            c.MouseEnter += new EventHandler(OnControlEnter);
-            c.MouseLeave += new EventHandler(OnControlLeave);
+            c.MouseEnter += OnControlEnter;
+            c.MouseLeave += OnControlLeave;
         }
 
         private void UnmonitorControl(KryptonGallery c)
         {
-            c.MouseEnter -= new EventHandler(OnControlEnter);
-            c.MouseLeave -= new EventHandler(OnControlLeave);
+            c.MouseEnter -= OnControlEnter;
+            c.MouseLeave -= OnControlLeave;
         }
 
         private void OnControlEnter(object sender, EventArgs e)

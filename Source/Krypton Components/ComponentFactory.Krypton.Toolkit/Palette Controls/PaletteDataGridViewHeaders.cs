@@ -19,8 +19,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteDataGridViewHeaders : Storage
 	{
 		#region Instance Fields
-        private PaletteDataGridViewTripleStates _headerColumn;
-        private PaletteDataGridViewTripleStates _headerRow;
+        private readonly PaletteDataGridViewTripleStates _headerColumn;
+        private readonly PaletteDataGridViewTripleStates _headerRow;
 		#endregion
 
 		#region Identity

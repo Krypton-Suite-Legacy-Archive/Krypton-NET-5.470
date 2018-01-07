@@ -279,7 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Hook into scroll position changes
-                _scrollBar.Scroll += new ScrollEventHandler(OnScrollBarChange);
+                _scrollBar.Scroll += OnScrollBarChange;
 
                 // Create it hidden
                 _scrollBar.Hide();
@@ -307,7 +307,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _removing = true;
 
                 // Unhook from events
-                _scrollBar.Scroll -= new ScrollEventHandler(OnScrollBarChange);
+                _scrollBar.Scroll -= OnScrollBarChange;
 
                 // Hide the scrollbar from view
                 _scrollBar.Hide();

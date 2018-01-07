@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectDropDownButton : PaletteRedirect
     {
         #region Instance Fields
-        private DropDownButtonImages _images;
+        private readonly DropDownButtonImages _images;
 		#endregion
 
 		#region Identity

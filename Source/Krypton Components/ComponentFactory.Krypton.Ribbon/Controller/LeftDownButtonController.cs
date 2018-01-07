@@ -27,8 +27,8 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _active;
         private bool _mouseOver;
         private bool _mouseDown;
-        private NeedPaintHandler _needPaint;
-        private Timer _updateTimer;
+        private readonly NeedPaintHandler _needPaint;
+        private readonly Timer _updateTimer;
         #endregion
 
         #region Events
@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Interval = 1
             };
-            _updateTimer.Tick += new EventHandler(OnUpdateTimer);
+            _updateTimer.Tick += OnUpdateTimer;
         }
 		#endregion
 

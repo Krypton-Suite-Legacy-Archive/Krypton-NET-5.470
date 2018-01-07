@@ -1,5 +1,27 @@
 ﻿# Krypton-NET-4.7
 
+## 2018-01-07 pm changes
+* Committed Smurf-IV contributions
+* Renamed all projects in solution to the '2017' version to reflect Visual Studio 2017
+* Retarget all projects in solution to .NET Framework 4.7 from .NET Framework 2.0
+* Rebuilt all binaries to include 2018-01-07 changes
+
+## Commit merges by Smurf-IV
+
+## 2018-01-07 CherryPick Merge from ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
+* Message content size adjustment in KryptonTaskDialog
+
+## 2018-01-06 Toolkit solution and Examples II changes:
+* Remove "redundant delegate constructors" for callbacks
+* Fix "OnClick" routing for 
+  - ListBox
+  - CheckedListBox
+  - TextBox
+  - TreeView
+* Update the test project to see if click on TextBox's work as expected 
+* Set some private fields to "readonly"
+* Fix AddToWorkspace in KryptonDockingManager
+
 ## 2017-10-17 Commits are:
 * An update to Component factory's KryptonToolkit to support the .NET 4.7 framework.
 * Add generic c# .gitignore

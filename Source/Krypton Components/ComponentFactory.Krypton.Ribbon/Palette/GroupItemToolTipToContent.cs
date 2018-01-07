@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class GroupItemToolTipToContent : IContentValues
     {
         #region Instance Fields
-        private KryptonRibbonGroupItem _groupItem;
+        private readonly KryptonRibbonGroupItem _groupItem;
         #endregion
 
         #region Identity

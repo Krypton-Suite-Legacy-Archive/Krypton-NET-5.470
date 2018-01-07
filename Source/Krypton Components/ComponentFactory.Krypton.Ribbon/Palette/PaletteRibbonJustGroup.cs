@@ -20,13 +20,13 @@ namespace ComponentFactory.Krypton.Ribbon
 	public class PaletteRibbonJustGroup : Storage
 	{
 		#region Instance Fields
-        private PaletteRibbonBack _ribbonGroupNormalBorder;
-        private PaletteRibbonDouble _ribbonGroupNormalTitle;
-        private PaletteRibbonBack _ribbonGroupCollapsedBorder;
-        private PaletteRibbonBack _ribbonGroupCollapsedBack;
-        private PaletteRibbonBack _ribbonGroupCollapsedFrameBorder;
-        private PaletteRibbonBack _ribbonGroupCollapsedFrameBack;
-        private PaletteRibbonText _ribbonGroupCollapsedText;
+        private readonly PaletteRibbonBack _ribbonGroupNormalBorder;
+        private readonly PaletteRibbonDouble _ribbonGroupNormalTitle;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedBorder;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedBack;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedFrameBorder;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedFrameBack;
+        private readonly PaletteRibbonText _ribbonGroupCollapsedText;
         #endregion
 
 		#region Identity

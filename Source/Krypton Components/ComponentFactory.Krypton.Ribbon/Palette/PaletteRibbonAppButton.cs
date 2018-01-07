@@ -20,12 +20,12 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonAppButton : Storage
 	{
 		#region Instance Fields
-        private PaletteRibbonBack _ribbonAppButton;
-        private PaletteRibbonBack _ribbonGroupCollapsedBorder;
-        private PaletteRibbonBack _ribbonGroupCollapsedBack;
-        private PaletteRibbonBack _ribbonGroupCollapsedFrameBorder;
-        private PaletteRibbonBack _ribbonGroupCollapsedFrameBack;
-        private PaletteRibbonText _ribbonGroupCollapsedText;
+        private readonly PaletteRibbonBack _ribbonAppButton;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedBorder;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedBack;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedFrameBorder;
+        private readonly PaletteRibbonBack _ribbonGroupCollapsedFrameBack;
+        private readonly PaletteRibbonText _ribbonGroupCollapsedText;
         #endregion
 
 		#region Identity

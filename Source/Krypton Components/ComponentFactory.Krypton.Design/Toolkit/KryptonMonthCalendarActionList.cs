@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonMonthCalendarActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonMonthCalendar _monthCalendar;
-        private IComponentChangeService _service;
+        private readonly KryptonMonthCalendar _monthCalendar;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

@@ -43,8 +43,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroup _ribbonGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private VisualPopupGroup _popupGroup;
         private ViewLayoutDocker _layoutCollapsedMain;
         private ViewDrawRibbonGroupText _viewCollapsedText1;
@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private ViewDrawRibbonGroupTitle _viewNormalTitle;
         private PaletteRibbonContextBack _paletteContextBack;
         private PaletteRibbonShape _lastRibbonShape;
-        private NeedPaintHandler _needPaint;
+        private readonly NeedPaintHandler _needPaint;
         private IDisposable _mementoRibbonBack1;
         private IDisposable _mementoRibbonBack2;
         private IDisposable _mementoStandardBack;
@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGroup.GroupView = this;
 
             // Hook into changes in the ribbon button definition
-            _ribbonGroup.PropertyChanged += new PropertyChangedEventHandler(OnGroupPropertyChanged);
+            _ribbonGroup.PropertyChanged += OnGroupPropertyChanged;
         }
         
 		/// <summary>
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (disposing)
             {
                 // Must unhook to prevent memory leaks
-                _ribbonGroup.PropertyChanged -= new PropertyChangedEventHandler(OnGroupPropertyChanged);
+                _ribbonGroup.PropertyChanged -= OnGroupPropertyChanged;
 
                 DisposeMementos();
             }
@@ -628,7 +628,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the group
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 _layoutNormalMain.MouseController = controller;
             }
 
@@ -670,7 +670,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Add a mouse controller so we know when it has been pressed
             _collapsedController = new CollapsedGroupController(_ribbon, _layoutCollapsedMain, _needPaint);
-            _collapsedController.Click += new MouseEventHandler(OnCollapsedClick);
+            _collapsedController.Click += OnCollapsedClick;
             _layoutCollapsedMain.MouseController = _collapsedController;
             _layoutCollapsedMain.SourceController = _collapsedController;
             _layoutCollapsedMain.KeyController = _collapsedController;
@@ -932,7 +932,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _popupGroup = new VisualPopupGroup(_ribbon, _ribbonGroup, _ribbon.Renderer);
 
                 // We need to know when disposed so the pressed state can be reversed
-                _popupGroup.Disposed += new EventHandler(OnVisualPopupGroupDisposed);
+                _popupGroup.Disposed += OnVisualPopupGroupDisposed;
 
                 // Ask the popup to show itself relative to ourself
                 _popupGroup.ShowCalculatingSize(this, _container.RectangleToScreen(ClientRectangle));

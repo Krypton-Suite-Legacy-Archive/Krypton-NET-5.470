@@ -27,8 +27,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbonGroupCheckBox _ribbonCheckBox;
-        private ViewDrawCheckBox _drawCheckBox;
-        private bool _large;
+        private readonly ViewDrawCheckBox _drawCheckBox;
+        private readonly bool _large;
         #endregion
 
         #region Identity

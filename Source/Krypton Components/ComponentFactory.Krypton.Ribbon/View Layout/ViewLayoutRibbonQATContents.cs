@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
 
-        private NeedPaintHandler _needPaint;
+        private readonly NeedPaintHandler _needPaint;
         private QATButtonToView _qatButtonToView;
         private ViewDrawRibbonQATExtraButton _extraButton;
 
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (showExtraButton)
             {
                 _extraButton = new ViewDrawRibbonQATExtraButton(ribbon, needPaint);
-                _extraButton.ClickAndFinish += new ClickAndFinishHandler(OnExtraButtonClick);
+                _extraButton.ClickAndFinish += OnExtraButtonClick;
             }
         }
 
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 if (_extraButton != null)
                 {
-                    _extraButton.ClickAndFinish -= new ClickAndFinishHandler(OnExtraButtonClick);
+                    _extraButton.ClickAndFinish -= OnExtraButtonClick;
                     _extraButton = null;
                 }
             }

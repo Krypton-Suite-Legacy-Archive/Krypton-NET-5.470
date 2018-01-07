@@ -30,21 +30,21 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewLayoutRibbonCheckBox _viewLarge;
         private ViewDrawRibbonGroupCheckBoxImage _viewLargeImage;
         private ViewDrawRibbonGroupCheckBoxText _viewLargeText1;
         private ViewDrawRibbonGroupCheckBoxText _viewLargeText2;
         private GroupCheckBoxController _viewLargeController;
-        private EventHandler _finishDelegateLarge;
+        private readonly EventHandler _finishDelegateLarge;
         private ViewLayoutRibbonCheckBox _viewMediumSmall;
         private ViewLayoutRibbonRowCenter _viewMediumSmallCenter;
         private ViewDrawRibbonGroupCheckBoxImage _viewMediumSmallImage;
         private ViewDrawRibbonGroupCheckBoxText _viewMediumSmallText1;
         private ViewDrawRibbonGroupCheckBoxText _viewMediumSmallText2;
         private GroupCheckBoxController _viewMediumSmallController;
-        private EventHandler _finishDelegateMediumSmall;
-        private NeedPaintHandler _needPaint;
+        private readonly EventHandler _finishDelegateMediumSmall;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -70,8 +70,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupCheckBox.ItemSizeCurrent;
 
             // Create delegate used to process end of click action
-            _finishDelegateLarge = new EventHandler(ActionFinishedLarge);
-            _finishDelegateMediumSmall = new EventHandler(ActionFinishedMediumSmall);
+            _finishDelegateLarge = ActionFinishedLarge;
+            _finishDelegateMediumSmall = ActionFinishedMediumSmall;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupCheckBox;
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon check box definition
-            GroupCheckBox.PropertyChanged += new PropertyChangedEventHandler(OnCheckBoxPropertyChanged);
+            GroupCheckBox.PropertyChanged += OnCheckBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupCheckBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupCheckBox.PropertyChanged -= new PropertyChangedEventHandler(OnCheckBoxPropertyChanged);
+                    GroupCheckBox.PropertyChanged -= OnCheckBoxPropertyChanged;
 
                     // Remove association with definition
                     GroupCheckBox.CheckBoxView = null;
@@ -365,8 +365,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create controller for handling mouse, keyboard and focus
             _viewLargeController = new GroupCheckBoxController(_ribbon, _viewLarge, _viewLargeImage, _needPaint);
-            _viewLargeController.Click += new EventHandler(OnLargeCheckBoxClick);
-            _viewLargeController.ContextClick += new MouseEventHandler(OnContextClick);
+            _viewLargeController.Click += OnLargeCheckBoxClick;
+            _viewLargeController.ContextClick += OnContextClick;
             _viewLarge.MouseController = _viewLargeController;
             _viewLarge.SourceController = _viewLargeController;
             _viewLarge.KeyController = _viewLargeController;
@@ -403,8 +403,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create controller for handling mouse, keyboard and focus
             _viewMediumSmallController = new GroupCheckBoxController(_ribbon, _viewMediumSmall, _viewMediumSmallImage, _needPaint);
-            _viewMediumSmallController.Click += new EventHandler(OnMediumSmallCheckBoxClick);
-            _viewMediumSmallController.ContextClick += new MouseEventHandler(OnContextClick);
+            _viewMediumSmallController.Click += OnMediumSmallCheckBoxClick;
+            _viewMediumSmallController.ContextClick += OnContextClick;
             _viewMediumSmall.MouseController = _viewMediumSmallController;
             _viewMediumSmall.SourceController = _viewMediumSmallController;
             _viewMediumSmall.KeyController = _viewMediumSmallController;

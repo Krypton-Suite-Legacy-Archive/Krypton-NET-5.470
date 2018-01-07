@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                             
 	{
 		#region Instance Fields
-        private PaletteRedirect _redirect;
+        private readonly PaletteRedirect _redirect;
         private Padding _separatorPadding;
 		#endregion
 

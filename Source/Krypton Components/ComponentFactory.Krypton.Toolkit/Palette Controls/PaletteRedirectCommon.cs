@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectCommon : PaletteRedirect
     {
         #region Instance Fields
-        private IPaletteTriple _disabled;
-        private IPaletteTriple _others;
+        private readonly IPaletteTriple _disabled;
+        private readonly IPaletteTriple _others;
         #endregion
 
         #region Identity

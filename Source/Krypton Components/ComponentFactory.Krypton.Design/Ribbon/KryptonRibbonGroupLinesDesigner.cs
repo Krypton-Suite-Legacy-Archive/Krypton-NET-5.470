@@ -112,30 +112,30 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Cast to correct type
             _ribbonLines = (KryptonRibbonGroupLines)component;
-            _ribbonLines.DesignTimeAddButton += new EventHandler(OnAddButton);
-            _ribbonLines.DesignTimeAddColorButton += new EventHandler(OnAddColorButton);
-            _ribbonLines.DesignTimeAddCheckBox += new EventHandler(OnAddCheckBox);
-            _ribbonLines.DesignTimeAddRadioButton += new EventHandler(OnAddRadioButton);
-            _ribbonLines.DesignTimeAddLabel += new EventHandler(OnAddLabel);
-            _ribbonLines.DesignTimeAddCustomControl += new EventHandler(OnAddCustomControl);
-            _ribbonLines.DesignTimeAddCluster += new EventHandler(OnAddCluster);
-            _ribbonLines.DesignTimeAddTextBox += new EventHandler(OnAddTextBox);
-            _ribbonLines.DesignTimeAddMaskedTextBox += new EventHandler(OnAddMaskedTextBox);
-            _ribbonLines.DesignTimeAddRichTextBox += new EventHandler(OnAddRichTextBox);
-            _ribbonLines.DesignTimeAddComboBox += new EventHandler(OnAddComboBox);
-            _ribbonLines.DesignTimeAddNumericUpDown += new EventHandler(OnAddNumericUpDown);
-            _ribbonLines.DesignTimeAddDomainUpDown += new EventHandler(OnAddDomainUpDown);
-            _ribbonLines.DesignTimeAddDateTimePicker += new EventHandler(OnAddDateTimePicker);
-            _ribbonLines.DesignTimeAddTrackBar += new EventHandler(OnAddTrackBar);
-            _ribbonLines.DesignTimeContextMenu += new MouseEventHandler(OnContextMenu);
+            _ribbonLines.DesignTimeAddButton += OnAddButton;
+            _ribbonLines.DesignTimeAddColorButton += OnAddColorButton;
+            _ribbonLines.DesignTimeAddCheckBox += OnAddCheckBox;
+            _ribbonLines.DesignTimeAddRadioButton += OnAddRadioButton;
+            _ribbonLines.DesignTimeAddLabel += OnAddLabel;
+            _ribbonLines.DesignTimeAddCustomControl += OnAddCustomControl;
+            _ribbonLines.DesignTimeAddCluster += OnAddCluster;
+            _ribbonLines.DesignTimeAddTextBox += OnAddTextBox;
+            _ribbonLines.DesignTimeAddMaskedTextBox += OnAddMaskedTextBox;
+            _ribbonLines.DesignTimeAddRichTextBox += OnAddRichTextBox;
+            _ribbonLines.DesignTimeAddComboBox += OnAddComboBox;
+            _ribbonLines.DesignTimeAddNumericUpDown += OnAddNumericUpDown;
+            _ribbonLines.DesignTimeAddDomainUpDown += OnAddDomainUpDown;
+            _ribbonLines.DesignTimeAddDateTimePicker += OnAddDateTimePicker;
+            _ribbonLines.DesignTimeAddTrackBar += OnAddTrackBar;
+            _ribbonLines.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentRemoving += OnComponentRemoving;
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -176,24 +176,24 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (disposing)
                 {
                     // Unhook from events
-                    _ribbonLines.DesignTimeAddButton -= new EventHandler(OnAddButton);
-                    _ribbonLines.DesignTimeAddColorButton -= new EventHandler(OnAddColorButton);
-                    _ribbonLines.DesignTimeAddCheckBox -= new EventHandler(OnAddCheckBox);
-                    _ribbonLines.DesignTimeAddRadioButton -= new EventHandler(OnAddRadioButton);
-                    _ribbonLines.DesignTimeAddLabel -= new EventHandler(OnAddLabel);
-                    _ribbonLines.DesignTimeAddCustomControl -= new EventHandler(OnAddCustomControl);
-                    _ribbonLines.DesignTimeAddCluster -= new EventHandler(OnAddCluster);
-                    _ribbonLines.DesignTimeAddTextBox -= new EventHandler(OnAddTextBox);
-                    _ribbonLines.DesignTimeAddMaskedTextBox -= new EventHandler(OnAddMaskedTextBox);
-                    _ribbonLines.DesignTimeAddRichTextBox -= new EventHandler(OnAddRichTextBox);
-                    _ribbonLines.DesignTimeAddComboBox -= new EventHandler(OnAddComboBox);
-                    _ribbonLines.DesignTimeAddNumericUpDown -= new EventHandler(OnAddNumericUpDown);
-                    _ribbonLines.DesignTimeAddDomainUpDown -= new EventHandler(OnAddDomainUpDown);
-                    _ribbonLines.DesignTimeAddDateTimePicker -= new EventHandler(OnAddDateTimePicker);
-                    _ribbonLines.DesignTimeContextMenu -= new MouseEventHandler(OnContextMenu);
-                    _ribbonLines.DesignTimeAddTrackBar -= new EventHandler(OnAddTrackBar);
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _ribbonLines.DesignTimeAddButton -= OnAddButton;
+                    _ribbonLines.DesignTimeAddColorButton -= OnAddColorButton;
+                    _ribbonLines.DesignTimeAddCheckBox -= OnAddCheckBox;
+                    _ribbonLines.DesignTimeAddRadioButton -= OnAddRadioButton;
+                    _ribbonLines.DesignTimeAddLabel -= OnAddLabel;
+                    _ribbonLines.DesignTimeAddCustomControl -= OnAddCustomControl;
+                    _ribbonLines.DesignTimeAddCluster -= OnAddCluster;
+                    _ribbonLines.DesignTimeAddTextBox -= OnAddTextBox;
+                    _ribbonLines.DesignTimeAddMaskedTextBox -= OnAddMaskedTextBox;
+                    _ribbonLines.DesignTimeAddRichTextBox -= OnAddRichTextBox;
+                    _ribbonLines.DesignTimeAddComboBox -= OnAddComboBox;
+                    _ribbonLines.DesignTimeAddNumericUpDown -= OnAddNumericUpDown;
+                    _ribbonLines.DesignTimeAddDomainUpDown -= OnAddDomainUpDown;
+                    _ribbonLines.DesignTimeAddDateTimePicker -= OnAddDateTimePicker;
+                    _ribbonLines.DesignTimeContextMenu -= OnContextMenu;
+                    _ribbonLines.DesignTimeAddTrackBar -= OnAddTrackBar;
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally
@@ -211,28 +211,28 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_verbs == null)
             {
                 _verbs = new DesignerVerbCollection();
-                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                _moveFirstVerb = new DesignerVerb("Move Lines First", new EventHandler(OnMoveFirst));
-                _movePrevVerb = new DesignerVerb("Move Lines Previous", new EventHandler(OnMovePrevious));
-                _moveNextVerb = new DesignerVerb("Move Lines Next", new EventHandler(OnMoveNext));
-                _moveLastVerb = new DesignerVerb("Move Lines Last", new EventHandler(OnMoveLast));
-                _addButtonVerb = new DesignerVerb("Add Button", new EventHandler(OnAddButton));
-                _addColorButtonVerb = new DesignerVerb("Add Color Button", new EventHandler(OnAddColorButton));
-                _addCheckBoxVerb = new DesignerVerb("Add CheckBox", new EventHandler(OnAddCheckBox));
-                _addRadioButtonVerb = new DesignerVerb("Add RadioButton", new EventHandler(OnAddRadioButton));
-                _addLabelVerb = new DesignerVerb("Add Label", new EventHandler(OnAddLabel));
-                _addCustomControlVerb = new DesignerVerb("Add Custom Control", new EventHandler(OnAddCustomControl));
-                _addClusterVerb = new DesignerVerb("Add Cluster", new EventHandler(OnAddCluster));
-                _addRichTextBoxVerb = new DesignerVerb("Add RichTextBox", new EventHandler(OnAddRichTextBox));
-                _addTextBoxVerb = new DesignerVerb("Add TextBox", new EventHandler(OnAddTextBox));
-                _addMaskedTextBoxVerb = new DesignerVerb("Add MaskedTextBox", new EventHandler(OnAddMaskedTextBox));
-                _addComboBoxVerb = new DesignerVerb("Add ComboBox", new EventHandler(OnAddComboBox));
-                _addNumericUpDownVerb = new DesignerVerb("Add NumericUpDown", new EventHandler(OnAddNumericUpDown));
-                _addDomainUpDownVerb = new DesignerVerb("Add DomainUpDown", new EventHandler(OnAddDomainUpDown));
-                _addDateTimePickerVerb = new DesignerVerb("Add DateTimePicker", new EventHandler(OnAddDateTimePicker));
-                _addTrackBarVerb = new DesignerVerb("Add TrackBar", new EventHandler(OnAddTrackBar));
-                _clearItemsVerb = new DesignerVerb("Clear Items", new EventHandler(OnClearItems));
-                _deleteLinesVerb = new DesignerVerb("Delete Lines", new EventHandler(OnDeleteLines));
+                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                _moveFirstVerb = new DesignerVerb("Move Lines First", OnMoveFirst);
+                _movePrevVerb = new DesignerVerb("Move Lines Previous", OnMovePrevious);
+                _moveNextVerb = new DesignerVerb("Move Lines Next", OnMoveNext);
+                _moveLastVerb = new DesignerVerb("Move Lines Last", OnMoveLast);
+                _addButtonVerb = new DesignerVerb("Add Button", OnAddButton);
+                _addColorButtonVerb = new DesignerVerb("Add Color Button", OnAddColorButton);
+                _addCheckBoxVerb = new DesignerVerb("Add CheckBox", OnAddCheckBox);
+                _addRadioButtonVerb = new DesignerVerb("Add RadioButton", OnAddRadioButton);
+                _addLabelVerb = new DesignerVerb("Add Label", OnAddLabel);
+                _addCustomControlVerb = new DesignerVerb("Add Custom Control", OnAddCustomControl);
+                _addClusterVerb = new DesignerVerb("Add Cluster", OnAddCluster);
+                _addRichTextBoxVerb = new DesignerVerb("Add RichTextBox", OnAddRichTextBox);
+                _addTextBoxVerb = new DesignerVerb("Add TextBox", OnAddTextBox);
+                _addMaskedTextBoxVerb = new DesignerVerb("Add MaskedTextBox", OnAddMaskedTextBox);
+                _addComboBoxVerb = new DesignerVerb("Add ComboBox", OnAddComboBox);
+                _addNumericUpDownVerb = new DesignerVerb("Add NumericUpDown", OnAddNumericUpDown);
+                _addDomainUpDownVerb = new DesignerVerb("Add DomainUpDown", OnAddDomainUpDown);
+                _addDateTimePickerVerb = new DesignerVerb("Add DateTimePicker", OnAddDateTimePicker);
+                _addTrackBarVerb = new DesignerVerb("Add TrackBar", OnAddTrackBar);
+                _clearItemsVerb = new DesignerVerb("Clear Items", OnClearItems);
+                _deleteLinesVerb = new DesignerVerb("Delete Lines", OnDeleteLines);
                 _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _moveFirstVerb, _movePrevVerb, _moveNextVerb, _moveLastVerb, 
                                                      _addButtonVerb, _addColorButtonVerb, _addCheckBoxVerb, _addClusterVerb, _addComboBoxVerb, _addCustomControlVerb, _addDateTimePickerVerb, _addDomainUpDownVerb, _addLabelVerb, _addNumericUpDownVerb, _addRadioButtonVerb, _addRichTextBoxVerb, _addTextBoxVerb, _addTrackBarVerb, _addMaskedTextBoxVerb,
                                                      _clearItemsVerb, _deleteLinesVerb });
@@ -987,40 +987,40 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_cms == null)
                 {
                     _cms = new ContextMenuStrip();
-                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, new EventHandler(OnToggleHelpers));
-                    _visibleMenu = new ToolStripMenuItem("Visible", null, new EventHandler(OnVisible));
-                    _maximumLMenu = new ToolStripMenuItem("Large", null, new EventHandler(OnMaxLarge));
-                    _maximumMMenu = new ToolStripMenuItem("Medium", null, new EventHandler(OnMaxMedium));
-                    _maximumSMenu = new ToolStripMenuItem("Small", null, new EventHandler(OnMaxSmall));
+                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
+                    _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
+                    _maximumLMenu = new ToolStripMenuItem("Large", null, OnMaxLarge);
+                    _maximumMMenu = new ToolStripMenuItem("Medium", null, OnMaxMedium);
+                    _maximumSMenu = new ToolStripMenuItem("Small", null, OnMaxSmall);
                     _maximumSizeMenu = new ToolStripMenuItem("Maximum Size");
                     _maximumSizeMenu.DropDownItems.AddRange(new ToolStripItem[] { _maximumLMenu, _maximumMMenu, _maximumSMenu });
-                    _minimumLMenu = new ToolStripMenuItem("Large", null, new EventHandler(OnMinLarge));
-                    _minimumMMenu = new ToolStripMenuItem("Medium", null, new EventHandler(OnMinMedium));
-                    _minimumSMenu = new ToolStripMenuItem("Small", null, new EventHandler(OnMinSmall));
+                    _minimumLMenu = new ToolStripMenuItem("Large", null, OnMinLarge);
+                    _minimumMMenu = new ToolStripMenuItem("Medium", null, OnMinMedium);
+                    _minimumSMenu = new ToolStripMenuItem("Small", null, OnMinSmall);
                     _minimumSizeMenu = new ToolStripMenuItem("Minimum Size");
                     _minimumSizeMenu.DropDownItems.AddRange(new ToolStripItem[] { _minimumLMenu, _minimumMMenu, _minimumSMenu });
-                    _moveFirstMenu = new ToolStripMenuItem("Move Lines First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, new EventHandler(OnMoveFirst));
-                    _movePreviousMenu = new ToolStripMenuItem("Move Lines Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, new EventHandler(OnMovePrevious));
-                    _moveNextMenu = new ToolStripMenuItem("Move Lines Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, new EventHandler(OnMoveNext));
-                    _moveLastMenu = new ToolStripMenuItem("Move Lines Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, new EventHandler(OnMoveLast));
+                    _moveFirstMenu = new ToolStripMenuItem("Move Lines First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move Lines Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move Lines Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move Lines Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
                     _moveToGroupMenu = new ToolStripMenuItem("Move Lines To Group");
-                    _addButtonMenu = new ToolStripMenuItem("Add Button", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupButton, new EventHandler(OnAddButton));
-                    _addColorButtonMenu = new ToolStripMenuItem("Add Color Button", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupColorButton, new EventHandler(OnAddColorButton));
-                    _addCheckBoxMenu = new ToolStripMenuItem("Add CheckBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCheckBox, new EventHandler(OnAddCheckBox));
-                    _addRadioButtonMenu = new ToolStripMenuItem("Add RadioButton", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupRadioButton, new EventHandler(OnAddRadioButton));
-                    _addLabelMenu = new ToolStripMenuItem("Add Label", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupLabel, new EventHandler(OnAddLabel));
-                    _addCustomControlMenu = new ToolStripMenuItem("Add Custom Control", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCustomControl, new EventHandler(OnAddCustomControl));
-                    _addClusterMenu = new ToolStripMenuItem("Add Cluster", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCluster, new EventHandler(OnAddCluster));
-                    _addTextBoxMenu = new ToolStripMenuItem("Add TextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupTextBox, new EventHandler(OnAddTextBox));
-                    _addMaskedTextBoxMenu = new ToolStripMenuItem("Add MaskedTextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupMaskedTextBox, new EventHandler(OnAddMaskedTextBox));
-                    _addRichTextBoxMenu = new ToolStripMenuItem("Add RichTextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupRichTextBox, new EventHandler(OnAddRichTextBox));
-                    _addComboBoxMenu = new ToolStripMenuItem("Add ComboBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupComboBox, new EventHandler(OnAddComboBox));
-                    _addNumericUpDownMenu = new ToolStripMenuItem("Add NumericUpDown", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupNumericUpDown, new EventHandler(OnAddNumericUpDown));
-                    _addDomainUpDownMenu = new ToolStripMenuItem("Add DomainUpDown", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupDomainUpDown, new EventHandler(OnAddDomainUpDown));
-                    _addDateTimePickerMenu = new ToolStripMenuItem("Add DateTimePicker", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupDateTimePicker, new EventHandler(OnAddDateTimePicker));
-                    _addTrackBarMenu = new ToolStripMenuItem("Add TrackBar", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupTrackBar, new EventHandler(OnAddTrackBar));
-                    _clearItemsMenu = new ToolStripMenuItem("Clear Items", null, new EventHandler(OnClearItems));
-                    _deleteLinesMenu = new ToolStripMenuItem("Delete Lines", ComponentFactory.Krypton.Design.Properties.Resources.delete2, new EventHandler(OnDeleteLines));
+                    _addButtonMenu = new ToolStripMenuItem("Add Button", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupButton, OnAddButton);
+                    _addColorButtonMenu = new ToolStripMenuItem("Add Color Button", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupColorButton, OnAddColorButton);
+                    _addCheckBoxMenu = new ToolStripMenuItem("Add CheckBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCheckBox, OnAddCheckBox);
+                    _addRadioButtonMenu = new ToolStripMenuItem("Add RadioButton", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupRadioButton, OnAddRadioButton);
+                    _addLabelMenu = new ToolStripMenuItem("Add Label", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupLabel, OnAddLabel);
+                    _addCustomControlMenu = new ToolStripMenuItem("Add Custom Control", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCustomControl, OnAddCustomControl);
+                    _addClusterMenu = new ToolStripMenuItem("Add Cluster", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupCluster, OnAddCluster);
+                    _addTextBoxMenu = new ToolStripMenuItem("Add TextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupTextBox, OnAddTextBox);
+                    _addMaskedTextBoxMenu = new ToolStripMenuItem("Add MaskedTextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupMaskedTextBox, OnAddMaskedTextBox);
+                    _addRichTextBoxMenu = new ToolStripMenuItem("Add RichTextBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupRichTextBox, OnAddRichTextBox);
+                    _addComboBoxMenu = new ToolStripMenuItem("Add ComboBox", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupComboBox, OnAddComboBox);
+                    _addNumericUpDownMenu = new ToolStripMenuItem("Add NumericUpDown", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupNumericUpDown, OnAddNumericUpDown);
+                    _addDomainUpDownMenu = new ToolStripMenuItem("Add DomainUpDown", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupDomainUpDown, OnAddDomainUpDown);
+                    _addDateTimePickerMenu = new ToolStripMenuItem("Add DateTimePicker", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupDateTimePicker, OnAddDateTimePicker);
+                    _addTrackBarMenu = new ToolStripMenuItem("Add TrackBar", ComponentFactory.Krypton.Design.Properties.Resources.KryptonRibbonGroupTrackBar, OnAddTrackBar);
+                    _clearItemsMenu = new ToolStripMenuItem("Clear Items", null, OnClearItems);
+                    _deleteLinesMenu = new ToolStripMenuItem("Delete Lines", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteLines);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, _maximumSizeMenu, _minimumSizeMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),
@@ -1099,7 +1099,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         };
 
                         // Hook into selection of the menu item
-                        groupMenuItem.Click += new EventHandler(OnMoveToGroup);
+                        groupMenuItem.Click += OnMoveToGroup;
 
                         // Add to end of the list of options
                         _moveToGroupMenu.DropDownItems.Add(groupMenuItem);

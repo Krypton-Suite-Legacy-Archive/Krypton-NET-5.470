@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonGroupAreaTab : PaletteRibbonJustTab
 	{
 		#region Instance Fields
-        private PaletteRibbonBack _ribbonGroupArea;
+        private readonly PaletteRibbonBack _ribbonGroupArea;
 		#endregion
 
 		#region Identity

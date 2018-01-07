@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class PageProxy
             {
                 #region Instance Fields
-                private KryptonPage _item;
+                private readonly KryptonPage _item;
                 #endregion
 
                 #region Identity
@@ -316,7 +316,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class CellProxy
             {
                 #region Instance Fields
-                private KryptonWorkspaceCell _item;
+                private readonly KryptonWorkspaceCell _item;
                 #endregion
 
                 #region Identity
@@ -609,7 +609,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class SequenceProxy
             {
                 #region Instance Fields
-                private KryptonWorkspaceSequence _item;
+                private readonly KryptonWorkspaceSequence _item;
                 #endregion
 
                 #region Identity
@@ -684,21 +684,21 @@ namespace ComponentFactory.Krypton.Workspace
                     PageItem = item as KryptonPage;
                     if (PageItem != null)
                     {
-                        PageItem.TextChanged += new EventHandler(OnPageTextChanged);
+                        PageItem.TextChanged += OnPageTextChanged;
                         Text = "Page (" + PageItem.Text.ToString() + ")";
                     }
 
                     CellItem = item as KryptonWorkspaceCell;
                     if (CellItem != null)
                     {
-                        CellItem.PropertyChanged += new PropertyChangedEventHandler(OnCellPropertyChanged);
+                        CellItem.PropertyChanged += OnCellPropertyChanged;
                         Text = "Cell (" + CellItem.StarSize.ToString() + ")";
                     }
 
                     SequenceItem = item as KryptonWorkspaceSequence;
                     if (SequenceItem != null)
                     {
-                        SequenceItem.PropertyChanged += new PropertyChangedEventHandler(OnSequencePropertyChanged);
+                        SequenceItem.PropertyChanged += OnSequencePropertyChanged;
                         Text = SequenceItem.Orientation + " (" + SequenceItem.StarSize.ToString() + ")";
                     }
                 }
@@ -757,7 +757,7 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 #region Instance Fields
 
-                private IServiceProvider _serviceProvider;
+                private readonly IServiceProvider _serviceProvider;
                 private bool _inGetService;
                 #endregion
 
@@ -827,19 +827,19 @@ namespace ComponentFactory.Krypton.Workspace
             #endregion
 
             #region Instance Fields
-            private KryptonWorkspaceCollectionEditor _editor;
+            private readonly KryptonWorkspaceCollectionEditor _editor;
             private DictItemBase _beforeItems;
-            private TreeView treeView;
-            private PropertyGrid propertyGrid;
-            private Button buttonMoveUp;
-            private Button buttonMoveDown;
-            private Button buttonAddPage;
-            private Button buttonAddCell;
-            private Button buttonAddSequence;
-            private Button buttonOK;
-            private Button buttonDelete;
-            private Label labelItemProperties;
-            private Label labelWorkspaceCollection;
+            private readonly TreeView treeView;
+            private readonly PropertyGrid propertyGrid;
+            private readonly Button buttonMoveUp;
+            private readonly Button buttonMoveDown;
+            private readonly Button buttonAddPage;
+            private readonly Button buttonAddCell;
+            private readonly Button buttonAddSequence;
+            private readonly Button buttonOK;
+            private readonly Button buttonDelete;
+            private readonly Label labelItemProperties;
+            private readonly Label labelWorkspaceCollection;
             #endregion
 
             #region Identity
@@ -874,7 +874,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonOK.TabIndex = 8;
                 this.buttonOK.Text = "OK";
                 this.buttonOK.UseVisualStyleBackColor = true;
-                this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+                this.buttonOK.Click += this.buttonOK_Click;
                 // 
                 // treeView
                 // 
@@ -886,7 +886,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.treeView.Size = new System.Drawing.Size(251, 339);
                 this.treeView.TabIndex = 1;
                 this.treeView.HideSelection = false;
-                this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
+                this.treeView.AfterSelect += this.treeView_AfterSelect;
                 // 
                 // buttonMoveUp
                 // 
@@ -901,7 +901,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonMoveUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonMoveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonMoveUp.UseVisualStyleBackColor = true;
-                this.buttonMoveUp.Click += new System.EventHandler(this.buttonMoveUp_Click);
+                this.buttonMoveUp.Click += this.buttonMoveUp_Click;
                 // 
                 // buttonMoveDown
                 // 
@@ -916,7 +916,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonMoveDown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonMoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonMoveDown.UseVisualStyleBackColor = true;
-                this.buttonMoveDown.Click += new System.EventHandler(this.buttonMoveDown_Click);
+                this.buttonMoveDown.Click += this.buttonMoveDown_Click;
                 // 
                 // buttonDelete
                 // 
@@ -931,7 +931,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonDelete.UseVisualStyleBackColor = true;
-                this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+                this.buttonDelete.Click += this.buttonDelete_Click;
                 // 
                 // propertyGrid
                 // 
@@ -976,7 +976,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonAddPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonAddPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddPage.UseVisualStyleBackColor = true;
-                this.buttonAddPage.Click += new System.EventHandler(this.buttonAddPage_Click);
+                this.buttonAddPage.Click += this.buttonAddPage_Click;
                 // 
                 // buttonAddCell
                 // 
@@ -991,7 +991,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonAddCell.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonAddCell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddCell.UseVisualStyleBackColor = true;
-                this.buttonAddCell.Click += new System.EventHandler(this.buttonAddCell_Click);
+                this.buttonAddCell.Click += this.buttonAddCell_Click;
                 // 
                 // buttonAddSequence
                 // 
@@ -1006,7 +1006,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.buttonAddSequence.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 this.buttonAddSequence.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddSequence.UseVisualStyleBackColor = true;
-                this.buttonAddSequence.Click += new System.EventHandler(this.buttonAddSequence_Click);
+                this.buttonAddSequence.Click += this.buttonAddSequence_Click;
 
                 this.AcceptButton = this.buttonOK;
                 this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1024,7 +1024,7 @@ namespace ComponentFactory.Krypton.Workspace
                 this.Controls.Add(this.buttonOK);
                 this.Controls.Add(this.labelWorkspaceCollection);
                 this.Controls.Add(this.labelItemProperties);
-                this.VisibleChanged += new EventHandler(OnVisibleChanged);
+                this.VisibleChanged += OnVisibleChanged;
                 this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.MinimumSize = new System.Drawing.Size(501, 344);
                 this.Name = "KryptonWorkspaceCollectionForm";

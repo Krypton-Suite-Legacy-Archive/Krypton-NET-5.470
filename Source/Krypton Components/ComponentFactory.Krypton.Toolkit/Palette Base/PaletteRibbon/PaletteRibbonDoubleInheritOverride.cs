@@ -20,10 +20,10 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
 
-        private IPaletteRibbonBack _primaryBack;
-        private IPaletteRibbonBack _backupBack;
-        private IPaletteRibbonText _primaryText;
-        private IPaletteRibbonText _backupText;
+        private readonly IPaletteRibbonBack _primaryBack;
+        private readonly IPaletteRibbonBack _backupBack;
+        private readonly IPaletteRibbonText _primaryText;
+        private readonly IPaletteRibbonText _backupText;
         #endregion
 
         #region Identity

@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewLayoutStretch : ViewComposite
     {
         #region Instance Fields
-        private Orientation _orientation;
+        private readonly Orientation _orientation;
         #endregion
 
         #region Identity

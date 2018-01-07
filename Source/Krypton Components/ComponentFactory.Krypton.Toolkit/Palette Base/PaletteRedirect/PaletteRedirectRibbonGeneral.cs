@@ -19,10 +19,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectRibbonGeneral : PaletteRedirect
     {
         #region Instance Fields
-        private IPaletteRibbonGeneral _disabled;
-        private IPaletteRibbonGeneral _normal;
-        private IPaletteRibbonGeneral _pressed;
-        private IPaletteRibbonGeneral _tracking;
+        private readonly IPaletteRibbonGeneral _disabled;
+        private readonly IPaletteRibbonGeneral _normal;
+        private readonly IPaletteRibbonGeneral _pressed;
+        private readonly IPaletteRibbonGeneral _tracking;
         #endregion
 
         #region Identity

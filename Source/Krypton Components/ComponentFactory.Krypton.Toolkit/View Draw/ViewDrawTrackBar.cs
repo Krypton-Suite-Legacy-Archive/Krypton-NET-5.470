@@ -47,10 +47,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _maximum;
         private int _smallChange;
         private int _largeChange;
-        private ViewLayoutDocker _layoutTop;
-        private ViewDrawTrackTicks _ticksTop;
-        private ViewDrawTrackTicks _ticksBottom;
-        private NeedPaintHandler _needPaint;
+        private readonly ViewLayoutDocker _layoutTop;
+        private readonly ViewDrawTrackTicks _ticksTop;
+        private readonly ViewDrawTrackTicks _ticksBottom;
+        private readonly NeedPaintHandler _needPaint;
         #endregion
 
         #region Events

@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Instance Fields
         private Font _textFont;
         private PaletteTextHint _textHint;
-        private PaletteRibbonGeneralInheritRedirect _inherit;
+        private readonly PaletteRibbonGeneralInheritRedirect _inherit;
         #endregion
 
         #region Identity

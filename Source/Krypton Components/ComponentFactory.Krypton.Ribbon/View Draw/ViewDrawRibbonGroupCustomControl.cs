@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private CustomControlController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly CustomControlController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupCustomControl.ItemSizeCurrent;
 
             // Hook into the custom control events
-            GroupCustomControl.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupCustomControl.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupCustomControl.MouseEnterControl += OnMouseEnterControl;
+            GroupCustomControl.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupCustomControl;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the label
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the custom control for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Provide back reference to the custom control definition
             GroupCustomControl.CustomControlView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupCustomControl.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupCustomControl.PropertyChanged += new PropertyChangedEventHandler(OnCustomPropertyChanged);
+            GroupCustomControl.PropertyChanged += OnCustomPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupCustomControl != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupCustomControl.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupCustomControl.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupCustomControl.MouseEnterControl -= OnMouseEnterControl;
+                    GroupCustomControl.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupCustomControl.ViewPaintDelegate = null;
-                    GroupCustomControl.PropertyChanged -= new PropertyChangedEventHandler(OnCustomPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupCustomControl.PropertyChanged -= OnCustomPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupCustomControl.CustomControlView = null;

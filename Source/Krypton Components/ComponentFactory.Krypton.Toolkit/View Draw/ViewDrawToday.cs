@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private IKryptonMonthCalendar _calendar;
+        private readonly IKryptonMonthCalendar _calendar;
         #endregion
 
         #region Identity
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Define a controller so the button can be clicked
             ButtonController controller = new ButtonController(this, needPaintHandler);
-            controller.Click += new MouseEventHandler(OnClick);
+            controller.Click += OnClick;
             MouseController = controller;
             SourceController = controller;
             KeyController = controller;

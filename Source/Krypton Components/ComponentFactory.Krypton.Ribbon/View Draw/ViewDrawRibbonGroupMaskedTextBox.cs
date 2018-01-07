@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private MaskedTextBoxController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly MaskedTextBoxController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupMaskedTextBox.ItemSizeCurrent;
 
             // Hook into the masked textbox events
-            GroupMaskedTextBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupMaskedTextBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupMaskedTextBox.MouseEnterControl += OnMouseEnterControl;
+            GroupMaskedTextBox.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupMaskedTextBox;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the masked textbox
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the masked textbox for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the masked text box definition
             GroupMaskedTextBox.MaskedTextBoxView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupMaskedTextBox.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupMaskedTextBox.PropertyChanged += new PropertyChangedEventHandler(OnMaskedTextBoxPropertyChanged);
+            GroupMaskedTextBox.PropertyChanged += OnMaskedTextBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupMaskedTextBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupMaskedTextBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupMaskedTextBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupMaskedTextBox.MouseEnterControl -= OnMouseEnterControl;
+                    GroupMaskedTextBox.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupMaskedTextBox.ViewPaintDelegate = null;
-                    GroupMaskedTextBox.PropertyChanged -= new PropertyChangedEventHandler(OnMaskedTextBoxPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupMaskedTextBox.PropertyChanged -= OnMaskedTextBoxPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupMaskedTextBox.MaskedTextBoxView = null; 

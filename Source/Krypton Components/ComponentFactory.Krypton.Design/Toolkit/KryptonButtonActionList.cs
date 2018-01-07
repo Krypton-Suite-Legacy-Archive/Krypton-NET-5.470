@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonButtonActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonButton _button;
-        private IComponentChangeService _service;
+        private readonly KryptonButton _button;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

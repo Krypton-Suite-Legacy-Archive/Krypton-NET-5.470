@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private NeedPaintHandler _needPaintDelegate;
         private IDisposable _memento;
         #endregion

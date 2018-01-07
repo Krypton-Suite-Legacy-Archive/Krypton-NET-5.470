@@ -29,8 +29,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private NeedPaintHandler _needPaint;
+        private readonly KryptonRibbon _ribbon;
+        private readonly NeedPaintHandler _needPaint;
         private ViewDrawRibbonGroupButtonBackBorder _viewLarge;
         private ViewLayoutRibbonRowCenter _viewLargeCenter;
         private ViewDrawRibbonGroupColorButtonImage _viewLargeImage;
@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateItemSizeState();
 
             // Hook into changes in the ribbon button definition
-            GroupColorButton.PropertyChanged += new PropertyChangedEventHandler(OnButtonPropertyChanged);
+            GroupColorButton.PropertyChanged += OnButtonPropertyChanged;
         }
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupColorButton != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupColorButton.PropertyChanged -= new PropertyChangedEventHandler(OnButtonPropertyChanged);
+                    GroupColorButton.PropertyChanged -= OnButtonPropertyChanged;
 
                     // Remove association with definition
                     GroupColorButton.ColorButtonView = null;
@@ -373,12 +373,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 SplitVertical = true
             };
-            _viewLarge.Click += new EventHandler(OnLargeButtonClick);
-            _viewLarge.DropDown += new EventHandler(OnLargeButtonDropDown);
+            _viewLarge.Click += OnLargeButtonClick;
+            _viewLarge.DropDown += OnLargeButtonDropDown;
 
             if (_ribbon.InDesignMode)
             {
-                _viewLarge.ContextClick += new MouseEventHandler(OnContextClick);
+                _viewLarge.ContextClick += OnContextClick;
             }
 
             // Create the layout docker for the contents of the button
@@ -429,12 +429,12 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 SplitVertical = false
             };
-            _viewMediumSmall.Click += new EventHandler(OnMediumSmallButtonClick);
-            _viewMediumSmall.DropDown += new EventHandler(OnMediumSmallButtonDropDown);
+            _viewMediumSmall.Click += OnMediumSmallButtonClick;
+            _viewMediumSmall.DropDown += OnMediumSmallButtonDropDown;
 
             if (_ribbon.InDesignMode)
             {
-                _viewMediumSmall.ContextClick += new MouseEventHandler(OnContextClick);
+                _viewMediumSmall.ContextClick += OnContextClick;
             }
 
             // Create the layout docker for the contents of the button

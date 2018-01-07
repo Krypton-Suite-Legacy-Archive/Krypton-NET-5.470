@@ -57,14 +57,14 @@ namespace ComponentFactory.Krypton.Docking
             SpaceControl = new KryptonDockspace();
             DockspaceControl.Size = size;
             DockspaceControl.Dock = DockingHelper.DockStyleFromDockEdge(edge, false);
-            DockspaceControl.CellCountChanged += new EventHandler(OnDockspaceCellCountChanged);
-            DockspaceControl.CellVisibleCountChanged += new EventHandler(OnDockspaceCellVisibleCountChanged);
-            DockspaceControl.CellPageInserting += new EventHandler<KryptonPageEventArgs>(OnSpaceCellPageInserting);
-            DockspaceControl.PageCloseClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageCloseClicked);
-            DockspaceControl.PageAutoHiddenClicked += new EventHandler<UniqueNameEventArgs>(OnDockspacePageAutoHiddenClicked);
-            DockspaceControl.PagesDoubleClicked += new EventHandler<UniqueNamesEventArgs>(OnDockspacePagesDoubleClicked);
-            DockspaceControl.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnDockspaceDropDownClicked);
-            DockspaceControl.BeforePageDrag += new EventHandler<PageDragCancelEventArgs>(OnDockspaceBeforePageDrag);
+            DockspaceControl.CellCountChanged += OnDockspaceCellCountChanged;
+            DockspaceControl.CellVisibleCountChanged += OnDockspaceCellVisibleCountChanged;
+            DockspaceControl.CellPageInserting += OnSpaceCellPageInserting;
+            DockspaceControl.PageCloseClicked += OnDockspacePageCloseClicked;
+            DockspaceControl.PageAutoHiddenClicked += OnDockspacePageAutoHiddenClicked;
+            DockspaceControl.PagesDoubleClicked += OnDockspacePagesDoubleClicked;
+            DockspaceControl.PageDropDownClicked += OnDockspaceDropDownClicked;
+            DockspaceControl.BeforePageDrag += OnDockspaceBeforePageDrag;
         }
         #endregion
 

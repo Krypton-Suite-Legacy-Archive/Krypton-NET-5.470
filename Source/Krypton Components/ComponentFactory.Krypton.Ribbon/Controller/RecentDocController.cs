@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
 	{
 		#region Instance Fields
         private bool _mouseOver;
-        private ViewDrawRibbonAppMenuRecentDec _menuItem;
+        private readonly ViewDrawRibbonAppMenuRecentDec _menuItem;
 		private NeedPaintHandler _needPaint;
 
 	    #endregion

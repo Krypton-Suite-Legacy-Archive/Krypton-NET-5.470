@@ -28,9 +28,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
 
-        private ViewToSize _viewToSmall;
-        private ViewToSize _viewToMedium;
-        private ViewToSize _viewToLarge;
+        private readonly ViewToSize _viewToSmall;
+        private readonly ViewToSize _viewToMedium;
+        private readonly ViewToSize _viewToLarge;
         private Size _preferredSizeSmall;
         private Size _preferredSizeMedium;
         private Size _preferredSizeLarge;

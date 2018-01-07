@@ -44,9 +44,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private DrawDateTimeGlyph _glyph;
-        private KryptonDateTimePicker _dateTimePicker;
-        private ButtonController _controller;
+        private readonly DrawDateTimeGlyph _glyph;
+        private readonly KryptonDateTimePicker _dateTimePicker;
+        private readonly ButtonController _controller;
         #endregion
 
         #region Events
@@ -90,8 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 BecomesFixed = !repeat
             };
-            _controller.Click += new MouseEventHandler(OnButtonClick);
-            _controller.MouseSelect += new MouseEventHandler(OnButtonMouseSelect);
+            _controller.Click += OnButtonClick;
+            _controller.MouseSelect += OnButtonMouseSelect;
             _controller.Repeat = repeat;
             _controller.ClickOnDown = true;
             MouseController = _controller;

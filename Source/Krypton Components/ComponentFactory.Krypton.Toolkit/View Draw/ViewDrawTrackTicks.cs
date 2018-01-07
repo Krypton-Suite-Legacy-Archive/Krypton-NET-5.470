@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawTrackTicks : ViewLeaf
     {
         #region Instance Fields
-        private ViewDrawTrackBar _drawTrackBar;
-        private bool _topRight;
+        private readonly ViewDrawTrackBar _drawTrackBar;
+        private readonly bool _topRight;
         #endregion
 
         #region Identity

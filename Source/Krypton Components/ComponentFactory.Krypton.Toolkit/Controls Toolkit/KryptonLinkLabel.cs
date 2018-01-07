@@ -33,17 +33,17 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private PaletteContentInheritRedirect _stateVisitedRedirect;
-        private PaletteContentInheritRedirect _stateNotVisitedRedirect;
-        private PaletteContentInheritRedirect _statePressedRedirect;
-        private PaletteContentInheritRedirect _stateFocusRedirect;
-        private PaletteContentInheritOverride _overrideVisited;
-        private PaletteContentInheritOverride _overrideNotVisited;
-        private PaletteContentInheritOverride _overrideFocusNotVisited;
-        private PaletteContentInheritOverride _overridePressed;
-        private PaletteContentInheritOverride _overridePressedFocus;
-        private LinkLabelBehaviorInherit _inheritBehavior;
-        private LinkLabelController _controller;
+	    private readonly PaletteContentInheritRedirect _stateVisitedRedirect;
+        private readonly PaletteContentInheritRedirect _stateNotVisitedRedirect;
+        private readonly PaletteContentInheritRedirect _statePressedRedirect;
+        private readonly PaletteContentInheritRedirect _stateFocusRedirect;
+        private readonly PaletteContentInheritOverride _overrideVisited;
+        private readonly PaletteContentInheritOverride _overrideNotVisited;
+        private readonly PaletteContentInheritOverride _overrideFocusNotVisited;
+        private readonly PaletteContentInheritOverride _overridePressed;
+        private readonly PaletteContentInheritOverride _overridePressedFocus;
+        private readonly LinkLabelBehaviorInherit _inheritBehavior;
+        private readonly LinkLabelController _controller;
         #endregion
 
         #region Events
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create controller for updating the view state/click events
             _controller = new LinkLabelController(ViewDrawContent, StateDisabled, _overrideFocusNotVisited, _overrideFocusNotVisited, _overridePressedFocus, _overridePressed, NeedPaintDelegate);
-            _controller.Click += new MouseEventHandler(OnControllerClick);
+            _controller.Click += OnControllerClick;
             ViewDrawContent.MouseController = _controller;
             ViewDrawContent.KeyController = _controller;
             ViewDrawContent.SourceController = _controller;

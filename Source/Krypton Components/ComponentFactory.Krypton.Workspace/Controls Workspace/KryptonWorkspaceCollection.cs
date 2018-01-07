@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Workspace
     public class KryptonWorkspaceCollection : TypedRestrictCollection<Component>
     {
         #region Instance Fields
-        private KryptonWorkspaceSequence _sequence;
+        private readonly KryptonWorkspaceSequence _sequence;
         #endregion
 
         #region Static Fields
@@ -106,8 +106,8 @@ namespace ComponentFactory.Krypton.Workspace
             
             if (e.Item is IWorkspaceItem workspaceItem)
             {
-                workspaceItem.PropertyChanged += new PropertyChangedEventHandler(OnChildPropertyChanged);
-                workspaceItem.MaximizeRestoreClicked += new EventHandler(OnChildMaximizeRestoreClicked);
+                workspaceItem.PropertyChanged += OnChildPropertyChanged;
+                workspaceItem.MaximizeRestoreClicked += OnChildMaximizeRestoreClicked;
             }
 
             if (e.Item is KryptonWorkspaceCell cell)
@@ -133,8 +133,8 @@ namespace ComponentFactory.Krypton.Workspace
 
             if (e.Item is IWorkspaceItem workspaceItem)
             {
-                workspaceItem.PropertyChanged -= new PropertyChangedEventHandler(OnChildPropertyChanged);
-                workspaceItem.MaximizeRestoreClicked -= new EventHandler(OnChildMaximizeRestoreClicked);
+                workspaceItem.PropertyChanged -= OnChildPropertyChanged;
+                workspaceItem.MaximizeRestoreClicked -= OnChildMaximizeRestoreClicked;
             }
 
             if (e.Item is KryptonWorkspaceCell cell)
@@ -163,8 +163,8 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 if (c is IWorkspaceItem workspaceItem)
                 {
-                    workspaceItem.PropertyChanged -= new PropertyChangedEventHandler(OnChildPropertyChanged);
-                    workspaceItem.MaximizeRestoreClicked -= new EventHandler(OnChildMaximizeRestoreClicked);
+                    workspaceItem.PropertyChanged -= OnChildPropertyChanged;
+                    workspaceItem.MaximizeRestoreClicked -= OnChildMaximizeRestoreClicked;
                 }
 
                 if (c is KryptonWorkspaceCell cell)

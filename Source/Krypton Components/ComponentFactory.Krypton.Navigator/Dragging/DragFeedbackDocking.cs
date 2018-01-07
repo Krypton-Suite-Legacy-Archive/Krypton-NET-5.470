@@ -29,8 +29,8 @@ namespace ComponentFactory.Krypton.Navigator
             #endregion
 
             #region Instance Fields
-            private IPaletteDragDrop _paletteDragDrop;
-            private IRenderer _renderer;
+            private readonly IPaletteDragDrop _paletteDragDrop;
+            private readonly IRenderer _renderer;
             private HintToTarget _hintToTarget;
             private IDropDockingIndicator _indicators;
             #endregion
@@ -186,8 +186,8 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private DropSolidWindow _solid;
-        private DockClusterList _clusters;
-        private PaletteDragFeedback _dragFeedback;
+        private readonly DockClusterList _clusters;
+        private readonly PaletteDragFeedback _dragFeedback;
         #endregion
 
         #region Identity

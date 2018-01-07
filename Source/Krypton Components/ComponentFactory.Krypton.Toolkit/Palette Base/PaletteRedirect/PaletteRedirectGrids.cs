@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectGrids : PaletteRedirect
     {
         #region Instance Fields
-        private KryptonPaletteGrid _grid;
+        private readonly KryptonPaletteGrid _grid;
         #endregion
 
         #region Identity

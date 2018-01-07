@@ -17,13 +17,13 @@ using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a TextBox with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonTextBox), "ToolboxBitmaps.KryptonTextBox.bmp")]
     [DefaultEvent("TextChanged")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
     [Designer("ComponentFactory.Krypton.Toolkit.KryptonTextBoxDesigner, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class InternalTextBox : TextBox
         {
             #region Instance Fields
-            private KryptonTextBox _kryptonTextBox;
+            private readonly KryptonTextBox _kryptonTextBox;
             private bool _mouseOver;
             #endregion
 
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 get => _mouseOver;
 
-                set 
+                set
                 {
                     // Only interested in changes
                     if (_mouseOver != value)
@@ -331,8 +331,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collection for managing ButtonSpecAny instances.
         /// </summary>
-        public class TextBoxButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny> 
-        { 
+        public class TextBoxButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the TextBoxButtonSpecCollection class.
@@ -349,11 +349,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
 
         private VisualPopupToolTip _visualPopupToolTip;
-        private ButtonSpecManagerLayout _buttonManager;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutFill _layoutFill;
-        private InternalTextBox _textBox;
+        private readonly ButtonSpecManagerLayout _buttonManager;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly InternalTextBox _textBox;
         private InputControlStyle _inputControlStyle;
         private Nullable<bool> _fixedActive;
         private bool _forcedLayout;
@@ -462,8 +462,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // By default we are not multiline and so the height is fixed
             SetStyle(ControlStyles.FixedHeight, true);
 
-            // Cannot select this control, only the child TextBox
-            SetStyle(ControlStyles.Selectable, false);
+            // Cannot select this control, only the child TextBox, and does not generate a click event
+            SetStyle(ControlStyles.Selectable | ControlStyles.StandardClick, false);
 
             // Defaults
             _inputControlStyle = InputControlStyle.Standalone;
@@ -483,25 +483,26 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal text box used for containing content
             _textBox = new InternalTextBox(this);
-            _textBox.TrackMouseEnter += new EventHandler(OnTextBoxMouseChange);
-            _textBox.TrackMouseLeave += new EventHandler(OnTextBoxMouseChange);
-            _textBox.AcceptsTabChanged += new EventHandler(OnTextBoxAcceptsTabChanged);
-            _textBox.TextAlignChanged += new EventHandler(OnTextBoxTextAlignChanged);
-            _textBox.TextChanged += new EventHandler(OnTextBoxTextChanged);
-            _textBox.HideSelectionChanged += new EventHandler(OnTextBoxHideSelectionChanged);
-            _textBox.ModifiedChanged += new EventHandler(OnTextBoxModifiedChanged);
-            _textBox.MultilineChanged += new EventHandler(OnTextBoxMultilineChanged);
-            _textBox.ReadOnlyChanged += new EventHandler(OnTextBoxReadOnlyChanged);
-            _textBox.GotFocus += new EventHandler(OnTextBoxGotFocus);
-            _textBox.LostFocus += new EventHandler(OnTextBoxLostFocus);
-            _textBox.KeyDown += new KeyEventHandler(OnTextBoxKeyDown);
-            _textBox.KeyUp += new KeyEventHandler(OnTextBoxKeyUp);
-            _textBox.KeyPress += new KeyPressEventHandler(OnTextBoxKeyPress);
-            _textBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnTextBoxPreviewKeyDown);
-            _textBox.Validating += new CancelEventHandler(OnTextBoxValidating);
-            _textBox.Validated += new EventHandler(OnTextBoxValidated);
+            _textBox.TrackMouseEnter += OnTextBoxMouseChange;
+            _textBox.TrackMouseLeave += OnTextBoxMouseChange;
+            _textBox.AcceptsTabChanged += OnTextBoxAcceptsTabChanged;
+            _textBox.TextAlignChanged += OnTextBoxTextAlignChanged;
+            _textBox.TextChanged += OnTextBoxTextChanged;
+            _textBox.HideSelectionChanged += OnTextBoxHideSelectionChanged;
+            _textBox.ModifiedChanged += OnTextBoxModifiedChanged;
+            _textBox.MultilineChanged += OnTextBoxMultilineChanged;
+            _textBox.ReadOnlyChanged += OnTextBoxReadOnlyChanged;
+            _textBox.GotFocus += OnTextBoxGotFocus;
+            _textBox.LostFocus += OnTextBoxLostFocus;
+            _textBox.KeyDown += OnTextBoxKeyDown;
+            _textBox.KeyUp += OnTextBoxKeyUp;
+            _textBox.KeyPress += OnTextBoxKeyPress;
+            _textBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
+            _textBox.Validating += OnTextBoxValidating;
+            _textBox.Validated += OnTextBoxValidated;
+            _textBox.Click += OnTextBoxClick;  // SKC: make sure that the default click is also routed.
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(_textBox);
 
             // Create inner view for placing inside the drawing docker
@@ -525,17 +526,22 @@ namespace ComponentFactory.Krypton.Toolkit
                                                          new IPaletteMetric[] { StateCommon },
                                                          new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetInputControl },
                                                          new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingInputControl },
-                                                         new GetToolStripRenderer(CreateToolStripRenderer),
+                                                         CreateToolStripRenderer,
                                                          NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // Add text box to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(_textBox);
+        }
+
+        private void OnTextBoxClick(object sender, EventArgs e)
+        {
+            base.OnClick(e);
         }
 
         /// <summary>
@@ -557,7 +563,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets if the control is in the tab chain.
         /// </summary>
@@ -997,21 +1003,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the input control style.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Input control style.")]
+        [Description("Input control style.")]
         public InputControlStyle InputControlStyle
-		{
+        {
             get => _inputControlStyle;
 
             set
-			{
+            {
                 if (_inputControlStyle != value)
-				{
+                {
                     _inputControlStyle = value;
                     StateCommon.SetStyles(value);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private void ResetInputControlStyle()
         {
@@ -1092,32 +1098,32 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return !StateCommon.IsDefault;
         }
-        
+
         /// <summary>
         /// Gets access to the disabled textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining disabled textbox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining disabled textbox appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal textbox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal textbox appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        {
+            return !StateNormal.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the active textbox appearance entries.
@@ -1305,7 +1311,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsActive
         {
-            get 
+            get
             {
                 if (_fixedActive != null)
                 {
@@ -1390,16 +1396,16 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets the rectangle that represents the display area of the control.
 		/// </summary>
 		public override Rectangle DisplayRectangle
-		{
-			get
-			{
+        {
+            get
+            {
                 // Ensure that the layout is calculated in order to know the remaining display space
                 ForceViewLayout();
 
                 // The inside text box is the client rectangle size
                 return new Rectangle(_textBox.Location, _textBox.Size);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Internal design time method.
@@ -1581,8 +1587,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Change in enabled state requires a layout and repaint
+        {
+            // Change in enabled state requires a layout and repaint
             UpdateStateAndPalettes();
 
             // Update view elements
@@ -1717,8 +1723,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="width">The new Width property value of the control.</param>
         /// <param name="height">The new Height property value of the control.</param>
         /// <param name="specified">A bitwise combination of the BoundsSpecified values.</param>
-        protected override void SetBoundsCore(int x, int y, 
-                                              int width, int height, 
+        protected override void SetBoundsCore(int x, int y,
+                                              int width, int height,
                                               BoundsSpecified specified)
         {
             // Do we need to prevent the height from being altered?
@@ -1840,11 +1846,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     break;
+                case PI.WM_LBUTTONDOWN:
+                    base.WndProc(ref m);
+                    break;
                 default:
                     base.WndProc(ref m);
                     break;
             }
         }
+
         #endregion
 
         #region Internal
@@ -1858,7 +1868,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the correct palette settings to use
             IPaletteTriple tripleState = GetTripleState();
             _drawDockerOuter.SetPalettes(tripleState.PaletteBack, tripleState.PaletteBorder);
-            
+
             // Update enabled state
             _drawDockerOuter.Enabled = Enabled;
 
@@ -2054,7 +2064,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -2073,7 +2083,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

@@ -26,8 +26,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private PaletteDoubleMetricRedirect _paletteItemHighlight;
-        private ViewDrawMenuImageColumn _imageColumn;
+        private readonly PaletteDoubleMetricRedirect _paletteItemHighlight;
+        private readonly ViewDrawMenuImageColumn _imageColumn;
         private ColumnToWidth _columnToWidth;
         #endregion
 

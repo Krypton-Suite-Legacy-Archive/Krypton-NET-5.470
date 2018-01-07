@@ -38,8 +38,8 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Instance Fields
 
-        private SeparatorToDockspace _lookupSeparator;
-        private DockspaceToSeparator _lookupDockspace;
+        private readonly SeparatorToDockspace _lookupSeparator;
+        private readonly DockspaceToSeparator _lookupDockspace;
         private bool _update;
         #endregion
 
@@ -190,16 +190,16 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Create a dockspace separator do the dockspace can be resized
             KryptonDockspaceSeparator separatorControl = new KryptonDockspaceSeparator(Edge, false);
-            separatorControl.SplitterMoveRect += new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
-            separatorControl.SplitterMoved += new SplitterEventHandler(OnDockspaceSeparatorMoved);
-            separatorControl.SplitterNotMoved += new EventHandler(OnDockspaceSeparatorNotMoved);
-            separatorControl.Disposed += new EventHandler(OnDockspaceSeparatorDisposed);
+            separatorControl.SplitterMoveRect += OnDockspaceSeparatorMoveRect;
+            separatorControl.SplitterMoved += OnDockspaceSeparatorMoved;
+            separatorControl.SplitterNotMoved += OnDockspaceSeparatorNotMoved;
+            separatorControl.Disposed += OnDockspaceSeparatorDisposed;
 
             // Create and add the dockspace to the collection
             KryptonDockingDockspace dockspaceElement = new KryptonDockingDockspace(name, Edge, size);
-            dockspaceElement.HasVisibleCells += new EventHandler(OnDockingDockspaceHasVisibleCells);
-            dockspaceElement.HasNoVisibleCells += new EventHandler(OnDockingDockspaceHasNoVisibleCells);
-            dockspaceElement.Disposed += new EventHandler(OnDockingDockspaceDisposed);
+            dockspaceElement.HasVisibleCells += OnDockingDockspaceHasVisibleCells;
+            dockspaceElement.HasNoVisibleCells += OnDockingDockspaceHasNoVisibleCells;
+            dockspaceElement.Disposed += OnDockingDockspaceDisposed;
             InternalInsert(index, dockspaceElement);
 
             // Create lookup associations
@@ -330,9 +330,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
             KryptonDockingDockspace dockspaceElement = (KryptonDockingDockspace)sender;
-            dockspaceElement.HasVisibleCells -= new EventHandler(OnDockingDockspaceHasVisibleCells);
-            dockspaceElement.HasNoVisibleCells -= new EventHandler(OnDockingDockspaceHasNoVisibleCells);
-            dockspaceElement.Disposed -= new EventHandler(OnDockingDockspaceDisposed);
+            dockspaceElement.HasVisibleCells -= OnDockingDockspaceHasVisibleCells;
+            dockspaceElement.HasNoVisibleCells -= OnDockingDockspaceHasNoVisibleCells;
+            dockspaceElement.Disposed -= OnDockingDockspaceDisposed;
 
             // Remove the element from our child collection as it is no longer valid
             InternalRemove(dockspaceElement);
@@ -352,10 +352,10 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Unhook from events so the control can be garbage collected
             KryptonDockspaceSeparator separatorControl = (KryptonDockspaceSeparator)sender;
-            separatorControl.SplitterMoveRect -= new EventHandler<SplitterMoveRectMenuArgs>(OnDockspaceSeparatorMoveRect);
-            separatorControl.SplitterMoved -= new SplitterEventHandler(OnDockspaceSeparatorMoved);
-            separatorControl.SplitterNotMoved -= new EventHandler(OnDockspaceSeparatorNotMoved);
-            separatorControl.Disposed -= new EventHandler(OnDockspaceSeparatorDisposed);
+            separatorControl.SplitterMoveRect -= OnDockspaceSeparatorMoveRect;
+            separatorControl.SplitterMoved -= OnDockspaceSeparatorMoved;
+            separatorControl.SplitterNotMoved -= OnDockspaceSeparatorNotMoved;
+            separatorControl.Disposed -= OnDockspaceSeparatorDisposed;
 
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;

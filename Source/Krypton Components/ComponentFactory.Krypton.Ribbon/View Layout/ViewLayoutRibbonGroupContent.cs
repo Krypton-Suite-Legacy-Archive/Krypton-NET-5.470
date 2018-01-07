@@ -34,10 +34,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroup _ribbonGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private ViewDrawRibbonDesignGroupContainer _viewAddContainer;
-        private NeedPaintHandler _needPaint;
+        private readonly NeedPaintHandler _needPaint;
         private ContainerToView _containerToView;
         private List<ItemSizeWidth[]> _listWidths;
         private int[] _containerWidths;

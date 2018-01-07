@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
-        private RichTextBoxController _controller;
-        private NeedPaintHandler _needPaint;
+        private readonly RichTextBoxController _controller;
+        private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
         #endregion
 
@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Ribbon
             _currentSize = GroupRichTextBox.ItemSizeCurrent;
 
             // Hook into the richtextbox events
-            GroupRichTextBox.MouseEnterControl += new EventHandler(OnMouseEnterControl);
-            GroupRichTextBox.MouseLeaveControl += new EventHandler(OnMouseLeaveControl);
+            GroupRichTextBox.MouseEnterControl += OnMouseEnterControl;
+            GroupRichTextBox.MouseLeaveControl += OnMouseLeaveControl;
 
             // Associate this view with the source component (required for design time selection)
             Component = GroupRichTextBox;
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // At design time we need to know when the user right clicks the textbox
                 ContextClickController controller = new ContextClickController();
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
 
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
 
             // We need to rest visibility of the richtextbox for each layout cycle
-            _ribbon.ViewRibbonManager.LayoutBefore += new EventHandler(OnLayoutAction);
-            _ribbon.ViewRibbonManager.LayoutAfter += new EventHandler(OnLayoutAction);
+            _ribbon.ViewRibbonManager.LayoutBefore += OnLayoutAction;
+            _ribbon.ViewRibbonManager.LayoutAfter += OnLayoutAction;
 
             // Define back reference to view for the rich text box definition
             GroupRichTextBox.RichTextBoxView = this;
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupRichTextBox.ViewPaintDelegate = needPaint;
 
             // Hook into changes in the ribbon custom definition
-            GroupRichTextBox.PropertyChanged += new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
+            GroupRichTextBox.PropertyChanged += OnRichTextBoxPropertyChanged;
         }
 
 		/// <summary>
@@ -113,12 +113,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (GroupRichTextBox != null)
                 {
                     // Must unhook to prevent memory leaks
-                    GroupRichTextBox.MouseEnterControl -= new EventHandler(OnMouseEnterControl);
-                    GroupRichTextBox.MouseLeaveControl -= new EventHandler(OnMouseLeaveControl);
+                    GroupRichTextBox.MouseEnterControl -= OnMouseEnterControl;
+                    GroupRichTextBox.MouseLeaveControl -= OnMouseLeaveControl;
                     GroupRichTextBox.ViewPaintDelegate = null;
-                    GroupRichTextBox.PropertyChanged -= new PropertyChangedEventHandler(OnRichTextBoxPropertyChanged);
-                    _ribbon.ViewRibbonManager.LayoutAfter -= new EventHandler(OnLayoutAction);
-                    _ribbon.ViewRibbonManager.LayoutBefore -= new EventHandler(OnLayoutAction);
+                    GroupRichTextBox.PropertyChanged -= OnRichTextBoxPropertyChanged;
+                    _ribbon.ViewRibbonManager.LayoutAfter -= OnLayoutAction;
+                    _ribbon.ViewRibbonManager.LayoutBefore -= OnLayoutAction;
 
                     // Remove association with definition
                     GroupRichTextBox.RichTextBoxView = null;

@@ -73,14 +73,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private FormFixedButtonSpecCollection _buttonSpecsFixed;
-        private ButtonSpecManagerDraw _buttonManager;
+        private readonly FormFixedButtonSpecCollection _buttonSpecsFixed;
+        private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ViewDrawForm _drawDocker;
-        private ViewDrawDocker _drawHeading;
-        private ViewDrawContent _drawContent;
-        private ViewDecoratorFixedSize _headingFixedSize;
-        private ViewLayoutNull _layoutNull;
+        private readonly ViewDrawForm _drawDocker;
+        private readonly ViewDrawDocker _drawHeading;
+        private readonly ViewDrawContent _drawContent;
+        private readonly ViewDecoratorFixedSize _headingFixedSize;
+        private readonly ViewLayoutNull _layoutNull;
         private HeaderStyle _headerStyle;
         private HeaderStyle _headerStylePrev;
         private FormWindowState _regionWindowState;
@@ -168,18 +168,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        new IPaletteMetric[] { StateCommon.Header },
                                                        new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetForm },
                                                        new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingForm },
-                                                       new GetToolStripRenderer(CreateToolStripRenderer),
+                                                       CreateToolStripRenderer,
                                                        OnButtonManagerNeedPaint);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // Hook into globalstatic events
-            KryptonManager.GlobalAllowFormChromeChanged += new EventHandler(OnGlobalAllowFormChromeChanged);
-            KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
+            KryptonManager.GlobalAllowFormChromeChanged += OnGlobalAllowFormChromeChanged;
+            KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
@@ -200,8 +200,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 _buttonManager.Destruct();
 
                 // Unhook from the global static events
-                KryptonManager.GlobalPaletteChanged -= new EventHandler(OnGlobalPaletteChanged);
-                KryptonManager.GlobalAllowFormChromeChanged -= new EventHandler(OnGlobalAllowFormChromeChanged);
+                KryptonManager.GlobalPaletteChanged -= OnGlobalPaletteChanged;
+                KryptonManager.GlobalAllowFormChromeChanged -= OnGlobalAllowFormChromeChanged;
 
                 // Clear down the cached bitmap
                 if (_cacheBitmap != null)
@@ -1434,8 +1434,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Hook into event handlers
             _statusStrip = statusStrip;
-            _statusStrip.VisibleChanged += new EventHandler(OnStatusVisibleChanged);
-            _statusStrip.DockChanged += new EventHandler(OnStatusDockChanged);
+            _statusStrip.VisibleChanged += OnStatusVisibleChanged;
+            _statusStrip.DockChanged += OnStatusDockChanged;
         }
 
         private void UnmonitorStatusStrip()
@@ -1443,8 +1443,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_statusStrip != null)
             {
                 // Unhook from event handlers
-                _statusStrip.VisibleChanged -= new EventHandler(OnStatusVisibleChanged);
-                _statusStrip.DockChanged -= new EventHandler(OnStatusDockChanged);
+                _statusStrip.VisibleChanged -= OnStatusVisibleChanged;
+                _statusStrip.DockChanged -= OnStatusDockChanged;
                 _statusStrip = null;
             }
         }
@@ -1498,7 +1498,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      PaletteContentStyle.LabelToolTip);
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen point
                         _visualPopupToolTip.ShowCalculatingSize(e.ScreenPt);
@@ -1517,7 +1517,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

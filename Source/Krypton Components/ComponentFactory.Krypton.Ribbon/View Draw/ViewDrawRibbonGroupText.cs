@@ -22,11 +22,11 @@ namespace ComponentFactory.Krypton.Ribbon
                                              IContentValues
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroup _ribbonGroup;
-        private RibbonGroupTextToContent _contentProvider;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly RibbonGroupTextToContent _contentProvider;
         private IDisposable _memento;
-        private bool _firstText;
+        private readonly bool _firstText;
         private int _heightExtra;
         private Size _preferredSize;
         private Rectangle _displayRect;

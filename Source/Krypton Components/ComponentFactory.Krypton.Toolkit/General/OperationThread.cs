@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class OperationThread : GlobalId
     {
         #region Instance Fields
-        private Operation _op;
-        private object _parameter;
+        private readonly Operation _op;
+        private readonly object _parameter;
         private int _state;
 
         #endregion

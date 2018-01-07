@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private BarMultiline _barMultiline;
         private bool _barAnimation;
         private VisualOrientation _barOrientation;

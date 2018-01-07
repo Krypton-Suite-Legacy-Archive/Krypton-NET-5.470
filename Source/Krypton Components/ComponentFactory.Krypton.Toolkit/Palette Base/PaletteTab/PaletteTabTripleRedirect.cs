@@ -21,9 +21,9 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private PaletteBackInheritRedirect _backInherit;
-		private PaletteBorderInheritRedirect _borderInherit;
-		private PaletteContentInheritRedirect _contentInherit;
+	    private readonly PaletteBackInheritRedirect _backInherit;
+		private readonly PaletteBorderInheritRedirect _borderInherit;
+		private readonly PaletteContentInheritRedirect _contentInherit;
 		#endregion
 
 		#region Identity

@@ -26,8 +26,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private KryptonRibbonGroupRadioButton _ribbonRadioButton;
-        private ViewDrawRadioButton _drawRadioButton;
-        private bool _large;
+        private readonly ViewDrawRadioButton _drawRadioButton;
+        private readonly bool _large;
         #endregion
 
         #region Identity

@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private bool _start;
+        private readonly KryptonRibbon _ribbon;
+        private readonly bool _start;
         #endregion
 
         #region Identity

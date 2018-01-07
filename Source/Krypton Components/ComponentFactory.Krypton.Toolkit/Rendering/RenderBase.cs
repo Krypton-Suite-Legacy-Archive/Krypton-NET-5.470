@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        IRenderGlyph
 	{
 		#region Static Fields
-        private static object _threadLock = new object();
+        private static readonly object _threadLock = new object();
 
         private static readonly ColorMatrix _matrixGrayScale = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0.3f,0,0},
 															                                 new float[]{0.59f,0.59f,0.59f,0,0},

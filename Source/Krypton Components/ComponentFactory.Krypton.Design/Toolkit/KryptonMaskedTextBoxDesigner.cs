@@ -48,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_maskedTextBox != null)
             {
                 // Hook into masked textbox events
-                _maskedTextBox.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnMaskedTextBoxMouseUp);
-                _maskedTextBox.GetViewManager().DoubleClickProcessed += new PointHandler(OnMaskedTextBoxDoubleClick);
+                _maskedTextBox.GetViewManager().MouseUpProcessed += OnMaskedTextBoxMouseUp;
+                _maskedTextBox.GetViewManager().DoubleClickProcessed += OnMaskedTextBoxDoubleClick;
             }
 
             // Get access to the design services
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>

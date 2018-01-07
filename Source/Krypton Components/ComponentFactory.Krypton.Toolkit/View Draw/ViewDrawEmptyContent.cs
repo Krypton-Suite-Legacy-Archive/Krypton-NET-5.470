@@ -21,8 +21,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                         IContentValues
     {
         #region Instance Fields
-        private IPaletteContent _paletteContentNormal;
-        private IPaletteContent _paletteContentDisabled;
+        private readonly IPaletteContent _paletteContentNormal;
+        private readonly IPaletteContent _paletteContentDisabled;
 		#endregion
 
 		#region Identity

@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonBreadCrumbActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonBreadCrumb _breadCrumb;
-        private IComponentChangeService _service;
+        private readonly KryptonBreadCrumb _breadCrumb;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

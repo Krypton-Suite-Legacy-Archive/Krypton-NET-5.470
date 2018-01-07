@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonCheckedListBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonCheckedListBox _checkedListBox;
-        private IComponentChangeService _service;
+        private readonly KryptonCheckedListBox _checkedListBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

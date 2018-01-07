@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectButtonSpec : PaletteRedirect
     {
         #region Instance Fields
-        private IPaletteButtonSpec _inherit;
+        private readonly IPaletteButtonSpec _inherit;
         #endregion
 
         #region Identity

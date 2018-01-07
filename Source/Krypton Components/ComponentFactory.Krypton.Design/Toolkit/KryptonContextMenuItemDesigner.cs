@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (disposing)
                 {
                     // Unhook from events
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
                 }
             }
             finally

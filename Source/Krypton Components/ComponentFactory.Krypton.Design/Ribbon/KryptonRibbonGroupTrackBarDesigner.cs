@@ -86,14 +86,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonTrackBar.TrackBar.InRibbonDesignMode = true;
 
             // Hook into events
-            _ribbonTrackBar.DesignTimeContextMenu += new MouseEventHandler(OnContextMenu);
+            _ribbonTrackBar.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed/changed
-            _changeService.ComponentChanged += new ComponentChangedEventHandler(OnComponentChanged);
+            _changeService.ComponentChanged += OnComponentChanged;
         }
 
         /// <summary>
@@ -139,8 +139,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (disposing)
                 {
                     // Unhook from events
-                    _ribbonTrackBar.DesignTimeContextMenu -= new MouseEventHandler(OnContextMenu);
-                    _changeService.ComponentChanged -= new ComponentChangedEventHandler(OnComponentChanged);
+                    _ribbonTrackBar.DesignTimeContextMenu -= OnContextMenu;
+                    _changeService.ComponentChanged -= OnComponentChanged;
                 }
             }
             finally
@@ -208,12 +208,12 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_verbs == null)
             {
                 _verbs = new DesignerVerbCollection();
-                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", new EventHandler(OnToggleHelpers));
-                _moveFirstVerb = new DesignerVerb("Move TrackBar First", new EventHandler(OnMoveFirst));
-                _movePrevVerb = new DesignerVerb("Move TrackBar Previous", new EventHandler(OnMovePrevious));
-                _moveNextVerb = new DesignerVerb("Move TrackBar Next", new EventHandler(OnMoveNext));
-                _moveLastVerb = new DesignerVerb("Move TrackBar Last", new EventHandler(OnMoveLast));
-                _deleteTrackBarVerb = new DesignerVerb("Delete TrackBar", new EventHandler(OnDeleteTrackBar));
+                _toggleHelpersVerb = new DesignerVerb("Toggle Helpers", OnToggleHelpers);
+                _moveFirstVerb = new DesignerVerb("Move TrackBar First", OnMoveFirst);
+                _movePrevVerb = new DesignerVerb("Move TrackBar Previous", OnMovePrevious);
+                _moveNextVerb = new DesignerVerb("Move TrackBar Next", OnMoveNext);
+                _moveLastVerb = new DesignerVerb("Move TrackBar Last", OnMoveLast);
+                _deleteTrackBarVerb = new DesignerVerb("Delete TrackBar", OnDeleteTrackBar);
                 _verbs.AddRange(new DesignerVerb[] { _toggleHelpersVerb, _moveFirstVerb, _movePrevVerb, 
                                                      _moveNextVerb, _moveLastVerb, _deleteTrackBarVerb });
             }
@@ -451,13 +451,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_cms == null)
                 {
                     _cms = new ContextMenuStrip();
-                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, new EventHandler(OnToggleHelpers));
-                    _visibleMenu = new ToolStripMenuItem("Visible", null, new EventHandler(OnVisible));
-                    _moveFirstMenu = new ToolStripMenuItem("Move TrackBar First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, new EventHandler(OnMoveFirst));
-                    _movePreviousMenu = new ToolStripMenuItem("Move TrackBar Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, new EventHandler(OnMovePrevious));
-                    _moveNextMenu = new ToolStripMenuItem("Move TrackBar Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, new EventHandler(OnMoveNext));
-                    _moveLastMenu = new ToolStripMenuItem("Move TrackBar Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, new EventHandler(OnMoveLast));
-                    _deleteTrackBarMenu = new ToolStripMenuItem("Delete TrackBar", ComponentFactory.Krypton.Design.Properties.Resources.delete2, new EventHandler(OnDeleteTrackBar));
+                    _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
+                    _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
+                    _moveFirstMenu = new ToolStripMenuItem("Move TrackBar First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move TrackBar Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move TrackBar Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move TrackBar Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteTrackBarMenu = new ToolStripMenuItem("Delete TrackBar", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteTrackBar);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

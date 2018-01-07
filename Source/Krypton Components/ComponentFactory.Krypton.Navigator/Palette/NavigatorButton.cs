@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private DirectionButtonAction _actionPrevious;
         private ButtonDisplay _displayPrevious;
         private DirectionButtonAction _actionNext;
@@ -71,10 +71,10 @@ namespace ComponentFactory.Krypton.Navigator
             CloseButton = new ButtonSpecNavClose(_navigator);
 
             // Hook into the click events for the buttons
-            PreviousButton.Click += new EventHandler(OnPreviousClick);
-            NextButton.Click += new EventHandler(OnNextClick);
-            ContextButton.Click += new EventHandler(OnContextClick);
-            CloseButton.Click += new EventHandler(OnCloseClick);
+            PreviousButton.Click += OnPreviousClick;
+            NextButton.Click += OnNextClick;
+            ContextButton.Click += OnContextClick;
+            CloseButton.Click += OnCloseClick;
 
             // Add fixed buttons into the display collection
             FixedSpecs.AddRange(new ButtonSpecNavFixed[] { PreviousButton, NextButton, ContextButton, CloseButton });

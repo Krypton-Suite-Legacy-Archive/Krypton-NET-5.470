@@ -28,14 +28,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private ViewDrawRibbonGalleryButton _buttonUp;
-        private ViewDrawRibbonGalleryButton _buttonDown;
-        private ViewDrawRibbonGalleryButton _buttonContext;
-        private NeedPaintHandler _needPaint;
-        private PaletteTripleToPalette _triple;
-        private KryptonGallery _gallery;
+        private readonly ViewDrawRibbonGalleryButton _buttonUp;
+        private readonly ViewDrawRibbonGalleryButton _buttonDown;
+        private readonly ViewDrawRibbonGalleryButton _buttonContext;
+        private readonly NeedPaintHandler _needPaint;
+        private readonly PaletteTripleToPalette _triple;
+        private readonly KryptonGallery _gallery;
         private ButtonStyle _style;
-        private Timer _scrollTimer;
+        private readonly Timer _scrollTimer;
         private Size _itemSize;
         private int _lineItems;
         private int _displayLines;
@@ -81,9 +81,9 @@ namespace ComponentFactory.Krypton.Ribbon
             ScrollIntoView = true;
 
             // Need to know when any button is clicked
-            _buttonUp.Click += new MouseEventHandler(OnButtonUp);
-            _buttonDown.Click += new MouseEventHandler(OnButtonDown);
-            _buttonContext.Click += new MouseEventHandler(OnButtonContext);
+            _buttonUp.Click += OnButtonUp;
+            _buttonDown.Click += OnButtonDown;
+            _buttonContext.Click += OnButtonContext;
 
             // Create triple that can be used by the draw button
             _style = ButtonStyle.LowProfile;
@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Interval = 40
             };
-            _scrollTimer.Tick += new EventHandler(OnScrollTick);
+            _scrollTimer.Tick += OnScrollTick;
         }
 
 		/// <summary>

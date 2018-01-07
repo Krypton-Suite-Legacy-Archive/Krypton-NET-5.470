@@ -77,9 +77,9 @@ namespace ComponentFactory.Krypton.Workspace
             UniqueName = CommonHelper.UniqueString;
 
             // We need to know when the set of pages has changed
-            Pages.Cleared += new EventHandler(OnPagesChanged);
-            Pages.Removed += new TypedHandler<KryptonPage>(OnPagesChanged);
-            Pages.Inserted += new TypedHandler<KryptonPage>(OnPagesChanged);
+            Pages.Cleared += OnPagesChanged;
+            Pages.Removed += OnPagesChanged;
+            Pages.Inserted += OnPagesChanged;
             _events = true;
 
             // Add a button spec used to handle maximize/restore functionality
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 Type = PaletteButtonSpecStyle.WorkspaceMaximize
             };
-            MaximizeRestoreButton.Click += new EventHandler(OnMaximizeRestoreButtonClicked);
+            MaximizeRestoreButton.Click += OnMaximizeRestoreButtonClicked;
             Button.ButtonSpecs.Add(MaximizeRestoreButton);
         }
 
@@ -101,9 +101,9 @@ namespace ComponentFactory.Krypton.Workspace
             {
                 // Must unhook to prevent memory leak
                 _events = false;
-                Pages.Cleared -= new EventHandler(OnPagesChanged);
-                Pages.Removed -= new TypedHandler<KryptonPage>(OnPagesChanged);
-                Pages.Inserted -= new TypedHandler<KryptonPage>(OnPagesChanged);
+                Pages.Cleared -= OnPagesChanged;
+                Pages.Removed -= OnPagesChanged;
+                Pages.Inserted -= OnPagesChanged;
 
                 // Must remove from parent workspace manually because the control collection is readonly
                 if (Parent != null)

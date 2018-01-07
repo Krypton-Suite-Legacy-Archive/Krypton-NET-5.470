@@ -19,11 +19,11 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewRibbonMinimizedManager : ViewManager
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewDrawRibbonGroupsBorderSynch _viewGroups;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewDrawRibbonGroupsBorderSynch _viewGroups;
         private ViewDrawRibbonGroup _activeGroup;
-        private NeedPaintHandler _needPaintDelegate;
-        private bool _minimizedMode;
+        private readonly NeedPaintHandler _needPaintDelegate;
+        private readonly bool _minimizedMode;
         private bool _active;
         private bool _layingOut;
         private ViewBase _focusView;

@@ -37,9 +37,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private class InternalListBox : ListBox
         {
             #region Instance Fields
-            private ViewManager _viewManager;
-            private KryptonListBox _kryptonListBox;
-            private IntPtr _screenDC;
+            private readonly ViewManager _viewManager;
+            private readonly KryptonListBox _kryptonListBox;
+            private readonly IntPtr _screenDC;
             private bool _mouseOver;
 
             #endregion
@@ -363,21 +363,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private PaletteTripleOverride _overrideNormal;
-        private PaletteTripleOverride _overrideTracking;
-        private PaletteTripleOverride _overridePressed;
-        private PaletteTripleOverride _overrideCheckedNormal;
-        private PaletteTripleOverride _overrideCheckedTracking;
-        private PaletteTripleOverride _overrideCheckedPressed;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutFill _layoutFill;
-        private ViewDrawButton _drawButton;
-        private InternalListBox _listBox;
-        private FixedContentValue _contentValues;
+        private readonly PaletteTripleOverride _overrideNormal;
+        private readonly PaletteTripleOverride _overrideTracking;
+        private readonly PaletteTripleOverride _overridePressed;
+        private readonly PaletteTripleOverride _overrideCheckedNormal;
+        private readonly PaletteTripleOverride _overrideCheckedTracking;
+        private readonly PaletteTripleOverride _overrideCheckedPressed;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly ViewDrawButton _drawButton;
+        private readonly InternalListBox _listBox;
+        private readonly FixedContentValue _contentValues;
         private Nullable<bool> _fixedActive;
         private ButtonStyle _style;
-        private IntPtr _screenDC;
+        private readonly IntPtr _screenDC;
         private int[] _lastSelectedColl;
         private int _lastSelectedIndex;
         private bool _mouseOver;
@@ -563,28 +563,29 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal list box used for containing content
             _listBox = new InternalListBox(this);
-            _listBox.DrawItem += new DrawItemEventHandler(OnListBoxDrawItem);
-            _listBox.MeasureItem += new MeasureItemEventHandler(OnListBoxMeasureItem);
-            _listBox.TrackMouseEnter += new EventHandler(OnListBoxMouseChange);
-            _listBox.TrackMouseLeave += new EventHandler(OnListBoxMouseChange);
-            _listBox.DataSourceChanged += new EventHandler(OnListBoxDataSourceChanged);
-            _listBox.DisplayMemberChanged += new EventHandler(OnListBoxDisplayMemberChanged);
-            _listBox.ValueMemberChanged += new EventHandler(OnListBoxValueMemberChanged);
-            _listBox.SelectedIndexChanged += new EventHandler(OnListBoxSelectedIndexChanged);
-            _listBox.SelectedValueChanged += new EventHandler(OnListBoxSelectedValueChanged);
-            _listBox.DisplayMemberChanged += new EventHandler(OnListBoxDisplayMemberChanged);
-            _listBox.Format += new ListControlConvertEventHandler(OnListBoxFormat);
-            _listBox.FormatInfoChanged += new EventHandler(OnListBoxFormatInfoChanged);
-            _listBox.FormatStringChanged += new EventHandler(OnListBoxFormatStringChanged);
-            _listBox.FormattingEnabledChanged += new EventHandler(OnListBoxFormattingEnabledChanged);
-            _listBox.GotFocus += new EventHandler(OnListBoxGotFocus);
-            _listBox.LostFocus += new EventHandler(OnListBoxLostFocus);
-            _listBox.KeyDown += new KeyEventHandler(OnListBoxKeyDown);
-            _listBox.KeyUp += new KeyEventHandler(OnListBoxKeyUp);
-            _listBox.KeyPress += new KeyPressEventHandler(OnListBoxKeyPress);
-            _listBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnListBoxPreviewKeyDown);
-            _listBox.Validating += new CancelEventHandler(OnListBoxValidating);
-            _listBox.Validated += new EventHandler(OnListBoxValidated);
+            _listBox.DrawItem += OnListBoxDrawItem;
+            _listBox.MeasureItem += OnListBoxMeasureItem;
+            _listBox.TrackMouseEnter += OnListBoxMouseChange;
+            _listBox.TrackMouseLeave += OnListBoxMouseChange;
+            _listBox.DataSourceChanged += OnListBoxDataSourceChanged;
+            _listBox.DisplayMemberChanged += OnListBoxDisplayMemberChanged;
+            _listBox.ValueMemberChanged += OnListBoxValueMemberChanged;
+            _listBox.SelectedIndexChanged += OnListBoxSelectedIndexChanged;
+            _listBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
+            _listBox.DisplayMemberChanged += OnListBoxDisplayMemberChanged;
+            _listBox.Format += OnListBoxFormat;
+            _listBox.FormatInfoChanged += OnListBoxFormatInfoChanged;
+            _listBox.FormatStringChanged += OnListBoxFormatStringChanged;
+            _listBox.FormattingEnabledChanged += OnListBoxFormattingEnabledChanged;
+            _listBox.GotFocus += OnListBoxGotFocus;
+            _listBox.LostFocus += OnListBoxLostFocus;
+            _listBox.KeyDown += OnListBoxKeyDown;
+            _listBox.KeyUp += OnListBoxKeyUp;
+            _listBox.KeyPress += OnListBoxKeyPress;
+            _listBox.PreviewKeyDown += OnListBoxPreviewKeyDown;
+            _listBox.Validating += OnListBoxValidating;
+            _listBox.Validated += OnListBoxValidated;
+            _listBox.Click += OnListBoxClick;  // SKC: make sure that the default click is also routed.
 
             // Create the element that fills the remainder space and remembers fill rectange
             _layoutFill = new ViewLayoutFill(_listBox)
@@ -612,6 +613,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Add list box to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(_listBox);
+        }
+
+        private void OnListBoxClick(object sender, EventArgs e)
+        {
+            base.OnClick(e);
         }
 
         /// <summary>

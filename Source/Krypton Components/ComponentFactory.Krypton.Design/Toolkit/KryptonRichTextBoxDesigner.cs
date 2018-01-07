@@ -48,8 +48,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_richTextBox != null)
             {
                 // Hook into rich textbox events
-                _richTextBox.GetViewManager().MouseUpProcessed += new MouseEventHandler(OnTextBoxMouseUp);
-                _richTextBox.GetViewManager().DoubleClickProcessed += new PointHandler(OnTextBoxDoubleClick);
+                _richTextBox.GetViewManager().MouseUpProcessed += OnTextBoxMouseUp;
+                _richTextBox.GetViewManager().DoubleClickProcessed += OnTextBoxDoubleClick;
             }
 
             // Get access to the design services
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>

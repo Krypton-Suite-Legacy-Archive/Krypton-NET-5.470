@@ -21,10 +21,10 @@ namespace ComponentFactory.Krypton.Navigator
     public class KryptonNavigatorActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
-        private KryptonNavigatorDesigner _designer;
-        private IComponentChangeService _serviceComponentChange;
-        private DesignerActionUIService _serviceDesignerAction;
+        private readonly KryptonNavigator _navigator;
+        private readonly KryptonNavigatorDesigner _designer;
+        private readonly IComponentChangeService _serviceComponentChange;
+        private readonly DesignerActionUIService _serviceDesignerAction;
         private DesignerVerb _headerBarVisible;
         private DesignerVerb _headerPrimaryVisible;
         private DesignerVerb _headerSecondaryVisible;
@@ -753,9 +753,9 @@ namespace ComponentFactory.Krypton.Navigator
             _headerSecondaryText = (headerSecondaryVisible ? "Hide secondary header" : "Show secondary header");
 
             // Create the two verbs for toggling the header visibility
-            _headerBarVisible = new DesignerVerb(_headerBarText, new EventHandler(OnVisibleClick));
-            _headerPrimaryVisible = new DesignerVerb(_headerPrimaryText, new EventHandler(OnVisibleClick));
-            _headerSecondaryVisible = new DesignerVerb(_headerSecondaryText, new EventHandler(OnVisibleClick));
+            _headerBarVisible = new DesignerVerb(_headerBarText, OnVisibleClick);
+            _headerPrimaryVisible = new DesignerVerb(_headerPrimaryText, OnVisibleClick);
+            _headerSecondaryVisible = new DesignerVerb(_headerSecondaryText, OnVisibleClick);
 
             actions.Add(new DesignerActionHeaderItem("Header"));
 

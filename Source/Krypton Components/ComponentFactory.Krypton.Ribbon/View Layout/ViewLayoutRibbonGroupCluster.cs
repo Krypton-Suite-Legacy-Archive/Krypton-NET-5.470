@@ -32,18 +32,18 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroupCluster _ribbonCluster;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupCluster _ribbonCluster;
         private ViewDrawRibbonDesignCluster _viewAddItem;
-        private ViewDrawRibbonGroupClusterSeparator _startSep;
-        private ViewDrawRibbonGroupClusterSeparator _endSep;
-        private PaletteBorderEdge _paletteBorderEdge;
+        private readonly ViewDrawRibbonGroupClusterSeparator _startSep;
+        private readonly ViewDrawRibbonGroupClusterSeparator _endSep;
+        private readonly PaletteBorderEdge _paletteBorderEdge;
         private PaletteRibbonShape _lastShape;
-        private NeedPaintHandler _needPaint;
+        private readonly NeedPaintHandler _needPaint;
         private ItemToView _itemToView;
         private ViewToEdge _viewToEdge;
-        private ViewToSize _viewToSizeMedium;
-        private ViewToSize _viewToSizeSmall;
+        private readonly ViewToSize _viewToSizeMedium;
+        private readonly ViewToSize _viewToSizeSmall;
         private GroupItemSize _currentSize;
         private bool _startSepVisible;
         private bool _endSepVisible;
@@ -91,14 +91,14 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewToSizeSmall = new ViewToSize();
 
             // Hook into changes in the ribbon cluster definition
-            _ribbonCluster.PropertyChanged += new PropertyChangedEventHandler(OnClusterPropertyChanged);
+            _ribbonCluster.PropertyChanged += OnClusterPropertyChanged;
             _ribbonCluster.ClusterView = this;
 
             // At design time we want to track the mouse and show feedback
             if (_ribbon.InDesignMode)
             {
                 ViewHightlightController controller = new ViewHightlightController(this, needPaint);
-                controller.ContextClick += new MouseEventHandler(OnContextClick);
+                controller.ContextClick += OnContextClick;
                 MouseController = controller;
             }
         }
@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (disposing)
             {
                 // Must unhook to prevent memory leaks
-                _ribbonCluster.PropertyChanged -= new PropertyChangedEventHandler(OnClusterPropertyChanged);
+                _ribbonCluster.PropertyChanged -= OnClusterPropertyChanged;
                 _ribbonCluster.ClusterView = null;
             }
 

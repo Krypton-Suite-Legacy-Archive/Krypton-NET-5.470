@@ -30,26 +30,26 @@ namespace ComponentFactory.Krypton.Navigator
     public class KryptonPage : VisualPanel
     {
         #region Instance Fields
-        private ViewDrawPanel _drawPanel;
-        private PaletteRedirectDoubleMetric _redirectNavigator;
-        private PaletteRedirectDoubleMetric _redirectNavigatorHeaderGroup;
-        private PaletteRedirectTripleMetric _redirectNavigatorHeaderPrimary;
-        private PaletteRedirectTripleMetric _redirectNavigatorHeaderSecondary;
-        private PaletteRedirectTripleMetric _redirectNavigatorHeaderBar;
-        private PaletteRedirectTripleMetric _redirectNavigatorHeaderOverflow;
-        private PaletteRedirectTriple _redirectNavigatorCheckButton;
-        private PaletteRedirectTriple _redirectNavigatorOverflowButton;
-        private PaletteRedirectTriple _redirectNavigatorMiniButton;
-        private PaletteRedirectTriple _redirectNavigatorTab;
-        private PaletteRedirectRibbonTabContent _redirectNavigatorRibbonTab;
-        private PaletteRedirectMetric _redirectNavigatorBar;
-        private PaletteRedirectDouble _redirectNavigatorPage;
-        private PaletteRedirectDoubleMetric _redirectNavigatorSeparator;
-        private PaletteNavigatorRedirect _stateCommon;
-        private PaletteNavigator _stateDisabled;
-        private PaletteNavigator _stateNormal;
-        private NeedPaintHandler _needDisabledPaint;
-        private NeedPaintHandler _needNormalPaint;
+        private readonly ViewDrawPanel _drawPanel;
+        private readonly PaletteRedirectDoubleMetric _redirectNavigator;
+        private readonly PaletteRedirectDoubleMetric _redirectNavigatorHeaderGroup;
+        private readonly PaletteRedirectTripleMetric _redirectNavigatorHeaderPrimary;
+        private readonly PaletteRedirectTripleMetric _redirectNavigatorHeaderSecondary;
+        private readonly PaletteRedirectTripleMetric _redirectNavigatorHeaderBar;
+        private readonly PaletteRedirectTripleMetric _redirectNavigatorHeaderOverflow;
+        private readonly PaletteRedirectTriple _redirectNavigatorCheckButton;
+        private readonly PaletteRedirectTriple _redirectNavigatorOverflowButton;
+        private readonly PaletteRedirectTriple _redirectNavigatorMiniButton;
+        private readonly PaletteRedirectTriple _redirectNavigatorTab;
+        private readonly PaletteRedirectRibbonTabContent _redirectNavigatorRibbonTab;
+        private readonly PaletteRedirectMetric _redirectNavigatorBar;
+        private readonly PaletteRedirectDouble _redirectNavigatorPage;
+        private readonly PaletteRedirectDoubleMetric _redirectNavigatorSeparator;
+        private readonly PaletteNavigatorRedirect _stateCommon;
+        private readonly PaletteNavigator _stateDisabled;
+        private readonly PaletteNavigator _stateNormal;
+        private readonly NeedPaintHandler _needDisabledPaint;
+        private readonly NeedPaintHandler _needNormalPaint;
         private BoolFlags31 _flags;
         private string _textTitle;
         private string _textDescription;
@@ -184,8 +184,8 @@ namespace ComponentFactory.Krypton.Navigator
             _flags.ClearFlags((int)KryptonPageFlags.PageInOverflowBarForOutlookMode);
 
             // Create delegates
-            _needDisabledPaint = new NeedPaintHandler(OnNeedDisabledPaint);
-            _needNormalPaint = new NeedPaintHandler(OnNeedNormalPaint);
+            _needDisabledPaint = OnNeedDisabledPaint;
+            _needNormalPaint = OnNeedNormalPaint;
 
             // Create redirector for inheriting from owning navigator
             _redirectNavigator = new PaletteRedirectDoubleMetric(Redirector);
@@ -772,14 +772,14 @@ namespace ComponentFactory.Krypton.Navigator
                 {
                     if (_kcm != null)
                     {
-                        _kcm.Disposed += new EventHandler(OnKryptonContextMenuDisposed);
+                        _kcm.Disposed += OnKryptonContextMenuDisposed;
                     }
 
                     _kcm = value;
 
                     if (_kcm != null)
                     {
-                        _kcm.Disposed -= new EventHandler(OnKryptonContextMenuDisposed);
+                        _kcm.Disposed -= OnKryptonContextMenuDisposed;
                     }
                 }
             }

@@ -33,15 +33,15 @@ namespace ComponentFactory.Krypton.Ribbon
     {
         #region Instance Fields
 
-        private PaletteGalleryBackBorder _backBorder;
-        private ViewLayoutRibbonGalleryButtons _buttonsLayout;
-        private ViewDrawRibbonGalleryButton _buttonUp;
-        private ViewDrawRibbonGalleryButton _buttonDown;
-        private ViewDrawRibbonGalleryButton _buttonContext;
-        private ViewLayoutRibbonGalleryItems _drawItems;
+        private readonly PaletteGalleryBackBorder _backBorder;
+        private readonly ViewLayoutRibbonGalleryButtons _buttonsLayout;
+        private readonly ViewDrawRibbonGalleryButton _buttonUp;
+        private readonly ViewDrawRibbonGalleryButton _buttonDown;
+        private readonly ViewDrawRibbonGalleryButton _buttonContext;
+        private readonly ViewLayoutRibbonGalleryItems _drawItems;
         private ImageList _imageList;
-        private ViewLayoutDocker _layoutDocker;
-        private ViewDrawDocker _drawDocker;
+        private readonly ViewLayoutDocker _layoutDocker;
+        private readonly ViewDrawDocker _drawDocker;
         private Nullable<bool> _fixedActive;
         private Size _preferredItemSize;
         private bool _mouseOver;
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private int _trackingIndex;
         private int _cacheTrackingIndex;
         private int _eventTrackingIndex;
-        private Timer _trackingEventTimer;
+        private readonly Timer _trackingEventTimer;
         private KryptonContextMenu _dropMenu;
         private EventHandler _finishDelegate;
         #endregion
@@ -108,7 +108,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Interval = 120
             };
-            _trackingEventTimer.Tick += new EventHandler(OnTrackingTick);
+            _trackingEventTimer.Tick += OnTrackingTick;
 
             // Create content storage
             Images = new GalleryImages(NeedPaintDelegate);
@@ -878,13 +878,13 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     if (item is KryptonContextMenuImageSelect itemSelect)
                     {
-                        itemSelect.SelectedIndexChanged += new EventHandler(OnDropImageSelect);
-                        itemSelect.TrackingImage += new EventHandler<ImageSelectEventArgs>(OnDropImageTracking);
+                        itemSelect.SelectedIndexChanged += OnDropImageSelect;
+                        itemSelect.TrackingImage += OnDropImageTracking;
                     }
                 }
 
                 // Need to know when the menu is dismissed
-                args.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnDropMenuClosed);
+                args.KryptonContextMenu.Closed += OnDropMenuClosed;
 
                 // Remember the delegate we need to fire when the menu is dismissed
                 _finishDelegate = finishDelegate;
@@ -907,15 +907,15 @@ namespace ComponentFactory.Krypton.Ribbon
                 TrackingIndex = -1;
 
                 // Unhook from events
-                _dropMenu.Closed -= new ToolStripDropDownClosedEventHandler(OnDropMenuClosed);
+                _dropMenu.Closed -= OnDropMenuClosed;
 
                 // Unhook from the image select events
                 foreach (KryptonContextMenuItemBase item in _dropMenu.Items)
                 {
                     if (item is KryptonContextMenuImageSelect itemSelect)
                     {
-                        itemSelect.SelectedIndexChanged -= new EventHandler(OnDropImageSelect);
-                        itemSelect.TrackingImage -= new EventHandler<ImageSelectEventArgs>(OnDropImageTracking);
+                        itemSelect.SelectedIndexChanged -= OnDropImageSelect;
+                        itemSelect.TrackingImage -= OnDropImageTracking;
                     }
                 }
 

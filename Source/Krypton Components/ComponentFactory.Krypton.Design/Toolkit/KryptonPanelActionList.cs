@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonPanelActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonPanel _panel;
-        private IComponentChangeService _service;
+        private readonly KryptonPanel _panel;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

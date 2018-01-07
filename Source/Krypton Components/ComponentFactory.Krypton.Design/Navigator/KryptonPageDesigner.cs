@@ -50,14 +50,14 @@ namespace ComponentFactory.Krypton.Navigator
             _page = (KryptonPage)component;
 
             // Hook into page events
-            _page.FlagsChanged += new KryptonPageFlagsEventHandler(OnPageFlagsChanged);
+            _page.FlagsChanged += OnPageFlagsChanged;
 
             // Acquire service interfaces
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
 
             // Lock the component from user size/location change
             PropertyDescriptor descriptor = TypeDescriptor.GetProperties(component)["Locked"];
@@ -126,7 +126,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_verbs == null)
                 {
                     // Cache verb instances so enabled state can be updated in future
-                    _verbEditFlags = new DesignerVerb("Edit Flags", new EventHandler(OnEditFlags));
+                    _verbEditFlags = new DesignerVerb("Edit Flags", OnEditFlags);
                     _verbs = new DesignerVerbCollection(new DesignerVerb[] { _verbEditFlags });
                 }
 
@@ -200,7 +200,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (disposing)
                 {
                     // Remove event hooks
-                    _page.FlagsChanged -= new KryptonPageFlagsEventHandler(OnPageFlagsChanged);
+                    _page.FlagsChanged -= OnPageFlagsChanged;
                 }
             }
             finally

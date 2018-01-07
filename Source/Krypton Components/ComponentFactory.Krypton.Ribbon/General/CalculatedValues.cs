@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private PaletteRibbonShape _lastShape;
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private int _groupHeightModifier;
         private int _groupsHeightModifier;
         #endregion

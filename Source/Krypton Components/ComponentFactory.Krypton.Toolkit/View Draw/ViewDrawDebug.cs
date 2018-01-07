@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class ViewDrawDebug : ViewLeaf
 	{
 		#region Instance Fields
-        private Size _preferredSize;
-        private Color _color;
+        private readonly Size _preferredSize;
+        private readonly Color _color;
         #endregion
 
 		#region Identity

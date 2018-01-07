@@ -32,14 +32,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Instance Fields
 
-        private ViewDrawDocker _drawHeader;
-        private PaletteBorderInheritForced _borderForced;
+        private readonly ViewDrawDocker _drawHeader;
+        private readonly PaletteBorderInheritForced _borderForced;
         private VisualPopupToolTip _visualPopupToolTip;
-        private ViewDrawToday _drawToday;
-        private ButtonSpecRemapByContentView _remapPalette;
-        private ViewDrawEmptyContent _emptyContent;
-        private PaletteTripleRedirect _palette;
-        private ToolTipManager _toolTipManager;
+        private readonly ViewDrawToday _drawToday;
+        private readonly ButtonSpecRemapByContentView _remapPalette;
+        private readonly ViewDrawEmptyContent _emptyContent;
+        private readonly PaletteTripleRedirect _palette;
+        private readonly ToolTipManager _toolTipManager;
         private CultureInfo _lastCultureInfo;
         private DateTime _displayMonth;
         private string _dayOfWeekMeasure;
@@ -50,8 +50,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private DateTime? _oldFocusDay;
         private DateTime? _trackingDay;
         private DateTime? _anchorDay;
-        private NeedPaintHandler _needPaintDelegate;
-        private PaletteRedirect _redirector;
+        private readonly NeedPaintHandler _needPaintDelegate;
+        private readonly PaletteRedirect _redirector;
         private bool _showWeekNumbers;
         private bool _showTodayCircle;
         private bool _showToday;
@@ -112,8 +112,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the manager for handling tooltips
             _toolTipManager = new ToolTipManager();
-            _toolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            _toolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            _toolTipManager.ShowToolTip += OnShowToolTip;
+            _toolTipManager.CancelToolTip += OnCancelToolTip;
             ButtonManager.ToolTipManager = _toolTipManager;
 
             // Create the bottom header used for showing 'today' and defined button specs
@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  _needPaintDelegate);
 
             _drawToday = new ViewDrawToday(Calendar, _palette, _palette, _palette, _palette, _needPaintDelegate);
-            _drawToday.Click += new EventHandler(OnTodayClick);
+            _drawToday.Click += OnTodayClick;
             _drawHeader.Add(_drawToday, ViewDockStyle.Left);
         }
 
@@ -860,7 +860,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(Calendar.CalendarControl.RectangleToScreen(e.Target.ClientRectangle));
@@ -879,7 +879,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

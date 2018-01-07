@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteContentToPalette : IPaletteContent
     {
         #region Instance Fields
-        private IPalette _palette;
+        private readonly IPalette _palette;
 
         #endregion
 

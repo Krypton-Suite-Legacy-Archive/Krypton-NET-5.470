@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonAppMenuInner : ViewLayoutDocker
 	{
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable _memento;
         #endregion
 

@@ -73,16 +73,16 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Instance Fields
-        private CellToCachedState _lookupCellState;
-        private EventHandler _focusUpdate;
-        private EventHandler _visibleUpdate;
+        private readonly CellToCachedState _lookupCellState;
+        private readonly EventHandler _focusUpdate;
+        private readonly EventHandler _visibleUpdate;
         private bool _awaitingFocusUpdate;
         private bool _awaitingVisibleUpdate;
         private bool _setFocus;
         private string _closeTooltip;
         private string _pinTooltip;
         private string _dropDownTooltip;
-        private string _storeName;
+        private readonly string _storeName;
         #endregion
 
         #region Events
@@ -155,8 +155,8 @@ namespace ComponentFactory.Krypton.Docking
             _lookupCellState = new CellToCachedState();
 
             // Create delegates so processing happens sync'd with the message queue
-            _visibleUpdate = new EventHandler(OnVisibleUpdate);
-            _focusUpdate = new EventHandler(OnFocusUpdate);
+            _visibleUpdate = OnVisibleUpdate;
+            _focusUpdate = OnFocusUpdate;
             _awaitingFocusUpdate = false;
             AutoHiddenHost = false;
             _closeTooltip = "Close";
@@ -463,14 +463,14 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Hook into cell specific events
-            cell.ShowContextMenu += new EventHandler<ShowContextMenuArgs>(OnCellShowContextMenu);
-            cell.SelectedPageChanged += new EventHandler(OnCellSelectedPageChanged);
-            cell.PrimaryHeaderLeftClicked += new EventHandler(OnCellPrimaryHeaderLeftClicked);
-            cell.PrimaryHeaderRightClicked += new EventHandler(OnCellPrimaryHeaderRightClicked);
-            cell.PrimaryHeaderDoubleClicked += new EventHandler(OnCellPrimaryHeaderDoubleClicked);
-            cell.TabDoubleClicked += new EventHandler<KryptonPageEventArgs>(OnCellTabDoubleClicked);
-            cell.TabVisibleCountChanged += new EventHandler(OnCellTabVisibleCountChanged);
-            cell.Pages.Inserting += new TypedHandler<KryptonPage>(OnCellPagesInserting);
+            cell.ShowContextMenu += OnCellShowContextMenu;
+            cell.SelectedPageChanged += OnCellSelectedPageChanged;
+            cell.PrimaryHeaderLeftClicked += OnCellPrimaryHeaderLeftClicked;
+            cell.PrimaryHeaderRightClicked += OnCellPrimaryHeaderRightClicked;
+            cell.PrimaryHeaderDoubleClicked += OnCellPrimaryHeaderDoubleClicked;
+            cell.TabDoubleClicked += OnCellTabDoubleClicked;
+            cell.TabVisibleCountChanged += OnCellTabVisibleCountChanged;
+            cell.Pages.Inserting += OnCellPagesInserting;
 
             // Create and store per-cell cached state
             CachedCellState cellState = new CachedCellState
@@ -512,14 +512,14 @@ namespace ComponentFactory.Krypton.Docking
             FocusMonitorControl(cell, false);
 
             // Unhook from events so the cell can be garbage colleced
-            cell.ShowContextMenu -= new EventHandler<ShowContextMenuArgs>(OnCellShowContextMenu);
-            cell.SelectedPageChanged -= new EventHandler(OnCellSelectedPageChanged);
-            cell.PrimaryHeaderLeftClicked -= new EventHandler(OnCellPrimaryHeaderLeftClicked);
-            cell.PrimaryHeaderRightClicked -= new EventHandler(OnCellPrimaryHeaderRightClicked);
-            cell.PrimaryHeaderDoubleClicked -= new EventHandler(OnCellPrimaryHeaderDoubleClicked);
-            cell.TabDoubleClicked -= new EventHandler<KryptonPageEventArgs>(OnCellTabDoubleClicked);
-            cell.TabVisibleCountChanged -= new EventHandler(OnCellTabVisibleCountChanged);
-            cell.Pages.Inserting -= new TypedHandler<KryptonPage>(OnCellPagesInserting);
+            cell.ShowContextMenu -= OnCellShowContextMenu;
+            cell.SelectedPageChanged -= OnCellSelectedPageChanged;
+            cell.PrimaryHeaderLeftClicked -= OnCellPrimaryHeaderLeftClicked;
+            cell.PrimaryHeaderRightClicked -= OnCellPrimaryHeaderRightClicked;
+            cell.PrimaryHeaderDoubleClicked -= OnCellPrimaryHeaderDoubleClicked;
+            cell.TabDoubleClicked -= OnCellTabDoubleClicked;
+            cell.TabVisibleCountChanged -= OnCellTabVisibleCountChanged;
+            cell.Pages.Inserting -= OnCellPagesInserting;
 
             // Remove the per-cell cached state
             _lookupCellState.Remove(cell);
@@ -546,7 +546,7 @@ namespace ComponentFactory.Krypton.Docking
                         ToolTipTitle = DropDownTooltip,
                         KryptonContextMenu = new KryptonContextMenu()
                     };
-                    cellState.DropDownButtonSpec.KryptonContextMenu.Opening += new CancelEventHandler(OnCellDropDownOpening);
+                    cellState.DropDownButtonSpec.KryptonContextMenu.Opening += OnCellDropDownOpening;
                     cell.Button.ButtonSpecs.Add(cellState.DropDownButtonSpec);
                 }
 
@@ -570,7 +570,7 @@ namespace ComponentFactory.Krypton.Docking
                         Type = (AutoHiddenHost ? PaletteButtonSpecStyle.PinHorizontal : PaletteButtonSpecStyle.PinVertical),
                         ToolTipTitle = PinTooltip
                     };
-                    cellState.PinButtonSpec.Click += new EventHandler(OnCellAutoHiddenAction);
+                    cellState.PinButtonSpec.Click += OnCellAutoHiddenAction;
                     cell.Button.ButtonSpecs.Add(cellState.PinButtonSpec);
                 }
 
@@ -601,7 +601,7 @@ namespace ComponentFactory.Krypton.Docking
                         Type = PaletteButtonSpecStyle.Close,
                         ToolTipTitle = CloseTooltip
                     };
-                    cellState.CloseButtonSpec.Click += new EventHandler(OnCellCloseAction);
+                    cellState.CloseButtonSpec.Click += OnCellCloseAction;
                     cell.Button.ButtonSpecs.Add(cellState.CloseButtonSpec);
                 }
 
@@ -623,17 +623,17 @@ namespace ComponentFactory.Krypton.Docking
             // Hook/Unhook this control
             if (adding)
             {
-                c.GotFocus += new EventHandler(OnFocusChanged);
-                c.LostFocus += new EventHandler(OnFocusChanged);
-                c.ControlAdded += new ControlEventHandler(OnFocusControlAdded);
-                c.ControlRemoved += new ControlEventHandler(OnFocusControlRemoved);
+                c.GotFocus += OnFocusChanged;
+                c.LostFocus += OnFocusChanged;
+                c.ControlAdded += OnFocusControlAdded;
+                c.ControlRemoved += OnFocusControlRemoved;
             }
             else
             {
-                c.GotFocus -= new EventHandler(OnFocusChanged);
-                c.LostFocus -= new EventHandler(OnFocusChanged);
-                c.ControlAdded -= new ControlEventHandler(OnFocusControlAdded);
-                c.ControlRemoved -= new ControlEventHandler(OnFocusControlRemoved);
+                c.GotFocus -= OnFocusChanged;
+                c.LostFocus -= OnFocusChanged;
+                c.ControlAdded -= OnFocusControlAdded;
+                c.ControlRemoved -= OnFocusControlRemoved;
             }
 
             // Monitor all the child controls as well
@@ -883,7 +883,7 @@ namespace ComponentFactory.Krypton.Docking
                 // Remove events on the old selected page
                 if (cellState.SelectedPage != null)
                 {
-                    cellState.SelectedPage.FlagsChanged -= new KryptonPageFlagsEventHandler(OnCellSelectedPageFlagsChanged);
+                    cellState.SelectedPage.FlagsChanged -= OnCellSelectedPageFlagsChanged;
                 }
 
                 // Use the new setting
@@ -893,7 +893,7 @@ namespace ComponentFactory.Krypton.Docking
                 // Add events on the new selected page
                 if (cellState.SelectedPage != null)
                 {
-                    cellState.SelectedPage.FlagsChanged += new KryptonPageFlagsEventHandler(OnCellSelectedPageFlagsChanged);
+                    cellState.SelectedPage.FlagsChanged += OnCellSelectedPageFlagsChanged;
                 }
             }
         }

@@ -23,12 +23,12 @@ namespace ComponentFactory.Krypton.Ribbon
                                             IMouseController
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _captured;
         private bool _mouseOver;
-        private ViewBase _target;
+        private readonly ViewBase _target;
         private NeedPaintHandler _needPaint;
-        private Timer _repeatTimer;
+        private readonly Timer _repeatTimer;
         #endregion
 
         #region Events
@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Interval = 50
             };
-            _repeatTimer.Tick += new EventHandler(OnRepeatTick);
+            _repeatTimer.Tick += OnRepeatTick;
         }
 		#endregion
 

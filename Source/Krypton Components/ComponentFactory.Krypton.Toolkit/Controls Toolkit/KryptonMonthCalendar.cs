@@ -33,12 +33,22 @@ namespace ComponentFactory.Krypton.Toolkit
                                         IKryptonMonthCalendar
     {
         #region Instance Fields
-        private ViewDrawDocker _drawDocker;
-        private ViewLayoutMonths _drawMonths;
-        private PaletteTripleOverride _boldedDisabled, _boldedNormal, _boldedTracking, _boldedPressed;
-        private PaletteTripleOverride _boldedCheckedNormal, _boldedCheckedTracking, _boldedCheckedPressed;
-        private PaletteTripleOverride _todayDisabled, _todayNormal, _todayTracking, _todayPressed;
-        private PaletteTripleOverride _todayCheckedNormal, _todayCheckedTracking, _todayCheckedPressed;
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewLayoutMonths _drawMonths;
+        private readonly PaletteTripleOverride _boldedDisabled;
+        private readonly PaletteTripleOverride _boldedNormal;
+        private readonly PaletteTripleOverride _boldedTracking;
+        private readonly PaletteTripleOverride _boldedPressed;
+        private readonly PaletteTripleOverride _boldedCheckedNormal;
+        private readonly PaletteTripleOverride _boldedCheckedTracking;
+        private readonly PaletteTripleOverride _boldedCheckedPressed;
+        private readonly PaletteTripleOverride _todayDisabled;
+        private readonly PaletteTripleOverride _todayNormal;
+        private readonly PaletteTripleOverride _todayTracking;
+        private readonly PaletteTripleOverride _todayPressed;
+        private readonly PaletteTripleOverride _todayCheckedNormal;
+        private readonly PaletteTripleOverride _todayCheckedTracking;
+        private readonly PaletteTripleOverride _todayCheckedPressed;
         private HeaderStyle _headerStyle;
         private ButtonStyle _dayStyle;
         private ButtonStyle _dayOfWeekStyle;
@@ -47,8 +57,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private DateTime _minDate;
         private DateTime _maxDate;
         private DateTime _todayDate;
-        private DateTimeList _annualDates;
-        private DateTimeList _monthlyDates;
+        private readonly DateTimeList _annualDates;
+        private readonly DateTimeList _monthlyDates;
         private Day _firstDayOfWeek;
         private Size _dimensions;
         private string _todayFormat;
@@ -1435,7 +1445,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public GetToolStripRenderer GetToolStripDelegate => new GetToolStripRenderer(CreateToolStripRenderer);
+        public GetToolStripRenderer GetToolStripDelegate => CreateToolStripRenderer;
 
         /// <summary>
         /// Internal design time method.

@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Navigator
             ViewManager.Root = newRoot;
 
 			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
+			Navigator.EnabledChanged += OnEnabledChanged;
 		}
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void Destruct()
         {
             // Unhook from events
-            Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
+            Navigator.EnabledChanged -= OnEnabledChanged;
 
             // Pull down the header group view hierarchy
             _headerGroup.Destruct();

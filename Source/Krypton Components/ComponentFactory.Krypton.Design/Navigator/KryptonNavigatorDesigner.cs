@@ -66,12 +66,12 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // Monitor navigator events
-            Navigator.GetViewManager().MouseDownProcessed += new MouseEventHandler(OnNavigatorMouseUp);
-            Navigator.GetViewManager().DoubleClickProcessed += new PointHandler(OnNavigatorDoubleClick);
-            Navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            Navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            Navigator.Pages.Cleared += new EventHandler(OnPagesCleared);
-            Navigator.SelectedPageChanged += new EventHandler(OnSelectedPageChanged);
+            Navigator.GetViewManager().MouseDownProcessed += OnNavigatorMouseUp;
+            Navigator.GetViewManager().DoubleClickProcessed += OnNavigatorDoubleClick;
+            Navigator.Pages.Inserted += OnPageInserted;
+            Navigator.Pages.Removed += OnPageRemoved;
+            Navigator.Pages.Cleared += OnPagesCleared;
+            Navigator.SelectedPageChanged += OnSelectedPageChanged;
 
             // Get access to the services
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Navigator
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
             // We need to know when we are being removed
-            _changeService.ComponentRemoving += new ComponentEventHandler(OnComponentRemoving);
+            _changeService.ComponentRemoving += OnComponentRemoving;
         }
 
         /// <summary>
@@ -135,9 +135,9 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_verbs == null)
                 {
                     // Cache verb instances so enabled state can be updated in future
-                    _verbAddPage = new DesignerVerb("Add Page", new EventHandler(OnAddPage));
-                    _verbRemovePage = new DesignerVerb("Remove Page", new EventHandler(OnRemovePage));
-                    _verbClearPages = new DesignerVerb("Clear Pages", new EventHandler(OnClearPages));
+                    _verbAddPage = new DesignerVerb("Add Page", OnAddPage);
+                    _verbRemovePage = new DesignerVerb("Remove Page", OnRemovePage);
+                    _verbClearPages = new DesignerVerb("Clear Pages", OnClearPages);
                     _verbs = new DesignerVerbCollection(new DesignerVerb[] { _verbAddPage, _verbRemovePage, _verbClearPages });
 
                     // Set correct initial state of the verbs
@@ -239,15 +239,15 @@ namespace ComponentFactory.Krypton.Navigator
                 if (disposing)
                 {
                     // Unhook from navigator events
-                    Navigator.GetViewManager().MouseUpProcessed -= new MouseEventHandler(OnNavigatorMouseUp);
-                    Navigator.GetViewManager().DoubleClickProcessed -= new PointHandler(OnNavigatorDoubleClick);
-                    Navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnPageInserted);
-                    Navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnPageRemoved);
-                    Navigator.Pages.Cleared -= new EventHandler(OnPagesCleared);
-                    Navigator.SelectedPageChanged -= new EventHandler(OnSelectedPageChanged);
+                    Navigator.GetViewManager().MouseUpProcessed -= OnNavigatorMouseUp;
+                    Navigator.GetViewManager().DoubleClickProcessed -= OnNavigatorDoubleClick;
+                    Navigator.Pages.Inserted -= OnPageInserted;
+                    Navigator.Pages.Removed -= OnPageRemoved;
+                    Navigator.Pages.Cleared -= OnPagesCleared;
+                    Navigator.SelectedPageChanged -= OnSelectedPageChanged;
 
                     // Unhook from designer events
-                    _changeService.ComponentRemoving -= new ComponentEventHandler(OnComponentRemoving);
+                    _changeService.ComponentRemoving -= OnComponentRemoving;
                 }
             }
             finally

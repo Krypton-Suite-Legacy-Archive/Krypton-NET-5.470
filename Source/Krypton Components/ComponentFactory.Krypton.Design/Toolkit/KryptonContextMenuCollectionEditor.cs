@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     Text = Item.ToString();
 
                     // Hook into property changes
-                    Item.PropertyChanged += new PropertyChangedEventHandler(OnPropertyChanged);
+                    Item.PropertyChanged += OnPropertyChanged;
                 }
                 #endregion
 
@@ -126,7 +126,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 #region Instance Fields
 
-                private IServiceProvider _serviceProvider;
+                private readonly IServiceProvider _serviceProvider;
                 private bool _inGetService;
                 #endregion
 
@@ -198,27 +198,27 @@ namespace ComponentFactory.Krypton.Toolkit
             #region Instance Fields
             private DictItemBase _beforeItems;
             private KryptonContextMenuCollectionEditor _editor;
-            private Button buttonOK;
-            private TreeView treeView;
-            private Label label1;
-            private Label label2;
-            private ImageList imageList;
-            private Button buttonDelete;
-            private Button buttonMoveUp;
-            private Button buttonMoveDown;
-            private Button buttonAddCheckBox;
-            private Button buttonAddCheckButton;
-            private Button buttonAddRadioButton;
-            private Button buttonAddLinkLabel;
-            private Button buttonAddSeparator;
-            private Button buttonAddItem;
-            private Button buttonAddItems;
-            private Button buttonAddHeading;
-            private Button buttonAddMonthCalendar;
-            private Button buttonAddColorColumns;
-            private Button buttonAddImageSelect;
-            private PropertyGrid propertyGrid1;
-            private IContainer components = null;
+            private readonly Button buttonOK;
+            private readonly TreeView treeView;
+            private readonly Label label1;
+            private readonly Label label2;
+            private readonly ImageList imageList;
+            private readonly Button buttonDelete;
+            private readonly Button buttonMoveUp;
+            private readonly Button buttonMoveDown;
+            private readonly Button buttonAddCheckBox;
+            private readonly Button buttonAddCheckButton;
+            private readonly Button buttonAddRadioButton;
+            private readonly Button buttonAddLinkLabel;
+            private readonly Button buttonAddSeparator;
+            private readonly Button buttonAddItem;
+            private readonly Button buttonAddItems;
+            private readonly Button buttonAddHeading;
+            private readonly Button buttonAddMonthCalendar;
+            private readonly Button buttonAddColorColumns;
+            private readonly Button buttonAddImageSelect;
+            private readonly PropertyGrid propertyGrid1;
+            private readonly IContainer components = null;
             #endregion
 
             #region Identity
@@ -263,7 +263,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonOK.TabIndex = 16;
                 this.buttonOK.Text = "OK";
                 this.buttonOK.UseVisualStyleBackColor = true;
-                this.buttonOK.Click += new EventHandler(buttonOK_Click);
+                this.buttonOK.Click += buttonOK_Click;
                 // 
                 // treeView
                 // 
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.treeView.SelectedImageIndex = 0;
                 this.treeView.Size = new System.Drawing.Size(251, 466);
                 this.treeView.TabIndex = 0;
-                this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SelectionChanged);
+                this.treeView.AfterSelect += this.SelectionChanged;
                 // 
                 // imageList
                 // 
@@ -336,7 +336,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonDelete.Text = "Delete";
                 this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonDelete.UseVisualStyleBackColor = true;
-                this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+                this.buttonDelete.Click += this.buttonDelete_Click;
                 // 
                 // buttonMoveUp
                 // 
@@ -351,7 +351,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonMoveUp.Text = "Move Up";
                 this.buttonMoveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonMoveUp.UseVisualStyleBackColor = true;
-                this.buttonMoveUp.Click += new System.EventHandler(this.buttonMoveUp_Click);
+                this.buttonMoveUp.Click += this.buttonMoveUp_Click;
                 // 
                 // buttonMoveDown
                 // 
@@ -366,7 +366,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonMoveDown.Text = "Move Down";
                 this.buttonMoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonMoveDown.UseVisualStyleBackColor = true;
-                this.buttonMoveDown.Click += new System.EventHandler(this.buttonMoveDown_Click);
+                this.buttonMoveDown.Click += this.buttonMoveDown_Click;
                 // 
                 // buttonAddCheckBox
                 // 
@@ -381,7 +381,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddCheckBox.Text = "Add CheckBox";
                 this.buttonAddCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddCheckBox.UseVisualStyleBackColor = true;
-                this.buttonAddCheckBox.Click += new System.EventHandler(this.buttonAddCheckBox_Click);
+                this.buttonAddCheckBox.Click += this.buttonAddCheckBox_Click;
                 // 
                 // buttonAddCheckButton
                 // 
@@ -396,7 +396,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddCheckButton.Text = "Add CheckButton";
                 this.buttonAddCheckButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddCheckButton.UseVisualStyleBackColor = true;
-                this.buttonAddCheckButton.Click += new System.EventHandler(this.buttonAddCheckButton_Click);
+                this.buttonAddCheckButton.Click += this.buttonAddCheckButton_Click;
                 // 
                 // buttonAddRadioButton
                 // 
@@ -411,7 +411,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddRadioButton.Text = "Add RadioButton";
                 this.buttonAddRadioButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddRadioButton.UseVisualStyleBackColor = true;
-                this.buttonAddRadioButton.Click += new System.EventHandler(this.buttonAddRadioButton_Click);
+                this.buttonAddRadioButton.Click += this.buttonAddRadioButton_Click;
                 // 
                 // buttonAddLinkLabel
                 // 
@@ -426,7 +426,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddLinkLabel.Text = "Add LinkLabel";
                 this.buttonAddLinkLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddLinkLabel.UseVisualStyleBackColor = true;
-                this.buttonAddLinkLabel.Click += new System.EventHandler(this.buttonAddLinkLabel_Click);
+                this.buttonAddLinkLabel.Click += this.buttonAddLinkLabel_Click;
                 // 
                 // buttonAddSeparator
                 // 
@@ -441,7 +441,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddSeparator.Text = "Add Separator";
                 this.buttonAddSeparator.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddSeparator.UseVisualStyleBackColor = true;
-                this.buttonAddSeparator.Click += new System.EventHandler(this.buttonAddSeparator_Click);
+                this.buttonAddSeparator.Click += this.buttonAddSeparator_Click;
                 // 
                 // buttonAddItem
                 // 
@@ -456,7 +456,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddItem.Text = "Add Item";
                 this.buttonAddItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddItem.UseVisualStyleBackColor = true;
-                this.buttonAddItem.Click += new System.EventHandler(this.buttonAddItem_Click);
+                this.buttonAddItem.Click += this.buttonAddItem_Click;
                 // 
                 // buttonAddItems
                 // 
@@ -471,7 +471,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddItems.Text = "Add Items";
                 this.buttonAddItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddItems.UseVisualStyleBackColor = true;
-                this.buttonAddItems.Click += new System.EventHandler(this.buttonAddItems_Click);
+                this.buttonAddItems.Click += this.buttonAddItems_Click;
                 // 
                 // buttonAddHeading
                 // 
@@ -486,7 +486,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddHeading.Text = "Add Heading";
                 this.buttonAddHeading.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddHeading.UseVisualStyleBackColor = true;
-                this.buttonAddHeading.Click += new System.EventHandler(this.buttonAddHeading_Click);
+                this.buttonAddHeading.Click += this.buttonAddHeading_Click;
                 // 
                 // buttonAddMonthCalendar
                 // 
@@ -501,7 +501,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddMonthCalendar.Text = "Add Month Calendar";
                 this.buttonAddMonthCalendar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddMonthCalendar.UseVisualStyleBackColor = true;
-                this.buttonAddMonthCalendar.Click += new System.EventHandler(this.buttonAddMonthCalendar_Click);
+                this.buttonAddMonthCalendar.Click += this.buttonAddMonthCalendar_Click;
                 // 
                 // propertyGrid1
                 // 
@@ -537,7 +537,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddColorColumns.Text = "Add ColorColumns";
                 this.buttonAddColorColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddColorColumns.UseVisualStyleBackColor = true;
-                this.buttonAddColorColumns.Click += new System.EventHandler(this.buttonAddColorColumns_Click);
+                this.buttonAddColorColumns.Click += this.buttonAddColorColumns_Click;
                 // 
                 // buttonAddImageSelect
                 // 
@@ -552,7 +552,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.buttonAddImageSelect.Text = "Add ImageSelect";
                 this.buttonAddImageSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
                 this.buttonAddImageSelect.UseVisualStyleBackColor = true;
-                this.buttonAddImageSelect.Click += new System.EventHandler(this.buttonAddImageSelect_Click);
+                this.buttonAddImageSelect.Click += this.buttonAddImageSelect_Click;
                 // 
                 // KryptonContextMenuEditorForm
                 // 
@@ -583,7 +583,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 this.Name = "KryptonContextMenuEditorForm";
                 this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 this.Text = "KryptonContextMenu Items Editor";
-                this.Load += new System.EventHandler(this.KryptonContextMenuEditorForm_Load);
+                this.Load += this.KryptonContextMenuEditorForm_Load;
                 this.ResumeLayout(false);
                 this.PerformLayout();
             }

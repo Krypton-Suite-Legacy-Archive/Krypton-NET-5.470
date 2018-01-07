@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private IKryptonMonthCalendar _calendar;
-        private ViewLayoutMonths _months;
-        private PaletteBorder _palette;
+        private readonly ViewLayoutMonths _months;
+        private readonly PaletteBorder _palette;
         #endregion
 
 		#region Identity

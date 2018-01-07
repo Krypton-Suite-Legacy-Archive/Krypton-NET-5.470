@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class CorrectContextControl : IDisposable
     {
         #region Instance Fields
-        private ViewLayoutContext _context;
-        private Control _startControl;
+        private readonly ViewLayoutContext _context;
+        private readonly Control _startControl;
         #endregion
 
         #region Identity

@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewletHeaderGroupOutlook : ViewletHeaderGroup
     {
         #region Instance Fields
-        private bool _full;
+        private readonly bool _full;
         #endregion
 
         #region Identity

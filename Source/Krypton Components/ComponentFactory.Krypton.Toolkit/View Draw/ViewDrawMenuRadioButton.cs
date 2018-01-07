@@ -17,11 +17,11 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ViewDrawMenuRadioButton: ViewComposite
     {
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private FixedContentValue _contentValues;
-        private ViewLayoutCenter _layoutCenter;
-        private ViewLayoutDocker _outerDocker;
-        private ViewLayoutDocker _innerDocker;
+        private readonly IContextMenuProvider _provider;
+        private readonly FixedContentValue _contentValues;
+        private readonly ViewLayoutCenter _layoutCenter;
+        private readonly ViewLayoutDocker _outerDocker;
+        private readonly ViewLayoutDocker _innerDocker;
 
         #endregion
 
@@ -88,12 +88,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use context menu specific version of the radio button controller
             MenuRadioButtonController mrbc = new MenuRadioButtonController(provider.ProviderViewManager, _innerDocker, this, provider.ProviderNeedPaintDelegate);
-            mrbc.Click += new EventHandler(OnClick);
+            mrbc.Click += OnClick;
             _innerDocker.MouseController = mrbc;
             _innerDocker.KeyController = mrbc;
 
             // We need to be notified whenever the checked state changes
-            KryptonContextMenuRadioButton.CheckedChanged += new EventHandler(OnCheckedChanged);
+            KryptonContextMenuRadioButton.CheckedChanged += OnCheckedChanged;
 
             // Add docker as the composite content
             Add(_outerDocker);
@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             // Unhook event handlers to prevent memory leak
-            KryptonContextMenuRadioButton.CheckedChanged -= new EventHandler(OnCheckedChanged);
+            KryptonContextMenuRadioButton.CheckedChanged -= OnCheckedChanged;
 
             // Must call base class to finish disposing
             base.Dispose(disposing);

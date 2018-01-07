@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Only create the delegate when it is first needed
                 if (_needPaintDelegate == null)
                 {
-                    _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+                    _needPaintDelegate = OnNeedPaint;
                 }
 
                 return _needPaintDelegate; 

@@ -32,9 +32,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private KryptonRibbonGroup _ribbonGroup;
-        private ViewDrawRibbonGroup _viewGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly ViewDrawRibbonGroup _viewGroup;
         private IDisposable _memento1;
         private IDisposable _memento2;
         private Size _viewSize;

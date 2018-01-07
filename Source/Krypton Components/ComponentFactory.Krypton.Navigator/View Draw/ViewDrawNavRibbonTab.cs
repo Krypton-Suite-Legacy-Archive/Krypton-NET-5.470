@@ -21,12 +21,12 @@ namespace ComponentFactory.Krypton.Navigator
                                           INavCheckItem
     {
         #region Static Fields
-        private static Padding _preferredBorder = new Padding(5, 5, 5, 2);
-        private static Padding _layoutBorderTop = new Padding(4, 4, 4, 1);
-        private static Padding _layoutBorderLeft = new Padding(5, 4, 3, 1);
-        private static Padding _layoutBorderRight = new Padding(4, 5, 4, 0);
-        private static Padding _layoutBorderBottom = new Padding(4, 2, 4, 3);
-        private static Padding _drawBorder = new Padding(1, 0, 1, 0);
+        private static readonly Padding _preferredBorder = new Padding(5, 5, 5, 2);
+        private static readonly Padding _layoutBorderTop = new Padding(4, 4, 4, 1);
+        private static readonly Padding _layoutBorderLeft = new Padding(5, 4, 3, 1);
+        private static readonly Padding _layoutBorderRight = new Padding(4, 5, 4, 0);
+        private static readonly Padding _layoutBorderBottom = new Padding(4, 2, 4, 3);
+        private static readonly Padding _drawBorder = new Padding(1, 0, 1, 0);
         #endregion
 
         #region Events
@@ -43,20 +43,20 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
 
-        private PageButtonController _buttonController;
-        private IPaletteRibbonGeneral _paletteGeneral;
-        private PaletteRibbonTabContentInheritOverride _overrideStateNormal;
-        private PaletteRibbonTabContentInheritOverride _overrideStateTracking;
-        private PaletteRibbonTabContentInheritOverride _overrideStatePressed;
-        private PaletteRibbonTabContentInheritOverride _overrideStateSelected;
+        private readonly PageButtonController _buttonController;
+        private readonly IPaletteRibbonGeneral _paletteGeneral;
+        private readonly PaletteRibbonTabContentInheritOverride _overrideStateNormal;
+        private readonly PaletteRibbonTabContentInheritOverride _overrideStateTracking;
+        private readonly PaletteRibbonTabContentInheritOverride _overrideStatePressed;
+        private readonly PaletteRibbonTabContentInheritOverride _overrideStateSelected;
         private IPaletteRibbonText _currentText;
         private IPaletteRibbonBack _currentBack;
         private IPaletteContent _currentContent;
-        private RibbonTabToContent _contentProvider;
+        private readonly RibbonTabToContent _contentProvider;
         private VisualOrientation _borderBackOrient;
         private NeedPaintHandler _needPaint;
-        private ViewDrawContent _viewContent;
-        private ViewLayoutDocker _layoutDocker;
+        private readonly ViewDrawContent _viewContent;
+        private readonly ViewLayoutDocker _layoutDocker;
         private PaletteRibbonShape _lastRibbonShape;
         private IDisposable[] _mementos;
         private DateTime _lastClick;
@@ -83,21 +83,21 @@ namespace ComponentFactory.Krypton.Navigator
             Component = page;
 
             // Create a controller for managing button behavior
-            _buttonController = new PageButtonController(this, new NeedPaintHandler(OnNeedPaint))
+            _buttonController = new PageButtonController(this, OnNeedPaint)
             {
                 ClickOnDown = true
             };
-            _buttonController.Click += new MouseEventHandler(OnClick);
-            _buttonController.RightClick += new MouseEventHandler(OnRightClick);
+            _buttonController.Click += OnClick;
+            _buttonController.RightClick += OnRightClick;
 
             // Allow the page to be dragged and hook into drag events
             _buttonController.AllowDragging = true;
-            _buttonController.DragStart += new EventHandler<DragStartEventCancelArgs>(OnDragStart);
-            _buttonController.DragMove += new EventHandler<PointEventArgs>(OnDragMove);
-            _buttonController.DragEnd += new EventHandler<PointEventArgs>(OnDragEnd);
-            _buttonController.DragQuit += new EventHandler(OnDragQuit);
-            _buttonController.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnButtonDragRectangle);
-            _buttonController.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnButtonDragOffset);
+            _buttonController.DragStart += OnDragStart;
+            _buttonController.DragMove += OnDragMove;
+            _buttonController.DragEnd += OnDragEnd;
+            _buttonController.DragQuit += OnDragQuit;
+            _buttonController.ButtonDragRectangle += OnButtonDragRectangle;
+            _buttonController.ButtonDragOffset += OnButtonDragOffset;
 
             // A tab is selected on being pressed and not on the mouse up
             _buttonController.ClickOnDown = true;
@@ -141,8 +141,8 @@ namespace ComponentFactory.Krypton.Navigator
                                                                new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
                                                                new PaletteMetricInt[] { PaletteMetricInt.PageButtonInset },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.PageButtonPadding },
-                                                               new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
-                                                               new NeedPaintHandler(OnNeedPaint))
+                                                               Navigator.CreateToolStripRenderer,
+                                                               OnNeedPaint)
             {
 
                 // Hook up the tooltip manager so that tooltips can be generated

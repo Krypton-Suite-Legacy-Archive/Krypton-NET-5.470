@@ -36,9 +36,9 @@ namespace ComponentFactory.Krypton.Ribbon
 	    #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
-        private ViewDrawRibbonTabList _tabCache;
-        private ViewDrawRibbonTabSepList _tabSepCache;
+        private readonly KryptonRibbon _ribbon;
+        private readonly ViewDrawRibbonTabList _tabCache;
+        private readonly ViewDrawRibbonTabSepList _tabSepCache;
         private ViewDrawRibbonDesignTab _viewAddTab;
 	    private NeedPaintHandler _needPaint;
         private ContextNameList _cachedSelectedContext;

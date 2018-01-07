@@ -19,9 +19,9 @@ namespace ComponentFactory.Krypton.Toolkit
 	public class PaletteTripleToPalette : IPaletteTriple
 	{
 		#region Instance Fields
-		private PaletteBackToPalette _back;
-		private PaletteBorderToPalette _border;
-		private PaletteContentToPalette _content;
+		private readonly PaletteBackToPalette _back;
+		private readonly PaletteBorderToPalette _border;
+		private readonly PaletteContentToPalette _content;
 		#endregion
 
 		#region Identity

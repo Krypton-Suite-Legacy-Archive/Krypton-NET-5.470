@@ -31,9 +31,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private string _prompt;
-        private string _caption;
-        private string _defaultResponse;
+        private readonly string _prompt;
+        private readonly string _caption;
+        private readonly string _defaultResponse;
         private KryptonPanel _panelMessage;
         private KryptonWrapLabel _labelPrompt;
         private KryptonTextBox _textBoxResponse;
@@ -323,7 +323,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonCancel.Size = new System.Drawing.Size(50, 26);
             this._buttonCancel.TabIndex = 2;
             this._buttonCancel.Values.Text = "Cancel";
-            this._buttonCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonCancel.KeyDown += this.button_keyDown;
             // 
             // _buttonOK
             // 
@@ -337,7 +337,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._buttonOK.Size = new System.Drawing.Size(50, 26);
             this._buttonOK.TabIndex = 1;
             this._buttonOK.Values.Text = "OK";
-            this._buttonOK.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._buttonOK.KeyDown += this.button_keyDown;
             // 
             // KryptonInputBox
             // 

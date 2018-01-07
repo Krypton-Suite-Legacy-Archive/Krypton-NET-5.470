@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 		private bool _captured;
-	    private ViewDrawCheckBox _target;
-        private ViewBase _top;
+	    private readonly ViewDrawCheckBox _target;
+        private readonly ViewBase _top;
         private NeedPaintHandler _needPaint;
         #endregion
 

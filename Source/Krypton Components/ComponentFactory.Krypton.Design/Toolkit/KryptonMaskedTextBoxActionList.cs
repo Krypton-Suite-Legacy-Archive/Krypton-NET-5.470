@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonMaskedTextBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonMaskedTextBox _maskedTextBox;
-        private IComponentChangeService _service;
+        private readonly KryptonMaskedTextBox _maskedTextBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

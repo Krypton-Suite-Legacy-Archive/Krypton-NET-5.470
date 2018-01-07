@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteDataGridViewAll : PaletteDataGridViewCells
 	{
 		#region Instance Fields
-        private PaletteDouble _background;
+        private readonly PaletteDouble _background;
 		#endregion
 
 		#region Identity

@@ -36,7 +36,9 @@ namespace StandardDocking
             {
                 // If the content does not have the focus then give it focus now
                 if (!ContainsFocus)
+                {
                     kryptonPanel.SelectNextControl(this, true, true, true, false);
+                }
             }
         }
     }

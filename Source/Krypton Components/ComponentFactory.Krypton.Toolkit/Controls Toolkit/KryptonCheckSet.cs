@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public class KryptonCheckButtonCollection : CollectionBase
         {
             #region Instance Fields
-            private KryptonCheckSet _owner;
+            private readonly KryptonCheckSet _owner;
             #endregion
 
             #region Identity
@@ -450,15 +450,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Need to monitor and control the change of checked state
-            checkButton.CheckedChanging += new CancelEventHandler(OnCheckedChanging);
-            checkButton.CheckedChanged += new EventHandler(OnCheckedChanged);
+            checkButton.CheckedChanging += OnCheckedChanging;
+            checkButton.CheckedChanged += OnCheckedChanged;
         }
 
         private void CheckButtonRemoved(KryptonCheckButton checkButton)
         {
             // Unhook from monitoring events
-            checkButton.CheckedChanging -= new CancelEventHandler(OnCheckedChanging);
-            checkButton.CheckedChanged -= new EventHandler(OnCheckedChanged);
+            checkButton.CheckedChanging -= OnCheckedChanging;
+            checkButton.CheckedChanged -= OnCheckedChanged;
 
             // If the removed button is the currently checked one
             if (_checkedButton == checkButton)

@@ -162,14 +162,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private Font _calendarBoldFont;
         private Font _boldFont;
         private Font _italicFont;
-        private Color[] _ribbonColors;
-        private Color[] _sparkleColors;
-        private Color[] _appButtonNormal;
-        private Color[] _appButtonTrack;
-        private Color[] _appButtonPressed;
-        private Color[] _ribbonGroupCollapsedBorderContextTracking;
-        private ImageList _checkBoxList;
-        private Image[] _radioButtonArray;
+        private readonly Color[] _ribbonColors;
+        private readonly Color[] _sparkleColors;
+        private readonly Color[] _appButtonNormal;
+        private readonly Color[] _appButtonTrack;
+        private readonly Color[] _appButtonPressed;
+        private readonly Color[] _ribbonGroupCollapsedBorderContextTracking;
+        private readonly ImageList _checkBoxList;
+        private readonly Image[] _radioButtonArray;
         private string _baseFontName;
         #endregion
 

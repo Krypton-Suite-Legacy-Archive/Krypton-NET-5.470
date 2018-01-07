@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteRibbonTab : Storage
     {
         #region Instance Fields
-        private PaletteRibbonDoubleInheritRedirect _stateInherit;
+        private readonly PaletteRibbonDoubleInheritRedirect _stateInherit;
 
         #endregion
 

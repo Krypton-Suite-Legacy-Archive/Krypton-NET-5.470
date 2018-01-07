@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorOutlookMini : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private ButtonStyle _miniButtonStyle;
         private MapKryptonPageText _miniMapText;
         private MapKryptonPageText _miniMapExtraText;

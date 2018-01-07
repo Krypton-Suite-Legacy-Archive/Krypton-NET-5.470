@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbonGroupGallery _ribbonGallery;
+        private readonly KryptonRibbonGroupGallery _ribbonGallery;
         #endregion
 
         #region Identity

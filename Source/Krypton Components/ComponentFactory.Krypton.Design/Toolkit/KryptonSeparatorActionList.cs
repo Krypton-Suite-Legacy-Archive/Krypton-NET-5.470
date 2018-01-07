@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonSeparatorActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonSeparator _separator;
-        private IComponentChangeService _service;
+        private readonly KryptonSeparator _separator;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

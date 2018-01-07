@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbonGroupClusterColorButton _ribbonColorButton;
+        private readonly KryptonRibbonGroupClusterColorButton _ribbonColorButton;
         private Image _compositeImage;
         private Color _selectedColor;
         private Color _emptyBorderColor;

@@ -159,15 +159,15 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
 
         private const int GAP = 10;
-        private static int _osMajorVersion;
+        private static readonly int _osMajorVersion;
         #endregion
 
         #region Instance Fields
-        private string _text;
-        private string _caption;
-        private MessageBoxButtons _buttons;
-        private MessageBoxIcon _icon;
-        private MessageBoxDefaultButton _defaultButton;
+        private readonly string _text;
+        private readonly string _caption;
+        private readonly MessageBoxButtons _buttons;
+        private readonly MessageBoxIcon _icon;
+        private readonly MessageBoxDefaultButton _defaultButton;
         private MessageBoxOptions _options;
         private KryptonPanel _panelMessage;
         private KryptonPanel _panelMessageText;
@@ -1056,7 +1056,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._button3.Size = new System.Drawing.Size(50, 26);
             this._button3.TabIndex = 2;
             this._button3.Values.Text = "B3";
-            this._button3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._button3.KeyDown += this.button_keyDown;
             // 
             // _button1
             // 
@@ -1070,7 +1070,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._button1.Size = new System.Drawing.Size(50, 26);
             this._button1.TabIndex = 0;
             this._button1.Values.Text = "B1";
-            this._button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._button1.KeyDown += this.button_keyDown;
             // 
             // _button2
             // 
@@ -1084,7 +1084,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this._button2.Size = new System.Drawing.Size(50, 26);
             this._button2.TabIndex = 1;
             this._button2.Values.Text = "B2";
-            this._button2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button_keyDown);
+            this._button2.KeyDown += this.button_keyDown;
             // 
             // KryptonMessageBox
             // 

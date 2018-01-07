@@ -21,9 +21,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                          IContentValues
 	{
 		#region Instance Fields
-        private IKryptonMonthCalendar _calendar;
-        private ViewLayoutMonths _months;
-        private IDisposable[] _dayMementos;
+        private readonly IKryptonMonthCalendar _calendar;
+        private readonly ViewLayoutMonths _months;
+        private readonly IDisposable[] _dayMementos;
         private string _drawText;
         #endregion
 

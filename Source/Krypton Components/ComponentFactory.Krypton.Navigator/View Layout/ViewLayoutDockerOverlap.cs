@@ -21,9 +21,9 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewLayoutDockerOverlap : ViewLayoutDocker
     {
         #region Instance Fields
-        private ViewDrawCanvas _drawCanvas;
-        private ViewLayoutInsetOverlap _layoutOverlap;
-        private ViewLayoutBarForTabs _layoutTabs;
+        private readonly ViewDrawCanvas _drawCanvas;
+        private readonly ViewLayoutInsetOverlap _layoutOverlap;
+        private readonly ViewLayoutBarForTabs _layoutTabs;
         #endregion
 
         #region Identity

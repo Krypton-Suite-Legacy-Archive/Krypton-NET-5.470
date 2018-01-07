@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteContentInheritNode : PaletteContentInherit
 	{
         #region Instance Fields
-        private IPaletteContent _inherit;
+        private readonly IPaletteContent _inherit;
 
 	    #endregion
 

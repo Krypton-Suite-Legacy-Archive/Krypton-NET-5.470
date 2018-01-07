@@ -20,10 +20,10 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ViewDrawMenuColorColumns : ViewComposite
     {
         #region Instance Fields
-        private IContextMenuProvider _provider;
-        private KryptonContextMenuColorColumns _colorColumns;
-        private ViewLayoutDocker _outerDocker;
-        private ViewLayoutDocker _innerDocker;
+        private readonly IContextMenuProvider _provider;
+        private readonly KryptonContextMenuColorColumns _colorColumns;
+        private readonly ViewLayoutDocker _outerDocker;
+        private readonly ViewLayoutDocker _innerDocker;
         #endregion
 
         #region Identity
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _innerDocker = new ViewLayoutDocker();
 
             // Redraw when the selected color changes
-            colorColumns.SelectedColorChanged += new EventHandler<ColorEventArgs>(OnSelectedColorChanged);
+            colorColumns.SelectedColorChanged += OnSelectedColorChanged;
 
             Color[][] colors = colorColumns.Colors;
             int columns = colors.Length;
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void Dispose(bool disposing)
         {
             // Prevent memory leak
-            _colorColumns.SelectedColorChanged -= new EventHandler<ColorEventArgs>(OnSelectedColorChanged);
+            _colorColumns.SelectedColorChanged -= OnSelectedColorChanged;
             base.Dispose(disposing);
         }
 

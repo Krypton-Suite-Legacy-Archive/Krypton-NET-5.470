@@ -166,10 +166,10 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create collection for holding triple items
             Items = new KryptonRibbonGroupTripleCollection();
-            Items.Clearing += new EventHandler(OnRibbonGroupTripleClearing);
-            Items.Cleared += new EventHandler(OnRibbonGroupTripleCleared);
-            Items.Inserted += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupTripleInserted);
-            Items.Removed += new TypedHandler<KryptonRibbonGroupItem>(OnRibbonGroupTripleRemoved);
+            Items.Clearing += OnRibbonGroupTripleClearing;
+            Items.Cleared += OnRibbonGroupTripleCleared;
+            Items.Inserted += OnRibbonGroupTripleInserted;
+            Items.Removed += OnRibbonGroupTripleRemoved;
         }
 
         /// <summary>

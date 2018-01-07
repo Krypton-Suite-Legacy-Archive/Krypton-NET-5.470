@@ -50,8 +50,8 @@ namespace ComponentFactory.Krypton.Navigator
         #region Static Fields
 
 	    private const int SEPARATOR_LENGTH = 7;
-	    private static Bitmap _moreButtons;
-        private static Bitmap _fewerButtons;
+	    private static readonly Bitmap _moreButtons;
+        private static readonly Bitmap _fewerButtons;
         #endregion
 
         #region Instance Fields
@@ -330,8 +330,8 @@ namespace ComponentFactory.Krypton.Navigator
 		    _buttonManager?.RecreateButtons();
 
 		    // Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += new EventHandler(OnEnabledChanged);
-            Navigator.AutoSizeChanged += new EventHandler(OnAutoSizeChanged);
+			Navigator.EnabledChanged += OnEnabledChanged;
+            Navigator.AutoSizeChanged += OnAutoSizeChanged;
         }
 
         /// <summary>
@@ -630,14 +630,14 @@ namespace ComponentFactory.Krypton.Navigator
 		public override void Destruct()
 		{
 			// Unhook from events
-            Navigator.EnabledChanged -= new EventHandler(OnEnabledChanged);
-            Navigator.AutoSizeChanged -= new EventHandler(OnAutoSizeChanged);
+            Navigator.EnabledChanged -= OnEnabledChanged;
+            Navigator.AutoSizeChanged -= OnAutoSizeChanged;
 
             // Unhook from monitoring the pages collection
             _events = false;
-            Navigator.Pages.Inserted -= new TypedHandler<KryptonPage>(OnPageInserted);
-            Navigator.Pages.Removed -= new TypedHandler<KryptonPage>(OnPageRemoved);
-            Navigator.Pages.Cleared -= new EventHandler(OnPagesCleared);
+            Navigator.Pages.Inserted -= OnPageInserted;
+            Navigator.Pages.Removed -= OnPageRemoved;
+            Navigator.Pages.Cleared -= OnPagesCleared;
 
             // Must clean up buttons in way that removes all event hooks
             DestructStackCheckButtons();
@@ -1363,9 +1363,9 @@ namespace ComponentFactory.Krypton.Navigator
         protected virtual void PostConstruct()
         {
             // Need to monitor changes in the page collection to reflect in layout
-            Navigator.Pages.Inserted += new TypedHandler<KryptonPage>(OnPageInserted);
-            Navigator.Pages.Removed += new TypedHandler<KryptonPage>(OnPageRemoved);
-            Navigator.Pages.Cleared += new EventHandler(OnPagesCleared);
+            Navigator.Pages.Inserted += OnPageInserted;
+            Navigator.Pages.Removed += OnPageRemoved;
+            Navigator.Pages.Cleared += OnPagesCleared;
             _events = true;
 
             // Ask the header group to finish the create phase
@@ -1730,8 +1730,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawNavOutlookStack checkButton = new ViewDrawNavOutlookStack(Navigator, page, checkButtonOrient);
 
                 // Provide the drag rectangle when requested for this button
-                checkButton.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check button needs repainting
                 checkButton.NeedPaint = NeedPaintDelegate;
@@ -1797,7 +1797,7 @@ namespace ComponentFactory.Krypton.Navigator
                 Type = PaletteButtonSpecStyle.DropDown,
                 Style = CommonHelper.ButtonStyleToPalette(Navigator.Outlook.OverflowButtonStyle)
             };
-            _specDropDown.Click += new EventHandler(OnDropDownClick);
+            _specDropDown.Click += OnDropDownClick;
             _specDropDown.Orientation = (Navigator.Outlook.Orientation == Orientation.Vertical ? PaletteButtonOrientation.FixedTop : PaletteButtonOrientation.FixedLeft);
             _specDropDown.Visible = Navigator.Outlook.ShowDropDownButton;
 
@@ -1811,7 +1811,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                                new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetInputControl },
                                                                new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetInputControl },
                                                                new PaletteMetricPadding[] { PaletteMetricPadding.None },
-                                                               new GetToolStripRenderer(Navigator.CreateToolStripRenderer),
+                                                               Navigator.CreateToolStripRenderer,
                                                                NeedPaintDelegate);
         }
 
@@ -1829,8 +1829,8 @@ namespace ComponentFactory.Krypton.Navigator
             foreach (ViewDrawNavCheckButtonBase checkButton in _pageStackLookup.Values)
             {
                 // Must unhook from events
-                checkButton.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButton.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButton.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkButton.ButtonDragOffset -= OnCheckButtonDragOffset;
                 checkButton.NeedPaint = null;
 
                 // Dispose of element gracefully
@@ -1910,8 +1910,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawNavOutlookOverflow checkButtonOverflow = new ViewDrawNavOutlookOverflow(Navigator, e.Item, ResolveOverflowButtonOrientation());
 
                 // Provide the drag rectangle when requested for this button
-                checkButtonStack.ButtonDragRectangle += new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButtonStack.ButtonDragOffset += new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButtonStack.ButtonDragRectangle += OnCheckButtonDragRect;
+                checkButtonStack.ButtonDragOffset += OnCheckButtonDragOffset;
 
                 // Need to know when check buttons need repainting
                 checkButtonStack.NeedPaint = NeedPaintDelegate;
@@ -1962,8 +1962,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[e.Item];
 
                 // Remove event hooks
-                checkButtonStack.ButtonDragRectangle -= new EventHandler<ButtonDragRectangleEventArgs>(OnCheckButtonDragRect);
-                checkButtonStack.ButtonDragOffset -= new EventHandler<ButtonDragOffsetEventArgs>(OnCheckButtonDragOffset);
+                checkButtonStack.ButtonDragRectangle -= OnCheckButtonDragRect;
+                checkButtonStack.ButtonDragOffset -= OnCheckButtonDragOffset;
 
                 // Remove the paint delegate so objects can be garbage collected
                 checkButtonStack.NeedPaint = null;
@@ -2195,8 +2195,8 @@ namespace ComponentFactory.Krypton.Navigator
                 ResetCachedKryptonContextMenu();
 
                 // Add the three standard entries
-                KryptonContextMenuItem moreButtons = new KryptonContextMenuItem(Navigator.Outlook.TextMoreButtons, _moreButtons, new EventHandler(OnShowMoreClick));
-                KryptonContextMenuItem fewerButtons = new KryptonContextMenuItem(Navigator.Outlook.TextFewerButtons, _fewerButtons, new EventHandler(OnShowFewerClick));
+                KryptonContextMenuItem moreButtons = new KryptonContextMenuItem(Navigator.Outlook.TextMoreButtons, _moreButtons, OnShowMoreClick);
+                KryptonContextMenuItem fewerButtons = new KryptonContextMenuItem(Navigator.Outlook.TextFewerButtons, _fewerButtons, OnShowFewerClick);
                 KryptonContextMenuItem addRemoveButtons = new KryptonContextMenuItem(Navigator.Outlook.TextAddRemoveButtons);
                 KryptonContextMenuItems addRemoveButtonItems = new KryptonContextMenuItems();
                 addRemoveButtons.Items.Add(addRemoveButtonItems);
@@ -2219,7 +2219,7 @@ namespace ComponentFactory.Krypton.Navigator
                     // Create a menu item for the page
                     KryptonContextMenuItem pageMenuItem = new KryptonContextMenuItem(page.GetTextMapping(Navigator.Button.ContextMenuMapText),
                                                                                      page.GetImageMapping(Navigator.Button.ContextMenuMapImage),
-                                                                                     new EventHandler(OnPageAddRemoveClick))
+                                                                                     OnPageAddRemoveClick)
                     {
 
                         // The selected page should be checked

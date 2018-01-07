@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class InternalPanel : Panel
         {
             #region Instance Fields
-            private KryptonComboBox _kryptonComboBox;
+            private readonly KryptonComboBox _kryptonComboBox;
             #endregion
 
             #region Identity
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class InternalComboBox : ComboBox, IContentValues
         {
             #region Instance Fields
-            private KryptonComboBox _kryptonComboBox;
+            private readonly KryptonComboBox _kryptonComboBox;
             private PaletteTripleToPalette _palette;
             private ViewDrawButton _viewButton;
             private Nullable<bool> _appThemed;
@@ -615,7 +615,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class SubclassEdit : NativeWindow
         {
             #region Instance Fields
-            private KryptonComboBox _kryptonComboBox;
+            private readonly KryptonComboBox _kryptonComboBox;
             private bool _mouseOver;
             #endregion
 
@@ -815,27 +815,27 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Static Fields
-        private static int _osMajorVersion;
+        private static readonly int _osMajorVersion;
         #endregion
 
         #region Instance Fields
 
         private VisualPopupToolTip _visualPopupToolTip;
-        private ButtonSpecManagerLayout _buttonManager;
-        private ViewLayoutDocker _drawDockerInner;
-        private ViewDrawDocker _drawDockerOuter;
-        private ViewLayoutFill _layoutFill;
-        private InternalComboBox _comboBox;
-        private InternalPanel _comboHolder;
+        private readonly ButtonSpecManagerLayout _buttonManager;
+        private readonly ViewLayoutDocker _drawDockerInner;
+        private readonly ViewDrawDocker _drawDockerOuter;
+        private readonly ViewLayoutFill _layoutFill;
+        private readonly InternalComboBox _comboBox;
+        private readonly InternalPanel _comboHolder;
         private SubclassEdit _subclassEdit;
         private ButtonStyle _dropButtonStyle;
         private PaletteBackStyle _dropBackStyle;
         private InputControlStyle _inputControlStyle;
         private Nullable<bool> _fixedActive;
-        private FixedContentValue _contentValues;
+        private readonly FixedContentValue _contentValues;
         private ButtonStyle _style;
-        private ViewDrawButton _drawButton;
-        private ViewDrawPanel _drawPanel;
+        private readonly ViewDrawButton _drawButton;
+        private readonly ViewDrawPanel _drawPanel;
         private AutoCompleteMode _autoCompleteMode;
         private AutoCompleteSource _autoCompleteSource;
         private Padding _layoutPadding;
@@ -1064,33 +1064,33 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the internal combo box used for containing content
             _comboBox = new InternalComboBox(this);
-            _comboBox.DrawItem += new DrawItemEventHandler(OnComboBoxDrawItem);
-            _comboBox.MeasureItem += new MeasureItemEventHandler(OnComboBoxMeasureItem);
-            _comboBox.TrackMouseEnter += new EventHandler(OnComboBoxMouseChange);
-            _comboBox.TrackMouseLeave += new EventHandler(OnComboBoxMouseChange);
-            _comboBox.DropDown += new EventHandler(OnComboBoxDropDown);
-            _comboBox.DropDownClosed += new EventHandler(OnComboBoxDropDownClosed);
-            _comboBox.DropDownStyleChanged += new EventHandler(OnComboBoxDropDownStyleChanged);
-            _comboBox.SelectedIndexChanged += new EventHandler(OnComboBoxSelectedIndexChanged);
-            _comboBox.SelectionChangeCommitted += new EventHandler(OnComboBoxSelectionChangeCommitted);
-            _comboBox.TextUpdate += new EventHandler(OnComboBoxTextUpdate);
-            _comboBox.TextChanged += new EventHandler(OnComboBoxTextChanged);
-            _comboBox.GotFocus += new EventHandler(OnComboBoxGotFocus);
-            _comboBox.LostFocus += new EventHandler(OnComboBoxLostFocus);
-            _comboBox.KeyDown += new KeyEventHandler(OnComboBoxKeyDown);
-            _comboBox.KeyUp += new KeyEventHandler(OnComboBoxKeyUp);
-            _comboBox.KeyPress += new KeyPressEventHandler(OnComboBoxKeyPress);
-            _comboBox.PreviewKeyDown += new PreviewKeyDownEventHandler(OnComboBoxPreviewKeyDown);
-            _comboBox.DataSourceChanged += new EventHandler(OnComboBoxDataSourceChanged);
-            _comboBox.DisplayMemberChanged += new EventHandler(OnComboBoxDisplayMemberChanged);
-            _comboBox.Format += new ListControlConvertEventHandler(OnComboBoxFormat);
-            _comboBox.FormatInfoChanged += new EventHandler(OnComboBoxFormatInfoChanged);
-            _comboBox.FormatStringChanged += new EventHandler(OnComboBoxFormatStringChanged);
-            _comboBox.FormattingEnabledChanged += new EventHandler(OnComboBoxFormattingEnabledChanged);
-            _comboBox.SelectedValueChanged += new EventHandler(OnComboBoxSelectedValueChanged);
-            _comboBox.ValueMemberChanged += new EventHandler(OnComboBoxValueMemberChanged);
-            _comboBox.Validating += new CancelEventHandler(OnComboBoxValidating);
-            _comboBox.Validated += new EventHandler(OnComboBoxValidated);
+            _comboBox.DrawItem += OnComboBoxDrawItem;
+            _comboBox.MeasureItem += OnComboBoxMeasureItem;
+            _comboBox.TrackMouseEnter += OnComboBoxMouseChange;
+            _comboBox.TrackMouseLeave += OnComboBoxMouseChange;
+            _comboBox.DropDown += OnComboBoxDropDown;
+            _comboBox.DropDownClosed += OnComboBoxDropDownClosed;
+            _comboBox.DropDownStyleChanged += OnComboBoxDropDownStyleChanged;
+            _comboBox.SelectedIndexChanged += OnComboBoxSelectedIndexChanged;
+            _comboBox.SelectionChangeCommitted += OnComboBoxSelectionChangeCommitted;
+            _comboBox.TextUpdate += OnComboBoxTextUpdate;
+            _comboBox.TextChanged += OnComboBoxTextChanged;
+            _comboBox.GotFocus += OnComboBoxGotFocus;
+            _comboBox.LostFocus += OnComboBoxLostFocus;
+            _comboBox.KeyDown += OnComboBoxKeyDown;
+            _comboBox.KeyUp += OnComboBoxKeyUp;
+            _comboBox.KeyPress += OnComboBoxKeyPress;
+            _comboBox.PreviewKeyDown += OnComboBoxPreviewKeyDown;
+            _comboBox.DataSourceChanged += OnComboBoxDataSourceChanged;
+            _comboBox.DisplayMemberChanged += OnComboBoxDisplayMemberChanged;
+            _comboBox.Format += OnComboBoxFormat;
+            _comboBox.FormatInfoChanged += OnComboBoxFormatInfoChanged;
+            _comboBox.FormatStringChanged += OnComboBoxFormatStringChanged;
+            _comboBox.FormattingEnabledChanged += OnComboBoxFormattingEnabledChanged;
+            _comboBox.SelectedValueChanged += OnComboBoxSelectedValueChanged;
+            _comboBox.ValueMemberChanged += OnComboBoxValueMemberChanged;
+            _comboBox.Validating += OnComboBoxValidating;
+            _comboBox.Validated += OnComboBoxValidated;
             _comboHolder = new InternalPanel(this);
             _comboHolder.Controls.Add(_comboBox);
 
@@ -1118,13 +1118,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                          new IPaletteMetric[] { StateCommon.ComboBox },
                                                          new PaletteMetricInt[] { PaletteMetricInt.HeaderButtonEdgeInsetInputControl },
                                                          new PaletteMetricPadding[] { PaletteMetricPadding.HeaderButtonPaddingInputControl },
-                                                         new GetToolStripRenderer(CreateToolStripRenderer),
+                                                         CreateToolStripRenderer,
                                                          NeedPaintDelegate);
 
             // Create the manager for handling tooltips
             ToolTipManager = new ToolTipManager();
-            ToolTipManager.ShowToolTip += new EventHandler<ToolTipEventArgs>(OnShowToolTip);
-            ToolTipManager.CancelToolTip += new EventHandler(OnCancelToolTip);
+            ToolTipManager.ShowToolTip += OnShowToolTip;
+            ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
 
             // We need to create and cache a device context compatible with the display
@@ -2732,8 +2732,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (childPtr != IntPtr.Zero)
                     {
                         _subclassEdit = new SubclassEdit(childPtr, this);
-                        _subclassEdit.TrackMouseEnter += new EventHandler(OnComboBoxMouseChange);
-                        _subclassEdit.TrackMouseLeave += new EventHandler(OnComboBoxMouseChange);
+                        _subclassEdit.TrackMouseEnter += OnComboBoxMouseChange;
+                        _subclassEdit.TrackMouseLeave += OnComboBoxMouseChange;
                     }
                 }
             }
@@ -3182,7 +3182,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      PaletteBorderStyle.ControlToolTip,
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
-                        _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                        _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
                         _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
@@ -3201,7 +3201,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;

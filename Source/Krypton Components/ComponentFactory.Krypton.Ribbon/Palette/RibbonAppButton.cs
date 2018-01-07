@@ -48,9 +48,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private Image _appButtonImage;
-        private KryptonContextMenuItems _appButtonMenuItems;
+        private readonly KryptonContextMenuItems _appButtonMenuItems;
         private bool _appButtonVisible;
         private Color _appButtonBaseColorDark;
         private Color _appButtonBaseColorLight;

@@ -18,7 +18,7 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonPaletteRibbonGroupCollapsedFrameBorder : Storage
     {
         #region Instance Fields
-        private PaletteRibbonBackInheritRedirect _stateInherit;
+        private readonly PaletteRibbonBackInheritRedirect _stateInherit;
 
         #endregion
 

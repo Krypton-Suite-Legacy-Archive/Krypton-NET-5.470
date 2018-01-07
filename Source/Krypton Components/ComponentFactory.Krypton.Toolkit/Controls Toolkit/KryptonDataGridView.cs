@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private class ToolTipContent : IContentValues
         {
             #region Instance Fields
-            private string _toolTipText;
+            private readonly string _toolTipText;
             #endregion
 
             #region Identity
@@ -212,7 +212,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_showTimer != null)
                 {
                     _showTimer.Stop();
-                    _showTimer.Tick -= new EventHandler(OnTimerTick);
+                    _showTimer.Tick -= OnTimerTick;
                     _showTimer.Dispose();
                     _showTimer = null;
                 }
@@ -220,13 +220,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedResyncPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint -= OnNeedResyncPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
                 }
 
                 // Unhook from global events
-                KryptonManager.GlobalPaletteChanged -= new EventHandler(OnGlobalPaletteChanged);
-                SystemEvents.UserPreferenceChanged -= new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+                KryptonManager.GlobalPaletteChanged -= OnGlobalPaletteChanged;
+                SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
 
                 // Dispose of view manager related resources
                 ViewManager.Dispose();
@@ -1492,10 +1492,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private void SetupVisuals()
         {
             // Setup the invoke used to refresh display
-            _refreshCall = new SimpleCall(OnPerformRefresh);
+            _refreshCall = OnPerformRefresh;
 
             // Setup the need paint delegate
-            NeedPaintDelegate = new NeedPaintHandler(OnNeedResyncPaint);
+            NeedPaintDelegate = OnNeedResyncPaint;
 
             // Must layout before first draw attempt
             _layoutDirty = true;
@@ -1511,10 +1511,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Redirector = new PaletteRedirect(_palette);
 
             // Hook into global palette changing events
-            KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
+            KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
 
             // We need to notice when system color settings change
-            SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(OnUserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
         }
 
         private void SetupViewAndStates()
@@ -1548,7 +1548,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 Interval = 500
             };
-            _showTimer.Tick += new EventHandler(OnTimerTick);
+            _showTimer.Tick += OnTimerTick;
 
             // Default internal fields
             _cellDown = _nullCell;
@@ -1597,21 +1597,21 @@ namespace ComponentFactory.Krypton.Toolkit
             SyncCellStylesWithPalette();
 
             // We need to know when the common values we sync are changed
-            StateCommon.HeaderColumn.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateCommon.HeaderRow.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateCommon.DataCell.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateNormal.HeaderColumn.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateNormal.HeaderRow.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateNormal.DataCell.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateSelected.HeaderColumn.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateSelected.HeaderRow.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateSelected.DataCell.Content.SyncPropertyChanged += new EventHandler(OnSyncPropertyChanged);
-            StateNormal.HeaderColumn.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
-            StateNormal.HeaderRow.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
-            StateNormal.DataCell.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
-            StateSelected.HeaderColumn.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
-            StateSelected.HeaderRow.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
-            StateSelected.DataCell.Back.PropertyChanged += new PropertyChangedEventHandler(OnSyncBackPropertyChanged);
+            StateCommon.HeaderColumn.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateCommon.HeaderRow.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateCommon.DataCell.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateNormal.HeaderColumn.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateNormal.HeaderRow.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateNormal.DataCell.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateSelected.HeaderColumn.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateSelected.HeaderRow.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateSelected.DataCell.Content.SyncPropertyChanged += OnSyncPropertyChanged;
+            StateNormal.HeaderColumn.Back.PropertyChanged += OnSyncBackPropertyChanged;
+            StateNormal.HeaderRow.Back.PropertyChanged += OnSyncBackPropertyChanged;
+            StateNormal.DataCell.Back.PropertyChanged += OnSyncBackPropertyChanged;
+            StateSelected.HeaderColumn.Back.PropertyChanged += OnSyncBackPropertyChanged;
+            StateSelected.HeaderRow.Back.PropertyChanged += OnSyncBackPropertyChanged;
+            StateSelected.DataCell.Back.PropertyChanged += OnSyncBackPropertyChanged;
         }
 
         private void SyncCellStylesWithPalette()
@@ -2192,7 +2192,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Unhook events from the specific instance that generated event
             VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
-            popupToolTip.Disposed -= new EventHandler(OnVisualPopupToolTipDisposed);
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;
@@ -2221,7 +2221,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                  PaletteBorderStyle.ControlToolTip,
                                                                  PaletteContentStyle.LabelToolTip);
 
-                    _visualPopupToolTip.Disposed += new EventHandler(OnVisualPopupToolTipDisposed);
+                    _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                     // Show relative to the provided screen point
                     _visualPopupToolTip.ShowCalculatingSize(Control.MousePosition);
@@ -2455,8 +2455,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from current palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnNeedResyncPaint);
-                    _palette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint -= OnNeedResyncPaint;
+                    _palette.ButtonSpecChanged -= OnButtonSpecChanged;
                 }
 
                 // Remember the new palette
@@ -2468,8 +2468,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Hook to new palette events
                 if (_palette != null)
                 {
-                    _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnNeedResyncPaint);
-                    _palette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+                    _palette.PalettePaint += OnNeedResyncPaint;
+                    _palette.ButtonSpecChanged += OnButtonSpecChanged;
                 }
 
                 // Ensure the current cell style values are in sync with the new 

@@ -28,11 +28,11 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Instance Fields
-        private KryptonBreadCrumb _kryptonBreadCrumb;
-        private NeedPaintHandler _needPaintDelegate;
+        private readonly KryptonBreadCrumb _kryptonBreadCrumb;
+        private readonly NeedPaintHandler _needPaintDelegate;
         private ButtonController _pressedButtonController;
-        private CrumbToButton _crumbToButton;
-        private ButtonToCrumb _buttonToCrumb;
+        private readonly CrumbToButton _crumbToButton;
+        private readonly ButtonToCrumb _buttonToCrumb;
         private MenuItemToCrumb _menuItemToCrumb;
         private ViewDrawButton _overflowButton;
         private bool _showingContextMenu;
@@ -358,7 +358,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Tag = this,
                 BecomesFixed = true
             };
-            crumbButtonController.Click += new MouseEventHandler(OnOverflowButtonClick);
+            crumbButtonController.Click += OnOverflowButtonClick;
             _overflowButton.MouseController = crumbButtonController;
         }
 
@@ -394,7 +394,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         Tag = item,
                         BecomesFixed = true
                     };
-                    crumbButtonController.Click += new MouseEventHandler(OnButtonClick);
+                    crumbButtonController.Click += OnButtonClick;
                     crumbButton.MouseController = crumbButtonController;
 
                     // Add to cache for future use
@@ -463,7 +463,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         childMenu.ExtraText = childCrumb.LongText;
                         childMenu.Image = childCrumb.Image;
                         childMenu.ImageTransparentColor = childCrumb.ImageTransparentColor;
-                        childMenu.Click += new EventHandler(OnChildCrumbClick);
+                        childMenu.Click += OnChildCrumbClick;
 
                         items.Items.Add(childMenu);
                     }
@@ -482,7 +482,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _pressedButtonController = controller;
 
                         // Show the context menu so user can select the next item for selection
-                        bcma.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                        bcma.KryptonContextMenu.Closed += OnKryptonContextMenuClosed;
                         bcma.KryptonContextMenu.Show(_kryptonBreadCrumb, _kryptonBreadCrumb.RectangleToScreen(new Rectangle(viewButton.SplitRectangle.X - viewButton.SplitRectangle.Width,
                                                                                                                             viewButton.SplitRectangle.Y,
                                                                                                                             viewButton.SplitRectangle.Width * 2,
@@ -516,7 +516,7 @@ namespace ComponentFactory.Krypton.Toolkit
             KryptonContextMenu kcm = (KryptonContextMenu)sender;
 
             // Unhook from context menu and dipose of it, we only use each menu instance once
-            kcm.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+            kcm.Closed -= OnKryptonContextMenuClosed;
             kcm.Dispose();
 
             // Remove the fixed appearnce of the view button
@@ -581,7 +581,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         childMenu.ExtraText = childCrumb.LongText;
                         childMenu.Image = childCrumb.Image;
                         childMenu.ImageTransparentColor = childCrumb.ImageTransparentColor;
-                        childMenu.Click += new EventHandler(OnChildCrumbClick);
+                        childMenu.Click += OnChildCrumbClick;
 
                         items.Items.Add(childMenu);
                     }
@@ -613,7 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     childMenu.ExtraText = childCrumb.LongText;
                     childMenu.Image = childCrumb.Image;
                     childMenu.ImageTransparentColor = childCrumb.ImageTransparentColor;
-                    childMenu.Click += new EventHandler(OnChildCrumbClick);
+                    childMenu.Click += OnChildCrumbClick;
 
                     items.Items.Add(childMenu);
                 }
@@ -632,7 +632,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _pressedButtonController = controller;
 
                     // Show the context menu so user can select the next item for selection
-                    cpma.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                    cpma.KryptonContextMenu.Closed += OnKryptonContextMenuClosed;
                     cpma.KryptonContextMenu.Show(_kryptonBreadCrumb, _kryptonBreadCrumb.RectangleToScreen(new Rectangle(viewButton.ClientRectangle.X,
                                                                                                                         viewButton.ClientRectangle.Y,
                                                                                                                         viewButton.ClientRectangle.Width * 2,

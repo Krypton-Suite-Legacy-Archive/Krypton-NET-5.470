@@ -15,8 +15,8 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonGroupBoxActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonGroupBox _groupBox;
-        private IComponentChangeService _service;
+        private readonly KryptonGroupBox _groupBox;
+        private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity

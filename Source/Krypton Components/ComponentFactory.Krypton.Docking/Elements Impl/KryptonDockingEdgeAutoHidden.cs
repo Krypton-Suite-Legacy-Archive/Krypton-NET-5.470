@@ -34,8 +34,8 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Instance Fields
 
-        private KryptonAutoHiddenPanel _panel;
-        private KryptonAutoHiddenSlidePanel _slidePanel;
+        private readonly KryptonAutoHiddenPanel _panel;
+        private readonly KryptonAutoHiddenSlidePanel _slidePanel;
         private bool _panelEventFired;
         #endregion
 
@@ -60,18 +60,18 @@ namespace ComponentFactory.Krypton.Docking
                 AutoSizeMode = AutoSizeMode.GrowAndShrink,
                 Dock = DockingHelper.DockStyleFromDockEdge(edge, false)
             };
-            _panel.Disposed += new EventHandler(OnPanelDisposed);
+            _panel.Disposed += OnPanelDisposed;
 
             // Create the panel that slides into/out of view to show selected auto host entry
             _slidePanel = new KryptonAutoHiddenSlidePanel(control, edge, _panel);
-            _slidePanel.SplitterMoveRect += new EventHandler<SplitterMoveRectMenuArgs>(OnSlidePanelSeparatorMoveRect);
-            _slidePanel.SplitterMoved += new SplitterEventHandler(OnSlidePanelSeparatorMoved);
-            _slidePanel.SplitterMoving += new SplitterCancelEventHandler(OnSlidePanelSeparatorMoving);
-            _slidePanel.PageCloseClicked += new EventHandler<UniqueNameEventArgs>(OnSlidePanelPageCloseClicked);
-            _slidePanel.PageAutoHiddenClicked += new EventHandler<UniqueNameEventArgs>(OnSlidePanelPageAutoHiddenClicked);
-            _slidePanel.PageDropDownClicked += new EventHandler<CancelDropDownEventArgs>(OnSlidePanelPageDropDownClicked);
-            _slidePanel.AutoHiddenShowingStateChanged += new EventHandler<AutoHiddenShowingStateEventArgs>(OnSlidePanelAutoHiddenShowingStateChanged);
-            _slidePanel.Disposed += new EventHandler(OnSlidePanelDisposed);
+            _slidePanel.SplitterMoveRect += OnSlidePanelSeparatorMoveRect;
+            _slidePanel.SplitterMoved += OnSlidePanelSeparatorMoved;
+            _slidePanel.SplitterMoving += OnSlidePanelSeparatorMoving;
+            _slidePanel.PageCloseClicked += OnSlidePanelPageCloseClicked;
+            _slidePanel.PageAutoHiddenClicked += OnSlidePanelPageAutoHiddenClicked;
+            _slidePanel.PageDropDownClicked += OnSlidePanelPageDropDownClicked;
+            _slidePanel.AutoHiddenShowingStateChanged += OnSlidePanelAutoHiddenShowingStateChanged;
+            _slidePanel.Disposed += OnSlidePanelDisposed;
 
             Control.Controls.Add(_panel);
         }
@@ -277,10 +277,10 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Create the new auto hidden group instance and add into our collection
             KryptonDockingAutoHiddenGroup groupElement = new KryptonDockingAutoHiddenGroup(name, Edge);
-            groupElement.PageClicked += new EventHandler<KryptonPageEventArgs>(OnDockingAutoHiddenGroupClicked);
-            groupElement.PageHoverStart += new EventHandler<KryptonPageEventArgs>(OnDockingAutoHiddenGroupHoverStart);
-            groupElement.PageHoverEnd += new EventHandler<EventArgs>(OnDockingAutoHiddenGroupHoverEnd);
-            groupElement.Disposed += new EventHandler(OnDockingAutoHiddenGroupDisposed);
+            groupElement.PageClicked += OnDockingAutoHiddenGroupClicked;
+            groupElement.PageHoverStart += OnDockingAutoHiddenGroupHoverStart;
+            groupElement.PageHoverEnd += OnDockingAutoHiddenGroupHoverEnd;
+            groupElement.Disposed += OnDockingAutoHiddenGroupDisposed;
             InternalInsert(index, groupElement);
 
             // Events are generated from the parent docking manager
@@ -320,10 +320,10 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
             KryptonDockingAutoHiddenGroup groupElement = (KryptonDockingAutoHiddenGroup)sender;
-            groupElement.PageClicked -= new EventHandler<KryptonPageEventArgs>(OnDockingAutoHiddenGroupClicked);
-            groupElement.PageHoverStart -= new EventHandler<KryptonPageEventArgs>(OnDockingAutoHiddenGroupHoverStart);
-            groupElement.PageHoverEnd -= new EventHandler<EventArgs>(OnDockingAutoHiddenGroupHoverEnd);
-            groupElement.Disposed -= new EventHandler(OnDockingAutoHiddenGroupDisposed);
+            groupElement.PageClicked -= OnDockingAutoHiddenGroupClicked;
+            groupElement.PageHoverStart -= OnDockingAutoHiddenGroupHoverStart;
+            groupElement.PageHoverEnd -= OnDockingAutoHiddenGroupHoverEnd;
+            groupElement.Disposed -= OnDockingAutoHiddenGroupDisposed;
 
             // Remove the element from our child collection as it is no longer valid
             InternalRemove(groupElement);
@@ -332,7 +332,7 @@ namespace ComponentFactory.Krypton.Docking
         private void OnPanelDisposed(object sender, EventArgs e)
         {
             // Unhook from events so the control can be garbage collected
-            _panel.Disposed -= new EventHandler(OnPanelDisposed);
+            _panel.Disposed -= OnPanelDisposed;
 
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;
@@ -356,13 +356,13 @@ namespace ComponentFactory.Krypton.Docking
         private void OnSlidePanelDisposed(object sender, EventArgs e)
         {
             // Unhook from events so the control can be garbage collected
-            _slidePanel.SplitterMoveRect -= new EventHandler<SplitterMoveRectMenuArgs>(OnSlidePanelSeparatorMoveRect);
-            _slidePanel.SplitterMoved -= new SplitterEventHandler(OnSlidePanelSeparatorMoved);
-            _slidePanel.SplitterMoving -= new SplitterCancelEventHandler(OnSlidePanelSeparatorMoving);
-            _slidePanel.PageCloseClicked -= new EventHandler<UniqueNameEventArgs>(OnSlidePanelPageCloseClicked);
-            _slidePanel.PageAutoHiddenClicked -= new EventHandler<UniqueNameEventArgs>(OnSlidePanelPageAutoHiddenClicked);
-            _slidePanel.PageDropDownClicked -= new EventHandler<CancelDropDownEventArgs>(OnSlidePanelPageDropDownClicked);
-            _slidePanel.Disposed -= new EventHandler(OnPanelDisposed);
+            _slidePanel.SplitterMoveRect -= OnSlidePanelSeparatorMoveRect;
+            _slidePanel.SplitterMoved -= OnSlidePanelSeparatorMoved;
+            _slidePanel.SplitterMoving -= OnSlidePanelSeparatorMoving;
+            _slidePanel.PageCloseClicked -= OnSlidePanelPageCloseClicked;
+            _slidePanel.PageAutoHiddenClicked -= OnSlidePanelPageAutoHiddenClicked;
+            _slidePanel.PageDropDownClicked -= OnSlidePanelPageDropDownClicked;
+            _slidePanel.Disposed -= OnPanelDisposed;
 
             // Events are generated from the parent docking manager
             KryptonDockingManager dockingManager = DockingManager;

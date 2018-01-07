@@ -30,9 +30,9 @@ namespace ComponentFactory.Krypton.Toolkit
     public sealed class KryptonGroupPanel : KryptonPanel
 	{
         #region Instance Fields
-        private PaletteBackInheritForced _forcedDisabled;
-        private PaletteBackInheritForced _forcedNormal;
-        private NeedPaintHandler _layoutHandler;
+        private readonly PaletteBackInheritForced _forcedDisabled;
+        private readonly PaletteBackInheritForced _forcedNormal;
+        private readonly NeedPaintHandler _layoutHandler;
         #endregion
 
         #region Events

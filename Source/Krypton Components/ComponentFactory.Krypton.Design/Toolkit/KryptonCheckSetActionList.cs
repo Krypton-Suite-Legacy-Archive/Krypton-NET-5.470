@@ -15,7 +15,7 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class KryptonCheckSetActionList : DesignerActionList
     {
         #region Instance Fields
-        private KryptonCheckSet _set;
+        private readonly KryptonCheckSet _set;
         #endregion
 
         #region Identity

@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Navigator
     internal class ViewLayoutPopupPage : ViewLayoutNull
 	{
 		#region Instance Fields
-        private KryptonNavigator _navigator;
-        private KryptonPage _page;
+        private readonly KryptonNavigator _navigator;
+        private readonly KryptonPage _page;
 		#endregion
 
 		#region Identity

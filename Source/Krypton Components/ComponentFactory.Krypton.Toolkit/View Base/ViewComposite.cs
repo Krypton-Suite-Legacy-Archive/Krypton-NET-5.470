@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	public abstract class ViewComposite : ViewBase
 	{
 		#region Instance Fields
-		private List<ViewBase> _views;
+		private readonly List<ViewBase> _views;
 
 	    #endregion
 

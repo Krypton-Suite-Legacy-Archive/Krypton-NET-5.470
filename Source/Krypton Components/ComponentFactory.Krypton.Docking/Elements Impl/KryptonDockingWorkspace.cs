@@ -47,8 +47,8 @@ namespace ComponentFactory.Krypton.Docking
         {
             SpaceControl = workspace ?? throw new ArgumentNullException("workspace");
 
-            DockableWorkspaceControl.CellPageInserting += new EventHandler<KryptonPageEventArgs>(OnSpaceCellPageInserting);
-            DockableWorkspaceControl.BeforePageDrag += new EventHandler<PageDragCancelEventArgs>(OnDockableWorkspaceBeforePageDrag);
+            DockableWorkspaceControl.CellPageInserting += OnSpaceCellPageInserting;
+            DockableWorkspaceControl.BeforePageDrag += OnDockableWorkspaceBeforePageDrag;
         }
         #endregion
 

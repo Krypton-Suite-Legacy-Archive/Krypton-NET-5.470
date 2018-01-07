@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     {
         #region Instance Fields
         private OutlookMiniController _controller;
-        private EventHandler _finishDelegate;
+        private readonly EventHandler _finishDelegate;
         #endregion
 
         #region Identity
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         {
             // Create the finish handler for when popup is removed
-            _finishDelegate = new EventHandler(OnPopupFinished);
+            _finishDelegate = OnPopupFinished;
         }
 
 		/// <summary>
@@ -147,8 +147,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>Reference to IMouseController interface.</returns>
         protected override IMouseController CreateMouseController()
         {
-            _controller = new OutlookMiniController(this, new NeedPaintHandler(OnNeedPaint));
-            _controller.Click += new EventHandler(OnMiniClick);
+            _controller = new OutlookMiniController(this, OnNeedPaint);
+            _controller.Click += OnMiniClick;
             return _controller;
         }
         #endregion

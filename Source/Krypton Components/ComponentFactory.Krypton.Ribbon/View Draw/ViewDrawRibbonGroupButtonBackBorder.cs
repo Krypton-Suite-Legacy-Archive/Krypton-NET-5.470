@@ -27,13 +27,13 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable _mementoBack;
-        private IPaletteBack _paletteBack;
-        private PaletteBackInheritForced _paletteBackDraw;
-        private PaletteBackLightenColors _paletteBackLight;
-        private IPaletteBorder _paletteBorder;
-        private PaletteBorderInheritForced _paletteBorderAll;
+        private readonly IPaletteBack _paletteBack;
+        private readonly PaletteBackInheritForced _paletteBackDraw;
+        private readonly PaletteBackLightenColors _paletteBackLight;
+        private readonly IPaletteBorder _paletteBorder;
+        private readonly PaletteBorderInheritForced _paletteBorderAll;
 
         #endregion
 
@@ -95,13 +95,13 @@ namespace ComponentFactory.Krypton.Ribbon
             DrawNonTrackingAreas = true;
 
             // Create delegate used to process end of click action
-            FinishDelegate = new EventHandler(ActionFinished);
+            FinishDelegate = ActionFinished;
 
             // Attach a controller to this element for the pressing of the button
             Controller = new GroupButtonController(_ribbon, this, needPaint);
-            Controller.Click += new EventHandler(OnClick);
-            Controller.ContextClick += new MouseEventHandler(OnContextClick);
-            Controller.DropDown += new EventHandler(OnDropDown);
+            Controller.Click += OnClick;
+            Controller.ContextClick += OnContextClick;
+            Controller.DropDown += OnDropDown;
             MouseController = Controller;
             SourceController = Controller;
             KeyController = Controller;

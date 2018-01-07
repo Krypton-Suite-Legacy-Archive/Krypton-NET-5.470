@@ -20,8 +20,8 @@ namespace ComponentFactory.Krypton.Toolkit
     public class PaletteRedirectTreeView : PaletteRedirect
     {
         #region Instance Fields
-        private TreeViewImages _plusMinusImages;
-        private CheckBoxImages _checkboxImages;
+        private readonly TreeViewImages _plusMinusImages;
+        private readonly CheckBoxImages _checkboxImages;
         #endregion
 
 		#region Identity

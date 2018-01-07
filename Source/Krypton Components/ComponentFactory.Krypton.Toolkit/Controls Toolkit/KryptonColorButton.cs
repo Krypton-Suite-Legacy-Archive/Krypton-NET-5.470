@@ -33,35 +33,41 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonColorButton : VisualSimpleBase, IButtonControl, IContentValues
 	{
 		#region Instance Fields
-        private ViewDrawButton _drawButton;
+        private readonly ViewDrawButton _drawButton;
         private ButtonStyle _style;
-	    private ButtonController _buttonController;
-        private PaletteRedirectDropDownButton _paletteDropDownButtonImages;
-	    private PaletteTripleOverride _overrideFocus;
-		private PaletteTripleOverride _overrideNormal;
-		private PaletteTripleOverride _overrideTracking;
-		private PaletteTripleOverride _overridePressed;
+	    private readonly ButtonController _buttonController;
+        private readonly PaletteRedirectDropDownButton _paletteDropDownButtonImages;
+	    private readonly PaletteTripleOverride _overrideFocus;
+		private readonly PaletteTripleOverride _overrideNormal;
+		private readonly PaletteTripleOverride _overrideTracking;
+		private readonly PaletteTripleOverride _overridePressed;
 	    private KryptonCommand _command;
 	    private Rectangle _selectedRect;
         private Color _selectedColor;
         private Color _emptyBorderColor;
-	    private List<Color> _recentColors;
+	    private readonly List<Color> _recentColors;
 	    private Image _wasImage;
         private bool _wasEnabled;
 	    private bool _isDefault;
 		private bool _useMnemonic;
 
         // Context menu items
-        private KryptonContextMenu _kryptonContextMenu;
-        private KryptonContextMenuSeparator _separatorTheme, _separatorStandard, _separatorRecent;
-        private KryptonContextMenuHeading _headingTheme, _headingStandard, _headingRecent;
-        private KryptonContextMenuColorColumns _colorsTheme, _colorsStandard, _colorsRecent;
-        private KryptonContextMenuSeparator _separatorNoColor;
-        private KryptonContextMenuItems _itemsNoColor;
-        private KryptonContextMenuItem _itemNoColor;
-        private KryptonContextMenuSeparator _separatorMoreColors;
-        private KryptonContextMenuItems _itemsMoreColors;
-        private KryptonContextMenuItem _itemMoreColors;
+        private readonly KryptonContextMenu _kryptonContextMenu;
+        private readonly KryptonContextMenuSeparator _separatorTheme;
+	    private readonly KryptonContextMenuSeparator _separatorStandard;
+	    private readonly KryptonContextMenuSeparator _separatorRecent;
+	    private readonly KryptonContextMenuHeading _headingTheme;
+	    private readonly KryptonContextMenuHeading _headingStandard;
+	    private readonly KryptonContextMenuHeading _headingRecent;
+	    private readonly KryptonContextMenuColorColumns _colorsTheme;
+	    private readonly KryptonContextMenuColorColumns _colorsStandard;
+	    private readonly KryptonContextMenuColorColumns _colorsRecent;
+	    private readonly KryptonContextMenuSeparator _separatorNoColor;
+        private readonly KryptonContextMenuItems _itemsNoColor;
+        private readonly KryptonContextMenuItem _itemNoColor;
+        private readonly KryptonContextMenuSeparator _separatorMoreColors;
+        private readonly KryptonContextMenuItems _itemsMoreColors;
+        private readonly KryptonContextMenuItem _itemMoreColors;
         #endregion
 
         #region Events
@@ -142,11 +148,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _headingRecent = new KryptonContextMenuHeading("Recent Colors");
             _colorsRecent = new KryptonContextMenuColorColumns(ColorScheme.None);
             _separatorNoColor = new KryptonContextMenuSeparator();
-            _itemNoColor = new KryptonContextMenuItem("&No Color", Properties.Resources.ButtonNoColor, new EventHandler(OnClickNoColor));
+            _itemNoColor = new KryptonContextMenuItem("&No Color", Properties.Resources.ButtonNoColor, OnClickNoColor);
             _itemsNoColor = new KryptonContextMenuItems();
             _itemsNoColor.Items.Add(_itemNoColor);
             _separatorMoreColors = new KryptonContextMenuSeparator();
-            _itemMoreColors = new KryptonContextMenuItem("&More Colors...", new EventHandler(OnClickMoreColors));
+            _itemMoreColors = new KryptonContextMenuItem("&More Colors...", OnClickMoreColors);
             _itemsMoreColors = new KryptonContextMenuItems();
             _itemsMoreColors.Items.Add(_itemMoreColors);
             _kryptonContextMenu.Items.AddRange(new KryptonContextMenuItemBase[] { _separatorTheme, _headingTheme, _colorsTheme, 
@@ -157,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create content storage
             Values = CreateButtonValues(NeedPaintDelegate);
-            Values.TextChanged += new EventHandler(OnButtonTextChanged);
+            Values.TextChanged += OnButtonTextChanged;
             Images = new DropDownButtonImages(NeedPaintDelegate);
 
             // Image need an extra redirector to check the local images first
@@ -209,8 +215,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawButton.SourceController = _buttonController;
 
             // Need to know when user clicks the button view or mouse selects it
-            _buttonController.Click += new MouseEventHandler(OnButtonClick);
-            _buttonController.MouseSelect += new MouseEventHandler(OnButtonSelect);
+            _buttonController.Click += OnButtonClick;
+            _buttonController.MouseSelect += OnButtonSelect;
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawButton);
@@ -723,7 +729,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (_command != null)
                     {
-                        _command.PropertyChanged -= new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged -= OnCommandPropertyChanged;
                     }
                     else
                     {
@@ -736,7 +742,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (_command != null)
                     {
-                        _command.PropertyChanged += new PropertyChangedEventHandler(OnCommandPropertyChanged);
+                        _command.PropertyChanged += OnCommandPropertyChanged;
                     }
                     else
                     {
@@ -1257,7 +1263,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         HookContextMenuEvents(_kryptonContextMenu.Items, true);
 
                         // Show relative to the screen rectangle
-                        cpma.KryptonContextMenu.Closed += new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+                        cpma.KryptonContextMenu.Closed += OnKryptonContextMenuClosed;
                         cpma.KryptonContextMenu.Show(this, screenRect, cpma.PositionH, cpma.PositionV);
                     }
                 }
@@ -1304,7 +1310,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnKryptonContextMenuClosed(object sender, EventArgs e)
         {
             KryptonContextMenu kcm = (KryptonContextMenu)sender;
-            kcm.Closed -= new ToolStripDropDownClosedEventHandler(OnKryptonContextMenuClosed);
+            kcm.Closed -= OnKryptonContextMenuClosed;
             ContextMenuClosed();
 
             // Unhook from item events
@@ -1332,13 +1338,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (hook)
                     {
-                        columns.TrackingColor += new EventHandler<ColorEventArgs>(OnColumnsTrackingColor);
-                        columns.SelectedColorChanged += new EventHandler<ColorEventArgs>(OnColumnsSelectedColorChanged);
+                        columns.TrackingColor += OnColumnsTrackingColor;
+                        columns.SelectedColorChanged += OnColumnsSelectedColorChanged;
                     }
                     else
                     {
-                        columns.TrackingColor -= new EventHandler<ColorEventArgs>(OnColumnsTrackingColor);
-                        columns.SelectedColorChanged -= new EventHandler<ColorEventArgs>(OnColumnsSelectedColorChanged);
+                        columns.TrackingColor -= OnColumnsTrackingColor;
+                        columns.SelectedColorChanged -= OnColumnsSelectedColorChanged;
                     }
                 }
             }
