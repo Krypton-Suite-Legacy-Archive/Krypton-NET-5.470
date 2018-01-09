@@ -1,5 +1,18 @@
 ﻿# Krypton-NET-4.7
 
+=======
+
+## 2018-01-08 Repository changes
+* Nuget package upload
+* Chocolatey package is in the works
+
+=======
+
+## 2018-01-07 pm Toolkit Solution changes
+* Reupload of fresh binaries after a good fight!
+* Changed year of all classes, controls etc from 2017 to 2018
+* Mass rebuild of solution
+* Eradicated all references of 4.5.0.0 to 4.7.0.0
 
 =======
 
