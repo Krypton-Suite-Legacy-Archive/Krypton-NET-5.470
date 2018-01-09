@@ -15,10 +15,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.7.0.0")]
-[assembly: AssemblyFileVersion("4.7.0.0")]
+[assembly: AssemblyVersion("4.70.500.0")]
+[assembly: AssemblyFileVersion("4.70.500.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2018. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("4.7.0.0")]
+[assembly: AssemblyInformationalVersion("4.70.500.0")]
 [assembly: AssemblyProduct("Krypton Toolkit")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Toolkit.dll")]
 [assembly: AssemblyTitle("ComponentFactory.Krypton.Toolkit")]
