@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner & Simon Coghlan 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
@@ -17,12 +17,12 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("4.70.501.0")]
 [assembly: AssemblyFileVersion("4.70.501.0")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd, modifications by Peter Wagner & Simon Coghlan 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)")]
 [assembly: AssemblyInformationalVersion("4.70.501.0")]
 [assembly: AssemblyProduct("Krypton Workspace")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Workspace.dll")]
 [assembly: AssemblyTitle("ComponentFactory.Krypton.Workspace")]
-[assembly: AssemblyCompany("Component Factory Pty Ltd, Peter Wagner & Simon Coghlan")]
+[assembly: AssemblyCompany("Component Factory Pty Ltd, Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV)")]
 [assembly: AssemblyDescription("ComponentFactory.Krypton.Workspace")]
 [assembly: AssemblyConfiguration("Production")]
 [assembly: NeutralResourcesLanguage("en-US")]
