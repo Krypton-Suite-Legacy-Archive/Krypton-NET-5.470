@@ -1,5 +1,11 @@
 ﻿# Krypton-NET-4.7
 
+## 2018-10-10 Assembly values modifications
+* Updated values as suggested in issue #7
+* Refreshed Nuget package data to reflect changes
+
+=======
+
 ## 2018-01-09 Incremental versioning
 * To reflect the .Net version move to Major.Minor of 4.70
 * Build will increment, with the final useless installable number left at zero
@@ -36,7 +42,7 @@
   * Added KryptonMenuImageSelect click event; commit [621ab7c](https://github.com/Cocotteseb/Krypton/commit/ef4a415b84ac4ce9b145db9d723701a0099ce0f1)
   * Trying to fixed rare crashed in KryptonRibbon Composition; commit [ef4a415](https://github.com/Cocotteseb/Krypton/commit/c55aeadc2224ed68a7446bf3986eb02bf0415751)
   * Add DPI Awareness for Tab images (Mixture of commits)
-* Update a few test to use Offices2013 palletes
+* Update a few test to use Office 2013 palettes
 * Remove Binaries from Git
 
 ## 2018-01-06 Toolkit solution and Examples II changes:

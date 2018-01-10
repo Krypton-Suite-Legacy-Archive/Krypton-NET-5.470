@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2018. All rights reserved.
+//  © Component Factory Pty Ltd, modifications by Peter Wagner & Simon Coghlan 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
@@ -18,11 +18,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("4.70.500.0")]
 [assembly: AssemblyFileVersion("4.70.500.0")]
 [assembly: AssemblyInformationalVersion("4.70.500.0")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2018. All rights reserved.")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd, modifications by Peter Wagner & Simon Coghlan 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)")]
 [assembly: AssemblyProduct("Krypton Navigator")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Navigator.dll")]
 [assembly: AssemblyTitle("ComponentFactory.Krypton.Navigator")]
-[assembly: AssemblyCompany("Component Factory Pty Ltd")]
+[assembly: AssemblyCompany("Component Factory Pty Ltd, Peter Wagner & Simon Coghlan")]
 [assembly: AssemblyDescription("ComponentFactory.Krypton.Navigator")]
 [assembly: AssemblyConfiguration("Production")]
 [assembly: NeutralResourcesLanguage("en-US")]
