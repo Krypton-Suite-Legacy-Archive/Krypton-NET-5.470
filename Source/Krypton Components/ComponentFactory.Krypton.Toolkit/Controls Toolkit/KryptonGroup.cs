@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonGroup), "ToolboxBitmaps.KryptonGroup.bmp")]
     [DefaultEvent("Paint")]
 	[DefaultProperty("GroupBackStyle")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonGroupDesigner, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("ComponentFactory.Krypton.Toolkit.KryptonGroupDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Ask)]

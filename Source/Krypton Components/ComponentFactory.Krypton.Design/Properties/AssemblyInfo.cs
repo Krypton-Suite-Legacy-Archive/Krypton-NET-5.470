@@ -15,9 +15,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.7.0.0")]
-[assembly: AssemblyFileVersion("4.7.0.0")]
-[assembly: AssemblyInformationalVersion("4.7.0.0")]
+[assembly: AssemblyVersion("4.70.0.0")]
+[assembly: AssemblyFileVersion("4.70.502.0")]
+[assembly: AssemblyInformationalVersion("4.70.502.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2018. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Design")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Design.dll")]

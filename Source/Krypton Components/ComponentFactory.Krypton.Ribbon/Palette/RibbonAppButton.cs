@@ -250,7 +250,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Values")]
         [Description("Context menu items for the application button.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         public virtual KryptonContextMenuItemCollection AppButtonMenuItems => _appButtonMenuItems.Items;
 
         #endregion
@@ -262,7 +262,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Values")]
         [Description("Recent document entries for the application buttton.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDocCollectionEditor, ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor("ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDocCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         public virtual KryptonRibbonRecentDocCollection AppButtonRecentDocs { get; }
 
         #endregion

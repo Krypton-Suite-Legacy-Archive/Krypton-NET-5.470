@@ -1,5 +1,10 @@
 ﻿# Krypton-NET-4.7
 
+## 2018-01-09 Incremental versioning
+* To reflect the .Net version move to Major.Minor of 4.70
+* Build will increment, with the final useless installable number left at zero
+* Use "[Automatic Versions](https://marketplace.visualstudio.com/items?itemName=PrecisionInfinity.AutomaticVersions)" to perform the update build number action
+
 =======
 
 ## 2018-01-08 Repository changes
