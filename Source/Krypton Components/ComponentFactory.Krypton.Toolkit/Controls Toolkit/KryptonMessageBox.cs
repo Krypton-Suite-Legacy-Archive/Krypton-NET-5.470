@@ -10,10 +10,12 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
+using System.Media;
+using System.Text;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit.Properties;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -142,7 +144,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             Keys keys = ((Keys)((int)m.WParam.ToInt64()));
 
                             // If the user standard combination ALT + F4
-                            if ((keys == Keys.F4) && ((Control.ModifierKeys & Keys.Alt) == Keys.Alt))
+                            if ((keys == Keys.F4) && ((ModifierKeys & Keys.Alt) == Keys.Alt))
                             {
                                 // Eat the message, so standard window proc does not close the window
                                 return;
@@ -189,10 +191,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _osMajorVersion = Environment.OSVersion.Version.Major;
         }
 
-        private KryptonMessageBox(string text, string caption,
-                                  MessageBoxButtons buttons, MessageBoxIcon icon,
-                                  MessageBoxDefaultButton defaultButton, MessageBoxOptions options,
-                                  HelpInfo helpInfo)
+        private KryptonMessageBox(IWin32Window showOwner, string text, string caption,
+            MessageBoxButtons buttons, MessageBoxIcon icon,
+            MessageBoxDefaultButton defaultButton, MessageBoxOptions options,
+            HelpInfo helpInfo)
         {
             // Store incoming values
             _text = text;
@@ -214,7 +216,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateHelp();
 
             // Finally calculate and set form sizing
-            UpdateSizing();
+            UpdateSizing(showOwner);
         }
 
         /// <summary> 
@@ -617,7 +619,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Check if trying to show a message box from a service and help information is specified, this is not possible
             if ((helpInfo != null) && ((options & (MessageBoxOptions.ServiceNotification | MessageBoxOptions.DefaultDesktopOnly)) != 0))
             {
-                throw new ArgumentException("Cannot show message box from a service with help specified", nameof(options));
+                throw new ArgumentException(@"Cannot show message box from a service with help specified", nameof(options));
             }
 
             // If help information provided or we are not a service/default desktop application then grab an owner for showing the message box
@@ -625,27 +627,13 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((helpInfo != null) || ((options & (MessageBoxOptions.ServiceNotification | MessageBoxOptions.DefaultDesktopOnly)) == 0))
             {
                 // If do not have an owner passed in then get the active window and use that instead
-                if (owner == null)
-                {
-                    showOwner = Control.FromHandle(PI.GetActiveWindow());
-                }
-                else
-                {
-                    showOwner = owner;
-                }
+                showOwner = owner ?? FromHandle(PI.GetActiveWindow());
             }
 
             // Show message box window as a modal dialog and then dispose of it afterwards
-            using (KryptonMessageBox kmb = new KryptonMessageBox(text, caption, buttons, icon, defaultButton, options, helpInfo))
+            using (KryptonMessageBox kmb = new KryptonMessageBox(showOwner, text, caption, buttons, icon, defaultButton, options, helpInfo))
             {
-                if (showOwner == null)
-                {
-                    kmb.StartPosition = FormStartPosition.CenterScreen;
-                }
-                else
-                {
-                    kmb.StartPosition = FormStartPosition.CenterParent;
-                }
+                kmb.StartPosition = showOwner == null ? FormStartPosition.CenterScreen : FormStartPosition.CenterParent;
 
                 return kmb.ShowDialog(showOwner);
             }
@@ -653,7 +641,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void UpdateText()
         {
-            Text = _caption;
+            Text = (string.IsNullOrEmpty(_caption)?string.Empty:_caption.Split(Environment.NewLine.ToCharArray())[0]);
             _messageText.Text = _text;
         }
 
@@ -668,25 +656,25 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Windows XP and before will Beep, Vista and above do not!
                     if (_osMajorVersion < 6)
                     {
-                        System.Media.SystemSounds.Beep.Play();
+                        SystemSounds.Beep.Play();
                     }
 
                     break;
                 case MessageBoxIcon.Question:
-                    _messageIcon.Image = Properties.Resources.help2;
-                    System.Media.SystemSounds.Question.Play();
+                    _messageIcon.Image = Resources.help2;
+                    SystemSounds.Question.Play();
                     break;
                 case MessageBoxIcon.Information:
-                    _messageIcon.Image = Properties.Resources.information;
-                    System.Media.SystemSounds.Asterisk.Play();
+                    _messageIcon.Image = Resources.information;
+                    SystemSounds.Asterisk.Play();
                     break;
                 case MessageBoxIcon.Warning:
-                    _messageIcon.Image = Properties.Resources.sign_warning;
-                    System.Media.SystemSounds.Exclamation.Play();
+                    _messageIcon.Image = Resources.sign_warning;
+                    SystemSounds.Exclamation.Play();
                     break;
                 case MessageBoxIcon.Error:
-                    _messageIcon.Image = Properties.Resources.error;
-                    System.Media.SystemSounds.Hand.Play();
+                    _messageIcon.Image = Resources.error;
+                    SystemSounds.Hand.Play();
                     break;
             }
         }
@@ -767,9 +755,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-        private void UpdateSizing()
+        private void UpdateSizing(IWin32Window showOwner)
         {
-            Size messageSizing = UpdateMessageSizing();
+            Size messageSizing = UpdateMessageSizing(showOwner);
             Size buttonsSizing = UpdateButtonsSizing();
 
             // Size of window is calculated from the client area
@@ -777,25 +765,30 @@ namespace ComponentFactory.Krypton.Toolkit
                                   messageSizing.Height + buttonsSizing.Height);
         }
 
-        private Size UpdateMessageSizing()
+        private Size UpdateMessageSizing(IWin32Window showOwner)
         {
             // Update size of the message label but with a maximum width
             using (Graphics g = CreateGraphics())
             {
-                // Find size of the label when it has a maximum length of 400
+                // Find size of the label, with a max of 2/3 screen width
+                SizeF scaledMonitorSize = Screen.FromHandle(showOwner.Handle).Bounds.Size;
+                scaledMonitorSize.Width *= (2 / 3.0f);
+                scaledMonitorSize.Height *= 0.95f;
                 _messageText.UpdateFont();
-                Size messageSize = g.MeasureString(_text, _messageText.Font, 400).ToSize();
+                SizeF messageSize = g.MeasureString(_text, _messageText.Font, scaledMonitorSize);
+                SizeF captionSize = g.MeasureString(_caption, _messageText.Font, scaledMonitorSize);
 
+                float messageXSize = Math.Max(messageSize.Width, captionSize.Width);
                 // Work out DPI adjustment factor
                 float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;
                 float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
-                messageSize.Width = (int)((float)messageSize.Width * factorX);
-                messageSize.Height = (int)((float)messageSize.Height * factorY);
+                messageSize.Width = messageXSize * factorX;
+                messageSize.Height = messageSize.Height * factorY;
 
                 // Always add on ad extra 5 pixels as sometimes the measure size does not draw the last 
                 // character it contains, this ensures there is always definitely enough space for it all
                 messageSize.Width += 5;
-                _messageText.Size = messageSize;
+                _messageText.Size = Size.Ceiling(messageSize);
             }
 
             // Resize panel containing the message text
@@ -938,184 +931,186 @@ namespace ComponentFactory.Krypton.Toolkit
                     sb.AppendLine("---------------------------");
 
                     Clipboard.SetText(sb.ToString(), TextDataFormat.Text);
+                    Clipboard.SetText(sb.ToString(), TextDataFormat.UnicodeText);
                 }
             }
         }
 
         private void InitializeComponent()
         {
-            this._panelMessage = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this._panelMessageText = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this._messageText = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this._panelMessageIcon = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this._messageIcon = new System.Windows.Forms.PictureBox();
-            this._panelButtons = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.borderEdge = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
-            this._button3 = new ComponentFactory.Krypton.Toolkit.KryptonMessageBox.MessageButton();
-            this._button1 = new ComponentFactory.Krypton.Toolkit.KryptonMessageBox.MessageButton();
-            this._button2 = new ComponentFactory.Krypton.Toolkit.KryptonMessageBox.MessageButton();
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessage)).BeginInit();
-            this._panelMessage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessageText)).BeginInit();
-            this._panelMessageText.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessageIcon)).BeginInit();
-            this._panelMessageIcon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._messageIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._panelButtons)).BeginInit();
-            this._panelButtons.SuspendLayout();
-            this.SuspendLayout();
+            _panelMessage = new KryptonPanel();
+            _panelMessageText = new KryptonPanel();
+            _messageText = new KryptonWrapLabel();
+            _panelMessageIcon = new KryptonPanel();
+            _messageIcon = new PictureBox();
+            _panelButtons = new KryptonPanel();
+            borderEdge = new KryptonBorderEdge();
+            _button3 = new MessageButton();
+            _button1 = new MessageButton();
+            _button2 = new MessageButton();
+            ((ISupportInitialize)(_panelMessage)).BeginInit();
+            _panelMessage.SuspendLayout();
+            ((ISupportInitialize)(_panelMessageText)).BeginInit();
+            _panelMessageText.SuspendLayout();
+            ((ISupportInitialize)(_panelMessageIcon)).BeginInit();
+            _panelMessageIcon.SuspendLayout();
+            ((ISupportInitialize)(_messageIcon)).BeginInit();
+            ((ISupportInitialize)(_panelButtons)).BeginInit();
+            _panelButtons.SuspendLayout();
+            SuspendLayout();
             // 
             // _panelMessage
             // 
-            this._panelMessage.AutoSize = true;
-            this._panelMessage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._panelMessage.Controls.Add(this._panelMessageText);
-            this._panelMessage.Controls.Add(this._panelMessageIcon);
-            this._panelMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this._panelMessage.Location = new System.Drawing.Point(0, 0);
-            this._panelMessage.Name = "_panelMessage";
-            this._panelMessage.Size = new System.Drawing.Size(156, 52);
-            this._panelMessage.TabIndex = 0;
+            _panelMessage.AutoSize = true;
+            _panelMessage.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            _panelMessage.Controls.Add(_panelMessageText);
+            _panelMessage.Controls.Add(_panelMessageIcon);
+            _panelMessage.Dock = DockStyle.Top;
+            _panelMessage.Location = new Point(0, 0);
+            _panelMessage.Name = "_panelMessage";
+            _panelMessage.Size = new Size(156, 52);
+            _panelMessage.TabIndex = 0;
             // 
             // _panelMessageText
             // 
-            this._panelMessageText.AutoSize = true;
-            this._panelMessageText.Controls.Add(this._messageText);
-            this._panelMessageText.Location = new System.Drawing.Point(42, 0);
-            this._panelMessageText.Margin = new System.Windows.Forms.Padding(0);
-            this._panelMessageText.Name = "_panelMessageText";
-            this._panelMessageText.Padding = new System.Windows.Forms.Padding(5, 17, 5, 17);
-            this._panelMessageText.Size = new System.Drawing.Size(88, 52);
-            this._panelMessageText.TabIndex = 1;
+            _panelMessageText.AutoSize = true;
+            _panelMessageText.Controls.Add(_messageText);
+            _panelMessageText.Location = new Point(42, 0);
+            _panelMessageText.Margin = new Padding(0);
+            _panelMessageText.Name = "_panelMessageText";
+            _panelMessageText.Padding = new Padding(5, 17, 5, 17);
+            _panelMessageText.Size = new Size(88, 52);
+            _panelMessageText.TabIndex = 1;
             // 
             // _messageText
             // 
-            this._messageText.AutoSize = false;
-            this._messageText.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this._messageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this._messageText.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this._messageText.Location = new System.Drawing.Point(5, 18);
-            this._messageText.Margin = new System.Windows.Forms.Padding(0);
-            this._messageText.Name = "_messageText";
-            this._messageText.Size = new System.Drawing.Size(78, 15);
-            this._messageText.Text = "Message Text";
+            _messageText.AutoSize = false;
+            _messageText.Font = new Font("Segoe UI", 9F);
+            _messageText.ForeColor = Color.FromArgb(30, 57, 91);
+            _messageText.LabelStyle = LabelStyle.NormalPanel;
+            _messageText.Location = new Point(5, 18);
+            _messageText.Margin = new Padding(0);
+            _messageText.Name = "_messageText";
+            _messageText.Size = new Size(78, 15);
+            _messageText.Text = "Message Text";
             // 
             // _panelMessageIcon
             // 
-            this._panelMessageIcon.AutoSize = true;
-            this._panelMessageIcon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._panelMessageIcon.Controls.Add(this._messageIcon);
-            this._panelMessageIcon.Location = new System.Drawing.Point(0, 0);
-            this._panelMessageIcon.Margin = new System.Windows.Forms.Padding(0);
-            this._panelMessageIcon.Name = "_panelMessageIcon";
-            this._panelMessageIcon.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this._panelMessageIcon.Size = new System.Drawing.Size(42, 52);
-            this._panelMessageIcon.TabIndex = 0;
+            _panelMessageIcon.AutoSize = true;
+            _panelMessageIcon.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            _panelMessageIcon.Controls.Add(_messageIcon);
+            _panelMessageIcon.Location = new Point(0, 0);
+            _panelMessageIcon.Margin = new Padding(0);
+            _panelMessageIcon.Name = "_panelMessageIcon";
+            _panelMessageIcon.Padding = new Padding(10, 10, 0, 10);
+            _panelMessageIcon.Size = new Size(42, 52);
+            _panelMessageIcon.TabIndex = 0;
             // 
             // _messageIcon
             // 
-            this._messageIcon.BackColor = System.Drawing.Color.Transparent;
-            this._messageIcon.Location = new System.Drawing.Point(10, 10);
-            this._messageIcon.Margin = new System.Windows.Forms.Padding(0);
-            this._messageIcon.Name = "_messageIcon";
-            this._messageIcon.Size = new System.Drawing.Size(32, 32);
-            this._messageIcon.TabIndex = 0;
-            this._messageIcon.TabStop = false;
+            _messageIcon.BackColor = Color.Transparent;
+            _messageIcon.Location = new Point(10, 10);
+            _messageIcon.Margin = new Padding(0);
+            _messageIcon.Name = "_messageIcon";
+            _messageIcon.Size = new Size(32, 32);
+            _messageIcon.TabIndex = 0;
+            _messageIcon.TabStop = false;
             // 
             // _panelButtons
             // 
-            this._panelButtons.Controls.Add(this.borderEdge);
-            this._panelButtons.Controls.Add(this._button3);
-            this._panelButtons.Controls.Add(this._button1);
-            this._panelButtons.Controls.Add(this._button2);
-            this._panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this._panelButtons.Location = new System.Drawing.Point(0, 52);
-            this._panelButtons.Margin = new System.Windows.Forms.Padding(0);
-            this._panelButtons.Name = "_panelButtons";
-            this._panelButtons.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
-            this._panelButtons.Size = new System.Drawing.Size(156, 26);
-            this._panelButtons.TabIndex = 0;
+            _panelButtons.Controls.Add(borderEdge);
+            _panelButtons.Controls.Add(_button3);
+            _panelButtons.Controls.Add(_button1);
+            _panelButtons.Controls.Add(_button2);
+            _panelButtons.Dock = DockStyle.Top;
+            _panelButtons.Location = new Point(0, 52);
+            _panelButtons.Margin = new Padding(0);
+            _panelButtons.Name = "_panelButtons";
+            _panelButtons.PanelBackStyle = PaletteBackStyle.PanelAlternate;
+            _panelButtons.Size = new Size(156, 26);
+            _panelButtons.TabIndex = 0;
             // 
             // borderEdge
             // 
-            this.borderEdge.BorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.HeaderPrimary;
-            this.borderEdge.Dock = System.Windows.Forms.DockStyle.Top;
-            this.borderEdge.Location = new System.Drawing.Point(0, 0);
-            this.borderEdge.Name = "borderEdge";
-            this.borderEdge.Size = new System.Drawing.Size(156, 1);
-            this.borderEdge.Text = "kryptonBorderEdge1";
+            borderEdge.BorderStyle = PaletteBorderStyle.HeaderPrimary;
+            borderEdge.Dock = DockStyle.Top;
+            borderEdge.Location = new Point(0, 0);
+            borderEdge.Name = "borderEdge";
+            borderEdge.Size = new Size(156, 1);
+            borderEdge.Text = "kryptonBorderEdge1";
             // 
             // _button3
             // 
-            this._button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._button3.AutoSize = true;
-            this._button3.IgnoreAltF4 = false;
-            this._button3.Location = new System.Drawing.Point(106, 0);
-            this._button3.Margin = new System.Windows.Forms.Padding(0);
-            this._button3.MinimumSize = new System.Drawing.Size(50, 26);
-            this._button3.Name = "_button3";
-            this._button3.Size = new System.Drawing.Size(50, 26);
-            this._button3.TabIndex = 2;
-            this._button3.Values.Text = "B3";
-            this._button3.KeyDown += this.button_keyDown;
+            _button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            _button3.AutoSize = true;
+            _button3.IgnoreAltF4 = false;
+            _button3.Location = new Point(106, 0);
+            _button3.Margin = new Padding(0);
+            _button3.MinimumSize = new Size(50, 26);
+            _button3.Name = "_button3";
+            _button3.Size = new Size(50, 26);
+            _button3.TabIndex = 2;
+            _button3.Values.Text = "B3";
+            _button3.KeyDown += button_keyDown;
             // 
             // _button1
             // 
-            this._button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._button1.AutoSize = true;
-            this._button1.IgnoreAltF4 = false;
-            this._button1.Location = new System.Drawing.Point(6, 0);
-            this._button1.Margin = new System.Windows.Forms.Padding(0);
-            this._button1.MinimumSize = new System.Drawing.Size(50, 26);
-            this._button1.Name = "_button1";
-            this._button1.Size = new System.Drawing.Size(50, 26);
-            this._button1.TabIndex = 0;
-            this._button1.Values.Text = "B1";
-            this._button1.KeyDown += this.button_keyDown;
+            _button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            _button1.AutoSize = true;
+            _button1.IgnoreAltF4 = false;
+            _button1.Location = new Point(6, 0);
+            _button1.Margin = new Padding(0);
+            _button1.MinimumSize = new Size(50, 26);
+            _button1.Name = "_button1";
+            _button1.Size = new Size(50, 26);
+            _button1.TabIndex = 0;
+            _button1.Values.Text = "B1";
+            _button1.KeyDown += button_keyDown;
             // 
             // _button2
             // 
-            this._button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._button2.AutoSize = true;
-            this._button2.IgnoreAltF4 = false;
-            this._button2.Location = new System.Drawing.Point(56, 0);
-            this._button2.Margin = new System.Windows.Forms.Padding(0);
-            this._button2.MinimumSize = new System.Drawing.Size(50, 26);
-            this._button2.Name = "_button2";
-            this._button2.Size = new System.Drawing.Size(50, 26);
-            this._button2.TabIndex = 1;
-            this._button2.Values.Text = "B2";
-            this._button2.KeyDown += this.button_keyDown;
+            _button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            _button2.AutoSize = true;
+            _button2.IgnoreAltF4 = false;
+            _button2.Location = new Point(56, 0);
+            _button2.Margin = new Padding(0);
+            _button2.MinimumSize = new Size(50, 26);
+            _button2.Name = "_button2";
+            _button2.Size = new Size(50, 26);
+            _button2.TabIndex = 1;
+            _button2.Values.Text = "B2";
+            _button2.KeyDown += button_keyDown;
             // 
             // KryptonMessageBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(156, 78);
-            this.Controls.Add(this._panelButtons);
-            this.Controls.Add(this._panelMessage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "KryptonMessageBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessage)).EndInit();
-            this._panelMessage.ResumeLayout(false);
-            this._panelMessage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessageText)).EndInit();
-            this._panelMessageText.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessageIcon)).EndInit();
-            this._panelMessageIcon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._messageIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._panelButtons)).EndInit();
-            this._panelButtons.ResumeLayout(false);
-            this._panelButtons.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(156, 78);
+            Controls.Add(_panelButtons);
+            Controls.Add(_panelMessage);
+            TextExtra = @"Ctrl+c to copy";
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "KryptonMessageBox";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterParent;
+            TopMost = true;
+            ((ISupportInitialize)(_panelMessage)).EndInit();
+            _panelMessage.ResumeLayout(false);
+            _panelMessage.PerformLayout();
+            ((ISupportInitialize)(_panelMessageText)).EndInit();
+            _panelMessageText.ResumeLayout(false);
+            ((ISupportInitialize)(_panelMessageIcon)).EndInit();
+            _panelMessageIcon.ResumeLayout(false);
+            ((ISupportInitialize)(_messageIcon)).EndInit();
+            ((ISupportInitialize)(_panelButtons)).EndInit();
+            _panelButtons.ResumeLayout(false);
+            _panelButtons.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
         #endregion

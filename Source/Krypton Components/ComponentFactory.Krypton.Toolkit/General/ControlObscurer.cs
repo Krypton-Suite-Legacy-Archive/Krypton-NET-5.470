@@ -17,7 +17,7 @@ using System.ComponentModel;
 namespace ComponentFactory.Krypton.Toolkit
 {    
     /// <summary>
-    /// Used to obscrure an area of the screen to hide form changes underneath.
+    /// Used to obscure an area of the screen to hide form changes underneath.
     /// </summary>
     [ToolboxItem(false)]
     public class ScreenObscurer : IDisposable

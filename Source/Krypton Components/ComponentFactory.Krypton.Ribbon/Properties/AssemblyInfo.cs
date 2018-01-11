@@ -16,10 +16,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.70.506.0")]
-[assembly: AssemblyFileVersion("4.70.506.0")]
-[assembly: AssemblyInformationalVersion("4.70.506.0")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)")]
+[assembly: AssemblyVersion("4.70.508.0")]
+[assembly: AssemblyFileVersion("4.70.508.0")]
+[assembly: AssemblyInformationalVersion("4.70.508.0")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2018. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2018. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Ribbon")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Ribbon.dll")]
 [assembly: AssemblyTitle("ComponentFactory.Krypton.Ribbon")]
