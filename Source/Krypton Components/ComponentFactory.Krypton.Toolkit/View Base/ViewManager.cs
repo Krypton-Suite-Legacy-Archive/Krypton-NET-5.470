@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -202,10 +203,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
         #region EvalTransparentPaint
+
         /// <summary>
-		/// Perform a layout of the view.
-		/// </summary>
-		/// <param name="renderer">Renderer provider.</param>
+        /// Perform a layout of the view.
+        /// </summary>
+        /// <param name="renderer">Renderer provider.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>True if it contains transparent painting.</returns>
         public bool EvalTransparentPaint(IRenderer renderer)
         {
@@ -215,7 +218,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (renderer == null)
             {
-                throw new ArgumentNullException("renderer");
+                throw new ArgumentNullException(nameof(renderer));
             }
 
             // Create a layout context for calculating size and positioning
@@ -314,10 +317,11 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Perform a layout of the view.
-		/// </summary>
+        /// Perform a layout of the view.
+        /// </summary>
         /// <param name="context">View context for layout operation.</param>
-		public virtual void Layout(ViewLayoutContext context)
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void Layout(ViewLayoutContext context)
 		{
             Debug.Assert(context != null);
             Debug.Assert(context.Renderer != null);
@@ -334,7 +338,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Validate incoming references
                 if (context.Renderer == null)
                 {
-                    throw new ArgumentNullException("renderer");
+                    throw new ArgumentNullException(nameof(context.Renderer));
                 }
 
                 // If someone is interested, tell them the layout cycle to beginning
@@ -367,11 +371,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region Paint
-		/// <summary>
-		/// Perform a paint of the view.
-		/// </summary>
-		/// <param name="renderer">Renderer provider.</param>
-		/// <param name="e">A PaintEventArgs that contains the event data.</param>
+
+        /// <summary>
+        /// Perform a paint of the view.
+        /// </summary>
+        /// <param name="renderer">Renderer provider.</param>
+        /// <param name="e">A PaintEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public virtual void Paint(IRenderer renderer, PaintEventArgs e)
         {
             Debug.Assert(renderer != null);
@@ -380,12 +386,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming references
             if (renderer == null)
             {
-                throw new ArgumentNullException("renderer");
+                throw new ArgumentNullException(nameof(renderer));
             }
 
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             // Do nothing if the control is disposed or inside a layout call
@@ -404,10 +410,11 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Perform a paint of the view.
-		/// </summary>
+        /// <summary>
+        /// Perform a paint of the view.
+        /// </summary>
         /// <param name="context">Renderer context.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public virtual void Paint(RenderContext context)
 		{
             Debug.Assert(context != null);
@@ -416,7 +423,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             // Do nothing if the control is disposed or inside a layout call
@@ -449,19 +456,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region Mouse
-		/// <summary>
-		/// Perform mouse movement handling.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
+
+        /// <summary>
+        /// Perform mouse movement handling.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
         /// <param name="rawPt">The actual point provided from the windows message.</param>
-		public virtual void MouseMove(MouseEventArgs e, Point rawPt)
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void MouseMove(MouseEventArgs e, Point rawPt)
 		{
             Debug.Assert(e != null);
 
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             Point pt = new Point(e.X, e.Y);
@@ -473,11 +482,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		    ActiveView?.MouseMove(rawPt);
 		}
 
-		/// <summary>
-		/// Perform mouse down processing.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
+        /// <summary>
+        /// Perform mouse down processing.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
         /// <param name="rawPt">The actual point provided from the windows message.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseDown(MouseEventArgs e, Point rawPt)
 		{
             Debug.Assert(e != null);
@@ -485,7 +495,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             Point pt = new Point(e.X, e.Y);
@@ -504,10 +514,11 @@ namespace ComponentFactory.Krypton.Toolkit
 		}
 
         /// <summary>
-		/// Perform mouse up processing.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
+        /// Perform mouse up processing.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
         /// <param name="rawPt">The actual point provided from the windows message.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseUp(MouseEventArgs e, Point rawPt)
 		{
             Debug.Assert(e != null);
@@ -515,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             Point pt = new Point(e.X, e.Y);
@@ -533,11 +544,12 @@ namespace ComponentFactory.Krypton.Toolkit
             PerformMouseUpProcessed(e);
         }
 
-        
+
         /// <summary>
-		/// Perform mouse leave processing.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
+        /// Perform mouse leave processing.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseLeave(EventArgs e)
 		{
             Debug.Assert(e != null);
@@ -545,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             // If there is an active element

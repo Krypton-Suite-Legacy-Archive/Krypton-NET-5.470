@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -389,7 +390,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming parameter
             if (colorPalette == null)
             {
-                throw new ArgumentNullException("colorPalette");
+                throw new ArgumentNullException(nameof(colorPalette));
             }
 
             // Use the professional renderer but pull colors from the palette
@@ -405,12 +406,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region RenderStandardBorder Overrides
+
         /// <summary>
         /// Gets the raw padding used per edge of the border.
         /// </summary>
         /// <param name="palette">Palette used for drawing.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Padding structure detailing all four edges.</returns>
         public override Padding GetBorderRawPadding(IPaletteBorder palette,
                                                     PaletteState state,
@@ -421,7 +424,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter reference
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             PaletteDrawBorders borders = palette.GetBorderDrawBorders(state);
@@ -476,13 +479,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the padding used to position display elements completely inside border drawing.
-		/// </summary>
-		/// <param name="palette">Palette used for drawing.</param>
+        /// Gets the padding used to position display elements completely inside border drawing.
+        /// </summary>
+        /// <param name="palette">Palette used for drawing.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Padding structure detailing all four edges.</returns>
-		public override Padding GetBorderDisplayPadding(IPaletteBorder palette,
+        public override Padding GetBorderDisplayPadding(IPaletteBorder palette,
                                                         PaletteState state,
                                                         VisualOrientation orientation)
         {
@@ -491,7 +495,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter reference
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             PaletteDrawBorders borders = palette.GetBorderDrawBorders(state);
@@ -574,6 +578,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>GraphicsPath instance.</returns>
         public override GraphicsPath GetOutsideBorderPath(RenderContext context,
                                                           Rectangle rect,
@@ -587,12 +592,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -615,6 +620,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>GraphicsPath instance.</returns>
         public override GraphicsPath GetBorderPath(RenderContext context,
                                                    Rectangle rect,
@@ -628,12 +634,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -658,6 +664,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>GraphicsPath instance.</returns>
         public override GraphicsPath GetBackPath(RenderContext context,
                                                  Rectangle rect,
@@ -671,12 +678,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -701,6 +708,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawBorder(RenderContext context,
                                         Rectangle rect,
                                         IPaletteBorder palette,
@@ -713,12 +721,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -822,6 +830,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region RenderStandardBack Overrides
+
         /// <summary>
         /// Draw background to fill the specified path.
         /// </summary>
@@ -832,6 +841,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="memento">Cache used for drawing.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override IDisposable DrawBack(RenderContext context,
                                              Rectangle rect,
                                              GraphicsPath path,
@@ -847,12 +857,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1020,6 +1030,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region RenderStandardContent Overrides
+
         /// <summary>
         /// Get the preferred size for drawing the content.
         /// </summary>
@@ -1030,6 +1041,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Should draw on a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Preferred size.</returns>
         public override Size GetContentPreferredSize(ViewLayoutContext context,
                                                      IPaletteContent palette,
@@ -1046,12 +1058,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1121,18 +1133,19 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Perform layout calculations on the provided content.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// Perform layout calculations on the provided content.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         /// <param name="availableRect">Display area available for laying out.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="values">Content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		/// <param name="state">State associated with rendering.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="values">Content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
+        /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Should draw on a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Memento with cached information.</returns>
-		public override IDisposable LayoutContent(ViewLayoutContext context,
+        public override IDisposable LayoutContent(ViewLayoutContext context,
 											      Rectangle availableRect,
 											      IPaletteContent palette,
 											      IContentValues values,
@@ -1148,12 +1161,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1294,6 +1307,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition should glowing be drawn.</param>
         /// <param name="allowFocusRect">Allow drawing of focus rectangle.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawContent(RenderContext context,
                                          Rectangle displayRect,
                                          IPaletteContent palette,
@@ -1311,12 +1325,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1705,6 +1719,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State associated with rendering.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="tabBorderStyle">Style of tab border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Padding structure detailing all four edges.</returns>
         public override Padding GetTabBorderDisplayPadding(ViewLayoutContext context,
                                                            IPaletteBorder palette,
@@ -1717,7 +1732,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter reference
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             // Get the width of the border
@@ -1900,6 +1915,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="tabBorderStyle">Style of tab border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>GraphicsPath instance.</returns>
         public override GraphicsPath GetTabBorderPath(RenderContext context,
                                                       Rectangle rect,
@@ -1914,12 +1930,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1940,6 +1956,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="tabBorderStyle">Style of tab border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>GraphicsPath instance.</returns>
         public override GraphicsPath GetTabBackPath(RenderContext context,
                                                     Rectangle rect,
@@ -1954,12 +1971,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -1980,6 +1997,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="tabBorderStyle">Style of tab border.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawTabBorder(RenderContext context,
                                            Rectangle rect,
                                            IPaletteBorder palette,
@@ -1993,12 +2011,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             Debug.Assert(context.Control != null);
@@ -2274,6 +2292,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region RenderGlyph Overrides
+
         /// <summary>
         /// Perform drawing of a separator glyph.
         /// </summary>
@@ -2284,6 +2303,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="canMove">Can the separator be moved.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawSeparator(RenderContext context,
                                            Rectangle displayRect,
                                            IPaletteBack paletteBack,
@@ -2299,17 +2319,17 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteBack == null)
             {
-                throw new ArgumentNullException("paletteBack");
+                throw new ArgumentNullException(nameof(paletteBack));
             }
 
             if (paletteBorder == null)
             {
-                throw new ArgumentNullException("paletteBorder");
+                throw new ArgumentNullException(nameof(paletteBorder));
             }
 
             Debug.Assert(context.Control != null);
@@ -2359,6 +2379,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="checkState">The checked state of the check box.</param>
         /// <param name="tracking">Should check box be displayed as hot tracking.</param>
         /// <param name="pressed">Should check box be displayed as pressed.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override Size GetCheckBoxPreferredSize(ViewLayoutContext context,
                                                       IPalette palette,
                                                       bool enabled,
@@ -2372,12 +2393,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             // Grab an image appropriate to the state
@@ -2408,6 +2429,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="checkState">The checked state of the check box.</param>
         /// <param name="tracking">Should check box be displayed as hot tracking.</param>
         /// <param name="pressed">Should check box be displayed as pressed.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawCheckBox(RenderContext context,
                                           Rectangle displayRect,
                                           IPalette palette,
@@ -2422,12 +2444,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             // Grab an image appropriate to the state
@@ -2498,6 +2520,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="checkState">Checked state of the radio button.</param>
         /// <param name="tracking">Should radio button be displayed as hot tracking.</param>
         /// <param name="pressed">Should radio button be displayed as pressed.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRadioButton(RenderContext context,
                                              Rectangle displayRect,
                                              IPalette palette,
@@ -2512,12 +2535,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             // Grab an image appropriate to the state
@@ -2586,6 +2609,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Palette for sourcing display values.</param>
         /// <param name="state">State for which image size is needed.</param>
         /// <param name="orientation">How to orientate the image.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawDropDownButton(RenderContext context,
                                                 Rectangle displayRect,
                                                 IPalette palette,
@@ -2598,12 +2622,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (palette == null)
             {
-                throw new ArgumentNullException("palette");
+                throw new ArgumentNullException(nameof(palette));
             }
 
             // Grab an image appropriate to the state
@@ -2623,6 +2647,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlNumericUpGlyph(RenderContext context,
                                                             Rectangle cellRect,
                                                             IPaletteContent paletteContent,
@@ -2634,12 +2659,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -2667,6 +2692,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlNumericDownGlyph(RenderContext context,
                                                               Rectangle cellRect,
                                                               IPaletteContent paletteContent,
@@ -2678,12 +2704,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -2711,6 +2737,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlDropDownGlyph(RenderContext context,
                                                            Rectangle cellRect,
                                                            IPaletteContent paletteContent,
@@ -2722,12 +2749,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -2756,6 +2783,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonDialogBoxLauncher(PaletteRibbonShape shape,
                                                          RenderContext context,
                                                          Rectangle displayRect,
@@ -2768,12 +2796,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             switch (shape)
@@ -2825,6 +2853,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonDropArrow(PaletteRibbonShape shape,
                                                  RenderContext context,
                                                  Rectangle displayRect,
@@ -2837,12 +2866,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             Color darkColor = (state == PaletteState.Disabled ? paletteGeneral.GetRibbonDisabledDark(state) :
@@ -2885,6 +2914,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonContextArrow(PaletteRibbonShape shape,
                                                     RenderContext context,
                                                     Rectangle displayRect,
@@ -2897,12 +2927,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             Color c1 = paletteGeneral.GetRibbonQATButtonDark(state);
@@ -2945,6 +2975,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonOverflow(PaletteRibbonShape shape,
                                                 RenderContext context,
                                                 Rectangle displayRect,
@@ -2957,12 +2988,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             Color c1 = paletteGeneral.GetRibbonQATButtonDark(state);
@@ -3004,6 +3035,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonGroupSeparator(PaletteRibbonShape shape,
                                                       RenderContext context,
                                                       Rectangle displayRect,
@@ -3016,12 +3048,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             int x = displayRect.X + ((displayRect.Width - 2) / 2);
@@ -5342,7 +5374,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     // Should never happen!
                     Debug.Assert(false);
-                    throw new ArgumentOutOfRangeException("imageStyle");
+                    throw new ArgumentOutOfRangeException(nameof(imageStyle));
             }
 
             return brush;
@@ -5990,7 +6022,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     // Should never happen!
                     Debug.Assert(false);
-                    throw new ArgumentOutOfRangeException("align");
+                    throw new ArgumentOutOfRangeException(nameof(align));
             }
         }
 

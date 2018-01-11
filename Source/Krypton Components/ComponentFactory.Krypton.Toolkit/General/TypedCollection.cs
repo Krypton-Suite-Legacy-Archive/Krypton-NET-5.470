@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -189,25 +190,27 @@ namespace ComponentFactory.Krypton.Toolkit
 			return _list.IndexOf(item);
 		}
 
-		/// <summary>
-        /// Inserts an item to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="item">Item reference.</param>
-		public virtual void Insert(int index, T item)
+	    /// <summary>
+	    /// Inserts an item to the collection at the specified index.
+	    /// </summary>
+	    /// <param name="index">Insert index.</param>
+	    /// <param name="item">Item reference.</param>
+	    /// <exception cref="ArgumentOutOfRangeException"></exception>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public virtual void Insert(int index, T item)
 		{
 			Debug.Assert(item != null);
 
             // We do not allow an empty ribbon tab to be added
 			if (item == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException(nameof(item));
             }
 
             // Not allow to add the same item more than once
             if (_list.Contains(item))
             {
-                throw new ArgumentOutOfRangeException("item", "Item already in collection");
+                throw new ArgumentOutOfRangeException(nameof(item), "Item already in collection");
             }
 
             // Generate before insert event
@@ -288,24 +291,27 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
 		#region ICollection<T>
-		/// <summary>
-        /// Append an item to the collection.
-		/// </summary>
-		/// <param name="item">Item reference.</param>
-		public virtual void Add(T item)
+
+	    /// <summary>
+	    /// Append an item to the collection.
+	    /// </summary>
+	    /// <param name="item">Item reference.</param>
+	    /// <exception cref="ArgumentOutOfRangeException"></exception>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public virtual void Add(T item)
 		{
 			Debug.Assert(item != null);
 
             // We do not allow an empty item to be added
 			if (item == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException(nameof(item));
             }
 
             // Not allow to add the same item more than once
             if (_list.Contains(item))
             {
-                throw new ArgumentOutOfRangeException("item", "Item already in collection");
+                throw new ArgumentOutOfRangeException(nameof(item), "Item already in collection");
             }
 
             // Generate before insert event
@@ -390,19 +396,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region ICollection
-		/// <summary>
-		/// Copies all the elements of the current collection to the specified Array. 
-		/// </summary>
-		/// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
-		/// <param name="index">The index in array at which copying begins.</param>
-		public void CopyTo(Array array, int index)
+
+	    /// <summary>
+	    /// Copies all the elements of the current collection to the specified Array. 
+	    /// </summary>
+	    /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
+	    /// <param name="index">The index in array at which copying begins.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public void CopyTo(Array array, int index)
 		{
 			Debug.Assert(array != null);
 
 			// Cannot pass a null target array
 			if (array == null)
             {
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             }
 
             // Try and copy each item to the destination array

@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -675,6 +676,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="sender">Source of notification.</param>
         /// <param name="e">An EventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
         {
             Debug.Assert(e != null);
@@ -682,7 +684,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
         }
 
@@ -721,6 +723,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="sender">Source of notification.</param>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             Debug.Assert(e != null);
@@ -728,7 +731,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming reference
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             // Never try and redraw or layout when disposed are trying to dispose

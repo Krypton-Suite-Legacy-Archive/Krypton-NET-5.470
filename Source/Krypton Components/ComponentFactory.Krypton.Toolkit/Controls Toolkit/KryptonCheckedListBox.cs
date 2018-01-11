@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -154,30 +155,15 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Private
-            int IList.Add(object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            int IList.Add(object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Clear()
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Clear() => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Insert(int index, object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Insert(int index, object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Remove(object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Remove(object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.RemoveAt(int index)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.RemoveAt(int index) => throw new NotSupportedException("Read Only Collection");
 
             bool ICollection.IsSynchronized => false;
 
@@ -352,30 +338,15 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Private
-            int IList.Add(object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            int IList.Add(object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Clear()
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Clear() => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Insert(int index, object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Insert(int index, object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.Remove(object value)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.Remove(object value) => throw new NotSupportedException("Read Only Collection");
 
-            void IList.RemoveAt(int index)
-            {
-                throw new NotSupportedException("Read Only Collection");
-            }
+            void IList.RemoveAt(int index) => throw new NotSupportedException("Read Only Collection");
 
             bool ICollection.IsSynchronized => false;
 
@@ -1903,13 +1874,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Returns a value indicating the check state of the current item.
         /// </summary>
         /// <param name="index">The index of the item to get the checked value of.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns>One of the CheckState values.</returns>
         public CheckState GetItemCheckState(int index)
         {
             // Check index actually exists
             if ((index < 0) || (index >= Items.Count))
             {
-                throw new ArgumentOutOfRangeException("index", "index out of range");
+                throw new ArgumentOutOfRangeException(nameof(index), "index out of range");
             }
 
             return CheckedItems.GetCheckedState(index);
@@ -1930,12 +1902,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="index">The index of the item to set the state for.</param>
         /// <param name="value">One of the CheckState values.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void SetItemCheckState(int index, CheckState value)
         {
             // Check index actually exists
             if ((index < 0) || (index >= Items.Count))
             {
-                throw new ArgumentOutOfRangeException("index", "index out of range");
+                throw new ArgumentOutOfRangeException(nameof(index), "index out of range");
             }
 
             // Is the new state different from the current checked state?

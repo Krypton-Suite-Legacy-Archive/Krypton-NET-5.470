@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -72,11 +73,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region Collection
-		/// <summary>
-		/// Append a view to the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		public override void Add(ViewBase item)
+
+	    /// <summary>
+	    /// Append a view to the collection.
+	    /// </summary>
+	    /// <param name="item">ViewBase reference.</param>
+	    /// <exception cref="NotSupportedException"></exception>
+	    public override void Add(ViewBase item)
 		{
 			// Can never add a view to a leaf view
             throw new NotSupportedException("Cannot add to a leaf view.");
@@ -149,22 +152,24 @@ namespace ComponentFactory.Krypton.Toolkit
 			return -1;
 		}
 
-		/// <summary>
-		/// Inserts a view to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="item">ViewBase reference.</param>
-		public override void Insert(int index, ViewBase item)
+	    /// <summary>
+	    /// Inserts a view to the collection at the specified index.
+	    /// </summary>
+	    /// <param name="index">Insert index.</param>
+	    /// <param name="item">ViewBase reference.</param>
+	    /// <exception cref="NotSupportedException"></exception>
+	    public override void Insert(int index, ViewBase item)
 		{
 			// Can never insert a view to a leaf view
             throw new NotSupportedException("Cannot insert to a leaf view.");
 		}
 
-		/// <summary>
-		/// Removes the view at the specified index.
-		/// </summary>
-		/// <param name="index">Remove index.</param>
-		public override void RemoveAt(int index)
+	    /// <summary>
+	    /// Removes the view at the specified index.
+	    /// </summary>
+	    /// <param name="index">Remove index.</param>
+	    /// <exception cref="NotSupportedException"></exception>
+	    public override void RemoveAt(int index)
 		{
 			// Can never remove a view from a leaf view
 			throw new NotSupportedException("Cannot remove a view from a leaf view.");
@@ -177,9 +182,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <returns>ViewBase at specified index.</returns>
 		public override ViewBase this[int index] 
 		{ 
-			get => throw new ArgumentOutOfRangeException("index");
+			get => throw new ArgumentOutOfRangeException(nameof(index));
 
-		    set => throw new ArgumentOutOfRangeException("index");
+		    set => throw new ArgumentOutOfRangeException(nameof(index));
 		}
 
 		/// <summary>

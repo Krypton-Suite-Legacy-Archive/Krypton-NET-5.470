@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -476,12 +477,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value > DateTimePicker.MaximumDateTime)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is greater than the maximum culture supported date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is greater than the maximum culture supported date.");
                     }
 
                     if (value < DateTimePicker.MinimumDateTime)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is less than the minimum culture supported date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is less than the minimum culture supported date.");
                     }
                 }
 
@@ -518,12 +519,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value > DateTimePicker.MaximumDateTime)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is greater than the maximum culture supported date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is greater than the maximum culture supported date.");
                     }
 
                     if (value < DateTimePicker.MinimumDateTime)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is less than the minimum culture supported date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is less than the minimum culture supported date.");
                     }
                 }
 
@@ -559,7 +560,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (value < 1)
                 {
-                    throw new ArgumentOutOfRangeException("MaxSelectionCount cannot be less than zero.");
+                    throw new ArgumentOutOfRangeException(nameof(value), "MaxSelectionCount cannot be less than zero.");
                 }
 
                 if (value != _maxSelectionCount)
@@ -589,12 +590,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value > _maxDate)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is greater than the maximum date.");
                     }
 
                     if (value < _minDate)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is less than the minimum date.");
                     }
 
                     // End date cannot be before the start date
@@ -645,12 +646,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value > _maxDate)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is greater than the maximum date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is greater than the maximum date.");
                     }
 
                     if (value < _minDate)
                     {
-                        throw new ArgumentOutOfRangeException("Date provided is less than the minimum date.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Date provided is less than the minimum date.");
                     }
 
                     // Start date cannot be after the end date
@@ -778,12 +779,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value.Width < 1)
                     {
-                        throw new ArgumentOutOfRangeException("CalendarDimension Width must be greater than 0");
+                        throw new ArgumentOutOfRangeException(nameof(value), @"CalendarDimension Width must be greater than 0");
                     }
 
                     if (value.Height < 1)
                     {
-                        throw new ArgumentOutOfRangeException("CalendarDimension Height must be greater than 0");
+                        throw new ArgumentOutOfRangeException(nameof(value), @"CalendarDimension Height must be greater than 0");
                     }
 
                     _dimensions = value;
@@ -1283,6 +1284,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="start">New starting date.</param>
         /// <param name="end">New ending date.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void SetSelectionRange(DateTime start, DateTime end)
         {
             if (start.Ticks > _maxDate.Ticks)

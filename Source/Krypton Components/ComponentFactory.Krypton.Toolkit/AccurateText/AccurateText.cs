@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -31,6 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public Static Methods
+
         /// <summary>
         /// Pixel accurate measure of the specified string when drawn with the specified Font object.
         /// </summary>
@@ -45,6 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="composition">Should draw on a composition element.</param>
         /// <param name="glowing">When on composition draw with glowing.</param>
         /// <param name="disposeFont">Dispose of font when finished with it.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>A memento used to draw the text.</returns>
         public static AccurateTextMemento MeasureString(Graphics g,
                                                         RightToLeft rtl,
@@ -64,17 +67,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if (g == null)
             {
-                throw new ArgumentNullException("g");
+                throw new ArgumentNullException(nameof(g));
             }
 
             if (text == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             }
 
             if (font == null)
             {
-                throw new ArgumentNullException("font");
+                throw new ArgumentNullException(nameof(font));
             }
 
             // An empty string cannot be drawn, so uses the empty memento
@@ -191,6 +194,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State of the source element.</param>
         /// <param name="composition">Should draw on a composition element.</param>
         /// <param name="glowing">When on composition draw with glowing.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns>True if draw succeeded; False is draw produced an error.</returns>
         public static bool DrawString(Graphics g,
                                       Brush brush,
@@ -208,13 +212,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot draw with a null graphics instance
             if (g == null)
             {
-                throw new ArgumentNullException("g");
+                throw new ArgumentNullException(nameof(g));
             }
 
             // Cannot draw with a null memento instance
             if (memento == null)
             {
-                throw new ArgumentNullException("memento");
+                throw new ArgumentNullException(nameof(memento));
             }
 
             bool ret = true;

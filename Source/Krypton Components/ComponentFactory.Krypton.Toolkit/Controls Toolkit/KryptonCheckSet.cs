@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -56,10 +57,12 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Public
+
             /// <summary>
             /// Adds the specifies KryptonCheckButton to the collection.
             /// </summary>
             /// <param name="checkButton">The KryptonCheckButton object to add to the collection.</param>
+            /// <exception cref="ArgumentNullException"></exception>
             /// <returns>The index of the new entry.</returns>
             public int Add(KryptonCheckButton checkButton)
             {
@@ -67,7 +70,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (checkButton == null)
                 {
-                    throw new ArgumentNullException("checkButton");
+                    throw new ArgumentNullException(nameof(checkButton));
                 }
 
                 if (Contains(checkButton))
@@ -105,18 +108,20 @@ namespace ComponentFactory.Krypton.Toolkit
             /// </summary>
             /// <param name="index">Index of position to insert.</param>
             /// <param name="checkButton">The KryptonCheckButton reference to insert.</param>
+            /// <exception cref="ArgumentException"></exception>
+            /// <exception cref="ArgumentNullException"></exception>
             public void Insert(int index, KryptonCheckButton checkButton)
             {
                 Debug.Assert(checkButton != null);
 
                 if (checkButton == null)
                 {
-                    throw new ArgumentNullException("checkButton");
+                    throw new ArgumentNullException(nameof(checkButton));
                 }
 
                 if ((index < 0) || (index > Count))
                 {
-                    throw new ArgumentOutOfRangeException("index");
+                    throw new ArgumentOutOfRangeException(nameof(index));
                 }
 
                 if (Contains(checkButton))
@@ -131,13 +136,15 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Removes a KryptonCheckButton from the collection.
             /// </summary>
             /// <param name="checkButton">The KryptonCheckButton to remove.</param>
+            /// <exception cref="ArgumentException"></exception>
+            /// <exception cref="ArgumentNullException"></exception>
             public void Remove(KryptonCheckButton checkButton)
             {
                 Debug.Assert(checkButton != null);
 
                 if (checkButton == null)
                 {
-                    throw new ArgumentNullException("checkButton");
+                    throw new ArgumentNullException(nameof(checkButton));
                 }
 
                 if (!Contains(checkButton))
@@ -159,7 +166,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if ((index < 0) || (index > Count))
                     {
-                        throw new ArgumentOutOfRangeException("index");
+                        throw new ArgumentOutOfRangeException(nameof(index));
                     }
 
                     return (KryptonCheckButton)base.List[index];
@@ -249,6 +256,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Initialize a new instance of the KryptonCheckSet class.
         /// </summary>
         /// <param name="container">Container that owns the component.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public KryptonCheckSet(IContainer container)
             : this()
         {
@@ -257,7 +265,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate reference parameter
             if (container == null)
             {
-                throw new ArgumentNullException("container");
+                throw new ArgumentNullException(nameof(container));
             }
 
             container.Add(this);
@@ -328,7 +336,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Check the new target is associated with us already
                     if ((value != null) && !CheckButtons.Contains(value))
                     {
-                        throw new ArgumentOutOfRangeException("value", "Provided value is not a KryptonCheckButton associated with this set.");
+                        throw new ArgumentOutOfRangeException(nameof(value),
+                            "Provided value is not a KryptonCheckButton associated with this set.");
                     }
 
                     // Prevent processing events caused by ourself
@@ -382,18 +391,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Check for a value outside of limits
                 if ((value < -1) || (value >= CheckButtons.Count))
                 {
-                    throw new ArgumentOutOfRangeException("value");
+                    throw new ArgumentOutOfRangeException(nameof(value));
                 }
 
                 // Special case the value of -1 as requesting nothing checked
-                if (value == -1)
-                {
-                    CheckedButton = null;
-                }
-                else
-                {
-                    CheckedButton = CheckButtons[value];
-                }
+                CheckedButton = value == -1 ? null : CheckButtons[value];
             }
         }
 

@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -900,14 +901,16 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region DrawIconHelper
-        /// <summary>
-		/// Helper routine to draw an image taking into account various properties.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="icon">Icon to be drawn.</param>
-        /// <param name="iconRect">Destination rectangle.</param>
-		/// <param name="orientation">Visual orientation.</param>
-        protected static void DrawIconHelper(ViewContext context,
+
+	    /// <summary>
+	    /// Helper routine to draw an image taking into account various properties.
+	    /// </summary>
+	    /// <param name="context">Rendering context.</param>
+	    /// <param name="icon">Icon to be drawn.</param>
+	    /// <param name="iconRect">Destination rectangle.</param>
+	    /// <param name="orientation">Visual orientation.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    protected static void DrawIconHelper(ViewContext context,
 								             Icon icon,
 								             Rectangle iconRect,
 								             VisualOrientation orientation)
@@ -917,7 +920,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate reference parameter
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             try
@@ -932,18 +935,20 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
         #region DrawImageHelper
-        /// <summary>
-		/// Helper routine to draw an image taking into account various properties.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="image">Image to be drawn.</param>
-        /// <param name="remapTransparent">Color that should become transparent.</param>
-        /// <param name="imageRect">Destination rectangle.</param>
-		/// <param name="orientation">Visual orientation.</param>
-		/// <param name="effect">Drawing effect.</param>
-        /// <param name="remapColor">Image color to remap.</param>
-        /// <param name="remapNew">New color for remap.</param>
-        protected static void DrawImageHelper(ViewContext context,
+
+	    /// <summary>
+	    /// Helper routine to draw an image taking into account various properties.
+	    /// </summary>
+	    /// <param name="context">Rendering context.</param>
+	    /// <param name="image">Image to be drawn.</param>
+	    /// <param name="remapTransparent">Color that should become transparent.</param>
+	    /// <param name="imageRect">Destination rectangle.</param>
+	    /// <param name="orientation">Visual orientation.</param>
+	    /// <param name="effect">Drawing effect.</param>
+	    /// <param name="remapColor">Image color to remap.</param>
+	    /// <param name="remapNew">New color for remap.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    protected static void DrawImageHelper(ViewContext context,
 									          Image image,
                                               Color remapTransparent,
 									          Rectangle imageRect,
@@ -961,7 +966,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Validate reference parameter
                 if (context == null)
                 {
-                    throw new ArgumentNullException("context");
+                    throw new ArgumentNullException(nameof(context));
                 }
 
                 // Use image attributes class to modify image drawing for effects

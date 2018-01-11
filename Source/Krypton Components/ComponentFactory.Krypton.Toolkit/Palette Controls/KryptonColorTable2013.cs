@@ -80,20 +80,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the raw set of colors.
         /// </summary>
-        public Color[] Colors
-        {
-            get { return _colors; }
-        }
+        public Color[] Colors => _colors;
+
         #endregion
 
         #region RoundedEdges
         /// <summary>
         /// Gets a value indicating if rounded egdes are required.
         /// </summary>
-        public override InheritBool UseRoundedEdges
-        {
-            get { return _roundedEdges; }
-        }
+        public override InheritBool UseRoundedEdges => _roundedEdges;
+
         #endregion
 
         #region ButtonPressed
@@ -101,60 +97,48 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the border color for a button being pressed.
         /// </summary>
-        public override Color ButtonPressedBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color ButtonPressedBorder => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
 
         #region ButtonPressedGradientBegin
         /// <summary>
         /// Gets the background starting color for a button being pressed.
         /// </summary>
-        public override Color ButtonPressedGradientBegin
-        {
-            get { return _buttonPressedBegin; }
-        }
+        public override Color ButtonPressedGradientBegin => _buttonPressedBegin;
+
         #endregion
 
         #region ButtonPressedGradientMiddle
         /// <summary>
         /// Gets the background middle color for a button being pressed.
         /// </summary>
-        public override Color ButtonPressedGradientMiddle
-        {
-            get { return _buttonPressedBegin; }
-        }
+        public override Color ButtonPressedGradientMiddle => _buttonPressedBegin;
+
         #endregion
 
         #region ButtonPressedGradientEnd
         /// <summary>
         /// Gets the background ending color for a button being pressed.
         /// </summary>
-        public override Color ButtonPressedGradientEnd
-        {
-            get { return _buttonPressedEnd; }
-        }
+        public override Color ButtonPressedGradientEnd => _buttonPressedEnd;
+
         #endregion
 
         #region ButtonPressedHighlight
         /// <summary>
         /// Gets the highlight background for a pressed button.
         /// </summary>
-        public override Color ButtonPressedHighlight
-        {
-            get { return _buttonPressedBegin; }
-        }
+        public override Color ButtonPressedHighlight => _buttonPressedBegin;
+
         #endregion
 
         #region ButtonPressedHighlightBorder
         /// <summary>
         /// Gets the highlight border for a pressed button.
         /// </summary>
-        public override Color ButtonPressedHighlightBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color ButtonPressedHighlightBorder => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
         #endregion
 
@@ -163,60 +147,48 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the border color for a button being selected.
         /// </summary>
-        public override Color ButtonSelectedBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color ButtonSelectedBorder => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
 
         #region ButtonSelectedGradientBegin
         /// <summary>
         /// Gets the background starting color for a button being selected.
         /// </summary>
-        public override Color ButtonSelectedGradientBegin
-        {
-            get { return _buttonSelectedBegin; }
-        }
+        public override Color ButtonSelectedGradientBegin => _buttonSelectedBegin;
+
         #endregion
 
         #region ButtonSelectedGradientMiddle
         /// <summary>
         /// Gets the background middle color for a button being selected.
         /// </summary>
-        public override Color ButtonSelectedGradientMiddle
-        {
-            get { return _buttonSelectedBegin; }
-        }
+        public override Color ButtonSelectedGradientMiddle => _buttonSelectedBegin;
+
         #endregion
 
         #region ButtonSelectedGradientEnd
         /// <summary>
         /// Gets the background ending color for a button being selected.
         /// </summary>
-        public override Color ButtonSelectedGradientEnd
-        {
-            get { return _buttonSelectedEnd; }
-        }
+        public override Color ButtonSelectedGradientEnd => _buttonSelectedEnd;
+
         #endregion
 
         #region ButtonSelectedHighlight
         /// <summary>
         /// Gets the highlight background for a selected button.
         /// </summary>
-        public override Color ButtonSelectedHighlight
-        {
-            get { return _buttonSelectedBegin; }
-        }
+        public override Color ButtonSelectedHighlight => _buttonSelectedBegin;
+
         #endregion
 
         #region ButtonSelectedHighlightBorder
         /// <summary>
         /// Gets the highlight border for a selected button.
         /// </summary>
-        public override Color ButtonSelectedHighlightBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color ButtonSelectedHighlightBorder => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
         #endregion
 
@@ -225,50 +197,40 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the background starting color for a checked button.
         /// </summary>
-        public override Color ButtonCheckedGradientBegin
-        {
-            get { return _buttonCheckedBegin; }
-        }
+        public override Color ButtonCheckedGradientBegin => _buttonCheckedBegin;
+
         #endregion
 
         #region ButtonCheckedGradientMiddle
         /// <summary>
         /// Gets the background middle color for a checked button.
         /// </summary>
-        public override Color ButtonCheckedGradientMiddle
-        {
-            get { return _buttonCheckedBegin; }
-        }
+        public override Color ButtonCheckedGradientMiddle => _buttonCheckedBegin;
+
         #endregion
 
         #region ButtonCheckedGradientEnd
         /// <summary>
         /// Gets the background ending color for a checked button.
         /// </summary>
-        public override Color ButtonCheckedGradientEnd
-        {
-            get { return _buttonCheckedEnd; }
-        }
+        public override Color ButtonCheckedGradientEnd => _buttonCheckedEnd;
+
         #endregion
 
         #region ButtonCheckedHighlight
         /// <summary>
         /// Gets the highlight background for a checked button.
         /// </summary>
-        public override Color ButtonCheckedHighlight
-        {
-            get { return _buttonCheckedBegin; }
-        }
+        public override Color ButtonCheckedHighlight => _buttonCheckedBegin;
+
         #endregion
 
         #region ButtonCheckedHighlightBorder
         /// <summary>
         /// Gets the highlight border for a checked button.
         /// </summary>
-        public override Color ButtonCheckedHighlightBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color ButtonCheckedHighlightBorder => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
         #endregion
 
@@ -277,30 +239,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Get background of the check mark area.
         /// </summary>
-        public override Color CheckBackground
-        {
-            get { return _checkBackground; }
-        }
+        public override Color CheckBackground => _checkBackground;
+
         #endregion
 
         #region CheckBackground
         /// <summary>
         /// Get background of a pressed check mark area.
         /// </summary>
-        public override Color CheckPressedBackground
-        {
-            get { return _checkBackground; }
-        }
+        public override Color CheckPressedBackground => _checkBackground;
+
         #endregion
 
         #region CheckBackground
         /// <summary>
         /// Get background of a selected check mark area.
         /// </summary>
-        public override Color CheckSelectedBackground
-        {
-            get { return _checkBackground; }
-        }
+        public override Color CheckSelectedBackground => _checkBackground;
+
         #endregion
         #endregion
 
@@ -309,20 +265,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the light color used to draw grips.
         /// </summary>
-        public override Color GripLight
-        {
-            get { return _colors[(int)SchemeOfficeColors.GripLight]; }
-        }
+        public override Color GripLight => _colors[(int)SchemeOfficeColors.GripLight];
+
         #endregion
 
         #region GripDark
         /// <summary>
         /// Gets the dark color used to draw grips.
         /// </summary>
-        public override Color GripDark
-        {
-            get { return _colors[(int)SchemeOfficeColors.GripDark]; }
-        }
+        public override Color GripDark => _colors[(int)SchemeOfficeColors.GripDark];
+
         #endregion
         #endregion
 
@@ -331,60 +283,48 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color for the context menu margin.
         /// </summary>
-        public override Color ImageMarginGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginGradientBegin => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
 
         #region ImageMarginGradientMiddle
         /// <summary>
         /// Gets the middle color for the context menu margin.
         /// </summary>
-        public override Color ImageMarginGradientMiddle
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginGradientMiddle => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
 
         #region ImageMarginGradientEnd
         /// <summary>
         /// Gets the ending color for the context menu margin.
         /// </summary>
-        public override Color ImageMarginGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginGradientEnd => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
 
         #region ImageMarginRevealedGradientBegin
         /// <summary>
         /// Gets the starting color for the context menu margin revealed.
         /// </summary>
-        public override Color ImageMarginRevealedGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginRevealedGradientBegin => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
 
         #region ImageMarginRevealedGradientMiddle
         /// <summary>
         /// Gets the middle color for the context menu margin revealed.
         /// </summary>
-        public override Color ImageMarginRevealedGradientMiddle
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginRevealedGradientMiddle => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
 
         #region ImageMarginRevealedGradientEnd
         /// <summary>
         /// Gets the ending color for the context menu margin revealed.
         /// </summary>
-        public override Color ImageMarginRevealedGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ImageMargin]; }
-        }
+        public override Color ImageMarginRevealedGradientEnd => _colors[(int)SchemeOfficeColors.ImageMargin];
+
         #endregion
         #endregion
 
@@ -392,10 +332,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the color of the border around menus.
         /// </summary>
-        public override Color MenuBorder
-        {
-            get { return _menuBorder; }
-        }
+        public override Color MenuBorder => _menuBorder;
+
         #endregion
 
         #region MenuItem
@@ -403,70 +341,56 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the border color for around the menu item.
         /// </summary>
-        public override Color MenuItemBorder
-        {
-            get { return _menuBorder; }
-        }
+        public override Color MenuItemBorder => _menuBorder;
+
         #endregion
 
         #region MenuItemSelected
         /// <summary>
         /// Gets the color of a selected menu item.
         /// </summary>
-        public override Color MenuItemSelected
-        {
-            get { return _colors[(int)SchemeOfficeColors.ButtonBorder]; }
-        }
+        public override Color MenuItemSelected => _colors[(int)SchemeOfficeColors.ButtonBorder];
+
         #endregion
 
         #region MenuItemPressedGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used when a top-level ToolStripMenuItem is pressed down.
         /// </summary>
-        public override Color MenuItemPressedGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBegin]; }
-        }
+        public override Color MenuItemPressedGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBegin];
+
         #endregion
 
         #region MenuItemPressedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used when a top-level ToolStripMenuItem is pressed down.
         /// </summary>
-        public override Color MenuItemPressedGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripEnd]; }
-        }
+        public override Color MenuItemPressedGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripEnd];
+
         #endregion
 
         #region MenuItemPressedGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used when a top-level ToolStripMenuItem is pressed down.
         /// </summary>
-        public override Color MenuItemPressedGradientMiddle
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripMiddle]; }
-        }
+        public override Color MenuItemPressedGradientMiddle => _colors[(int)SchemeOfficeColors.ToolStripMiddle];
+
         #endregion
 
         #region MenuItemSelectedGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used when the ToolStripMenuItem is selected.
         /// </summary>
-        public override Color MenuItemSelectedGradientBegin
-        {
-            get { return _menuItemSelectedBegin; }
-        }
+        public override Color MenuItemSelectedGradientBegin => _menuItemSelectedBegin;
+
         #endregion
 
         #region MenuItemSelectedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used when the ToolStripMenuItem is selected.
         /// </summary>
-        public override Color MenuItemSelectedGradientEnd
-        {
-            get { return _menuItemSelectedEnd; }
-        }
+        public override Color MenuItemSelectedGradientEnd => _menuItemSelectedEnd;
+
         #endregion
         #endregion
 
@@ -475,20 +399,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color of the gradient used in the MenuStrip.
         /// </summary>
-        public override Color MenuStripGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color MenuStripGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #region MenuStripGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the MenuStrip.
         /// </summary>
-        public override Color MenuStripGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color MenuStripGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #endregion
@@ -498,30 +418,24 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStripOverflowButton.
         /// </summary>
-        public override Color OverflowButtonGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.OverflowBegin]; }
-        }
+        public override Color OverflowButtonGradientBegin => _colors[(int)SchemeOfficeColors.OverflowBegin];
+
         #endregion
 
         #region OverflowButtonGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripOverflowButton.
         /// </summary>
-        public override Color OverflowButtonGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.OverflowEnd]; }
-        }
+        public override Color OverflowButtonGradientEnd => _colors[(int)SchemeOfficeColors.OverflowEnd];
+
         #endregion
 
         #region OverflowButtonGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the ToolStripOverflowButton.
         /// </summary>
-        public override Color OverflowButtonGradientMiddle
-        {
-            get { return _colors[(int)SchemeOfficeColors.OverflowMiddle]; }
-        }
+        public override Color OverflowButtonGradientMiddle => _colors[(int)SchemeOfficeColors.OverflowMiddle];
+
         #endregion
         #endregion
 
@@ -530,20 +444,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStripContainer.
         /// </summary>
-        public override Color RaftingContainerGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color RaftingContainerGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #region RaftingContainerGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripContainer.
         /// </summary>
-        public override Color RaftingContainerGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color RaftingContainerGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #endregion
@@ -553,20 +463,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the light separator color.
         /// </summary>
-        public override Color SeparatorLight
-        {
-            get { return _colors[(int)SchemeOfficeColors.SeparatorLight]; }
-        }
+        public override Color SeparatorLight => _colors[(int)SchemeOfficeColors.SeparatorLight];
+
         #endregion
 
         #region SeparatorDark
         /// <summary>
         /// Gets the dark separator color.
         /// </summary>
-        public override Color SeparatorDark
-        {
-            get { return _colors[(int)SchemeOfficeColors.SeparatorDark]; }
-        }
+        public override Color SeparatorDark => _colors[(int)SchemeOfficeColors.SeparatorDark];
+
         #endregion
         #endregion
 
@@ -575,20 +481,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color for the status strip background.
         /// </summary>
-        public override Color StatusStripGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.StatusStripLight]; }
-        }
+        public override Color StatusStripGradientBegin => _colors[(int)SchemeOfficeColors.StatusStripLight];
+
         #endregion
 
         #region StatusStripGradientEnd
         /// <summary>
         /// Gets the ending color for the status strip background.
         /// </summary>
-        public override Color StatusStripGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.StatusStripDark]; }
-        }
+        public override Color StatusStripGradientEnd => _colors[(int)SchemeOfficeColors.StatusStripDark];
+
         #endregion
         #endregion
 
@@ -597,70 +499,56 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the text color used on the menu items.
         /// </summary>
-        public override Color MenuItemText
-        {
-            get { return _colors[(int)SchemeOfficeColors.TextButtonNormal]; }
-        }
+        public override Color MenuItemText => _colors[(int)SchemeOfficeColors.TextButtonNormal];
+
         #endregion
 
         #region MenuStripText
         /// <summary>
         /// Gets the text color used on the menu strip.
         /// </summary>
-        public override Color MenuStripText
-        {
-            get { return _colors[(int)SchemeOfficeColors.StatusStripText]; }
-        }
+        public override Color MenuStripText => _colors[(int)SchemeOfficeColors.StatusStripText];
+
         #endregion
 
         #region ToolStripText
         /// <summary>
         /// Gets the text color used on the tool strip.
         /// </summary>
-        public override Color ToolStripText
-        {
-            get { return _colors[(int)SchemeOfficeColors.StatusStripText]; }
-        }
+        public override Color ToolStripText => _colors[(int)SchemeOfficeColors.StatusStripText];
+
         #endregion
 
         #region StatusStripText
         /// <summary>
         /// Gets the text color used on the status strip.
         /// </summary>
-        public override Color StatusStripText
-        {
-            get { return _colors[(int)SchemeOfficeColors.StatusStripText]; }
-        }
+        public override Color StatusStripText => _colors[(int)SchemeOfficeColors.StatusStripText];
+
         #endregion
 
         #region MenuStripFont
         /// <summary>
         /// Gets the font used on the menu strip.
         /// </summary>
-        public override Font MenuStripFont
-        {
-            get { return _menuToolFont; }
-        }
+        public override Font MenuStripFont => _menuToolFont;
+
         #endregion
 
         #region ToolStripFont
         /// <summary>
         /// Gets the font used on the tool strip.
         /// </summary>
-        public override Font ToolStripFont
-        {
-            get { return _menuToolFont; }
-        }
+        public override Font ToolStripFont => _menuToolFont;
+
         #endregion
 
         #region StatusStripFont
         /// <summary>
         /// Gets the font used on the status strip.
         /// </summary>
-        public override Font StatusStripFont
-        {
-            get { return _statusFont; }
-        }
+        public override Font StatusStripFont => _statusFont;
+
         #endregion
         #endregion
 
@@ -669,90 +557,72 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the border color to use on the bottom edge of the ToolStrip.
         /// </summary>
-        public override Color ToolStripBorder
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBorder]; }
-        }
+        public override Color ToolStripBorder => _colors[(int)SchemeOfficeColors.ToolStripBorder];
+
         #endregion
 
         #region ToolStripContentPanelGradientBegin
         /// <summary>
         /// Gets the starting color for the content panel background.
         /// </summary>
-        public override Color ToolStripContentPanelGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color ToolStripContentPanelGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #region ToolStripContentPanelGradientEnd
         /// <summary>
         /// Gets the ending color for the content panel background.
         /// </summary>
-        public override Color ToolStripContentPanelGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color ToolStripContentPanelGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #region ToolStripDropDownBackground
         /// <summary>
         /// Gets the background color for drop down menus.
         /// </summary>
-        public override Color ToolStripDropDownBackground
-        {
-            get { return _contextMenuBackground; }
-        }
+        public override Color ToolStripDropDownBackground => _contextMenuBackground;
+
         #endregion
 
         #region ToolStripGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStrip background.
         /// </summary>
-        public override Color ToolStripGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBegin]; }
-        }
+        public override Color ToolStripGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBegin];
+
         #endregion
 
         #region ToolStripGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStrip background.
         /// </summary>
-        public override Color ToolStripGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripEnd]; }
-        }
+        public override Color ToolStripGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripEnd];
+
         #endregion
 
         #region ToolStripGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the ToolStrip background.
         /// </summary>
-        public override Color ToolStripGradientMiddle
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripMiddle]; }
-        }
+        public override Color ToolStripGradientMiddle => _colors[(int)SchemeOfficeColors.ToolStripMiddle];
+
         #endregion
 
         #region ToolStripPanelGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStripPanel.
         /// </summary>
-        public override Color ToolStripPanelGradientBegin
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color ToolStripPanelGradientBegin => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
 
         #region ToolStripPanelGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripPanel.
         /// </summary>
-        public override Color ToolStripPanelGradientEnd
-        {
-            get { return _colors[(int)SchemeOfficeColors.ToolStripBack]; }
-        }
+        public override Color ToolStripPanelGradientEnd => _colors[(int)SchemeOfficeColors.ToolStripBack];
+
         #endregion
         #endregion
 

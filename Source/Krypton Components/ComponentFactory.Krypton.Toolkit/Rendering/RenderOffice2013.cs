@@ -85,10 +85,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region IRenderer Overrides
+
         /// <summary>
         /// Gets a renderer for drawing the toolstrips.
         /// </summary>
         /// <param name="colorPalette">Color palette to use when rendering toolstrip.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override ToolStripRenderer RenderToolStrip(IPalette colorPalette)
         {
             Debug.Assert(colorPalette != null);
@@ -96,7 +98,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming parameter
             if (colorPalette == null)
             {
-                throw new ArgumentNullException("colorPalette");
+                throw new ArgumentNullException(nameof(colorPalette));
             }
 
             // Use the professional renderer but pull colors from the palette

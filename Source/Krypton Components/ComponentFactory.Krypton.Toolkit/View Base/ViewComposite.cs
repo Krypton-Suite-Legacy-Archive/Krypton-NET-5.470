@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -196,11 +197,13 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region Collection
-		/// <summary>
-		/// Append a view to the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		public override void Add(ViewBase item)
+
+	    /// <summary>
+	    /// Append a view to the collection.
+	    /// </summary>
+	    /// <param name="item">ViewBase reference.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public override void Add(ViewBase item)
 		{
 			// We do not allow null references in the collection
 			if (item == null)
@@ -345,12 +348,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Inserts a view to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="item">ViewBase reference.</param>
-		public override void Insert(int index, ViewBase item)
+	    /// <summary>
+	    /// Inserts a view to the collection at the specified index.
+	    /// </summary>
+	    /// <param name="index">Insert index.</param>
+	    /// <param name="item">ViewBase reference.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public override void Insert(int index, ViewBase item)
 		{
 			// We do not allow null references in the collection
 			if (item == null)

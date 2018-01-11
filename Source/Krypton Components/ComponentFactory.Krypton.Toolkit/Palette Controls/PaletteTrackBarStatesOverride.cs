@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -24,13 +25,15 @@ namespace ComponentFactory.Krypton.Toolkit
 	    #endregion
 
 		#region Identity
-		/// <summary>
-        /// Initialize a new instance of the PaletteTrackBarStatesOverride class.
-		/// </summary>
-        /// <param name="normalStates">Normal state values.</param>
-        /// <param name="overrideStates">Override state values.</param>
-        /// <param name="overrideState">State to override.</param>
-        public PaletteTrackBarStatesOverride(PaletteTrackBarRedirect normalStates,
+
+	    /// <summary>
+	    /// Initialize a new instance of the PaletteTrackBarStatesOverride class.
+	    /// </summary>
+	    /// <param name="normalStates">Normal state values.</param>
+	    /// <param name="overrideStates">Override state values.</param>
+	    /// <param name="overrideState">State to override.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public PaletteTrackBarStatesOverride(PaletteTrackBarRedirect normalStates,
                                              PaletteTrackBarStates overrideStates,
                                              PaletteState overrideState)
         {
@@ -40,12 +43,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming references
             if (normalStates == null)
             {
-                throw new ArgumentNullException("normalStates");
+                throw new ArgumentNullException(nameof(normalStates));
             }
 
             if (overrideStates == null)
             {
-                throw new ArgumentNullException("overrideStates");
+                throw new ArgumentNullException(nameof(overrideStates));
             }
 
             // Create the triple override instances

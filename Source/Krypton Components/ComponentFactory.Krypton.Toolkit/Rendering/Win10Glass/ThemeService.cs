@@ -15,10 +15,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// 
         /// </summary>
-        public static bool IsWindowTransparencyEnabled
-        {
-            get { return !SystemInformation.HighContrast && UserSystemPreferencesService.IsTransparencyEnabled; }
-        }
+        public static bool IsWindowTransparencyEnabled => !SystemInformation.HighContrast && UserSystemPreferencesService.IsTransparencyEnabled;
 
         //public static void UpdateThemeResources(ResourceDictionary dictionary)
         //{

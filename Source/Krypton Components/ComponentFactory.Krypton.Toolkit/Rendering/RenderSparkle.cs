@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -137,6 +138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="displayRect">Display area available for drawing.</param>
         /// <param name="paletteGeneral">General ribbon palette details.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawRibbonDropArrow(PaletteRibbonShape shape,
                                                  RenderContext context,
                                                  Rectangle displayRect,
@@ -149,12 +151,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteGeneral == null)
             {
-                throw new ArgumentNullException("paletteGeneral");
+                throw new ArgumentNullException(nameof(paletteGeneral));
             }
 
             Color darkColor = (state == PaletteState.Disabled ? paletteGeneral.GetRibbonDisabledDark(state) :
@@ -177,6 +179,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region RenderGlyph Overrides
+
         /// <summary>
         /// Draw a drop down grid appropriate for a input control.
         /// </summary>
@@ -184,6 +187,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlDropDownGlyph(RenderContext context,
                                                            Rectangle cellRect,
                                                            IPaletteContent paletteContent,
@@ -195,12 +199,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -224,6 +228,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlNumericUpGlyph(RenderContext context,
                                                             Rectangle cellRect,
                                                             IPaletteContent paletteContent,
@@ -235,12 +240,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -264,6 +269,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="cellRect">Available drawing rectangle space.</param>
         /// <param name="paletteContent">Content palette for getting colors.</param>
         /// <param name="state">State associated with rendering.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void DrawInputControlNumericDownGlyph(RenderContext context,
                                                               Rectangle cellRect,
                                                               IPaletteContent paletteContent,
@@ -275,12 +281,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate parameter references
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             if (paletteContent == null)
             {
-                throw new ArgumentNullException("paletteContent");
+                throw new ArgumentNullException(nameof(paletteContent));
             }
 
             Color c1 = paletteContent.GetContentShortTextColor1(state);
@@ -299,10 +305,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region IRenderer Overrides
+
         /// <summary>
         /// Gets a renderer for drawing the toolstrips.
         /// </summary>
         /// <param name="colorPalette">Color palette to use when rendering toolstrip.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override ToolStripRenderer RenderToolStrip(IPalette colorPalette)
         {
             Debug.Assert(colorPalette != null);
@@ -310,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Validate incoming parameter
             if (colorPalette == null)
             {
-                throw new ArgumentNullException("colorPalette");
+                throw new ArgumentNullException(nameof(colorPalette));
             }
 
             // Use the professional renderer but pull colors from the palette

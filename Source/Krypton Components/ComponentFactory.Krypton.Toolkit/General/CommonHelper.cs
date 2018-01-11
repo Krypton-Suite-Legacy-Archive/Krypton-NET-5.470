@@ -192,14 +192,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets reference to a null implementation of the IContentValues interface.
         /// </summary>
-        public static IContentValues NullContentValues
-        {
-            get
-            {
-                // Only create the instance when it is first needed
-                return _nullContentValues ?? (_nullContentValues = new NullContentValues());
-            }
-        }
+        public static IContentValues NullContentValues => _nullContentValues ?? (_nullContentValues = new NullContentValues());
 
         /// <summary>
         /// Return the provided size with orientation specific padding applied.

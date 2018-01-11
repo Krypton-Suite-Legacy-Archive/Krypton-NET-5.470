@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -45,7 +46,7 @@ namespace ComponentFactory.Krypton.Docking
                                        KryptonDockableWorkspace workspace)
             : base(name, storeName)
         {
-            SpaceControl = workspace ?? throw new ArgumentNullException("workspace");
+            SpaceControl = workspace ?? throw new ArgumentNullException(nameof(workspace));
 
             DockableWorkspaceControl.CellPageInserting += OnSpaceCellPageInserting;
             DockableWorkspaceControl.BeforePageDrag += OnDockableWorkspaceBeforePageDrag;
@@ -87,7 +88,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot show a null reference
             if (page == null)
             {
-                throw new ArgumentNullException("page");
+                throw new ArgumentNullException(nameof(page));
             }
 
             ShowPages(new string[] { page.UniqueName });
@@ -102,7 +103,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot show a null reference
             if (uniqueName == null)
             {
-                throw new ArgumentNullException("uniqueName");
+                throw new ArgumentNullException(nameof(uniqueName));
             }
 
             ShowPages(new string[] { uniqueName });
@@ -117,7 +118,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot show a null reference
             if (pages == null)
             {
-                throw new ArgumentNullException("pages");
+                throw new ArgumentNullException(nameof(pages));
             }
 
             if (pages.Length > 0)
@@ -147,7 +148,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot show a null reference
             if (uniqueNames == null)
             {
-                throw new ArgumentNullException("uniqueNames");
+                throw new ArgumentNullException(nameof(uniqueNames));
             }
 
             if (uniqueNames.Length > 0)
@@ -193,7 +194,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot hide a null reference
             if (page == null)
             {
-                throw new ArgumentNullException("page");
+                throw new ArgumentNullException(nameof(page));
             }
 
             HidePages(new string[] { page.UniqueName });
@@ -208,7 +209,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot hide a null reference
             if (uniqueName == null)
             {
-                throw new ArgumentNullException("uniqueName");
+                throw new ArgumentNullException(nameof(uniqueName));
             }
 
             if (uniqueName.Length > 0)
@@ -226,7 +227,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot hide a null reference
             if (pages == null)
             {
-                throw new ArgumentNullException("pages");
+                throw new ArgumentNullException(nameof(pages));
             }
 
             if (pages.Length > 0)
@@ -257,7 +258,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot hide a null reference
             if (uniqueNames == null)
             {
-                throw new ArgumentNullException("uniqueNames");
+                throw new ArgumentNullException(nameof(uniqueNames));
             }
 
             if (uniqueNames.Length > 0)
@@ -304,7 +305,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot remove a null reference
             if (uniqueName == null)
             {
-                throw new ArgumentNullException("uniqueName");
+                throw new ArgumentNullException(nameof(uniqueName));
             }
 
             // Unique names cannot be zero length
@@ -326,7 +327,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot remove a null reference
             if (pages == null)
             {
-                throw new ArgumentNullException("pages");
+                throw new ArgumentNullException(nameof(pages));
             }
 
             if (pages.Length > 0)
@@ -358,7 +359,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot remove a null reference
             if (uniqueNames == null)
             {
-                throw new ArgumentNullException("uniqueNames");
+                throw new ArgumentNullException(nameof(uniqueNames));
             }
 
             if (uniqueNames.Length > 0)

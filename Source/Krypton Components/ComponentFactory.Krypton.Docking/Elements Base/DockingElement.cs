@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -14,6 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using System.Linq;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Workspace;
 
@@ -89,7 +91,7 @@ namespace ComponentFactory.Krypton.Docking
             // Cannot resolve a null reference
             if (path == null)
             {
-                throw new ArgumentNullException("path");
+                throw new ArgumentNullException(nameof(path));
             }
 
             // Path names cannot be zero length
@@ -563,24 +565,23 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Checks that the provided set of pages are not already present in the docking hierarchy.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void DemandPagesNotBePresent(KryptonPage[] pages)
         {
-            // We need a docking manager in order to perfrom testing
+            // We need a docking manager in order to perform testing
             DemandDockingManager();
 
             // We always allow store pages but check that others are not already present in the docking hierarchy
-            foreach (KryptonPage page in pages)
+            if (pages.Any(page => !(page is KryptonStorePage) && DockingManager.ContainsPage(page)))
             {
-                if (!(page is KryptonStorePage) && DockingManager.ContainsPage(page))
-                {
-                    throw new ArgumentOutOfRangeException("Cannot perform operation with a page that is already present inside docking hierarchy");
-                }
+                throw new ArgumentOutOfRangeException(nameof(pages), @"Cannot perform operation with a page that is already present inside docking hierarchy");
             }
         }
 
         /// <summary>
         /// Checks that this element has access to a docking manager, throwing exception if not.
         /// </summary>
+        /// <exception cref="ApplicationException"></exception>
         public void DemandDockingManager()
         {
             if (!HasDockManager)
@@ -596,7 +597,7 @@ namespace ComponentFactory.Krypton.Docking
         public bool HasDockManager => (DockingManager != null);
 
         /// <summary>
-        /// Finds the KryptonDockingManager instance that owns this part of the docking hieararchy.
+        /// Finds the KryptonDockingManager instance that owns this part of the docking hierarchy.
         /// </summary>
         [Browsable(false)]
         public KryptonDockingManager DockingManager
@@ -626,7 +627,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Search up the parent chain looking for the specified type of object.
         /// </summary>
         /// <param name="findType">Type of the instance we are searching for.</param>
-        /// <returns>Object reference if found and it implements IDockingElemnet; othrtwise null.</returns>
+        /// <returns>Object reference if found and it implements IDockingElemnet; otherwise null.</returns>
         public IDockingElement GetParentType(Type findType)
         {
             // Searching from this element upwards

@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -51,6 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Append an item to the collection.
         /// </summary>
         /// <param name="value">Object reference.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns>The position into which the new item was inserted.</returns>
         public override int Add(object value)
         {
@@ -68,6 +70,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="index">Insert index.</param>
         /// <param name="value">Object reference.</param>
+        /// <exception cref="ArgumentException"></exception>
         public override void Insert(int index, object value)
         {
             // We only allow objects that implement IQuickAccessToolbarButton
@@ -81,11 +84,13 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region IList<T>
+
         /// <summary>
         /// Inserts an item to the collection at the specified index.
         /// </summary>
         /// <param name="index">Insert index.</param>
         /// <param name="item">Item reference.</param>
+        /// <exception cref="ArgumentException"></exception>
         public override void Insert(int index, T item)
         {
             // We only allow objects that implement IQuickAccessToolbarButton
@@ -99,10 +104,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region ICollection<T>
+
         /// <summary>
         /// Append an item to the collection.
         /// </summary>
         /// <param name="item">Item reference.</param>
+        /// <exception cref="ArgumentException"></exception>
         public override void Add(T item)
         {
             // We only allow objects that implement IQuickAccessToolbarButton

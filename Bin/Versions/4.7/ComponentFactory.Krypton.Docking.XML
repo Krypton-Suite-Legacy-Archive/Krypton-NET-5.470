@@ -1236,11 +1236,13 @@
             <summary>
             Checks that the provided set of pages are not already present in the docking hierarchy.
             </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:ComponentFactory.Krypton.Docking.DockingElement.DemandDockingManager">
             <summary>
             Checks that this element has access to a docking manager, throwing exception if not.
             </summary>
+            <exception cref="T:System.ApplicationException"></exception>
         </member>
         <member name="P:ComponentFactory.Krypton.Docking.DockingElement.HasDockManager">
             <summary>
@@ -1249,7 +1251,7 @@
         </member>
         <member name="P:ComponentFactory.Krypton.Docking.DockingElement.DockingManager">
             <summary>
-            Finds the KryptonDockingManager instance that owns this part of the docking hieararchy.
+            Finds the KryptonDockingManager instance that owns this part of the docking hierarchy.
             </summary>
         </member>
         <member name="M:ComponentFactory.Krypton.Docking.DockingElement.GetParentType(System.Type)">
@@ -1257,7 +1259,7 @@
             Search up the parent chain looking for the specified type of object.
             </summary>
             <param name="findType">Type of the instance we are searching for.</param>
-            <returns>Object reference if found and it implements IDockingElemnet; othrtwise null.</returns>
+            <returns>Object reference if found and it implements IDockingElemnet; otherwise null.</returns>
         </member>
         <member name="P:ComponentFactory.Krypton.Docking.DockingElement.Count">
             <summary>

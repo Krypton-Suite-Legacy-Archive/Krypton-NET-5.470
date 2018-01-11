@@ -1,11 +1,12 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//	The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.7.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -252,25 +253,26 @@ namespace ComponentFactory.Krypton.Toolkit
 			return _specs.IndexOf(item);
 		}
 
-		/// <summary>
-        /// Inserts a button spec to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-        /// <param name="item">T reference.</param>
-        public void Insert(int index, T item)
+	    /// <summary>
+	    /// Inserts a button spec to the collection at the specified index.
+	    /// </summary>
+	    /// <param name="index">Insert index.</param>
+	    /// <param name="item">T reference.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public void Insert(int index, T item)
 		{
             Debug.Assert(item != null);
 
             // We do not allow an empty button spec to be added
 			if (item == null)
 			{
-			    throw new ArgumentNullException("item");
+			    throw new ArgumentNullException(nameof(item));
 			}
 
 		    // Not allow to add the same button spec more than once
 			if (_specs.Contains(item))
 			{
-			    throw new ArgumentOutOfRangeException("item", "T already in collection");
+			    throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
 			}
 
 		    // Generate before insert event
@@ -348,24 +350,26 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region ICollection<T>
-        /// <summary>
-        /// Append a button spec to the collection.
-		/// </summary>
-        /// <param name="item">T reference.</param>
-        public void Add(T item)
+
+	    /// <summary>
+	    /// Append a button spec to the collection.
+	    /// </summary>
+	    /// <param name="item">T reference.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public void Add(T item)
 		{
 			Debug.Assert(item != null);
 
             // We do not allow an empty button spec to be added
 			if (item == null)
 			{
-			    throw new ArgumentNullException("item");
+			    throw new ArgumentNullException(nameof(item));
 			}
 
 		    // Not allow to add the same button spec more than once
 			if (_specs.Contains(item))
 			{
-			    throw new ArgumentOutOfRangeException("item", "T already in collection");
+			    throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
 			}
 
 		    // Generate inserting event
@@ -436,19 +440,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		#endregion
 
 		#region ICollection
-		/// <summary>
-        /// Copies all the elements of the current collection to the specified Array. 
-		/// </summary>
-        /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
-		/// <param name="index">The index in array at which copying begins.</param>
-		public void CopyTo(Array array, int index)
+
+	    /// <summary>
+	    /// Copies all the elements of the current collection to the specified Array. 
+	    /// </summary>
+	    /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
+	    /// <param name="index">The index in array at which copying begins.</param>
+	    /// <exception cref="ArgumentNullException"></exception>
+	    public void CopyTo(Array array, int index)
 		{
             Debug.Assert(array != null);
 
 			// Cannot pass a null target array
 			if (array == null)
 			{
-			    throw new ArgumentNullException("array");
+			    throw new ArgumentNullException(nameof(array));
 			}
 
 		    // Try and copy each button spec to the destination array
