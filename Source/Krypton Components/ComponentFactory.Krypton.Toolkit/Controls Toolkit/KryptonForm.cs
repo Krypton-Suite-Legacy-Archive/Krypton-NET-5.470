@@ -96,6 +96,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
 
+        // Drop shadow
+        private const int CS_DROPSHADOW = 0x00020000;
+
         #endregion
 
         #region Identity
@@ -548,6 +551,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 return FormWindowState.Normal;
             }
         }
+
+
         #endregion
 
         #region Public Chrome
@@ -861,6 +866,21 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Test if we need to change the custom chrome usage
             UpdateCustomChromeDecision();
+        }
+
+        /// <summary>
+        /// Draw drop shadows
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // add the drop shadow flag for automatically drawing
+                // a drop shadow around the form
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
         #endregion
 

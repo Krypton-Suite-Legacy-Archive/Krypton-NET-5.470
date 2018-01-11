@@ -15,9 +15,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.70.500.0")]
-[assembly: AssemblyFileVersion("4.70.500.0")]
-[assembly: AssemblyInformationalVersion("4.70.500.0")]
+[assembly: AssemblyVersion("4.70.501.0")]
+[assembly: AssemblyFileVersion("4.70.501.0")]
+[assembly: AssemblyInformationalVersion("4.70.501.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)")]
 [assembly: AssemblyProduct("Krypton Navigator")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Navigator.dll")]

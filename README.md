@@ -1,5 +1,12 @@
 ﻿# Krypton-NET-4.7
 
+=======
+
+## 2018-01-11 KryptonForm changes
+* Added code for drop shadow
+
+=======
+
 ## 2018-10-10 Assembly values modifications
 * Updated values as suggested in issue #7
 * Refreshed Nuget package data to reflect changes
