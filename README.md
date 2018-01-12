@@ -6,6 +6,7 @@
 * Removed binaries due to merge issues
 * Attempt at including drop shadow around the form
 * Begin work on fixing bug [Screen artifact, #79](https://github.com/ComponentFactory/Krypton/issues/79)
+* Groundwork for Visual Studio project & item templates
 
 =======
 
