@@ -69,7 +69,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         private static readonly Size CAPTION_ICON_SIZE = new Size(16, 16);
         private const int HT_CORNER = 8;
-
+        // Drop shadow
+        private const int CS_DROPSHADOW = 0x00020000;
         #endregion
 
         #region Instance Fields
@@ -93,6 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _recreateButtons;
         private bool _firstCheckView;
         private bool _lastNotNormal;
+        private bool _useDropShadow;
         private StatusStrip _statusStrip;
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
@@ -346,6 +348,27 @@ namespace ComponentFactory.Krypton.Toolkit
                     StateCommon.BackStyle = value;
                     PerformNeedPaint(false);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Allows the use of drop shadow around the form.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Allows the use of drop shadow around the form.")]
+        [DefaultValue(true)]
+        public bool UseDropShadow
+        {
+            get
+            {
+                return _useDropShadow;
+            }
+
+            set
+            {
+                _useDropShadow = value;
+
+                UpdateDropShadowDraw(_useDropShadow);
             }
         }
 
@@ -1584,6 +1607,37 @@ namespace ComponentFactory.Krypton.Toolkit
                 UpdateCustomChromeDecision();
             }
         }
+        #endregion
+
+        #region Drop Shadow Methods
+        /// <summary>
+        /// Draws the drop shadow around the form.
+        /// </summary>
+        /// <param name="useDropShadow">Use dropdown user input.</param>
+        private void UpdateDropShadowDraw(bool useDropShadow)
+        {
+            if (useDropShadow)
+            {
+                // add the drop shadow flag for automatically drawing
+                // a drop shadow around the form
+                CreateParams cp = base.CreateParams;
+
+                cp.ClassStyle |= CS_DROPSHADOW;
+            }
+        }
+
+        // Example by juverpp
+        //protected override CreateParams CreateParams
+        //{
+        //    get
+        //    {
+        //        // add the drop shadow flag for automatically drawing
+        //        // a drop shadow around the form
+        //        CreateParams cp = base.CreateParams;
+        //        cp.ClassStyle |= CS_DROPSHADOW;
+        //        return cp;
+        //    }
+        //}
         #endregion
     }
 }

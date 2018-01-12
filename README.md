@@ -4,6 +4,7 @@
 
 ## 2018-01-12 Master branch changes
 * Removed binaries due to merge issues
+* Attempt at including drop shadow around the form
 
 =======
 
