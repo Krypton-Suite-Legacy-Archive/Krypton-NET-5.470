@@ -1,18 +1,29 @@
 ﻿# Krypton-NET-4.7
 
-## 2018-01-## Fix the KryptonMessageBox clipping
+=======
+
+## 2018-01-12 Master branch changes
+* Removed binaries due to merge issues
+
+=======
+
+## 2018-01-11a Fix the KryptonMessageBox clipping
 * Fix AssemblyCopyright information date ranges
 * Create a Test project demonstrating MessageBox usage
   * Fix Mangled Caption that may contain carriage returns
   * Fix Box clipping on long and short text combinations
   * Add Extra text showing that Ctrl+C works in a KryptonMessageBox
 
+=======
+  
 ## 2018-01-11 Fix the Code Header and __nameof__ in Exceptions
 * Code Headers changed:
   * Add correct license term and date range for ComponentFactory
   * Moved Wagnerp and Smurf-IV to later
 * Use __nameof__ for exception parameter references
 * Add /// comments (on some public API's) stating that an exception can be returned if it explicitly __throws new__
+
+=======
  
 ## 2018-10-10 Assembly values modifications
 * Updated values as suggested in issue #7
