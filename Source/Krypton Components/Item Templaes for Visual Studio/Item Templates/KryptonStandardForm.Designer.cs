@@ -1,6 +1,6 @@
-﻿namespace Item_Templates
+﻿namespace ItemTemplates
 {
-    partial class Form1
+    partial class KryptonStandardForm
     {
         /// <summary>
         /// Required designer variable.

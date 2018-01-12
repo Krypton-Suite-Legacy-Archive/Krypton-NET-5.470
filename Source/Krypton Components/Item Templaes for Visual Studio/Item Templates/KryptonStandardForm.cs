@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Item_Templates
+namespace ItemTemplates
 {
-    public partial class Form1 : Form
+    public partial class KryptonStandardForm : Form
     {
-        public Form1()
+        public KryptonStandardForm()
         {
             InitializeComponent();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Item_Templates
+namespace ItemTemplates
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Item_Templates
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new KryptonStandardForm());
         }
     }
 }
