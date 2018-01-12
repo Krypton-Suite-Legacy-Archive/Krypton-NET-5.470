@@ -119,11 +119,23 @@ namespace ComponentFactory.Krypton.Toolkit
             _source = source;
             _splitCursors = splitCursors;
             DrawMoveIndicator = drawIndicator;
-		}
 
-		/// <summary>
-		/// Dispose of object resources.
-		/// </summary>
+            // Temporary fix for screen tearing artifact courtesy of Cocotteseb
+
+            //if (Environment.OSVersion.Version.Major >= 10)
+            //{
+            //    // Unless it flickers on Win10 : https://github.com/ComponentFactory/Krypton/issues/79
+            //    _drawIndicator = false;
+            //}
+            //else
+            //{
+            //    _drawIndicator = drawIndicator;
+            //}
+        }
+
+        /// <summary>
+        /// Dispose of object resources.
+        /// </summary>
         public void Dispose()
         {
             UnregisterFilter();
