@@ -1,5 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ItemTemplates
 {
-    public partial class KryptonStandardForm : KryptonForm
+    public partial class KryptonStandardForm : Form
     {
         public KryptonStandardForm()
         {
