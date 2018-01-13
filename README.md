@@ -2,6 +2,11 @@
 
 =======
 
+## 2018-01-13 Minor changes in 'SeparatorController.cs'
+* Fixed bug [Screen artifact, #79](https://github.com/ComponentFactory/Krypton/issues/79) courtesy of Cocotteseb
+
+=======
+
 ## 2018-01-12 Master branch changes
 * Removed binaries due to merge issues
 * Attempt at including drop shadow around the form
