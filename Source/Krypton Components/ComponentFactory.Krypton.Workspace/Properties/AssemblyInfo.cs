@@ -18,8 +18,8 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("4.70.516.0")]
 [assembly: AssemblyFileVersion("4.70.516.0")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2018. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2018. All rights reserved.")]
 [assembly: AssemblyInformationalVersion("4.70.516.0")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2018. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2018. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Workspace")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Workspace.dll")]
 [assembly: AssemblyTitle("ComponentFactory.Krypton.Workspace")]

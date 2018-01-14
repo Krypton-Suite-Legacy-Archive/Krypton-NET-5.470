@@ -89,6 +89,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Instance Fields
 
         private readonly bool _splitCursors;
+        private bool _drawIndicator;
         private Point _downPosition;
         private Point _movementPoint;
         private int _separatorIncrements;
@@ -122,15 +123,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Temporary fix for screen tearing artifact courtesy of Cocotteseb
 
-            //if (Environment.OSVersion.Version.Major >= 10)
-            //{
-            //    // Unless it flickers on Win10 : https://github.com/ComponentFactory/Krypton/issues/79
-            //    _drawIndicator = false;
-            //}
-            //else
-            //{
-            //    _drawIndicator = drawIndicator;
-            //}
+            if (Environment.OSVersion.Version.Major >= 10)
+            {
+                // Unless it flickers on Win10 : https://github.com/ComponentFactory/Krypton/issues/79
+                _drawIndicator = false;
+            }
+            else
+            {
+                _drawIndicator = drawIndicator;
+            }
         }
 
         /// <summary>
@@ -146,17 +147,28 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the drawing of the movement indicator.
         /// </summary>
-        public bool DrawMoveIndicator { get; set; }
+        public bool DrawMoveIndicator
+        {
+            get
+            {
+                return _drawIndicator;
+            }
+
+            set
+            {
+                _drawIndicator = value;
+            }
+        }
 
         #endregion
 
-        #region Mouse Notifications
-        /// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
-        /// <param name="c">Reference to the source control instance.</param>
-        /// <param name="pt">Mouse position relative to control.</param>
-		public override void MouseMove(Control c, Point pt)
+            #region Mouse Notifications
+            /// <summary>
+            /// Mouse has moved inside the view.
+            /// </summary>
+            /// <param name="c">Reference to the source control instance.</param>
+            /// <param name="pt">Mouse position relative to control.</param>
+        public override void MouseMove(Control c, Point pt)
 		{
             // If the separator is allowed to be moved by the user
             if (_source.SeparatorCanMove)
