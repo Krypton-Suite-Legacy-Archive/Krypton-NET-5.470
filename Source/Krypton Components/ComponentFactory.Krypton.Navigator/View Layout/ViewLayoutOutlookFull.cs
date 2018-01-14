@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ViewBuilderOutlookBase ViewBuilder
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 
@@ -95,11 +95,11 @@ namespace ComponentFactory.Krypton.Navigator
             bool canScrollH;
 
             // Update the enabled state of the scrollbars and contained control
-            ViewControl.Enabled = this.Enabled;
-            ScrollbarV.Enabled = this.Enabled;
-            ScrollbarH.Enabled = this.Enabled;
-            BorderEdgeV.Enabled = this.Enabled;
-            BorderEdgeH.Enabled = this.Enabled;
+            ViewControl.Enabled = Enabled;
+            ScrollbarV.Enabled = Enabled;
+            ScrollbarH.Enabled = Enabled;
+            BorderEdgeV.Enabled = Enabled;
+            BorderEdgeH.Enabled = Enabled;
 
             // Cache the starting viewport offsets
             Point originalOffset = Viewport.Offset;

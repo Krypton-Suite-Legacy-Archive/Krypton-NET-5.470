@@ -17,7 +17,7 @@ namespace ComponentFactory.Krypton.Ribbon
 {
     internal class DesignTimeDraw
     {
-        #region Statis Fields
+        #region Static Fields
 
         private const int DESIGN_FLAP_WIDTH = 12;
         private const int DESIGN_SEP_WIDTH = 6;
@@ -53,16 +53,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                     Rectangle clientRect,
                                     PaletteState state)
         {
-            Color c;
-
-            if (state == PaletteState.Normal)
-            {
-                c = ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorDark(PaletteState.Normal);
-            }
-            else
-            {
-                c = ribbon.StateCommon.RibbonGroupButton.Back.GetBackColor1(PaletteState.Tracking);
-            }
+            Color c = state == PaletteState.Normal
+                ? ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorDark(PaletteState.Normal)
+                : ribbon.StateCommon.RibbonGroupButton.Back.GetBackColor1(PaletteState.Tracking);
 
             // Draw entire area in color
             using (SolidBrush darkBrush = new SolidBrush(c))
@@ -85,16 +78,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                         Rectangle clientRect,
                                         PaletteState state)
         {
-            Color c;
-
-            if (state == PaletteState.Normal)
-            {
-                c = ControlPaint.Dark(ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorDark(PaletteState.Normal));
-            }
-            else
-            {
-                c = ribbon.StateCommon.RibbonGroupButton.Back.GetBackColor1(PaletteState.Tracking);
-            }
+            Color c = state == PaletteState.Normal
+                ? ControlPaint.Dark(ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorDark(PaletteState.Normal))
+                : ribbon.StateCommon.RibbonGroupButton.Back.GetBackColor1(PaletteState.Tracking);
 
             // Draw border around entire area
             Rectangle drawRect = clientRect;

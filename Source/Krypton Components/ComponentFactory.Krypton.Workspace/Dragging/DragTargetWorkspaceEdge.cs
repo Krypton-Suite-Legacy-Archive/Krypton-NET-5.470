@@ -112,14 +112,9 @@ namespace ComponentFactory.Krypton.Workspace
                     Workspace.Root.Children.Add(sequence);
 
                     // Switch the direction of the root
-                    if (Workspace.Root.Orientation == Orientation.Horizontal)
-                    {
-                        Workspace.Root.Orientation = Orientation.Vertical;
-                    }
-                    else
-                    {
-                        Workspace.Root.Orientation = Orientation.Horizontal;
-                    }
+                    Workspace.Root.Orientation = Workspace.Root.Orientation == Orientation.Horizontal
+                        ? Orientation.Vertical
+                        : Orientation.Horizontal;
                 }
 
                 // Add to the start or the end of the root sequence?

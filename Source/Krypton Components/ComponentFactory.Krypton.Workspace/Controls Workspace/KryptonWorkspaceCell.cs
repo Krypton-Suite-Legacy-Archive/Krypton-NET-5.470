@@ -642,7 +642,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         protected internal void CellDesignerMouseLeave()
         {
-            base.DesignerMouseLeave();
+            DesignerMouseLeave();
         }
 
         /// <summary>

@@ -105,13 +105,9 @@ namespace ComponentFactory.Krypton.Ribbon
         public virtual int ItemGap(IRibbonGroupItem previousItem)
         {
             // If the previous item is a group button cluster then we want 3 pixels
-            if (previousItem is KryptonRibbonGroupCluster)
-            {
-                return 3;
-            }
+            return previousItem is KryptonRibbonGroupCluster ? 3 : 1;
 
             // By default we just want a single pixel gap
-            return 1;
         }
 
         /// <summary>

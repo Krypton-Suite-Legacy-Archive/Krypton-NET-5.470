@@ -128,13 +128,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
-            get => base.GetAutoSizeMode();
+            get => GetAutoSizeMode();
 
             set
             {
-                if (value != base.GetAutoSizeMode())
+                if (value != GetAutoSizeMode())
                 {
-                    base.SetAutoSizeMode(value);
+                    SetAutoSizeMode(value);
 
                     // Only perform an immediate layout if
                     // currently performing auto size operations
@@ -350,7 +350,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
+        protected override ControlCollection CreateControlsInstance()
         {
             return new KryptonReadOnlyControls(this);
         }

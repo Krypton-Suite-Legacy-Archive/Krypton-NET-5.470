@@ -66,18 +66,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         public override string Text
         {
-            get 
-            {
-                if (Page != null)
-                {
-                    return Page.Text;
-                }
-                else
-                {
-                    return base.Text;
-                }
-            }
-            
+            get => Page != null ? Page.Text : base.Text;
+
             set 
             {
                 base.Text = value;

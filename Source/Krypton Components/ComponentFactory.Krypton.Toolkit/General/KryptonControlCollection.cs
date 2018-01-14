@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void AddInternal(Control control)
         {
-            base.Add(control);
+            Add(control);
         }
         #endregion
 
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void RemoveInternal(Control control)
         {
-            base.Remove(control);
+            Remove(control);
         }
         #endregion
 

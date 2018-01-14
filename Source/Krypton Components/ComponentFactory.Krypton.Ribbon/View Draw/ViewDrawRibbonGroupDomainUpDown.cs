@@ -301,14 +301,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 preferredSize.Width = NULL_CONTROL_WIDTH;
             }
 
-            if (_currentSize == GroupItemSize.Large)
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
-            }
-            else
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
-            }
+            preferredSize.Height = _currentSize == GroupItemSize.Large
+                ? _ribbon.CalculatedValues.GroupTripleHeight
+                : _ribbon.CalculatedValues.GroupLineHeight;
 
             return preferredSize;
         }

@@ -249,14 +249,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (Navigator.SelectedPage == null)
                 {
                     // Then use the states defined in the navigator itself
-                    if (Navigator.Enabled)
-                    {
-                        buttonEdge = Navigator.StateNormal.BorderEdge;
-                    }
-                    else
-                    {
-                        buttonEdge = Navigator.StateDisabled.BorderEdge;
-                    }
+                    buttonEdge = Navigator.Enabled ? Navigator.StateNormal.BorderEdge : Navigator.StateDisabled.BorderEdge;
                 }
                 else
                 {
@@ -402,15 +395,7 @@ namespace ComponentFactory.Krypton.Navigator
 
                             if (!ce.Cancel)
                             {
-                                bool changed;
-                                if (!shift)
-                                {
-                                    changed = SelectNextPage(Navigator.SelectedPage, true, true);
-                                }
-                                else
-                                {
-                                    changed = SelectPreviousPage(Navigator.SelectedPage, true, true);
-                                }
+                                bool changed = !shift ? SelectNextPage(Navigator.SelectedPage, true, true) : SelectPreviousPage(Navigator.SelectedPage, true, true);
                             }
                         }
                         return true;
@@ -946,14 +931,9 @@ namespace ComponentFactory.Krypton.Navigator
             switch (Navigator.Stack.ItemOrientation)
             {
                 case ButtonOrientation.Auto:
-                    if (Navigator.Stack.StackOrientation == Orientation.Vertical)
-                    {
-                        return VisualOrientation.Top;
-                    }
-                    else
-                    {
-                        return VisualOrientation.Left;
-                    }
+                    return Navigator.Stack.StackOrientation == Orientation.Vertical
+                        ? VisualOrientation.Top
+                        : VisualOrientation.Left;
                 case ButtonOrientation.FixedTop:
                     return VisualOrientation.Top;
                 case ButtonOrientation.FixedBottom:

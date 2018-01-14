@@ -525,14 +525,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                     else if (_kryptonComboBox.IsActive || (_kryptonComboBox.IsFixedActive && (_kryptonComboBox.InputControlStyle == InputControlStyle.Standalone)))
                     {
-                        if (_kryptonComboBox.InputControlStyle == InputControlStyle.Standalone)
-                        {
-                            state = PaletteState.CheckedNormal;
-                        }
-                        else
-                        {
-                            state = PaletteState.CheckedTracking;
-                        }
+                        state = _kryptonComboBox.InputControlStyle == InputControlStyle.Standalone ? PaletteState.CheckedNormal : PaletteState.CheckedTracking;
                     }
                     else
                     {
@@ -712,7 +705,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 dwHoverTime = 100,
 
                                 // We need to know then the mouse leaves the client window area
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
 
                                 // We want to track our own window
                                 hWnd = Handle
@@ -822,8 +815,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private ButtonStyle _style;
         private readonly ViewDrawButton _drawButton;
         private readonly ViewDrawPanel _drawPanel;
-        private AutoCompleteMode _autoCompleteMode;
-        private AutoCompleteSource _autoCompleteSource;
         private Padding _layoutPadding;
         private IntPtr _screenDC;
         private bool _firstTimePaint;
@@ -1027,8 +1018,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _dropBackStyle = PaletteBackStyle.ControlClient;
             _style = ButtonStyle.ListItem;
             _firstTimePaint = true;
-            _autoCompleteMode = AutoCompleteMode.None;
-            _autoCompleteSource = AutoCompleteSource.None;
 
             // Create storage properties
             ButtonSpecs = new ComboBoxButtonSpecCollection(this);
@@ -1124,7 +1113,7 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteTriple triple = StateActive.ComboBox;
             _comboBox.BackColor = triple.PaletteBack.GetBackColor1(PaletteState.Tracking);
             _comboBox.ForeColor = triple.PaletteContent.GetContentShortTextColor1(PaletteState.Tracking);
-            _comboBox.Font = (Font)triple.PaletteContent.GetContentShortTextFont(PaletteState.Tracking);
+            _comboBox.Font = triple.PaletteContent.GetContentShortTextFont(PaletteState.Tracking);
         }
 
         /// <summary>
@@ -1769,11 +1758,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _comboBox.AutoCompleteMode;
 
-            set 
-            {
-                _autoCompleteMode = value;
-                _comboBox.AutoCompleteMode = value; 
-            }
+            set => _comboBox.AutoCompleteMode = value;
         }
 
         /// <summary>
@@ -1787,11 +1772,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _comboBox.AutoCompleteSource;
 
-            set 
-            {
-                _autoCompleteSource = value;
-                _comboBox.AutoCompleteSource = value; 
-            }
+            set => _comboBox.AutoCompleteSource = value;
         }
 
         /// <summary>
@@ -2023,14 +2004,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
         public new bool Focus()
         {
-            if (ComboBox != null)
-            {
-                return ComboBox.Focus();
-            }
-            else
-            {
-                return false;
-            }
+            return ComboBox != null && ComboBox.Focus();
         }
 
         /// <summary>
@@ -2122,14 +2096,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -2139,13 +2106,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -2176,154 +2139,103 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the Initialized event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnInitialized(EventArgs e)
-        {
-            Initialized?.Invoke(this, EventArgs.Empty);
-        }
+        protected virtual void OnInitialized(EventArgs e) => Initialized?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the TextUpdate event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTextUpdate(EventArgs e)
-        {
-            TextUpdate?.Invoke(this, e);
-        }
+        protected virtual void OnTextUpdate(EventArgs e) => TextUpdate?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectionChangeCommitted event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectionChangeCommitted(EventArgs e)
-        {
-            SelectionChangeCommitted?.Invoke(this, e);
-        }
+        protected virtual void OnSelectionChangeCommitted(EventArgs e) => SelectionChangeCommitted?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedIndexChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectedIndexChanged(EventArgs e)
-        {
-            SelectedIndexChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectedIndexChanged(EventArgs e) => SelectedIndexChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDownStyleChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDownStyleChanged(EventArgs e)
-        {
-            DropDownStyleChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDropDownStyleChanged(EventArgs e) => DropDownStyleChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DataSourceChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDataSourceChanged(EventArgs e)
-        {
-            DataSourceChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DisplayMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDisplayMemberChanged(EventArgs e)
-        {
-            DisplayMemberChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Format event.
         /// </summary>
         /// <param name="e">An ListControlConvertEventArgs containing the event data.</param>
-        protected virtual void OnFormat(ListControlConvertEventArgs e)
-        {
-            Format?.Invoke(this, e);
-        }
+        protected virtual void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatInfoChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatInfoChanged(EventArgs e)
-        {
-            FormatInfoChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatStringChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatStringChanged(EventArgs e)
-        {
-            FormatStringChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormattingEnabledChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormattingEnabledChanged(EventArgs e)
-        {
-            FormattingEnabledChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedValueChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectedValueChanged(EventArgs e)
-        {
-            SelectedValueChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ValueMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnValueMemberChanged(EventArgs e)
-        {
-            ValueMemberChanged?.Invoke(this, e);
-        }
+        protected virtual void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDownClosed event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDownClosed(EventArgs e)
-        {
-            DropDownClosed?.Invoke(this, e);
-        }
+        protected virtual void OnDropDownClosed(EventArgs e) => DropDownClosed?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDown event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDown(EventArgs e)
-        {
-            DropDown?.Invoke(this, e);
-        }
+        protected virtual void OnDropDown(EventArgs e) => DropDown?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -2332,10 +2244,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -2386,46 +2295,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the PaddingChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnPaddingChanged(EventArgs e)
-        {
-            PaddingChanged?.Invoke(this, e);
-        }
+        protected override void OnPaddingChanged(EventArgs e) => PaddingChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TabStop event.
@@ -2525,7 +2419,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteState state = _drawDockerOuter.State;
                 _comboBox.BackColor = triple.PaletteBack.GetBackColor1(state);
                 _comboBox.ForeColor = triple.PaletteContent.GetContentShortTextColor1(state);
-                _comboBox.Font = (Font)triple.PaletteContent.GetContentShortTextFont(state);
+                _comboBox.Font = triple.PaletteContent.GetContentShortTextFont(state);
                 _comboBox.ClearAppThemed();
                 _comboHolder.BackColor = _comboBox.BackColor;
             }
@@ -2746,15 +2640,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
@@ -2763,14 +2649,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (Enabled)
             {
-                if (IsActive)
-                {
-                    return StateActive.ComboBox;
-                }
-                else
-                {
-                    return StateNormal.ComboBox;
-                }
+                return IsActive ? StateActive.ComboBox : StateNormal.ComboBox;
             }
             else
             {
@@ -3000,45 +2879,24 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnComboBoxLostFocus(object sender, EventArgs e)
         {
-            base.OnLostFocus(e);
+            OnLostFocus(e);
             PerformNeedPaint(false);
             _comboBox.Invalidate();
         }
 
-        private void OnComboBoxTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(e);
-        }
+        private void OnComboBoxTextChanged(object sender, EventArgs e) => OnTextChanged(e);
 
-        private void OnComboBoxTextUpdate(object sender, EventArgs e)
-        {
-            OnTextUpdate(e);
-        }
+        private void OnComboBoxTextUpdate(object sender, EventArgs e) => OnTextUpdate(e);
 
-        private void OnComboBoxSelectionChangeCommitted(object sender, EventArgs e)
-        {
-            OnSelectionChangeCommitted(e);
-        }
+        private void OnComboBoxSelectionChangeCommitted(object sender, EventArgs e) => OnSelectionChangeCommitted(e);
 
-        private void OnComboBoxSelectedIndexChanged(object sender, EventArgs e)
-        {
-            OnSelectedIndexChanged(e);
-        }
+        private void OnComboBoxSelectedIndexChanged(object sender, EventArgs e) => OnSelectedIndexChanged(e);
 
-        private void OnComboBoxDropDownStyleChanged(object sender, EventArgs e)
-        {
-            OnDropDownStyleChanged(e);
-        }
+        private void OnComboBoxDropDownStyleChanged(object sender, EventArgs e) => OnDropDownStyleChanged(e);
 
-        private void OnComboBoxDataSourceChanged(object sender, EventArgs e)
-        {
-            OnDataSourceChanged(e);
-        }
+        private void OnComboBoxDataSourceChanged(object sender, EventArgs e) => OnDataSourceChanged(e);
 
-        private void OnComboBoxDisplayMemberChanged(object sender, EventArgs e)
-        {
-            OnDisplayMemberChanged(e);
-        }
+        private void OnComboBoxDisplayMemberChanged(object sender, EventArgs e) => OnDisplayMemberChanged(e);
 
         private void OnComboBoxDropDownClosed(object sender, EventArgs e)
         {
@@ -3054,55 +2912,25 @@ namespace ComponentFactory.Krypton.Toolkit
             OnDropDown(e);
         }
 
-        private void OnComboBoxKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnComboBoxKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnComboBoxKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnComboBoxKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnComboBoxKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnComboBoxKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnComboBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnComboBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnComboBoxValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnComboBoxValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnComboBoxValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnComboBoxValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
-        private void OnComboBoxFormat(object sender, ListControlConvertEventArgs e)
-        {
-            OnFormat(e);
-        }
+        private void OnComboBoxFormat(object sender, ListControlConvertEventArgs e) => OnFormat(e);
 
-        private void OnComboBoxFormatInfoChanged(object sender, EventArgs e)
-        {
-            OnFormatInfoChanged(e);
-        }
+        private void OnComboBoxFormatInfoChanged(object sender, EventArgs e) => OnFormatInfoChanged(e);
 
-        private void OnComboBoxFormatStringChanged(object sender, EventArgs e)
-        {
-            OnFormatStringChanged(e);
-        }
+        private void OnComboBoxFormatStringChanged(object sender, EventArgs e) => OnFormatStringChanged(e);
 
-        private void OnComboBoxFormattingEnabledChanged(object sender, EventArgs e)
-        {
-            OnFormattingEnabledChanged(e);
-        }
+        private void OnComboBoxFormattingEnabledChanged(object sender, EventArgs e) => OnFormattingEnabledChanged(e);
 
         private void OnComboBoxSelectedValueChanged(object sender, EventArgs e)
         {
@@ -3112,10 +2940,7 @@ namespace ComponentFactory.Krypton.Toolkit
             OnSelectedValueChanged(e);
         }
 
-        private void OnComboBoxValueMemberChanged(object sender, EventArgs e)
-        {
-            OnValueMemberChanged(e);
-        }
+        private void OnComboBoxValueMemberChanged(object sender, EventArgs e) => OnValueMemberChanged(e);
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {
@@ -3177,11 +3002,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnCancelToolTip(object sender, EventArgs e)
-        {
-            // Remove any currently showing tooltip
-            _visualPopupToolTip?.Dispose();
-        }
+        // Remove any currently showing tooltip
+        private void OnCancelToolTip(object sender, EventArgs e) => _visualPopupToolTip?.Dispose();
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
         {

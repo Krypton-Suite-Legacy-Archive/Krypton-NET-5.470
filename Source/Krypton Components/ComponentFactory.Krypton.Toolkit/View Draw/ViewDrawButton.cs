@@ -327,14 +327,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (Enabled && (ElementState == PaletteState.Disabled))
                 {
-                    if (Checked)
-                    {
-                        ElementState = PaletteState.CheckedNormal;
-                    }
-                    else
-                    {
-                        ElementState = PaletteState.Normal;
-                    }
+                    ElementState = Checked ? PaletteState.CheckedNormal : PaletteState.Normal;
                 }
 
 				// Pass on the new state to the child elements
@@ -532,14 +525,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Extend the split border so it is not restricted by the content size
             Rectangle splitClientRect = _drawSplitBorder.ClientRectangle;
-            if (_drawSplitBorder.Orientation == System.Windows.Forms.Orientation.Vertical)
-            {
-                splitClientRect = new Rectangle(splitClientRect.X, ClientRectangle.Y, splitClientRect.Width, ClientHeight);
-            }
-            else
-            {
-                splitClientRect = new Rectangle(ClientRectangle.X, splitClientRect.Y, ClientWidth, splitClientRect.Height);
-            }
+            splitClientRect = _drawSplitBorder.Orientation == System.Windows.Forms.Orientation.Vertical
+                ? new Rectangle(splitClientRect.X, ClientRectangle.Y, splitClientRect.Width, ClientHeight)
+                : new Rectangle(ClientRectangle.X, splitClientRect.Y, ClientWidth, splitClientRect.Height);
 
             _drawSplitBorder.ClientRectangle = splitClientRect;
 

@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_captured)
             {
                 // Ignore multiple calls with the same point
-                if ((_lastMovePt == null) || (_lastMovePt != pt))
+                if ((_lastMovePt != pt))
                 {
                     _lastMovePt = pt;
 
@@ -144,14 +144,7 @@ namespace ComponentFactory.Krypton.Toolkit
             
             if (_mouseOver)
             {
-                if (_captured)
-                {
-                    newState = PaletteState.Pressed;
-                }
-                else
-                {
-                    newState = PaletteState.Tracking;
-                }
+                newState = _captured ? PaletteState.Pressed : PaletteState.Tracking;
             }
 
             if (_drawTB.ViewDrawTrackPosition.ElementState != newState)

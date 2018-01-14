@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Navigator
             cp.ExStyle += (int)PI.WS_EX_LAYERED;
 
             // Create the actual window
-            this.CreateHandle(cp);
+            CreateHandle(cp);
         }
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateLayeredWindow(new Rectangle(location, _showRect.Size));
             
 			// Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(this.Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
 		}
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void Hide()
         {
-            PI.ShowWindow(this.Handle, (short)PI.SW_HIDE);
+            PI.ShowWindow(Handle, (short)PI.SW_HIDE);
         }
 
 		/// <summary>

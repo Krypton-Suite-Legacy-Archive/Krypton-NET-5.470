@@ -118,44 +118,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="i">Index.</param>
         /// <returns>View docker reference; otherwise null.</returns>
-        protected override ViewBase IndexDocker(int i)
-        {
-            if (_viewDockers.Length > i)
-            {
-                return _viewDockers[i];
-            }
-            else
-            {
-                return null;
-            }
-        }
+        protected override ViewBase IndexDocker(int i) => _viewDockers.Length > i ? _viewDockers[i] : null;
 
         /// <summary>
         /// Gets the orientation of the docker at the specified index.
         /// </summary>
         /// <param name="i">Index.</param>
         /// <returns>VisualOrientation value.</returns>
-        protected override VisualOrientation DockerOrientation(int i)
-        {
-            if (_viewDockers.Length > i)
-            {
-                return _viewDockers[i].Orientation;
-            }
-            else
-            {
-                return VisualOrientation.Top;
-            }
-        }
+        protected override VisualOrientation DockerOrientation(int i) =>
+            _viewDockers.Length > i ? _viewDockers[i].Orientation : VisualOrientation.Top;
 
         /// <summary>
         /// Gets the element that represents the foreground color.
         /// </summary>
         /// <param name="i">Index.</param>
         /// <returns>View content instance.</returns>
-        protected override ViewDrawContent GetDockerForeground(int i)
-        {
-            return null;
-        }
+        protected override ViewDrawContent GetDockerForeground(int i) => null;
 
         /// <summary>
         /// Add a view element to a docker.

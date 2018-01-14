@@ -165,19 +165,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public InheritBool Draw
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return InheritBool.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderDraw;
-                }
-            }
-			
-			set 
+            get => _storage?.BorderDraw ?? InheritBool.Inherit;
+
+		    set 
 			{
                 if (_storage != null)
                 {
@@ -203,23 +193,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the actual border draw value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public InheritBool GetBorderDraw(PaletteState state)
-		{
-			if (Draw != InheritBool.Inherit)
-            {
-                return Draw;
-            }
-            else
-            {
-                return _inherit.GetBorderDraw(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the actual border draw value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public InheritBool GetBorderDraw(PaletteState state) => Draw != InheritBool.Inherit ? Draw : _inherit.GetBorderDraw(state);
+        #endregion
 
         #region DrawBorders
         /// <summary>
@@ -233,17 +213,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Editor("ComponentFactory.Krypton.Toolkit.PaletteDrawBordersEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         public PaletteDrawBorders DrawBorders
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteDrawBorders.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderDrawBorders;
-                }
-            }
+            get => _storage?.BorderDrawBorders ?? PaletteDrawBorders.Inherit;
 
             set
             {
@@ -271,27 +241,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeDrawBorders()
-        {
-            return (DrawBorders != PaletteDrawBorders.Inherit);
-        }
+        private bool ShouldSerializeDrawBorders() => (DrawBorders != PaletteDrawBorders.Inherit);
 
         /// <summary>
         /// Gets the actual borders to draw value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteDrawBorders value.</returns>
-        public PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
-        {
-            if (DrawBorders != PaletteDrawBorders.Inherit)
-            {
-                return DrawBorders;
-            }
-            else
-            {
-                return _inherit.GetBorderDrawBorders(state);
-            }
-        }
+        public PaletteDrawBorders GetBorderDrawBorders(PaletteState state) => DrawBorders != PaletteDrawBorders.Inherit ? DrawBorders : _inherit.GetBorderDrawBorders(state);
+
         #endregion
 
 		#region GraphicsHint
@@ -305,19 +263,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteGraphicsHint GraphicsHint
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteGraphicsHint.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderGraphicsHint;
-                }
-            }
+			get => _storage?.BorderGraphicsHint ?? PaletteGraphicsHint.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -343,28 +291,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the actual border graphics hint value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
-		{
-			if (GraphicsHint != PaletteGraphicsHint.Inherit)
-            {
-                return GraphicsHint;
-            }
-            else
-            {
-                return _inherit.GetBorderGraphicsHint(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the actual border graphics hint value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state) =>
+            GraphicsHint != PaletteGraphicsHint.Inherit ? GraphicsHint : _inherit.GetBorderGraphicsHint(state);
+        #endregion
 
-		#region Color1
-		/// <summary>
-		/// Gets the first border color.
-		/// </summary>
+        #region Color1
+        /// <summary>
+        /// Gets the first border color.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Main border color.")]
@@ -372,19 +311,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Color Color1
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.BorderColor1;
-                }
-            }
-			
-			set 
+			get => _storage?.BorderColor1 ?? Color.Empty;
+
+            set 
 			{
                 if (_storage != null)
                 {
@@ -415,18 +344,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>Color value.</returns>
-		public Color GetBorderColor1(PaletteState state)
-		{
-            if (Color1 != Color.Empty)
-            {
-                return Color1;
-            }
-            else
-            {
-                return _inherit.GetBorderColor1(state);
-            }
-        }
-		#endregion
+		public Color GetBorderColor1(PaletteState state) => Color1 != Color.Empty ? Color1 : _inherit.GetBorderColor1(state);
+
+        #endregion
 
 		#region Color2
 		/// <summary>
@@ -439,19 +359,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Color Color2
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.BorderColor2;
-                }
-            }
+			get => _storage?.BorderColor2 ?? Color.Empty;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -477,28 +387,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the second border color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public Color GetBorderColor2(PaletteState state)
-		{
-			if (Color2 != Color.Empty)
-            {
-                return Color2;
-            }
-            else
-            {
-                return _inherit.GetBorderColor2(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the second border color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public Color GetBorderColor2(PaletteState state) => Color2 != Color.Empty ? Color2 : _inherit.GetBorderColor2(state);
+        #endregion
 
-		#region ColorStyle
-		/// <summary>
-		/// Gets and sets the color drawing style.
-		/// </summary>
+        #region ColorStyle
+        /// <summary>
+        /// Gets and sets the color drawing style.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border color drawing style.")]
@@ -506,19 +406,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteColorStyle ColorStyle
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteColorStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderColorStyle;
-                }
-            }
+            get => _storage?.BorderColorStyle ?? PaletteColorStyle.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -544,28 +434,20 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the color drawing style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public PaletteColorStyle GetBorderColorStyle(PaletteState state)
-		{
-			if (ColorStyle != PaletteColorStyle.Inherit)
-            {
-                return ColorStyle;
-            }
-            else
-            {
-                return _inherit.GetBorderColorStyle(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the color drawing style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public PaletteColorStyle GetBorderColorStyle(PaletteState state) => ColorStyle != PaletteColorStyle.Inherit
+            ? ColorStyle
+            : _inherit.GetBorderColorStyle(state);
+        #endregion
 
-		#region ColorAlign
-		/// <summary>
-		/// Gets the color alignment.
-		/// </summary>
+        #region ColorAlign
+        /// <summary>
+        /// Gets the color alignment.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border color alignment style.")]
@@ -573,19 +455,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteRectangleAlign ColorAlign
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderColorAlign;
-                }
-            }
+			get => _storage?.BorderColorAlign ?? PaletteRectangleAlign.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -611,28 +483,19 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the color alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public PaletteRectangleAlign GetBorderColorAlign(PaletteState state)
-		{
-			if (ColorAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ColorAlign;
-            }
-            else
-            {
-                return _inherit.GetBorderColorAlign(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the color alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public PaletteRectangleAlign GetBorderColorAlign(PaletteState state) =>
+            ColorAlign != PaletteRectangleAlign.Inherit ? ColorAlign : _inherit.GetBorderColorAlign(state);
+        #endregion
 
-		#region ColorAngle
-		/// <summary>
-		/// Gets and sets the color angle.
-		/// </summary>
+        #region ColorAngle
+        /// <summary>
+        /// Gets and sets the color angle.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border color angle.")]
@@ -678,28 +541,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the color border angle.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public float GetBorderColorAngle(PaletteState state)
-		{
-			if (ColorAngle != -1)
-            {
-                return ColorAngle;
-            }
-            else
-            {
-                return _inherit.GetBorderColorAngle(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the color border angle.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public float GetBorderColorAngle(PaletteState state) => ColorAngle != -1 ? ColorAngle : _inherit.GetBorderColorAngle(state);
+        #endregion
 
-		#region Width
-		/// <summary>
-		/// Gets and sets the border width.
-		/// </summary>
+        #region Width
+        /// <summary>
+        /// Gets and sets the border width.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border width.")]
@@ -745,28 +598,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the border width.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Border width.</returns>
-		public int GetBorderWidth(PaletteState state)
-		{
-			if (Width != -1)
-            {
-                return Width;
-            }
-            else
-            {
-                return _inherit.GetBorderWidth(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the border width.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Border width.</returns>
+        public int GetBorderWidth(PaletteState state) => Width != -1 ? Width : _inherit.GetBorderWidth(state);
+        #endregion
 
-		#region Rounding
-		/// <summary>
-		/// Gets and sets the border rounding.
-		/// </summary>
+        #region Rounding
+        /// <summary>
+        /// Gets and sets the border rounding.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("How much to round the border corners.")]
@@ -812,28 +655,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the border rounding.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Border rounding.</returns>
-		public int GetBorderRounding(PaletteState state)
-		{
-			if (Rounding != -1)
-            {
-                return Rounding;
-            }
-            else
-            {
-                return _inherit.GetBorderRounding(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the border rounding.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Border rounding.</returns>
+        public int GetBorderRounding(PaletteState state) => Rounding != -1 ? Rounding : _inherit.GetBorderRounding(state);
+        #endregion
 
-		#region Image
-		/// <summary>
-		/// Gets and sets the border image.
-		/// </summary>
+        #region Image
+        /// <summary>
+        /// Gets and sets the border image.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border image.")]
@@ -869,28 +702,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets a border image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public Image GetBorderImage(PaletteState state)
-		{
-			if (Image != null)
-            {
-                return Image;
-            }
-            else
-            {
-                return _inherit.GetBorderImage(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets a border image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public Image GetBorderImage(PaletteState state) => Image ?? _inherit.GetBorderImage(state);
+        #endregion
 
-		#region ImageStyle
-		/// <summary>
-		/// Gets and sets the border image style.
-		/// </summary>
+        #region ImageStyle
+        /// <summary>
+        /// Gets and sets the border image style.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border image style.")]
@@ -898,19 +721,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteImageStyle ImageStyle
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteImageStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderImageStyle;
-                }
-            }
+			get => _storage?.BorderImageStyle ?? PaletteImageStyle.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -941,28 +754,20 @@ namespace ComponentFactory.Krypton.Toolkit
             return (ImageStyle != PaletteImageStyle.Inherit);
         }
 
-		/// <summary>
-		/// Gets the border image style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public PaletteImageStyle GetBorderImageStyle(PaletteState state)
-		{
-			if (ImageStyle != PaletteImageStyle.Inherit)
-            {
-                return ImageStyle;
-            }
-            else
-            {
-                return _inherit.GetBorderImageStyle(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the border image style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public PaletteImageStyle GetBorderImageStyle(PaletteState state) => ImageStyle != PaletteImageStyle.Inherit
+            ? ImageStyle
+            : _inherit.GetBorderImageStyle(state);
+        #endregion
 
-		#region ImageAlign
-		/// <summary>
-		/// Gets the image alignment.
-		/// </summary>
+        #region ImageAlign
+        /// <summary>
+        /// Gets the image alignment.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Border image alignment style.")]
@@ -970,19 +775,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteRectangleAlign ImageAlign
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.BorderImageAlign;
-                }
-            }
+			get => _storage?.BorderImageAlign ?? PaletteRectangleAlign.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -1008,22 +803,13 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the image alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public PaletteRectangleAlign GetBorderImageAlign(PaletteState state)
-		{
-			if (ImageAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ImageAlign;
-            }
-            else
-            {
-                return _inherit.GetBorderImageAlign(state);
-            }
-        }
+        /// <summary>
+        /// Gets the image alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public PaletteRectangleAlign GetBorderImageAlign(PaletteState state) =>
+            ImageAlign != PaletteRectangleAlign.Inherit ? ImageAlign : _inherit.GetBorderImageAlign(state);
         #endregion
 
         #region Protected
@@ -1031,10 +817,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the PropertyChanged event.
         /// </summary>
         /// <param name="property">Name of the property changed.</param>
-        protected virtual void OnPropertyChanged(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
+        protected virtual void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+
         #endregion
     }
 }

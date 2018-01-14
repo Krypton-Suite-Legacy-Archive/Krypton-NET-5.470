@@ -113,14 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool MatchMnemonic(char charCode)
         {
             // Only interested in enabled items
-            if (_menuCheckButton.ItemEnabled)
-            {
-                return Control.IsMnemonic(charCode, _menuCheckButton.ItemText);
-            }
-            else
-            {
-                return false;
-            }
+            return _menuCheckButton.ItemEnabled && Control.IsMnemonic(charCode, _menuCheckButton.ItemText);
         }
 
         /// <summary>
@@ -447,9 +440,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_menuCheckButton.KryptonContextMenuCheckButton.AutoCheck)
             {
                 // Get the current checked state
-                bool checkState = (_menuCheckButton.KryptonContextMenuCheckButton.KryptonCommand == null ?
-                                   _menuCheckButton.KryptonContextMenuCheckButton.Checked :
-                                   _menuCheckButton.KryptonContextMenuCheckButton.KryptonCommand.Checked);
+                bool checkState = _menuCheckButton.KryptonContextMenuCheckButton.KryptonCommand?.Checked ??
+                                  _menuCheckButton.KryptonContextMenuCheckButton.Checked;
 
                 // Invert state
                 checkState = !checkState;
@@ -497,14 +489,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteState state = (_menuCheckButton.ItemEnabled ? PaletteState.Normal : PaletteState.Disabled);
             if (_mouseOver)
             {
-                if (_mouseDown)
-                {
-                    state = PaletteState.Pressed;
-                }
-                else
-                {
-                    state = PaletteState.Tracking;
-                }
+                state = _mouseDown ? PaletteState.Pressed : PaletteState.Tracking;
             }
 
             // Should the state be modified to reflect checked state?

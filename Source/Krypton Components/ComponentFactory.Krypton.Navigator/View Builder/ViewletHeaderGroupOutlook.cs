@@ -84,33 +84,16 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets the source of the primary header values.
         /// </summary>
         /// <returns></returns>
-        protected override IContentValues GetPrimaryValues()
-        {
-            if (_full)
-            {
-                return Navigator.Header.HeaderValuesPrimary;
-            }
-            else
-            {
-                return CommonHelper.NullContentValues;
-            }
-        }
+        protected override IContentValues GetPrimaryValues() =>
+            _full ? Navigator.Header.HeaderValuesPrimary : CommonHelper.NullContentValues;
 
         /// <summary>
         /// Gets the source of the secondary header values.
         /// </summary>
         /// <returns></returns>
-        protected override IContentValues GetSecondaryValues()
-        {
-            if (_full)
-            {
-                return Navigator.Header.HeaderValuesSecondary;
-            }
-            else
-            {
-                return CommonHelper.NullContentValues;
-            }
-        }
+        protected override IContentValues GetSecondaryValues() =>
+            _full ? Navigator.Header.HeaderValuesSecondary : CommonHelper.NullContentValues;
+
         #endregion
     }
 }

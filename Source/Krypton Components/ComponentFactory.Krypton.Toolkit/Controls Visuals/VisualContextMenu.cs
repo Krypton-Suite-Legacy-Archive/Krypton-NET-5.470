@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public new void Show()
         {
             // Without a screen location we just place it at the same location as the mouse.
-            Show(Control.MousePosition);
+            Show(MousePosition);
         }
 
         /// <summary>

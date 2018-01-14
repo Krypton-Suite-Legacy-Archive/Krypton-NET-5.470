@@ -60,12 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Has the minimize/maximize buttons been turned off?
-            if (!KryptonForm.MinimizeBox && !KryptonForm.MaximizeBox)
-            {
-                return false;
-            }
-
-            return true;
+            return KryptonForm.MinimizeBox || KryptonForm.MaximizeBox;
         }
 
         /// <summary>
@@ -76,12 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ButtonEnabled GetEnabled(IPalette palette)
         {
             // Has the minimize buttons been turned off?
-            if (!KryptonForm.MinimizeBox)
-            {
-                return ButtonEnabled.False;
-            }
-
-            return ButtonEnabled.True;
+            return !KryptonForm.MinimizeBox ? ButtonEnabled.False : ButtonEnabled.True;
         }
 
         /// <summary>
@@ -114,14 +104,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (GetView().ClientRectangle.Contains(mea.Location))
                     {
                         // Toggle between minimized and restored
-                        if (KryptonForm.WindowState == FormWindowState.Minimized)
-                        {
-                            KryptonForm.SendSysCommand(PI.SC_RESTORE);
-                        }
-                        else
-                        {
-                            KryptonForm.SendSysCommand(PI.SC_MINIMIZE);
-                        }
+                        KryptonForm.SendSysCommand(KryptonForm.WindowState == FormWindowState.Minimized
+                            ? PI.SC_RESTORE
+                            : PI.SC_MINIMIZE);
 
                         // Let base class fire any other attached events
                         base.OnClick(e);

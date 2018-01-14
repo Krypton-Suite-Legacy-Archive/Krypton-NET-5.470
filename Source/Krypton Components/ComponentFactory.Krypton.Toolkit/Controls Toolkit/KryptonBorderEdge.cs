@@ -165,13 +165,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
-            get => base.GetAutoSizeMode();
+            get => GetAutoSizeMode();
 
             set
             {
-                if (value != base.GetAutoSizeMode())
+                if (value != GetAutoSizeMode())
                 {
-                    base.SetAutoSizeMode(value);
+                    SetAutoSizeMode(value);
 
                     // Only perform an immediate layout if
                     // currently performing auto size operations

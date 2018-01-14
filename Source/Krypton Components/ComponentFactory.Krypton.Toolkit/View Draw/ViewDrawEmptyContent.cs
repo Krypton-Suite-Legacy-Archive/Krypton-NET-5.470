@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
 		    return base.GetPreferredSize(context);
         }
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
 		    base.Layout(context);
         }
@@ -112,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
 		    base.RenderBefore(context);
 		}

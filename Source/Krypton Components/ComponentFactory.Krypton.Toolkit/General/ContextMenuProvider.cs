@@ -229,52 +229,23 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="menuItem">Menu item that needs to show sub menu.</param>
         /// <returns>True if the sub menu should be a fixed size.</returns>
-        public bool ProviderShowSubMenuFixed(KryptonContextMenuItem menuItem)
-        {
-            if (HasParentProvider)
-            {
-                return _parent.ProviderShowSubMenuFixed(menuItem);
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public bool ProviderShowSubMenuFixed(KryptonContextMenuItem menuItem) => HasParentProvider && _parent.ProviderShowSubMenuFixed(menuItem);
 
         /// <summary>
         /// Should the sub menu be shown at fixed screen location for this menu item.
         /// </summary>
         /// <param name="menuItem">Menu item that needs to show sub menu.</param>
         /// <returns>Screen rectangle to use as display rectangle.</returns>
-        public Rectangle ProviderShowSubMenuFixedRect(KryptonContextMenuItem menuItem)
-        {
-            if (HasParentProvider)
-            {
-                return _parent.ProviderShowSubMenuFixedRect(menuItem);
-            }
-            else
-            {
-                return Rectangle.Empty;
-            }
-        }
+        public Rectangle ProviderShowSubMenuFixedRect(KryptonContextMenuItem menuItem) =>
+            HasParentProvider ? _parent.ProviderShowSubMenuFixedRect(menuItem) : Rectangle.Empty;
 
         /// <summary>
         /// Sets the reason for the context menu being closed.
         /// </summary>
         public Nullable<ToolStripDropDownCloseReason> ProviderCloseReason 
         { 
-            get 
-            {
-                if (_parent != null)
-                {
-                    return _parent.ProviderCloseReason;
-                }
-                else
-                {
-                    return _closeReason;
-                }
-            }
-            
+            get => _parent != null ? _parent.ProviderCloseReason : _closeReason;
+
             set
             {
                 if (_parent != null)

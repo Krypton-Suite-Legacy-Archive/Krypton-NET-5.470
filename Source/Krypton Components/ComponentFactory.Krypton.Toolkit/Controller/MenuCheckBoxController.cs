@@ -110,14 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool MatchMnemonic(char charCode)
         {
             // Only interested in enabled items
-            if (_menuCheckBox.ItemEnabled)
-            {
-                return Control.IsMnemonic(charCode, _menuCheckBox.ItemText);
-            }
-            else
-            {
-                return false;
-            }
+            return _menuCheckBox.ItemEnabled && Control.IsMnemonic(charCode, _menuCheckBox.ItemText);
         }
 
         /// <summary>
@@ -444,9 +437,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_menuCheckBox.KryptonContextMenuCheckBox.AutoCheck)
             {
                 // Grab current state from command or ourself
-                CheckState state = (_menuCheckBox.KryptonContextMenuCheckBox.KryptonCommand == null ? 
-                                    _menuCheckBox.KryptonContextMenuCheckBox.CheckState : 
-                                    _menuCheckBox.KryptonContextMenuCheckBox.KryptonCommand.CheckState);
+                CheckState state = _menuCheckBox.KryptonContextMenuCheckBox.KryptonCommand?.CheckState ??
+                                   _menuCheckBox.KryptonContextMenuCheckBox.CheckState;
 
                 // Change state based on the current state
                 switch (state)
@@ -508,14 +500,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteState state = (_menuCheckBox.ItemEnabled ? PaletteState.Normal : PaletteState.Disabled);
             if (_mouseOver)
             {
-                if (_mouseDown)
-                {
-                    state = PaletteState.Pressed;
-                }
-                else
-                {
-                    state = PaletteState.Tracking;
-                }
+                state = _mouseDown ? PaletteState.Pressed : PaletteState.Tracking;
             }
 
             switch (state)

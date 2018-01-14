@@ -43,10 +43,10 @@ namespace ComponentFactory.Krypton.Toolkit
 		protected override void Dispose(bool disposing)
 		{
             // Dispose of all child views
-            while (this.Count > 0)
+            while (Count > 0)
             {
                 this[0].Dispose();
-                this.RemoveAt(0);
+                RemoveAt(0);
             }
 
             _views.Clear();
@@ -171,15 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Perform rendering before any children
 			RenderBefore(context);
 
-            IEnumerable<ViewBase> ordering;
-            if (ReverseRenderOrder)
-            {
-                ordering = this.Reverse();
-            }
-            else
-            {
-                ordering = this;
-            }
+		    IEnumerable<ViewBase> ordering = ReverseRenderOrder ? Reverse() : this;
 
             // Ask each child to render in turn
             foreach (ViewBase child in ordering)
@@ -559,7 +551,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // we search the children in reverse order as the last child in 
                 // the collection is the top most in the z-order. The mouse is 
                 // therefore testing againt the most visible child first.
-                foreach (ViewBase child in this.Reverse())
+                foreach (ViewBase child in Reverse())
                 {
                     // Only interested in children that are visible
                     if (child.Visible)

@@ -618,7 +618,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (UseMnemonic && AutoCheck && CanProcessMnemonic())
             {
                 // Does the button primary text contain the mnemonic?
-                if (Control.IsMnemonic(charCode, Values.Text))
+                if (IsMnemonic(charCode, Values.Text))
                 {
                     // If we don't have the focus, then take it
                     if (!ContainsFocus)
@@ -741,25 +741,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         default:
                         case VisualOrientation.Top:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Right : ViewDockStyle.Left;
 
                             break;
                         case VisualOrientation.Bottom:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Left : ViewDockStyle.Right;
 
                             break;
                         case VisualOrientation.Left:
@@ -775,25 +761,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         default:
                         case VisualOrientation.Top:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Left : ViewDockStyle.Right;
 
                             break;
                         case VisualOrientation.Bottom:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Right : ViewDockStyle.Left;
 
                             break;
                         case VisualOrientation.Left:

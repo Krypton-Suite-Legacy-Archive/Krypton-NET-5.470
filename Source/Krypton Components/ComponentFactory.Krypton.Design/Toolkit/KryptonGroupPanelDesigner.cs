@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
 				ArrayList snapLines = null;
 
                 // Let the base class generate snap lines
-				base.AddPaddingSnapLines(ref snapLines);
+				AddPaddingSnapLines(ref snapLines);
 
 				return snapLines;
 			}

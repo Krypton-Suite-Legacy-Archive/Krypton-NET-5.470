@@ -82,20 +82,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get
-            {
-                if (_page != null)
-                {
-                    return _page.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
+        public override ICollection AssociatedComponents => _page != null ? _page.ButtonSpecs : base.AssociatedComponents;
 
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.

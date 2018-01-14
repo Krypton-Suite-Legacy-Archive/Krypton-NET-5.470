@@ -62,14 +62,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.PopulateFromBase(common, state, gridStyle);
 
-            if (gridStyle == GridStyle.List)
-            {
-                common.StateCommon.BackStyle = PaletteBackStyle.GridBackgroundList;
-            }
-            else
-            {
-                common.StateCommon.BackStyle = PaletteBackStyle.GridBackgroundSheet;
-            }
+            common.StateCommon.BackStyle = gridStyle == GridStyle.List
+                ? PaletteBackStyle.GridBackgroundList
+                : PaletteBackStyle.GridBackgroundSheet;
 
             _background.PopulateFromBase(state);
         }

@@ -103,19 +103,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonSpecView = null;
         }
 
-		/// <summary>
-		/// Returns a string that represents the current defaulted state.
-		/// </summary>
-		/// <returns>A string that represents the current defaulted state.</returns>
-		public override string ToString()
-		{
-			if (!IsDefault)
-			{
-			    return "Modified";
-			}
-
-		    return string.Empty;
-		}
+        /// <summary>
+        /// Returns a string that represents the current defaulted state.
+        /// </summary>
+        /// <returns>A string that represents the current defaulted state.</returns>
+        public override string ToString() => !IsDefault ? "Modified" : string.Empty;
 
         /// <summary>
         /// Make a clone of this object.
@@ -123,7 +115,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>New instance.</returns>
         public virtual object Clone()
         {
-            ButtonSpec clone = (ButtonSpec)Activator.CreateInstance(base.GetType());
+            ButtonSpec clone = (ButtonSpec)Activator.CreateInstance(GetType());
             clone.Image = Image;
             clone.ImageTransparentColor = ImageTransparentColor;
             clone.Text = Text;
@@ -1065,78 +1057,44 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Color value.</returns>
-        public virtual Color GetColorMap(IPalette palette)
-        {
-            if (ColorMap != Color.Empty)
-            {
-                return ColorMap;
-            }
-            else
-            {
-                return palette.GetButtonSpecColorMap(ProtectedType);
-            }
-        }
+        public virtual Color GetColorMap(IPalette palette) =>
+            ColorMap != Color.Empty ? ColorMap : palette.GetButtonSpecColorMap(ProtectedType);
 
         /// <summary>
         /// Gets the button style.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Button style.</returns>
-        public virtual ButtonStyle GetStyle(IPalette palette)
-        {
-            if (Style != PaletteButtonStyle.Inherit)
-            {
-                return ConvertToButtonStyle(Style);
-            }
-            else
-            {
-                return ConvertToButtonStyle(palette.GetButtonSpecStyle(ProtectedType));
-            }
-        }
+        public virtual ButtonStyle GetStyle(IPalette palette) =>
+            ConvertToButtonStyle(
+                Style != PaletteButtonStyle.Inherit ? Style : palette.GetButtonSpecStyle(ProtectedType));
 
         /// <summary>
         /// Gets the button orienation.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Button orientation.</returns>
-        public virtual ButtonOrientation GetOrientation(IPalette palette)
-        {
-            if (Orientation != PaletteButtonOrientation.Inherit)
-            {
-                return ConvertToButtonOrientation(Orientation);
-            }
-            else
-            {
-                return ConvertToButtonOrientation(palette.GetButtonSpecOrientation(ProtectedType));
-            }
-        }
+        public virtual ButtonOrientation GetOrientation(IPalette palette) => ConvertToButtonOrientation(
+            Orientation != PaletteButtonOrientation.Inherit
+                ? Orientation
+                : palette.GetButtonSpecOrientation(ProtectedType));
 
         /// <summary>
         /// Gets the edge for the button.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Button edge.</returns>
-        public virtual RelativeEdgeAlign GetEdge(IPalette palette)
-        {
-            if (Edge != PaletteRelativeEdgeAlign.Inherit)
-            {
-                return ConvertToRelativeEdgeAlign(Edge);
-            }
-            else
-            {
-                return ConvertToRelativeEdgeAlign(palette.GetButtonSpecEdge(ProtectedType));
-            }
-        }
+        public virtual RelativeEdgeAlign GetEdge(IPalette palette) =>
+            ConvertToRelativeEdgeAlign(Edge != PaletteRelativeEdgeAlign.Inherit
+                ? Edge
+                : palette.GetButtonSpecEdge(ProtectedType));
 
         /// <summary>
         /// Gets the button location.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Button location.</returns>
-        public virtual HeaderLocation GetLocation(IPalette palette)
-        {
-            return HeaderLocation.PrimaryHeader;
-        }
+        public virtual HeaderLocation GetLocation(IPalette palette) => HeaderLocation.PrimaryHeader;
 
         /// <summary>
         /// Gets the button enabled state.
@@ -1149,35 +1107,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets the current view associated with the button spec.
         /// </summary>
         /// <param name="view">View element reference.</param>
-        public virtual void SetView(ViewBase view)
-        {
-            _buttonSpecView = view;
-        }
+        public virtual void SetView(ViewBase view) => _buttonSpecView = view;
 
         /// <summary>
         /// Get the current view associated with the button spec.
         /// </summary>
         /// <returns>View element reference.</returns>
-        public virtual ViewBase GetView()
-        {
-            return _buttonSpecView;
-        }
+        public virtual ViewBase GetView() => _buttonSpecView;
 
         /// <summary>
         /// Gets a value indicating if the associated view is enabled.
         /// </summary>
         /// <returns>True if enabled; otherwise false.</returns>
-        public bool GetViewEnabled()
-        {
-            if (_buttonSpecView == null)
-            {
-                return false;
-            }
-            else
-            {
-                return (_buttonSpecView.State != PaletteState.Disabled);
-            }
-        }
+        public bool GetViewEnabled() => _buttonSpecView != null && _buttonSpecView.State != PaletteState.Disabled;
 
         /// <summary>
         /// Gets the button visible value.

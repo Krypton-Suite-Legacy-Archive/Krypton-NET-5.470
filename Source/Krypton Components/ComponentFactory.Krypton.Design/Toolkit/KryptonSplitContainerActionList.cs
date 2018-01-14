@@ -37,21 +37,16 @@ namespace ComponentFactory.Krypton.Toolkit
             // Assuming we were correctly passed an actual component...
             if (_splitContainer != null)
             {
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_splitContainer)["Orientation"];
 
                 // If we succeeded in getting the property
                 if (orientationProp != null)
                 {
                     // Decide on the next action to take given the current setting
-                    if ((Orientation)orientationProp.GetValue(_splitContainer) == Orientation.Vertical)
-                    {
-                        _action = "Horizontal splitter orientation";
-                    }
-                    else
-                    {
-                        _action = "Vertical splitter orientation";
-                    }
+                    _action = (Orientation) orientationProp.GetValue(_splitContainer) == Orientation.Vertical
+                        ? "Horizontal splitter orientation"
+                        : "Vertical splitter orientation";
                 }
             }
 
@@ -152,16 +147,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Orientation orientation = verb.Text.Equals("Horizontal splitter orientation") ? Orientation.Horizontal : Orientation.Vertical;
 
                 // Decide on the next action to take given the new setting
-                if (orientation == Orientation.Vertical)
-                {
-                    _action = "Horizontal splitter orientation";
-                }
-                else
-                {
-                    _action = "Vertical splitter orientation";
-                }
+                _action = orientation == Orientation.Vertical ? "Horizontal splitter orientation" : "Vertical splitter orientation";
 
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_splitContainer)["Orientation"];
 
                 // If we succeeded in getting the property

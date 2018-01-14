@@ -129,14 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _splitContainer.DesignAbortMoving();
 
                 // Is this the primary selection now?
-                if (ReferenceEquals(_selectionService.PrimarySelection, _splitContainer))
-                {
-                    _adorner.Enabled = true;
-                }
-                else
-                {
-                    _adorner.Enabled = false;
-                }
+                _adorner.Enabled = ReferenceEquals(_selectionService.PrimarySelection, _splitContainer);
             }
         }
         #endregion

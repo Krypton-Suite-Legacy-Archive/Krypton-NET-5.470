@@ -57,157 +57,110 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ForceShortTextHCenter { get; set; }
 
-	    #endregion
+        #endregion
 
         #region IPaletteContent
         /// <summary>
-		/// Gets a value indicating if content should be drawn.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentDraw(PaletteState state)
-        {
-            return _inherit.GetContentDraw(state);
-        }
+        /// Gets a value indicating if content should be drawn.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDraw(PaletteState state) => _inherit.GetContentDraw(state);
 
-		/// <summary>
-		/// Gets a value indicating if content should be drawn with focus indication.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-        public override InheritBool GetContentDrawFocus(PaletteState state)
-        {
-            return _inherit.GetContentDrawFocus(state);
-        }
+        /// <summary>
+        /// Gets a value indicating if content should be drawn with focus indication.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDrawFocus(PaletteState state) => _inherit.GetContentDrawFocus(state);
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-        public override PaletteRelativeAlign GetContentImageH(PaletteState state)
-        {
-            return _inherit.GetContentImageH(state);
-        }
+        /// <summary>
+        /// Gets the horizontal relative alignment of the image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageH(PaletteState state) => _inherit.GetContentImageH(state);
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-        public override PaletteRelativeAlign GetContentImageV(PaletteState state)
-        {
-            return _inherit.GetContentImageV(state);
-        }
+        /// <summary>
+        /// Gets the vertical relative alignment of the image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageV(PaletteState state) => _inherit.GetContentImageV(state);
 
-		/// <summary>
-		/// Gets the effect applied to drawing of the image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteImageEffect value.</returns>
-        public override PaletteImageEffect GetContentImageEffect(PaletteState state)
-        {
-            return _inherit.GetContentImageEffect(state);
-        }
+        /// <summary>
+        /// Gets the effect applied to drawing of the image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteImageEffect value.</returns>
+        public override PaletteImageEffect GetContentImageEffect(PaletteState state) => _inherit.GetContentImageEffect(state);
 
         /// <summary>
         /// Gets the image color to remap into another color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentImageColorMap(PaletteState state)
-        {
-            return _inherit.GetContentImageColorMap(state);
-        }
+        public override Color GetContentImageColorMap(PaletteState state) => _inherit.GetContentImageColorMap(state);
 
         /// <summary>
         /// Gets the color to use in place of the image map color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentImageColorTo(PaletteState state)
-        {
-            return _inherit.GetContentImageColorTo(state);
-        }
+        public override Color GetContentImageColorTo(PaletteState state) => _inherit.GetContentImageColorTo(state);
 
-		/// <summary>
-		/// Gets the font for the short text.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-        public override Font GetContentShortTextFont(PaletteState state)
-        {
-            return _inherit.GetContentShortTextFont(state);
-        }
+	    /// <summary>
+        /// Gets the font for the short text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentShortTextFont(PaletteState state) => _inherit.GetContentShortTextFont(state);
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public override Font GetContentShortTextNewFont(PaletteState state)
-        {
-            return _inherit.GetContentShortTextNewFont(state);
-        }
-
-		/// <summary>
-		/// Gets the rendering hint for the short text.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
-        public override PaletteTextHint GetContentShortTextHint(PaletteState state)
-        {
-            return _inherit.GetContentShortTextHint(state);
-        }
+        public override Font GetContentShortTextNewFont(PaletteState state) => _inherit.GetContentShortTextNewFont(state);
 
         /// <summary>
+        /// Gets the rendering hint for the short text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentShortTextHint(PaletteState state) => _inherit.GetContentShortTextHint(state);
+
+	    /// <summary>
         /// Gets the prefix drawing setting for short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextPrefix value.</returns>
-        public override PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state)
-        {
-            return _inherit.GetContentShortTextPrefix(state);
-        }
-        
+        public override PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state) => _inherit.GetContentShortTextPrefix(state);
+
+	    /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for short text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentShortTextMultiLine(PaletteState state) => _inherit.GetContentShortTextMultiLine(state);
+
         /// <summary>
-		/// Gets the flag indicating if multiline text is allowed for short text.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-        public override InheritBool GetContentShortTextMultiLine(PaletteState state)
-        {
-            return _inherit.GetContentShortTextMultiLine(state);
-        }
+        /// Gets the text trimming to use for short text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentShortTextTrim(PaletteState state) => _inherit.GetContentShortTextTrim(state);
 
-		/// <summary>
-		/// Gets the text trimming to use for short text.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
-		public override PaletteTextTrim GetContentShortTextTrim(PaletteState state)
-        {
-            return _inherit.GetContentShortTextTrim(state);
-        }
-
-		/// <summary>
+	    /// <summary>
 		/// Gets the horizontal relative alignment of the short text.
 		/// </summary>
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextH(PaletteState state)
-        {
-            if (ForceShortTextHCenter)
-            {
-                return PaletteRelativeAlign.Center;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextH(state);
-            }
-        }
+		public override PaletteRelativeAlign GetContentShortTextH(PaletteState state) => ForceShortTextHCenter
+		    ? PaletteRelativeAlign.Center
+		    : _inherit.GetContentShortTextH(state);
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the vertical relative alignment of the short text.
 		/// </summary>
 		/// <param name="state">Palette value should be applicable to this state.</param>

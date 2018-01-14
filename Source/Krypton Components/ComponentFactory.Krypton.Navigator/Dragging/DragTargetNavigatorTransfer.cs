@@ -80,14 +80,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // If 1 or more pages are not from this navigator then allow transfer into the target
-            if (_notDraggedPagesFromNavigator > 0)
-            {
-                return base.IsMatch(screenPt, dragEndData);
-            }
-            else
-            {
-                return false;
-            }
+            return _notDraggedPagesFromNavigator > 0 && base.IsMatch(screenPt, dragEndData);
         }
 
         /// <summary>

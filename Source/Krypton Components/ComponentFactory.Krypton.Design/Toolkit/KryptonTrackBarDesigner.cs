@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Let base class do standard stuff
             base.Initialize(component);
-            base.AutoResizeHandles = true;
+            AutoResizeHandles = true;
 
             // Cast to correct type
             _trackBar = component as KryptonTrackBar;

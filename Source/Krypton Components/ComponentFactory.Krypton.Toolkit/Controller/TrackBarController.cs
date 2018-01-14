@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_drawTB.ClientRectangle.Contains(pt))
                 {
                     // Ignore multiple calls with the same point
-                    if ((_lastMovePt == null) || (_lastMovePt != pt))
+                    if (_lastMovePt != pt)
                     {
                         _lastMovePt = pt;
 
@@ -214,70 +214,54 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case Keys.Left:
                 case Keys.Up:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value -_drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum,
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.SmallChange,
+                                _drawTB.ViewDrawTrackBar.Maximum)
+                            : Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange,
+                                _drawTB.ViewDrawTrackBar.Maximum));
 
                     break;
                 case Keys.Right:
                 case Keys.Down:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.SmallChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum,
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.SmallChange,
+                                _drawTB.ViewDrawTrackBar.Maximum)
+                            : Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.SmallChange,
+                                _drawTB.ViewDrawTrackBar.Maximum));
 
                     break;
                 case Keys.Home:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Minimum;
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Maximum;
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue =
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? _drawTB.ViewDrawTrackBar.Minimum
+                            : _drawTB.ViewDrawTrackBar.Maximum;
 
                     break;
                 case Keys.End:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Maximum;
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.ViewDrawTrackBar.Minimum;
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue =
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? _drawTB.ViewDrawTrackBar.Maximum
+                            : _drawTB.ViewDrawTrackBar.Minimum;
 
                     break;
                 case Keys.PageDown:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum,
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange,
+                                _drawTB.ViewDrawTrackBar.Maximum)
+                            : Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange,
+                                _drawTB.ViewDrawTrackBar.Maximum));
 
                     break;
                 case Keys.PageUp:
-                    if (_drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal)
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
-                    else
-                    {
-                        _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum, Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange, _drawTB.ViewDrawTrackBar.Maximum));
-                    }
+                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_drawTB.ViewDrawTrackBar.Minimum,
+                        _drawTB.ViewDrawTrackBar.Orientation == Orientation.Horizontal
+                            ? Math.Min(_drawTB.ViewDrawTrackBar.Value - _drawTB.ViewDrawTrackBar.LargeChange,
+                                _drawTB.ViewDrawTrackBar.Maximum)
+                            : Math.Min(_drawTB.ViewDrawTrackBar.Value + _drawTB.ViewDrawTrackBar.LargeChange,
+                                _drawTB.ViewDrawTrackBar.Maximum));
 
                     break;
             }
@@ -366,14 +350,9 @@ namespace ComponentFactory.Krypton.Toolkit
             int current = _drawTB.ViewDrawTrackBar.Value;
             if (current != _targetValue)
             {
-                if (current < _targetValue)
-                {
-                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Min(_targetValue, current + _drawTB.ViewDrawTrackBar.LargeChange);
-                }
-                else
-                {
-                    _drawTB.ViewDrawTrackBar.ScrollValue = Math.Max(_targetValue, current - _drawTB.ViewDrawTrackBar.LargeChange);
-                }
+                _drawTB.ViewDrawTrackBar.ScrollValue = current < _targetValue
+                    ? Math.Min(_targetValue, current + _drawTB.ViewDrawTrackBar.LargeChange)
+                    : Math.Max(_targetValue, current - _drawTB.ViewDrawTrackBar.LargeChange);
             }
         }
         #endregion

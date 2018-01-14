@@ -65,22 +65,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get 
-            {
-                if (_numericUpDown != null)
-                {
-                    return _numericUpDown.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
+        public override ICollection AssociatedComponents =>
+            _numericUpDown != null ? _numericUpDown.ButtonSpecs : base.AssociatedComponents;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
         public override SelectionRules SelectionRules
@@ -89,9 +77,6 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Start with all edges being sizeable
                 SelectionRules rules = base.SelectionRules;
-
-                // Get access to the actual control instance
-                KryptonNumericUpDown numericUpDown = (KryptonNumericUpDown)Component;
 
                 // Prevent the user changing the height
                 rules &= ~(SelectionRules.TopSizeable | SelectionRules.BottomSizeable);

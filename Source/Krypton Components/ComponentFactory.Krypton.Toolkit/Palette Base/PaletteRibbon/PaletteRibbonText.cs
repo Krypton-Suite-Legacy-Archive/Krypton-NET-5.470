@@ -81,10 +81,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Populate values from the base palette.
         /// </summary>
         /// <param name="state">Palette state to use when populating.</param>
-        public void PopulateFromBase(PaletteState state)
-        {
-            TextColor = GetRibbonTextColor(state);
-        }
+        public void PopulateFromBase(PaletteState state) => TextColor = GetRibbonTextColor(state);
+
         #endregion
 
         #region TextColor
@@ -113,34 +111,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the TextColor to the default value.
         /// </summary>
-        public void ResetTextColor()
-        {
-            TextColor = Color.Empty;
-        }
+        public void ResetTextColor() => TextColor = Color.Empty;
 
         /// <summary>
         /// Gets the tab color for the item text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonTextColor(PaletteState state)
-        {
-            if (TextColor != Color.Empty)
-            {
-                return TextColor;
-            }
-            else
-            {
-                if (_inheritText != null)
-                {
-                    return _inheritText.GetRibbonTextColor(state);
-                }
-                else
-                {
-                    return Color.Empty;
-                }
-            }
-        }
+        public Color GetRibbonTextColor(PaletteState state) => TextColor != Color.Empty
+            ? TextColor
+            : (_inheritText?.GetRibbonTextColor(state) ?? Color.Empty);
+
         #endregion
     }
 }

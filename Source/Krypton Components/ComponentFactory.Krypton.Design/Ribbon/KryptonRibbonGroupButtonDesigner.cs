@@ -425,11 +425,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     _typeSplitMenu = new ToolStripMenuItem("Split", null, OnTypeSplit);
                     _typeMenu = new ToolStripMenuItem("Type");
                     _typeMenu.DropDownItems.AddRange(new ToolStripItem[] { _typePushMenu, _typeCheckMenu, _typeDropDownMenu, _typeSplitMenu });
-                    _moveFirstMenu = new ToolStripMenuItem("Move Button First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
-                    _movePreviousMenu = new ToolStripMenuItem("Move Button Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
-                    _moveNextMenu = new ToolStripMenuItem("Move Button Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
-                    _moveLastMenu = new ToolStripMenuItem("Move Button Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
-                    _deleteButtonMenu = new ToolStripMenuItem("Delete Button", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteButton);
+                    _moveFirstMenu = new ToolStripMenuItem("Move Button First", Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move Button Previous", Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move Button Next", Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move Button Last", Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteButtonMenu = new ToolStripMenuItem("Delete Button", Design.Properties.Resources.delete2, OnDeleteButton);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, _enabledMenu, _checkedMenu, _typeMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

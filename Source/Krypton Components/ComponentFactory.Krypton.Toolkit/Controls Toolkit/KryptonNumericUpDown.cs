@@ -330,7 +330,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 dwHoverTime = 100,
 
                                 // We need to know then the mouse leaves the client window area
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
 
                                 // We want to track our own window
                                 hWnd = Handle
@@ -401,25 +401,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     switch (NumericUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
-                                            if (NumericUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
+                                            stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Right:
-                                            if (NumericUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
+                                            stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Near
+                                                : StringAlignment.Far;
 
                                             break;
                                         case HorizontalAlignment.Center:
@@ -744,14 +734,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (NumericUpDown.IsActive || (NumericUpDown.IsFixedActive && (NumericUpDown.InputControlStyle == InputControlStyle.Standalone)))
                     {
-                        if (NumericUpDown.InputControlStyle == InputControlStyle.Standalone)
-                        {
-                            return PaletteState.CheckedNormal;
-                        }
-                        else
-                        {
-                            return PaletteState.CheckedTracking;
-                        }
+                        return NumericUpDown.InputControlStyle == InputControlStyle.Standalone ? PaletteState.CheckedNormal : PaletteState.CheckedTracking;
                     }
                     else
                     {
@@ -1452,41 +1435,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (NumericUpDown != null)
-            {
-                return NumericUpDown.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => NumericUpDown != null && NumericUpDown.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            NumericUpDown?.Select();
-        }
+        public new void Select() => NumericUpDown?.Select();
 
         /// <summary>
         /// Displays the previous item in the collection.
         /// </summary>
-        public void UpButton()
-        {
-            NumericUpDown.UpButton();
-        }
+        public void UpButton() => NumericUpDown.UpButton();
 
         /// <summary>
         /// Displays the next item in the collection.
         /// </summary>
-        public void DownButton()
-        {
-            NumericUpDown.DownButton();
-        }
+        public void DownButton() => NumericUpDown.DownButton();
 
         /// <summary>
         /// Get the preferred size of the control based on a proposed size.
@@ -1571,14 +1535,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1590,13 +1547,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1671,7 +1624,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
+        protected override ControlCollection CreateControlsInstance()
         {
             return new KryptonReadOnlyControls(this);
         }
@@ -2084,37 +2037,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetTripleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        internal IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int PreferredHeight
         {
@@ -2151,7 +2079,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
             InvalidateChildren();
-            base.OnLostFocus(e);
+            OnLostFocus(e);
         }
 
         private void OnNumericUpDownKeyPress(object sender, KeyPressEventArgs e)

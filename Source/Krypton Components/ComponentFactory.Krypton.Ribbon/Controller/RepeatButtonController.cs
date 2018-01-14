@@ -278,14 +278,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 else
                 {
                     // Only hot tracking, so show tracking only if mouse over the target 
-                    if (_mouseOver)
-                    {
-                        newState = PaletteState.Tracking;
-                    }
-                    else
-                    {
-                        newState = PaletteState.Normal;
-                    }
+                    newState = _mouseOver ? PaletteState.Tracking : PaletteState.Normal;
                 }
             }
 

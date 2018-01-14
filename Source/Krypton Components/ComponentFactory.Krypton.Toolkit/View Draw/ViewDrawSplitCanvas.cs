@@ -24,9 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
 
-	    private IPaletteBack _paletteBackNormal;
-        private IPaletteBorder _paletteBorderNormal;
-        private readonly PaletteMetricPadding _metricPadding;
+	    private readonly PaletteMetricPadding _metricPadding;
         private readonly PaletteBackInheritForced _paletteBackDraw;
         private readonly PaletteBackLightenColors _paletteBackLight;
         private IDisposable _mementoBack;
@@ -77,9 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
             };
             _paletteBackLight = new PaletteBackLightenColors(PaletteBack);
             PaletteMetric = paletteMetric;
-            _paletteBorderNormal = paletteBorder;
-            _paletteBackNormal = paletteBack;
-			_metricPadding = metricPadding;
+		    _metricPadding = metricPadding;
 			Orientation = orientation;
             DrawTabBorder = false;
             DrawCanvas = true;
@@ -127,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteBack PaletteBack
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
 	    }
@@ -140,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteBorder PaletteBorder
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
 	    }
@@ -153,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteMetric PaletteMetric
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
 	    }
@@ -172,7 +168,7 @@ namespace ComponentFactory.Krypton.Toolkit
             { 
                 _splitRectangle = value;
 
-                if (this.FindMouseController() is ButtonController controller)
+                if (FindMouseController() is ButtonController controller)
                 {
                     controller.SplitRectangle = value;
                 }
@@ -247,7 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public VisualOrientation Orientation
 		{
-		    [System.Diagnostics.DebuggerStepThrough]
+		    [DebuggerStepThrough]
 		    get;
 		    set;
 	    }
@@ -431,16 +427,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(context);
 
 			// Apply space the border takes up
-            if (DrawTabBorder)
-            {
-                preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, PaletteBorder, State, Orientation, TabBorderStyle));
-            }
-            else
-            {
-                preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(PaletteBorder, State, Orientation));
-            }
+		    preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize,
+		        DrawTabBorder
+		            ? context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, PaletteBorder, State, Orientation,
+		                TabBorderStyle)
+		            : context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(PaletteBorder, State, Orientation));
 
-            // Do we have a metric source for additional padding?
+		    // Do we have a metric source for additional padding?
             if ((PaletteMetric != null) && (_metricPadding != PaletteMetricPadding.None))
 			{
 				// Apply padding needed outside the border of the canvas
@@ -478,17 +471,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 ClientRectangle = CommonHelper.ApplyPadding(Orientation, ClientRectangle, outerPadding);
 			}
 
-            Padding padding;
-
-            // Calculate how much space the border takes up
-            if (DrawTabBorder)
-            {
-                padding = context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, PaletteBorder, State, Orientation, TabBorderStyle);
-            }
-            else
-            {
-                padding = context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(PaletteBorder, State, Orientation);
-            }
+		    // Calculate how much space the border takes up
+            Padding padding = DrawTabBorder
+                ? context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, PaletteBorder, State,
+                    Orientation, TabBorderStyle)
+                : context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(PaletteBorder, State, Orientation);
 
             // Apply the padding to the client rectangle
             context.DisplayRectangle = CommonHelper.ApplyPadding(Orientation, ClientRectangle, padding);
@@ -550,17 +537,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Remember the current clipping region
                     _clipRegion = context.Graphics.Clip.Clone();
 
-                    GraphicsPath borderPath;
-
                     // Restrict the clipping to the area inside the canvas border
-                    if (DrawTabBorder)
-                    {
-                        borderPath = context.Renderer.RenderTabBorder.GetTabBorderPath(context, ClientRectangle, PaletteBorder, Orientation, State, TabBorderStyle);
-                    }
-                    else
-                    {
-                        borderPath = context.Renderer.RenderStandardBorder.GetBorderPath(context, ClientRectangle, PaletteBorder, Orientation, State);
-                    }
+                    GraphicsPath borderPath = DrawTabBorder
+                        ? context.Renderer.RenderTabBorder.GetTabBorderPath(context, ClientRectangle, PaletteBorder,
+                            Orientation, State, TabBorderStyle)
+                        : context.Renderer.RenderStandardBorder.GetBorderPath(context, ClientRectangle, PaletteBorder,
+                            Orientation, State);
 
                     // Create a new region the same as the existing clipping region
                     Region combineRegion = new Region(borderPath);
@@ -771,7 +753,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                if (this.FindMouseController() is ButtonController controller)
+                if (FindMouseController() is ButtonController controller)
                 {
                     if (!controller.MousePoint.Equals(CommonHelper.NullPoint))
                     {

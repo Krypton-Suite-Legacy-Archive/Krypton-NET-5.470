@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static Point NullPoint
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         } = new Point(Int32.MaxValue, Int32.MaxValue);
 
@@ -88,7 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static Rectangle NullRectangle
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         } = new Rectangle(Int32.MaxValue, Int32.MaxValue, 0, 0);
 
@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static ColorMatrix MatrixDisabled
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         } = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0.3f,0,0},
             new float[]{0.59f,0.59f,0.59f,0,0},
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static int NextId
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _nextId++; }
         }
 
@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static Padding InheritPadding
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         } = new Padding(-1);
 
@@ -204,7 +204,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Size ApplyPadding(Orientation orientation, Size size, Padding padding)
         {
             // Ignore an empty padding value
-            if (!padding.Equals(CommonHelper.InheritPadding))
+            if (!padding.Equals(InheritPadding))
             {
                 // The orientation determines how the border padding is 
                 // applied to the preferred size of the children
@@ -240,7 +240,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         Padding padding)
         {
             // Ignore an empty padding value
-            if (!padding.Equals(CommonHelper.InheritPadding))
+            if (!padding.Equals(InheritPadding))
             {
                 // The orientation determines how the border padding is 
                 // applied to the preferred size of the children
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              Padding padding)
         {
             // Ignore an empty padding value
-            if (!padding.Equals(CommonHelper.InheritPadding))
+            if (!padding.Equals(InheritPadding))
             {
                 // The orientation determines how the border padding is 
                 // applied to the preferred size of the children
@@ -318,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              Padding padding)
         {
             // Ignore an empty padding value
-            if (!padding.Equals(CommonHelper.InheritPadding))
+            if (!padding.Equals(InheritPadding))
             {
                 // The orientation determines how the border padding is 
                 // used to reduce the space available for children
@@ -380,7 +380,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Swap the width and height values for the rectangle.
         /// </summary>
         /// <param name="rect">Rectangle to modify.</param>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static void SwapRectangleSizes(ref Rectangle rect)
         {
             int temp = rect.Width;
@@ -484,7 +484,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="state">Specific state.</param>
         /// <returns>True if an override state; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool IsOverrideState(PaletteState state)
         {
             return (state & PaletteState.Override) == PaletteState.Override;
@@ -496,7 +496,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Specific state.</param>
         /// <param name="exclude">State that should be excluded from test.</param>
         /// <returns>True if an override state; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool IsOverrideStateExclude(PaletteState state, PaletteState exclude)
         {
             return (state != exclude) && IsOverrideState(state);
@@ -507,7 +507,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if no border specified; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasNoBorders(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.All) == PaletteDrawBorders.None);
@@ -518,7 +518,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if at least one border specified; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasABorder(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.All) != PaletteDrawBorders.None);
@@ -529,7 +529,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if at least one border specified; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasOneBorder(PaletteDrawBorders borders)
         {
             PaletteDrawBorders justBorders = (borders & PaletteDrawBorders.All);
@@ -546,7 +546,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if includes the top border; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasTopBorder(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.Top) == PaletteDrawBorders.Top);
@@ -557,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if includes the bottom border; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasBottomBorder(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom);
@@ -568,7 +568,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if includes the left border; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasLeftBorder(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.Left) == PaletteDrawBorders.Left);
@@ -579,7 +579,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if includes the right border; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasRightBorder(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.Right) == PaletteDrawBorders.Right);
@@ -590,7 +590,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="borders">Enumeration for borders.</param>
         /// <returns>True if all four borders specified; otherwise false.</returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static bool HasAllBorders(PaletteDrawBorders borders)
         {
             return ((borders & PaletteDrawBorders.All) == PaletteDrawBorders.All);
@@ -624,22 +624,22 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Bottom:
                     // Invert sides
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
@@ -647,22 +647,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     // Rotate one anti-clockwise
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
@@ -670,22 +670,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     // Rotate sides one clockwise
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
@@ -728,22 +728,22 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case VisualOrientation.Bottom:
                     // Invert sides
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
@@ -751,22 +751,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Right:
                     // Rotate one anti-clockwise
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
@@ -774,22 +774,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case VisualOrientation.Left:
                     // Rotate sides one clockwise
-                    if (CommonHelper.HasTopBorder(borders))
+                    if (HasTopBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Right;
                     }
 
-                    if (CommonHelper.HasBottomBorder(borders))
+                    if (HasBottomBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Left;
                     }
 
-                    if (CommonHelper.HasLeftBorder(borders))
+                    if (HasLeftBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Top;
                     }
 
-                    if (CommonHelper.HasRightBorder(borders))
+                    if (HasRightBorder(borders))
                     {
                         ret |= PaletteDrawBorders.Bottom;
                     }
@@ -1129,7 +1129,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static bool IsShiftKeyPressed
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return ((int)(PI.GetKeyState(VK_SHIFT) & 0x00008000) != 0); }
         }
 
@@ -1138,7 +1138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static bool IsCtrlKeyPressed
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return ((int)(PI.GetKeyState(VK_CONTROL) & 0x00008000) != 0); }
         }
 
@@ -1147,7 +1147,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static bool IsAltKeyPressed
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return ((int)(PI.GetKeyState(VK_MENU) & 0x00008000) != 0); }
         }
 

@@ -74,10 +74,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 _viewManager = new ViewManager(this, ViewDrawPanel);
 
                 // Set required properties to act as an owner draw list box
-                base.Size = Size.Empty;
-                base.BorderStyle = BorderStyle.None;
-                base.IntegralHeight = false;
-                base.MultiColumn = false;
+                Size = Size.Empty;
+                BorderStyle = BorderStyle.None;
+                IntegralHeight = false;
+                MultiColumn = false;
                 base.DrawMode = DrawMode.OwnerDrawVariable;
 
                 // We need to create and cache a device context compatible with the display
@@ -271,18 +271,10 @@ namespace ComponentFactory.Krypton.Toolkit
             #region Private
             private void WmPaint(ref Message m)
             {
-                IntPtr hdc;
                 PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                 // Do we need to BeginPaint or just take the given HDC?
-                if (m.WParam == IntPtr.Zero)
-                {
-                    hdc = PI.BeginPaint(Handle, ref ps);
-                }
-                else
-                {
-                    hdc = m.WParam;
-                }
+                IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                 // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
                 Rectangle realRect = CommonHelper.RealClientRectangle(Handle);
@@ -618,7 +610,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnListBoxClick(object sender, EventArgs e)
         {
-            base.OnClick(e);
+            OnClick(e);
         }
 
         /// <summary>
@@ -1334,25 +1326,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (ListBox != null)
-            {
-                return ListBox.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => ListBox != null && ListBox.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            ListBox?.Select();
-        }
+        public new void Select() => ListBox?.Select();
         #endregion
 
         #region Protected
@@ -1459,7 +1438,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
+        protected override ControlCollection CreateControlsInstance()
         {
             return new KryptonReadOnlyControls(this);
         }
@@ -1708,14 +1687,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    if (Enabled)
-                    {
-                        state = PaletteState.Normal;
-                    }
-                    else
-                    {
-                        state = PaletteState.Disabled;
-                    }
+                    state = Enabled ? PaletteState.Normal : PaletteState.Disabled;
                 }
 
                 _listBox.ViewDrawPanel.ElementState = state;
@@ -1723,24 +1695,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private IPaletteDouble GetDoubleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        private IPaletteDouble GetDoubleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private void OnListBoxDrawItem(object sender, DrawItemEventArgs e)
         {
@@ -1783,12 +1738,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Do we need to show item as having the focus
-                bool hasFocus = false;
-                if (((e.State & DrawItemState.Focus) == DrawItemState.Focus) &&
-                    ((e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect))
-                {
-                    hasFocus = true;
-                }
+                bool hasFocus = ((e.State & DrawItemState.Focus) == DrawItemState.Focus) &&
+                                ((e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect);
 
                 _overrideNormal.Apply = hasFocus;
                 _overrideTracking.Apply = hasFocus;

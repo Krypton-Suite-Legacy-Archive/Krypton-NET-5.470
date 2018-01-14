@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
 		public KryptonNavigator Navigator
 		{
-		    [System.Diagnostics.DebuggerStepThrough]
+		    [DebuggerStepThrough]
 		    get;
 		    private set;
 	    }
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
 		public ViewManager ViewManager
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	        private set;
 	    }
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
 		public PaletteRedirect Redirector
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	        private set;
 	    }
@@ -497,14 +497,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual bool SelectNextPage(bool wrap)
         {
             // A page must be selected in order to find the previous one
-            if (Navigator.SelectedPage != null)
-            {
-                return SelectNextPage(Navigator.SelectedPage, wrap, false);
-            }
-            else
-            {
-                return false;
-            }
+            return Navigator.SelectedPage != null && SelectNextPage(Navigator.SelectedPage, wrap, false);
         }
 
         /// <summary>
@@ -605,14 +598,7 @@ namespace ComponentFactory.Krypton.Navigator
         public virtual bool SelectPreviousPage(bool wrap)
         {
             // A page must be selected in order to find the previous one
-            if (Navigator.SelectedPage != null)
-            {
-                return SelectPreviousPage(Navigator.SelectedPage, wrap, false);
-            }
-            else
-            {
-                return false;
-            }
+            return Navigator.SelectedPage != null && SelectPreviousPage(Navigator.SelectedPage, wrap, false);
         }
 
         /// <summary>
@@ -712,7 +698,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get
             {
                 // Only create the delegate when it is first needed

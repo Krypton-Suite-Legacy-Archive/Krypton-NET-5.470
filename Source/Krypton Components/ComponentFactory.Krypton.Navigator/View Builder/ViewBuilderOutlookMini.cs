@@ -47,16 +47,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void SelectedPageChanged()
         {
             // If there is a selected page
-            if (Navigator.SelectedPage != null)
-            {
-                // Remove any focus the mini button might have
-                _selectedButton.HasFocus = false;
-            }
-            else
-            {
-                // If the navigator has focus then put it on the mini button
-                _selectedButton.HasFocus = HasFocus;
-            }
+            _selectedButton.HasFocus = Navigator.SelectedPage == null && HasFocus;
 
             // Update the selected button to show details of the newly selected page
             _selectedButton.Page = Navigator.SelectedPage;
@@ -68,17 +59,10 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets the appropriate popup page position for the current mode.
         /// </summary>
         /// <returns>Calculated PopupPagePosition</returns>
-        public override PopupPagePosition GetPopupPagePosition()
-        {
-            if (Navigator.Outlook.Orientation == Orientation.Vertical)
-            {
-                return PopupPagePosition.FarTop;
-            }
-            else
-            {
-                return PopupPagePosition.BelowNear;
-            }
-        }
+        public override PopupPagePosition GetPopupPagePosition() =>
+            Navigator.Outlook.Orientation == Orientation.Vertical
+            ? PopupPagePosition.FarTop
+            : PopupPagePosition.BelowNear;
 
         /// <summary>
         /// Process a dialog key in a manner appropriate for the view.

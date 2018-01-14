@@ -212,7 +212,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		public bool IsInitialized
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
 	    }
@@ -224,7 +224,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public bool IsInitializing
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	        private set;
 	    }
@@ -234,7 +234,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override ContextMenuStrip ContextMenuStrip
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return base.ContextMenuStrip; }
 
             set
@@ -274,7 +274,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Palette applied to drawing.")]
         public PaletteMode PaletteMode
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteMode; }
 
             set
@@ -328,7 +328,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public IPalette Palette
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _localPalette; }
 
             set
@@ -388,7 +388,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IRenderer Renderer
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
 	    }
@@ -542,7 +542,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		protected ViewManager ViewManager
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
 	    }
@@ -552,7 +552,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		protected PaletteRedirect Redirector
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	    }
 
@@ -561,7 +561,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	    }
 
@@ -677,16 +677,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual bool EvalTransparentPaint()
         {
             // Do we have a manager to use for asking about painting?
-            if (ViewManager != null)
-            {
-                // Ask the view if it needs to paint transparent areas
-                return ViewManager.EvalTransparentPaint(Renderer);
-            }
-            else
-            {
-                // If there is no view then do not transparent paint
-                return false;
-            }
+            return ViewManager != null && ViewManager.EvalTransparentPaint(Renderer);
         }
 
         /// <summary>
@@ -895,7 +886,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.DoubleClick(this.PointToClient(Control.MousePosition));
+                ViewManager?.DoubleClick(PointToClient(MousePosition));
             }
 
             // Let base class fire events

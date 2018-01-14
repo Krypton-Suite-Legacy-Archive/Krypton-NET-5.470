@@ -141,14 +141,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only take focus if we are visible and enabled
             if (GroupRadioButton.Visible && GroupRadioButton.Enabled)
             {
-                if (_viewLarge == GroupRadioButton.RadioButtonView)
-                {
-                    return _viewLarge;
-                }
-                else
-                {
-                    return _viewMediumSmall;
-                }
+                return _viewLarge == GroupRadioButton.RadioButtonView ? _viewLarge : _viewMediumSmall;
             }
             else
             {
@@ -167,14 +160,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only take focus if we are visible and enabled
             if (GroupRadioButton.Visible && GroupRadioButton.Enabled)
             {
-                if (_viewLarge == GroupRadioButton.RadioButtonView)
-                {
-                    return _viewLarge;
-                }
-                else
-                {
-                    return _viewMediumSmall;
-                }
+                return _viewLarge == GroupRadioButton.RadioButtonView ? _viewLarge : _viewMediumSmall;
             }
             else
             {
@@ -277,14 +263,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the preferred size of radio button view
             Size preferredSize = base.GetPreferredSize(context);
 
-            if (_currentSize == GroupItemSize.Large)
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
-            }
-            else
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
-            }
+            preferredSize.Height = _currentSize == GroupItemSize.Large
+                ? _ribbon.CalculatedValues.GroupTripleHeight
+                : _ribbon.CalculatedValues.GroupLineHeight;
 
             return preferredSize;
         }

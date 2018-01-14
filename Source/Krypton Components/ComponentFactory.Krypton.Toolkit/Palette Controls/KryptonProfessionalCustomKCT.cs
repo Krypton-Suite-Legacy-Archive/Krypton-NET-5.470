@@ -42,20 +42,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the starting color of the gradient used when the button is checked.
         /// </summary>
-        public override Color ButtonCheckedGradientBegin
-        {
-            get
-            {
-                if (_colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin] == Color.Empty)
-                {
-                    return base.ButtonCheckedGradientBegin;
-                }
-                else
-                {
-                    return _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin];
-                }
-            }
-        }
+        public override Color ButtonCheckedGradientBegin => _colors[(int) PaletteColorIndex.ButtonCheckedGradientBegin] == Color.Empty
+            ? base.ButtonCheckedGradientBegin
+            : _colors[(int) PaletteColorIndex.ButtonCheckedGradientBegin];
+
         #endregion
 
         #region ButtonCheckedGradientEnd

@@ -78,9 +78,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("Reference already exists in the collection");
                 }
 
-                base.List.Add(checkButton);
+                List.Add(checkButton);
 
-                return base.List.Count - 1;
+                return List.Count - 1;
             }
 
             /// <summary>
@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>True if found in collection; otherwise false.</returns>
             public bool Contains(KryptonCheckButton checkButton)
             {
-                return base.List.Contains(checkButton);
+                return List.Contains(checkButton);
             }
 
             /// <summary>
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>Index of reference; otherwise -1.</returns>
             public int IndexOf(KryptonCheckButton checkButton)
             {
-                return base.List.IndexOf(checkButton);
+                return List.IndexOf(checkButton);
             }
 
             /// <summary>
@@ -129,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("Reference already in collection");
                 }
 
-                base.List.Insert(index, checkButton);
+                List.Insert(index, checkButton);
             }
 
             /// <summary>
@@ -152,7 +152,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("No matching reference to remove");
                 }
 
-                base.List.Remove(checkButton);
+                List.Remove(checkButton);
             }
 
             /// <summary>
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         throw new ArgumentOutOfRangeException(nameof(index));
                     }
 
-                    return (KryptonCheckButton)base.List[index];
+                    return (KryptonCheckButton)List[index];
                 }
             }
             #endregion
@@ -180,7 +180,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// </summary>
             protected override void OnClear()
             {
-                foreach(KryptonCheckButton checkButton in base.List)
+                foreach(KryptonCheckButton checkButton in List)
                 {
                     _owner.CheckButtonRemoved(checkButton);
                 }

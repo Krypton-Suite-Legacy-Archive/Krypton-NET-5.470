@@ -120,15 +120,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010)
                 {
                     //Adjust Color of the gradient
-                    Color gradientColor;
-                    if (KryptonManager.CurrentGlobalPalette == KryptonManager.PaletteOffice2010Black)
-                    {
-                        gradientColor = Color.FromArgb(39, 39, 39);
-                    }
-                    else
-                    {
-                        gradientColor = Color.White;
-                    }
+                    Color gradientColor = KryptonManager.CurrentGlobalPalette == KryptonManager.PaletteOffice2010Black
+                        ? Color.FromArgb(39, 39, 39)
+                        : Color.White;
 
                     using (LinearGradientBrush backBrush = new LinearGradientBrush(new Rectangle(rect.X, rect.Y - 1, rect.Width, rect.Height + 1), Color.Transparent, gradientColor, 90f))
                     {
@@ -148,20 +142,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private bool DrawOnComposition
-        {
-            get
-            {
-                if (_ribbon != null)
-                {
-                    return _ribbon.CaptionArea.DrawCaptionOnComposition;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        private bool DrawOnComposition => _ribbon != null && _ribbon.CaptionArea.DrawCaptionOnComposition;
+
         #endregion
     }
 }

@@ -453,14 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only show as checked if also a check type button
             if (GroupClusterColorButton.ButtonType == GroupButtonType.Check)
             {
-                if (GroupClusterColorButton.KryptonCommand != null)
-                {
-                    checkedState = GroupClusterColorButton.KryptonCommand.Checked;
-                }
-                else
-                {
-                    checkedState = GroupClusterColorButton.Checked;
-                }
+                checkedState = GroupClusterColorButton.KryptonCommand?.Checked ?? GroupClusterColorButton.Checked;
             }
 
             _viewMediumSmall.Checked = checkedState;

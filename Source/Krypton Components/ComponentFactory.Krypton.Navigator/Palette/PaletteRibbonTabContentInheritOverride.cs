@@ -1277,17 +1277,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets the style appropriate for this content.
         /// </summary>
         /// <returns>Content style.</returns>
-        public virtual PaletteContentStyle GetContentStyle()
-        {
-            if (Apply)
-            {
-                return _primaryContent.GetContentStyle();
-            }
-            else
-            {
-                return _backupContent.GetContentStyle();
-            }
-        }
+        public virtual PaletteContentStyle GetContentStyle() =>
+            Apply ? _primaryContent.GetContentStyle() : _backupContent.GetContentStyle();
+
         #endregion
     }
 }

@@ -28,13 +28,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
             // Can always convert to a string representation
-            if (destinationType == typeof(string))
-            {
-                return true;
-            }
+            return destinationType == typeof(string) || base.CanConvertTo(context, destinationType);
 
             // Let base class do standard processing
-            return base.CanConvertTo(context, destinationType);
         }
 
         /// <summary>

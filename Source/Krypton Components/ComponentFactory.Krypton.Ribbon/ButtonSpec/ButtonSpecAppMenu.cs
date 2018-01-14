@@ -40,14 +40,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (Checked != ButtonCheckState.NotCheckButton)
                 {
                     // Then invert the checked state
-                    if (Checked == ButtonCheckState.Unchecked)
-                    {
-                        Checked = ButtonCheckState.Checked;
-                    }
-                    else
-                    {
-                        Checked = ButtonCheckState.Unchecked;
-                    }
+                    Checked = Checked == ButtonCheckState.Unchecked ? ButtonCheckState.Checked : ButtonCheckState.Unchecked;
                 }
 
                 GenerateClick(e);

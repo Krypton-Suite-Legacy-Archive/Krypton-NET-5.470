@@ -83,14 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _manager.MouseDown(_targetElement, c, pt, button);
 
-            if (_targetController != null)
-            {
-                return _targetController.MouseDown(c, pt, button);
-            }
-            else
-            {
-                return false;
-            }
+            return _targetController != null && _targetController.MouseDown(c, pt, button);
         }
 
         /// <summary>
@@ -132,20 +125,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Should the left mouse down be ignored when present on a visual form border area.
         /// </summary>
-        public bool IgnoreVisualFormLeftButtonDown
-        {
-            get
-            {
-                if (_targetController != null)
-                {
-                    return _targetController.IgnoreVisualFormLeftButtonDown;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        public bool IgnoreVisualFormLeftButtonDown =>
+            _targetController != null && _targetController.IgnoreVisualFormLeftButtonDown;
+
         #endregion
     }
 }

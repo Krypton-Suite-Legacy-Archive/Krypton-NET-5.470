@@ -301,14 +301,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 preferredSize.Width = NULL_CONTROL_WIDTH;
             }
 
-            if (_currentSize == GroupItemSize.Large)
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
-            }
-            else
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
-            }
+            preferredSize.Height = _currentSize == GroupItemSize.Large
+                ? _ribbon.CalculatedValues.GroupTripleHeight
+                : _ribbon.CalculatedValues.GroupLineHeight;
 
             return preferredSize;
         }
@@ -568,7 +563,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     else
                     {
                         // Check the owning group is visible
-                        if ((GroupComboBox.RibbonContainer?.RibbonGroup != null) && !GroupComboBox.RibbonContainer.RibbonGroup.Visible && !_ribbon.InDesignMode)
+                        if ((GroupComboBox.RibbonContainer?.RibbonGroup != null) 
+                            && !GroupComboBox.RibbonContainer.RibbonGroup.Visible 
+                            && !_ribbon.InDesignMode
+                            )
                         {
                             visible = false;
                         }

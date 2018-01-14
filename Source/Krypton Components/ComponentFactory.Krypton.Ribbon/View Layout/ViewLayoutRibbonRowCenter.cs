@@ -191,34 +191,19 @@ namespace ComponentFactory.Krypton.Ribbon
                     switch (CurrentSize)
                     {
                         case GroupItemSize.Small:
-                            if (_viewToSmall.ContainsKey(child))
-                            {
-                                childPreferred = _viewToSmall[child];
-                            }
-                            else
-                            {
-                                childPreferred = child.GetPreferredSize(context);
-                            }
+                            childPreferred = _viewToSmall.ContainsKey(child)
+                                ? _viewToSmall[child]
+                                : child.GetPreferredSize(context);
                             break;
                         case GroupItemSize.Medium:
-                            if (_viewToMedium.ContainsKey(child))
-                            {
-                                childPreferred = _viewToMedium[child];
-                            }
-                            else
-                            {
-                                childPreferred = child.GetPreferredSize(context);
-                            }
+                            childPreferred = _viewToMedium.ContainsKey(child)
+                                ? _viewToMedium[child]
+                                : child.GetPreferredSize(context);
                             break;
                         case GroupItemSize.Large:
-                            if (_viewToLarge.ContainsKey(child))
-                            {
-                                childPreferred = _viewToLarge[child];
-                            }
-                            else
-                            {
-                                childPreferred = child.GetPreferredSize(context);
-                            }
+                            childPreferred = _viewToLarge.ContainsKey(child)
+                                ? _viewToLarge[child]
+                                : child.GetPreferredSize(context);
                             break;
                     }
 

@@ -471,16 +471,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _taskDialog?.Dispose();
 
             // Create visual form to show our defined task properties
-            _taskDialog = new VisualTaskDialog(this);
+            _taskDialog = new VisualTaskDialog(this)
+            {
+                StartPosition = owner == null ? FormStartPosition.CenterScreen : FormStartPosition.CenterParent
+            };
 
-            if (owner == null)
-            {
-                _taskDialog.StartPosition = FormStartPosition.CenterScreen;
-            }
-            else
-            {
-                _taskDialog.StartPosition = FormStartPosition.CenterParent;
-            }
 
             // Return result of showing the task dialog
             return _taskDialog.ShowDialog(owner);

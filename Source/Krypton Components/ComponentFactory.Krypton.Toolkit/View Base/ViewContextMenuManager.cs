@@ -96,14 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Shift the active view to the new target
-                if (target != null)
-                {
-                    ActiveView = target.GetActiveView();
-                }
-                else
-                {
-                    ActiveView = null;
-                }
+                ActiveView = target?.GetActiveView();
 
                 _target = target;
 
@@ -383,36 +376,36 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Scan the targets after ourself and until the end
             bool found = false;
-            for (int i = 0; i < targets.Count; i++)
+            foreach (IContextMenuTarget target in targets)
             {
                 if (!found)
                 {
-                    found = (_target == targets[i]);
+                    found = (_target == target);
                 }
                 else
                 {
-                    if (targets[i].MatchMnemonic(charCode))
+                    if (target.MatchMnemonic(charCode))
                     {
-                        SetTarget(targets[i], false);
-                        targets[i].MnemonicActivate();
+                        SetTarget(target, false);
+                        target.MnemonicActivate();
                         return;
                     }
                 }
             }
 
             // Scan the targets from the start to the current entry
-            for (int i = 0; i < targets.Count; i++)
+            foreach (IContextMenuTarget target in targets)
             {
-                if (_target == targets[i])
+                if (_target == target)
                 {
                     break;
                 }
                 else
                 {
-                    if (targets[i].MatchMnemonic(charCode))
+                    if (target.MatchMnemonic(charCode))
                     {
-                        SetTarget(targets[i], false);
-                        targets[i].MnemonicActivate();
+                        SetTarget(target, false);
+                        target.MnemonicActivate();
                         return;
                     }
                 }

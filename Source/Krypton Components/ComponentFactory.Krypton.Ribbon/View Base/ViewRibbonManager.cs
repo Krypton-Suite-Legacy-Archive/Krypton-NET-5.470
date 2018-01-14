@@ -114,7 +114,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 Form ownerForm = _ribbon.FindForm();
 
                 // We do not need to layout if inside a control that is minimized or if we are not inside a form at all
-                if ((ownerForm == null) || ((ownerForm != null) && (ownerForm.WindowState == FormWindowState.Minimized)))
+                if ((ownerForm == null) || (ownerForm.WindowState == FormWindowState.Minimized))
                 {
                     return;
                 }
@@ -236,14 +236,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     ViewBase mouseView = Root.ViewFromPoint(pt);
 
                     // We only allow application button views to be interacted with
-                    if (mouseView is ViewDrawRibbonAppButton)
-                    {
-                        ActiveView = mouseView;
-                    }
-                    else
-                    {
-                        ActiveView = null;
-                    }
+                    ActiveView = mouseView is ViewDrawRibbonAppButton ? mouseView : null;
                 }
             }
             else

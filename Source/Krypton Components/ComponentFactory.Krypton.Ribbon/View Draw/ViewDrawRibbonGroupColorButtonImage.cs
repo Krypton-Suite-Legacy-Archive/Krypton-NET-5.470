@@ -98,20 +98,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize
-        {
-            get
-            {
-                if (_large)
-                {
-                    return _largeSize;
-                }
-                else
-                {
-                    return _smallSize;
-                }
-            }
-        }
+        protected override Size DrawSize => _large ? _largeSize : _smallSize;
 
         /// <summary>
         /// Gets the image to be drawn.
@@ -120,28 +107,14 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get
             {
-                Image newImage = null;
+                Image newImage;
                 if (_ribbonColorButton.KryptonCommand != null)
                 {
-                    if (_large)
-                    {
-                        newImage = _ribbonColorButton.KryptonCommand.ImageLarge;
-                    }
-                    else
-                    {
-                        newImage = _ribbonColorButton.KryptonCommand.ImageSmall;
-                    }
+                    newImage = _large ? _ribbonColorButton.KryptonCommand.ImageLarge : _ribbonColorButton.KryptonCommand.ImageSmall;
                 }
                 else
                 {
-                    if (_large)
-                    {
-                        newImage = _ribbonColorButton.ImageLarge;
-                    }
-                    else
-                    {
-                        newImage = _ribbonColorButton.ImageSmall;
-                    }
+                    newImage = _large ? _ribbonColorButton.ImageLarge : _ribbonColorButton.ImageSmall;
                 }
 
                 // Do we need to create another composite image?

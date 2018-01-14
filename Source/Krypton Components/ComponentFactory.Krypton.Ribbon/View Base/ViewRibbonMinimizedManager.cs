@@ -285,14 +285,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     ViewBase mouseView = Root.ViewFromPoint(pt);
 
                     // We only allow application button views to be interacted with
-                    if (mouseView is ViewDrawRibbonAppButton)
-                    {
-                        ActiveView = mouseView;
-                    }
-                    else
-                    {
-                        ActiveView = null;
-                    }
+                    ActiveView = mouseView is ViewDrawRibbonAppButton ? mouseView : null;
                 }
             }
             else

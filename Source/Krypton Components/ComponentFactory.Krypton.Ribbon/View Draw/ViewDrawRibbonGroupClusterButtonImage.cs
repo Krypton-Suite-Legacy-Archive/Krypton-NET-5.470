@@ -71,17 +71,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         protected override Image DrawImage
         {
-            get
-            {
-                if (_ribbonButton.KryptonCommand != null)
-                {
-                    return _ribbonButton.KryptonCommand.ImageSmall;
-                }
-                else
-                {
-                    return _ribbonButton.ImageSmall;
-                }
-            }
+            get => _ribbonButton.KryptonCommand != null ? _ribbonButton.KryptonCommand.ImageSmall : _ribbonButton.ImageSmall;
         }
         #endregion
     }

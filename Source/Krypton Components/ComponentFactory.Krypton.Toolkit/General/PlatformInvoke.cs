@@ -191,7 +191,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern short VkKeyScan(char ch);
         
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern IntPtr WindowFromPoint(PI.POINT pt);
+        internal static extern IntPtr WindowFromPoint(POINT pt);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
@@ -218,7 +218,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr rectUpdate, IntPtr hRgnUpdate, uint uFlags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern bool RedrawWindow(IntPtr hWnd, ref PI.RECT rectUpdate, IntPtr hRgnUpdate, uint uFlags);
+        internal static extern bool RedrawWindow(IntPtr hWnd, ref RECT rectUpdate, IntPtr hRgnUpdate, uint uFlags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool TrackMouseEvent(ref TRACKMOUSEEVENTS tme);
@@ -245,7 +245,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern void AdjustWindowRectEx(ref RECT rect, int dwStyle, bool hasMenu, int dwExSytle);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, [In, Out]PI.POINTC pt, int cPoints);
+        internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, [In, Out]POINTC pt, int cPoints);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool TranslateMessage([In] ref MSG lpMsg);
@@ -254,10 +254,10 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName,int nMaxCount);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern  IntPtr BeginPaint(IntPtr hwnd, ref PI.PAINTSTRUCT ps);
+        internal static extern  IntPtr BeginPaint(IntPtr hwnd, ref PAINTSTRUCT ps);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern bool EndPaint(IntPtr hwnd, ref PI.PAINTSTRUCT ps);
+        internal static extern bool EndPaint(IntPtr hwnd, ref PAINTSTRUCT ps);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);

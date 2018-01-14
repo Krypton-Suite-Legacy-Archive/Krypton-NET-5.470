@@ -155,7 +155,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            string defaultResponse)
         {
             // If do not have an owner passed in then get the active window and use that instead
-            IWin32Window showOwner = owner ?? Control.FromHandle(PI.GetActiveWindow());
+            IWin32Window showOwner = owner ?? FromHandle(PI.GetActiveWindow());
 
             // Show input box window as a modal dialog and then dispose of it afterwards
             using (KryptonInputBox ib = new KryptonInputBox(prompt, caption, defaultResponse))
@@ -249,92 +249,92 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void InitializeComponent()
         {
-            this._panelMessage = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this._textBoxResponse = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this._labelPrompt = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this._buttonCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this._buttonOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessage)).BeginInit();
-            this._panelMessage.SuspendLayout();
-            this.SuspendLayout();
+            _panelMessage = new KryptonPanel();
+            _textBoxResponse = new KryptonTextBox();
+            _labelPrompt = new KryptonWrapLabel();
+            _buttonCancel = new KryptonButton();
+            _buttonOK = new KryptonButton();
+            ((ISupportInitialize)(_panelMessage)).BeginInit();
+            _panelMessage.SuspendLayout();
+            SuspendLayout();
             // 
             // _panelMessage
             // 
-            this._panelMessage.Controls.Add(this._textBoxResponse);
-            this._panelMessage.Controls.Add(this._labelPrompt);
-            this._panelMessage.Controls.Add(this._buttonCancel);
-            this._panelMessage.Controls.Add(this._buttonOK);
-            this._panelMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._panelMessage.Location = new System.Drawing.Point(0, 0);
-            this._panelMessage.Name = "_panelMessage";
-            this._panelMessage.Size = new System.Drawing.Size(357, 118);
-            this._panelMessage.TabIndex = 0;
+            _panelMessage.Controls.Add(_textBoxResponse);
+            _panelMessage.Controls.Add(_labelPrompt);
+            _panelMessage.Controls.Add(_buttonCancel);
+            _panelMessage.Controls.Add(_buttonOK);
+            _panelMessage.Dock = DockStyle.Fill;
+            _panelMessage.Location = new Point(0, 0);
+            _panelMessage.Name = "_panelMessage";
+            _panelMessage.Size = new Size(357, 118);
+            _panelMessage.TabIndex = 0;
             // 
             // _textBoxResponse
             // 
-            this._textBoxResponse.Location = new System.Drawing.Point(12, 86);
-            this._textBoxResponse.Name = "_textBoxResponse";
-            this._textBoxResponse.Size = new System.Drawing.Size(333, 20);
-            this._textBoxResponse.TabIndex = 0;
+            _textBoxResponse.Location = new Point(12, 86);
+            _textBoxResponse.Name = "_textBoxResponse";
+            _textBoxResponse.Size = new Size(333, 20);
+            _textBoxResponse.TabIndex = 0;
             // 
             // _labelPrompt
             // 
-            this._labelPrompt.AutoSize = false;
-            this._labelPrompt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this._labelPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this._labelPrompt.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this._labelPrompt.Location = new System.Drawing.Point(12, 12);
-            this._labelPrompt.Margin = new System.Windows.Forms.Padding(0);
-            this._labelPrompt.Name = "_labelPrompt";
-            this._labelPrompt.Size = new System.Drawing.Size(78, 15);
-            this._labelPrompt.Text = "Prompt";
+            _labelPrompt.AutoSize = false;
+            _labelPrompt.Font = new Font("Segoe UI", 9F);
+            _labelPrompt.ForeColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            _labelPrompt.LabelStyle = LabelStyle.NormalPanel;
+            _labelPrompt.Location = new Point(12, 12);
+            _labelPrompt.Margin = new Padding(0);
+            _labelPrompt.Name = "_labelPrompt";
+            _labelPrompt.Size = new Size(78, 15);
+            _labelPrompt.Text = "Prompt";
             // 
             // _buttonCancel
             // 
-            this._buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonCancel.AutoSize = true;
-            this._buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._buttonCancel.Location = new System.Drawing.Point(295, 43);
-            this._buttonCancel.Margin = new System.Windows.Forms.Padding(0);
-            this._buttonCancel.MinimumSize = new System.Drawing.Size(50, 26);
-            this._buttonCancel.Name = "_buttonCancel";
-            this._buttonCancel.Size = new System.Drawing.Size(50, 26);
-            this._buttonCancel.TabIndex = 2;
-            this._buttonCancel.Values.Text = "Cancel";
-            this._buttonCancel.KeyDown += this.button_keyDown;
+            _buttonCancel.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonCancel.AutoSize = true;
+            _buttonCancel.DialogResult = DialogResult.Cancel;
+            _buttonCancel.Location = new Point(295, 43);
+            _buttonCancel.Margin = new Padding(0);
+            _buttonCancel.MinimumSize = new Size(50, 26);
+            _buttonCancel.Name = "_buttonCancel";
+            _buttonCancel.Size = new Size(50, 26);
+            _buttonCancel.TabIndex = 2;
+            _buttonCancel.Values.Text = "Cancel";
+            _buttonCancel.KeyDown += button_keyDown;
             // 
             // _buttonOK
             // 
-            this._buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonOK.AutoSize = true;
-            this._buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._buttonOK.Location = new System.Drawing.Point(295, 12);
-            this._buttonOK.Margin = new System.Windows.Forms.Padding(0);
-            this._buttonOK.MinimumSize = new System.Drawing.Size(50, 26);
-            this._buttonOK.Name = "_buttonOK";
-            this._buttonOK.Size = new System.Drawing.Size(50, 26);
-            this._buttonOK.TabIndex = 1;
-            this._buttonOK.Values.Text = "OK";
-            this._buttonOK.KeyDown += this.button_keyDown;
+            _buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonOK.AutoSize = true;
+            _buttonOK.DialogResult = DialogResult.OK;
+            _buttonOK.Location = new Point(295, 12);
+            _buttonOK.Margin = new Padding(0);
+            _buttonOK.MinimumSize = new Size(50, 26);
+            _buttonOK.Name = "_buttonOK";
+            _buttonOK.Size = new Size(50, 26);
+            _buttonOK.TabIndex = 1;
+            _buttonOK.Values.Text = "OK";
+            _buttonOK.KeyDown += button_keyDown;
             // 
             // KryptonInputBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 118);
-            this.Controls.Add(this._panelMessage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "KryptonInputBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            ((System.ComponentModel.ISupportInitialize)(this._panelMessage)).EndInit();
-            this._panelMessage.ResumeLayout(false);
-            this._panelMessage.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(357, 118);
+            Controls.Add(_panelMessage);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "KryptonInputBox";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterParent;
+            ((ISupportInitialize)(_panelMessage)).EndInit();
+            _panelMessage.ResumeLayout(false);
+            _panelMessage.PerformLayout();
+            ResumeLayout(false);
 
         }
         #endregion

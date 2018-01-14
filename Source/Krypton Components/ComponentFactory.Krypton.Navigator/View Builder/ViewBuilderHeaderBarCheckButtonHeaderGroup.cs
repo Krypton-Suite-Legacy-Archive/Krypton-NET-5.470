@@ -288,13 +288,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override bool DesignerGetHitTest(Point pt)
         {
             // Check if any of the button specs want the point
-            if (_headerGroup.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
+            return _headerGroup.DesignerGetHitTest(pt) || base.DesignerGetHitTest(pt);
 
             // Let base class search individual stack items
-            return base.DesignerGetHitTest(pt);
         }
 
         /// <summary>

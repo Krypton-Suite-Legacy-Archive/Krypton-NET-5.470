@@ -106,7 +106,7 @@ namespace ComponentFactory.Krypton.Docking
                 case PI.WM_NCLBUTTONDOWN:
                     {
                         // Perform a hit test to determine which area the mouse press is over at the moment
-                        uint result = PI.SendMessage(this.Handle, (int)PI.WM_NCHITTEST, 0, (uint)m.LParam);
+                        uint result = PI.SendMessage(Handle, (int)PI.WM_NCHITTEST, 0, (uint)m.LParam);
 
                         // Only want to override the behaviour of moving the window via the caption bar
                         if (result == PI.HITTEST_CAPTION)
@@ -274,14 +274,7 @@ namespace ComponentFactory.Krypton.Docking
                 if (FloatspaceControl.CellVisibleCount <= 1)
                 {
                     // Cell display mode depends on the number of tabs in the cell
-                    if (cell.Pages.VisibleCount == 1)
-                    {
-                        cell.NavigatorMode = NavigatorMode.HeaderGroup;
-                    }
-                    else
-                    {
-                        cell.NavigatorMode = NavigatorMode.HeaderGroupTab;
-                    }
+                    cell.NavigatorMode = cell.Pages.VisibleCount == 1 ? NavigatorMode.HeaderGroup : NavigatorMode.HeaderGroupTab;
                 }
                 else
                 {

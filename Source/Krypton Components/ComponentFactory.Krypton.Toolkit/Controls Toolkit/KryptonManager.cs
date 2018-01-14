@@ -278,8 +278,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool GlobalApplyToolstrips
         {
-            get => KryptonManager.ApplyToolstrips;
-            set => KryptonManager.ApplyToolstrips = value;
+            get => ApplyToolstrips;
+            set => ApplyToolstrips = value;
         }
 
         private bool ShouldSerializeGlobalApplyToolstrips()
@@ -303,8 +303,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool GlobalAllowFormChrome
         {
-            get => KryptonManager.AllowFormChrome;
-            set => KryptonManager.AllowFormChrome = value;
+            get => AllowFormChrome;
+            set => AllowFormChrome = value;
         }
 
         private bool ShouldSerializeGlobalAllowFormChrome()
@@ -635,9 +635,9 @@ namespace ComponentFactory.Krypton.Toolkit
             IPalette palette = null;
 
             // Get the next palette up in hierarchy
-            if (KryptonManager.InternalGlobalPaletteMode == PaletteModeManager.Custom)
+            if (InternalGlobalPaletteMode == PaletteModeManager.Custom)
             {
-                palette = KryptonManager.InternalGlobalPalette;
+                palette = InternalGlobalPalette;
             }
 
             // Keep searching until no more palettes found
@@ -664,7 +664,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 palette = owner.BasePalette;
                                 break;
                             case PaletteMode.Global:
-                                palette = KryptonManager.InternalGlobalPalette;
+                                palette = InternalGlobalPalette;
                                 break;
                             default:
                                 palette = null;

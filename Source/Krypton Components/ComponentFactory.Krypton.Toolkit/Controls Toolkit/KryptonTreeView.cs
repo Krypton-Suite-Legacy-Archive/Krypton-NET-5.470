@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 _viewManager = new ViewManager(this, ViewDrawPanel);
 
                 // Set required properties to act as an owner draw list box
-                base.Size = Size.Empty;
-                base.BorderStyle = BorderStyle.None;
+                Size = Size.Empty;
+                BorderStyle = BorderStyle.None;
 
                 // We need to create and cache a device context compatible with the display
                 _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
@@ -241,18 +241,10 @@ namespace ComponentFactory.Krypton.Toolkit
             #region Private
             private void WmPaint(ref Message m)
             {
-                IntPtr hdc;
                 PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                 // Do we need to BeginPaint or just take the given HDC?
-                if (m.WParam == IntPtr.Zero)
-                {
-                    hdc = PI.BeginPaint(Handle, ref ps);
-                }
-                else
-                {
-                    hdc = m.WParam;
-                }
+                IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                 // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
                 Rectangle realRect = CommonHelper.RealClientRectangle(Handle);
@@ -680,7 +672,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnTreeClick(object sender, EventArgs e)
         {
-            base.OnClick(e);
+            OnClick(e);
         }
 
         /// <summary>
@@ -1512,25 +1504,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (TreeView != null)
-            {
-                return TreeView.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => TreeView != null && TreeView.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            TreeView?.Select();
-        }
+        public new void Select() => TreeView?.Select();
         #endregion
 
         #region Protected
@@ -1691,7 +1670,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
+        protected override ControlCollection CreateControlsInstance()
         {
             return new KryptonReadOnlyControls(this);
         }
@@ -1986,8 +1965,8 @@ namespace ComponentFactory.Krypton.Toolkit
             else
             {
                 // Get the text string for the item
-                _contentValues.ShortText = "A";
-                _contentValues.LongText = "A";
+                _contentValues.ShortText = @"A";
+                _contentValues.LongText = @"A";
                 _contentValues.Image = null;
                 _contentValues.ImageTransparentColor = Color.Empty;
             }
@@ -2011,14 +1990,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    if (Enabled)
-                    {
-                        state = PaletteState.Normal;
-                    }
-                    else
-                    {
-                        state = PaletteState.Disabled;
-                    }
+                    state = Enabled ? PaletteState.Normal : PaletteState.Disabled;
                 }
 
                 _treeView.ViewDrawPanel.ElementState = state;
@@ -2026,24 +1998,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private IPaletteDouble GetDoubleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        private IPaletteDouble GetDoubleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int NodeIndent(TreeNode node)
         {
@@ -2097,14 +2052,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // If showing check boxes then used fixed entries from the state image list
                     if (CheckBoxes)
                     {
-                        if (e.Node.Checked)
-                        {
-                            drawStateImage = StateImageList.Images[1];
-                        }
-                        else
-                        {
-                            drawStateImage = StateImageList.Images[0];
-                        }
+                        drawStateImage = e.Node.Checked ? StateImageList.Images[1] : StateImageList.Images[0];
                     }
                     else
                     {
@@ -2121,6 +2069,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 catch
                 {
+                    // ignored
                 }
             }
 
@@ -2148,35 +2097,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _drawButton.Checked = true;
 
-                    if ((e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot)
-                    {
-                        buttonState = PaletteState.CheckedTracking;
-                    }
-                    else
-                    {
-                        buttonState = PaletteState.CheckedNormal;
-                    }
+                    buttonState = (e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot
+                        ? PaletteState.CheckedTracking
+                        : PaletteState.CheckedNormal;
                 }
                 else
                 {
                     _drawButton.Checked = false;
 
-                    if ((e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot)
-                    {
-                        buttonState = PaletteState.Tracking;
-                    }
-                    else
-                    {
-                        buttonState = PaletteState.Normal;
-                    }
+                    buttonState = (e.State & TreeNodeStates.Hot) == TreeNodeStates.Hot
+                        ? PaletteState.Tracking
+                        : PaletteState.Normal;
                 }
 
                 // Do we need to show item as having the focus
-                bool hasFocus = false;
-                if ((e.State & TreeNodeStates.Focused) == TreeNodeStates.Focused)
-                {
-                    hasFocus = true;
-                }
+                bool hasFocus = (e.State & TreeNodeStates.Focused) == TreeNodeStates.Focused;
 
                 _overrideNormal.Apply = hasFocus;
                 _overrideTracking.Apply = hasFocus;
@@ -2373,6 +2308,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 }
                                 catch
                                 {
+                                    // ignored
                                 }
                             }
 

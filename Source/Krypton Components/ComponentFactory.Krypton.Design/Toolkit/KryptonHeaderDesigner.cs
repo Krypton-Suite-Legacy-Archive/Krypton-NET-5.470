@@ -90,20 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents 
-        {
-            get 
-            {
-                if (_header != null)
-                {
-                    return _header.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
+        public override ICollection AssociatedComponents =>
+            _header != null ? _header.ButtonSpecs : base.AssociatedComponents;
 
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.

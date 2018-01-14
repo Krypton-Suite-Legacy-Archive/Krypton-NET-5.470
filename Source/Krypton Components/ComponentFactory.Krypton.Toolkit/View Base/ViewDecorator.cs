@@ -486,7 +486,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override PaletteState State
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _child.State; }
         }
         #endregion

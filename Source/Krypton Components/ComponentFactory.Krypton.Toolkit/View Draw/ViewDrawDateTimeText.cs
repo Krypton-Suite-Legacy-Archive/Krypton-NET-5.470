@@ -65,9 +65,9 @@ namespace ComponentFactory.Krypton.Toolkit
             public override string ToString()
             {
                 StringBuilder ret = new StringBuilder();
-                for(int i=0; i<_fragments.Count; i++)
+                foreach (FormatFragment fmt in _fragments)
                 {
-                    ret.Append(_fragments[i].GetDisplay(DateTime));
+                    ret.Append(fmt.GetDisplay(DateTime));
                 }
 
                 return ret.ToString();
@@ -828,14 +828,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 FragFormat = literal;
 
-                if (length == 0)
-                {
-                    Fragment = string.Empty;
-                }
-                else
-                {
-                    Fragment = format.Substring(0, length);
-                }
+                Fragment = length == 0 ? string.Empty : format.Substring(0, length);
             }
 
             /// <summary>
@@ -1199,28 +1192,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     case "d":
                     case "dd":
-                        int currentMonth = dt.Month;
                         if (forward)
                         {
-                            if (dt.Day == LastDayOfMonth(dt).Day)
-                            {
-                                dt = dt.AddDays(-(dt.Day - 1));
-                            }
-                            else
-                            {
-                                dt = dt.AddDays(1);
-                            }
+                            dt = dt.Day == LastDayOfMonth(dt).Day ? dt.AddDays(-(dt.Day - 1)) : dt.AddDays(1);
                         }
                         else
                         {
-                            if (dt.Day == 1)
-                            {
-                                dt = dt.AddDays(LastDayOfMonth(dt).Day - 1);
-                            }
-                            else
-                            {
-                                dt = dt.AddDays(-1);
-                            }
+                            dt = dt.Day == 1 ? dt.AddDays(LastDayOfMonth(dt).Day - 1) : dt.AddDays(-1);
                         }
                         break;
                     case "M":
@@ -1229,25 +1207,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     case "MMMM":
                         if (forward)
                         {
-                            if (dt.Month == 12)
-                            {
-                                dt = dt.AddMonths(-(dt.Month - 1));
-                            }
-                            else
-                            {
-                                dt = dt.AddMonths(1);
-                            }
+                            dt = dt.Month == 12 ? dt.AddMonths(-(dt.Month - 1)) : dt.AddMonths(1);
                         }
                         else
                         {
-                            if (dt.Month == 1)
-                            {
-                                dt = dt.AddMonths(11);
-                            }
-                            else
-                            {
-                                dt = dt.AddMonths(-1);
-                            }
+                            dt = dt.Month == 1 ? dt.AddMonths(11) : dt.AddMonths(-1);
                         } 
                         break;
                 }
@@ -1286,25 +1250,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (forward)
                     {
-                        if (dt.Minute == 59)
-                        {
-                            dt = dt.AddMinutes(-dt.Minute);
-                        }
-                        else
-                        {
-                            dt = dt.AddMinutes(1);
-                        }
+                        dt = dt.Minute == 59 ? dt.AddMinutes(-dt.Minute) : dt.AddMinutes(1);
                     }
                     else
                     {
-                        if (dt.Minute == 0)
-                        {
-                            dt = dt.AddMinutes(59 - dt.Minute);
-                        }
-                        else
-                        {
-                            dt = dt.AddMinutes(-1);
-                        }
+                        dt = dt.Minute == 0 ? dt.AddMinutes(59 - dt.Minute) : dt.AddMinutes(-1);
                     }
                 }
 
@@ -1313,52 +1263,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (forward)
                     {
-                        if (dt.Second == 59)
-                        {
-                            dt = dt.AddSeconds(-dt.Second);
-                        }
-                        else
-                        {
-                            dt = dt.AddSeconds(1);
-                        }
+                        dt = dt.Second == 59 ? dt.AddSeconds(-dt.Second) : dt.AddSeconds(1);
                     }
                     else
                     {
-                        if (dt.Second == 0)
-                        {
-                            dt = dt.AddSeconds(59 - dt.Second);
-                        }
-                        else
-                        {
-                            dt = dt.AddSeconds(-1);
-                        }
+                        dt = dt.Second == 0 ? dt.AddSeconds(59 - dt.Second) : dt.AddSeconds(-1);
                     }
                 }
 
                 // Any number of 't'
                 if (FragFormat.StartsWith("t"))
                 {
-                    if (dt.Hour > 11)
-                    {
-                        dt = dt.AddHours(-12);
-                    }
-                    else
-                    {
-                        dt = dt.AddHours(12);
-                    }
+                    dt = dt.Hour > 11 ? dt.AddHours(-12) : dt.AddHours(12);
                 }
 
                 // Any number of 'y'
                 if (FragFormat.StartsWith("y"))
                 {
-                    if (forward)
-                    {
-                        dt = dt.AddYears(1);
-                    }
-                    else
-                    {
-                        dt = dt.AddYears(-1);
-                    }
+                    dt = forward ? dt.AddYears(1) : dt.AddYears(-1);
                 }
 
                 // Any number of 'f' or 'F'
@@ -1374,14 +1296,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         increment /= 10;
                     }
 
-                    if (forward)
-                    {
-                        dt = dt.AddMilliseconds(increment);
-                    }
-                    else
-                    {
-                        dt = dt.AddMilliseconds(-increment);
-                    }
+                    dt = forward ? dt.AddMilliseconds(increment) : dt.AddMilliseconds(-increment);
                 }
 
                 return dt;

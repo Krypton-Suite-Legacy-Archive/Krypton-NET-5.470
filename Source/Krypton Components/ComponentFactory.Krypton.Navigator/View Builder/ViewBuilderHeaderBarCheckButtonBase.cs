@@ -101,14 +101,7 @@ namespace ComponentFactory.Krypton.Navigator
             // If there is no selected page
             if (Navigator.SelectedPage == null)
             {
-                if (Navigator.Enabled)
-                {
-                    paletteState = Navigator.StateNormal;
-                }
-                else
-                {
-                    paletteState = Navigator.StateDisabled;
-                }
+                paletteState = Navigator.Enabled ? Navigator.StateNormal : Navigator.StateDisabled;
             }
             else
             {
@@ -241,29 +234,12 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-        private IPaletteContent GetRemappingPaletteContent()
-        {
-            if (Navigator.Enabled)
-            {
-                return Navigator.StateNormal.HeaderGroup.HeaderBar.Content;
-            }
-            else
-            {
-                return Navigator.StateDisabled.HeaderGroup.HeaderBar.Content;
-            }
-        }
+        private IPaletteContent GetRemappingPaletteContent() => Navigator.Enabled
+            ? Navigator.StateNormal.HeaderGroup.HeaderBar.Content
+            : Navigator.StateDisabled.HeaderGroup.HeaderBar.Content;
 
-        private PaletteState GetRemappingPaletteState()
-        {
-            if (Navigator.Enabled)
-            {
-                return PaletteState.Normal;
-            }
-            else
-            {
-                return PaletteState.Disabled;
-            }
-        }
+        private PaletteState GetRemappingPaletteState() =>
+            Navigator.Enabled ? PaletteState.Normal : PaletteState.Disabled;
 
         private void OnEnabledChanged(object sender, EventArgs e)
         {

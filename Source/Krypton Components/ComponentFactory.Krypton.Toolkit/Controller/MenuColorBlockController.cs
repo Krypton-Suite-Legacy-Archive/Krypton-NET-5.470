@@ -25,8 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	{
 		#region Instance Fields
         private bool _mouseOver;
-        private bool _mouseReallyOver;
-        private bool _highlight;
+	    private bool _highlight;
         private bool _mouseDown;
         private readonly ViewBase _target;
         private NeedPaintHandler _needPaint;
@@ -156,8 +155,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             if (!_mouseOver && _menuColorBlock.ItemEnabled)
             {
-                _mouseReallyOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
-                _mouseOver = true;
+                _mouseOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
                 ViewManager.SetTarget(this, true);
                 UpdateTarget();
             }
@@ -172,7 +170,6 @@ namespace ComponentFactory.Krypton.Toolkit
 		{
             if (_menuColorBlock.ItemEnabled)
             {
-                _mouseReallyOver = true;
             }
         }
 
@@ -221,7 +218,6 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!_target.ContainsRecurse(next))
             {
                 _mouseOver = false;
-                _mouseReallyOver = false;
                 _mouseDown = false;
                 ViewManager.ClearTarget(this);
                 UpdateTarget();
@@ -453,14 +449,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteState state;
             if (_mouseOver || _highlight)
             {
-                if (_mouseDown)
-                {
-                    state = PaletteState.Pressed;
-                }
-                else
-                {
-                    state = PaletteState.Tracking;
-                }
+                state = _mouseDown ? PaletteState.Pressed : PaletteState.Tracking;
             }
             else
             {

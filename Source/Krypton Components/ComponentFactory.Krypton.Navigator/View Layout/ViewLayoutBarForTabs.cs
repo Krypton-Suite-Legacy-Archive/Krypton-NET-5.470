@@ -121,17 +121,8 @@ namespace ComponentFactory.Krypton.Navigator
         #region Implementation
         private void RenderChildren(RenderContext context, bool drawChecked)
         {
-            IEnumerable<ViewBase> orderedChildren;
-            
             // Use tab style to decide what order the children are drawn in
-            if (context.Renderer.RenderTabBorder.GetTabBorderLeftDrawing(TabBorderStyle))
-            {
-                orderedChildren = this;
-            }
-            else
-            {
-                orderedChildren = this.Reverse();
-            }
+            IEnumerable<ViewBase> orderedChildren = context.Renderer.RenderTabBorder.GetTabBorderLeftDrawing(TabBorderStyle) ? this : Reverse();
 
             // Ask each child to render in turn
             foreach (ViewBase child in orderedChildren)

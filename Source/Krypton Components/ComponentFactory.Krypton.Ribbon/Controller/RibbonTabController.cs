@@ -464,25 +464,11 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (_target.Checked)
                 {
-                    if (_mouseOver)
-                    {
-                        newState = PaletteState.CheckedTracking;
-                    }
-                    else
-                    {
-                        newState = PaletteState.CheckedNormal;
-                    }
+                    newState = _mouseOver ? PaletteState.CheckedTracking : PaletteState.CheckedNormal;
                 }
                 else
                 {
-                    if (_mouseOver)
-                    {
-                        newState = PaletteState.Tracking;
-                    }
-                    else
-                    {
-                        newState = PaletteState.Normal;
-                    }
+                    newState = _mouseOver ? PaletteState.Tracking : PaletteState.Normal;
                 }
             }
 

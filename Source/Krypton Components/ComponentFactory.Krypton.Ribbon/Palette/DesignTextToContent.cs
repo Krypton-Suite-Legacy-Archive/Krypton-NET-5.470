@@ -60,34 +60,18 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor1(PaletteState state)
-        {
-            if (state == PaletteState.Normal)
-            {
-                return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
-            }
-            else
-            {
-                return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
-            }
-        }
+        public override Color GetContentShortTextColor1(PaletteState state) => state == PaletteState.Normal
+            ? _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state)
+            : _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
 
         /// <summary>
         /// Gets the second back color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor2(PaletteState state)
-        {
-            if (state == PaletteState.Normal)
-            {
-                return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
-            }
-            else
-            {
-                return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
-            }
-        }
+        public override Color GetContentShortTextColor2(PaletteState state) => state == PaletteState.Normal
+            ? _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state)
+            : _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
 
         /// <summary>
         /// Gets the text trimming to use for long text.
@@ -104,34 +88,19 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor1(PaletteState state)
-        {
-            if (state == PaletteState.Normal)
-            {
-                return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
-            }
-            else
-            {
-                return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
-            }
-        }
+        public override Color GetContentLongTextColor1(PaletteState state) => state == PaletteState.Normal
+            ? _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state)
+            : _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
 
         /// <summary>
         /// Gets the second back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor2(PaletteState state)
-        {
-            if (state == PaletteState.Normal)
-            {
-                return _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state);
-            }
-            else
-            {
-                return _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
-            }
-        }
+        public override Color GetContentLongTextColor2(PaletteState state) => state == PaletteState.Normal
+            ? _ribbon.StateCommon.RibbonGeneral.GetRibbonGroupSeparatorLight(state)
+            : _ribbon.StateCommon.RibbonGroupButton.Content.GetContentShortTextColor1(state);
+
         #endregion
     }
 }

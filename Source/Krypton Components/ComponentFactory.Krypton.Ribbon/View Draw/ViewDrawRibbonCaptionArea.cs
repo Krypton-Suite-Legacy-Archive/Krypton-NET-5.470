@@ -208,20 +208,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Get the quick access toolbar view that is currently visible
         /// </summary>
-        public ViewLayoutRibbonQATMini VisibleQAT
-        {
-            get
-            {
-                if (UsingCustomChrome)
-                {
-                    return _captionQAT;
-                }
-                else
-                {
-                    return _nonCaptionQAT;
-                }
-            }
-        }
+        public ViewLayoutRibbonQATMini VisibleQAT => UsingCustomChrome ? _captionQAT : _nonCaptionQAT;
+
         #endregion
 
         #region UpdateQAT
@@ -322,20 +310,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the window borders of the krypton form.
         /// </summary>
-        public Padding RealWindowBorders
-        {
-            get
-            {
-                if (KryptonForm != null)
-                {
-                    return KryptonForm.RealWindowBorders;
-                }
-                else
-                {
-                    return Padding.Empty;
-                }
-            }
-        }
+        public Padding RealWindowBorders => KryptonForm?.RealWindowBorders ?? Padding.Empty;
 
         #endregion
 
@@ -415,7 +390,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 
@@ -477,7 +452,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(_otherAppButton, ViewDockStyle.Left);
 
             // Update base class to use correct palette interface
-            base.SetPalettes(_redirectCaption.PaletteBack, _redirectCaption.PaletteBorder);
+            SetPalettes(_redirectCaption.PaletteBack, _redirectCaption.PaletteBorder);
         }
 
         private void SetupParentMonitoring()

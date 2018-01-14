@@ -149,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool AnimateChange
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -162,7 +162,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -175,7 +175,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public RelativePositionAlign Alignment
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -188,7 +188,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public RelativePositionAlign CounterAlignment
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -201,7 +201,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool FillSpace
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -214,7 +214,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Point Offset
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _offset; }
             set { _offset = value; }
         }
@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool CanScrollV
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return (_limit.Y != 0); }
         }
         #endregion
@@ -237,7 +237,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool CanScrollH
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return (_limit.X != 0); }
         }
         #endregion

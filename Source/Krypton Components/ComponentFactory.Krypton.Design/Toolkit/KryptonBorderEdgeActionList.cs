@@ -37,21 +37,14 @@ namespace ComponentFactory.Krypton.Toolkit
             // Assuming we were correctly passed an actual component...
             if (_borderEdge != null)
             {
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_borderEdge)["Orientation"];
 
                 // If we succeeded in getting the property
                 if (orientationProp != null)
                 {
                     // Decide on the next action to take given the current setting
-                    if ((Orientation)orientationProp.GetValue(_borderEdge) == Orientation.Vertical)
-                    {
-                        _action = "Horizontal border orientation";
-                    }
-                    else
-                    {
-                        _action = "Vertical border orientation";
-                    }
+                    _action = (Orientation)orientationProp.GetValue(_borderEdge) == Orientation.Vertical ? "Horizontal border orientation" : "Vertical border orientation";
                 }
             }
 
@@ -170,16 +163,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Orientation orientation = verb.Text.Equals("Horizontal border orientation") ? Orientation.Horizontal : Orientation.Vertical;
 
                 // Decide on the next action to take given the new setting
-                if (orientation == Orientation.Vertical)
-                {
-                    _action = "Horizontal border orientation";
-                }
-                else
-                {
-                    _action = "Vertical border orientation";
-                }
+                _action = orientation == Orientation.Vertical ? "Horizontal border orientation" : "Vertical border orientation";
 
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_borderEdge)["Orientation"];
 
                 // If we succeeded in getting the property

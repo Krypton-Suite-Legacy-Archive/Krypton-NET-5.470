@@ -80,10 +80,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Update the redirector with new reference.
         /// </summary>
         /// <param name="redirect">Target redirector.</param>
-        public void SetRedirector(PaletteRedirect redirect)
-        {
-            Redirector = redirect;
-        }
+        public void SetRedirector(PaletteRedirect redirect) => Redirector = redirect;
+
         #endregion
 
         #region PopulateFromBase
@@ -125,10 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the Style property to its default value.
         /// </summary>
-        public void ResetStyle()
-        {
-            Style = PaletteButtonStyle.Inherit;
-        }
+        public void ResetStyle() => Style = PaletteButtonStyle.Inherit;
         #endregion
 
         #region Orientation
@@ -158,10 +153,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the Orientation property to its default value.
         /// </summary>
-        public void ResetOrientation()
-        {
-            Orientation = PaletteButtonOrientation.Inherit;
-        }
+        public void ResetOrientation() => Orientation = PaletteButtonOrientation.Inherit;
+
         #endregion
 
         #region Edge
@@ -191,10 +184,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the Edge property to its default value.
         /// </summary>
-        public void ResetEdge()
-        {
-            Edge = PaletteRelativeEdgeAlign.Inherit;
-        }
+        public void ResetEdge() => Edge = PaletteRelativeEdgeAlign.Inherit;
+
         #endregion
 
         #region IPaletteButtonSpec
@@ -203,10 +194,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>Icon value.</returns>
-        public virtual Icon GetButtonSpecIcon(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecIcon(style);
-        }
+        public virtual Icon GetButtonSpecIcon(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecIcon(style);
 
         /// <summary>
         /// Gets the image to display for the button.
@@ -215,121 +203,74 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State for which image is required.</param>
         /// <returns>Image value.</returns>
         public virtual Image GetButtonSpecImage(PaletteButtonSpecStyle style,
-                                                PaletteState state)
-        {
-            return Redirector.GetButtonSpecImage(style, state);
-        }
+                                                PaletteState state) => Redirector.GetButtonSpecImage(style, state);
 
         /// <summary>
         /// Gets the image transparent color.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>Color value.</returns>
-        public virtual Color GetButtonSpecImageTransparentColor(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecImageTransparentColor(style);
-        }
+        public virtual Color GetButtonSpecImageTransparentColor(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecImageTransparentColor(style);
 
         /// <summary>
         /// Gets the short text to display for the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>String value.</returns>
-        public virtual string GetButtonSpecShortText(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecShortText(style);
-        }
+        public virtual string GetButtonSpecShortText(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecShortText(style);
 
         /// <summary>
         /// Gets the long text to display for the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>String value.</returns>
-        public virtual string GetButtonSpecLongText(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecLongText(style);
-        }
+        public virtual string GetButtonSpecLongText(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecLongText(style);
 
         /// <summary>
         /// Gets the tooltip title text to display for the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>String value.</returns>
-        public virtual string GetButtonSpecToolTipTitle(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecToolTipTitle(style);
-        }
+        public virtual string GetButtonSpecToolTipTitle(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecToolTipTitle(style);
 
         /// <summary>
         /// Gets the color to remap from the image to the container foreground.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>Color value.</returns>
-        public virtual Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecColorMap(style);
-        }
+        public virtual Color GetButtonSpecColorMap(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecColorMap(style);
 
         /// <summary>
         /// Gets the button style used for drawing the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>PaletteButtonStyle value.</returns>
-        public virtual PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style)
-        {
-            if (Style != PaletteButtonStyle.Inherit)
-            {
-                return Style;
-            }
-            else
-            {
-                return Redirector.GetButtonSpecStyle(style);
-            }
-        }
+        public virtual PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style) =>
+            Style != PaletteButtonStyle.Inherit ? Style : Redirector.GetButtonSpecStyle(style);
 
         /// <summary>
         /// Get the location for the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>HeaderLocation value.</returns>
-        public virtual HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style)
-        {
-            return Redirector.GetButtonSpecLocation(style);
-        }
+        public virtual HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style) => Redirector.GetButtonSpecLocation(style);
 
         /// <summary>
         /// Gets the edge to positon the button against.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>PaletteRelativeEdgeAlign value.</returns>
-        public virtual PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style)
-        {
-            if (Edge != PaletteRelativeEdgeAlign.Inherit)
-            {
-                return Edge;
-            }
-            else
-            {
-                return Redirector.GetButtonSpecEdge(style);
-            }
-        }
+        public virtual PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style) =>
+            Edge != PaletteRelativeEdgeAlign.Inherit ? Edge : Redirector.GetButtonSpecEdge(style);
 
         /// <summary>
         /// Gets the button orientation.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>PaletteButtonOrientation value.</returns>
-        public virtual PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style)
-        {
-            if (Orientation != PaletteButtonOrientation.Inherit)
-            {
-                return Orientation;
-            }
-            else
-            {
-                return Redirector.GetButtonSpecOrientation(style);
-            }
-        }
+        public virtual PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style) =>
+            Orientation != PaletteButtonOrientation.Inherit ? Orientation : Redirector.GetButtonSpecOrientation(style);
+
         #endregion
 
         #region OnButtonSpecChanged

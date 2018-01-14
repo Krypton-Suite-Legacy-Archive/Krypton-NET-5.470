@@ -23,18 +23,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="context">An ITypeDescriptorContext that can be used to gain additional context information.</param>
         /// <returns>UITypeEditorEditStyle value.</returns>
-        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
-        {
-            // We show a drop down for editing the PaletteDrawBorders value.
-            if (context?.Instance != null)
-            {
-                return UITypeEditorEditStyle.DropDown;
-            }
-            else
-            {
-                return base.GetEditStyle(context);
-            }
-        }
+        /// <remarks>
+        /// We show a drop down for editing the PaletteDrawBorders value.
+        /// </remarks>
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context) => context?.Instance != null
+            ? UITypeEditorEditStyle.DropDown
+            : base.GetEditStyle(context);
 
         /// <summary>
         /// Edits the specified object's value using the editor style indicated by the GetEditStyle method.

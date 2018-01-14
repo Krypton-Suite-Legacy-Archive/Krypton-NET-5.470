@@ -208,7 +208,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = Size.Empty;
 
             // Find total width and maximum height across all child elements
-            for (int i = 0; i < this.Count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 ViewBase child = this[i];
 
@@ -288,10 +288,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Overflow = false;
 
             // Are there any children to layout?
-            if (this.Count > 0)
+            if (Count > 0)
             {
                 // Position each item from left to right taking up entire height
-                for (int i = 0; i < this.Count; i++)
+                for (int i = 0; i < Count; i++)
                 {
                     ViewBase child = this[i];
 
@@ -383,17 +383,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="qatButton"></param>
         /// <returns>Element that matches button; otherwise null</returns>
-        public ViewBase ViewForButton(IQuickAccessToolbarButton qatButton)
-        {
-            if (_qatButtonToView.ContainsKey(qatButton))
-            {
-                return _qatButtonToView[qatButton];
-            }
-            else
-            {
-                return null;
-            }
-        }
+        public ViewBase ViewForButton(IQuickAccessToolbarButton qatButton) =>
+            _qatButtonToView.ContainsKey(qatButton) ? _qatButtonToView[qatButton] : null;
+
         #endregion
 
         #region GetFirstQATView

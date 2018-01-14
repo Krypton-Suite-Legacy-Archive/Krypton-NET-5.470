@@ -222,45 +222,29 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Tab state.</param>
         /// <returns>Image.</returns>
-        public Image GetImage(PaletteState state)
-        {
-            return null;
-        }
+        public Image GetImage(PaletteState state) => null;
 
         /// <summary>
         /// Gets the image color that should be interpreted as transparent.
         /// </summary>
         /// <param name="state">Tab state.</param>
         /// <returns>Transparent Color.</returns>
-        public Color GetImageTransparentColor(PaletteState state)
-        {
-            return Color.Empty;
-        }
+        public Color GetImageTransparentColor(PaletteState state) => Color.Empty;
 
         /// <summary>
         /// Gets the short text used as the main ribbon title.
         /// </summary>
         /// <returns>Title string.</returns>
-        public string GetShortText()
-        {
-            if (_ribbonColorButton.KryptonCommand != null)
-            {
-                return _ribbonColorButton.KryptonCommand.TextLine1;
-            }
-            else
-            {
-                return _ribbonColorButton.TextLine;
-            }
-        }
+        public string GetShortText() => _ribbonColorButton.KryptonCommand != null
+            ? _ribbonColorButton.KryptonCommand.TextLine1
+            : _ribbonColorButton.TextLine;
 
         /// <summary>
         /// Gets the long text used as the secondary ribbon title.
         /// </summary>
         /// <returns>Title string.</returns>
-        public string GetLongText()
-        {
-            return string.Empty;
-        }
+        public string GetLongText() => string.Empty;
+
         #endregion
     }
 }

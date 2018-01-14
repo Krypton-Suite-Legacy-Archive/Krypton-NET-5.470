@@ -270,14 +270,7 @@ namespace ComponentFactory.Krypton.Navigator
             Control focus = GetControlWithFocus(this);
 
             // If nothing has the focus then we cannot perform processing
-            if (focus != null)
-            {
-                return TabToNextControl(focus, forward);
-            }
-            else
-            {
-                return true;
-            }
+            return focus == null || TabToNextControl(focus, forward);
         }
         #endregion
 

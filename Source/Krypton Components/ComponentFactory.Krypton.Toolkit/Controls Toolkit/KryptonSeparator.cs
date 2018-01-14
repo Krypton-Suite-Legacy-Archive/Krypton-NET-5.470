@@ -125,11 +125,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the palette storage
             StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,
-                                                             PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorHighProfile,
-                                                             PaletteBorderStyle.SeparatorHighProfile, NeedPaintDelegate);
+                PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorHighProfile,
+                PaletteBorderStyle.SeparatorHighProfile, NeedPaintDelegate)
+            {
+                BorderRedirect = {OverrideBorderToFalse = true}
+            };
 
             // Never draw the border around the background
-            StateCommon.BorderRedirect.OverrideBorderToFalse = true;
 
             StateDisabled = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
             StateNormal = new PaletteSplitContainer(StateCommon, StateCommon.Separator, StateCommon.Separator, NeedPaintDelegate);
@@ -504,14 +506,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SplitterMoveRectMenuArgs args = new SplitterMoveRectMenuArgs(Rectangle.Empty);
                 OnSplitterMoveRect(args);
 
-                if (Orientation == Orientation.Horizontal)
-                {
-                    return new Rectangle(0, args.MoveRect.Y, 0, args.MoveRect.Height);
-                }
-                else
-                {
-                    return new Rectangle(args.MoveRect.X, 0, args.MoveRect.Width, 0);
-                }
+                return Orientation == Orientation.Horizontal
+                    ? new Rectangle(0, args.MoveRect.Y, 0, args.MoveRect.Height)
+                    : new Rectangle(args.MoveRect.X, 0, args.MoveRect.Width, 0);
             }
         }
 
@@ -719,14 +716,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_drawSeparator.ClientRectangle.Contains(pt) || _separatorController.IsMoving)
             {
                 // Cursor depends on orientation direction
-                if (Orientation == Orientation.Vertical)
-                {
-                    return Cursors.VSplit;
-                }
-                else
-                {
-                    return Cursors.HSplit;
-                }
+                return Orientation == Orientation.Vertical ? Cursors.VSplit : Cursors.HSplit;
             }
 
             return null;
@@ -780,14 +770,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if ((Dock != DockStyle.None) && (Dock != DockStyle.Fill))
             {
-                if (Orientation == Orientation.Vertical)
-                {
-                    Size = new Size(Width, _splitterWidth);
-                }
-                else
-                {
-                    Size = new Size(_splitterWidth, Height);
-                }
+                Size = Orientation == Orientation.Vertical
+                    ? new Size(Width, _splitterWidth)
+                    : new Size(_splitterWidth, Height);
             }
         }
 

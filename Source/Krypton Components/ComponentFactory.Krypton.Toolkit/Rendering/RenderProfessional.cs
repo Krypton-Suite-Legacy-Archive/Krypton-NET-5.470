@@ -103,17 +103,12 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Find offset before showing the first handle
                         int offset = (orientationSpace - requiredSpace) / 2;
 
-                        Point draw;
-
                         // Find location of first handle
-                        if (orientation == Orientation.Horizontal)
-                        {
-                            draw = new Point(displayRect.X + offset, displayRect.Y + ((displayRect.Height - GRAB_SQUARE_TOTAL) / 2));
-                        }
-                        else
-                        {
-                            draw = new Point(displayRect.X + ((displayRect.Width - GRAB_SQUARE_TOTAL) / 2), displayRect.Y + offset);
-                        }
+                        Point draw = orientation == Orientation.Horizontal
+                            ? new Point(displayRect.X + offset,
+                                displayRect.Y + ((displayRect.Height - GRAB_SQUARE_TOTAL) / 2))
+                            : new Point(displayRect.X + ((displayRect.Width - GRAB_SQUARE_TOTAL) / 2),
+                                displayRect.Y + offset);
 
                         using (Brush lightBrush = new SolidBrush(_grabHandleLight),
                                      darkBrush = new SolidBrush(_grabHandleDark))

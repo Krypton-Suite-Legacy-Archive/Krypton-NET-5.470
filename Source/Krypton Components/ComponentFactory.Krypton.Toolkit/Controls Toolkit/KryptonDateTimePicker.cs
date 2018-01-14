@@ -196,7 +196,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _userSetDateTime = false;
             _customFormat = string.Empty;
             _customNullText = string.Empty;
-            CalendarTodayFormat = "d";
+            CalendarTodayFormat = @"d";
             _dateTime = DateTime.Now;
             _rawDateTime = _dateTime;
             _todayDate = DateTime.Now.Date;
@@ -1605,14 +1605,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1624,13 +1617,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -2133,29 +2122,15 @@ namespace ComponentFactory.Krypton.Toolkit
 	    internal bool IsFixedActive => (_fixedActive != null);
 
 	    internal DateTime EffectiveMaxDate(DateTime maxDate)
-        {
-            DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
-            if (maxDate > maximumDateTime)
-            {
-                return maximumDateTime;
-            }
-            else
-            {
-                return maxDate;
-            }
-        }
+	    {
+	        DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
+	        return maxDate > maximumDateTime ? maximumDateTime : maxDate;
+	    }
 
         internal DateTime EffectiveMinDate(DateTime minDate)
         {
             DateTime minimumDateTime = DateTimePicker.MinimumDateTime;
-            if (minDate < minimumDateTime)
-            {
-                return minimumDateTime;
-            }
-            else
-            {
-                return minDate;
-            }
+            return minDate < minimumDateTime ? minimumDateTime : minDate;
         }
         #endregion
 
@@ -2182,39 +2157,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
 
-        private IPaletteTriple GetTripleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        private IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
-        private void CheckActiveFragment()
+	    private void CheckActiveFragment()
         {
             if (_lastActiveFragment != ActiveFragment)
             {

@@ -381,11 +381,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     _visibleMenu = new ToolStripMenuItem("Visible", null, OnVisible);
                     _enabledMenu = new ToolStripMenuItem("Enabled", null, OnEnabled);
                     _checkedMenu = new ToolStripMenuItem("Checked", null, OnChecked);
-                    _moveFirstMenu = new ToolStripMenuItem("Move RadioButton First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
-                    _movePreviousMenu = new ToolStripMenuItem("Move RadioButton Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
-                    _moveNextMenu = new ToolStripMenuItem("Move RadioButton Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
-                    _moveLastMenu = new ToolStripMenuItem("Move RadioButton Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
-                    _deleteRadioButtonMenu = new ToolStripMenuItem("Delete RadioButton", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteRadioButton);
+                    _moveFirstMenu = new ToolStripMenuItem("Move RadioButton First", Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move RadioButton Previous", Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move RadioButton Next", Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move RadioButton Last", Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteRadioButtonMenu = new ToolStripMenuItem("Delete RadioButton", Design.Properties.Resources.delete2, OnDeleteRadioButton);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, _enabledMenu, _checkedMenu,  new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

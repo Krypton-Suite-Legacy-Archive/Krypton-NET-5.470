@@ -109,14 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>True if a match is found; otherwise false.</returns>
         public bool MatchMnemonic(char charCode)
         {
-            if (_menuLinkLabel.ItemEnabled)
-            {
-                return Control.IsMnemonic(charCode, _menuLinkLabel.ItemText);
-            }
-            else
-            {
-                return false;
-            }
+            return _menuLinkLabel.ItemEnabled && Control.IsMnemonic(charCode, _menuLinkLabel.ItemText);
         }
 
         /// <summary>

@@ -256,21 +256,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
             else
             {
-                if (_mouseOver)
-                {
-                    if (_pressed)
-                    {
-                        newState = PaletteState.Pressed;
-                    }
-                    else
-                    {
-                        newState = PaletteState.Tracking;
-                    }
-                }
-                else
-                {
-                    newState = PaletteState.Normal;
-                }
+                newState = _mouseOver ? (_pressed ? PaletteState.Pressed : PaletteState.Tracking) : PaletteState.Normal;
             }
 
             // If state has changed or change in (inside split area)

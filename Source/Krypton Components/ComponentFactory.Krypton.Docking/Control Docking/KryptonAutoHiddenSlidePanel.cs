@@ -486,7 +486,7 @@ namespace ComponentFactory.Krypton.Docking
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage(ref Message msg)
         {
-            Form parentForm = this.FindForm();
+            Form parentForm = FindForm();
             Form parentMdi = (parentForm?.MdiParent);
 
             // Only interested in snooping messages if....

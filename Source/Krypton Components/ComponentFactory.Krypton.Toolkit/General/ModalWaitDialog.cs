@@ -143,10 +143,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 ((m.Msg >= 0x00A0) && (m.Msg <= 0x00A9)))  
             {
                 // Discover target control for message
-                if (Control.FromHandle(m.HWnd) != null)
+                if (FromHandle(m.HWnd) != null)
                 {
                     // Find the form that the control is inside
-                    Form f = Control.FromHandle(m.HWnd).FindForm();
+                    Form f = FromHandle(m.HWnd).FindForm();
 
                     // If the message is for this dialog then let it be dispatched
                     if ((f != null) && (f == this))

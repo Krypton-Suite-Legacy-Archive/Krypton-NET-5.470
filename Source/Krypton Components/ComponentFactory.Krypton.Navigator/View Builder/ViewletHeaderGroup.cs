@@ -140,14 +140,9 @@ namespace ComponentFactory.Krypton.Navigator
             if (Navigator.SelectedPage == null)
             {
                 // Then use the states defined in the navigator itself
-                if (Navigator.Enabled)
-                {
-                    SetPalettes(Navigator.StateNormal.HeaderGroup);
-                }
-                else
-                {
-                    SetPalettes(Navigator.StateDisabled.HeaderGroup);
-                }
+                SetPalettes(Navigator.Enabled
+                    ? Navigator.StateNormal.HeaderGroup
+                    : Navigator.StateDisabled.HeaderGroup);
             }
             else
             {

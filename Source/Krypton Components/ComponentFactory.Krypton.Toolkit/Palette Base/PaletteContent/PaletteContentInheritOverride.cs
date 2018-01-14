@@ -1110,17 +1110,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the style appropriate for this content.
         /// </summary>
         /// <returns>Content style.</returns>
-        public override PaletteContentStyle GetContentStyle()
-        {
-            if (Apply)
-            {
-                return _primary.GetContentStyle();
-            }
-            else
-            {
-                return _backup.GetContentStyle();
-            }
-        }
-        #endregion
+        public override PaletteContentStyle GetContentStyle() => Apply ? _primary.GetContentStyle() : _backup.GetContentStyle();
+
+	    #endregion
 	}
 }

@@ -155,14 +155,7 @@ namespace ComponentFactory.Krypton.Navigator
             Color mapColor = OverrideImageColor(state);
 
             // If a map color provided then return is
-            if (mapColor != Color.Empty)
-            {
-                return mapColor;
-            }
-            else
-            {
-                return base.GetContentImageColorMap(style, state);
-            }
+            return mapColor != Color.Empty ? mapColor : base.GetContentImageColorMap(style, state);
         }
         #endregion
 
@@ -179,14 +172,7 @@ namespace ComponentFactory.Krypton.Navigator
             Color mapColor = OverrideImageColor(state);
 
             // If mapping occuring then return the target remap color
-            if (mapColor != Color.Empty)
-            {
-                return GetRemapTarget(style, state);
-            }
-            else
-            {
-                return base.GetContentImageColorTo(style, state);
-            }
+            return mapColor != Color.Empty ? GetRemapTarget(style, state) : base.GetContentImageColorTo(style, state);
         }
         #endregion
 
@@ -200,14 +186,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override Color GetContentShortTextColor1(PaletteContentStyle style, PaletteState state)
         {
             // Do we need to override the text color
-            if (OverrideTextColor(state))
-            {
-                return GetRemapTarget(style, state);
-            }
-            else
-            {
-                return base.GetContentShortTextColor1(style, state);
-            }
+            return OverrideTextColor(state)
+                ? GetRemapTarget(style, state)
+                : base.GetContentShortTextColor1(style, state);
         }
         #endregion
 
@@ -221,14 +202,9 @@ namespace ComponentFactory.Krypton.Navigator
         public override Color GetContentLongTextColor1(PaletteContentStyle style, PaletteState state)
         {
             // Do we need to override the text color
-            if (OverrideTextColor(state))
-            {
-                return GetRemapTarget(style, state);
-            }
-            else
-            {
-                return base.GetContentLongTextColor1(style, state);
-            }
+            return OverrideTextColor(state)
+                ? GetRemapTarget(style, state)
+                : base.GetContentLongTextColor1(style, state);
         }
         #endregion
 
@@ -240,13 +216,13 @@ namespace ComponentFactory.Krypton.Navigator
                 (state == PaletteState.Disabled))
             {
                 // Get the color map from the button spec
-                Color mapColor = _buttonSpec.GetColorMap(base.Target);
+                Color mapColor = _buttonSpec.GetColorMap(Target);
 
                 // If we are supposed to remap a color
                 if (mapColor != Color.Empty)
                 {
                     // Get the button style requested
-                    ButtonStyle buttonStyle = _buttonSpec.GetStyle(base.Target);
+                    ButtonStyle buttonStyle = _buttonSpec.GetStyle(Target);
 
                     // If we are checking for button styles of ButtonSpec only, then do so
                     if (buttonStyle == ButtonStyle.ButtonSpec)
@@ -266,7 +242,7 @@ namespace ComponentFactory.Krypton.Navigator
                 (state == PaletteState.Disabled))
             {
                 // Get the button style requested
-                ButtonStyle buttonStyle = _buttonSpec.GetStyle(base.Target);
+                ButtonStyle buttonStyle = _buttonSpec.GetStyle(Target);
 
                 // If we are checking for button styles of ButtonSpec only, then do so
                 if (buttonStyle == ButtonStyle.ButtonSpec)

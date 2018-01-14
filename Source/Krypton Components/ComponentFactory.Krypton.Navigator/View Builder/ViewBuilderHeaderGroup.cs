@@ -316,15 +316,7 @@ namespace ComponentFactory.Krypton.Navigator
 
                             if (!ce.Cancel)
                             {
-                                bool changed;
-                                if (!shift)
-                                {
-                                    changed = SelectNextPage(Navigator.SelectedPage, true, true);
-                                }
-                                else
-                                {
-                                    changed = SelectPreviousPage(Navigator.SelectedPage, true, true);
-                                }
+                                bool changed = !shift ? SelectNextPage(Navigator.SelectedPage, true, true) : SelectPreviousPage(Navigator.SelectedPage, true, true);
                             }
                         }
                         return true;

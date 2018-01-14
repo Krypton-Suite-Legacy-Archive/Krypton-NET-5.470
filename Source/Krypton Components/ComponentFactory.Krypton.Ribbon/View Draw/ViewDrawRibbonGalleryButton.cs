@@ -295,14 +295,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // If still no image then get is from the palette
-            if (image == null)
-            {
-                return _palette.GetGalleryButtonImage(_button, State);
-            }
-            else
-            {
-                return image;
-            }
+            return image ?? _palette.GetGalleryButtonImage(_button, State);
         }
 
         /// <summary>

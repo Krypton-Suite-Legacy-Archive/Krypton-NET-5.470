@@ -785,14 +785,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
                             else
                             {
-                                if (NonClientAsNormal)
-                                {
-                                    newState = PaletteState.Normal;
-                                }
-                                else
-                                {
-                                    newState = PaletteState.Tracking;
-                                }
+                                newState = NonClientAsNormal ? PaletteState.Normal : PaletteState.Tracking;
                             }
                         }
                         else
@@ -804,14 +797,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     else
                     {
                         // Only hot tracking, so show tracking only if mouse over the target 
-                        if (_mouseOver)
-                        {
-                            newState = PaletteState.Tracking;
-                        }
-                        else
-                        {
-                            newState = PaletteState.Normal;
-                        }
+                        newState = _mouseOver ? PaletteState.Tracking : PaletteState.Normal;
                     }
                 }
             }

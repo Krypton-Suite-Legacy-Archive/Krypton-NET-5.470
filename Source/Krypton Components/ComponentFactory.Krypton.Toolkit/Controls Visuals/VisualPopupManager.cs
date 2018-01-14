@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static VisualPopupManager Singleton
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get => _singleton ?? (_singleton = new VisualPopupManager());
         }
         #endregion
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualPopup CurrentPopup
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
         }
@@ -355,12 +355,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // A mouse move can occur because a context menu is showing with a popup also 
                 // already showing. We suppress the mouse move to prevent tracking of the popup
-                if (m.Msg == PI.WM_MOUSEMOVE)
-                {
-                    return ProcessMouseMoveWithCMS(ref m);
-                }
-
-                return false;
+                return m.Msg == PI.WM_MOUSEMOVE && ProcessMouseMoveWithCMS(ref m);
             }
 
             if (CurrentPopup != null)
@@ -765,12 +760,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return true;
             }
 
-            if ((m.Msg >= PI.WM_KEYDOWN) && (m.Msg <= PI.WM_KEYLAST))
-            {
-                return true;
-            }
-
-            return false;
+            return (m.Msg >= PI.WM_KEYDOWN) && (m.Msg <= PI.WM_KEYLAST);
         }
 
         private void FilterMessages(bool filter)

@@ -97,14 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool MatchMnemonic(char charCode)
         {
             // Can only select if the item is actually enabled
-            if (_menuItem.ItemEnabled)
-            {
-                return Control.IsMnemonic(charCode, _menuItem.ItemText);
-            }
-            else
-            {
-                return false;
-            }
+            return _menuItem.ItemEnabled && Control.IsMnemonic(charCode, _menuItem.ItemText);
         }
 
         /// <summary>

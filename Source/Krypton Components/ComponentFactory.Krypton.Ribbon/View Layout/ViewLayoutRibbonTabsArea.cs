@@ -434,7 +434,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 

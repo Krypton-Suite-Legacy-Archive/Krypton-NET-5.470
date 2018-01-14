@@ -1464,14 +1464,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_drawMonths != null) && _drawMonths.ButtonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_drawMonths != null) && _drawMonths.ButtonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1483,13 +1476,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1791,7 +1780,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="specified">A bitwise combination of the BoundsSpecified values.</param>
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
-            Rectangle bounds = base.Bounds;
+            Rectangle bounds = Bounds;
             AdjustSize(ref width, ref height);
             base.SetBoundsCore(x, y, width, height, specified);
         }
@@ -1801,27 +1790,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private DateTime EffectiveMaxDate(DateTime maxDate)
         {
             DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
-            if (maxDate > maximumDateTime)
-            {
-                return maximumDateTime;
-            }
-            else
-            {
-                return maxDate;
-            }
+            return maxDate > maximumDateTime ? maximumDateTime : maxDate;
         }
 
         private DateTime EffectiveMinDate(DateTime minDate)
         {
             DateTime minimumDateTime = DateTimePicker.MinimumDateTime;
-            if (minDate < minimumDateTime)
-            {
-                return minimumDateTime;
-            }
-            else
-            {
-                return minDate;
-            }
+            return minDate < minimumDateTime ? minimumDateTime : minDate;
         }
 
         private void AdjustSize(ref int width, ref int height)

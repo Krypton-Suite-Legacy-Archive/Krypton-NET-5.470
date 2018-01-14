@@ -602,14 +602,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Update the offset by scroll move amount
             if (_offset != 0)
             {
-                if (_offset > 0)
-                {
-                    _offset = Math.Max(0, _offset - SCROLL_MOVE);
-                }
-                else
-                {
-                    _offset = Math.Min(0, _offset + SCROLL_MOVE);
-                }
+                _offset = _offset > 0 ? Math.Max(0, _offset - SCROLL_MOVE) : Math.Min(0, _offset + SCROLL_MOVE);
             }
 
             // If we have finished the scrolling

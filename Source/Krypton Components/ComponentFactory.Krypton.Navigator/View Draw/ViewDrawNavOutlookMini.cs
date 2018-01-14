@@ -114,14 +114,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>String value.</returns>
         public override string GetShortText()
         {
-            if (Page != null)
-            {
-                return Page.GetTextMapping(Navigator.Outlook.Mini.MiniMapText);
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return Page?.GetTextMapping(Navigator.Outlook.Mini.MiniMapText) ?? string.Empty;
         }
 
         /// <summary>
@@ -130,14 +123,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>String value.</returns>
         public override string GetLongText()
         {
-            if (Page != null)
-            {
-                return Page.GetTextMapping(Navigator.Outlook.Mini.MiniMapExtraText);
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return Page?.GetTextMapping(Navigator.Outlook.Mini.MiniMapExtraText) ?? string.Empty;
         }
         #endregion
 

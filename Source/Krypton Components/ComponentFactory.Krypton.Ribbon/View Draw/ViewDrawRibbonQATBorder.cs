@@ -241,20 +241,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private bool Active
-        {
-            get
-            {
-                if (OwnerForm != null)
-                {
-                    return OwnerForm.WindowActive;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
+        private bool Active => OwnerForm == null || OwnerForm.WindowActive;
 
         private Padding BarPadding
         {
@@ -268,44 +255,18 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                     else
                     {
-                        if (OverlapAppButton)
-                        {
-                            return _minibarBorderPaddingOverlap;
-                        }
-                        else
-                        {
-                            return _minibarBorderPaddingNoOverlap;
-                        }
+                        return OverlapAppButton ? _minibarBorderPaddingOverlap : _minibarBorderPaddingNoOverlap;
                     }
                 }
                 else
                 {
-                    if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010)
-                    {
-                        return _fullbarBorderPadding_2010;
-                    }
-                    else
-                    {
-                        return _fullbarBorderPadding_2007;
-                    }
+                    return _ribbon.RibbonShape == PaletteRibbonShape.Office2010 ? _fullbarBorderPadding_2010 : _fullbarBorderPadding_2007;
                 }
             }
         }
 
-        private int BarHeight
-        {
-            get
-            {
-                if (_minibar)
-                {
-                    return QAT_HEIGHT_MINI;
-                }
-                else
-                {
-                    return QAT_HEIGHT_FULL;
-                }
-            }
-        }
+        private int BarHeight => _minibar ? QAT_HEIGHT_MINI : QAT_HEIGHT_FULL;
+
         #endregion
     }
 }

@@ -121,14 +121,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (Navigator.SelectedPage == null)
             {
                 // Then use the state defined in the navigator itself
-                if (Navigator.Enabled)
-                {
-                    back = Navigator.StateNormal.Back;
-                }
-                else
-                {
-                    back = Navigator.StateDisabled.Back;
-                }
+                back = Navigator.Enabled ? Navigator.StateNormal.Back : Navigator.StateDisabled.Back;
             }
             else
             {

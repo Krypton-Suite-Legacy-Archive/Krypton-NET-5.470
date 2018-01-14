@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Find the last visible child
             ViewBase lastVisible = null;
-            foreach(ViewBase child in this.Reverse())
+            foreach(ViewBase child in Reverse())
             {
                 if (child.Visible)
                 {

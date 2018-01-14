@@ -24,17 +24,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="context">An ITypeDescriptorContext that can be used to gain additional context information.</param>
         /// <returns>A UITypeEditorEditStyle enumeration value that indicates the style of editor.</returns>
-        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
-        {
-            if (context?.Instance != null)
-            {
-                return UITypeEditorEditStyle.Modal;
-            }
-            else
-            {
-                return base.GetEditStyle(context);
-            }
-        }
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context) =>
+            context?.Instance != null ? UITypeEditorEditStyle.Modal : base.GetEditStyle(context);
 
         /// <summary>
         /// Edits the specified object's value using the editor style indicated by GetEditStyle.

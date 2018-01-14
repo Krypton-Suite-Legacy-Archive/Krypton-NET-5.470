@@ -98,14 +98,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteMetric inherit = GetInherit(state);
 
-            if (inherit != null)
-            {
-                return inherit.GetMetricInt(state, metric);
-            }
-            else
-            {
-                return Target.GetMetricInt(state, metric);
-            }
+            return inherit?.GetMetricInt(state, metric) ?? Target.GetMetricInt(state, metric);
         }
 
         /// <summary>
@@ -118,14 +111,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteMetric inherit = GetInherit(state);
 
-            if (inherit != null)
-            {
-                return inherit.GetMetricBool(state, metric);
-            }
-            else
-            {
-                return Target.GetMetricBool(state, metric);
-            }
+            return inherit?.GetMetricBool(state, metric) ?? Target.GetMetricBool(state, metric);
         }
 
         /// <summary>
@@ -138,14 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteMetric inherit = GetInherit(state);
 
-            if (inherit != null)
-            {
-                return inherit.GetMetricPadding(state, metric);
-            }
-            else
-            {
-                return Target.GetMetricPadding(state, metric);
-            }
+            return inherit?.GetMetricPadding(state, metric) ?? Target.GetMetricPadding(state, metric);
         }
         #endregion
 

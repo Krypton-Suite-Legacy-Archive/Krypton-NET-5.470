@@ -168,19 +168,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextHint Hint
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteTextHint.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextHint;
-                }
-            }
+            get => _storage?.ContentTextHint ?? PaletteTextHint.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -218,19 +208,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextTrim Trim
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteTextTrim.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextTrim;
-                }
-            }
+            get => _storage?.ContentTextTrim ?? PaletteTextTrim.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -268,17 +248,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextHotkeyPrefix Prefix
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteTextHotkeyPrefix.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextPrefix;
-                }
-            }
+            get => _storage?.ContentTextPrefix ?? PaletteTextHotkeyPrefix.Inherit;
 
             set
             {
@@ -318,19 +288,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign TextH
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteRelativeAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextH;
-                }
-            }
+            get => _storage?.ContentTextH ?? PaletteRelativeAlign.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -368,19 +328,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign TextV
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteRelativeAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextV;
-                }
-            }
+            get => _storage?.ContentTextV ?? PaletteRelativeAlign.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -418,19 +368,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign MultiLineH
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteRelativeAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextMultiLineH;
-                }
-            }
+            get => _storage?.ContentTextMultiLineH ?? PaletteRelativeAlign.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -468,19 +408,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual InheritBool MultiLine
 		{
-            get
-            {
-                if (_storage == null)
-                {
-                    return InheritBool.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextMultiLine;
-                }
-            }
+            get => _storage?.ContentTextMultiLine ?? InheritBool.Inherit;
 
-			set
+		    set
 			{
                 if (_storage != null)
                 {
@@ -518,17 +448,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color1
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.ContentTextColor1;
-                }
-            }
+            get => _storage?.ContentTextColor1 ?? Color.Empty;
 
             set
             {
@@ -568,17 +488,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Color Color2
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.ContentTextColor2;
-                }
-            }
+            get => _storage?.ContentTextColor2 ?? Color.Empty;
 
             set
             {
@@ -618,17 +528,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteColorStyle ColorStyle
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteColorStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextColorStyle;
-                }
-            }
+            get => _storage?.ContentTextColorStyle ?? PaletteColorStyle.Inherit;
 
             set
             {
@@ -668,17 +568,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRectangleAlign ColorAlign
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextColorAlign;
-                }
-            }
+            get => _storage?.ContentTextColorAlign ?? PaletteRectangleAlign.Inherit;
 
             set
             {
@@ -808,17 +698,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteImageStyle ImageStyle
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteImageStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextImageStyle;
-                }
-            }
+            get => _storage?.ContentTextImageStyle ?? PaletteImageStyle.Inherit;
 
             set
             {
@@ -858,17 +738,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRectangleAlign ImageAlign
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentTextImageAlign;
-                }
-            }
+            get => _storage?.ContentTextImageAlign ?? PaletteRectangleAlign.Inherit;
 
             set
             {

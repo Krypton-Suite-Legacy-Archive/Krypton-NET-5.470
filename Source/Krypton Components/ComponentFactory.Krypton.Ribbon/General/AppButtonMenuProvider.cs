@@ -192,18 +192,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Nullable<ToolStripDropDownCloseReason> ProviderCloseReason 
         { 
-            get 
-            {
-                if (_parent != null)
-                {
-                    return _parent.ProviderCloseReason;
-                }
-                else
-                {
-                    return _closeReason;
-                }
-            }
-            
+            get => _parent?.ProviderCloseReason ?? _closeReason;
+
             set
             {
                 if (_parent != null)

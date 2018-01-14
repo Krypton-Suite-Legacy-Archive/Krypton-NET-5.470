@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonTab GetViewForPreviousRibbonTab(KryptonRibbonTab ribbonTab)
         {
             bool found = false;
-            foreach (ViewBase child in this.Reverse())
+            foreach (ViewBase child in Reverse())
             {
                 // Cast to correct type
                 // Only interested in tab views
@@ -243,7 +243,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <returns>View element for a tab; otherwise null.</returns>
         public ViewDrawRibbonTab GetViewForLastRibbonTab()
         {
-            foreach (ViewBase child in this.Reverse())
+            foreach (ViewBase child in Reverse())
             {
                 if ((child.Visible) && (child is ViewDrawRibbonTab))
                 {
@@ -368,13 +368,13 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = Size.Empty;
 
             // Reset cached variables
-            _cachedSizes = new Size[this.Count];
+            _cachedSizes = new Size[Count];
             _cachedMinimumWidth = 0;
             _cachedAllTabCount = 0;
             _cachedNonContextTabCount = 0;
 
             // Find total width and maximum height across all child elements
-            for (int i = 0; i < this.Count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 ViewBase child = this[i];
 
@@ -464,7 +464,7 @@ namespace ComponentFactory.Krypton.Ribbon
             int x = ClientLocation.X;
 
             // Are there any children to layout?
-            if (this.Count > 0)
+            if (Count > 0)
             {
                 // Modify the cached sizes so they are ideally sized for actual space
                 Size[] layoutSizes = AdjustSizesToFit();
@@ -474,7 +474,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 int height = ClientHeight;
 
                 // Position each item from left to right taking up entire height
-                for (int i = 0; i < this.Count; i++)
+                for (int i = 0; i < Count; i++)
                 {
                     // Only interested in visible items
                     if (layoutSizes[i].Width > 0)
