@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2015.csproj">
-      <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
+      <Project>{96ECAECC-54F8-4AA5-8591-B443C2D9565F}</Project>
       <Name>ComponentFactory.Krypton.Toolkit 2015</Name>
     </ProjectReference>
   </ItemGroup>
