@@ -387,14 +387,9 @@ namespace ComponentFactory.Krypton.Workspace
                         StarSize itemStar = item.WorkspaceStarSize;
                         if (!itemStar.StarWidth.UsingStar)
                         {
-                            if (maxSize.Width < int.MaxValue)
-                            {
-                                maxSize.Width = Math.Max(maxSize.Width, itemStar.StarWidth.FixedSize);
-                            }
-                            else
-                            {
-                                maxSize.Width = itemStar.StarWidth.FixedSize;
-                            }
+                            maxSize.Width = maxSize.Width < int.MaxValue
+                                ? Math.Max(maxSize.Width, itemStar.StarWidth.FixedSize)
+                                : itemStar.StarWidth.FixedSize;
                         }
 
                         if (!itemStar.StarHeight.UsingStar)

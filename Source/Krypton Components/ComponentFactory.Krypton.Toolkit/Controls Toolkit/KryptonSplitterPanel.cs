@@ -178,19 +178,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new int Height
 		{
-			get
-			{
-				if (Collapsed)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return base.Height;
-                }
-            }
+			get => Collapsed ? 0 : base.Height;
 
-			set => throw new NotSupportedException("Cannot set the Height of a KryptonSplitterPanel");
+	        set => throw new NotSupportedException("Cannot set the Height of a KryptonSplitterPanel");
 	    }
 
 		/// <summary>
@@ -263,19 +253,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new Size Size
 		{
-			get 
-			{
-				if (Collapsed)
-                {
-                    return Size.Empty;
-                }
-                else
-                {
-                    return base.Size;
-                }
-            }
+			get => Collapsed ? Size.Empty : base.Size;
 
-			set => base.Size = value;
+		    set => base.Size = value;
 		}
 
 		/// <summary>
@@ -322,19 +302,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int Width
 		{
-			get
-			{
-				if (Collapsed)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return base.Width;
-                }
-            }
+			get => Collapsed ? 0 : base.Width;
 
-			set => throw new NotSupportedException("Cannot set the Width of a KryptonSplitterPanel");
+		    set => throw new NotSupportedException("Cannot set the Width of a KryptonSplitterPanel");
 		}
 
 		#endregion

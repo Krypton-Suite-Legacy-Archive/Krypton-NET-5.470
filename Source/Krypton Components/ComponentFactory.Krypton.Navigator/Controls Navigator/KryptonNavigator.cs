@@ -379,7 +379,7 @@ namespace ComponentFactory.Krypton.Navigator
 		[Browsable(false)]
 		[Bindable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Control.ControlCollection Controls => base.Controls;
+		public new ControlCollection Controls => base.Controls;
 
         /// <summary>
 		/// Gets or sets the index of the currently-selected page.
@@ -1128,13 +1128,9 @@ namespace ComponentFactory.Krypton.Navigator
         public bool DesignerGetHitTest(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return false;
-            }
+            return !IsDisposed && ViewBuilder.DesignerGetHitTest(pt);
 
             // Ask the current view for a decision
-            return ViewBuilder.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1146,13 +1142,9 @@ namespace ComponentFactory.Krypton.Navigator
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1403,14 +1395,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // If we did not handle the key then give it to the base class
-            if (handled)
-            {
-                return handled;
-            }
-            else
-            {
-                return base.ProcessDialogKey(keyData);
-            }
+            return handled || base.ProcessDialogKey(keyData);
         }
 
         /// <summary>

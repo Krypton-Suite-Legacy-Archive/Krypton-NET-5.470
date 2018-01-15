@@ -382,51 +382,21 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <returns>Image value.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public Image GetImage()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ImageSmall;
-            }
-            else
-            {
-                return Image;
-            }
-        }
+        public Image GetImage() => KryptonCommand?.ImageSmall ?? Image;
 
         /// <summary>
         /// Gets the entry text.
         /// </summary>
         /// <returns>Text value.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public string GetText()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.TextLine1;
-            }
-            else
-            {
-                return Text;
-            }
-        }
+        public string GetText() => KryptonCommand?.TextLine1 ?? Text;
 
         /// <summary>
         /// Gets the entry enabled state.
         /// </summary>
         /// <returns>Enabled value.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public bool GetEnabled()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.Enabled;
-            }
-            else
-            {
-                return Enabled;
-            }
-        }
+        public bool GetEnabled() => KryptonCommand?.Enabled ?? Enabled;
 
         /// <summary>
         /// Gets the entry shortcut keys state.

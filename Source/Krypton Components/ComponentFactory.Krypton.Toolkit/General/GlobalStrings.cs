@@ -51,15 +51,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Returns a string that represents the current defaulted state.
         /// </summary>
         /// <returns>A string that represents the current defaulted state.</returns>
-        public override string ToString()
-        {
-            if (!IsDefault)
-            {
-                return "Modified";
-            }
+        public override string ToString() => !IsDefault ? "Modified" : string.Empty;
 
-            return string.Empty;
-        }
         #endregion
 
         #region Public

@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool ApplyCustomChrome
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _applyCustomChrome; }
 
             internal set
@@ -308,7 +308,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Palette applied to drawing.")]
         public PaletteMode PaletteMode
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteMode; }
 
             set
@@ -362,7 +362,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public IPalette Palette
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _localPalette; }
 
             set
@@ -422,7 +422,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IRenderer Renderer
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
         }
@@ -594,7 +594,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected ViewManager ViewManager
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -604,7 +604,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected PaletteRedirect Redirector
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 
@@ -613,7 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 
@@ -781,7 +781,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // otherwise each time the window is maximized and restored it grows in size
             if (ApplyComposition && (FormBorderStyle != FormBorderStyle.None))
             {
-                updatedHeight = height - this.RealWindowBorders.Top;
+                updatedHeight = height - RealWindowBorders.Top;
             }
 
             base.SetBoundsCore(x, y, width, updatedHeight, specified);
@@ -988,25 +988,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_NCPAINT:
                         if (!ApplyComposition)
                         {
-                            if (_ignoreCount <= 0)
-                            {
-                                processed = OnWM_NCPAINT(ref m);
-                            }
-                            else
-                            {
-                                processed = true;
-                            }
+                            processed = _ignoreCount > 0 || OnWM_NCPAINT(ref m);
                         }
                         break;
                     case PI.WM_NCHITTEST:
-                        if (ApplyComposition)
-                        {
-                            processed = OnCompWM_NCHITTEST(ref m);
-                        }
-                        else
-                        {
-                            processed = OnWM_NCHITTEST(ref m);
-                        }
+                        processed = ApplyComposition ? OnCompWM_NCHITTEST(ref m) : OnWM_NCHITTEST(ref m);
 
                         break;
                     case PI.WM_NCACTIVATE:
@@ -1110,9 +1096,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Adjust the maximized size and position to fit the work area of the correct monitor
             const int MONITOR_DEFAULTTONEAREST = 0x00000002;
-            System.IntPtr monitor = PI.MonitorFromWindow(m.HWnd, MONITOR_DEFAULTTONEAREST);
+            IntPtr monitor = PI.MonitorFromWindow(m.HWnd, MONITOR_DEFAULTTONEAREST);
 
-            if (monitor != System.IntPtr.Zero)
+            if (monitor != IntPtr.Zero)
             {
 
                 PI.MONITORINFO monitorInfo = new PI.MONITORINFO();
@@ -1138,17 +1124,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Does the LParam contain a RECT or an NCCALCSIZE_PARAMS
             if (m.WParam != IntPtr.Zero)
             {
-                Padding borders;
-
                 // Get the border sizing needed around the client area
-                if (FormBorderStyle == FormBorderStyle.None)
-                {
-                    borders = Padding.Empty;
-                }
-                else
-                {
-                    borders = RealWindowBorders;
-                }
+                Padding borders = FormBorderStyle == FormBorderStyle.None ? Padding.Empty : RealWindowBorders;
 
                 // Extract the Win32 NCCALCSIZE_PARAMS structure from LPARAM
                 PI.NCCALCSIZE_PARAMS calcsize = (PI.NCCALCSIZE_PARAMS)m.GetLParam(typeof(PI.NCCALCSIZE_PARAMS));
@@ -1333,7 +1310,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     dwHoverTime = 100,
 
                     // We need to know then the mouse leaves the non client window area
-                    dwFlags = (int)(PI.TME_LEAVE | PI.TME_NONCLIENT),
+                    dwFlags = PI.TME_LEAVE | PI.TME_NONCLIENT,
 
                     // We want to track our own window
                     hWnd = Handle
@@ -1502,12 +1479,7 @@ namespace ComponentFactory.Krypton.Toolkit
             IMouseController controller = pointView?.FindMouseController();
 
             // Eat the message
-            if (controller != null)
-            {
-                return true;
-            }
-
-            return false;
+            return controller != null;
         }
 
         /// <summary>

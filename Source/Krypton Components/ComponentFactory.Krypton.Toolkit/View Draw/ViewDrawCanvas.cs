@@ -112,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteBack PaletteBack
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteBack; }
         }
         #endregion
@@ -123,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteBorder PaletteBorder
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteBorder; }
         }
         #endregion
@@ -134,7 +134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteMetric PaletteMetric
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteMetric; }
         }
         #endregion
@@ -188,7 +188,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public VisualOrientation Orientation
 		{
-		    [System.Diagnostics.DebuggerStepThrough]
+		    [DebuggerStepThrough]
 		    get;
 		    set;
 	    }
@@ -407,16 +407,13 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(context);
 
 			// Apply space the border takes up
-            if (DrawTabBorder)
-            {
-                preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State, Orientation, TabBorderStyle));
-            }
-            else
-            {
-                preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize, context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation));
-            }
+		    preferredSize = CommonHelper.ApplyPadding(Orientation, preferredSize,
+		        DrawTabBorder
+		            ? context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State, Orientation,
+		                TabBorderStyle)
+		            : context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation));
 
-            // Do we have a metric source for additional padding?
+		    // Do we have a metric source for additional padding?
             if (_paletteMetric != null)
 			{
 				// Apply padding needed outside the border of the canvas
@@ -454,17 +451,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 ClientRectangle = CommonHelper.ApplyPadding(Orientation, ClientRectangle, outerPadding);
 			}
 
-            Padding padding;
-
-            // Calculate how much space the border takes up
-            if (DrawTabBorder)
-            {
-                padding = context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State, Orientation, TabBorderStyle);
-            }
-            else
-            {
-                padding = context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation);
-            }
+		    // Calculate how much space the border takes up
+            Padding padding = DrawTabBorder
+                ? context.Renderer.RenderTabBorder.GetTabBorderDisplayPadding(context, _paletteBorder, State,
+                    Orientation, TabBorderStyle)
+                : context.Renderer.RenderStandardBorder.GetBorderDisplayPadding(_paletteBorder, State, Orientation);
 
             // Apply the padding to the client rectangle
             context.DisplayRectangle = CommonHelper.ApplyPadding(Orientation, ClientRectangle, padding);
@@ -551,16 +542,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Remember the current clipping region
                     _clipRegion = context.Graphics.Clip.Clone();
 
-                    GraphicsPath borderPath;
-
                     // Restrict the clipping to the area inside the canvas border
-                    if (DrawTabBorder)
+                    GraphicsPath borderPath = DrawTabBorder ? context.Renderer.RenderTabBorder.GetTabBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State, TabBorderStyle) : context.Renderer.RenderStandardBorder.GetBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State);
+
+                    if (borderPath == null)
                     {
-                        borderPath = context.Renderer.RenderTabBorder.GetTabBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State, TabBorderStyle);
-                    }
-                    else
-                    {
-                        borderPath = context.Renderer.RenderStandardBorder.GetBorderPath(context, ClientRectangle, _paletteBorder, Orientation, State);
+                        throw new ArgumentNullException(nameof(borderPath));
                     }
 
                     // Create a new region the same as the existing clipping region

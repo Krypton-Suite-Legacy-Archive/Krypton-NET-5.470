@@ -337,12 +337,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     _cms = new ContextMenuStrip();
                     _toggleHelpersMenu = new ToolStripMenuItem("Design Helpers", null, OnToggleHelpers);
-                    _moveFirstMenu = new ToolStripMenuItem("Move Separator First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
-                    _movePreviousMenu = new ToolStripMenuItem("Move Separator Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
-                    _moveNextMenu = new ToolStripMenuItem("Move Separator Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
-                    _moveLastMenu = new ToolStripMenuItem("Move Separator Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _moveFirstMenu = new ToolStripMenuItem("Move Separator First", Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move Separator Previous", Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move Separator Next", Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move Separator Last", Design.Properties.Resources.MoveLast, OnMoveLast);
                     _moveToGroupMenu = new ToolStripMenuItem("Move Separator To Group");
-                    _deleteSeparatorMenu = new ToolStripMenuItem("Delete Separator", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteSeparator);
+                    _deleteSeparatorMenu = new ToolStripMenuItem("Delete Separator", Design.Properties.Resources.delete2, OnDeleteSeparator);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),
                                                               _moveToGroupMenu, new ToolStripSeparator(),

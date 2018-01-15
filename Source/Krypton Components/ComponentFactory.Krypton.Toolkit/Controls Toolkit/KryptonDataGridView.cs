@@ -407,7 +407,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Palette applied to drawing.")]
         public PaletteMode PaletteMode
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _paletteMode; }
 
             set
@@ -461,7 +461,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(null)]
         public IPalette Palette
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _localPalette; }
 
             set
@@ -521,7 +521,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IRenderer Renderer
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
         }
@@ -836,7 +836,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected ViewManager ViewManager
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -846,7 +846,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
         }
@@ -959,16 +959,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected virtual bool EvalTransparentPaint()
         {
             // Do we have a manager to use for asking about painting?
-            if (ViewManager != null)
-            {
-                // Ask the view if it needs to paint transparent areas
-                return ViewManager.EvalTransparentPaint(Renderer);
-            }
-            else
-            {
-                // If there is no view then do not transparent paint
-                return false;
-            }
+            return ViewManager != null && ViewManager.EvalTransparentPaint(Renderer);
         }
 
         /// <summary>
@@ -1362,15 +1353,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                         //    hl_rect.Width = s2.Width - 6;
                                         //}
 
-                                        SolidBrush hl_brush;
-                                        if (((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None))
-                                        {
-                                            hl_brush = new SolidBrush(Color.DarkGoldenrod);
-                                        }
-                                        else
-                                        {
-                                            hl_brush = new SolidBrush(Color.Yellow);
-                                        }
+                                        SolidBrush hl_brush =
+                                            (e.State & DataGridViewElementStates.Selected) !=
+                                            DataGridViewElementStates.None
+                                                ? new SolidBrush(Color.DarkGoldenrod)
+                                                : new SolidBrush(Color.Yellow);
 
                                         e.Graphics.FillRectangle(hl_brush, hl_rect);
 
@@ -1555,7 +1542,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Internal
         internal PaletteRedirect Redirector
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             private set;
         }
@@ -2239,7 +2226,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                             _toolTipText = TruncateToolTipText(editedValue);
                                         }
                                     }
-                                    catch { }
+                                    catch
+                                    {
+                                        // ignored
+                                    }
                                 }
                             }
                         }
@@ -2320,7 +2310,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                     // Show relative to the provided screen point
-                    _visualPopupToolTip.ShowCalculatingSize(Control.MousePosition);
+                    _visualPopupToolTip.ShowCalculatingSize(MousePosition);
                 }
             }
         }

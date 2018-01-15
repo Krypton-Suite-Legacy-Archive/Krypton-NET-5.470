@@ -42,21 +42,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get
-            {
-                if (_numericUpDown != null)
-                {
-                    return _numericUpDown.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
-        #endregion
+        public override ICollection AssociatedComponents =>
+            _numericUpDown != null ? _numericUpDown.ButtonSpecs : base.AssociatedComponents;
+
+	    #endregion
 
         #region Private
         private void OnComponentRemoving(object sender, ComponentEventArgs e)

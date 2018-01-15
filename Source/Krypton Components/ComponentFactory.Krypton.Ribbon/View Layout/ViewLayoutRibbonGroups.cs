@@ -91,9 +91,9 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 Clear();
 
-                foreach (ViewDrawRibbonGroup group in _groupToView.Values)
+                foreach (ViewDrawRibbonGroup ribGroup in _groupToView.Values)
                 {
-                    @group.Dispose();
+                    ribGroup.Dispose();
                 }
 
                 foreach (ViewLayoutRibbonSeparator sep in _groupSepCache)
@@ -145,12 +145,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
 
                     // Only interested in group instances (not separators or others)
-                    if (child is ViewDrawRibbonGroup group)
+                    if (child is ViewDrawRibbonGroup ribGroup)
                     {
                         // Does this group match?
-                        if (group.ClientRectangle.Contains(pt))
+                        if (ribGroup.ClientRectangle.Contains(pt))
                         {
-                            return @group;
+                            return ribGroup;
                         }
                     }
                 }
@@ -170,11 +170,11 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyTipInfoList keyTipList = new KeyTipInfoList();
 
             // Ask each visible group to add its own key tips
-            foreach (ViewDrawRibbonGroup group in _groupToView.Values)
+            foreach (ViewDrawRibbonGroup ribGroup in _groupToView.Values)
             {
-                if (@group.Visible)
+                if (ribGroup.Visible)
                 {
-                    @group.GetGroupKeyTips(keyTipList);
+                    ribGroup.GetGroupKeyTips(keyTipList);
                 }
             }
 
@@ -243,18 +243,11 @@ namespace ComponentFactory.Krypton.Ribbon
             bool matched = false;
 
             // Search each group until one of them returns a focus item
-            foreach (ViewDrawRibbonGroup group in _groupToView.Values)
+            foreach (ViewDrawRibbonGroup ribGroup in _groupToView.Values)
             {
                 // Already matched means we need the next item we come across,
                 // otherwise we continue with the attempt to find next
-                if (matched)
-                {
-                    view = @group.GetFirstFocusItem();
-                }
-                else
-                {
-                    view = @group.GetNextFocusItem(current, ref matched);
-                }
+                view = matched ? ribGroup.GetFirstFocusItem() : ribGroup.GetNextFocusItem(current, ref matched);
 
                 if (view != null)
                 {
@@ -285,14 +278,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Already matched means we need the next item we come across,
                 // otherwise we continue with the attempt to find previous
-                if (matched)
-                {
-                    view = groups[i].GetLastFocusItem();
-                }
-                else
-                {
-                    view = groups[i].GetPreviousFocusItem(current, ref matched);
-                }
+                view = matched ? groups[i].GetLastFocusItem() : groups[i].GetPreviousFocusItem(current, ref matched);
 
                 if (view != null)
                 {
@@ -332,13 +318,13 @@ namespace ComponentFactory.Krypton.Ribbon
             int x = ClientLocation.X;
 
             // Are there any children to layout?
-            if (this.Count > 0)
+            if (Count > 0)
             {
                 int y = ClientLocation.Y;
                 int height = ClientHeight;
 
                 // Position each item from left to right taking up entire height
-                for (int i = 0, j = 0; i < this.Count; i++)
+                for (int i = 0, j = 0; i < Count; i++)
                 {
                     ViewBase child = this[i];
 
@@ -346,17 +332,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     if (child.Visible)
                     {
                         // Cache preferred size of the child
-                        Size childSize;
 
                         // If a group then pull in the cached value
-                        if (child is ViewDrawRibbonGroup)
-                        {
-                            childSize = new Size(_groupWidths[j++], _ribbon.CalculatedValues.GroupHeight);
-                        }
-                        else
-                        {
-                            childSize = this[i].GetPreferredSize(context);
-                        }
+                        Size childSize = child is ViewDrawRibbonGroup
+                            ? new Size(_groupWidths[j++], _ribbon.CalculatedValues.GroupHeight)
+                            : this[i].GetPreferredSize(context);
 
                         // Only interested in items with some width
                         if (childSize.Width > 0)
@@ -416,24 +396,24 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupToView regenerate = new GroupToView();
             
             // Make sure we have a view element to match each group
-            foreach(KryptonRibbonGroup group in _ribbonTab.Groups)
+            foreach(KryptonRibbonGroup ribGroup in _ribbonTab.Groups)
             {
                 ViewDrawRibbonGroup view = null;
 
                 // Get the currently cached view for the group
-                if (_groupToView.ContainsKey(group))
+                if (_groupToView.ContainsKey(ribGroup))
                 {
-                    view = _groupToView[@group];
+                    view = _groupToView[ribGroup];
                 }
 
                 // If a new group, create a view for it now
                 if (view == null)
                 {
-                    view = new ViewDrawRibbonGroup(_ribbon, @group, _needPaint);
+                    view = new ViewDrawRibbonGroup(_ribbon, ribGroup, _needPaint);
                 }
 
                 // Add to the lookup for future reference
-                regenerate.Add(group, view);
+                regenerate.Add(ribGroup, view);
             }
 
             if (_groupSepCache.Count < _ribbonTab.Groups.Count)
@@ -494,9 +474,9 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Dispose of views no longer required
-            foreach(ViewDrawRibbonGroup group in _groupToView.Values)
+            foreach(ViewDrawRibbonGroup ribGroup in _groupToView.Values)
             {
-                @group.Dispose();
+                ribGroup.Dispose();
             }
 
             // No longer need the old lookup

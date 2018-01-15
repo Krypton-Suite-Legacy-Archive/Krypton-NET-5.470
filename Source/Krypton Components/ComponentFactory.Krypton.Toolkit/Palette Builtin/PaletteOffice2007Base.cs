@@ -451,14 +451,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
-                    if (state == PaletteState.CheckedNormal)
-                    {
-                        return _ribbonColors[(int)SchemeOfficeColors.GridDataCellSelected];
-                    }
-                    else
-                    {
-                        return SystemColors.Window;
-                    }
+                    return state == PaletteState.CheckedNormal ? _ribbonColors[(int)SchemeOfficeColors.GridDataCellSelected] : SystemColors.Window;
 
                 case PaletteBackStyle.GridDataCellSheet:
                     if (state == PaletteState.CheckedNormal)

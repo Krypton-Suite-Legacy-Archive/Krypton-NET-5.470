@@ -171,14 +171,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 int rightSpace = ClientRectangle.Right - xRightMost;
 
                 // Use the side with the most space
-                if (leftSpace >= rightSpace)
-                {
-                    context.DisplayRectangle = new Rectangle(ClientLocation.X, ClientLocation.Y, leftSpace, ClientHeight);
-                }
-                else
-                {
-                    context.DisplayRectangle = new Rectangle(xRightMost, ClientLocation.Y, rightSpace, ClientHeight);
-                }
+                context.DisplayRectangle = leftSpace >= rightSpace
+                    ? new Rectangle(ClientLocation.X, ClientLocation.Y, leftSpace, ClientHeight)
+                    : new Rectangle(xRightMost, ClientLocation.Y, rightSpace, ClientHeight);
 
                 filler.Layout(context);
             }

@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Static Fields
-        private static readonly Size _keyTipInflateSize = new Size(8, 30);
+
         private static readonly MethodInfo _containerSelect;
         #endregion
 
@@ -81,7 +81,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private KeyTipControl _keyTipControlE;
         private KeyTipControl _keyTipControlD;
         private KeyTipMode _keyTipMode;
-        private Control _keyTipRelative;
         private Button _hiddenFocusTarget;
 
         // View Elements
@@ -141,7 +140,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public event CancelEventHandler AppButtonMenuOpening;
 
         /// <summary>
-        /// Occurs when the application button menu is opended.
+        /// Occurs when the application button menu is opened.
         /// </summary>
         [Category("Ribbon")]
         [Description("Occurs when the application button menu is fully opened for display.")]
@@ -1090,7 +1089,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
 
                 // Take the focus for ourself
-                PI.SetFocus(this.Handle);
+                PI.SetFocus(Handle);
 
                 // We are entering key tips mode
                 InKeyTipsMode = true;
@@ -1163,7 +1162,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                 Keys keys = ((Keys)((int)m.WParam.ToInt64()));
 
                                 // If the user standard combination ALT + F4
-                                if ((keys == Keys.F4) && ((Control.ModifierKeys & Keys.Alt) == Keys.Alt))
+                                if ((keys == Keys.F4) && ((ModifierKeys & Keys.Alt) == Keys.Alt))
                                 {
                                     // Attempt to close the form
                                     ownerForm.Close();
@@ -1172,7 +1171,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                 else
                                 {
                                     // Give ourself a chance to process any shortcuts
-                                    return ProcessCmdKey(ref m, keys | Control.ModifierKeys);
+                                    return ProcessCmdKey(ref m, keys | ModifierKeys);
                                 }
                             }
                         }
@@ -2168,15 +2167,12 @@ namespace ComponentFactory.Krypton.Ribbon
             // Do we need to allow the QAT location to be inverted?
             if (QATLocation != QATLocation.Hidden)
             {
-                KryptonContextMenuItem showQAT = new KryptonContextMenuItem();
-                if (QATLocation == QATLocation.Above)
+                KryptonContextMenuItem showQAT = new KryptonContextMenuItem
                 {
-                    showQAT.Text = RibbonStrings.ShowBelowRibbon;
-                }
-                else
-                {
-                    showQAT.Text = RibbonStrings.ShowAboveRibbon;
-                }
+                    Text = QATLocation == QATLocation.Above
+                        ? RibbonStrings.ShowBelowRibbon
+                        : RibbonStrings.ShowAboveRibbon
+                };
                 showQAT.Click += OnInvertQATLocation;
 
                 // Add into the context menu
@@ -2251,15 +2247,12 @@ namespace ComponentFactory.Krypton.Ribbon
             // Do we need to allow the QAT location to be inverted?
             if (QATLocation != QATLocation.Hidden)
             {
-                KryptonContextMenuItem showQAT = new KryptonContextMenuItem();
-                if (QATLocation == QATLocation.Above)
+                KryptonContextMenuItem showQAT = new KryptonContextMenuItem
                 {
-                    showQAT.Text = RibbonStrings.ShowQATBelowRibbon;
-                }
-                else
-                {
-                    showQAT.Text = RibbonStrings.ShowQATAboveRibbon;
-                }
+                    Text = QATLocation == QATLocation.Above
+                        ? RibbonStrings.ShowQATBelowRibbon
+                        : RibbonStrings.ShowQATAboveRibbon
+                };
                 showQAT.Click += OnInvertQATLocation;
 
                 // Add into the context menu
@@ -2519,18 +2512,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 switch (_keyTipMode)
                 {
                     case KeyTipMode.PopupGroup:
-                        _keyTipRelative = VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupGroup));
+                        VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupGroup));
                         break;
                     case KeyTipMode.PopupMinimized:
-                        _keyTipRelative = VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupMinimized));
+                        VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupMinimized));
                         break;
                     case KeyTipMode.PopupQATOverflow:
-                        _keyTipRelative = VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupQATOverflow));
+                        VisualPopupManager.Singleton.TrackingByType(typeof(VisualPopupQATOverflow));
                         break;
                     case KeyTipMode.SelectedGroups:
                     case KeyTipMode.Root:
                     default:
-                        _keyTipRelative = this;
                         break;
                 }
             }
@@ -2575,14 +2567,9 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Add the quick access toolbar buttons
-            if (QATLocation == QATLocation.Above)
-            {
-                keyTipList.AddRange(CaptionArea.VisibleQAT.GetQATKeyTips());
-            }
-            else
-            {
-                keyTipList.AddRange(_qatBelowContents.GetQATKeyTips(null));
-            }
+            keyTipList.AddRange(QATLocation == QATLocation.Above
+                ? CaptionArea.VisibleQAT.GetQATKeyTips()
+                : _qatBelowContents.GetQATKeyTips(null));
 
             // Add the tab headers
             keyTipList.AddRange(TabsArea.GetTabKeyTips());
@@ -2636,17 +2623,9 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
 
-        internal Point ViewPointToScreen(Point pt)
-        {
-            if (VisualPopupManager.Singleton.CurrentPopup != null)
-            {
-                return VisualPopupManager.Singleton.CurrentPopup.PointToScreen(pt);
-            }
-            else
-            {
-                return PointToScreen(pt);
-            }
-        }
+        internal Point ViewPointToScreen(Point pt) => VisualPopupManager.Singleton.CurrentPopup != null
+            ? VisualPopupManager.Singleton.CurrentPopup.PointToScreen(pt)
+            : PointToScreen(pt);
 
         internal Rectangle ViewRectangleToScreen(ViewBase view)
         {
@@ -2900,7 +2879,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (_altDown)
             {
-                if ((Control.ModifierKeys & Keys.Alt) != Keys.Alt)
+                if ((ModifierKeys & Keys.Alt) != Keys.Alt)
                 {
                     _altDown = false;
                     _altUpCount++;
@@ -2912,7 +2891,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             if (!_altDown)
             {
-                if ((Control.ModifierKeys & Keys.Alt) == Keys.Alt)
+                if ((ModifierKeys & Keys.Alt) == Keys.Alt)
                 {
                     _altDown = true;
                 }
@@ -3263,10 +3242,9 @@ namespace ComponentFactory.Krypton.Ribbon
             if (qatButton != null)
             {
                 qatButton.SetRibbon(this);
+                // Track changes in button properties
+                qatButton.PropertyChanged += OnQATButtonPropertyChanged;
             }
-
-            // Track changes in button properties
-            qatButton.PropertyChanged += OnQATButtonPropertyChanged;
 
             // Display not updated until a layout occurs
             PerformNeedPaint(true);
@@ -3330,14 +3308,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // End any keyboard mode
             KillKeyboardMode();
 
-            if (QATLocation == QATLocation.Above)
-            {
-                QATLocation = QATLocation.Below;
-            }
-            else
-            {
-                QATLocation = QATLocation.Above;
-            }
+            QATLocation = QATLocation == QATLocation.Above ? QATLocation.Below : QATLocation.Above;
         }
 
         private void OnInvertMinimizeMode(object sender, EventArgs e)

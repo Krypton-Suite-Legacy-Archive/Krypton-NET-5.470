@@ -314,11 +314,11 @@ namespace ComponentFactory.Krypton.Ribbon
                 keyTips.AddRange(groups.GetGroupKeyTips());
 
                 // Remove all those that do not intercept the view rectangle
-                for (int i = 0; i < keyTips.Count; i++)
+                foreach (KeyTipInfo tip in keyTips)
                 {
-                    if (!_viewClipRect.Contains(keyTips[i].ClientRect))
+                    if (!_viewClipRect.Contains(tip.ClientRect))
                     {
-                        keyTips[i].Visible = false;
+                        tip.Visible = false;
                     }
                 }
 
@@ -592,14 +592,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _viewClipRect = controlRect;
 
                 // Apply the offset to the display of the view filler
-                if (Orientation == Orientation.Horizontal)
-                {
-                    ViewLayoutControl.LayoutOffset = new Point(-_scrollOffset, 0);
-                }
-                else
-                {
-                    ViewLayoutControl.LayoutOffset = new Point(0, -_scrollOffset);
-                }
+                ViewLayoutControl.LayoutOffset = Orientation == Orientation.Horizontal
+                    ? new Point(-_scrollOffset, 0)
+                    : new Point(0, -_scrollOffset);
 
                 // Position the filler in the remaining space
                 context.DisplayRectangle = layoutRect;

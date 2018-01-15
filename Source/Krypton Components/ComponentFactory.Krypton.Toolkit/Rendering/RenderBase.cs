@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public IRenderBorder RenderStandardBorder 
 		{
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
 		}
 
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public IRenderBack RenderStandardBack
 		{
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
 		}
 
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public IRenderContent RenderStandardContent
 		{
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
 		}
 
@@ -118,7 +118,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IRenderTabBorder RenderTabBorder
 		{
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
 		}
 
@@ -127,7 +127,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IRenderRibbon RenderRibbon
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
         }
 
@@ -136,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IRenderGlyph RenderGlyph 
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return this; }
         }
 

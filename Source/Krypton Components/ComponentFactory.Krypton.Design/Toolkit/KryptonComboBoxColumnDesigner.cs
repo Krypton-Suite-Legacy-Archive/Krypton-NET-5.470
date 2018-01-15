@@ -42,21 +42,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get
-            {
-                if (_comboBox != null)
-                {
-                    return _comboBox.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
-        #endregion
+        public override ICollection AssociatedComponents =>
+            _comboBox != null ? _comboBox.ButtonSpecs : base.AssociatedComponents;
+
+	    #endregion
 
         #region Private
         private void OnComponentRemoving(object sender, ComponentEventArgs e)

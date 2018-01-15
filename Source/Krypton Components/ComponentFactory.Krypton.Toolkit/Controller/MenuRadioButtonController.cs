@@ -110,14 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool MatchMnemonic(char charCode)
         {
             // Only interested in enabled items
-            if (_menuRadioButton.ItemEnabled)
-            {
-                return Control.IsMnemonic(charCode, _menuRadioButton.ItemText);
-            }
-            else
-            {
-                return false;
-            }
+            return _menuRadioButton.ItemEnabled && Control.IsMnemonic(charCode, _menuRadioButton.ItemText);
         }
 
         /// <summary>
@@ -482,14 +475,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteState state = (_menuRadioButton.ItemEnabled ? PaletteState.Normal : PaletteState.Disabled);
             if (_mouseOver)
             {
-                if (_mouseDown)
-                {
-                    state = PaletteState.Pressed;
-                }
-                else
-                {
-                    state = PaletteState.Tracking;
-                }
+                state = _mouseDown ? PaletteState.Pressed : PaletteState.Tracking;
             }
 
             switch (state)

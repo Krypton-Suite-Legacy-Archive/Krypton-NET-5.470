@@ -223,7 +223,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         _obscurer.Dispose();
                         _obscurer = null;
                     }
-                    catch { }
+                    catch
+                    {
+                        // ignored
+                    }
                 }
 
                 // Remove ant showing tooltip
@@ -287,13 +290,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
+            // ReSharper disable RedundantBaseQualifier
             get => base.GetAutoSizeMode();
+            // ReSharper restore RedundantBaseQualifier
 
             set
             {
+                // ReSharper disable RedundantBaseQualifier
                 if (value != base.GetAutoSizeMode())
                 {
                     base.SetAutoSizeMode(value);
+                    // ReSharper restore RedundantBaseQualifier
 
                     // Only perform an immediate layout if
                     // currently performing auto size operations
@@ -316,20 +323,14 @@ namespace ComponentFactory.Krypton.Toolkit
 		    set => ValuesPrimary.Heading = value;
 		}
 
-		private bool ShouldSerializeText()
-		{
-			// Never serialize, let the header values serialize instead
-			return false;
-		}
+        // Never serialize, let the header values serialize instead
+		private bool ShouldSerializeText() => false;
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public override void ResetText()
-		{
-			// Map onto the heading property from the values
-			ValuesPrimary.ResetHeading();
-		}
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        // Map onto the heading property from the values
+        public override void ResetText() => ValuesPrimary.ResetHeading();
 
         /// <summary>
         /// Gets or sets a value indicating whether mnemonics will fire button spec buttons.
@@ -422,15 +423,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetCollapseTarget()
-        {
-            CollapseTarget = HeaderGroupCollapsedTarget.CollapsedToPrimary;
-        }
+        private void ResetCollapseTarget() => CollapseTarget = HeaderGroupCollapsedTarget.CollapsedToPrimary;
 
-        private bool ShouldSerializeCollapseTarget()
-        {
-            return (CollapseTarget != HeaderGroupCollapsedTarget.CollapsedToPrimary);
-        }
+        private bool ShouldSerializeCollapseTarget() => (CollapseTarget != HeaderGroupCollapsedTarget.CollapsedToPrimary);
 
 
         /// <summary>
@@ -468,16 +463,10 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetGroupBorderStyle()
-        {
-            GroupBorderStyle = PaletteBorderStyle.ControlClient;
-        }
+        private void ResetGroupBorderStyle() => GroupBorderStyle = PaletteBorderStyle.ControlClient;
 
-        private bool ShouldSerializeGroupBorderStyle()
-        {
-            return (GroupBorderStyle != PaletteBorderStyle.ControlClient);
-        }
-        
+        private bool ShouldSerializeGroupBorderStyle() => (GroupBorderStyle != PaletteBorderStyle.ControlClient);
+
         /// <summary>
 		/// Gets and sets the background style.
 		/// </summary>
@@ -498,20 +487,14 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetGroupBackStyle()
-        {
-            GroupBackStyle = PaletteBackStyle.ControlClient;
-        }
+        private void ResetGroupBackStyle() => GroupBackStyle = PaletteBackStyle.ControlClient;
 
-        private bool ShouldSerializeGroupBackStyle()
-        {
-            return (GroupBackStyle != PaletteBackStyle.ControlClient);
-        }
-        
+        private bool ShouldSerializeGroupBackStyle() => (GroupBackStyle != PaletteBackStyle.ControlClient);
+
         /// <summary>
-		/// Gets and sets the primary header style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the primary header style.
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Primary header style.")]
 		public HeaderStyle HeaderStylePrimary
 		{
@@ -528,20 +511,14 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetHeaderStylePrimary()
-        {
-            HeaderStylePrimary = HeaderStyle.Primary;
-        }
+        private void ResetHeaderStylePrimary() => HeaderStylePrimary = HeaderStyle.Primary;
 
-        private bool ShouldSerializeHeaderStylePrimary()
-        {
-            return (HeaderStylePrimary != HeaderStyle.Primary);
-        }
-        
+        private bool ShouldSerializeHeaderStylePrimary() => (HeaderStylePrimary != HeaderStyle.Primary);
+
         /// <summary>
-		/// Gets and sets the secondary header style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the secondary header style.
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Secondary header style.")]
 		public HeaderStyle HeaderStyleSecondary
 		{
@@ -558,17 +535,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetHeaderStyleSecondary()
-        {
-            HeaderStyleSecondary = HeaderStyle.Secondary;
-        }
+        private void ResetHeaderStyleSecondary() => HeaderStyleSecondary = HeaderStyle.Secondary;
 
-        private bool ShouldSerializeHeaderStyleSecondary()
-        {
-            return (HeaderStyleSecondary != HeaderStyle.Secondary);
-        }
+        private bool ShouldSerializeHeaderStyleSecondary() => (HeaderStyleSecondary != HeaderStyle.Secondary);
 
-		/// <summary>
+        /// <summary>
 		/// Gets and sets the position of the primary header.
 		/// </summary>
 		[Category("Visuals")]
@@ -662,11 +633,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderGroupRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
-        
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
+
         /// <summary>
 		/// Gets access to the disabled header group appearance entries.
 		/// </summary>
@@ -675,12 +643,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public PaletteHeaderGroup StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
-		/// <summary>
+        /// <summary>
 		/// Gets access to the normal header group appearance entries.
 		/// </summary>
 		[Category("Visuals")]
@@ -688,12 +653,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public PaletteHeaderGroup StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
-		/// <summary>
+        /// <summary>
 		/// Gets access to the primary header content.
 		/// </summary>
 		[Category("Visuals")]
@@ -701,12 +663,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public HeaderGroupValuesPrimary ValuesPrimary { get; }
 
-        private bool ShouldSerializeValuesPrimary()
-		{
-			return !ValuesPrimary.IsDefault;
-		}
+        private bool ShouldSerializeValuesPrimary() => !ValuesPrimary.IsDefault;
 
-		/// <summary>
+        /// <summary>
 		/// Gets access to the secondary header content.
 		/// </summary>
 		[Category("Visuals")]
@@ -714,10 +673,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public HeaderGroupValuesSecondary ValuesSecondary { get; }
 
-        private bool ShouldSerializeValuesSecondary()
-		{
-			return !ValuesSecondary.IsDefault;
-		}
+        private bool ShouldSerializeValuesSecondary() => !ValuesSecondary.IsDefault;
 
         /// <summary>
         /// Get the preferred size of the control based on a proposed size.
@@ -811,14 +767,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -830,13 +779,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -877,10 +822,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the CollapsedChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnCollapsedChanged(EventArgs e)
-        {
-            CollapsedChanged?.Invoke(this, e);
-        }
+        protected virtual void OnCollapsedChanged(EventArgs e) => CollapsedChanged?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -889,10 +831,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -1119,16 +1058,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Implementation
-        private void OnRemoveObscurer(object sender, EventArgs e)
-        {
-            _obscurer?.Uncover();
-        }
+        #region Implementation
+        private void OnRemoveObscurer(object sender, EventArgs e) => _obscurer?.Uncover();
 
-        private void OnHeaderGroupTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(EventArgs.Empty);
-        }
+        private void OnHeaderGroupTextChanged(object sender, EventArgs e) => OnTextChanged(EventArgs.Empty);
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {
@@ -1190,11 +1123,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnCancelToolTip(object sender, EventArgs e)
-        {
-            // Remove any currently showing tooltip
-            _visualPopupToolTip?.Dispose();
-        }
+        // Remove any currently showing tooltip
+        private void OnCancelToolTip(object sender, EventArgs e) => _visualPopupToolTip?.Dispose();
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
         {
@@ -1206,17 +1136,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _visualPopupToolTip = null;
         }
 
-        private void OnButtonSpecInserted(object sender, ButtonSpecEventArgs e)
-        {
-            // Monitor the button spec being clicked
-            e.ButtonSpec.Click += OnButtonSpecClicked;
-        }
+        // Monitor the button spec being clicked
+        private void OnButtonSpecInserted(object sender, ButtonSpecEventArgs e) => e.ButtonSpec.Click += OnButtonSpecClicked;
 
-        private void OnButtonSpecRemoved(object sender, ButtonSpecEventArgs e)
-        {
-            // Unhook from monitoring the button spec
-            e.ButtonSpec.Click -= OnButtonSpecClicked;
-        }
+        // Unhook from monitoring the button spec
+        private void OnButtonSpecRemoved(object sender, ButtonSpecEventArgs e) => e.ButtonSpec.Click -= OnButtonSpecClicked;
 
         private void OnButtonSpecClicked(object sender, EventArgs e)
         {

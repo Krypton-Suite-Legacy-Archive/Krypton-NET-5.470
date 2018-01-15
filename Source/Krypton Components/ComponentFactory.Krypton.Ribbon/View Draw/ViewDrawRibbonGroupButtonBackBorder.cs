@@ -275,14 +275,8 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Entire area is drawn using draw state
                     DrawBackground(_paletteBack, context, ClientRectangle, drawState);
 
-                    if (ConstantBorder)
-                    {
-                        DrawBorder(_paletteBorder, context, ClientRectangle, PaletteState.Normal);
-                    }
-                    else
-                    {
-                        DrawBorder(_paletteBorder, context, ClientRectangle, drawState);
-                    }
+                    DrawBorder(_paletteBorder, context, ClientRectangle,
+                        ConstantBorder ? PaletteState.Normal : drawState);
                     break;
                 case GroupButtonType.Split:
                     if (SplitVertical)
@@ -492,7 +486,6 @@ namespace ComponentFactory.Krypton.Ribbon
         private void DrawHorizontalSplit(RenderContext context, PaletteState drawState)
         {
             // We need the rectangle that represents just the split area
-            int partialWidth = ((ClientWidth / 3) * 2);
             Rectangle splitRectangle = Controller.SplitRectangle;
             Rectangle beforeSplitRect = new Rectangle(ClientLocation, new Size(splitRectangle.X - ClientLocation.X, ClientHeight));
             Rectangle splitterRect = new Rectangle(splitRectangle.Location, new Size(1, ClientHeight));

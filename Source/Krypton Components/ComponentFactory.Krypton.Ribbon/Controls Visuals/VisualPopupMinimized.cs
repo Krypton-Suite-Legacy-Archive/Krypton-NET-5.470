@@ -347,14 +347,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     int spareBelow = workingArea.Bottom - parentTabsRect.Bottom;
 
                     // Place it in the area with the most space
-                    if (spareAbove > spareBelow)
-                    {
-                        popupRect.Y = workingArea.Top;
-                    }
-                    else
-                    {
-                        popupRect.Y = parentTabsRect.Bottom;
-                    }
+                    popupRect.Y = spareAbove > spareBelow ? workingArea.Top : parentTabsRect.Bottom;
                 }
             }
 

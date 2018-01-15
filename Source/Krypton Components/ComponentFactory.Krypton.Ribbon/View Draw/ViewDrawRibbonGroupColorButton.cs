@@ -140,14 +140,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only take focus if we are visible and enabled
             if (GroupColorButton.Visible && GroupColorButton.Enabled)
             {
-                if (_viewLarge == GroupColorButton.ColorButtonView)
-                {
-                    return _viewLarge;
-                }
-                else
-                {
-                    return _viewMediumSmall;
-                }
+                return _viewLarge == GroupColorButton.ColorButtonView ? _viewLarge : _viewMediumSmall;
             }
             else
             {
@@ -166,14 +159,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only take focus if we are visible and enabled
             if (GroupColorButton.Visible && GroupColorButton.Enabled)
             {
-                if (_viewLarge == GroupColorButton.ColorButtonView)
-                {
-                    return _viewLarge;
-                }
-                else
-                {
-                    return _viewMediumSmall;
-                }
+                return _viewLarge == GroupColorButton.ColorButtonView ? _viewLarge : _viewMediumSmall;
             }
             else
             {
@@ -284,14 +270,9 @@ namespace ComponentFactory.Krypton.Ribbon
             // Get the preferred size of button view
             Size preferredSize = base.GetPreferredSize(context);
 
-            if (_currentSize == GroupItemSize.Large)
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
-            }
-            else
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
-            }
+            preferredSize.Height = _currentSize == GroupItemSize.Large
+                ? _ribbon.CalculatedValues.GroupTripleHeight
+                : _ribbon.CalculatedValues.GroupLineHeight;
 
             return preferredSize;
         }
@@ -520,14 +501,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Only show as checked if also a check type button
             if (GroupColorButton.ButtonType == GroupButtonType.Check)
             {
-                if (GroupColorButton.KryptonCommand != null)
-                {
-                    checkedState = GroupColorButton.KryptonCommand.Checked;
-                }
-                else
-                {
-                    checkedState = GroupColorButton.Checked;
-                }
+                checkedState = GroupColorButton.KryptonCommand?.Checked ?? GroupColorButton.Checked;
             }
 
             _viewLarge.Checked = checkedState;

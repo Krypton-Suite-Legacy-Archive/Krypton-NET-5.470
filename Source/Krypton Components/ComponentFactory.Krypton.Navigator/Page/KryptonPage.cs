@@ -1267,7 +1267,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            this.OnLoad(EventArgs.Empty);
+            OnLoad(EventArgs.Empty);
         }
 
         /// <summary>
@@ -1296,14 +1296,7 @@ namespace ComponentFactory.Krypton.Navigator
                     Point mousePt = new Point(PI.LOWORD(m.LParam), PI.HIWORD(m.LParam));
 
                     // If keyboard activated, the menu position is centered
-                    if (((int)((long)m.LParam)) == -1)
-                    {
-                        mousePt = new Point(Width / 2, Height / 2);
-                    }
-                    else
-                    {
-                        mousePt = PointToClient(mousePt);
-                    }
+                    mousePt = ((int)((long)m.LParam)) == -1 ? new Point(Width / 2, Height / 2) : PointToClient(mousePt);
 
                     // If the mouse posiiton is within our client area
                     if (ClientRectangle.Contains(mousePt))

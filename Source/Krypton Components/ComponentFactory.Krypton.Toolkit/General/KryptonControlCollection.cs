@@ -39,7 +39,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void AddInternal(Control control)
         {
+            // ReSharper disable RedundantBaseQualifier
+            // Do not remove base, as the KryptonReadOnlyControls is a mess !
             base.Add(control);
+            // ReSharper restore RedundantBaseQualifier
         }
         #endregion
 
@@ -52,7 +55,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void RemoveInternal(Control control)
         {
+            // ReSharper disable RedundantBaseQualifier
+            // Do not remove base, as the KryptonReadOnlyControls is a mess !
             base.Remove(control);
+            // ReSharper restore RedundantBaseQualifier
         }
         #endregion
 

@@ -167,19 +167,13 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseEnter(EventArgs e)
-            {
-                TrackMouseEnter?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
             /// <summary>
             /// Raises the TrackMouseLeave event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseLeave(EventArgs e)
-            {
-                TrackMouseLeave?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
 
             #region Internal
@@ -330,7 +324,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 dwHoverTime = 100,
 
                                 // We need to know then the mouse leaves the client window area
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
 
                                 // We want to track our own window
                                 hWnd = Handle
@@ -401,25 +395,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     switch (NumericUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
-                                            if (NumericUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
+                                            stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Right:
-                                            if (NumericUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
+                                            stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Near
+                                                : StringAlignment.Far;
 
                                             break;
                                         case HorizontalAlignment.Center:
@@ -495,19 +479,13 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseEnter(EventArgs e)
-            {
-                TrackMouseEnter?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
             /// <summary>
             /// Raises the TrackMouseLeave event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseLeave(EventArgs e)
-            {
-                TrackMouseLeave?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
         }
         
@@ -556,39 +534,27 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Gets the content short text.
             /// </summary>
             /// <returns>String value.</returns>
-            public virtual string GetShortText()
-            {
-                return string.Empty;
-            }
+            public virtual string GetShortText() => string.Empty;
 
             /// <summary>
             /// Gets the content image.
             /// </summary>
             /// <param name="state">The state for which the image is needed.</param>
             /// <returns>Image value.</returns>
-            public virtual Image GetImage(PaletteState state)
-            {
-                return null;
-            }
+            public virtual Image GetImage(PaletteState state) => null;
 
             /// <summary>
             /// Gets the image color that should be transparent.
             /// </summary>
             /// <param name="state">The state for which the image is needed.</param>
             /// <returns>Color value.</returns>
-            public virtual Color GetImageTransparentColor(PaletteState state)
-            {
-                return Color.Empty;
-            }
+            public virtual Color GetImageTransparentColor(PaletteState state) => Color.Empty;
 
             /// <summary>
             /// Gets the content long text.
             /// </summary>
             /// <returns>String value.</returns>
-            public virtual string GetLongText()
-            {
-                return string.Empty;
-            }
+            public virtual string GetLongText() => string.Empty;
             #endregion
 
             #region Protected
@@ -744,14 +710,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (NumericUpDown.IsActive || (NumericUpDown.IsFixedActive && (NumericUpDown.InputControlStyle == InputControlStyle.Standalone)))
                     {
-                        if (NumericUpDown.InputControlStyle == InputControlStyle.Standalone)
-                        {
-                            return PaletteState.CheckedNormal;
-                        }
-                        else
-                        {
-                            return PaletteState.CheckedTracking;
-                        }
+                        return NumericUpDown.InputControlStyle == InputControlStyle.Standalone ? PaletteState.CheckedNormal : PaletteState.CheckedTracking;
                     }
                     else
                     {
@@ -1292,15 +1251,9 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetInputControlStyle()
-        {
-            InputControlStyle = InputControlStyle.Standalone;
-        }
+        private void ResetInputControlStyle() => InputControlStyle = InputControlStyle.Standalone;
 
-        private bool ShouldSerializeInputControlStyle()
-        {
-            return (InputControlStyle != InputControlStyle.Standalone);
-        }
+        private bool ShouldSerializeInputControlStyle() => (InputControlStyle != InputControlStyle.Standalone);
 
         /// <summary>
         /// Gets and sets the up and down buttons style.
@@ -1321,15 +1274,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetUpDownButtonStyle()
-        {
-            UpDownButtonStyle = ButtonStyle.InputControl;
-        }
+        private void ResetUpDownButtonStyle() => UpDownButtonStyle = ButtonStyle.InputControl;
 
-        private bool ShouldSerializeUpDownButtonStyle()
-        {
-            return (UpDownButtonStyle != ButtonStyle.InputControl);
-        }
+        private bool ShouldSerializeUpDownButtonStyle() => (UpDownButtonStyle != ButtonStyle.InputControl);
 
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
@@ -1355,36 +1302,27 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
-        
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
+
         /// <summary>
         /// Gets access to the disabled textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Overrides for defining disabled textbox appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Overrides for defining normal textbox appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the active textbox appearance entries.
@@ -1394,29 +1332,20 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Selects a range of text in the control.
         /// </summary>
         /// <param name="start">The position of the first character in the current text selection within the text box.</param>
         /// <param name="length">The number of characters to select.</param>
-        public void Select(int start, int length)
-        {
-            _numericUpDown.Select(start, length);
-        }
+        public void Select(int start, int length) => _numericUpDown.Select(start, length);
 
         /// <summary>
         /// Sets the fixed state of the control.
         /// </summary>
         /// <param name="active">Should the control be fixed as active.</param>
-        public void SetFixedState(bool active)
-        {
-            _fixedActive = active;
-        }
+        public void SetFixedState(bool active) => _fixedActive = active;
 
         /// <summary>
         /// Gets access to the ToolTipManager used for displaying tool tips.
@@ -1452,41 +1381,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (NumericUpDown != null)
-            {
-                return NumericUpDown.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => NumericUpDown != null && NumericUpDown.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            NumericUpDown?.Select();
-        }
+        public new void Select() => NumericUpDown?.Select();
 
         /// <summary>
         /// Displays the previous item in the collection.
         /// </summary>
-        public void UpButton()
-        {
-            NumericUpDown.UpButton();
-        }
+        public void UpButton() => NumericUpDown.UpButton();
 
         /// <summary>
         /// Displays the next item in the collection.
         /// </summary>
-        public void DownButton()
-        {
-            NumericUpDown.DownButton();
-        }
+        public void DownButton() => NumericUpDown.DownButton();
 
         /// <summary>
         /// Get the preferred size of the control based on a proposed size.
@@ -1545,16 +1455,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 // The inside text box is the client rectangle size
                 return new Rectangle(_numericUpDown.Location, _numericUpDown.Size);
 			}
-		}	
-	
+		}
+
         /// <summary>
         /// Override the display padding for the layout fill.
         /// </summary>
         /// <param name="padding">Display padding value.</param>
-        public void SetLayoutDisplayPadding(Padding padding)
-        {
-            _layoutFill.DisplayPadding = padding;
-        }
+        public void SetLayoutDisplayPadding(Padding padding) => _layoutFill.DisplayPadding = padding;
 
         /// <summary>
         /// Internal design time method.
@@ -1571,14 +1478,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1590,13 +1490,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1633,7 +1529,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _numericUpDown.InternalUserEdit;
             set => _numericUpDown.InternalUserEdit = value;
-        }        
+        }
         #endregion
 
         #region Protected Virtual
@@ -1641,28 +1537,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the ValueChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnValueChanged(EventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
-        }
+        protected virtual void OnValueChanged(EventArgs e) => ValueChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -1671,10 +1558,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -1749,37 +1633,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Resize event.
@@ -1935,10 +1807,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the PaddingChanged event.
         /// </summary>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-        protected override void OnPaddingChanged(EventArgs e)
-        {
-            PaddingChanged?.Invoke(this, e);
-        }
+        protected override void OnPaddingChanged(EventArgs e) => PaddingChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TabStop event.
@@ -1964,10 +1833,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the TextChanged event.
         /// </summary>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-        protected override void OnTextChanged(EventArgs e)
-        {
-            TextChanged?.Invoke(this, e);
-        }
+        protected override void OnTextChanged(EventArgs e) => TextChanged?.Invoke(this, e);
 
         /// <summary>
         /// Process Windows-based messages.
@@ -2069,10 +1935,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void UpdateChildEditControl()
-        {
-            SubclassEditControl();
-        }
+        private void UpdateChildEditControl() => SubclassEditControl();
 
         private void UpdateStateAndPalettes()
         {
@@ -2084,37 +1947,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetTripleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        internal IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int PreferredHeight
         {
@@ -2128,22 +1966,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnNumericUpDownTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(e);
-        }
+        private void OnNumericUpDownTextChanged(object sender, EventArgs e) => OnTextChanged(e);
 
-        private void OnNumericUpDownValueChanged(object sender, EventArgs e)
-        {
-            OnValueChanged(e);
-        }
+        private void OnNumericUpDownValueChanged(object sender, EventArgs e) => OnValueChanged(e);
 
         private void OnNumericUpDownGotFocus(object sender, EventArgs e)
         {
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
             InvalidateChildren();
+            // ReSharper disable RedundantBaseQualifier
             base.OnGotFocus(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
         private void OnNumericUpDownLostFocus(object sender, EventArgs e)
@@ -2151,38 +1985,22 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
             InvalidateChildren();
+            // ReSharper disable RedundantBaseQualifier
             base.OnLostFocus(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
-        private void OnNumericUpDownKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnNumericUpDownKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnNumericUpDownKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnNumericUpDownKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnNumericUpDownKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnNumericUpDownKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnNumericUpDownPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnNumericUpDownPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnNumericUpDownValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnNumericUpDownValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnNumericUpDownValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnNumericUpDownValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {

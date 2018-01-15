@@ -189,7 +189,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (GetViewManager() != null)
                 {
                     // Use the root controls view manager to process the event
-                    GetViewManager().DoubleClick(this.PointToClient(Control.MousePosition));
+                    GetViewManager().DoubleClick(PointToClient(MousePosition));
                 }
             }
 

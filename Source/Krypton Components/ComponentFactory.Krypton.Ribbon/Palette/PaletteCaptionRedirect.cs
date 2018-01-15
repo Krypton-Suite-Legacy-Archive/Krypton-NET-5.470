@@ -41,14 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
             PaletteDrawBorders paletteBorder = base.GetBorderDrawBorders(style, state);
 
             // The ribbon caption area should only ever draw a bottom border as the maximum
-            if ((paletteBorder & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom)
-            {
-                return PaletteDrawBorders.Bottom;
-            }
-            else
-            {
-                return PaletteDrawBorders.None;
-            }
+            return (paletteBorder & PaletteDrawBorders.Bottom) == PaletteDrawBorders.Bottom ? PaletteDrawBorders.Bottom : PaletteDrawBorders.None;
         }
         #endregion
     }

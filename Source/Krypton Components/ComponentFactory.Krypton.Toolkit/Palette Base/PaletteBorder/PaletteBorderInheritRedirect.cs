@@ -90,137 +90,92 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBorderDraw(PaletteState state)
-		{
-            if (OverrideBorderToFalse)
-            {
-                return InheritBool.False;
-            }
-            else
-            {
-                return _redirect.GetBorderDraw(Style, state);
-            }
-        }
+		public override InheritBool GetBorderDraw(PaletteState state) =>
+		    OverrideBorderToFalse ? InheritBool.False : _redirect.GetBorderDraw(Style, state);
 
         /// <summary>
         /// Gets a value indicating which borders to draw.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteDrawBorders value.</returns>
-        public override PaletteDrawBorders GetBorderDrawBorders(PaletteState state)
-        {
-            return _redirect.GetBorderDrawBorders(Style, state);
-        }
+        public override PaletteDrawBorders GetBorderDrawBorders(PaletteState state) => _redirect.GetBorderDrawBorders(Style, state);
 
-		/// <summary>
-		/// Gets the graphics drawing hint.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)
-		{
-			return _redirect.GetBorderGraphicsHint(Style, state);
-		}
+        /// <summary>
+        /// Gets the graphics drawing hint.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state) => _redirect.GetBorderGraphicsHint(Style, state);
 
-		/// <summary>
-		/// Gets the first border color from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor1(PaletteState state)
-		{
-			return _redirect.GetBorderColor1(Style, state);
-		}
+        /// <summary>
+        /// Gets the first border color from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor1(PaletteState state) => _redirect.GetBorderColor1(Style, state);
 
-		/// <summary>
-		/// Gets the second border color from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor2(PaletteState state)
-		{
-			return _redirect.GetBorderColor2(Style, state);
-		}
+        /// <summary>
+        /// Gets the second border color from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor2(PaletteState state) => _redirect.GetBorderColor2(Style, state);
 
-		/// <summary>
-		/// Gets the color drawing style from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public override PaletteColorStyle GetBorderColorStyle(PaletteState state)
-		{
-			return _redirect.GetBorderColorStyle(Style, state);
-		}
+        /// <summary>
+        /// Gets the color drawing style from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetBorderColorStyle(PaletteState state) => _redirect.GetBorderColorStyle(Style, state);
 
-		/// <summary>
-		/// Gets the color alignment style from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderColorAlign(PaletteState state)
-		{
-			return _redirect.GetBorderColorAlign(Style, state);
-		}
+        /// <summary>
+        /// Gets the color alignment style from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderColorAlign(PaletteState state) => _redirect.GetBorderColorAlign(Style, state);
 
-		/// <summary>
-		/// Gets the color border angle from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public override float GetBorderColorAngle(PaletteState state)
-		{
-			return _redirect.GetBorderColorAngle(Style, state);
-		}
+        /// <summary>
+        /// Gets the color border angle from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetBorderColorAngle(PaletteState state) => _redirect.GetBorderColorAngle(Style, state);
 
-		/// <summary>
-		/// Gets the border width from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Border width.</returns>
-		public override int GetBorderWidth(PaletteState state)
-		{
-			return _redirect.GetBorderWidth(Style, state);
-		}
+        /// <summary>
+        /// Gets the border width from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Border width.</returns>
+        public override int GetBorderWidth(PaletteState state) => _redirect.GetBorderWidth(Style, state);
 
-		/// <summary>
-		/// Gets the border rounding from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Border rounding.</returns>
-		public override int GetBorderRounding(PaletteState state)
-		{
-			return _redirect.GetBorderRounding(Style, state);
-		}
+        /// <summary>
+        /// Gets the border rounding from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Border rounding.</returns>
+        public override int GetBorderRounding(PaletteState state) => _redirect.GetBorderRounding(Style, state);
 
-		/// <summary>
-		/// Gets a border image from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public override Image GetBorderImage(PaletteState state)
-		{
-			return _redirect.GetBorderImage(Style, state);
-		}
+        /// <summary>
+        /// Gets a border image from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetBorderImage(PaletteState state) => _redirect.GetBorderImage(Style, state);
 
-		/// <summary>
-		/// Gets the border image style from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public override PaletteImageStyle GetBorderImageStyle(PaletteState state)
-		{
-			return _redirect.GetBorderImageStyle(Style, state);
-		}
+        /// <summary>
+        /// Gets the border image style from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetBorderImageStyle(PaletteState state) => _redirect.GetBorderImageStyle(Style, state);
 
-		/// <summary>
-		/// Gets the image alignment style from the redirector.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderImageAlign(PaletteState state)
-		{
-			return _redirect.GetBorderImageAlign(Style, state);
-		}
+        /// <summary>
+        /// Gets the image alignment style from the redirector.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderImageAlign(PaletteState state) => _redirect.GetBorderImageAlign(Style, state);
         #endregion
-	}
+    }
 }

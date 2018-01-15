@@ -65,20 +65,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get
-            {
-                if (_dateTimePicker != null)
-                {
-                    return _dateTimePicker.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
+        public override ICollection AssociatedComponents =>
+            _dateTimePicker != null ? _dateTimePicker.ButtonSpecs : base.AssociatedComponents;
 
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.

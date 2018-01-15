@@ -94,17 +94,10 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="tab">Ribbon tab reference.</param>
         /// <returns>Array of KeyTipInfo; otherwise null.</returns>
-        public KeyTipInfo[] GetGroupKeyTips(KryptonRibbonTab tab)
-        {
-            if (_tabToView.ContainsKey(tab))
-            {
-                return _tabToView[tab].GetGroupKeyTips();
-            }
-            else
-            {
-                return new KeyTipInfo[] { };
-            }
-        }
+        public KeyTipInfo[] GetGroupKeyTips(KryptonRibbonTab tab) => _tabToView.ContainsKey(tab)
+            ? _tabToView[tab].GetGroupKeyTips()
+            : new KeyTipInfo[] { };
+
         #endregion
 
         #region GetFirstFocusItem

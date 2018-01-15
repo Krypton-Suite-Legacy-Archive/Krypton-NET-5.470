@@ -122,18 +122,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeImage()
-        {
-            return Image != null;
-        }
+        private bool ShouldSerializeImage() => Image != null;
 
         /// <summary>
         /// Resets the Image property to its default value.
         /// </summary>
-        public void ResetImage()
-        {
-            Image = null;
-        }
+        public void ResetImage() => Image = null;
+
         #endregion
 
         #region ImageStates
@@ -146,10 +141,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public CheckButtonImageStates ImageStates { get; }
 
-        private bool ShouldSerializeImageStates()
-        {
-            return !ImageStates.IsDefault;
-        }
+        private bool ShouldSerializeImageStates() => !ImageStates.IsDefault;
+
         #endregion
 
         #region Text
@@ -176,18 +169,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeText()
-        {
-            return Text != string.Empty;
-        }
+        private bool ShouldSerializeText() => Text != string.Empty;
 
         /// <summary>
         /// Resets the Text property to its default value.
         /// </summary>
-        public void ResetText()
-        {
-            Text = string.Empty;
-        }
+        public void ResetText() => Text = string.Empty;
+
         #endregion
 
         #region ExtraText
@@ -214,18 +202,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeExtraText()
-        {
-            return ExtraText != string.Empty;
-        }
+        private bool ShouldSerializeExtraText() => ExtraText != string.Empty;
 
         /// <summary>
         /// Resets the ExtraText property to its default value.
         /// </summary>
-        public void ResetExtraText()
-        {
-            ExtraText = string.Empty;
-        }
+        public void ResetExtraText() => ExtraText = string.Empty;
+
         #endregion
 
         #region ToolTipTitle
@@ -252,18 +235,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeToolTipTitle()
-        {
-            return ToolTipTitle != string.Empty;
-        }
+        private bool ShouldSerializeToolTipTitle() => ToolTipTitle != string.Empty;
 
         /// <summary>
         /// Resets the ToolTipTitle property to its default value.
         /// </summary>
-        public void ResetToolTipTitle()
-        {
-            ToolTipTitle = string.Empty;
-        }
+        public void ResetToolTipTitle() => ToolTipTitle = string.Empty;
+
         #endregion
 
         #region ColorMap
@@ -291,16 +269,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private bool ShouldSerializeColorMap()
         {
-            return ColorMap != Color.Empty;
+            if (ColorMap != Color.Empty) return true;
+            return false;
         }
 
         /// <summary>
         /// Resets the ColorMap property to its default value.
         /// </summary>
-        public void ResetColorMap()
-        {
-            ColorMap = Color.Empty;
-        }
+        public void ResetColorMap() => ColorMap = Color.Empty;
+
         #endregion
 
         #region AllowInheritImage
@@ -329,10 +306,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the AllowInheritImage property to its default value.
         /// </summary>
-        public void ResetAllowInheritImage()
-        {
-            AllowInheritImage = true;
-        }
+        public void ResetAllowInheritImage() => AllowInheritImage = true;
+
         #endregion
 
         #region AllowInheritText
@@ -361,10 +336,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the AllowInheritText property to its default value.
         /// </summary>
-        public void ResetAllowInheritText()
-        {
-            AllowInheritText = true;
-        }
+        public void ResetAllowInheritText() => AllowInheritText = true;
+
         #endregion
 
         #region AllowInheritExtraText
@@ -393,10 +366,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the AllowInheritExtraText property to its default value.
         /// </summary>
-        public void ResetAllowInheritExtraText()
-        {
-            AllowInheritExtraText = true;
-        }
+        public void ResetAllowInheritExtraText() => AllowInheritExtraText = true;
+
         #endregion
 
         #region AllowInheritToolTipTitle
@@ -425,10 +396,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the AllowInheritToolTipTitle property to its default value.
         /// </summary>
-        public void ResetAllowInheritToolTipTitle()
-        {
-            AllowInheritToolTipTitle = true;
-        }
+        public void ResetAllowInheritToolTipTitle() => AllowInheritToolTipTitle = true;
+
         #endregion
 
         #region IPaletteButtonSpec
@@ -488,34 +457,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>String value.</returns>
-        public override string GetButtonSpecShortText(PaletteButtonSpecStyle style)
-        {
-            if ((Text.Length > 0) || !AllowInheritText)
-            {
-                return Text;
-            }
-            else
-            {
-                return base.GetButtonSpecShortText(style);
-            }
-        }
+        public override string GetButtonSpecShortText(PaletteButtonSpecStyle style) =>
+            (Text.Length > 0) || !AllowInheritText ? Text : base.GetButtonSpecShortText(style);
 
         /// <summary>
         /// Gets the long text to display for the button.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>String value.</returns>
-        public override string GetButtonSpecLongText(PaletteButtonSpecStyle style)
-        {
-            if ((ExtraText.Length > 0) || !AllowInheritExtraText)
-            {
-                return ExtraText;
-            }
-            else
-            {
-                return base.GetButtonSpecLongText(style);
-            }
-        }
+        public override string GetButtonSpecLongText(PaletteButtonSpecStyle style) =>
+            (ExtraText.Length > 0) || !AllowInheritExtraText ? ExtraText : base.GetButtonSpecLongText(style);
 
         /// <summary>
         /// Gets the tooltip title text to display for the button.
@@ -539,24 +490,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>Color value.</returns>
-        public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)
-        {
-            if (ColorMap != Color.Empty)
-            {
-                return ColorMap;
-            }
-            else
-            {
-                return base.GetButtonSpecColorMap(style);
-            }
-        }
+        public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style) =>
+            ColorMap != Color.Empty ? ColorMap : base.GetButtonSpecColorMap(style);
+
         #endregion
 
         #region Implementation
-        private void OnImageStateChanged(object sender, NeedLayoutEventArgs e)
-        {
-            OnButtonSpecChanged(sender, EventArgs.Empty);
-        }
+        private void OnImageStateChanged(object sender, NeedLayoutEventArgs e) => OnButtonSpecChanged(sender, EventArgs.Empty);
         #endregion
     }
 }

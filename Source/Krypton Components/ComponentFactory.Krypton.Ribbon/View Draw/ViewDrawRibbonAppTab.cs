@@ -180,17 +180,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets the short text used as the main ribbon title.
         /// </summary>
         /// <returns>Title string.</returns>
-        public string GetShortText()
-        {
-            if (_ribbon.RibbonShape ==  PaletteRibbonShape.Office2013)
-            {
-                return _ribbon.RibbonAppButton.AppButtonText.ToUpper();
-            }
-            else
-            {
-                return _ribbon.RibbonAppButton.AppButtonText;
-            }
-        }
+        public string GetShortText() => _ribbon.RibbonShape == PaletteRibbonShape.Office2013
+            ? _ribbon.RibbonAppButton.AppButtonText.ToUpper()
+            : _ribbon.RibbonAppButton.AppButtonText;
 
         /// <summary>
         /// Gets the long text used as the secondary ribbon title.

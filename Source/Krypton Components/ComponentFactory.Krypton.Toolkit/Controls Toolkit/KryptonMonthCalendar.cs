@@ -328,15 +328,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetMinDate()
-        {
-            MinDate = DateTimePicker.MinimumDateTime;
-        }
+        private void ResetMinDate() => MinDate = DateTimePicker.MinimumDateTime;
 
-        private bool ShouldSerializeMinDate()
-        {
-            return (_minDate != DateTimePicker.MinimumDateTime);
-        }
+        private bool ShouldSerializeMinDate() => (_minDate != DateTimePicker.MinimumDateTime);
 
         /// <summary>
         /// Gets or sets the today date format string.
@@ -403,15 +397,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetTodayDate()
-        {
-            TodayDate = DateTime.Now.Date;
-        }
+        private void ResetTodayDate() => TodayDate = DateTime.Now.Date;
 
-        private bool ShouldSerializeTodayDate()
-        {
-            return (TodayDate != DateTime.Now.Date);
-        }
+        private bool ShouldSerializeTodayDate() => (TodayDate != DateTime.Now.Date);
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determines which annual days are displayed in bold.
@@ -447,15 +435,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetAnnuallyBoldedDates()
-        {
-            AnnuallyBoldedDates = null;
-        }
+        private void ResetAnnuallyBoldedDates() => AnnuallyBoldedDates = null;
 
-        private bool ShouldSerializeAnnuallyBoldedDates()
-        {
-            return (_annualDates.Count > 0);
-        }
+        private bool ShouldSerializeAnnuallyBoldedDates() => (_annualDates.Count > 0);
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determine which monthly days to bold. 
@@ -487,15 +469,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetMonthlyBoldedDates()
-        {
-            MonthlyBoldedDates = null;
-        }
+        private void ResetMonthlyBoldedDates() => MonthlyBoldedDates = null;
 
-        private bool ShouldSerializeMonthlyBoldedDates()
-        {
-            return (_monthlyDates.Count > 0);
-        }
+        private bool ShouldSerializeMonthlyBoldedDates() => (_monthlyDates.Count > 0);
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determines which nonrecurring dates are displayed in bold.
@@ -519,15 +495,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetBoldedDates()
-        {
-            BoldedDates = null;
-        }
+        private void ResetBoldedDates() => BoldedDates = null;
 
-        private bool ShouldSerializeBoldedDates()
-        {
-            return (BoldedDatesList.Count > 0);
-        }
+        private bool ShouldSerializeBoldedDates() => (BoldedDatesList.Count > 0);
 
         /// <summary>
         /// Gets or sets the maximum allowable date.
@@ -561,15 +531,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetMaxDate()
-        {
-            MaxDate = DateTime.MaxValue;
-        }
+        private void ResetMaxDate() => MaxDate = DateTime.MaxValue;
 
-        private bool ShouldSerializeMaxDate()
-        {
-            return (_maxDate != DateTimePicker.MaximumDateTime) && (_maxDate != DateTime.MaxValue);
-        }
+        private bool ShouldSerializeMaxDate() => (_maxDate != DateTimePicker.MaximumDateTime) && (_maxDate != DateTime.MaxValue);
 
         /// <summary>
         /// Gets or sets the maximum number of days that can be selected in a month calendar control.
@@ -644,15 +608,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetSelectionStart()
-        {
-            SelectionStart = DateTime.Now.Date;
-        }
+        private void ResetSelectionStart() => SelectionStart = DateTime.Now.Date;
 
-        private bool ShouldSerializeSelectionStart()
-        {
-            return (SelectionStart != DateTime.Now.Date);
-        }
+        private bool ShouldSerializeSelectionStart() => (SelectionStart != DateTime.Now.Date);
 
         /// <summary>
         /// Gets or sets the end date of the selected range of dates.
@@ -700,15 +658,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetSelectionEnd()
-        {
-            SelectionEnd = DateTime.Now.Date;
-        }
+        private void ResetSelectionEnd() => SelectionEnd = DateTime.Now.Date;
 
-        private bool ShouldSerializeSelectionEnd()
-        {
-            return (SelectionEnd != DateTime.Now.Date);
-        }
+        private bool ShouldSerializeSelectionEnd() => (SelectionEnd != DateTime.Now.Date);
 
         /// <summary>
         /// Gets or sets the selected range of dates for a month calendar control.
@@ -730,10 +682,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ResetSelectionEnd();
         }
 
-        private bool ShouldSerializeSelectionRange()
-        {
-            return false;
-        }
+        private bool ShouldSerializeSelectionRange() => false;
 
         /// <summary>
         /// Gets or sets the number of columns and rows of months displayed. 
@@ -810,15 +759,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeControlBackStyle()
-        {
-            return (ControlBackStyle != PaletteBackStyle.ControlClient);
-        }
+        private bool ShouldSerializeControlBackStyle() => (ControlBackStyle != PaletteBackStyle.ControlClient);
 
-        private void ResetControlBackStyle()
-        {
-            ControlBackStyle = PaletteBackStyle.ControlClient;
-        }
+        private void ResetControlBackStyle() => ControlBackStyle = PaletteBackStyle.ControlClient;
 
         /// <summary>
         /// Gets and sets the border style for the month calendar.
@@ -839,15 +782,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeControlBorderStyle()
-        {
-            return (ControlBorderStyle != PaletteBorderStyle.ControlClient);
-        }
+        private bool ShouldSerializeControlBorderStyle() => (ControlBorderStyle != PaletteBorderStyle.ControlClient);
 
-        private void ResetControlBorderStyle()
-        {
-            ControlBorderStyle = PaletteBorderStyle.ControlClient;
-        }
+        private void ResetControlBorderStyle() => ControlBorderStyle = PaletteBorderStyle.ControlClient;
 
         /// <summary>
         /// Gets and sets the header style for the month calendar.
@@ -869,15 +806,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeHeaderStyle()
-        {
-            return (_headerStyle != HeaderStyle.Calendar);
-        }
+        private bool ShouldSerializeHeaderStyle() => (_headerStyle != HeaderStyle.Calendar);
 
-        private void ResetHeaderStyle()
-        {
-            HeaderStyle = HeaderStyle.Calendar;
-        }
+        private void ResetHeaderStyle() => HeaderStyle = HeaderStyle.Calendar;
 
         /// <summary>
         /// Gets and sets the content style for the day entries.
@@ -902,15 +833,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeDayStyle()
-        {
-            return (_dayStyle != ButtonStyle.CalendarDay);
-        }
+        private bool ShouldSerializeDayStyle() => (_dayStyle != ButtonStyle.CalendarDay);
 
-        private void ResetDayStyle()
-        {
-            DayOfWeekStyle = ButtonStyle.CalendarDay;
-        }
+        private void ResetDayStyle() => DayOfWeekStyle = ButtonStyle.CalendarDay;
 
         /// <summary>
         /// Gets and sets the content style for the day of week labels.
@@ -932,16 +857,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeDayOfWeekStyle()
-        {
-            return (_dayOfWeekStyle != ButtonStyle.CalendarDay);
-        }
+        private bool ShouldSerializeDayOfWeekStyle() => (_dayOfWeekStyle != ButtonStyle.CalendarDay);
 
 
-        private void ResetDayOfWeekStyle()
-        {
-            DayOfWeekStyle = ButtonStyle.CalendarDay;
-        }
+        private void ResetDayOfWeekStyle() => DayOfWeekStyle = ButtonStyle.CalendarDay;
 
         /// <summary>
         /// Gets and sets if the control will display todays date.
@@ -1011,10 +930,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarStateRedirect OverrideFocus { get; }
 
-        private bool ShouldSerializeOverrideFocus()
-        {
-            return !OverrideFocus.IsDefault;
-        }
+        private bool ShouldSerializeOverrideFocus() => !OverrideFocus.IsDefault;
 
         /// <summary>
         /// Gets access to the day appearance when it is bolded.
@@ -1024,10 +940,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarStateRedirect OverrideBolded { get; }
 
-        private bool ShouldSerializeOverrideBolded()
-        {
-            return !OverrideBolded.IsDefault;
-        }
+        private bool ShouldSerializeOverrideBolded() => !OverrideBolded.IsDefault;
 
         /// <summary>
         /// Gets access to the day appearance when it is todays.
@@ -1037,10 +950,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarStateRedirect OverrideToday { get; }
 
-        private bool ShouldSerializeOverrideToday()
-        {
-            return !OverrideToday.IsDefault;
-        }
+        private bool ShouldSerializeOverrideToday() => !OverrideToday.IsDefault;
 
         /// <summary>
         /// Gets access to the common month calendar appearance that other states can override.
@@ -1050,10 +960,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
         /// Gets access to the month calendar disabled appearance entries.
@@ -1063,10 +970,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarDoubleState StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-        {
-            return !StateDisabled.IsDefault;
-        }
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
         /// Gets access to the month calendar normal appearance entries.
@@ -1076,10 +980,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarDoubleState StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-        {
-            return !StateNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the tracking month calendar appearance entries.
@@ -1089,10 +990,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarState StateTracking { get; }
 
-        private bool ShouldSerializeStateTracking()
-        {
-            return !StateTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateTracking() => !StateTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the pressed month calendar appearance entries.
@@ -1102,10 +1000,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarState StatePressed { get; }
 
-        private bool ShouldSerializeStatePressed()
-        {
-            return !StatePressed.IsDefault;
-        }
+        private bool ShouldSerializeStatePressed() => !StatePressed.IsDefault;
 
         /// <summary>
         /// Gets access to the checked normal month calendar appearance entries.
@@ -1115,10 +1010,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarState StateCheckedNormal { get; }
 
-        private bool ShouldSerializeStateCheckedNormal()
-        {
-            return !StateCheckedNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedNormal() => !StateCheckedNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the checked tracking month calendar appearance entries.
@@ -1128,10 +1020,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarState StateCheckedTracking { get; }
 
-        private bool ShouldSerializeStateCheckedTracking()
-        {
-            return !StateCheckedTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedTracking() => !StateCheckedTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the checked pressed month calendar appearance entries.
@@ -1141,10 +1030,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMonthCalendarState StateCheckedPressed { get; }
 
-        private bool ShouldSerializeStateCheckedPressed()
-        {
-            return !StateCheckedPressed.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedPressed() => !StateCheckedPressed.IsDefault;
 
         /// <summary>
         /// Gets the collection of button specifications.
@@ -1259,10 +1145,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Get the renderer.
         /// </summary>
         /// <returns>Render instance.</returns>
-        public IRenderer GetRenderer()
-        {
-            return Renderer;
-        }
+        public IRenderer GetRenderer() => Renderer;
 
         /// <summary>
         /// Gets access to the override for disabled day.
@@ -1464,14 +1347,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_drawMonths != null) && _drawMonths.ButtonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_drawMonths != null) && _drawMonths.ButtonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1483,13 +1359,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1573,28 +1445,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises when the DateChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnDateChanged(DateRangeEventArgs e)
-        {
-            DateChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDateChanged(DateRangeEventArgs e) => DateChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises when the SelectionStartChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnSelectionStartChanged(EventArgs e)
-        {
-            SelectionStartChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectionStartChanged(EventArgs e) => SelectionStartChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises when the SelectionEndChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnSelectionEndChanged(EventArgs e)
-        {
-            SelectionEndChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectionEndChanged(EventArgs e) => SelectionEndChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises when the GotFocus event.
@@ -1791,7 +1654,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="specified">A bitwise combination of the BoundsSpecified values.</param>
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
-            Rectangle bounds = base.Bounds;
             AdjustSize(ref width, ref height);
             base.SetBoundsCore(x, y, width, height, specified);
         }
@@ -1801,27 +1663,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private DateTime EffectiveMaxDate(DateTime maxDate)
         {
             DateTime maximumDateTime = DateTimePicker.MaximumDateTime;
-            if (maxDate > maximumDateTime)
-            {
-                return maximumDateTime;
-            }
-            else
-            {
-                return maxDate;
-            }
+            return maxDate > maximumDateTime ? maximumDateTime : maxDate;
         }
 
         private DateTime EffectiveMinDate(DateTime minDate)
         {
             DateTime minimumDateTime = DateTimePicker.MinimumDateTime;
-            if (minDate < minimumDateTime)
-            {
-                return minimumDateTime;
-            }
-            else
-            {
-                return minDate;
-            }
+            return minDate < minimumDateTime ? minimumDateTime : minDate;
         }
 
         private void AdjustSize(ref int width, ref int height)
@@ -1961,10 +1809,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void UpdateFocusOverride(bool focus)
-        {
-            _hasFocus = focus;
-        }
+        private void UpdateFocusOverride(bool focus) => _hasFocus = focus;
         #endregion
     }
 }

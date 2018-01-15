@@ -243,14 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // If the button is pressed then point button downwards, 
                         // otherwise we point in the direction the buttons layed out.
-                        if (crumbButton.ElementState == PaletteState.Pressed)
-                        {
-                            crumbButton.DropDownOrientation = VisualOrientation.Top;
-                        }
-                        else
-                        {
-                            crumbButton.DropDownOrientation = VisualOrientation.Left;
-                        }
+                        crumbButton.DropDownOrientation = crumbButton.ElementState == PaletteState.Pressed ? VisualOrientation.Top : VisualOrientation.Left;
                     }
                 }
             }

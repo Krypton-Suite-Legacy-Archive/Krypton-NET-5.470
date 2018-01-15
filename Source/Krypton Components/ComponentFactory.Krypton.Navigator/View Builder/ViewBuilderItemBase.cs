@@ -289,14 +289,7 @@ namespace ComponentFactory.Krypton.Navigator
                 // Then use the states defined in the navigator itself
                 paletteCommon = Navigator.StateCommon;
 
-                if (Navigator.Enabled)
-                {
-                    paletteState = Navigator.StateNormal;
-                }
-                else
-                {
-                    paletteState = Navigator.StateDisabled;
-                }
+                paletteState = Navigator.Enabled ? Navigator.StateNormal : Navigator.StateDisabled;
             }
             else
             {
@@ -613,15 +606,7 @@ namespace ComponentFactory.Krypton.Navigator
 
                             if (!ce.Cancel)
                             {
-                                bool changed;
-                                if (!shift)
-                                {
-                                    changed = SelectNextPage(Navigator.SelectedPage, true, true);
-                                }
-                                else
-                                {
-                                    changed = SelectPreviousPage(Navigator.SelectedPage, true, true);
-                                }
+                                bool changed = !shift ? SelectNextPage(Navigator.SelectedPage, true, true) : SelectPreviousPage(Navigator.SelectedPage, true, true);
                             }
                         }
                         return true;

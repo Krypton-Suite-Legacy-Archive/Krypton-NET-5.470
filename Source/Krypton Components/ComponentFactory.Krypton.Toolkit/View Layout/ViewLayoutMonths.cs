@@ -742,7 +742,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 for (int i = Count - 1; i > months; i--)
                 {
                     this[i].Dispose();
-                    this.RemoveAt(i);
+                    RemoveAt(i);
                 }
             }
 

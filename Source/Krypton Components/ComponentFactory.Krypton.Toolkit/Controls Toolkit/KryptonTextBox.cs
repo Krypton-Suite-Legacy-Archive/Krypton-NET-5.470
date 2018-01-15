@@ -202,25 +202,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     switch (_kryptonTextBox.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
-                                            if (RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Right:
-                                            if (RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Near
+                                                : StringAlignment.Far;
 
                                             break;
                                         case HorizontalAlignment.Center:
@@ -301,19 +291,13 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseEnter(EventArgs e)
-            {
-                TrackMouseEnter?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
             /// <summary>
             /// Raises the TrackMouseLeave event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseLeave(EventArgs e)
-            {
-                TrackMouseLeave?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
         }
 
@@ -533,7 +517,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnTextBoxClick(object sender, EventArgs e)
         {
+            // ReSharper disable RedundantBaseQualifier
             base.OnClick(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
         /// <summary>
@@ -605,14 +591,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _autoSize = value;
 
                     // Multiline allows a variable height, otherwise we are fixed in height
-                    if (Multiline)
-                    {
-                        SetStyle(ControlStyles.FixedHeight, false);
-                    }
-                    else
-                    {
-                        SetStyle(ControlStyles.FixedHeight, _autoSize);
-                    }
+                    SetStyle(ControlStyles.FixedHeight, !Multiline && _autoSize);
 
                     // Add adjust actual height to match new setting
                     AdjustHeight(false);
@@ -863,14 +842,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _textBox.Multiline = value;
 
                     // Multiline allows a variable height, otherwise we are fixed in height
-                    if (value)
-                    {
-                        SetStyle(ControlStyles.FixedHeight, false);
-                    }
-                    else
-                    {
-                        SetStyle(ControlStyles.FixedHeight, _autoSize);
-                    }
+                    SetStyle(ControlStyles.FixedHeight, !value && _autoSize);
 
                     // Add adjust actual height to match new setting
                     AdjustHeight(false);
@@ -1011,15 +983,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetInputControlStyle()
-        {
-            InputControlStyle = InputControlStyle.Standalone;
-        }
+        private void ResetInputControlStyle() => InputControlStyle = InputControlStyle.Standalone;
 
-        private bool ShouldSerializeInputControlStyle()
-        {
-            return (InputControlStyle != InputControlStyle.Standalone);
-        }
+        private bool ShouldSerializeInputControlStyle() => (InputControlStyle != InputControlStyle.Standalone);
 
         /// <summary>
         /// Gets or sets the StringCollection to use when the AutoCompleteSource property is set to CustomSource.
@@ -1086,10 +1052,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
         /// Gets access to the disabled textbox appearance entries.
@@ -1099,10 +1062,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-        {
-            return !StateDisabled.IsDefault;
-        }
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
         /// Gets access to the normal textbox appearance entries.
@@ -1112,10 +1072,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-        {
-            return !StateNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the active textbox appearance entries.
@@ -1125,169 +1082,112 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Appends text to the current text of a rich text box.
         /// </summary>
         /// <param name="text">The text to append to the current contents of the text box.</param>
-        public void AppendText(string text)
-        {
-            _textBox.AppendText(text);
-        }
+        public void AppendText(string text) => _textBox.AppendText(text);
 
         /// <summary>
         /// Clears all text from the text box control.
         /// </summary>
-        public void Clear()
-        {
-            _textBox.Clear();
-        }
+        public void Clear() => _textBox.Clear();
 
         /// <summary>
         /// Clears information about the most recent operation from the undo buffer of the rich text box. 
         /// </summary>
-        public void ClearUndo()
-        {
-            _textBox.ClearUndo();
-        }
+        public void ClearUndo() => _textBox.ClearUndo();
 
         /// <summary>
         /// Copies the current selection in the text box to the Clipboard.
         /// </summary>
-        public void Copy()
-        {
-            _textBox.Copy();
-        }
+        public void Copy() => _textBox.Copy();
 
         /// <summary>
         /// Moves the current selection in the text box to the Clipboard.
         /// </summary>
-        public void Cut()
-        {
-            _textBox.Cut();
-        }
+        public void Cut() => _textBox.Cut();
 
         /// <summary>
         /// Replaces the current selection in the text box with the contents of the Clipboard.
         /// </summary>
-        public void Paste()
-        {
-            _textBox.Paste();
-        }
+        public void Paste() => _textBox.Paste();
 
         /// <summary>
         /// Scrolls the contents of the control to the current caret position.
         /// </summary>
-        public void ScrollToCaret()
-        {
-            _textBox.ScrollToCaret();
-        }
+        public void ScrollToCaret() => _textBox.ScrollToCaret();
 
         /// <summary>
         /// Selects a range of text in the control.
         /// </summary>
         /// <param name="start">The position of the first character in the current text selection within the text box.</param>
         /// <param name="length">The number of characters to select.</param>
-        public void Select(int start, int length)
-        {
-            _textBox.Select(start, length);
-        }
+        public void Select(int start, int length) => _textBox.Select(start, length);
 
         /// <summary>
         /// Selects all text in the control.
         /// </summary>
-        public void SelectAll()
-        {
-            _textBox.SelectAll();
-        }
+        public void SelectAll() => _textBox.SelectAll();
 
         /// <summary>
         /// Undoes the last edit operation in the text box.
         /// </summary>
-        public void Undo()
-        {
-            _textBox.Undo();
-        }
+        public void Undo() => _textBox.Undo();
 
         /// <summary>
         /// Specifies that the value of the SelectionLength property is zero so that no characters are selected in the control.
         /// </summary>
-        public void DeselectAll()
-        {
-            _textBox.DeselectAll();
-        }
+        public void DeselectAll() => _textBox.DeselectAll();
 
         /// <summary>
         /// Retrieves the character that is closest to the specified location within the control.
         /// </summary>
         /// <param name="pt">The location from which to seek the nearest character.</param>
         /// <returns>The character at the specified location.</returns>
-        public int GetCharFromPosition(Point pt)
-        {
-            return _textBox.GetCharFromPosition(pt);
-        }
+        public int GetCharFromPosition(Point pt) => _textBox.GetCharFromPosition(pt);
 
         /// <summary>
         /// Retrieves the index of the character nearest to the specified location.
         /// </summary>
         /// <param name="pt">The location to search.</param>
         /// <returns>The zero-based character index at the specified location.</returns>
-        public int GetCharIndexFromPosition(Point pt)
-        {
-            return _textBox.GetCharIndexFromPosition(pt);
-        }
+        public int GetCharIndexFromPosition(Point pt) => _textBox.GetCharIndexFromPosition(pt);
 
         /// <summary>
         /// Retrieves the index of the first character of a given line.
         /// </summary>
         /// <param name="lineNumber">The line for which to get the index of its first character.</param>
         /// <returns>The zero-based character index in the specified line.</returns>
-        public int GetFirstCharIndexFromLine(int lineNumber)
-        {
-            return _textBox.GetFirstCharIndexFromLine(lineNumber);
-        }
+        public int GetFirstCharIndexFromLine(int lineNumber) => _textBox.GetFirstCharIndexFromLine(lineNumber);
 
         /// <summary>
         /// Retrieves the index of the first character of the current line.
         /// </summary>
         /// <returns>The zero-based character index in the current line.</returns>
-        public int GetFirstCharIndexOfCurrentLine()
-        {
-            return _textBox.GetFirstCharIndexOfCurrentLine();
-        }
+        public int GetFirstCharIndexOfCurrentLine() => _textBox.GetFirstCharIndexOfCurrentLine();
 
         /// <summary>
         /// Retrieves the line number from the specified character position within the text of the RichTextBox control.
         /// </summary>
         /// <param name="index">The character index position to search.</param>
         /// <returns>The zero-based line number in which the character index is located.</returns>
-        public int GetLineFromCharIndex(int index)
-        {
-            return _textBox.GetLineFromCharIndex(index);
-        }
+        public int GetLineFromCharIndex(int index) => _textBox.GetLineFromCharIndex(index);
 
         /// <summary>
         /// Retrieves the location within the control at the specified character index.
         /// </summary>
         /// <param name="index">The index of the character for which to retrieve the location.</param>
         /// <returns>The location of the specified character.</returns>
-        public Point GetPositionFromCharIndex(int index)
-        {
-            return _textBox.GetPositionFromCharIndex(index);
-        }
+        public Point GetPositionFromCharIndex(int index) => _textBox.GetPositionFromCharIndex(index);
 
         /// <summary>
         /// Sets the fixed state of the control.
         /// </summary>
         /// <param name="active">Should the control be fixed as active.</param>
-        public void SetFixedState(bool active)
-        {
-            _fixedActive = active;
-        }
+        public void SetFixedState(bool active) => _fixedActive = active;
 
         /// <summary>
         /// Gets access to the ToolTipManager used for displaying tool tips.
@@ -1320,25 +1220,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (TextBox != null)
-            {
-                return TextBox.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => TextBox != null && TextBox.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            TextBox?.Select();
-        }
+        public new void Select() => TextBox?.Select();
 
         /// <summary>
         /// Get the preferred size of the control based on a proposed size.
@@ -1414,14 +1301,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1433,13 +1313,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1475,73 +1351,49 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the AcceptsTabChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnAcceptsTabChanged(EventArgs e)
-        {
-            AcceptsTabChanged?.Invoke(this, e);
-        }
+        protected virtual void OnAcceptsTabChanged(EventArgs e) => AcceptsTabChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TextAlignChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTextAlignChanged(EventArgs e)
-        {
-            TextAlignChanged?.Invoke(this, e);
-        }
+        protected virtual void OnTextAlignChanged(EventArgs e) => TextAlignChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the HideSelectionChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnHideSelectionChanged(EventArgs e)
-        {
-            HideSelectionChanged?.Invoke(this, e);
-        }
+        protected virtual void OnHideSelectionChanged(EventArgs e) => HideSelectionChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ModifiedChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnModifiedChanged(EventArgs e)
-        {
-            ModifiedChanged?.Invoke(this, e);
-        }
+        protected virtual void OnModifiedChanged(EventArgs e) => ModifiedChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the MultilineChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnMultilineChanged(EventArgs e)
-        {
-            MultilineChanged?.Invoke(this, e);
-        }
+        protected virtual void OnMultilineChanged(EventArgs e) => MultilineChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ReadOnlyChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnReadOnlyChanged(EventArgs e)
-        {
-            ReadOnlyChanged?.Invoke(this, e);
-        }
+        protected virtual void OnReadOnlyChanged(EventArgs e) => ReadOnlyChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -1550,10 +1402,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -1610,37 +1459,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Resize event.
@@ -1865,37 +1702,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetTripleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        internal IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int PreferredHeight
         {
@@ -1915,51 +1727,23 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!ignoreAnchored || ((Anchor & (AnchorStyles.Bottom | AnchorStyles.Top)) != (AnchorStyles.Bottom | AnchorStyles.Top)))
             {
                 // If auto sizing the control and not in multiline mode then override the height
-                if (_autoSize && !Multiline)
-                {
-                    Height = PreferredHeight;
-                }
-                else
-                {
-                    Height = _cachedHeight;
-                }
+                Height = _autoSize && !Multiline ? PreferredHeight : _cachedHeight;
             }
         }
 
-        private void OnTextBoxAcceptsTabChanged(object sender, EventArgs e)
-        {
-            OnAcceptsTabChanged(e);
-        }
+        private void OnTextBoxAcceptsTabChanged(object sender, EventArgs e) => OnAcceptsTabChanged(e);
 
-        private void OnTextBoxTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(e);
-        }
+        private void OnTextBoxTextChanged(object sender, EventArgs e) => OnTextChanged(e);
 
-        private void OnTextBoxTextAlignChanged(object sender, EventArgs e)
-        {
-            OnTextAlignChanged(e);
-        }
+        private void OnTextBoxTextAlignChanged(object sender, EventArgs e) => OnTextAlignChanged(e);
 
-        private void OnTextBoxHideSelectionChanged(object sender, EventArgs e)
-        {
-            OnHideSelectionChanged(e);
-        }
+        private void OnTextBoxHideSelectionChanged(object sender, EventArgs e) => OnHideSelectionChanged(e);
 
-        private void OnTextBoxModifiedChanged(object sender, EventArgs e)
-        {
-            OnModifiedChanged(e);
-        }
+        private void OnTextBoxModifiedChanged(object sender, EventArgs e) => OnModifiedChanged(e);
 
-        private void OnTextBoxMultilineChanged(object sender, EventArgs e)
-        {
-            OnMultilineChanged(e);
-        }
+        private void OnTextBoxMultilineChanged(object sender, EventArgs e) => OnMultilineChanged(e);
 
-        private void OnTextBoxReadOnlyChanged(object sender, EventArgs e)
-        {
-            OnReadOnlyChanged(e);
-        }
+        private void OnTextBoxReadOnlyChanged(object sender, EventArgs e) => OnReadOnlyChanged(e);
 
         private void OnTextBoxGotFocus(object sender, EventArgs e)
         {
@@ -1975,35 +1759,17 @@ namespace ComponentFactory.Krypton.Toolkit
             OnLostFocus(e);
         }
 
-        private void OnTextBoxKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnTextBoxKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnTextBoxKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnTextBoxKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnTextBoxKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnTextBoxKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnTextBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnTextBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnTextBoxValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnTextBoxValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnTextBoxValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnTextBoxValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {
@@ -2065,11 +1831,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnCancelToolTip(object sender, EventArgs e)
-        {
-            // Remove any currently showing tooltip
-            _visualPopupToolTip?.Dispose();
-        }
+        // Remove any currently showing tooltip
+        private void OnCancelToolTip(object sender, EventArgs e) => _visualPopupToolTip?.Dispose();
 
         private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
         {

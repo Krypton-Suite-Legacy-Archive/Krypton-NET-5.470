@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ViewBuilderOutlookBase ViewBuilder
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
         }
 

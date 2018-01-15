@@ -173,14 +173,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (_localPalette != value)
                 {
                     _localPalette = value;
-                    if (_localPalette == null)
-                    {
-                        _paletteMode = PaletteMode.Global;
-                    }
-                    else
-                    {
-                        _paletteMode = PaletteMode.Custom;
-                    }
+                    _paletteMode = _localPalette == null ? PaletteMode.Global : PaletteMode.Custom;
                 }
             }
         }
@@ -235,7 +228,7 @@ namespace ComponentFactory.Krypton.Navigator
 
             if (dragEndData == null)
             {
-                throw new ArgumentNullException("Cannot provide an empty DragEndData.");
+                throw new ArgumentNullException(nameof(dragEndData), "Cannot provide a null DragEndData.");
             }
 
             // Generate drag targets from the set of target provides
@@ -418,14 +411,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 if (_pageDragEndData.Navigator != null)
                 {
-                    if (_currentTarget == null)
-                    {
-                        _pageDragEndData.Navigator.Cursor = _invalidCursor;
-                    }
-                    else
-                    {
-                        _pageDragEndData.Navigator.Cursor = _validCursor;
-                    }
+                    _pageDragEndData.Navigator.Cursor = _currentTarget == null ? _invalidCursor : _validCursor;
                 }
             }
         }

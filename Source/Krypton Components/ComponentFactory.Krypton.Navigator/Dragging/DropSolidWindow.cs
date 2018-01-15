@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Navigator
         public void ShowWithoutActivate()
         {
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(this.Handle, (short)PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>

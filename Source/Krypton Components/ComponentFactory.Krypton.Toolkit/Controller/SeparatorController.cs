@@ -581,31 +581,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _movementPoint = newPoint;
         }
 
-        private Rectangle SplitRectangleFromPoint(Point pt)
-        {
-            if (_separatorOrientation == Orientation.Vertical)
-            {
-                return SplitRectangleFromPoint(pt, Target.ClientWidth);
-            }
-            else
-            {
-                return SplitRectangleFromPoint(pt, Target.ClientHeight);
-            }
-        }
+        private Rectangle SplitRectangleFromPoint(Point pt) => SplitRectangleFromPoint(pt,
+            _separatorOrientation == Orientation.Vertical ? Target.ClientWidth : Target.ClientHeight);
 
         private Rectangle SplitRectangleFromPoint(Point pt, int length)
         {
-            Rectangle splitRectangle;
-
             // Find the splitter rectangle based on the orientation
-            if (_separatorOrientation == Orientation.Vertical)
-            {
-                splitRectangle = new Rectangle(pt.X, _separatorBox.Y, length, Target.ClientHeight);
-            }
-            else
-            {
-                splitRectangle = new Rectangle(_separatorBox.X, pt.Y, Target.ClientWidth, length);
-            }
+            Rectangle splitRectangle = _separatorOrientation == Orientation.Vertical
+                ? new Rectangle(pt.X, _separatorBox.Y, length, Target.ClientHeight)
+                : new Rectangle(_separatorBox.X, pt.Y, Target.ClientWidth, length);
 
             return _source.SeparatorControl.RectangleToScreen(splitRectangle);
         }

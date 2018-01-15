@@ -183,7 +183,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (view == null)
                 {
                     // Scan all the children, which must be containers
-                    foreach (ViewBase child in this.Reverse())
+                    foreach (ViewBase child in Reverse())
                     {
                         // Only interested in visible children!
                         if (child.Visible)
@@ -240,17 +240,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Is this a container item
                     if (child is IRibbonViewGroupContainerView container)
                     {
-
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
-                        if (matched)
-                        {
-                            view = container.GetFirstFocusItem();
-                        }
-                        else
-                        {
-                            view = container.GetNextFocusItem(current, ref matched);
-                        }
+                        view = matched
+                            ? container.GetFirstFocusItem()
+                            : container.GetNextFocusItem(current, ref matched);
 
                         if (view != null)
                         {
@@ -259,17 +253,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                     else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find next
-                        if (matched)
-                        {
-                            view = item.GetFirstFocusItem();
-                        }
-                        else
-                        {
-                            view = item.GetNextFocusItem(current, ref matched);
-                        }
+                        view = matched ? item.GetFirstFocusItem() : item.GetNextFocusItem(current, ref matched);
 
                         if (view != null)
                         {
@@ -325,7 +311,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Scan all the children, which must be containers
-            foreach (ViewBase child in this.Reverse())
+            foreach (ViewBase child in Reverse())
             {
                 // Only interested in visible children!
                 if (child.Visible)
@@ -334,17 +320,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Is this a container item
                     if (child is IRibbonViewGroupContainerView container)
                     {
-
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
-                        if (matched)
-                        {
-                            view = container.GetLastFocusItem();
-                        }
-                        else
-                        {
-                            view = container.GetPreviousFocusItem(current, ref matched);
-                        }
+                        view = matched
+                            ? container.GetLastFocusItem()
+                            : container.GetPreviousFocusItem(current, ref matched);
 
                         if (view != null)
                         {
@@ -353,17 +333,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                     else if (child is IRibbonViewGroupItemView item) // Cast to correct type
                     {
-
                         // Already matched means we need the next item we come across,
                         // otherwise we continue with the attempt to find previous
-                        if (matched)
-                        {
-                            view = item.GetLastFocusItem();
-                        }
-                        else
-                        {
-                            view = item.GetPreviousFocusItem(current, ref matched);
-                        }
+                        view = matched ? item.GetLastFocusItem() : item.GetPreviousFocusItem(current, ref matched);
 
                         if (view != null)
                         {
@@ -424,10 +396,6 @@ namespace ComponentFactory.Krypton.Ribbon
             // Create array of indexes into each of the containers and set to zero
             int[] indexes = new int[_listWidths.Count];
 
-            // Per-permutation values
-            List<int> permWidth = new List<int>();
-            List<ItemSizeWidth> permSize = new List<ItemSizeWidth>();
-
             // Cycle around and around the indexes to create permutations
             int cycleMax = _listWidths.Count - 1;
             int cycleCurrent = cycleMax;
@@ -440,7 +408,10 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 // Generate permutation from current set of indexes
                 int permTotalWidth = pixelGaps;
-                permWidth.Clear();
+                new List<int>().Clear();
+
+                // Per-permutation values
+                List<ItemSizeWidth> permSize = new List<ItemSizeWidth>();
                 permSize.Clear();
 
                 // Generate permutation by taking cell values
@@ -451,9 +422,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     
                     // Track the total width of this permutation
                     permTotalWidth += size.Width;
-
-                    // Remember this combinations values
-                    permWidth.Insert(0, size.Width);
+                    new List<int>().Insert(0, size.Width);
                     permSize.Insert(0, size);
                 }
 
@@ -616,7 +585,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Size preferredSize = Size.Empty;
 
             // Find total width and maximum height across all child elements
-            for (int i = 0, j = 0; i < this.Count; i++)
+            for (int i = 0, j = 0; i < Count; i++)
             {
                 ViewBase child = this[i];
 
@@ -671,13 +640,13 @@ namespace ComponentFactory.Krypton.Ribbon
             int x = ClientLocation.X;
 
             // Are there any children to layout?
-            if (this.Count > 0)
+            if (Count > 0)
             {
                 int y = ClientLocation.Y;
                 int height = ClientHeight;
 
                 // Position each item from left to right taking up entire height
-                for (int i = 0, j = 0; i < this.Count; i++)
+                for (int i = 0, j = 0; i < Count; i++)
                 {
                     ViewBase child = this[i];
 
@@ -727,18 +696,10 @@ namespace ComponentFactory.Krypton.Ribbon
             // Add a view element for each group item
             foreach (KryptonRibbonGroupContainer container in _ribbonGroup.Items)
             {
-                ViewBase containerView;
-
                 // Do we already have a view for this container definition
-                if (_containerToView.ContainsKey(container))
-                {
-                    containerView = _containerToView[container];
-                }
-                else
-                {
-                    // Ask the container definition to return an appropriate view
-                    containerView = container.CreateView(_ribbon, _needPaint);
-                }
+                ViewBase containerView = _containerToView.ContainsKey(container)
+                    ? _containerToView[container]
+                    : container.CreateView(_ribbon, _needPaint);
 
                 // Update the visible state of the item
                 containerView.Visible = (container.Visible || _ribbon.InDesignHelperMode);

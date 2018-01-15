@@ -187,17 +187,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual InheritBool Draw
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return InheritBool.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentDraw;
-                }
-            }
+            get => _storage?.ContentDraw ?? InheritBool.Inherit;
 
             set
             {
@@ -230,17 +220,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>InheritBool value.</returns>
-        public InheritBool GetContentDraw(PaletteState state)
-        {
-            if (Draw != InheritBool.Inherit)
-            {
-                return Draw;
-            }
-            else
-            {
-                return _inherit.GetContentDraw(state);
-            }
-        }
+        public InheritBool GetContentDraw(PaletteState state) =>
+            Draw != InheritBool.Inherit ? Draw : _inherit.GetContentDraw(state);
+
         #endregion
 
         #region DrawFocus
@@ -254,17 +236,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual InheritBool DrawFocus
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return InheritBool.Inherit;
-                }
-                else
-                {
-                    return _storage.ContentDrawFocus;
-                }
-            }
+            get => _storage?.ContentDrawFocus ?? InheritBool.Inherit;
 
             set
             {
@@ -297,17 +269,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>InheritBool value.</returns>
-        public InheritBool GetContentDrawFocus(PaletteState state)
-        {
-            if (DrawFocus != InheritBool.Inherit)
-            {
-                return DrawFocus;
-            }
-            else
-            {
-                return _inherit.GetContentDrawFocus(state);
-            }
-        }
+        public InheritBool GetContentDrawFocus(PaletteState state) =>
+            DrawFocus != InheritBool.Inherit ? DrawFocus : _inherit.GetContentDrawFocus(state);
+
         #endregion
 
         #region Image
@@ -320,95 +284,50 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteContentImage Image => _image;
 
-        private bool ShouldSerializeImage()
-        {
-            return !_image.IsDefault;
-        }
+        private bool ShouldSerializeImage() => !_image.IsDefault;
 
         /// <summary>
         /// Gets the actual content image horizontal alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentImageH(PaletteState state)
-        {
-            if (_image.ImageH != PaletteRelativeAlign.Inherit)
-            {
-                return _image.ImageH;
-            }
-            else
-            {
-                return _inherit.GetContentImageH(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentImageH(PaletteState state) =>
+            _image.ImageH != PaletteRelativeAlign.Inherit ? _image.ImageH : _inherit.GetContentImageH(state);
 
         /// <summary>
         /// Gets the actual content image vertical alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentImageV(PaletteState state)
-        {
-            if (_image.ImageV != PaletteRelativeAlign.Inherit)
-            {
-                return _image.ImageV;
-            }
-            else
-            {
-                return _inherit.GetContentImageV(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentImageV(PaletteState state) =>
+            _image.ImageV != PaletteRelativeAlign.Inherit ? _image.ImageV : _inherit.GetContentImageV(state);
 
         /// <summary>
         /// Gets the actual image drawing effect value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteImageEffect value.</returns>
-        public PaletteImageEffect GetContentImageEffect(PaletteState state)
-        {
-            if (_image.Effect != PaletteImageEffect.Inherit)
-            {
-                return _image.Effect;
-            }
-            else
-            {
-                return _inherit.GetContentImageEffect(state);
-            }
-        }
+        public PaletteImageEffect GetContentImageEffect(PaletteState state) =>
+            _image.Effect != PaletteImageEffect.Inherit ? _image.Effect : _inherit.GetContentImageEffect(state);
 
         /// <summary>
         /// Gets the image color to remap into another color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentImageColorMap(PaletteState state)
-        {
-            if (_image.ImageColorMap != Color.Empty)
-            {
-                return _image.ImageColorMap;
-            }
-            else
-            {
-                return _inherit.GetContentImageColorMap(state);
-            }
-        }
+        public Color GetContentImageColorMap(PaletteState state) => _image.ImageColorMap != Color.Empty
+            ? _image.ImageColorMap
+            : _inherit.GetContentImageColorMap(state);
 
         /// <summary>
         /// Gets the color to use in place of the image map color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentImageColorTo(PaletteState state)
-        {
-            if (_image.ImageColorTo != Color.Empty)
-            {
-                return _image.ImageColorTo;
-            }
-            else
-            {
-                return _inherit.GetContentImageColorTo(state);
-            }
-        }
+        public Color GetContentImageColorTo(PaletteState state) => _image.ImageColorTo != Color.Empty
+            ? _image.ImageColorTo
+            : _inherit.GetContentImageColorTo(state);
+
         #endregion
 
         #region ShortText
@@ -421,299 +340,162 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteContentText ShortText => _shortText;
 
-        private bool ShouldSerializeShortText()
-        {
-            return !_shortText.IsDefault;
-        }
+        private bool ShouldSerializeShortText() => !_shortText.IsDefault;
 
         /// <summary>
         /// Gets the actual content short text font value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public Font GetContentShortTextFont(PaletteState state)
-        {
-            if (_shortText.Font != null)
-            {
-                return _shortText.Font;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextFont(state);
-            }
-        }
+        public Font GetContentShortTextFont(PaletteState state) => _shortText.Font ?? _inherit.GetContentShortTextFont(state);
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public Font GetContentShortTextNewFont(PaletteState state)
-        {
-            if (_shortText.Font != null)
-            {
-                return _shortText.Font;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextNewFont(state);
-            }
-        }
+        public Font GetContentShortTextNewFont(PaletteState state) => _shortText.Font ?? _inherit.GetContentShortTextNewFont(state);
 
         /// <summary>
         /// Gets the actual text rendering hint for short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextHint value.</returns>
-        public PaletteTextHint GetContentShortTextHint(PaletteState state)
-        {
-            if (_shortText.Hint != PaletteTextHint.Inherit)
-            {
-                return _shortText.Hint;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextHint(state);
-            }
-        }
+        public PaletteTextHint GetContentShortTextHint(PaletteState state) => _shortText.Hint != PaletteTextHint.Inherit
+            ? _shortText.Hint
+            : _inherit.GetContentShortTextHint(state);
 
         /// <summary>
         /// Gets the prefix drawing setting for short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextPrefix value.</returns>
-        public PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state)
-        {
-            if (_shortText.Prefix != PaletteTextHotkeyPrefix.Inherit)
-            {
-                return _shortText.Prefix;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextPrefix(state);
-            }
-        }
+        public PaletteTextHotkeyPrefix GetContentShortTextPrefix(PaletteState state) =>
+            _shortText.Prefix != PaletteTextHotkeyPrefix.Inherit
+                ? _shortText.Prefix
+                : _inherit.GetContentShortTextPrefix(state);
 
         /// <summary>
         /// Gets the actual text trimming for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextTrim value.</returns>
-        public PaletteTextTrim GetContentShortTextTrim(PaletteState state)
-        {
-            if (_shortText.Trim != PaletteTextTrim.Inherit)
-            {
-                return _shortText.Trim;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextTrim(state);
-            }
-        }
+        public PaletteTextTrim GetContentShortTextTrim(PaletteState state) => 
+            _shortText.Trim != PaletteTextTrim.Inherit
+            ? _shortText.Trim
+            : _inherit.GetContentShortTextTrim(state);
 
         /// <summary>
         /// Gets the actual content short text horizontal alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentShortTextH(PaletteState state)
-        {
-            if (_shortText.TextH != PaletteRelativeAlign.Inherit)
-            {
-                return _shortText.TextH;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextH(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentShortTextH(PaletteState state) =>
+            _shortText.TextH != PaletteRelativeAlign.Inherit ? _shortText.TextH : _inherit.GetContentShortTextH(state);
 
         /// <summary>
         /// Gets the actual content short text vertical alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentShortTextV(PaletteState state)
-        {
-            if (_shortText.TextV != PaletteRelativeAlign.Inherit)
-            {
-                return _shortText.TextV;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextV(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentShortTextV(PaletteState state) =>
+            _shortText.TextV != PaletteRelativeAlign.Inherit ? _shortText.TextV : _inherit.GetContentShortTextV(state);
 
         /// <summary>
         /// Gets the actual content short text horizontal multiline alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state)
-        {
-            if (_shortText.MultiLineH != PaletteRelativeAlign.Inherit)
-            {
-                return _shortText.MultiLineH;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextMultiLineH(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteState state) =>
+            _shortText.MultiLineH != PaletteRelativeAlign.Inherit
+                ? _shortText.MultiLineH
+                : _inherit.GetContentShortTextMultiLineH(state);
 
         /// <summary>
         /// Gets the flag indicating if multiline text is allowed for short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>InheritBool value.</returns>
-        public InheritBool GetContentShortTextMultiLine(PaletteState state)
-        {
-            if (_shortText.MultiLine != InheritBool.Inherit)
-            {
-                return _shortText.MultiLine;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextMultiLine(state);
-            }
-        }
+        public InheritBool GetContentShortTextMultiLine(PaletteState state) =>
+            _shortText.MultiLine != InheritBool.Inherit
+                ? _shortText.MultiLine
+                : _inherit.GetContentShortTextMultiLine(state);
 
         /// <summary>
         /// Gets the first color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentShortTextColor1(PaletteState state)
-        {
-            if (ShortText.Color1 != Color.Empty)
-            {
-                return ShortText.Color1;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextColor1(state);
-            }
-        }
+        public Color GetContentShortTextColor1(PaletteState state) => 
+            ShortText.Color1 != Color.Empty
+            ? ShortText.Color1
+            : _inherit.GetContentShortTextColor1(state);
 
         /// <summary>
         /// Gets the second back color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentShortTextColor2(PaletteState state)
-        {
-            if (ShortText.Color2 != Color.Empty)
-            {
-                return ShortText.Color2;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextColor2(state);
-            }
-        }
+        public Color GetContentShortTextColor2(PaletteState state) => ShortText.Color2 != Color.Empty
+            ? ShortText.Color2
+            : _inherit.GetContentShortTextColor2(state);
 
         /// <summary>
         /// Gets the color drawing style for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color drawing style.</returns>
-        public PaletteColorStyle GetContentShortTextColorStyle(PaletteState state)
-        {
-            if (ShortText.ColorStyle != PaletteColorStyle.Inherit)
-            {
-                return ShortText.ColorStyle;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextColorStyle(state);
-            }
-        }
+        public PaletteColorStyle GetContentShortTextColorStyle(PaletteState state) =>
+            ShortText.ColorStyle != PaletteColorStyle.Inherit
+                ? ShortText.ColorStyle
+                : _inherit.GetContentShortTextColorStyle(state);
 
         /// <summary>
         /// Gets the color alignment style for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color alignment style.</returns>
-        public PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state)
-        {
-            if (ShortText.ColorAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ShortText.ColorAlign;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextColorAlign(state);
-            }
-        }
+        public PaletteRectangleAlign GetContentShortTextColorAlign(PaletteState state) =>
+            ShortText.ColorAlign != PaletteRectangleAlign.Inherit
+                ? ShortText.ColorAlign
+                : _inherit.GetContentShortTextColorAlign(state);
 
         /// <summary>
         /// Gets the color angle for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Angle used for color drawing.</returns>
-        public float GetContentShortTextColorAngle(PaletteState state)
-        {
-            if (ShortText.ColorAngle != -1)
-            {
-                return ShortText.ColorAngle;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextColorAngle(state);
-            }
-        }
+        public float GetContentShortTextColorAngle(PaletteState state) => ShortText.ColorAngle != -1
+            ? ShortText.ColorAngle
+            : _inherit.GetContentShortTextColorAngle(state);
 
         /// <summary>
         /// Gets an image for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image instance.</returns>
-        public Image GetContentShortTextImage(PaletteState state)
-        {
-            if (ShortText.Image != null)
-            {
-                return ShortText.Image;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextImage(state);
-            }
-        }
+        public Image GetContentShortTextImage(PaletteState state) => ShortText.Image ?? _inherit.GetContentShortTextImage(state);
 
         /// <summary>
         /// Gets the image style for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image style value.</returns>
-        public PaletteImageStyle GetContentShortTextImageStyle(PaletteState state)
-        {
-            if (ShortText.ImageStyle != PaletteImageStyle.Inherit)
-            {
-                return ShortText.ImageStyle;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextImageStyle(state);
-            }
-        }
+        public PaletteImageStyle GetContentShortTextImageStyle(PaletteState state) =>
+            ShortText.ImageStyle != PaletteImageStyle.Inherit
+                ? ShortText.ImageStyle
+                : _inherit.GetContentShortTextImageStyle(state);
 
         /// <summary>
         /// Gets the image alignment style for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image alignment style.</returns>
-        public PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state)
-        {
-            if (ShortText.ImageAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ShortText.ImageAlign;
-            }
-            else
-            {
-                return _inherit.GetContentShortTextImageAlign(state);
-            }
-        }
+        public PaletteRectangleAlign GetContentShortTextImageAlign(PaletteState state) =>
+            ShortText.ImageAlign != PaletteRectangleAlign.Inherit
+                ? ShortText.ImageAlign
+                : _inherit.GetContentShortTextImageAlign(state);
+
         #endregion
 
         #region LongText
@@ -726,299 +508,165 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteContentText LongText => _longText;
 
-        private bool ShouldSerializeLongText()
-        {
-            return !_longText.IsDefault;
-        }
+        private bool ShouldSerializeLongText() => !_longText.IsDefault;
 
         /// <summary>
         /// Gets the actual content long text font value.
         /// </summary>
         /// <returns>Font value.</returns>
         /// <param name="state">Palette value should be applicable to this state.</param>
-        public Font GetContentLongTextFont(PaletteState state)
-        {
-            if (_longText.Font != null)
-            {
-                return _longText.Font;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextFont(state);
-            }
-        }
+        public Font GetContentLongTextFont(PaletteState state) => _longText.Font ?? _inherit.GetContentLongTextFont(state);
 
         /// <summary>
         /// Gets the font for the long text by generating a new font instance.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public Font GetContentLongTextNewFont(PaletteState state)
-        {
-            if (_longText.Font != null)
-            {
-                return _longText.Font;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextNewFont(state);
-            }
-        }
+        public Font GetContentLongTextNewFont(PaletteState state) => _longText.Font ?? _inherit.GetContentLongTextNewFont(state);
 
         /// <summary>
         /// Gets the actual text rendering hint for long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextHint value.</returns>
-        public PaletteTextHint GetContentLongTextHint(PaletteState state)
-        {
-            if (_longText.Hint != PaletteTextHint.Inherit)
-            {
-                return _longText.Hint;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextHint(state);
-            }
-        }
+        public PaletteTextHint GetContentLongTextHint(PaletteState state) => _longText.Hint != PaletteTextHint.Inherit
+            ? _longText.Hint
+            : _inherit.GetContentLongTextHint(state);
 
         /// <summary>
         /// Gets the prefix drawing setting for long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextPrefix value.</returns>
-        public PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteState state)
-        {
-            if (_longText.Prefix != PaletteTextHotkeyPrefix.Inherit)
-            {
-                return _longText.Prefix;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextPrefix(state);
-            }
-        }
+        public PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteState state) =>
+            _longText.Prefix != PaletteTextHotkeyPrefix.Inherit
+                ? _longText.Prefix
+                : _inherit.GetContentLongTextPrefix(state);
 
         /// <summary>
         /// Gets the actual text trimming for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextTrim value.</returns>
-        public PaletteTextTrim GetContentLongTextTrim(PaletteState state)
-        {
-            if (_longText.Trim != PaletteTextTrim.Inherit)
-            {
-                return _longText.Trim;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextTrim(state);
-            }
-        }
+        public PaletteTextTrim GetContentLongTextTrim(PaletteState state) => _longText.Trim != PaletteTextTrim.Inherit
+            ? _longText.Trim
+            : _inherit.GetContentLongTextTrim(state);
 
         /// <summary>
         /// Gets the actual content long text horizontal alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentLongTextH(PaletteState state)
-        {
-            if (_longText.TextH != PaletteRelativeAlign.Inherit)
-            {
-                return _longText.TextH;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextH(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentLongTextH(PaletteState state) =>
+            _longText.TextH != PaletteRelativeAlign.Inherit ? _longText.TextH : _inherit.GetContentLongTextH(state);
 
         /// <summary>
         /// Gets the actual content long text vertical alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentLongTextV(PaletteState state)
-        {
-            if (_longText.TextV != PaletteRelativeAlign.Inherit)
-            {
-                return _longText.TextV;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextV(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentLongTextV(PaletteState state) => 
+            _longText.TextV != PaletteRelativeAlign.Inherit
+            ? _longText.TextV
+            : _inherit.GetContentLongTextV(state);
 
         /// <summary>
         /// Gets the actual content long text horizontal multiline alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
-        public PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteState state)
-        {
-            if (_longText.MultiLineH != PaletteRelativeAlign.Inherit)
-            {
-                return _longText.MultiLineH;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextMultiLineH(state);
-            }
-        }
+        public PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteState state) =>
+            _longText.MultiLineH != PaletteRelativeAlign.Inherit
+                ? _longText.MultiLineH
+                : _inherit.GetContentLongTextMultiLineH(state);
 
         /// <summary>
         /// Gets the flag indicating if multiline text is allowed for long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>InheritBool value.</returns>
-        public InheritBool GetContentLongTextMultiLine(PaletteState state)
-        {
-            if (_longText.MultiLine != InheritBool.Inherit)
-            {
-                return _longText.MultiLine;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextMultiLine(state);
-            }
-        }
+        public InheritBool GetContentLongTextMultiLine(PaletteState state) => 
+            _longText.MultiLine != InheritBool.Inherit
+            ? _longText.MultiLine
+            : _inherit.GetContentLongTextMultiLine(state);
 
         /// <summary>
         /// Gets the first color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentLongTextColor1(PaletteState state)
-        {
-            if (LongText.Color1 != Color.Empty)
-            {
-                return LongText.Color1;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextColor1(state);
-            }
-        }
+        public Color GetContentLongTextColor1(PaletteState state) => 
+            LongText.Color1 != Color.Empty
+            ? LongText.Color1
+            : _inherit.GetContentLongTextColor1(state);
 
         /// <summary>
         /// Gets the second back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetContentLongTextColor2(PaletteState state)
-        {
-            if (LongText.Color2 != Color.Empty)
-            {
-                return LongText.Color2;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextColor2(state);
-            }
-        }
+        public Color GetContentLongTextColor2(PaletteState state) => 
+            LongText.Color2 != Color.Empty
+            ? LongText.Color2
+            : _inherit.GetContentLongTextColor2(state);
 
         /// <summary>
         /// Gets the color drawing style for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color drawing style.</returns>
-        public PaletteColorStyle GetContentLongTextColorStyle(PaletteState state)
-        {
-            if (LongText.ColorStyle != PaletteColorStyle.Inherit)
-            {
-                return LongText.ColorStyle;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextColorStyle(state);
-            }
-        }
+        public PaletteColorStyle GetContentLongTextColorStyle(PaletteState state) =>
+            LongText.ColorStyle != PaletteColorStyle.Inherit
+                ? LongText.ColorStyle
+                : _inherit.GetContentLongTextColorStyle(state);
 
         /// <summary>
         /// Gets the color alignment style for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color alignment style.</returns>
-        public PaletteRectangleAlign GetContentLongTextColorAlign(PaletteState state)
-        {
-            if (LongText.ColorAlign != PaletteRectangleAlign.Inherit)
-            {
-                return LongText.ColorAlign;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextColorAlign(state);
-            }
-        }
+        public PaletteRectangleAlign GetContentLongTextColorAlign(PaletteState state) =>
+            LongText.ColorAlign != PaletteRectangleAlign.Inherit
+                ? LongText.ColorAlign
+                : _inherit.GetContentLongTextColorAlign(state);
 
         /// <summary>
         /// Gets the color angle for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Angle used for color drawing.</returns>
-        public float GetContentLongTextColorAngle(PaletteState state)
-        {
-            if (LongText.ColorAngle != -1)
-            {
-                return LongText.ColorAngle;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextColorAngle(state);
-            }
-        }
+        public float GetContentLongTextColorAngle(PaletteState state) => 
+            LongText.ColorAngle != -1
+            ? LongText.ColorAngle
+            : _inherit.GetContentLongTextColorAngle(state);
 
         /// <summary>
         /// Gets an image for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image instance.</returns>
-        public Image GetContentLongTextImage(PaletteState state)
-        {
-            if (LongText.Image != null)
-            {
-                return LongText.Image;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextImage(state);
-            }
-        }
+        public Image GetContentLongTextImage(PaletteState state) => LongText.Image ?? _inherit.GetContentLongTextImage(state);
 
         /// <summary>
         /// Gets the image style for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image style value.</returns>
-        public PaletteImageStyle GetContentLongTextImageStyle(PaletteState state)
-        {
-            if (LongText.ImageStyle != PaletteImageStyle.Inherit)
-            {
-                return LongText.ImageStyle;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextImageStyle(state);
-            }
-        }
+        public PaletteImageStyle GetContentLongTextImageStyle(PaletteState state) =>
+            LongText.ImageStyle != PaletteImageStyle.Inherit
+                ? LongText.ImageStyle
+                : _inherit.GetContentLongTextImageStyle(state);
 
         /// <summary>
         /// Gets the image alignment style for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Image alignment style.</returns>
-        public PaletteRectangleAlign GetContentLongTextImageAlign(PaletteState state)
-        {
-            if (LongText.ImageAlign != PaletteRectangleAlign.Inherit)
-            {
-                return LongText.ImageAlign;
-            }
-            else
-            {
-                return _inherit.GetContentLongTextImageAlign(state);
-            }
-        }
+        public PaletteRectangleAlign GetContentLongTextImageAlign(PaletteState state) =>
+            LongText.ImageAlign != PaletteRectangleAlign.Inherit
+                ? LongText.ImageAlign
+                : _inherit.GetContentLongTextImageAlign(state);
+
         #endregion
 
         #region Padding
@@ -1032,17 +680,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual Padding Padding
         {
-            get
-            {
-                if (_storage == null)
-                {
-                    return CommonHelper.InheritPadding;
-                }
-                else
-                {
-                    return _storage.ContentPadding;
-                }
-            }
+            get => _storage?.ContentPadding ?? CommonHelper.InheritPadding;
 
             set
             {
@@ -1166,27 +804,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the AdjacentGap to the default value.
         /// </summary>
-        public void ResetAdjacentGap()
-        {
-            AdjacentGap = -1;
-        }
+        public void ResetAdjacentGap() => AdjacentGap = -1;
 
         /// <summary>
         /// Gets the actual padding between adjacent content items.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Integer value.</returns>
-        public int GetContentAdjacentGap(PaletteState state)
-        {
-            if (AdjacentGap != -1)
-            {
-                return AdjacentGap;
-            }
-            else
-            {
-                return _inherit.GetContentAdjacentGap(state);
-            }
-        }
+        public int GetContentAdjacentGap(PaletteState state) => AdjacentGap != -1 ? AdjacentGap : _inherit.GetContentAdjacentGap(state);
+
         #endregion
 
         #region ContentStyle
@@ -1194,10 +820,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the style appropriate for this content.
         /// </summary>
         /// <returns>Content style.</returns>
-        public PaletteContentStyle GetContentStyle()
-        {
-            return _inherit.GetContentStyle();
-        }
+        public PaletteContentStyle GetContentStyle() => _inherit.GetContentStyle();
         #endregion
 
         #region Protected
@@ -1205,10 +828,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the PropertyChanged event.
         /// </summary>
         /// <param name="property">Name of the property changed.</param>
-        protected virtual void OnPropertyChanged(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
+        protected virtual void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         #endregion
     }
 }

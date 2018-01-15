@@ -286,14 +286,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Do we show the button as pressed only when over the button?
                     if (IsOnlyPressedWhenOver)
                     {
-                        if (Target.ClientRectangle.Contains(pt))
-                        {
-                            newState = PaletteState.Pressed;
-                        }
-                        else
-                        {
-                            newState = PaletteState.Normal;
-                        }
+                        newState = Target.ClientRectangle.Contains(pt) ? PaletteState.Pressed : PaletteState.Normal;
                     }
                     else
                     {

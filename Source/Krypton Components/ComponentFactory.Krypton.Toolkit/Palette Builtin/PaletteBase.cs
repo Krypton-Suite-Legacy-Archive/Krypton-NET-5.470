@@ -1185,17 +1185,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual float BaseFontSize
         {
-            get
-            {
-                if (!_baseFontSize.HasValue)
-                {
-                    return SystemFonts.MenuFont.SizeInPoints;
-                }
-                else
-                {
-                    return _baseFontSize.Value;
-                }
-            }
+            get => !_baseFontSize.HasValue ? SystemFonts.MenuFont.SizeInPoints : _baseFontSize.Value;
 
             set
             {

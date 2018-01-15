@@ -106,7 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		public ViewBase Root
 		{
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return _root; }
 			
 			set 
@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Control Control
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -132,7 +132,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Control AlignControl
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -142,7 +142,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool DoNotLayoutControls
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -152,7 +152,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool OutputDebug
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }

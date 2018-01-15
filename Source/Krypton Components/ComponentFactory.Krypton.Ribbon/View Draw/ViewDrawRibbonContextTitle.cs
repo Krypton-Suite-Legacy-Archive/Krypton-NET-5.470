@@ -121,19 +121,12 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get => _context;
 
-            set 
-            { 
+            set
+            {
                 _context = value;
 
                 // Update the component we are associated with
-                if (_context != null)
-                {
-                    Component = _context.Context;
-                }
-                else
-                {
-                    Component = null;
-                }
+                Component = _context?.Context;
             }
         }
         #endregion
@@ -525,32 +518,12 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private bool DrawOnComposition
-        {
-            get
-            {
-                if (_ribbon != null)
-                {
-                    return _ribbon.CaptionArea.DrawCaptionOnComposition;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        private bool DrawOnComposition => _ribbon != null && _ribbon.CaptionArea.DrawCaptionOnComposition;
 
         private Color CheckForContextColor(PaletteState state)
         {
             // We need an associated context
-            if (_context != null)
-            {
-                return _context.ContextColor;
-            }
-            else
-            {
-                return Color.Empty;
-            }
+            return _context?.ContextColor ?? Color.Empty;
         }
         #endregion    
     
@@ -560,45 +533,27 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Tab state.</param>
         /// <returns>Image.</returns>
-        public Image GetImage(PaletteState state)
-        {
-            return null;
-        }
+        public Image GetImage(PaletteState state) => null;
 
         /// <summary>
         /// Gets the image color that should be interpreted as transparent.
         /// </summary>
         /// <param name="state">Tab state.</param>
         /// <returns>Transparent Color.</returns>
-        public Color GetImageTransparentColor(PaletteState state)
-        {
-            return Color.Empty;
-        }
+        public Color GetImageTransparentColor(PaletteState state) => Color.Empty;
 
         /// <summary>
         /// Gets the short text used as the main ribbon title.
         /// </summary>
         /// <returns>Title string.</returns>
-        public string GetShortText()
-        {
-            if (_context?.ContextTitle != null)
-            {
-                return _context.ContextTitle;
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
+        public string GetShortText() => _context?.ContextTitle ?? string.Empty;
 
         /// <summary>
         /// Gets the long text used as the secondary ribbon title.
         /// </summary>
         /// <returns>Title string.</returns>
-        public string GetLongText()
-        {
-            return string.Empty;
-        }
+        public string GetLongText() => string.Empty;
+
         #endregion
     }
 }

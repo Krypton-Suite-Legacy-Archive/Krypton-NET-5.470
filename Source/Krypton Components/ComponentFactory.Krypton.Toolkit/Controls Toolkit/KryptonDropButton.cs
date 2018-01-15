@@ -591,81 +591,42 @@ namespace ComponentFactory.Krypton.Toolkit
 			get => base.ImeMode;
 		    set => base.ImeMode = value;
 		}
-		#endregion
+        #endregion
 
         #region IContentValues
         /// <summary>
         /// Gets the content short text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetShortText()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.Text;
-            }
-            else
-            {
-                return Values.GetShortText();
-            }
-        }
+        public string GetShortText() => KryptonCommand?.Text ?? Values.GetShortText();
 
         /// <summary>
         /// Gets the content long text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetLongText()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ExtraText;
-            }
-            else
-            {
-                return Values.GetLongText();
-            }
-        }
+        public string GetLongText() => KryptonCommand?.ExtraText ?? Values.GetLongText();
 
         /// <summary>
         /// Gets the content image.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
-        public Image GetImage(PaletteState state)
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ImageSmall;
-            }
-            else
-            {
-                return Values.GetImage(state);
-            }
-        }
+        public Image GetImage(PaletteState state) => KryptonCommand?.ImageSmall ?? Values.GetImage(state);
 
         /// <summary>
         /// Gets the image color that should be transparent.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Color value.</returns>
-        public Color GetImageTransparentColor(PaletteState state)
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ImageTransparentColor;
-            }
-            else
-            {
-                return Values.GetImageTransparentColor(state);
-            }
-        }
+        public Color GetImageTransparentColor(PaletteState state) =>
+            KryptonCommand?.ImageTransparentColor ?? Values.GetImageTransparentColor(state);
         #endregion
-        
+
         #region Protected Overrides
-		/// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(90, 25);
+        /// <summary>
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(90, 25);
 
 	    /// <summary>
 		/// Gets the default Input Method Editor (IME) mode supported by this control.
@@ -764,7 +725,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			if (UseMnemonic && CanProcessMnemonic())
 			{
 				// Does the button primary text contain the mnemonic?
-				if (Control.IsMnemonic(charCode, Values.Text))
+				if (IsMnemonic(charCode, Values.Text))
 				{
                     if (!Splitter)
                     {

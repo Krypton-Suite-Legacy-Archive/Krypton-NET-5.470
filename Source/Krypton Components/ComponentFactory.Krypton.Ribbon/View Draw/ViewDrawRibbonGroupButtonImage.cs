@@ -67,20 +67,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the size to draw the image.
         /// </summary>
-        protected override Size DrawSize
-        {
-            get
-            {
-                if (_large)
-                {
-                    return _largeSize;
-                }
-                else
-                {
-                    return _smallSize;
-                }
-            }
-        }
+        protected override Size DrawSize => _large ? _largeSize : _smallSize;
 
         /// <summary>
         /// Gets the image to be drawn.
@@ -91,25 +78,11 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (_ribbonButton.KryptonCommand != null)
                 {
-                    if (_large)
-                    {
-                        return _ribbonButton.KryptonCommand.ImageLarge;
-                    }
-                    else
-                    {
-                        return _ribbonButton.KryptonCommand.ImageSmall;
-                    }
+                    return _large ? _ribbonButton.KryptonCommand.ImageLarge : _ribbonButton.KryptonCommand.ImageSmall;
                 }
                 else
                 {
-                    if (_large)
-                    {
-                        return _ribbonButton.ImageLarge;
-                    }
-                    else
-                    {
-                        return _ribbonButton.ImageSmall;
-                    }
+                    return _large ? _ribbonButton.ImageLarge : _ribbonButton.ImageSmall;
                 }
             }
         }

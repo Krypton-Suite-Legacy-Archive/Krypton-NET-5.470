@@ -94,19 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Returns the number of internal control designers in the ControlDesigner.
         /// </summary>
         /// <returns>The number of internal control designers in the ControlDesigner.</returns>
-        public override int NumberOfInternalControlDesigners()
-        {
-            if (_group != null)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        public override int NumberOfInternalControlDesigners() => _group != null ? 1 : 0;
 
-        /// <summary>
+	    /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.
         /// </summary>
         public override DesignerActionListCollection ActionLists

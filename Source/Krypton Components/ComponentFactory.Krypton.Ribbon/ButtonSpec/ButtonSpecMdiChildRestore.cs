@@ -68,12 +68,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Has the minimize/maximize buttons been turned off?
-            if (!MdiChild.MinimizeBox && !MdiChild.MaximizeBox)
-            {
-                return false;
-            }
-
-            return true;
+            return MdiChild.MinimizeBox || MdiChild.MaximizeBox;
         }
 
         /// <summary>
@@ -90,12 +85,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Has the maximize button been turned off?
-            if (!MdiChild.MaximizeBox)
-            {
-                return ButtonEnabled.False;
-            }
-
-            return ButtonEnabled.True;
+            return !MdiChild.MaximizeBox ? ButtonEnabled.False : ButtonEnabled.True;
         }
 
         /// <summary>

@@ -149,19 +149,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public InheritBool Draw
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return InheritBool.Inherit;
-                }
-                else
-                {
-                    return _storage.BackDraw;
-                }
-            }
+			get => _storage?.BackDraw ?? InheritBool.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -187,28 +177,18 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the actual background draw value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public InheritBool GetBackDraw(PaletteState state)
-		{
-			if (Draw != InheritBool.Inherit)
-            {
-                return Draw;
-            }
-            else
-            {
-                return _inherit.GetBackDraw(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the actual background draw value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public InheritBool GetBackDraw(PaletteState state) => Draw != InheritBool.Inherit ? Draw : _inherit.GetBackDraw(state);
+        #endregion
 
-		#region GraphicsHint
-		/// <summary>
-		/// Gets the graphics hint for drawing the background.
-		/// </summary>
+        #region GraphicsHint
+        /// <summary>
+        /// Gets the graphics hint for drawing the background.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Hint for drawing graphics.")]
@@ -216,19 +196,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteGraphicsHint GraphicsHint
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteGraphicsHint.Inherit;
-                }
-                else
-                {
-                    return _storage.BackGraphicsHint;
-                }
-            }
+			get => _storage?.BackGraphicsHint ?? PaletteGraphicsHint.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -254,49 +224,30 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 		}
 
-		/// <summary>
-		/// Gets the actual background graphics hint value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
-		{
-			if (GraphicsHint != PaletteGraphicsHint.Inherit)
-            {
-                return GraphicsHint;
-            }
-            else
-            {
-                return _inherit.GetBackGraphicsHint(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the actual background graphics hint value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public PaletteGraphicsHint GetBackGraphicsHint(PaletteState state) =>
+            GraphicsHint != PaletteGraphicsHint.Inherit ? GraphicsHint : _inherit.GetBackGraphicsHint(state);
+        #endregion
 
-		#region Color1
-		/// <summary>
-		/// Gets and sets the first background color.
-		/// </summary>
+        #region Color1
+        /// <summary>
+        /// Gets and sets the first background color.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Main background color.")]
         [KryptonDefaultColorAttribute()]
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Color Color1
-		{
-			get 
+        {
+            get => _storage?.BackColor1 ?? Color.Empty;
+
+            set
             {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.BackColor1;
-                }
-            }
-			
-			set 
-			{
                 if (_storage != null)
                 {
                     if (_storage.BackColor1 != value)
@@ -319,30 +270,20 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
-
-		/// <summary>
-		/// Gets the first background color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public Color GetBackColor1(PaletteState state)
-		{
-			if (Color1 != Color.Empty)
-            {
-                return Color1;
-            }
-            else
-            {
-                return _inherit.GetBackColor1(state);
-            }
         }
-		#endregion
 
-		#region Color2
-		/// <summary>
-		/// Gets and sets the second background color.
-		/// </summary>
+        /// <summary>
+        /// Gets the first background color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public Color GetBackColor1(PaletteState state) => Color1 != Color.Empty ? Color1 : _inherit.GetBackColor1(state);
+        #endregion
+
+        #region Color2
+        /// <summary>
+        /// Gets and sets the second background color.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Secondary background color.")]
@@ -350,19 +291,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
 		public Color Color2
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return Color.Empty;
-                }
-                else
-                {
-                    return _storage.BackColor2;
-                }
-            }
+			get => _storage?.BackColor2 ?? Color.Empty;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -388,49 +319,29 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public Color GetBackColor2(PaletteState state)
-		{
-			if (Color2 != Color.Empty)
-            {
-                return Color2;
-            }
-            else
-            {
-                return _inherit.GetBackColor2(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public Color GetBackColor2(PaletteState state) => Color2 != Color.Empty ? Color2 : _inherit.GetBackColor2(state);
+        #endregion
 
-		#region ColorStyle
-		/// <summary>
-		/// Gets and sets the color drawing style.
-		/// </summary>
+        #region ColorStyle
+        /// <summary>
+        /// Gets and sets the color drawing style.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Background color drawing style.")]
 		[DefaultValue(typeof(PaletteColorStyle), "Inherit")]
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteColorStyle ColorStyle
-		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteColorStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.BackColorStyle;
-                }
-            }
+        {
+            get => _storage?.BackColorStyle ?? PaletteColorStyle.Inherit;
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackColorStyle != value)
@@ -453,51 +364,31 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
-
-		/// <summary>
-		/// Gets the color drawing style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public PaletteColorStyle GetBackColorStyle(PaletteState state)
-		{
-			if (ColorStyle != PaletteColorStyle.Inherit)
-            {
-                return ColorStyle;
-            }
-            else
-            {
-                return _inherit.GetBackColorStyle(state);
-            }
         }
-		#endregion
 
-		#region ColorAlign
-		/// <summary>
-		/// Gets and set the color alignment.
-		/// </summary>
+        /// <summary>
+        /// Gets the color drawing style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public PaletteColorStyle GetBackColorStyle(PaletteState state) => ColorStyle != PaletteColorStyle.Inherit ? ColorStyle : _inherit.GetBackColorStyle(state);
+        #endregion
+
+        #region ColorAlign
+        /// <summary>
+        /// Gets and set the color alignment.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Background color alignment style.")]
 		[DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteRectangleAlign ColorAlign
-		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.BackColorAlign;
-                }
-            }
+        {
+            get => _storage?.BackColorAlign ?? PaletteRectangleAlign.Inherit;
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackColorAlign != value)
@@ -520,30 +411,21 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
-
-		/// <summary>
-		/// Gets the color alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public PaletteRectangleAlign GetBackColorAlign(PaletteState state)
-		{
-			if (ColorAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ColorAlign;
-            }
-            else
-            {
-                return _inherit.GetBackColorAlign(state);
-            }
         }
-		#endregion
 
-		#region ColorAngle
-		/// <summary>
-		/// Gets and sets the color angle.
-		/// </summary>
+        /// <summary>
+        /// Gets the color alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public PaletteRectangleAlign GetBackColorAlign(PaletteState state) =>
+            ColorAlign != PaletteRectangleAlign.Inherit ? ColorAlign : _inherit.GetBackColorAlign(state);
+        #endregion
+
+        #region ColorAngle
+        /// <summary>
+        /// Gets and sets the color angle.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Background color angle.")]
@@ -594,18 +476,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>Angle used for color drawing.</returns>
-		public float GetBackColorAngle(PaletteState state)
-		{
-			if (ColorAngle != -1)
-            {
-                return ColorAngle;
-            }
-            else
-            {
-                return _inherit.GetBackColorAngle(state);
-            }
-        }
-		#endregion
+		public float GetBackColorAngle(PaletteState state) => ColorAngle != -1 ? ColorAngle : _inherit.GetBackColorAngle(state);
+
+        #endregion
 
 		#region Image
 		/// <summary>
@@ -646,28 +519,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 		}
 
-		/// <summary>
-		/// Gets a background image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public Image GetBackImage(PaletteState state)
-		{
-			if (Image != null)
-            {
-                return Image;
-            }
-            else
-            {
-                return _inherit.GetBackImage(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets a background image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public Image GetBackImage(PaletteState state) => Image ?? _inherit.GetBackImage(state);
+        #endregion
 
-		#region ImageStyle
-		/// <summary>
-		/// Gets and sets the background image style.
-		/// </summary>
+        #region ImageStyle
+        /// <summary>
+        /// Gets and sets the background image style.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Background image style.")]
@@ -675,19 +538,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteImageStyle ImageStyle
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteImageStyle.Inherit;
-                }
-                else
-                {
-                    return _storage.BackImageStyle;
-                }
-            }
+			get => _storage?.BackImageStyle ?? PaletteImageStyle.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -713,28 +566,20 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 		}
 
-		/// <summary>
-		/// Gets the background image style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public PaletteImageStyle GetBackImageStyle(PaletteState state)
-		{
-			if (ImageStyle != PaletteImageStyle.Inherit)
-            {
-                return ImageStyle;
-            }
-            else
-            {
-                return _inherit.GetBackImageStyle(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public PaletteImageStyle GetBackImageStyle(PaletteState state) => ImageStyle != PaletteImageStyle.Inherit
+            ? ImageStyle
+            : _inherit.GetBackImageStyle(state);
+        #endregion
 
-		#region ImageAlign
-		/// <summary>
-		/// Gets and set the image alignment.
-		/// </summary>
+        #region ImageAlign
+        /// <summary>
+        /// Gets and set the image alignment.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
 		[Description("Background image alignment style.")]
@@ -742,19 +587,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		public PaletteRectangleAlign ImageAlign
 		{
-			get 
-            {
-                if (_storage == null)
-                {
-                    return PaletteRectangleAlign.Inherit;
-                }
-                else
-                {
-                    return _storage.BackImageAlign;
-                }
-            }
+			get => _storage?.BackImageAlign ?? PaletteRectangleAlign.Inherit;
 
-			set
+            set
 			{
                 if (_storage != null)
                 {
@@ -780,23 +615,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 		}
 
-		/// <summary>
-		/// Gets the image alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public PaletteRectangleAlign GetBackImageAlign(PaletteState state)
-		{
-			if (ImageAlign != PaletteRectangleAlign.Inherit)
-            {
-                return ImageAlign;
-            }
-            else
-            {
-                return _inherit.GetBackImageAlign(state);
-            }
-        }
-		#endregion
+        /// <summary>
+        /// Gets the image alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public PaletteRectangleAlign GetBackImageAlign(PaletteState state) =>
+            ImageAlign != PaletteRectangleAlign.Inherit ? ImageAlign : _inherit.GetBackImageAlign(state);
+        #endregion
 
         #region Protected
         /// <summary>

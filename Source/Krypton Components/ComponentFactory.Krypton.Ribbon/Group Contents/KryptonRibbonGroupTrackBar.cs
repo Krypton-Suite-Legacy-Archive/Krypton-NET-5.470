@@ -178,7 +178,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    value = "T";
+                    value = @"T";
                 }
 
                 _keyTip = value.ToUpper();
@@ -256,17 +256,12 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get => _minimumLength;
 
-            set 
+            set
             {
                 _minimumLength = value;
-                if (Orientation == Orientation.Horizontal)
-                {
-                    TrackBar.MinimumSize = new Size(_minimumLength, 0);
-                }
-                else
-                {
-                    TrackBar.MinimumSize = new Size(0, _minimumLength);
-                }
+                TrackBar.MinimumSize = Orientation == Orientation.Horizontal
+                    ? new Size(_minimumLength, 0)
+                    : new Size(0, _minimumLength);
             }
         }
 
@@ -283,14 +278,9 @@ namespace ComponentFactory.Krypton.Ribbon
             set
             {
                 _maximumLength = value;
-                if (Orientation == Orientation.Horizontal)
-                {
-                    TrackBar.MaximumSize = new Size(_maximumLength, 0);
-                }
-                else
-                {
-                    TrackBar.MaximumSize = new Size(0, _maximumLength);
-                }
+                TrackBar.MaximumSize = Orientation == Orientation.Horizontal
+                    ? new Size(_maximumLength, 0)
+                    : new Size(0, _maximumLength);
             }
         }
 

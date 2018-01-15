@@ -150,15 +150,9 @@ namespace ComponentFactory.Krypton.Workspace
                         (!dropHorizontal && (parent.Orientation == Orientation.Horizontal)))
                     {
                         // Find opposite direction to the parent sequence
-                        Orientation sequenceOrientation;
-                        if (parent.Orientation == Orientation.Horizontal)
-                        {
-                            sequenceOrientation = Orientation.Vertical;
-                        }
-                        else
-                        {
-                            sequenceOrientation = Orientation.Horizontal;
-                        }
+                        Orientation sequenceOrientation = parent.Orientation == Orientation.Horizontal
+                            ? Orientation.Vertical
+                            : Orientation.Horizontal;
 
                         // Create a new sequence and transfer the target cell into it
                         KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence(sequenceOrientation);
@@ -195,7 +189,7 @@ namespace ComponentFactory.Krypton.Workspace
                         }
                     }
 
-                    // Make the last page transfered the newly selected page of the cell
+                    // Make the last page transferred the newly selected page of the cell
                     if (page != null)
                     {
                         // Does the cell allow the selection of tabs?

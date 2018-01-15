@@ -933,25 +933,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Calculation depends on use of the right to left layout setting
             if (CommonHelper.GetRightToLeftLayout(this) && (RightToLeft == RightToLeft.Yes))
             {
-                if (Orientation == Orientation.Vertical)
-                {
-                    SplitterDistance = Width - splitter.X;
-                }
-                else
-                {
-                    SplitterDistance = Height - splitter.Y;
-                }
+                SplitterDistance = Orientation == Orientation.Vertical ? Width - splitter.X : Height - splitter.Y;
             }
             else
             {
-                if (Orientation == Orientation.Vertical)
-                {
-                    SplitterDistance = splitter.X;
-                }
-                else
-                {
-                    SplitterDistance = splitter.Y;
-                }
+                SplitterDistance = Orientation == Orientation.Vertical ? splitter.X : splitter.Y;
             }
 
             // Fire the event that indicates the splitter has finished being moved
@@ -976,7 +962,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Control.ControlCollection Controls => base.Controls;
+        public new ControlCollection Controls => base.Controls;
 
         /// <summary>
         /// Gets or sets padding within the control.
@@ -1007,14 +993,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!Collapsed)
                 {
                     // Cursor depends on orientation direction
-                    if (Orientation == Orientation.Vertical)
-                    {
-                        return Cursors.VSplit;
-                    }
-                    else
-                    {
-                        return Cursors.HSplit;
-                    }
+                    return Orientation == Orientation.Vertical ? Cursors.VSplit : Cursors.HSplit;
                 }
             }
 
@@ -1157,14 +1136,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnEnabledChanged(EventArgs e)
         {
             // Push correct palettes into the view
-            if (Enabled)
-            {
-                _drawPanel.SetPalettes(StateNormal.Back);
-            }
-            else
-            {
-                _drawPanel.SetPalettes(StateDisabled.Back);
-            }
+            _drawPanel.SetPalettes(Enabled ? StateNormal.Back : StateDisabled.Back);
 
             _drawPanel.Enabled = Enabled;
             _drawSeparator.Enabled = Enabled;
@@ -1345,14 +1317,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             // Separator rect depends on right-to-left layout setting
-                            if (rtl)
-                            {
-                                separatorRect = new Rectangle(Panel2.Right, 0, SplitterWidth, Height);
-                            }
-                            else
-                            {
-                                separatorRect = new Rectangle(Panel1.Right, 0, SplitterWidth, Height);
-                            }
+                            separatorRect = rtl
+                                    ? new Rectangle(Panel2.Right, 0, SplitterWidth, Height)
+                                    : new Rectangle(Panel1.Right, 0, SplitterWidth, Height);
                         }
                         else
                         {
@@ -1441,7 +1408,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
+        protected override ControlCollection CreateControlsInstance()
         {
             return new KryptonReadOnlyControls(this);
         }

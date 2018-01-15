@@ -123,17 +123,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Discover the preferred size of the element.
         /// </summary>
         /// <param name="context">Layout context.</param>
-        public override Size GetPreferredSize(ViewLayoutContext context)
-        {
-            if (_large)
-            {
-                return _largeSize;
-            }
-            else
-            {
-                return _smallSize;
-            }
-        }
+        public override Size GetPreferredSize(ViewLayoutContext context) => _large ? _largeSize : _smallSize;
 
         /// <summary>
         /// Perform a layout of the elements.

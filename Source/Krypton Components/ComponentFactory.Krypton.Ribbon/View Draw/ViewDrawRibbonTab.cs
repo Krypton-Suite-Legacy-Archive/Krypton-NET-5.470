@@ -661,26 +661,12 @@ namespace ComponentFactory.Krypton.Ribbon
                             case PaletteState.Normal:
                             case PaletteState.CheckedNormal:
                             case PaletteState.ContextCheckedNormal:
-                                if (contextTab)
-                                {
-                                    buttonState = PaletteState.ContextCheckedNormal;
-                                }
-                                else
-                                {
-                                    buttonState = PaletteState.CheckedNormal;
-                                }
+                                buttonState = contextTab ? PaletteState.ContextCheckedNormal : PaletteState.CheckedNormal;
                                 break;
                             case PaletteState.Tracking:
                             case PaletteState.CheckedTracking:
                             case PaletteState.ContextCheckedTracking:
-                                if (contextTab)
-                                {
-                                    buttonState = PaletteState.ContextCheckedTracking;
-                                }
-                                else
-                                {
-                                    buttonState = PaletteState.CheckedTracking;
-                                }
+                                buttonState = contextTab ? PaletteState.ContextCheckedTracking : PaletteState.CheckedTracking;
                                 break;
                         }
                     }
@@ -695,14 +681,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             case PaletteState.Tracking:
                             case PaletteState.CheckedTracking:
                             case PaletteState.ContextCheckedTracking:
-                                if (contextTab)
-                                {
-                                    buttonState = PaletteState.ContextTracking;
-                                }
-                                else
-                                {
-                                    buttonState = PaletteState.Tracking;
-                                }
+                                buttonState = contextTab ? PaletteState.ContextTracking : PaletteState.Tracking;
                                 break;
                         }
                     }

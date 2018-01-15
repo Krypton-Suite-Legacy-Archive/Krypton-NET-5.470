@@ -714,14 +714,7 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Check for the optional element size value
-            if (!string.IsNullOrEmpty(elementSize))
-            {
-                LoadSize = CommonHelper.StringToSize(elementSize);
-            }
-            else
-            {
-                LoadSize = Size.Empty;
-            }
+            LoadSize = !string.IsNullOrEmpty(elementSize) ? CommonHelper.StringToSize(elementSize) : Size.Empty;
 
             // Read to the expect child element
             if (!xmlReader.Read())

@@ -175,7 +175,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         textSize.Width += GLOW_EXTRA_WIDTH;
                     }
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
 
                 // Return a memento with drawing details
                 return new AccurateTextMemento(text, font, textSize, format, hint, disposeFont);
@@ -299,15 +302,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             //Check if correct in all cases
                             SolidBrush tmpBrush = brush as SolidBrush;
-                            Color tmpColor;
-                            if (tmpBrush.Color == null)
-                            {
-                                tmpColor = SystemColors.ActiveCaptionText;
-                            }
-                            else
-                            {
-                                tmpColor = tmpBrush.Color;
-                            }
+                            Color tmpColor = tmpBrush?.Color ?? SystemColors.ActiveCaptionText;
 
                             DrawCompositionText(g, memento.Text, memento.Font, rect, state,
                               tmpColor, true, memento.Format);
@@ -346,21 +341,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private static Color ContrastColor(Color color)
         {
-            int d = 0;
             //  Counting the perceptive luminance - human eye favors green color... 
             double a = (1
                         - (((0.299 * color.R)
                         + ((0.587 * color.G) + (0.114 * color.B)))
                         / 255));
-            if ((a < 0.5))
-            {
-                d = 0;
-            }
-            else
-            {
-                //  bright colors - black font
-                d = 255;
-            }
+            int d = a < 0.5 ? 0 : 255;
 
             //  dark colors - white font
             return Color.FromArgb(d, d, d);
@@ -460,6 +446,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch
             {
+                // ignored
             }
             finally
             {
@@ -566,7 +553,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
                
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally
             {
                 // Must remember to release the hDC

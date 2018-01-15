@@ -74,11 +74,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 _viewManager = new ViewManager(this, ViewDrawPanel);
 
                 // Set required properties to act as an owner draw list box
+                // ReSharper disable RedundantBaseQualifier
                 base.Size = Size.Empty;
                 base.BorderStyle = BorderStyle.None;
                 base.IntegralHeight = false;
                 base.MultiColumn = false;
                 base.DrawMode = DrawMode.OwnerDrawVariable;
+                // ReSharper restore RedundantBaseQualifier
 
                 // We need to create and cache a device context compatible with the display
                 _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
@@ -102,10 +104,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Recreate the window handle.
             /// </summary>
-            public void Recreate()
-            {
-                RecreateHandle();
-            }
+            public void Recreate() => RecreateHandle();
 
             /// <summary>
             /// Gets access to the contained view draw panel instance.
@@ -253,36 +252,22 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseEnter(EventArgs e)
-            {
-                TrackMouseEnter?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
             /// <summary>
             /// Raises the TrackMouseLeave event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseLeave(EventArgs e)
-            {
-                TrackMouseLeave?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
 
             #region Private
             private void WmPaint(ref Message m)
             {
-                IntPtr hdc;
                 PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                 // Do we need to BeginPaint or just take the given HDC?
-                if (m.WParam == IntPtr.Zero)
-                {
-                    hdc = PI.BeginPaint(Handle, ref ps);
-                }
-                else
-                {
-                    hdc = m.WParam;
-                }
+                IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                 // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
                 Rectangle realRect = CommonHelper.RealClientRectangle(Handle);
@@ -618,7 +603,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnListBoxClick(object sender, EventArgs e)
         {
+            // ReSharper disable RedundantBaseQualifier
             base.OnClick(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
         /// <summary>
@@ -805,15 +792,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeItemStyle()
-        {
-            return (ItemStyle != ButtonStyle.ListItem);
-        }
+        private bool ShouldSerializeItemStyle() => (ItemStyle != ButtonStyle.ListItem);
 
-        private void ResetItemStyle()
-        {
-            ItemStyle = ButtonStyle.ListItem;
-        }
+        private void ResetItemStyle() => ItemStyle = ButtonStyle.ListItem;
 
         /// <summary>
         /// Gets or sets the width by which the horizontal scroll bar of a KryptonListBox can scroll. 
@@ -974,15 +955,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeBackStyle()
-        {
-            return (BackStyle != PaletteBackStyle.InputControlStandalone);
-        }
+        private bool ShouldSerializeBackStyle() => (BackStyle != PaletteBackStyle.InputControlStandalone);
 
-        private void ResetBackStyle()
-        {
-            BackStyle = PaletteBackStyle.InputControlStandalone;
-        }
+        private void ResetBackStyle() => BackStyle = PaletteBackStyle.InputControlStandalone;
 
         /// <summary>
         /// Gets and sets the border style.
@@ -1004,15 +979,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeBorderStyle()
-        {
-            return (BorderStyle != PaletteBorderStyle.InputControlStandalone);
-        }
+        private bool ShouldSerializeBorderStyle() => (BorderStyle != PaletteBorderStyle.InputControlStandalone);
 
-        private void ResetBorderStyle()
-        {
-            BorderStyle = PaletteBorderStyle.InputControlStandalone;
-        }
+        private void ResetBorderStyle() => BorderStyle = PaletteBorderStyle.InputControlStandalone;
 
         /// <summary>
         /// Gets access to the item appearance when it has focus.
@@ -1022,10 +991,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTripleRedirect OverrideFocus { get; }
 
-        private bool ShouldSerializeOverrideFocus()
-        {
-            return !OverrideFocus.IsDefault;
-        }
+        private bool ShouldSerializeOverrideFocus() => !OverrideFocus.IsDefault;
 
         /// <summary>
         /// Gets access to the common appearance entries that other states can override.
@@ -1035,10 +1001,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListStateRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
         /// Gets access to the disabled appearance entries.
@@ -1048,10 +1011,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListState StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-        {
-            return !StateDisabled.IsDefault;
-        }
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
         /// Gets access to the normal appearance entries.
@@ -1061,10 +1021,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListState StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-        {
-            return !StateNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the active appearance entries.
@@ -1074,10 +1031,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Gets access to the hot tracking item appearance entries.
@@ -1087,10 +1041,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTriple StateTracking { get; }
 
-        private bool ShouldSerializeStateTracking()
-        {
-            return !StateTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateTracking() => !StateTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the pressed item appearance entries.
@@ -1100,10 +1051,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTriple StatePressed { get; }
 
-        private bool ShouldSerializeStatePressed()
-        {
-            return !StatePressed.IsDefault;
-        }
+        private bool ShouldSerializeStatePressed() => !StatePressed.IsDefault;
 
         /// <summary>
         /// Gets access to the normal checked item appearance entries.
@@ -1113,10 +1061,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTriple StateCheckedNormal { get; }
 
-        private bool ShouldSerializeStateCheckedNormal()
-        {
-            return !StateCheckedNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedNormal() => !StateCheckedNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the hot tracking checked item appearance entries.
@@ -1126,10 +1071,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTriple StateCheckedTracking { get; }
 
-        private bool ShouldSerializeStateCheckedTracking()
-        {
-            return !StateCheckedTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedTracking() => !StateCheckedTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the pressed checked item appearance entries.
@@ -1139,10 +1081,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteListItemTriple StateCheckedPressed { get; }
 
-        private bool ShouldSerializeStateCheckedPressed()
-        {
-            return !StateCheckedPressed.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedPressed() => !StateCheckedPressed.IsDefault;
 
         /// <summary>
         /// Gets and sets Determines if the control is always active or only when the mouse is over the control or has focus.
@@ -1167,20 +1106,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Unselects all items in the KryptonListBox.
         /// </summary>
-        public void ClearSelected()
-        {
-            _listBox.ClearSelected();
-        }
+        public void ClearSelected() => _listBox.ClearSelected();
 
         /// <summary>
         /// Finds the first item in the list box that starts with the specified string.
         /// </summary>
         /// <param name="str">The String to search for.</param>
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found.</returns>
-        public int FindString(string str)
-        {
-            return _listBox.FindString(str);
-        }
+        public int FindString(string str) => _listBox.FindString(str);
 
         /// <summary>
         /// Finds the first item after the given index which starts with the given string. The search is not case sensitive.
@@ -1188,20 +1121,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="str">The String to search for.</param>
         /// <param name="startIndex">The zero-based index of the item before the first item to be searched. Set to -1 to search from the beginning of the control.</param>
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found, or 0 if the s parameter specifies Empty.</returns>
-        public int FindString(string str, int startIndex)
-        {
-            return _listBox.FindString(str, startIndex);
-        }
+        public int FindString(string str, int startIndex) => _listBox.FindString(str, startIndex);
 
         /// <summary>
         /// Finds the first item in the list box that matches the specified string.
         /// </summary>
         /// <param name="str">The String to search for.</param>
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found.</returns>
-        public int FindStringExact(string str)
-        {
-            return _listBox.FindStringExact(str);
-        }
+        public int FindStringExact(string str) => _listBox.FindStringExact(str);
 
         /// <summary>
         /// Finds the first item after the specified index that matches the specified string.
@@ -1209,50 +1136,35 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="str">The String to search for.</param>
         /// <param name="startIndex">The zero-based index of the item before the first item to be searched. Set to -1 to search from the beginning of the control.</param>
         /// <returns>The zero-based index of the first item found; returns -1 if no match is found, or 0 if the s parameter specifies Empty.</returns>
-        public int FindStringExact(string str, int startIndex)
-        {
-            return _listBox.FindStringExact(str, startIndex);
-        }
+        public int FindStringExact(string str, int startIndex) => _listBox.FindStringExact(str, startIndex);
 
         /// <summary>
         /// Returns the height of an item in the KryptonListBox.
         /// </summary>
         /// <param name="index">The index of the item to return the height of.</param>
         /// <returns>The height, in pixels, of the item at the specified index.</returns>
-        public int GetItemHeight(int index)
-        {
-            return _listBox.GetItemHeight(index);
-        }
+        public int GetItemHeight(int index) => _listBox.GetItemHeight(index);
 
         /// <summary>
         /// Returns the bounding rectangle for an item in the KryptonListBox.
         /// </summary>
         /// <param name="index">The zero-based index of item whose bounding rectangle you want to return.</param>
         /// <returns>A Rectangle that represents the bounding rectangle for the specified item.</returns>
-        public Rectangle GetItemRectangle(int index)
-        {
-            return _listBox.GetItemRectangle(index);
-        }
+        public Rectangle GetItemRectangle(int index) => _listBox.GetItemRectangle(index);
 
         /// <summary>
         /// Returns a value indicating whether the specified item is selected.
         /// </summary>
         /// <param name="index">The zero-based index of the item that determines whether it is selected.</param>
         /// <returns>true if the specified item is currently selected in the KryptonListBox; otherwise, false.</returns>
-        public bool GetSelected(int index)
-        {
-            return _listBox.GetSelected(index);
-        }
+        public bool GetSelected(int index) => _listBox.GetSelected(index);
 
         /// <summary>
         /// Returns the zero-based index of the item at the specified coordinates.
         /// </summary>
         /// <param name="p">A Point object containing the coordinates used to obtain the item index.</param>
         /// <returns>The zero-based index of the item found at the specified coordinates; returns ListBox.NoMatches if no match is found.</returns>
-        public int IndexFromPoint(Point p)
-        {
-            return _listBox.IndexFromPoint(p);
-        }
+        public int IndexFromPoint(Point p) => _listBox.IndexFromPoint(p);
 
         /// <summary>
         /// Returns the zero-based index of the item at the specified coordinates.
@@ -1260,55 +1172,37 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="x">The x-coordinate of the location to search.</param>
         /// <param name="y">The y-coordinate of the location to search.</param>
         /// <returns>The zero-based index of the item found at the specified coordinates; returns ListBox.NoMatches if no match is found.</returns>
-        public int IndexFromPoint(int x, int y)
-        {
-            return _listBox.IndexFromPoint(x, y);
-        }
+        public int IndexFromPoint(int x, int y) => _listBox.IndexFromPoint(x, y);
 
         /// <summary>
         /// Selects or clears the selection for the specified item in a KryptonListBox. 
         /// </summary>
         /// <param name="index">The zero-based index of the item in a KryptonListBox to select or clear the selection for.</param>
         /// <param name="value">true to select the specified item; otherwise, false.</param>
-        public void SetSelected(int index, bool value)
-        {
-            _listBox.SetSelected(index, value);
-        }
+        public void SetSelected(int index, bool value) => _listBox.SetSelected(index, value);
 
         /// <summary>
         /// Returns the text representation of the specified item.
         /// </summary>
         /// <param name="item">The object from which to get the contents to display.</param>
         /// <returns>If the DisplayMember property is not specified, the value returned by GetItemText is the value of the item's ToString method. Otherwise, the method returns the string value of the member specified in the DisplayMember property for the object specified in the item parameter.</returns>
-        public string GetItemText(object item)
-        {
-            return _listBox.GetItemText(item);
-        }
+        public string GetItemText(object item) => _listBox.GetItemText(item);
 
         /// <summary>
         /// Maintains performance while items are added to the ListBox one at a time by preventing the control from drawing until the EndUpdate method is called.
         /// </summary>
-        public void BeginUpdate()
-        {
-            _listBox.BeginUpdate();
-        }
+        public void BeginUpdate() => _listBox.BeginUpdate();
 
         /// <summary>
         /// Resumes painting the ListBox control after painting is suspended by the BeginUpdate method. 
         /// </summary>
-        public void EndUpdate()
-        {
-            _listBox.EndUpdate();
-        }
+        public void EndUpdate() => _listBox.EndUpdate();
 
         /// <summary>
         /// Sets the fixed state of the control.
         /// </summary>
         /// <param name="active">Should the control be fixed as active.</param>
-        public void SetFixedState(bool active)
-        {
-            _fixedActive = active;
-        }
+        public void SetFixedState(bool active) => _fixedActive = active;
 
         /// <summary>
         /// Gets a value indicating if the input control is active.
@@ -1334,25 +1228,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (ListBox != null)
-            {
-                return ListBox.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => ListBox != null && ListBox.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            ListBox?.Select();
-        }
+        public new void Select() => ListBox?.Select();
         #endregion
 
         #region Protected
@@ -1375,82 +1256,55 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the DataSourceChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDataSourceChanged(EventArgs e)
-        {
-            DataSourceChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DisplayMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDisplayMemberChanged(EventArgs e)
-        {
-            DisplayMemberChanged?.Invoke(this, e);
-        }
+        protected virtual void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ValueMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnValueMemberChanged(EventArgs e)
-        {
-            ValueMemberChanged?.Invoke(this, e);
-        }
+        protected virtual void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedIndexChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectedIndexChanged(EventArgs e)
-        {
-            SelectedIndexChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectedIndexChanged(EventArgs e) => SelectedIndexChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedValueChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectedValueChanged(EventArgs e)
-        {
-            SelectedValueChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Format event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormat(ListControlConvertEventArgs e)
-        {
-            Format?.Invoke(this, e);
-        }
+        protected virtual void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatInfoChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatInfoChanged(EventArgs e)
-        {
-            FormatInfoChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatStringChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatStringChanged(EventArgs e)
-        {
-            FormatStringChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormattingEnabledChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormattingEnabledChanged(EventArgs e)
-        {
-            FormattingEnabledChanged?.Invoke(this, e);
-        }
+        protected virtual void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
         #endregion
 
         #region Protected Override
@@ -1459,10 +1313,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the PaletteChanged event.
@@ -1505,46 +1356,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the PaddingChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnPaddingChanged(EventArgs e)
-        {
-            PaddingChanged?.Invoke(this, e);
-        }
+        protected override void OnPaddingChanged(EventArgs e) => PaddingChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TabStop event.
@@ -1581,28 +1417,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the TextChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnTextChanged(EventArgs e)
-        {
-            TextChanged?.Invoke(this, e);
-        }
+        protected override void OnTextChanged(EventArgs e) => TextChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -1708,14 +1535,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    if (Enabled)
-                    {
-                        state = PaletteState.Normal;
-                    }
-                    else
-                    {
-                        state = PaletteState.Disabled;
-                    }
+                    state = Enabled ? PaletteState.Normal : PaletteState.Disabled;
                 }
 
                 _listBox.ViewDrawPanel.ElementState = state;
@@ -1723,24 +1543,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private IPaletteDouble GetDoubleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        private IPaletteDouble GetDoubleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private void OnListBoxDrawItem(object sender, DrawItemEventArgs e)
         {
@@ -1783,12 +1586,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Do we need to show item as having the focus
-                bool hasFocus = false;
-                if (((e.State & DrawItemState.Focus) == DrawItemState.Focus) &&
-                    ((e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect))
-                {
-                    hasFocus = true;
-                }
+                bool hasFocus = ((e.State & DrawItemState.Focus) == DrawItemState.Focus) &&
+                                ((e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect);
 
                 _overrideNormal.Apply = hasFocus;
                 _overrideTracking.Apply = hasFocus;
@@ -1889,20 +1688,11 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnListBoxDataSourceChanged(object sender, EventArgs e)
-        {
-            OnDataSourceChanged(e);
-        }
+        private void OnListBoxDataSourceChanged(object sender, EventArgs e) => OnDataSourceChanged(e);
 
-        private void OnListBoxDisplayMemberChanged(object sender, EventArgs e)
-        {
-            OnDisplayMemberChanged(e);
-        }
+        private void OnListBoxDisplayMemberChanged(object sender, EventArgs e) => OnDisplayMemberChanged(e);
 
-        private void OnListBoxValueMemberChanged(object sender, EventArgs e)
-        {
-            OnValueMemberChanged(e);
-        }
+        private void OnListBoxValueMemberChanged(object sender, EventArgs e) => OnValueMemberChanged(e);
 
         private void OnListBoxSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1967,25 +1757,13 @@ namespace ComponentFactory.Krypton.Toolkit
             OnSelectedValueChanged(e);
         }
 
-        private void OnListBoxFormat(object sender, ListControlConvertEventArgs e)
-        {
-            OnFormat(e);
-        }
+        private void OnListBoxFormat(object sender, ListControlConvertEventArgs e) => OnFormat(e);
 
-        private void OnListBoxFormatInfoChanged(object sender, EventArgs e)
-        {
-            OnFormatInfoChanged(e);
-        }
+        private void OnListBoxFormatInfoChanged(object sender, EventArgs e) => OnFormatInfoChanged(e);
 
-        private void OnListBoxFormatStringChanged(object sender, EventArgs e)
-        {
-            OnFormatStringChanged(e);
-        }
+        private void OnListBoxFormatStringChanged(object sender, EventArgs e) => OnFormatStringChanged(e);
 
-        private void OnListBoxFormattingEnabledChanged(object sender, EventArgs e)
-        {
-            OnFormattingEnabledChanged(e);
-        }
+        private void OnListBoxFormattingEnabledChanged(object sender, EventArgs e) => OnFormattingEnabledChanged(e);
 
         private void OnListBoxGotFocus(object sender, EventArgs e)
         {
@@ -2003,35 +1781,17 @@ namespace ComponentFactory.Krypton.Toolkit
             OnLostFocus(e);
         }
 
-        private void OnListBoxKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnListBoxKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnListBoxKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnListBoxKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnListBoxKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnListBoxKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnListBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnListBoxPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnListBoxValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnListBoxValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnListBoxValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnListBoxValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
         private void OnListBoxMouseChange(object sender, EventArgs e)
         {

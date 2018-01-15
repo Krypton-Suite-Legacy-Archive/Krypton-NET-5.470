@@ -147,7 +147,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public VisualOrientation Orientation
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }
@@ -160,7 +160,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
         public bool UseMnemonic
 		{
-		    [System.Diagnostics.DebuggerStepThrough]
+		    [DebuggerStepThrough]
 		    get;
 		    set;
         }

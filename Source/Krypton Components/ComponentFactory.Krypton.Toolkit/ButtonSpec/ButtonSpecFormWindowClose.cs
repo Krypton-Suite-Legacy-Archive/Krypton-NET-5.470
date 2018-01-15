@@ -48,12 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Have all buttons been turned off?
-            if (!KryptonForm.ControlBox)
-            {
-                return false;
-            }
-
-            return true;
+            return KryptonForm.ControlBox;
         }
 
         /// <summary>

@@ -38,14 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Give the separator object the redirector to use when inheriting values
             separator.SetPaletteRedirect(palette);
 
-            if (separator.Horizontal)
-            {
-                Orientation = VisualOrientation.Top;
-            }
-            else
-            {
-                Orientation = VisualOrientation.Left;
-            }
+            Orientation = separator.Horizontal ? VisualOrientation.Top : VisualOrientation.Left;
 
             // We need to be big enough to contain 1 pixel square spacer
             Add(new ViewLayoutSeparator(1));

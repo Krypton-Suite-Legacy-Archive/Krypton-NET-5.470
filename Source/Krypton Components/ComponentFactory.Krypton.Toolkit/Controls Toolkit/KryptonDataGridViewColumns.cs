@@ -120,9 +120,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewTextBoxColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -259,7 +261,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [ThreadStatic]
         private static KryptonTextBox _paintingTextBox;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewTextBoxEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.String);
+        private static readonly Type _defaultValueType = typeof(String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -311,20 +313,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// DetachEditingControl gets called by the DataGridView control when the editing session is ending
@@ -394,10 +383,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     textBox.Text = initialFormattedValueStr;
                 }
 
-                DataGridViewTriState wrapMode = this.Style.WrapMode;
+                DataGridViewTriState wrapMode = Style.WrapMode;
                 if (wrapMode == DataGridViewTriState.NotSet)
                 {
-                    wrapMode = this.OwningColumn.DefaultCellStyle.WrapMode;
+                    wrapMode = OwningColumn.DefaultCellStyle.WrapMode;
                 }
 
                 textBox.WordWrap = textBox.Multiline = (wrapMode == DataGridViewTriState.True);
@@ -803,9 +792,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewCheckBoxColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -1019,10 +1010,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     indeterminate = false;
                 }
 
+                // ReSharper disable RedundantBaseQualifier
                 if (!base.HasDefaultCellStyle)
                 {
                     return false;
                 }
+                // ReSharper restore RedundantBaseQualifier
 
                 DataGridViewCellStyle defaultCellStyle = DefaultCellStyle;
                 if ((((defaultCellStyle.BackColor.IsEmpty && defaultCellStyle.ForeColor.IsEmpty) && (defaultCellStyle.SelectionBackColor.IsEmpty && defaultCellStyle.SelectionForeColor.IsEmpty)) && (((defaultCellStyle.Font == null) && defaultCellStyle.NullValue.Equals(indeterminate)) && (defaultCellStyle.IsDataSourceNullValueDefault && string.IsNullOrEmpty(defaultCellStyle.Format)))) && ((defaultCellStyle.FormatProvider.Equals(CultureInfo.CurrentCulture) && (defaultCellStyle.Alignment == DataGridViewContentAlignment.MiddleCenter)) && ((defaultCellStyle.WrapMode == DataGridViewTriState.NotSet) && (defaultCellStyle.Tag == null))))
@@ -1337,7 +1330,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Grab the internal property implemented by base class
+                // ReSharper disable RedundantBaseQualifier
                 return (Point)_piMouseEnteredCellAddress.GetValue(base.DataGridView, null);
+                // ReSharper restore RedundantBaseQualifier
             }
         }
         #endregion
@@ -1380,9 +1375,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewButtonColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -1984,7 +1981,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Grab the internal property implemented by base class
+                // ReSharper disable RedundantBaseQualifier
                 return (Point)_piMouseEnteredCellAddress.GetValue(base.DataGridView, null);
+                // ReSharper restore RedundantBaseQualifier
             }
         }
         #endregion
@@ -2026,9 +2025,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewLinkColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -2120,7 +2121,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _labelStyle = value;
                     ((KryptonDataGridViewLinkCell)CellTemplate).LabelStyleInternal = value;
+                    // ReSharper disable RedundantBaseQualifier
                     if (base.DataGridView != null)
+                        // ReSharper restore RedundantBaseQualifier
                     {
                         DataGridViewRowCollection rows = DataGridView.Rows;
                         int count = rows.Count;
@@ -2158,7 +2161,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!LinkBehavior.Equals(value))
                 {
                     ((KryptonDataGridViewLinkCell)CellTemplate).LinkBehaviorInternal = value;
+                    // ReSharper disable RedundantBaseQualifier
                     if (base.DataGridView != null)
+                        // ReSharper restore RedundantBaseQualifier
                     {
                         DataGridViewRowCollection rows = DataGridView.Rows;
                         int count = rows.Count;
@@ -2648,26 +2653,14 @@ namespace ComponentFactory.Krypton.Toolkit
             LinkState linkState = LinkStateInternal;
 
             // Has the item been visited
-            if (LinkVisited)
-            {
-                _overrideVisited.OverrideState = PaletteState.LinkVisitedOverride;
-            }
-            else
-            {
-                _overrideVisited.OverrideState = PaletteState.LinkNotVisitedOverride;
-            }
+            _overrideVisited.OverrideState = LinkVisited ? PaletteState.LinkVisitedOverride : PaletteState.LinkNotVisitedOverride;
 
             // Is the item being pressed?
             _overridePressed.Apply = ((linkState & LinkState.Active) == LinkState.Active);
 
-            if ((linkState & LinkState.Hover) == LinkState.Hover)
-            {
-                _viewLabel.ElementState = PaletteState.Tracking;
-            }
-            else
-            {
-                _viewLabel.ElementState = PaletteState.Normal;
-            }
+            _viewLabel.ElementState = (linkState & LinkState.Hover) == LinkState.Hover
+                ? PaletteState.Tracking
+                : PaletteState.Normal;
 
             // Update with latest cell setting for the link behavior
             switch (base.LinkBehavior)
@@ -2744,9 +2737,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewNumericUpDownColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -2780,7 +2775,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get => base.CellTemplate;
             set
             {
-                if ((value != null) && (!(value is KryptonDataGridViewNumericUpDownCell cell)))
+                if ((value != null) && (!(value is KryptonDataGridViewNumericUpDownCell)))
                 {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type KryptonDataGridViewNumericUpDownCell or derive from it.");
                 }
@@ -3104,10 +3099,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [ThreadStatic]
         private static KryptonNumericUpDown _paintingNumericUpDown;
 
-        private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
-        private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
+        private const DataGridViewContentAlignment ANY_RIGHT =
+            DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight |
+            DataGridViewContentAlignment.BottomRight;
+        private const DataGridViewContentAlignment ANY_CENTER =
+            DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter |
+            DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewNumericUpDownEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.Decimal);
+        private static readonly Type _defaultValueType = typeof(Decimal);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -3275,20 +3274,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// Clones a DataGridViewNumericUpDownCell cell, copies all the custom properties.
@@ -3400,16 +3386,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 negativeSignKey = (Keys)(PI.VkKeyScan(negativeSignStr[0]));
             }
 
-            if ((char.IsDigit((char)e.KeyCode) ||
-                 ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9)) ||
-                 (negativeSignKey == e.KeyCode) ||
-                 (Keys.Subtract == e.KeyCode)) &&
-                !e.Shift && !e.Alt && !e.Control)
-            {
-                return true;
-            }
-
-            return false;
+            return (char.IsDigit((char)e.KeyCode) ||
+                    ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9)) ||
+                    (negativeSignKey == e.KeyCode) ||
+                    (Keys.Subtract == e.KeyCode)) &&
+                   !e.Shift && !e.Alt && !e.Control;
         }
 
         /// <summary>
@@ -3446,14 +3427,9 @@ namespace ComponentFactory.Krypton.Toolkit
             const int ButtonsWidth = 16;
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
-            if (DataGridView.RightToLeft == RightToLeft.Yes)
-            {
-                errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
-            }
-            else
-            {
-                errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
-            }
+            errorIconBounds.X = DataGridView.RightToLeft == RightToLeft.Yes
+                ? errorIconBounds.Left + ButtonsWidth
+                : errorIconBounds.Left - ButtonsWidth;
 
             return errorIconBounds;
         }
@@ -3474,8 +3450,8 @@ namespace ComponentFactory.Krypton.Toolkit
             string formattedNumber = formattedValue as string;
             if (!string.IsNullOrEmpty(formattedNumber) && (value != null))
             {
-                Decimal unformattedDecimal = System.Convert.ToDecimal(value);
-                Decimal formattedDecimal = System.Convert.ToDecimal(formattedNumber);
+                Decimal unformattedDecimal = Convert.ToDecimal(value);
+                Decimal formattedDecimal = Convert.ToDecimal(formattedNumber);
                 if (unformattedDecimal == formattedDecimal)
                 {
                     // The base implementation of GetFormattedValue (which triggers the CellFormatting event) did nothing else than 
@@ -3630,7 +3606,7 @@ namespace ComponentFactory.Krypton.Toolkit
             object cellValue = GetValue(rowIndex);
             if (cellValue != null)
             {
-                Decimal currentValue = System.Convert.ToDecimal(cellValue);
+                Decimal currentValue = Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
                 if (constrainedValue != currentValue)
                 {
@@ -3655,7 +3631,7 @@ namespace ComponentFactory.Krypton.Toolkit
             object cellValue = GetValue(rowIndex);
             if (cellValue != null)
             {
-                Decimal currentValue = System.Convert.ToDecimal(cellValue);
+                Decimal currentValue = Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
                 if (constrainedValue != currentValue)
                 {
@@ -4011,9 +3987,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewDomainUpDownColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -4093,10 +4071,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
-        {
-            ButtonSpecClick?.Invoke(this, args);
-        }
+        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args) => ButtonSpecClick?.Invoke(this, args);
         #endregion
     }
 
@@ -4112,7 +4087,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
         private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewDomainUpDownEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.String);
+        private static readonly Type _defaultValueType = typeof(String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -4151,20 +4126,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// DetachEditingControl gets called by the DataGridView control when the editing session is ending
@@ -4547,10 +4509,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the current value of the editing control.
         /// </summary>
-        public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
-        {
-            return Text;
-        }
+        public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context) => Text;
 
         /// <summary>
         /// Called by the grid to give the editing control a chance to prepare itself for the editing session.
@@ -4650,9 +4609,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewComboBoxColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -5104,10 +5065,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
-        {
-            ButtonSpecClick?.Invoke(this, args);
-        }
+        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args) => ButtonSpecClick?.Invoke(this, args);
         #endregion
     }
 
@@ -5120,7 +5078,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [ThreadStatic]
         private static KryptonComboBox _paintingComboBox;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewComboBoxEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.String);
+        private static readonly Type _defaultValueType = typeof(String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -5179,20 +5137,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// Clones a DataGridViewComboBoxCell cell, copies all the custom properties.
@@ -5866,9 +5811,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewDateTimePickerColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -6304,15 +6251,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the MaxDate property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeMaxDate()
-        {
-            return (MaxDate != DateTimePicker.MaximumDateTime) && (MaxDate != DateTime.MaxValue);
-        }
+        public bool ShouldSerializeMaxDate() =>
+            (MaxDate != DateTimePicker.MaximumDateTime) && (MaxDate != DateTime.MaxValue);
 
-        private void ResetMaxDate()
-        {
-            MaxDate = DateTime.MaxValue;
-        }
+        private void ResetMaxDate() => MaxDate = DateTime.MaxValue;
 
         /// <summary>
         /// Gets or sets the minimum date and time that can be selected in the control.
@@ -6364,15 +6306,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the MinDate property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeMinDate()
-        {
-            return (MinDate != DateTimePicker.MinimumDateTime) && (MinDate != DateTime.MinValue);
-        }
+        public bool ShouldSerializeMinDate() =>
+            (MinDate != DateTimePicker.MinimumDateTime) && (MinDate != DateTime.MinValue);
 
-        private void ResetMinDate()
-        {
-            MinDate = DateTime.MinValue;
-        }
+        private void ResetMinDate() => MinDate = DateTime.MinValue;
 
         /// <summary>
         /// Gets or sets the number of columns and rows of months displayed. 
@@ -6471,10 +6408,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the value of the CalendarTodayText property.
         /// </summary>
-        public void ResetCalendarTodayText()
-        {
-            CalendarTodayText = "Today:";
-        }
+        public void ResetCalendarTodayText() => CalendarTodayText = "Today:";
 
         /// <summary>
         /// First day of the week.
@@ -6757,15 +6691,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetCalendarTodayDate()
-        {
-            CalendarTodayDate = DateTime.Now.Date;
-        }
+        private void ResetCalendarTodayDate() => CalendarTodayDate = DateTime.Now.Date;
 
-        private bool ShouldSerializeCalendarTodayDate()
-        {
-            return (CalendarTodayDate != DateTime.Now.Date);
-        }
+        private bool ShouldSerializeCalendarTodayDate() => (CalendarTodayDate != DateTime.Now.Date);
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determines which annual days are displayed in bold.
@@ -6793,15 +6721,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the CalendarAnnuallyBoldedDates property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeCalendarAnnuallyBoldedDates()
-        {
-            return (_annualDates.Count > 0);
-        }
+        public bool ShouldSerializeCalendarAnnuallyBoldedDates() => (_annualDates.Count > 0);
 
-        private void ResetCalendarAnnuallyBoldedDates()
-        {
-            CalendarAnnuallyBoldedDates = null;
-        }
+        private void ResetCalendarAnnuallyBoldedDates() => CalendarAnnuallyBoldedDates = null;
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determine which monthly days to bold. 
@@ -6829,15 +6751,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the CalendarMonthlyBoldedDates property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeCalendarMonthlyBoldedDates()
-        {
-            return (_monthlyDates.Count > 0);
-        }
+        public bool ShouldSerializeCalendarMonthlyBoldedDates() => (_monthlyDates.Count > 0);
 
-        private void ResetCalendarMonthlyBoldedDates()
-        {
-            CalendarMonthlyBoldedDates = null;
-        }
+        private void ResetCalendarMonthlyBoldedDates() => CalendarMonthlyBoldedDates = null;
 
         /// <summary>
         /// Gets or sets the array of DateTime objects that determines which nonrecurring dates are displayed in bold.
@@ -6865,15 +6781,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the CalendarBoldedDates property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeCalendarBoldedDates()
-        {
-            return (_dates.Count > 0);
-        }
+        public bool ShouldSerializeCalendarBoldedDates() => (_dates.Count > 0);
 
-        private void ResetCalendarBoldedDates()
-        {
-            CalendarBoldedDates = null;
-        }
+        private void ResetCalendarBoldedDates() => CalendarBoldedDates = null;
+
         #endregion
 
         #region Private
@@ -6885,10 +6796,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
-        {
-            ButtonSpecClick?.Invoke(this, args);
-        }
+        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args) => ButtonSpecClick?.Invoke(this, args);
+
         #endregion
     }
 
@@ -6902,7 +6811,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static KryptonDateTimePicker _paintingDateTime;
         private static readonly DateTimeConverter _dtc = new DateTimeConverter();
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewDateTimePickerEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.DateTime);
+        private static readonly Type _defaultValueType = typeof(DateTime);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -6968,8 +6877,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override string ToString()
         {
-            return "KryptonDataGridViewDateTimePickerCell { ColumnIndex=" + ColumnIndex.ToString(CultureInfo.CurrentCulture) +
-                   ", RowIndex=" + RowIndex.ToString(CultureInfo.CurrentCulture) + " }";
+            return
+                $"KryptonDataGridViewDateTimePickerCell {{ ColumnIndex={ColumnIndex.ToString(CultureInfo.CurrentCulture)}, RowIndex={RowIndex.ToString(CultureInfo.CurrentCulture)} }}";
         }
         #endregion
 
@@ -6982,20 +6891,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// Clones a DataGridViewDateTimePickerCell cell, copies all the custom properties.
@@ -7155,15 +7051,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the MaxDate property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeMaxDate()
-        {
-            return (MaxDate != DateTimePicker.MaximumDateTime) && (MaxDate != DateTime.MaxValue);
-        }
+        public bool ShouldSerializeMaxDate() => (MaxDate != DateTimePicker.MaximumDateTime) && (MaxDate != DateTime.MaxValue);
 
-        private void ResetMaxDate()
-        {
-            MaxDate = DateTime.MaxValue;
-        }
+        private void ResetMaxDate() => MaxDate = DateTime.MaxValue;
 
         /// <summary>
         /// The MaxDate property replicates the one from the KryptonDateTimePicker control
@@ -7186,15 +7076,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Should the MinDate property be serialized.
         /// </summary>
         /// <returns>True if property needs to be serialized.</returns>
-        public bool ShouldSerializeMinDate()
-        {
-            return (MinDate != DateTimePicker.MinimumDateTime) && (MinDate != DateTime.MinValue);
-        }
+        public bool ShouldSerializeMinDate() => (MinDate != DateTimePicker.MinimumDateTime) && (MinDate != DateTime.MinValue);
 
-        private void ResetMinDate()
-        {
-            MinDate = DateTime.MinValue;
-        }
+        private void ResetMinDate() => MinDate = DateTime.MinValue;
 
         /// <summary>
         /// The Format property replicates the one from the KryptonDateTimePicker control
@@ -7359,15 +7243,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetCalendarTodayDate()
-        {
-            CalendarTodayDate = DateTime.Now.Date;
-        }
+        private void ResetCalendarTodayDate() => CalendarTodayDate = DateTime.Now.Date;
 
-        private bool ShouldSerializeCalendarTodayDate()
-        {
-            return (CalendarTodayDate != DateTime.Now.Date);
-        }
+        private bool ShouldSerializeCalendarTodayDate() => (CalendarTodayDate != DateTime.Now.Date);
 
         /// <summary>
         /// DetachEditingControl gets called by the DataGridView control when the editing session is ending
@@ -7515,14 +7393,7 @@ namespace ComponentFactory.Krypton.Toolkit
             else
             {
                 string stringValue = (string)formattedValue;
-                if (string.IsNullOrEmpty(stringValue))
-                {
-                    return DBNull.Value;
-                }
-                else
-                {
-                    return _dtc.ConvertFromInvariantString(stringValue);
-                }
+                return string.IsNullOrEmpty(stringValue) ? DBNull.Value : _dtc.ConvertFromInvariantString(stringValue);
             }
         }
 
@@ -7651,7 +7522,8 @@ namespace ComponentFactory.Krypton.Toolkit
             dateTimeColumn.PerfomButtonSpecClick(args);
         }
 
-        private KryptonDataGridViewDateTimePickerEditingControl EditingDateTimePicker => DataGridView.EditingControl as KryptonDataGridViewDateTimePickerEditingControl;
+        private KryptonDataGridViewDateTimePickerEditingControl EditingDateTimePicker =>
+            DataGridView.EditingControl as KryptonDataGridViewDateTimePickerEditingControl;
 
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
                                                           DataGridViewCellStyle cellStyle)
@@ -7704,10 +7576,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 
-        private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
-        {
-            return (paintParts & paintPart) != 0;
-        }
+        private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart) => (paintParts & paintPart) != 0;
         #endregion
 
         #region Internal
@@ -8072,9 +7941,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewMaskedTextBoxColumn { Name=");
+            // ReSharper disable RedundantBaseQualifier
             builder.Append(base.Name);
             builder.Append(", Index=");
             builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -8887,10 +8758,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
-        {
-            ButtonSpecClick?.Invoke(this, args);
-        }
+        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args) => ButtonSpecClick?.Invoke(this, args);
+
         #endregion
     }
 
@@ -8906,7 +8775,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private const DataGridViewContentAlignment ANY_RIGHT = DataGridViewContentAlignment.TopRight | DataGridViewContentAlignment.MiddleRight | DataGridViewContentAlignment.BottomRight;
         private const DataGridViewContentAlignment ANY_CENTER = DataGridViewContentAlignment.TopCenter | DataGridViewContentAlignment.MiddleCenter | DataGridViewContentAlignment.BottomCenter;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewMaskedTextBoxEditingControl);
-        private static readonly Type _defaultValueType = typeof(System.String);
+        private static readonly Type _defaultValueType = typeof(String);
         private static readonly Size _sizeLarge = new Size(10000, 10000);
         #endregion
 
@@ -8983,20 +8852,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the type of the cell's Value property
         /// </summary>
-        public override Type ValueType
-        {
-            get
-            {
-                Type valueType = base.ValueType;
-
-                if (valueType != null)
-                {
-                    return valueType;
-                }
-
-                return _defaultValueType;
-            }
-        }
+        public override Type ValueType => base.ValueType ?? _defaultValueType;
 
         /// <summary>
         /// The PromptChar property replicates the one from the KryptonMaskedTextBox control
@@ -9850,10 +9706,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Returns the current value of the editing control.
         /// </summary>
-        public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
-        {
-            return Text;
-        }
+        public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context) => Text;
 
         /// <summary>
         /// Called by the grid to give the editing control a chance to prepare itself for the editing session.

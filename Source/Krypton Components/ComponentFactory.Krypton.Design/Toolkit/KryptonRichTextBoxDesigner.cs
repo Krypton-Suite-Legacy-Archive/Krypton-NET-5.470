@@ -65,22 +65,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the collection of components associated with the component managed by the designer.
         /// </summary>
-        public override ICollection AssociatedComponents
-        {
-            get 
-            {
-                if (_richTextBox != null)
-                {
-                    return _richTextBox.ButtonSpecs;
-                }
-                else
-                {
-                    return base.AssociatedComponents;
-                }
-            }
-        }
+        public override ICollection AssociatedComponents =>
+            _richTextBox != null ? _richTextBox.ButtonSpecs : base.AssociatedComponents;
 
-        /// <summary>
+	    /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
         public override SelectionRules SelectionRules

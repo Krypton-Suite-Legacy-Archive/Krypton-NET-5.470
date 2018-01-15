@@ -76,15 +76,7 @@ namespace ComponentFactory.Krypton.Workspace
                 if (value.EndsWith("*"))
                 {
                     // If there is only an asterisk in the string
-                    if (value.Length == 1)
-                    {
-                        StarSize = 1;
-                    }
-                    else
-                    {
-                        // The star number can have decimal places
-                        StarSize = double.Parse(value.Substring(0, value.Length - 1));
-                    }
+                    StarSize = value.Length == 1 ? 1 : double.Parse(value.Substring(0, value.Length - 1));
 
                     UsingStar = true;
                 }

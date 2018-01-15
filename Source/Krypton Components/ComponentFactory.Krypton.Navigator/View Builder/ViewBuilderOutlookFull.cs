@@ -86,26 +86,12 @@ namespace ComponentFactory.Krypton.Navigator
             if (Navigator.SelectedPage == null)
             {
                 // Then use the states defined in the navigator itself
-                if (Navigator.Enabled)
-                {
-                    buttonEdge = Navigator.StateNormal.BorderEdge;
-                }
-                else
-                {
-                    buttonEdge = Navigator.StateDisabled.BorderEdge;
-                }
+                buttonEdge = Navigator.Enabled ? Navigator.StateNormal.BorderEdge : Navigator.StateDisabled.BorderEdge;
             }
             else
             {
                 // Use states defined in the selected page
-                if (Navigator.SelectedPage.Enabled)
-                {
-                    buttonEdge = Navigator.SelectedPage.StateNormal.BorderEdge;
-                }
-                else
-                {
-                    buttonEdge = Navigator.SelectedPage.StateDisabled.BorderEdge;
-                }
+                buttonEdge = Navigator.SelectedPage.Enabled ? Navigator.SelectedPage.StateNormal.BorderEdge : Navigator.SelectedPage.StateDisabled.BorderEdge;
             }
 
             // Update the main view elements

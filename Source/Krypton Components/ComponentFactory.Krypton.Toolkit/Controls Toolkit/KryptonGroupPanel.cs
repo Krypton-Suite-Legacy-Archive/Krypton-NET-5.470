@@ -410,15 +410,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Just in case the parent does not have a parent
-                if (Parent.Parent == null)
-                {
-                    return Parent;
-                }
+                return Parent.Parent ?? Parent;
 
                 // The KryptonGroupPanel is always a child within another 
                 // Krypton control that should be considered the actual 
                 // parent for transparent drawing purposes.
-                return Parent.Parent;
             }
         }
 

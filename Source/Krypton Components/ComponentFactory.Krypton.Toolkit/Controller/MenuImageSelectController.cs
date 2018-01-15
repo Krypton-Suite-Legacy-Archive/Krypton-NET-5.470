@@ -513,26 +513,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If capturing input....
                 if (Captured)
                 {
-                    if (_target.ClientRectangle.Contains(pt))
-                    {
-                        newState = PaletteState.Pressed;
-                    }
-                    else
-                    {
-                        newState = PaletteState.Tracking;
-                    }
+                    newState = _target.ClientRectangle.Contains(pt) ? PaletteState.Pressed : PaletteState.Tracking;
                 }
                 else
                 {
                     // Only hot tracking, so show tracking only if mouse over the target 
-                    if (_mouseOver)
-                    {
-                        newState = PaletteState.Tracking;
-                    }
-                    else
-                    {
-                        newState = PaletteState.Normal;
-                    }
+                    newState = _mouseOver ? PaletteState.Tracking : PaletteState.Normal;
                 }
             }
 

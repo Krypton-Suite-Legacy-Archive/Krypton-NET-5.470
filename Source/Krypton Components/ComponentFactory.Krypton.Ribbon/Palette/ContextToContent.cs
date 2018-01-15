@@ -85,51 +85,26 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextHint value.</returns>
-        public override PaletteTextHint GetContentShortTextHint(PaletteState state)
-        {
-            if (OverrideTextHint != PaletteTextHint.Inherit)
-            {
-                return OverrideTextHint;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonTextHint(state);
-            }
-        }
+        public override PaletteTextHint GetContentShortTextHint(PaletteState state) =>
+            OverrideTextHint != PaletteTextHint.Inherit ? OverrideTextHint : RibbonGeneral.GetRibbonTextHint(state);
 
         /// <summary>
         /// Gets the first back color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor1(PaletteState state)
-        {
-            if (OverrideTextColor != Color.Empty)
-            {
-                return OverrideTextColor;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonContextTextColor(state);
-            }
-        }
+        public override Color GetContentShortTextColor1(PaletteState state) => OverrideTextColor != Color.Empty
+            ? OverrideTextColor
+            : RibbonGeneral.GetRibbonContextTextColor(state);
 
         /// <summary>
         /// Gets the second back color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor2(PaletteState state)
-        {
-            if (OverrideTextColor != Color.Empty)
-            {
-                return OverrideTextColor;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonContextTextColor(state);
-            }
-        }
+        public override Color GetContentShortTextColor2(PaletteState state) => OverrideTextColor != Color.Empty
+            ? OverrideTextColor
+            : RibbonGeneral.GetRibbonContextTextColor(state);
 
         /// <summary>
         /// Gets the text trimming to use for long text.
@@ -156,51 +131,27 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextHint value.</returns>
-        public override PaletteTextHint GetContentLongTextHint(PaletteState state)
-        {
-            if (OverrideTextHint != PaletteTextHint.Inherit)
-            {
-                return OverrideTextHint;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonTextHint(state);
-            }
-        }
+        public override PaletteTextHint GetContentLongTextHint(PaletteState state) =>
+            OverrideTextHint != PaletteTextHint.Inherit ? OverrideTextHint : RibbonGeneral.GetRibbonTextHint(state);
 
         /// <summary>
         /// Gets the first back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor1(PaletteState state)
-        {
-            if (OverrideTextColor != Color.Empty)
-            {
-                return OverrideTextColor;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonContextTextColor(state);
-            }
-        }
+        public override Color GetContentLongTextColor1(PaletteState state) => OverrideTextColor != Color.Empty
+            ? OverrideTextColor
+            : RibbonGeneral.GetRibbonContextTextColor(state);
 
         /// <summary>
         /// Gets the second back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor2(PaletteState state)
-        {
-            if (OverrideTextColor != Color.Empty)
-            {
-                return OverrideTextColor;
-            }
-            else
-            {
-                return RibbonGeneral.GetRibbonContextTextColor(state);
-            }
-        }
+        public override Color GetContentLongTextColor2(PaletteState state) => OverrideTextColor != Color.Empty
+            ? OverrideTextColor
+            : RibbonGeneral.GetRibbonContextTextColor(state);
+
         #endregion
     }
 }

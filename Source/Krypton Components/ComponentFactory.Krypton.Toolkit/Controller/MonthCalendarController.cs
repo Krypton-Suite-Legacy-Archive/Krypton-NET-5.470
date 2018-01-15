@@ -356,32 +356,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Get the current focus date
-            DateTime focusDate = (_months.FocusDay == null ? (_monthCalendar == null ? _months.Calendar.SelectionStart : _monthCalendar.SelectionStart) : _months.FocusDay.Value);
-            DateTime anchorDate = (_months.AnchorDay == null ? (_monthCalendar == null ? _months.Calendar.SelectionStart : _monthCalendar.SelectionStart) : _months.AnchorDay.Value);
+            DateTime focusDate = _months.FocusDay ?? (_monthCalendar?.SelectionStart ?? _months.Calendar.SelectionStart);
+            DateTime anchorDate = _months.AnchorDay ?? (_monthCalendar?.SelectionStart ?? _months.Calendar.SelectionStart);
 
             // Use keyboard to modify the new focus date
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    if (e.Control)
-                    {
-                        focusDate = focusDate.AddMonths(-1);
-                    }
-                    else
-                    {
-                        focusDate = focusDate.AddDays(-1);
-                    }
+                    focusDate = e.Control ? focusDate.AddMonths(-1) : focusDate.AddDays(-1);
 
                     break;
                 case Keys.Right:
-                    if (e.Control)
-                    {
-                        focusDate = focusDate.AddMonths(1);
-                    }
-                    else
-                    {
-                        focusDate = focusDate.AddDays(1);
-                    }
+                    focusDate = e.Control ? focusDate.AddMonths(1) : focusDate.AddDays(1);
 
                     break;
                 case Keys.Up:
@@ -416,25 +402,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                     break;
                 case Keys.PageUp:
-                    if (e.Control)
-                    {
-                        focusDate = focusDate.AddMonths(-1 * _months.Months);
-                    }
-                    else
-                    {
-                        focusDate = focusDate.AddMonths(-1);
-                    }
+                    focusDate = e.Control ? focusDate.AddMonths(-1 * _months.Months) : focusDate.AddMonths(-1);
 
                     break;
                 case Keys.PageDown:
-                    if (e.Control)
-                    {
-                        focusDate = focusDate.AddMonths(1 * _months.Months);
-                    }
-                    else
-                    {
-                        focusDate = focusDate.AddMonths(1);
-                    }
+                    focusDate = e.Control ? focusDate.AddMonths(1 * _months.Months) : focusDate.AddMonths(1);
 
                     break;
                 case Keys.Enter:

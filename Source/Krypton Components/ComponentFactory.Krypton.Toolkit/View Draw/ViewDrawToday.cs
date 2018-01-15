@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _calendar = calendar;
 
             // We provide the content values for display
-            base.ButtonValues = this;
+            ButtonValues = this;
 
             // Define a controller so the button can be clicked
             ButtonController controller = new ButtonController(this, needPaintHandler);

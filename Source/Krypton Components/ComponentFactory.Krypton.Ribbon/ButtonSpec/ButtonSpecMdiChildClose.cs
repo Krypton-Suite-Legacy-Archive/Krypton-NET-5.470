@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets the button visible value.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
-        /// <returns>Button visibiliy.</returns>
+        /// <returns>Button visibility.</returns>
         public override bool GetVisible(IPalette palette)
         {
             // Cannot be seen if not attached to an mdi child window and cannot be seen
@@ -53,12 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Have all buttons been turned off?
-            if (!MdiChild.ControlBox)
-            {
-                return false;
-            }
-
-            return true;
+            return MdiChild.ControlBox;
         }
 
         /// <summary>

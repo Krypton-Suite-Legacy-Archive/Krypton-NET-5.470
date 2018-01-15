@@ -594,67 +594,28 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the content short text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetShortText()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.Text;
-            }
-            else
-            {
-                return Values.GetShortText();
-            }
-        }
+        public string GetShortText() => KryptonCommand?.Text ?? Values.GetShortText();
 
         /// <summary>
         /// Gets the content long text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetLongText()
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ExtraText;
-            }
-            else
-            {
-                return Values.GetLongText();
-            }
-        }
+        public string GetLongText() => KryptonCommand?.ExtraText ?? Values.GetLongText();
 
-        /// <summary>
+	    /// <summary>
         /// Gets the content image.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
-        public Image GetImage(PaletteState state)
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ImageSmall;
-            }
-            else
-            {
-                return Values.GetImage(state);
-            }
-        }
+        public Image GetImage(PaletteState state) => KryptonCommand?.ImageSmall ?? Values.GetImage(state);
 
         /// <summary>
         /// Gets the image color that should be transparent.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Color value.</returns>
-        public Color GetImageTransparentColor(PaletteState state)
-        {
-            if (KryptonCommand != null)
-            {
-                return KryptonCommand.ImageTransparentColor;
-            }
-            else
-            {
-                return Values.GetImageTransparentColor(state);
-            }
-        }
+        public Color GetImageTransparentColor(PaletteState state) =>
+            KryptonCommand?.ImageTransparentColor ?? Values.GetImageTransparentColor(state);
         #endregion
 
         #region Protected
@@ -662,37 +623,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the DoubleClick event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected override void OnDoubleClick(EventArgs e)
-        {
-            DoubleClick?.Invoke(this, e);
-        }
+        protected override void OnDoubleClick(EventArgs e) => DoubleClick?.Invoke(this, e);
 
         /// <summary>
         /// Raises the MouseDoubleClick event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnMouseDoubleClick(EventArgs e)
-        {
-            MouseDoubleClick?.Invoke(this, e);
-        }
+        protected virtual void OnMouseDoubleClick(EventArgs e) => MouseDoubleClick?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ImeModeChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnMouseImeModeChanged(EventArgs e)
-        {
-            ImeModeChanged?.Invoke(this, e);
-        }
+        protected virtual void OnMouseImeModeChanged(EventArgs e) => ImeModeChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the CheckedChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnCheckedChanged(EventArgs e)
-        {
-            CheckedChanged?.Invoke(this, e);
-        }
+        protected virtual void OnCheckedChanged(EventArgs e) => CheckedChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the CheckStateChanged event.
@@ -842,7 +791,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (UseMnemonic && AutoCheck && CanProcessMnemonic())
             {
                 // Does the button primary text contain the mnemonic?
-                if (Control.IsMnemonic(charCode, Values.Text))
+                if (IsMnemonic(charCode, Values.Text))
                 {
                     // If we don't have the focus, then take it
                     if (!ContainsFocus)
@@ -911,18 +860,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // Always need to draw the background because always transparent
             return true;
         }
-		#endregion
+        #endregion
 
         #region Implementation
-        private void OnCheckBoxTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(EventArgs.Empty);
-        }
+        private void OnCheckBoxTextChanged(object sender, EventArgs e) => OnTextChanged(EventArgs.Empty);
 
-        private void OnControllerClick(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
+        private void OnControllerClick(object sender, EventArgs e) => OnClick(e);
 
         private void UpdateForOrientation()
         {
@@ -936,25 +879,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         default:
                         case VisualOrientation.Top:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Right : ViewDockStyle.Left;
 
                             break;
                         case VisualOrientation.Bottom:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Left : ViewDockStyle.Right;
 
                             break;
                         case VisualOrientation.Left:
@@ -970,25 +899,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         default:
                         case VisualOrientation.Top:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Left : ViewDockStyle.Right;
 
                             break;
                         case VisualOrientation.Bottom:
-                            if (RightToLeft == RightToLeft.Yes)
-                            {
-                                dockStyle = ViewDockStyle.Right;
-                            }
-                            else
-                            {
-                                dockStyle = ViewDockStyle.Left;
-                            }
+                            dockStyle = RightToLeft == RightToLeft.Yes ? ViewDockStyle.Right : ViewDockStyle.Left;
 
                             break;
                         case VisualOrientation.Left:

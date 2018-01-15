@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _shadow?.Show(screenRect);
 
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(this.Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
 
             // Use manager to track mouse/keyboard input and to dismiss the window
             VisualPopupManager.Singleton.StartTracking(this);
@@ -298,18 +298,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="pt">Client coordinates point.</param>
         /// <returns>True to alow; otherwise false.</returns>
         public virtual bool AllowMouseMove(Message m, Point pt)
-        {
-            // If we have the focus then we always allow the mouse move
-            if (ContainsFocus)
-            {
-                return true;
-            }
-            else
-            {
-                // If the mouse is over this popup then allow
-                return RectangleToScreen(ClientRectangle).Contains(pt);
-            }
-        }
+	    {
+	        // If we have the focus then we always allow the mouse move
+	        return ContainsFocus || RectangleToScreen(ClientRectangle).Contains(pt);
+	    }
 
         /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
@@ -339,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IRenderer Renderer
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
 	    }
@@ -385,7 +377,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected ViewManager ViewManager
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
 	    }
@@ -395,7 +387,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
 	    {
-	        [System.Diagnostics.DebuggerStepThrough]
+	        [DebuggerStepThrough]
 	        get;
 	    }
 
@@ -618,7 +610,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.DoubleClick(this.PointToClient(Control.MousePosition));
+                ViewManager?.DoubleClick(PointToClient(MousePosition));
             }
 
             // Let base class fire events
@@ -758,14 +750,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     int spareBelow = screen.WorkingArea.Bottom - parentScreenRect.Bottom;
 
                     // Place it in the area with the most space
-                    if (spareAbove > spareBelow)
-                    {
-                        popupLocation.Y = screen.WorkingArea.Top;
-                    }
-                    else
-                    {
-                        popupLocation.Y = parentScreenRect.Bottom;
-                    }
+                    popupLocation.Y = spareAbove > spareBelow ? screen.WorkingArea.Top : parentScreenRect.Bottom;
                 }
             }
 

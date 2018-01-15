@@ -301,14 +301,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 preferredSize.Width = NULL_CONTROL_WIDTH;
             }
 
-            if (_currentSize == GroupItemSize.Large)
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupTripleHeight;
-            }
-            else
-            {
-                preferredSize.Height = _ribbon.CalculatedValues.GroupLineHeight;
-            }
+            preferredSize.Height = _currentSize == GroupItemSize.Large
+                ? _ribbon.CalculatedValues.GroupTripleHeight
+                : _ribbon.CalculatedValues.GroupLineHeight;
 
             return preferredSize;
         }
@@ -567,7 +562,10 @@ namespace ComponentFactory.Krypton.Ribbon
                     else
                     {
                         // Check the owning group is visible
-                        if ((GroupTextBox.RibbonContainer?.RibbonGroup != null) && !GroupTextBox.RibbonContainer.RibbonGroup.Visible && !_ribbon.InDesignMode)
+                        if ((GroupTextBox.RibbonContainer?.RibbonGroup != null) 
+                            && !GroupTextBox.RibbonContainer.RibbonGroup.Visible 
+                            && !_ribbon.InDesignMode
+                            )
                         {
                             visible = false;
                         }
@@ -576,7 +574,8 @@ namespace ComponentFactory.Krypton.Ribbon
                             // Check that the group is not collapsed
                             if ((GroupTextBox.RibbonContainer.RibbonGroup.IsCollapsed) &&
                                 ((_ribbon.GetControllerControl(GroupTextBox.TextBox) is KryptonRibbon) ||
-                                 (_ribbon.GetControllerControl(GroupTextBox.TextBox) is VisualPopupMinimized)))
+                                 (_ribbon.GetControllerControl(GroupTextBox.TextBox) is VisualPopupMinimized))
+                                )
                             {
                                 visible = false;
                             }

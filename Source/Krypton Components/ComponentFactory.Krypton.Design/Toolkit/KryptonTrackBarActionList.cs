@@ -37,21 +37,16 @@ namespace ComponentFactory.Krypton.Toolkit
             // Assuming we were correctly passed an actual component...
             if (_trackBar != null)
             {
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_trackBar)["Orientation"];
 
                 // If we succeeded in getting the property
                 if (orientationProp != null)
                 {
                     // Decide on the next action to take given the current setting
-                    if ((Orientation)orientationProp.GetValue(_trackBar) == Orientation.Vertical)
-                    {
-                        _action = "Horizontal orientation";
-                    }
-                    else
-                    {
-                        _action = "Vertical orientation";
-                    }
+                    _action = (Orientation) orientationProp.GetValue(_trackBar) == Orientation.Vertical
+                        ? "Horizontal orientation"
+                        : "Vertical orientation";
                 }
             }
 
@@ -224,16 +219,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 Orientation orientation = verb.Text.Equals("Horizontal orientation") ? Orientation.Horizontal : Orientation.Vertical;
 
                 // Decide on the next action to take given the new setting
-                if (orientation == Orientation.Vertical)
-                {
-                    _action = "Horizontal orientation";
-                }
-                else
-                {
-                    _action = "Vertical orientation";
-                }
+                _action = orientation == Orientation.Vertical ? "Horizontal orientation" : "Vertical orientation";
 
-                // Get access to the actual Orientation propertry
+                // Get access to the actual Orientation property
                 PropertyDescriptor orientationProp = TypeDescriptor.GetProperties(_trackBar)["Orientation"];
 
                 // If we succeeded in getting the property

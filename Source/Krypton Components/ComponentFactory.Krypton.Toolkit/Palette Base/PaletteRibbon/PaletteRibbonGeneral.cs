@@ -116,12 +116,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region SetInherit
         /// <summary>
-        /// Sets the inheritence parent.
+        /// Sets the inheritance parent.
         /// </summary>
-        public void SetInherit(IPaletteRibbonGeneral inherit)
-        {
-            _inherit = inherit;
-        }
+        public void SetInherit(IPaletteRibbonGeneral inherit) => _inherit = inherit;
+
         #endregion
 
         #region PopulateFromBase
@@ -179,27 +177,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the ContextTextAlign to the default value.
         /// </summary>
-        public void ResetContextTextAlign()
-        {
-            ContextTextAlign = PaletteRelativeAlign.Inherit;
-        }
+        public void ResetContextTextAlign() => ContextTextAlign = PaletteRelativeAlign.Inherit;
 
         /// <summary>
         /// Gets the text alignment for the ribbon context text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public PaletteRelativeAlign GetRibbonContextTextAlign(PaletteState state)
-        {
-            if (ContextTextAlign != PaletteRelativeAlign.Inherit)
-            {
-                return ContextTextAlign;
-            }
-            else
-            {
-                return _inherit.GetRibbonContextTextAlign(state);
-            }
-        }
+        public PaletteRelativeAlign GetRibbonContextTextAlign(PaletteState state) =>
+            ContextTextAlign != PaletteRelativeAlign.Inherit
+                ? ContextTextAlign
+                : _inherit.GetRibbonContextTextAlign(state);
+
         #endregion
 
         #region ContextTextFont
@@ -228,27 +217,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the ContextTextFont to the default value.
         /// </summary>
-        public void ResetContextTextFont()
-        {
-            ContextTextFont = null;
-        }
+        public void ResetContextTextFont() => ContextTextFont = null;
 
         /// <summary>
         /// Gets the font for the ribbon context text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public Font GetRibbonContextTextFont(PaletteState state)
-        {
-            if (ContextTextFont != null)
-            {
-                return ContextTextFont;
-            }
-            else
-            {
-                return _inherit.GetRibbonContextTextFont(state);
-            }
-        }
+        public Font GetRibbonContextTextFont(PaletteState state) => ContextTextFont ?? _inherit.GetRibbonContextTextFont(state);
+
         #endregion
 
         #region ContextTextColor
@@ -277,27 +254,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the ContextTextColor property to its default value.
         /// </summary>
-        public void ResetContextTextColor()
-        {
-            ContextTextColor = Color.Empty;
-        }
+        public void ResetContextTextColor() => ContextTextColor = Color.Empty;
 
         /// <summary>
         /// Gets the color of the ribbon caption text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonContextTextColor(PaletteState state)
-        {
-            if (DisabledDark != Color.Empty)
-            {
-                return ContextTextColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonContextTextColor(state);
-            }
-        }
+        public Color GetRibbonContextTextColor(PaletteState state) => DisabledDark != Color.Empty
+            ? ContextTextColor
+            : _inherit.GetRibbonContextTextColor(state);
+
         #endregion
 
         #region DisabledDark
@@ -326,27 +293,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the DisabledDark property to its default value.
         /// </summary>
-        public void ResetDisabledDark()
-        {
-            DisabledDark = Color.Empty;
-        }
+        public void ResetDisabledDark() => DisabledDark = Color.Empty;
 
         /// <summary>
         /// Gets the dark disabled color used for ribbon glyphs.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonDisabledDark(PaletteState state)
-        {
-            if (DisabledDark != Color.Empty)
-            {
-                return DisabledDark;
-            }
-            else
-            {
-                return _inherit.GetRibbonDisabledDark(state);
-            }
-        }
+        public Color GetRibbonDisabledDark(PaletteState state) =>
+            DisabledDark != Color.Empty ? DisabledDark : _inherit.GetRibbonDisabledDark(state);
+
         #endregion
 
         #region DisabledLight
@@ -375,27 +331,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the DisabledLight property to its default value.
         /// </summary>
-        public void ResetDisabledLight()
-        {
-            DisabledLight = Color.Empty;
-        }
+        public void ResetDisabledLight() => DisabledLight = Color.Empty;
 
         /// <summary>
         /// Gets the light disabled color used for ribbon glyphs.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonDisabledLight(PaletteState state)
-        {
-            if (DisabledLight != Color.Empty)
-            {
-                return DisabledLight;
-            }
-            else
-            {
-                return _inherit.GetRibbonDisabledLight(state);
-            }
-        }
+        public Color GetRibbonDisabledLight(PaletteState state) =>
+            DisabledLight != Color.Empty ? DisabledLight : _inherit.GetRibbonDisabledLight(state);
+
         #endregion
 
         #region GroupDialogDark
@@ -424,27 +369,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the GroupDialogDark property to its default value.
         /// </summary>
-        public void ResetGroupDialogDark()
-        {
-            GroupDialogDark = Color.Empty;
-        }
+        public void ResetGroupDialogDark() => GroupDialogDark = Color.Empty;
 
         /// <summary>
         /// Gets the color for the dialog launcher dark.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonGroupDialogDark(PaletteState state)
-        {
-            if (GroupDialogDark != Color.Empty)
-            {
-                return GroupDialogDark;
-            }
-            else
-            {
-                return _inherit.GetRibbonGroupDialogDark(state);
-            }
-        }
+        public Color GetRibbonGroupDialogDark(PaletteState state) => GroupDialogDark != Color.Empty
+            ? GroupDialogDark
+            : _inherit.GetRibbonGroupDialogDark(state);
+
         #endregion
 
         #region GroupDialogLight
@@ -473,32 +408,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the GroupDialogLight property to its default value.
         /// </summary>
-        public void ResetGroupDialogLight()
-        {
-            GroupDialogLight = Color.Empty;
-        }
+        public void ResetGroupDialogLight() => GroupDialogLight = Color.Empty;
 
         /// <summary>
         /// Gets the color for the dialog launcher light.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonGroupDialogLight(PaletteState state)
-        {
-            if (GroupDialogLight != Color.Empty)
-            {
-                return GroupDialogLight;
-            }
-            else
-            {
-                return _inherit.GetRibbonGroupDialogLight(state);
-            }
-        }
+        public Color GetRibbonGroupDialogLight(PaletteState state) => GroupDialogLight != Color.Empty
+            ? GroupDialogLight
+            : _inherit.GetRibbonGroupDialogLight(state);
+
         #endregion
 
         #region DropArrowDark
         /// <summary>
-        /// Gets access to ribbon drop arow dark color.
+        /// Gets access to ribbon drop arrow dark color.
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
@@ -522,27 +447,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the DropArrowDark property to its default value.
         /// </summary>
-        public void ResetDropArrowDark()
-        {
-            DropArrowDark = Color.Empty;
-        }
+        public void ResetDropArrowDark() => DropArrowDark = Color.Empty;
 
         /// <summary>
         /// Gets the color for the drop arrow dark color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonDropArrowDark(PaletteState state)
-        {
-            if (DropArrowDark != Color.Empty)
-            {
-                return DropArrowDark;
-            }
-            else
-            {
-                return _inherit.GetRibbonDropArrowDark(state);
-            }
-        }
+        public Color GetRibbonDropArrowDark(PaletteState state) =>
+            DropArrowDark != Color.Empty ? DropArrowDark : _inherit.GetRibbonDropArrowDark(state);
+
         #endregion
 
         #region DropArrowLight
@@ -571,27 +485,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the DropArrowLight property to its default value.
         /// </summary>
-        public void ResetDropArrowLight()
-        {
-            DropArrowLight = Color.Empty;
-        }
+        public void ResetDropArrowLight() => DropArrowLight = Color.Empty;
 
         /// <summary>
         /// Gets the color for the drop arrow light.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonDropArrowLight(PaletteState state)
-        {
-            if (DropArrowLight != Color.Empty)
-            {
-                return DropArrowLight;
-            }
-            else
-            {
-                return _inherit.GetRibbonDropArrowLight(state);
-            }
-        }
+        public Color GetRibbonDropArrowLight(PaletteState state) => DropArrowLight != Color.Empty
+            ? DropArrowLight
+            : _inherit.GetRibbonDropArrowLight(state);
+
         #endregion
 
         #region GroupSeparatorDark
@@ -620,27 +524,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the GroupDialogDark property to its default value.
         /// </summary>
-        public void ResetGroupSeparatorDark()
-        {
-            GroupSeparatorDark = Color.Empty;
-        }
+        public void ResetGroupSeparatorDark() => GroupSeparatorDark = Color.Empty;
 
         /// <summary>
         /// Gets the color for the dialog launcher dark.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonGroupSeparatorDark(PaletteState state)
-        {
-            if (GroupSeparatorDark != Color.Empty)
-            {
-                return GroupSeparatorDark;
-            }
-            else
-            {
-                return _inherit.GetRibbonGroupSeparatorDark(state);
-            }
-        }
+        public Color GetRibbonGroupSeparatorDark(PaletteState state) => GroupSeparatorDark != Color.Empty
+            ? GroupSeparatorDark
+            : _inherit.GetRibbonGroupSeparatorDark(state);
+
         #endregion
 
         #region GroupSeparatorLight
@@ -669,27 +563,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the GroupSeparatorLight property to its default value.
         /// </summary>
-        public void ResetGroupSeparatorLight()
-        {
-            GroupDialogLight = Color.Empty;
-        }
+        public void ResetGroupSeparatorLight() => GroupDialogLight = Color.Empty;
 
         /// <summary>
         /// Gets the color for the dialog launcher light.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonGroupSeparatorLight(PaletteState state)
-        {
-            if (GroupSeparatorLight != Color.Empty)
-            {
-                return GroupSeparatorLight;
-            }
-            else
-            {
-                return _inherit.GetRibbonGroupSeparatorLight(state);
-            }
-        }
+        public Color GetRibbonGroupSeparatorLight(PaletteState state) => GroupSeparatorLight != Color.Empty
+            ? GroupSeparatorLight
+            : _inherit.GetRibbonGroupSeparatorLight(state);
+
         #endregion
 
         #region MinimizeBarDarkColor
@@ -718,27 +602,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the MinimizeBarDarkColor property to its default value.
         /// </summary>
-        public void ResetMinimizeBarDarkColor()
-        {
-            MinimizeBarDarkColor = Color.Empty;
-        }
+        public void ResetMinimizeBarDarkColor() => MinimizeBarDarkColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the ribbon minimize bar dark.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonMinimizeBarDark(PaletteState state)
-        {
-            if (MinimizeBarDarkColor != Color.Empty)
-            {
-                return MinimizeBarDarkColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonMinimizeBarDark(state);
-            }
-        }
+        public Color GetRibbonMinimizeBarDark(PaletteState state) => MinimizeBarDarkColor != Color.Empty
+            ? MinimizeBarDarkColor
+            : _inherit.GetRibbonMinimizeBarDark(state);
+
         #endregion
 
         #region MinimizeBarLightColor
@@ -767,27 +641,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the MinimizeBarLightColor property to its default value.
         /// </summary>
-        public void ResetMinimizeBarLightColor()
-        {
-            MinimizeBarLightColor = Color.Empty;
-        }
+        public void ResetMinimizeBarLightColor() => MinimizeBarLightColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the ribbon minimize bar light.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonMinimizeBarLight(PaletteState state)
-        {
-            if (MinimizeBarLightColor != Color.Empty)
-            {
-                return MinimizeBarLightColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonMinimizeBarLight(state);
-            }
-        }
+        public Color GetRibbonMinimizeBarLight(PaletteState state) => MinimizeBarLightColor != Color.Empty
+            ? MinimizeBarLightColor
+            : _inherit.GetRibbonMinimizeBarLight(state);
+
         #endregion
 
         #region RibbonShape
@@ -815,26 +679,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the RibbonShape property to its default value.
         /// </summary>
-        public void ResetRibbonShape()
-        {
-            RibbonShape = PaletteRibbonShape.Inherit;
-        }
+        public void ResetRibbonShape() => RibbonShape = PaletteRibbonShape.Inherit;
 
         /// <summary>
         /// Gets the ribbon shape.
         /// </summary>
         /// <returns>Color value.</returns>
-        public PaletteRibbonShape GetRibbonShape()
-        {
-            if (RibbonShape != PaletteRibbonShape.Inherit)
-            {
-                return RibbonShape;
-            }
-            else
-            {
-                return _inherit.GetRibbonShape();
-            }
-        }
+        public PaletteRibbonShape GetRibbonShape() =>
+            RibbonShape != PaletteRibbonShape.Inherit ? RibbonShape : _inherit.GetRibbonShape();
+
         #endregion
 
         #region TabSeparatorColor
@@ -863,27 +716,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the TabSeparatorColor property to its default value.
         /// </summary>
-        public void ResetTabSeparatorColor()
-        {
-            TabSeparatorColor = Color.Empty;
-        }
+        public void ResetTabSeparatorColor() => TabSeparatorColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the tab separator.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonTabSeparatorColor(PaletteState state)
-        {
-            if (TabSeparatorColor != Color.Empty)
-            {
-                return TabSeparatorColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonTabSeparatorColor(state);
-            }
-        }
+        public Color GetRibbonTabSeparatorColor(PaletteState state) => TabSeparatorColor != Color.Empty
+            ? TabSeparatorColor
+            : _inherit.GetRibbonTabSeparatorColor(state);
+
         #endregion
 
         #region TabSeparatorContextColor
@@ -912,27 +755,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the TabSeparatorContextColor property to its default value.
         /// </summary>
-        public void ResetTabSeparatorContextColor()
-        {
-            TabSeparatorContextColor = Color.Empty;
-        }
+        public void ResetTabSeparatorContextColor() => TabSeparatorContextColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the tab context separator.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonTabSeparatorContextColor(PaletteState state)
-        {
-            if (TabSeparatorColor != Color.Empty)
-            {
-                return TabSeparatorContextColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonTabSeparatorContextColor(state);
-            }
-        }
+        public Color GetRibbonTabSeparatorContextColor(PaletteState state) => 
+            TabSeparatorColor != Color.Empty
+            ? TabSeparatorContextColor
+            : _inherit.GetRibbonTabSeparatorContextColor(state);
+
         #endregion
 
         #region TextFont
@@ -961,27 +795,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the TextFont to the default value.
         /// </summary>
-        public void ResetTextFont()
-        {
-            TextFont = null;
-        }
+        public void ResetTextFont() => TextFont = null;
 
         /// <summary>
         /// Gets the font for the ribbon text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
-        public Font GetRibbonTextFont(PaletteState state)
-        {
-            if (TextFont != null)
-            {
-                return TextFont;
-            }
-            else
-            {
-                return _inherit.GetRibbonTextFont(state);
-            }
-        }
+        public Font GetRibbonTextFont(PaletteState state) => TextFont ?? _inherit.GetRibbonTextFont(state);
+
         #endregion
 
         #region TextHint
@@ -1010,27 +832,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the TextHint to the default value.
         /// </summary>
-        public void ResetTextHint()
-        {
-            TextHint = PaletteTextHint.Inherit;
-        }
+        public void ResetTextHint() => TextHint = PaletteTextHint.Inherit;
 
         /// <summary>
         /// Gets the rendering hint for the ribbon font.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteTextHint value.</returns>
-        public PaletteTextHint GetRibbonTextHint(PaletteState state)
-        {
-            if (TextHint != PaletteTextHint.Inherit)
-            {
-                return TextHint;
-            }
-            else
-            {
-                return _inherit.GetRibbonTextHint(state);
-            }
-        }
+        public PaletteTextHint GetRibbonTextHint(PaletteState state) =>
+            TextHint != PaletteTextHint.Inherit ? TextHint : _inherit.GetRibbonTextHint(state);
+
         #endregion
 
         #region QATButtonDarkColor
@@ -1059,27 +870,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the QATButtonDarkColor property to its default value.
         /// </summary>
-        public void ResetQATButtonDarkColor()
-        {
-            QATButtonDarkColor = Color.Empty;
-        }
+        public void ResetQATButtonDarkColor() => QATButtonDarkColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the extra QAT button dark content color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonQATButtonDark(PaletteState state)
-        {
-            if (QATButtonDarkColor != Color.Empty)
-            {
-                return QATButtonDarkColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonQATButtonDark(state);
-            }
-        }
+        public Color GetRibbonQATButtonDark(PaletteState state) => QATButtonDarkColor != Color.Empty
+            ? QATButtonDarkColor
+            : _inherit.GetRibbonQATButtonDark(state);
+
         #endregion
 
         #region QATButtonLightColor
@@ -1108,27 +909,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Resets the QATButtonLightColor property to its default value.
         /// </summary>
-        public void ResetQATButtonLightColor()
-        {
-            QATButtonLightColor = Color.Empty;
-        }
+        public void ResetQATButtonLightColor() => QATButtonLightColor = Color.Empty;
 
         /// <summary>
         /// Gets the color for the extra QAT button light content color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetRibbonQATButtonLight(PaletteState state)
-        {
-            if (QATButtonLightColor != Color.Empty)
-            {
-                return QATButtonLightColor;
-            }
-            else
-            {
-                return _inherit.GetRibbonQATButtonLight(state);
-            }
-        }
+        public Color GetRibbonQATButtonLight(PaletteState state) => QATButtonLightColor != Color.Empty
+            ? QATButtonLightColor
+            : _inherit.GetRibbonQATButtonLight(state);
+
         #endregion
     }
 }

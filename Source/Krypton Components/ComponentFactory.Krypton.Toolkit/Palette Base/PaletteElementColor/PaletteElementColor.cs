@@ -117,27 +117,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the Color1 to the default value.
         /// </summary>
-        public void ResetColor1()
-        {
-            Color1 = Color.Empty;
-        }
+        public void ResetColor1() => Color1 = Color.Empty;
 
         /// <summary>
         /// Gets the first element color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetElementColor1(PaletteState state)
-        {
-            if (Color1 != Color.Empty)
-            {
-                return Color1;
-            }
-            else
-            {
-                return _inheritElementColor.GetElementColor1(state);
-            }
-        }
+        public Color GetElementColor1(PaletteState state) =>
+            Color1 != Color.Empty ? Color1 : _inheritElementColor.GetElementColor1(state);
+
         #endregion
 
         #region Color2
@@ -166,27 +155,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the Color2 to the default value.
         /// </summary>
-        public void ResetColor2()
-        {
-            Color2 = Color.Empty;
-        }
+        public void ResetColor2() => Color2 = Color.Empty;
 
         /// <summary>
         /// Gets the second element color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetElementColor2(PaletteState state)
-        {
-            if (Color2 != Color.Empty)
-            {
-                return Color2;
-            }
-            else
-            {
-                return _inheritElementColor.GetElementColor2(state);
-            }
-        }
+        public Color GetElementColor2(PaletteState state) =>
+            Color2 != Color.Empty ? Color2 : _inheritElementColor.GetElementColor2(state);
+
         #endregion
 
         #region Color3
@@ -215,27 +193,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the Color3 to the default value.
         /// </summary>
-        public void ResetColor3()
-        {
-            Color3 = Color.Empty;
-        }
+        public void ResetColor3() => Color3 = Color.Empty;
 
         /// <summary>
         /// Gets the third element color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetElementColor3(PaletteState state)
-        {
-            if (Color3 != Color.Empty)
-            {
-                return Color3;
-            }
-            else
-            {
-                return _inheritElementColor.GetElementColor3(state);
-            }
-        }
+        public Color GetElementColor3(PaletteState state) =>
+            Color3 != Color.Empty ? Color3 : _inheritElementColor.GetElementColor3(state);
+
         #endregion
 
         #region Color4
@@ -264,27 +231,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the Color4 to the default value.
         /// </summary>
-        public void ResetColor4()
-        {
-            Color4 = Color.Empty;
-        }
+        public void ResetColor4() => Color4 = Color.Empty;
 
         /// <summary>
         /// Gets the fourth element color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetElementColor4(PaletteState state)
-        {
-            if (Color4 != Color.Empty)
-            {
-                return Color4;
-            }
-            else
-            {
-                return _inheritElementColor.GetElementColor4(state);
-            }
-        }
+        public Color GetElementColor4(PaletteState state) =>
+            Color4 != Color.Empty ? Color4 : _inheritElementColor.GetElementColor4(state);
+
         #endregion
 
         #region Color5
@@ -313,27 +269,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Reset the Color5 to the default value.
         /// </summary>
-        public void ResetColor5()
-        {
-            Color5 = Color.Empty;
-        }
+        public void ResetColor5() => Color5 = Color.Empty;
 
         /// <summary>
         /// Gets the fifth element color.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public Color GetElementColor5(PaletteState state)
-        {
-            if (Color5 != Color.Empty)
-            {
-                return Color5;
-            }
-            else
-            {
-                return _inheritElementColor.GetElementColor5(state);
-            }
-        }
+        public Color GetElementColor5(PaletteState state) =>
+            Color5 != Color.Empty ? Color5 : _inheritElementColor.GetElementColor5(state);
+
         #endregion
     }
 }

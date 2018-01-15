@@ -29,9 +29,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="component">The IComponent to associate the designer with.</param>
         public override void Initialize(IComponent component)
         {
+            // ReSharper disable RedundantBaseQualifier
             // Let base class do standard stuff
             base.Initialize(component);
             base.AutoResizeHandles = true;
+            // ReSharper restore RedundantBaseQualifier
 
             // Cast to correct type
             _trackBar = component as KryptonTrackBar;

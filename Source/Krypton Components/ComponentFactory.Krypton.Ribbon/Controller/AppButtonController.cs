@@ -17,7 +17,7 @@ using ComponentFactory.Krypton.Toolkit;
 namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
-    /// Provide application button button functionality.
+    /// Provide application button functionality.
     /// </summary>
     internal class AppButtonController : GlobalId,
                                          IMouseController,
@@ -303,20 +303,11 @@ namespace ComponentFactory.Krypton.Ribbon
                         if (e.KeyData != Keys.Left)
                         {
                             // Get the last control on the selected tab
-                            newView = ribbon.GroupsArea.ViewGroups.GetLastFocusItem();
-
-                            // Get the currently selected tab page
-                            if (newView == null)
-                            {
-                                if (ribbon.SelectedTab != null)
-                                {
-                                    newView = ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab);
-                                }
-                                else
-                                {
-                                    newView = ribbon.TabsArea.LayoutTabs.GetViewForLastRibbonTab();
-                                }
-                            }
+                            newView = ribbon.GroupsArea.ViewGroups.GetLastFocusItem() ?? 
+                                      (ribbon.SelectedTab != null   // Get the currently selected tab page
+                                          ? ribbon.TabsArea.LayoutTabs.GetViewForRibbonTab(ribbon.SelectedTab)
+                                          : ribbon.TabsArea.LayoutTabs.GetViewForLastRibbonTab());
+                           
                         }
                         else
                         {

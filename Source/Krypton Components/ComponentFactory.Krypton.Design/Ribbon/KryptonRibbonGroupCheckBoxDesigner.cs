@@ -400,11 +400,11 @@ namespace ComponentFactory.Krypton.Ribbon
                     _autoCheckMenu = new ToolStripMenuItem("AutoCheck", null, OnAutoCheck);
                     _checkedMenu = new ToolStripMenuItem("Checked", null, OnChecked);
                     _threeStateMenu = new ToolStripMenuItem("ThreeState", null, OnThreeState);
-                    _moveFirstMenu = new ToolStripMenuItem("Move CheckBox First", ComponentFactory.Krypton.Design.Properties.Resources.MoveFirst, OnMoveFirst);
-                    _movePreviousMenu = new ToolStripMenuItem("Move CheckBox Previous", ComponentFactory.Krypton.Design.Properties.Resources.MovePrevious, OnMovePrevious);
-                    _moveNextMenu = new ToolStripMenuItem("Move CheckBox Next", ComponentFactory.Krypton.Design.Properties.Resources.MoveNext, OnMoveNext);
-                    _moveLastMenu = new ToolStripMenuItem("Move CheckBox Last", ComponentFactory.Krypton.Design.Properties.Resources.MoveLast, OnMoveLast);
-                    _deleteCheckBoxMenu = new ToolStripMenuItem("Delete CheckBox", ComponentFactory.Krypton.Design.Properties.Resources.delete2, OnDeleteCheckBox);
+                    _moveFirstMenu = new ToolStripMenuItem("Move CheckBox First", Design.Properties.Resources.MoveFirst, OnMoveFirst);
+                    _movePreviousMenu = new ToolStripMenuItem("Move CheckBox Previous", Design.Properties.Resources.MovePrevious, OnMovePrevious);
+                    _moveNextMenu = new ToolStripMenuItem("Move CheckBox Next", Design.Properties.Resources.MoveNext, OnMoveNext);
+                    _moveLastMenu = new ToolStripMenuItem("Move CheckBox Last", Design.Properties.Resources.MoveLast, OnMoveLast);
+                    _deleteCheckBoxMenu = new ToolStripMenuItem("Delete CheckBox", Design.Properties.Resources.delete2, OnDeleteCheckBox);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
                                                               _visibleMenu, _enabledMenu, _autoCheckMenu, _checkedMenu, _threeStateMenu, new ToolStripSeparator(),
                                                               _moveFirstMenu, _movePreviousMenu, _moveNextMenu, _moveLastMenu, new ToolStripSeparator(),

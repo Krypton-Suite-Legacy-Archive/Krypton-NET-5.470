@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public VisualOrientation Orientation
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get;
             set;
         }

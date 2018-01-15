@@ -359,10 +359,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool UseDropShadow
         {
-            get
-            {
-                return _useDropShadow;
-            }
+            get => _useDropShadow;
 
             set
             {
@@ -986,14 +983,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 default:
                     // When maximized we do not have any borders around the client
-                    if (WindowState == FormWindowState.Maximized)
-                    {
-                        borders = Padding.Empty;
-                    }
-                    else
-                    {
-                        borders = RealWindowBorders;
-                    }
+                    borders = WindowState == FormWindowState.Maximized ? Padding.Empty : RealWindowBorders;
 
                     break;
             }
@@ -1221,14 +1211,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (ViewManager != null)
                 {
                     // Make sure the max/restore setting is correct
-                    if (WindowState == FormWindowState.Maximized)
-                    {
-                        ButtonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormRestore;
-                    }
-                    else
-                    {
-                        ButtonSpecMax.ButtonSpecType = PaletteButtonSpecStyle.FormMax;
-                    }
+                    ButtonSpecMax.ButtonSpecType = WindowState == FormWindowState.Maximized
+                        ? PaletteButtonSpecStyle.FormRestore
+                        : PaletteButtonSpecStyle.FormMax;
 
                     // Make sure the min/restore setting is correct
                     if (WindowState == FormWindowState.Minimized)
@@ -1337,14 +1322,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         SuspendPaint();
                                     }
 
-                                    if (path != null)
-                                    {
-                                        UpdateBorderRegion(new Region(path));
-                                    }
-                                    else
-                                    {
-                                        UpdateBorderRegion(null);
-                                    }
+                                    UpdateBorderRegion(path != null ? new Region(path) : null);
 
                                     if (!_firstCheckView)
                                     {

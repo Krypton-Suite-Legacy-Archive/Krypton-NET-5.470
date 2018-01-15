@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Navigator
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.Manual;
             Text = "DropIndicators";
-            TransparencyKey = System.Drawing.Color.Silver;
+            TransparencyKey = Color.Silver;
             Paint += DropIndicators_Paint;
         }
         #endregion
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
 		    // Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(this.Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
 		}
 
 		/// <summary>

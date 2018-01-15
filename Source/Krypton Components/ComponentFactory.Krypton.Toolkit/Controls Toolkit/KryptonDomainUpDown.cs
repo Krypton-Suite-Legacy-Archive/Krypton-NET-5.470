@@ -140,18 +140,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PI.WM_PRINTCLIENT:
                     case PI.WM_PAINT:
                         {
-                            IntPtr hdc;
                             PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                             // Do we need to BeginPaint or just take the given HDC?
-                            if (m.WParam == IntPtr.Zero)
-                            {
-                                hdc = PI.BeginPaint(Handle, ref ps);
-                            }
-                            else
-                            {
-                                hdc = m.WParam;
-                            }
+                            IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
@@ -202,25 +194,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     switch (_kryptonDomainUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
-                                            if (RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Right:
-                                            if (RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Near
+                                                : StringAlignment.Far;
 
                                             break;
                                         case HorizontalAlignment.Center:
@@ -457,7 +439,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 dwHoverTime = 100,
 
                                 // We need to know then the mouse leaves the client window area
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
 
                                 // We want to track our own window
                                 hWnd = Handle
@@ -524,25 +506,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     switch (DomainUpDown.TextAlign)
                                     {
                                         case HorizontalAlignment.Left:
-                                            if (DomainUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Near;
-                                            }
+                                            stringFormat.Alignment = DomainUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Right:
-                                            if (DomainUpDown.RightToLeft == RightToLeft.Yes)
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
-                                            else
-                                            {
-                                                stringFormat.Alignment = StringAlignment.Far;
-                                            }
+                                            stringFormat.Alignment = DomainUpDown.RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
 
                                             break;
                                         case HorizontalAlignment.Center:
@@ -868,14 +840,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     if (DomainUpDown.IsActive || (DomainUpDown.IsFixedActive && (DomainUpDown.InputControlStyle == InputControlStyle.Standalone)))
                     {
-                        if (DomainUpDown.InputControlStyle == InputControlStyle.Standalone)
-                        {
-                            return PaletteState.CheckedNormal;
-                        }
-                        else
-                        {
-                            return PaletteState.CheckedTracking;
-                        }
+                        return DomainUpDown.InputControlStyle == InputControlStyle.Standalone ? PaletteState.CheckedNormal : PaletteState.CheckedTracking;
                     }
                     else
                     {
@@ -1348,15 +1313,9 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private void ResetInputControlStyle()
-        {
-            InputControlStyle = InputControlStyle.Standalone;
-        }
+        private void ResetInputControlStyle() => InputControlStyle = InputControlStyle.Standalone;
 
-        private bool ShouldSerializeInputControlStyle()
-        {
-            return (InputControlStyle != InputControlStyle.Standalone);
-        }
+        private bool ShouldSerializeInputControlStyle() => (InputControlStyle != InputControlStyle.Standalone);
 
         /// <summary>
         /// Gets and sets the up and down buttons style.
@@ -1377,15 +1336,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void ResetUpDownButtonStyle()
-        {
-            UpDownButtonStyle = ButtonStyle.InputControl;
-        }
+        private void ResetUpDownButtonStyle() => UpDownButtonStyle = ButtonStyle.InputControl;
 
-        private bool ShouldSerializeUpDownButtonStyle()
-        {
-            return (UpDownButtonStyle != ButtonStyle.InputControl);
-        }
+        private bool ShouldSerializeUpDownButtonStyle() => (UpDownButtonStyle != ButtonStyle.InputControl);
 
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
@@ -1411,36 +1364,27 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
-        
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
+
         /// <summary>
         /// Gets access to the disabled textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Overrides for defining disabled textbox appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal textbox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Overrides for defining normal textbox appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the active textbox appearance entries.
@@ -1450,45 +1394,30 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Displays the previous item in the collection.
         /// </summary>
-        public void UpButton()
-        {
-            DomainUpDown.UpButton();
-        }
+        public void UpButton() => DomainUpDown.UpButton();
 
         /// <summary>
         /// Displays the next item in the collection.
         /// </summary>
-        public void DownButton()
-        {
-            DomainUpDown.DownButton();
-        }
+        public void DownButton() => DomainUpDown.DownButton();
 
         /// <summary>
         /// Selects a range of text in the control.
         /// </summary>
         /// <param name="start">The position of the first character in the current text selection within the text box.</param>
         /// <param name="length">The number of characters to select.</param>
-        public void Select(int start, int length)
-        {
-            DomainUpDown.Select(start, length);
-        }
+        public void Select(int start, int length) => DomainUpDown.Select(start, length);
 
         /// <summary>
         /// Sets the fixed state of the control.
         /// </summary>
         /// <param name="active">Should the control be fixed as active.</param>
-        public void SetFixedState(bool active)
-        {
-            _fixedActive = active;
-        }
+        public void SetFixedState(bool active) => _fixedActive = active;
 
         /// <summary>
         /// Gets access to the ToolTipManager used for displaying tool tips.
@@ -1524,25 +1453,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Sets input focus to the control.
         /// </summary>
         /// <returns>true if the input focus request was successful; otherwise, false.</returns>
-        public new bool Focus()
-        {
-            if (DomainUpDown != null)
-            {
-                return DomainUpDown.Focus();
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public new bool Focus() => DomainUpDown != null && DomainUpDown.Focus();
 
         /// <summary>
         /// Activates the control.
         /// </summary>
-        public new void Select()
-        {
-            DomainUpDown?.Select();
-        }
+        public new void Select() => DomainUpDown?.Select();
 
         /// <summary>
         /// Get the preferred size of the control based on a proposed size.
@@ -1607,10 +1523,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Override the display padding for the layout fill.
         /// </summary>
         /// <param name="padding">Display padding value.</param>
-        public void SetLayoutDisplayPadding(Padding padding)
-        {
-            _layoutFill.DisplayPadding = padding;
-        }
+        public void SetLayoutDisplayPadding(Padding padding) => _layoutFill.DisplayPadding = padding;
 
         /// <summary>
         /// Internal design time method.
@@ -1627,14 +1540,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Check if any of the button specs want the point
-            if ((_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (_buttonManager != null) && _buttonManager.DesignerGetHitTest(pt);
         }
 
         /// <summary>
@@ -1646,13 +1552,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public Component DesignerComponentFromPoint(Point pt)
         {
             // Ignore call as view builder is already destructed
-            if (IsDisposed)
-            {
-                return null;
-            }
+            return IsDisposed ? null : ViewManager.ComponentFromPoint(pt);
 
             // Ask the current view for a decision
-            return ViewManager.ComponentFromPoint(pt);
         }
 
         /// <summary>
@@ -1697,37 +1599,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the SelectedItemChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnSelectedItemChanged(EventArgs e)
-        {
-            SelectedItemChanged?.Invoke(this, e);
-        }
+        protected virtual void OnSelectedItemChanged(EventArgs e) => SelectedItemChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedItemChanged event.
         /// </summary>
         /// <param name="e">A ScrollEventArgs that contains the event data.</param>
-        protected virtual void OnScroll(ScrollEventArgs e)
-        {
-            Scroll?.Invoke(this, e);
-        }
+        protected virtual void OnScroll(ScrollEventArgs e) => Scroll?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -1736,10 +1626,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override Control.ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -1814,37 +1701,25 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Resize event.
@@ -2000,10 +1875,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the PaddingChanged event.
         /// </summary>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-        protected override void OnPaddingChanged(EventArgs e)
-        {
-            PaddingChanged?.Invoke(this, e);
-        }
+        protected override void OnPaddingChanged(EventArgs e) => PaddingChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TabStop event.
@@ -2123,10 +1995,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void UpdateChildEditControl()
-        {
-            SubclassEditControl();
-        }
+        private void UpdateChildEditControl() => SubclassEditControl();
 
         private void UpdateStateAndPalettes()
         {
@@ -2138,37 +2007,12 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.Enabled = Enabled;
 
             // Find the new state of the main view element
-            PaletteState state;
-            if (IsActive)
-            {
-                state = PaletteState.Tracking;
-            }
-            else
-            {
-                state = PaletteState.Normal;
-            }
+            PaletteState state = IsActive ? PaletteState.Tracking : PaletteState.Normal;
 
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetTripleState()
-        {
-            if (Enabled)
-            {
-                if (IsActive)
-                {
-                    return StateActive;
-                }
-                else
-                {
-                    return StateNormal;
-                }
-            }
-            else
-            {
-                return StateDisabled;
-            }
-        }
+        internal IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int PreferredHeight
         {
@@ -2182,20 +2026,11 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private void OnDomainUpDownTextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(e);
-        }
+        private void OnDomainUpDownTextChanged(object sender, EventArgs e) => OnTextChanged(e);
 
-        private void OnDomainUpDownScroll(object sender, ScrollEventArgs e)
-        {
-            OnScroll(e);
-        }
-        
-        private void OnDomainUpDownSelectedItemChanged(object sender, EventArgs e)
-        {
-            OnSelectedItemChanged(e);
-        }
+        private void OnDomainUpDownScroll(object sender, ScrollEventArgs e) => OnScroll(e);
+
+        private void OnDomainUpDownSelectedItemChanged(object sender, EventArgs e) => OnSelectedItemChanged(e);
 
         private void OnDomainUpDownGotFocus(object sender, EventArgs e)
         {
@@ -2210,38 +2045,22 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateStateAndPalettes();
             PerformNeedPaint(true);
             InvalidateChildren();
+            // ReSharper disable RedundantBaseQualifier
             base.OnLostFocus(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
-        private void OnDomainUpDownKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnDomainUpDownKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnDomainUpDownKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnDomainUpDownKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnDomainUpDownKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnDomainUpDownKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnDomainUpDownPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnDomainUpDownPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnDomainUpDownValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnDomainUpDownValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnDomainUpDownValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnDomainUpDownValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
         private void OnShowToolTip(object sender, ToolTipEventArgs e)
         {

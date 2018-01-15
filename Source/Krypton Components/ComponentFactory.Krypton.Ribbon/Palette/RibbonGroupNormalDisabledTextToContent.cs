@@ -48,68 +48,37 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor1(PaletteState state)
-        {
-            if (state == PaletteState.Disabled)
-            {
-                return _ribbonGroupTextDisabled.GetRibbonTextColor(state);
-            }
-            else
-            {
-                return _ribbonGroupTextNormal.GetRibbonTextColor(state);
-            }
-        }
+        public override Color GetContentShortTextColor1(PaletteState state) => state == PaletteState.Disabled
+            ? _ribbonGroupTextDisabled.GetRibbonTextColor(state)
+            : _ribbonGroupTextNormal.GetRibbonTextColor(state);
 
         /// <summary>
         /// Gets the second back color for the short text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentShortTextColor2(PaletteState state)
-        {
-            if (state == PaletteState.Disabled)
-            {
-                return _ribbonGroupTextDisabled.GetRibbonTextColor(state);
-            }
-            else
-            {
-                return _ribbonGroupTextNormal.GetRibbonTextColor(state);
-            }
-        }
+        public override Color GetContentShortTextColor2(PaletteState state) => state == PaletteState.Disabled
+            ? _ribbonGroupTextDisabled.GetRibbonTextColor(state)
+            : _ribbonGroupTextNormal.GetRibbonTextColor(state);
 
         /// <summary>
         /// Gets the first back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor1(PaletteState state)
-        {
-            if (state == PaletteState.Disabled)
-            {
-                return _ribbonGroupTextDisabled.GetRibbonTextColor(state);
-            }
-            else
-            {
-                return _ribbonGroupTextNormal.GetRibbonTextColor(state);
-            }
-        }
+        public override Color GetContentLongTextColor1(PaletteState state) => state == PaletteState.Disabled
+            ? _ribbonGroupTextDisabled.GetRibbonTextColor(state)
+            : _ribbonGroupTextNormal.GetRibbonTextColor(state);
 
         /// <summary>
         /// Gets the second back color for the long text.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
-        public override Color GetContentLongTextColor2(PaletteState state)
-        {
-            if (state == PaletteState.Disabled)
-            {
-                return _ribbonGroupTextDisabled.GetRibbonTextColor(state);
-            }
-            else
-            {
-                return _ribbonGroupTextNormal.GetRibbonTextColor(state);
-            }
-        }
+        public override Color GetContentLongTextColor2(PaletteState state) => state == PaletteState.Disabled
+            ? _ribbonGroupTextDisabled.GetRibbonTextColor(state)
+            : _ribbonGroupTextNormal.GetRibbonTextColor(state);
+
         #endregion
     }
 }

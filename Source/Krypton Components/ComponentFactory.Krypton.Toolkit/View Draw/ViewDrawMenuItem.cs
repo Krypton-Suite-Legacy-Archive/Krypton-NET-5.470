@@ -496,7 +496,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _contextMenu.Disposed += OnContextMenuDisposed;
 
                     // Get the screen rectangle for the drawing element
-                    Rectangle menuDrawRect = this.OwningControl.RectangleToScreen(ClientRectangle);
+                    Rectangle menuDrawRect = OwningControl.RectangleToScreen(ClientRectangle);
 
                     // Should this menu item be shown at a fixed screen rectangle?
                     if (_provider.ProviderShowSubMenuFixed(KryptonContextMenuItem))

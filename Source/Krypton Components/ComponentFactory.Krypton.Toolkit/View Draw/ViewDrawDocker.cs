@@ -273,7 +273,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!DrawBorderLast)
             {
                 // Check each child that is docked against an edge
-                foreach (ViewBase child in this.Reverse())
+                foreach (ViewBase child in Reverse())
                 {
                     // Only position visible children
                     if (child.Visible)
@@ -413,7 +413,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDrawBorders fillEdges = PaletteDrawBorders.All;
 
 			// Check for edge docking children
-			foreach (ViewBase child in this.Reverse())
+			foreach (ViewBase child in Reverse())
 			{
                 // Only position visible children that are not 'fill'
                 if ((child.Visible || PreferredSizeAll) && (GetDock(child) != ViewDockStyle.Fill))
@@ -478,7 +478,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 
             // Check for the fill child last
-            foreach (ViewBase child in this.Reverse())
+            foreach (ViewBase child in Reverse())
             {
                 // Only interested in a visible 'fill' child
                 if ((child.Visible || PreferredSizeAll) && (GetDock(child) == ViewDockStyle.Fill))
@@ -547,7 +547,7 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDrawBorders fillEdges = PaletteDrawBorders.All;
 
             // Position all except the filler
-			foreach (ViewBase child in this.Reverse())
+			foreach (ViewBase child in Reverse())
 			{
 				// Only position visible children
                 if (child.Visible && (GetDock(child) != ViewDockStyle.Fill))
@@ -634,7 +634,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Position any filler last
-            foreach (ViewBase child in this.Reverse())
+            foreach (ViewBase child in Reverse())
             {
                 // Only position visible children
                 if (child.Visible && (GetDock(child) == ViewDockStyle.Fill))

@@ -1763,7 +1763,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case TabBorderStyle.RoundedOutsizeMedium:
                 case TabBorderStyle.RoundedOutsizeSmall:
                 case TabBorderStyle.RoundedOutsizeLarge:
-                    ret = new Padding(borderWidth + SPACING_TAB_OUTSIZE_PADDING, borderWidth + SPACING_TAB_OUTSIZE_PADDING, borderWidth + SPACING_TAB_OUTSIZE_PADDING, 0);
+                    ret = new Padding(borderWidth + SPACING_TAB_OUTSIZE_PADDING,
+                        borderWidth + SPACING_TAB_OUTSIZE_PADDING, borderWidth + SPACING_TAB_OUTSIZE_PADDING, 0);
                     break;
                 case TabBorderStyle.SlantEqualNear:
                 case TabBorderStyle.SlantOutsizeNear:
@@ -1773,14 +1774,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     switch (orientation)
                     {
                         case VisualOrientation.Top:
-                            if (rtl)
-                            {
-                                ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
-                            }
-                            else
-                            {
-                                ret = new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x, borderWidth + x, 0);
-                            }
+                            ret = rtl
+                                ? new Padding(borderWidth + x, borderWidth + x,
+                                    (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0)
+                                : new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x,
+                                    borderWidth + x, 0);
 
                             break;
                         case VisualOrientation.Left:
@@ -1790,14 +1788,11 @@ namespace ComponentFactory.Krypton.Toolkit
                             ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
                             break;
                         case VisualOrientation.Bottom:
-                            if (rtl)
-                            {
-                                ret = new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x, borderWidth + x, 0);
-                            }
-                            else
-                            {
-                                ret = new Padding(borderWidth + x, borderWidth + x, (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
-                            }
+                            ret = rtl
+                                ? new Padding((borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + x,
+                                    borderWidth + x, 0)
+                                : new Padding(borderWidth + x, borderWidth + x,
+                                    (borderWidth + x + SPACING_TAB_SLANT_PADDING) - 1, 0);
 
                             break;
                     }
@@ -1810,14 +1805,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     switch (orientation)
                     {
                         case VisualOrientation.Top:
-                            if (rtl)
-                            {
-                                ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
-                            }
-                            else
-                            {
-                                ret = new Padding(borderWidth + y, borderWidth + y, (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
-                            }
+                            ret = rtl
+                                ? new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y,
+                                    borderWidth + y, 0)
+                                : new Padding(borderWidth + y, borderWidth + y,
+                                    (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
 
                             break;
                         case VisualOrientation.Left:
@@ -1827,14 +1819,11 @@ namespace ComponentFactory.Krypton.Toolkit
                             ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
                             break;
                         case VisualOrientation.Bottom:
-                            if (rtl)
-                            {
-                                ret = new Padding(borderWidth + y, borderWidth + y, (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0);
-                            }
-                            else
-                            {
-                                ret = new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y, borderWidth + y, 0);
-                            }
+                            ret = rtl
+                                ? new Padding(borderWidth + y, borderWidth + y,
+                                    (borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, 0)
+                                : new Padding((borderWidth + y + SPACING_TAB_SLANT_PADDING) - 1, borderWidth + y,
+                                    borderWidth + y, 0);
 
                             break;
                     }
@@ -1862,14 +1851,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     switch (orientation)
                     {
                         case VisualOrientation.Top:
-                            if (rtl)
-                            {
-                                ret = new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
-                            }
-                            else
-                            {
-                                ret = new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
-                            }
+                            ret = rtl
+                                ? new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp)
+                                : new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
 
                             break;
                         case VisualOrientation.Left:
@@ -1879,14 +1863,9 @@ namespace ComponentFactory.Krypton.Toolkit
                             ret = new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
                             break;
                         case VisualOrientation.Bottom:
-                            if (rtl)
-                            {
-                                ret = new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp);
-                            }
-                            else
-                            {
-                                ret = new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
-                            }
+                            ret = rtl
+                                ? new Padding(borderWidth + lp, borderWidth + tp, borderWidth + rp, bp)
+                                : new Padding(borderWidth + rp, borderWidth + tp, borderWidth + lp, bp);
 
                             break;
                     }
@@ -10466,16 +10445,10 @@ namespace ComponentFactory.Krypton.Toolkit
                                                             Color bottomMedium)
         {
             Color[] colorsLowerHalf = { bottomDark, bottomMedium, bottomLight, bottomLight, bottomMedium, bottomDark };
-            float[] posLowerHalf;
 
-            if (state == PaletteState.Pressed)
-            {
-                posLowerHalf = new float[] { 0.0f, 0.3f, 0.5f, 0.5f, 0.7f, 1.0f };
-            }
-            else
-            {
-                posLowerHalf = new float[] { 0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
-            }
+            float[] posLowerHalf = state == PaletteState.Pressed
+                ? new float[] {0.0f, 0.3f, 0.5f, 0.5f, 0.7f, 1.0f}
+                : new float[] {0.0f, 0.2f, 0.4f, 0.6f, 0.8f, 1.0f};
 
             ColorBlend blendLowerHalf = new ColorBlend
             {

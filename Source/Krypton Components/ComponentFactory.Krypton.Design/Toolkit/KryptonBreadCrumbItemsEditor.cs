@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Form used for editing the KryptonBreadCrumbItems.
         /// </summary>
-        protected partial class KryptonBreadCrumbItemsForm : CollectionEditor.CollectionForm
+        protected partial class KryptonBreadCrumbItemsForm : CollectionForm
         {
             #region Types
             /// <summary>
@@ -265,171 +265,171 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _editor = editor;
 
-                this.buttonOK = new System.Windows.Forms.Button();
-                this.treeView1 = new System.Windows.Forms.TreeView();
-                this.buttonMoveUp = new System.Windows.Forms.Button();
-                this.buttonMoveDown = new System.Windows.Forms.Button();
-                this.buttonAddItem = new System.Windows.Forms.Button();
-                this.buttonDelete = new System.Windows.Forms.Button();
-                this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-                this.label1 = new System.Windows.Forms.Label();
-                this.label2 = new System.Windows.Forms.Label();
-                this.buttonAddChild = new System.Windows.Forms.Button();
-                this.SuspendLayout();
+                buttonOK = new Button();
+                treeView1 = new TreeView();
+                buttonMoveUp = new Button();
+                buttonMoveDown = new Button();
+                buttonAddItem = new Button();
+                buttonDelete = new Button();
+                propertyGrid1 = new PropertyGrid();
+                label1 = new Label();
+                label2 = new Label();
+                buttonAddChild = new Button();
+                SuspendLayout();
                 // 
                 // buttonOK
                 // 
-                this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.buttonOK.Location = new System.Drawing.Point(547, 382);
-                this.buttonOK.Name = "buttonOK";
-                this.buttonOK.Size = new System.Drawing.Size(75, 23);
-                this.buttonOK.TabIndex = 8;
-                this.buttonOK.Text = "OK";
-                this.buttonOK.UseVisualStyleBackColor = true;
-                this.buttonOK.Click += this.buttonOK_Click;
+                buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+                buttonOK.DialogResult = DialogResult.OK;
+                buttonOK.Location = new Point(547, 382);
+                buttonOK.Name = "buttonOK";
+                buttonOK.Size = new Size(75, 23);
+                buttonOK.TabIndex = 8;
+                buttonOK.Text = "OK";
+                buttonOK.UseVisualStyleBackColor = true;
+                buttonOK.Click += buttonOK_Click;
                 // 
                 // treeView1
                 // 
-                this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                            | System.Windows.Forms.AnchorStyles.Left)
-                            | System.Windows.Forms.AnchorStyles.Right)));
-                this.treeView1.Location = new System.Drawing.Point(12, 32);
-                this.treeView1.Name = "treeView1";
-                this.treeView1.Size = new System.Drawing.Size(254, 339);
-                this.treeView1.TabIndex = 1;
-                this.treeView1.HideSelection = false;
-                this.treeView1.AfterSelect += this.treeView1_AfterSelect;
+                treeView1.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+                            | AnchorStyles.Left)
+                            | AnchorStyles.Right)));
+                treeView1.Location = new Point(12, 32);
+                treeView1.Name = "treeView1";
+                treeView1.Size = new Size(254, 339);
+                treeView1.TabIndex = 1;
+                treeView1.HideSelection = false;
+                treeView1.AfterSelect += treeView1_AfterSelect;
                 // 
                 // buttonMoveUp
                 // 
-                this.buttonMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonMoveUp.Image = ComponentFactory.Krypton.Design.Properties.Resources.arrow_up_blue;
-                this.buttonMoveUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonMoveUp.Location = new System.Drawing.Point(272, 32);
-                this.buttonMoveUp.Name = "buttonMoveUp";
-                this.buttonMoveUp.Size = new System.Drawing.Size(95, 28);
-                this.buttonMoveUp.TabIndex = 2;
-                this.buttonMoveUp.Text = "Move Up";
-                this.buttonMoveUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonMoveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                this.buttonMoveUp.UseVisualStyleBackColor = true;
-                this.buttonMoveUp.Click += this.buttonMoveUp_Click;
+                buttonMoveUp.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveUp.Image = Design.Properties.Resources.arrow_up_blue;
+                buttonMoveUp.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonMoveUp.Location = new Point(272, 32);
+                buttonMoveUp.Name = "buttonMoveUp";
+                buttonMoveUp.Size = new Size(95, 28);
+                buttonMoveUp.TabIndex = 2;
+                buttonMoveUp.Text = "Move Up";
+                buttonMoveUp.TextAlign = ContentAlignment.MiddleLeft;
+                buttonMoveUp.TextImageRelation = TextImageRelation.ImageBeforeText;
+                buttonMoveUp.UseVisualStyleBackColor = true;
+                buttonMoveUp.Click += buttonMoveUp_Click;
                 // 
                 // buttonMoveDown
                 // 
-                this.buttonMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonMoveDown.Image = ComponentFactory.Krypton.Design.Properties.Resources.arrow_down_blue;
-                this.buttonMoveDown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonMoveDown.Location = new System.Drawing.Point(272, 66);
-                this.buttonMoveDown.Name = "buttonMoveDown";
-                this.buttonMoveDown.Size = new System.Drawing.Size(95, 28);
-                this.buttonMoveDown.TabIndex = 3;
-                this.buttonMoveDown.Text = "Move Down";
-                this.buttonMoveDown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonMoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                this.buttonMoveDown.UseVisualStyleBackColor = true;
-                this.buttonMoveDown.Click += this.buttonMoveDown_Click;
+                buttonMoveDown.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveDown.Image = Design.Properties.Resources.arrow_down_blue;
+                buttonMoveDown.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonMoveDown.Location = new Point(272, 66);
+                buttonMoveDown.Name = "buttonMoveDown";
+                buttonMoveDown.Size = new Size(95, 28);
+                buttonMoveDown.TabIndex = 3;
+                buttonMoveDown.Text = "Move Down";
+                buttonMoveDown.TextAlign = ContentAlignment.MiddleLeft;
+                buttonMoveDown.TextImageRelation = TextImageRelation.ImageBeforeText;
+                buttonMoveDown.UseVisualStyleBackColor = true;
+                buttonMoveDown.Click += buttonMoveDown_Click;
                 // 
                 // buttonAddItem
                 // 
-                this.buttonAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonAddItem.Image = ComponentFactory.Krypton.Design.Properties.Resources.add;
-                this.buttonAddItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonAddItem.Location = new System.Drawing.Point(272, 112);
-                this.buttonAddItem.Name = "buttonAddItem";
-                this.buttonAddItem.Size = new System.Drawing.Size(95, 28);
-                this.buttonAddItem.TabIndex = 4;
-                this.buttonAddItem.Text = "Add Sibling";
-                this.buttonAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonAddItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                this.buttonAddItem.UseVisualStyleBackColor = true;
-                this.buttonAddItem.Click += this.buttonAddSibling_Click;
+                buttonAddItem.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddItem.Image = Design.Properties.Resources.add;
+                buttonAddItem.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonAddItem.Location = new Point(272, 112);
+                buttonAddItem.Name = "buttonAddItem";
+                buttonAddItem.Size = new Size(95, 28);
+                buttonAddItem.TabIndex = 4;
+                buttonAddItem.Text = "Add Sibling";
+                buttonAddItem.TextAlign = ContentAlignment.MiddleLeft;
+                buttonAddItem.TextImageRelation = TextImageRelation.ImageBeforeText;
+                buttonAddItem.UseVisualStyleBackColor = true;
+                buttonAddItem.Click += buttonAddSibling_Click;
                 // 
                 // buttonDelete
                 // 
-                this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonDelete.Image = ComponentFactory.Krypton.Design.Properties.Resources.delete2;
-                this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonDelete.Location = new System.Drawing.Point(272, 190);
-                this.buttonDelete.Name = "buttonDelete";
-                this.buttonDelete.Size = new System.Drawing.Size(95, 28);
-                this.buttonDelete.TabIndex = 5;
-                this.buttonDelete.Text = "Delete Item";
-                this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                this.buttonDelete.UseVisualStyleBackColor = true;
-                this.buttonDelete.Click += this.buttonDelete_Click;
+                buttonDelete.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonDelete.Image = Design.Properties.Resources.delete2;
+                buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonDelete.Location = new Point(272, 190);
+                buttonDelete.Name = "buttonDelete";
+                buttonDelete.Size = new Size(95, 28);
+                buttonDelete.TabIndex = 5;
+                buttonDelete.Text = "Delete Item";
+                buttonDelete.TextAlign = ContentAlignment.MiddleLeft;
+                buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
+                buttonDelete.UseVisualStyleBackColor = true;
+                buttonDelete.Click += buttonDelete_Click;
                 // 
                 // propertyGrid1
                 // 
-                this.propertyGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                            | System.Windows.Forms.AnchorStyles.Right)));
-                this.propertyGrid1.HelpVisible = false;
-                this.propertyGrid1.Location = new System.Drawing.Point(373, 32);
-                this.propertyGrid1.Name = "propertyGrid1";
-                this.propertyGrid1.Size = new System.Drawing.Size(249, 339);
-                this.propertyGrid1.TabIndex = 7;
-                this.propertyGrid1.ToolbarVisible = false;
+                propertyGrid1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
+                            | AnchorStyles.Right)));
+                propertyGrid1.HelpVisible = false;
+                propertyGrid1.Location = new Point(373, 32);
+                propertyGrid1.Name = "propertyGrid1";
+                propertyGrid1.Size = new Size(249, 339);
+                propertyGrid1.TabIndex = 7;
+                propertyGrid1.ToolbarVisible = false;
                 // 
                 // label1
                 // 
-                this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.label1.AutoSize = true;
-                this.label1.Location = new System.Drawing.Point(370, 13);
-                this.label1.Name = "label1";
-                this.label1.Size = new System.Drawing.Size(81, 13);
-                this.label1.TabIndex = 6;
-                this.label1.Text = "Item Properties";
+                label1.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                label1.AutoSize = true;
+                label1.Location = new Point(370, 13);
+                label1.Name = "label1";
+                label1.Size = new Size(81, 13);
+                label1.TabIndex = 6;
+                label1.Text = "Item Properties";
                 // 
                 // label2
                 // 
-                this.label2.AutoSize = true;
-                this.label2.Location = new System.Drawing.Point(12, 13);
-                this.label2.Name = "label2";
-                this.label2.Size = new System.Drawing.Size(142, 13);
-                this.label2.TabIndex = 0;
-                this.label2.Text = "BreadCrumbItems Collection";
+                label2.AutoSize = true;
+                label2.Location = new Point(12, 13);
+                label2.Name = "label2";
+                label2.Size = new Size(142, 13);
+                label2.TabIndex = 0;
+                label2.Text = "BreadCrumbItems Collection";
                 // 
                 // buttonAddChild
                 // 
-                this.buttonAddChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-                this.buttonAddChild.Image = ComponentFactory.Krypton.Design.Properties.Resources.add;
-                this.buttonAddChild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonAddChild.Location = new System.Drawing.Point(272, 146);
-                this.buttonAddChild.Name = "buttonAddChild";
-                this.buttonAddChild.Size = new System.Drawing.Size(95, 28);
-                this.buttonAddChild.TabIndex = 9;
-                this.buttonAddChild.Text = "Add Child";
-                this.buttonAddChild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.buttonAddChild.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                this.buttonAddChild.UseVisualStyleBackColor = true;
-                this.buttonAddChild.Click += this.buttonAddChild_Click;
+                buttonAddChild.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddChild.Image = Design.Properties.Resources.add;
+                buttonAddChild.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonAddChild.Location = new Point(272, 146);
+                buttonAddChild.Name = "buttonAddChild";
+                buttonAddChild.Size = new Size(95, 28);
+                buttonAddChild.TabIndex = 9;
+                buttonAddChild.Text = "Add Child";
+                buttonAddChild.TextAlign = ContentAlignment.MiddleLeft;
+                buttonAddChild.TextImageRelation = TextImageRelation.ImageBeforeText;
+                buttonAddChild.UseVisualStyleBackColor = true;
+                buttonAddChild.Click += buttonAddChild_Click;
                 // 
                 // KryptonBreadCrumbCollectionForm
                 // 
-                this.AcceptButton = this.buttonOK;
-                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                this.ClientSize = new System.Drawing.Size(634, 414);
-                this.ControlBox = false;
-                this.Controls.Add(this.buttonAddChild);
-                this.Controls.Add(this.label2);
-                this.Controls.Add(this.label1);
-                this.Controls.Add(this.propertyGrid1);
-                this.Controls.Add(this.buttonDelete);
-                this.Controls.Add(this.buttonAddItem);
-                this.Controls.Add(this.buttonMoveDown);
-                this.Controls.Add(this.buttonMoveUp);
-                this.Controls.Add(this.treeView1);
-                this.Controls.Add(this.buttonOK);
-                this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                this.MinimumSize = new System.Drawing.Size(501, 296);
-                this.Name = "KryptonBreadCrumbCollectionForm";
-                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-                this.Text = "BreadCrumbItem Collection Editor";
-                this.ResumeLayout(false);
-                this.PerformLayout();
+                AcceptButton = buttonOK;
+                AutoScaleDimensions = new SizeF(6F, 13F);
+                AutoScaleMode = AutoScaleMode.Font;
+                ClientSize = new Size(634, 414);
+                ControlBox = false;
+                Controls.Add(buttonAddChild);
+                Controls.Add(label2);
+                Controls.Add(label1);
+                Controls.Add(propertyGrid1);
+                Controls.Add(buttonDelete);
+                Controls.Add(buttonAddItem);
+                Controls.Add(buttonMoveDown);
+                Controls.Add(buttonMoveUp);
+                Controls.Add(treeView1);
+                Controls.Add(buttonOK);
+                Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                MinimumSize = new Size(501, 296);
+                Name = "KryptonBreadCrumbCollectionForm";
+                StartPosition = FormStartPosition.CenterScreen;
+                Text = "BreadCrumbItem Collection Editor";
+                ResumeLayout(false);
+                PerformLayout();
             }
             #endregion
 
@@ -806,14 +806,7 @@ namespace ComponentFactory.Krypton.Toolkit
             private void UpdatePropertyGrid()
             {
                 TreeNode node = treeView1.SelectedNode;
-                if (node == null)
-                {
-                    propertyGrid1.SelectedObject = null;
-                }
-                else
-                {
-                    propertyGrid1.SelectedObject = new CrumbProxy((KryptonBreadCrumbItem)((MenuTreeNode)node).PropertyObject);
-                }
+                propertyGrid1.SelectedObject = node == null ? null : new CrumbProxy((KryptonBreadCrumbItem)((MenuTreeNode)node).PropertyObject);
             }
 
             private DictItemBase CreateItemsDictionary(object[] items)
