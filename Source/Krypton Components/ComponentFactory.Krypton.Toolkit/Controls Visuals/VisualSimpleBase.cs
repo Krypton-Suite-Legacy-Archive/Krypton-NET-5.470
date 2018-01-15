@@ -44,13 +44,17 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DefaultValue(typeof(AutoSizeMode), "GrowOnly")]
 		public virtual AutoSizeMode AutoSizeMode
 		{
-			get => GetAutoSizeMode();
+		    // ReSharper disable RedundantBaseQualifier
+			get => base.GetAutoSizeMode();
+		    // ReSharper restore RedundantBaseQualifier
 
 		    set
 			{
-				if (value != GetAutoSizeMode())
+			    // ReSharper disable RedundantBaseQualifier
+				if (value != base.GetAutoSizeMode())
 				{
-					SetAutoSizeMode(value);
+					base.SetAutoSizeMode(value);
+				    // ReSharper restore RedundantBaseQualifier
 
 					// Only perform an immediate layout if
 					// currently performing auto size operations

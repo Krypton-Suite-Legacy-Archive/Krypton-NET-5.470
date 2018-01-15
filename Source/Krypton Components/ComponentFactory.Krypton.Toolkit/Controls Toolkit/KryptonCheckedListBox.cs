@@ -494,11 +494,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 _viewManager = new ViewManager(this, ViewDrawPanel);
 
                 // Set required properties to act as an owner draw list box
-                Size = Size.Empty;
-                BorderStyle = BorderStyle.None;
-                IntegralHeight = false;
-                MultiColumn = false;
+                // ReSharper disable RedundantBaseQualifier
+                base.Size = Size.Empty;
+                base.BorderStyle = BorderStyle.None;
+                base.IntegralHeight = false;
+                base.MultiColumn = false;
                 base.DrawMode = DrawMode.OwnerDrawVariable;
+                // ReSharper restore RedundantBaseQualifier
 
                 // We need to create and cache a device context compatible with the display
                 _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
@@ -1276,7 +1278,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnCheckedListClick(object sender, EventArgs e)
         {
-            OnClick(e);
+            // ReSharper disable RedundantBaseQualifier
+            base.OnClick(e);
+            // ReSharper restore RedundantBaseQualifier
         }
 
         /// <summary>

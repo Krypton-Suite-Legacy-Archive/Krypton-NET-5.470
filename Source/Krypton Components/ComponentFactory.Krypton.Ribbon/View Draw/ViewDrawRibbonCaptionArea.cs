@@ -451,8 +451,10 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(_nonCaptionQAT, ViewDockStyle.Left);
             Add(_otherAppButton, ViewDockStyle.Left);
 
+            // ReSharper disable RedundantBaseQualifier
             // Update base class to use correct palette interface
-            SetPalettes(_redirectCaption.PaletteBack, _redirectCaption.PaletteBorder);
+            base.SetPalettes(_redirectCaption.PaletteBack, _redirectCaption.PaletteBorder);
+            // ReSharper restore RedundantBaseQualifier
         }
 
         private void SetupParentMonitoring()

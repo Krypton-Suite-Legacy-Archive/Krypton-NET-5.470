@@ -78,9 +78,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewDrawPanel = new ViewDrawPanel();
                 _viewManager = new ViewManager(this, ViewDrawPanel);
 
+                // ReSharper disable RedundantBaseQualifier
                 // Set required properties to act as an owner draw list box
-                Size = Size.Empty;
-                BorderStyle = BorderStyle.None;
+                base.Size = Size.Empty;
+                base.BorderStyle = BorderStyle.None;
+                // ReSharper restore RedundantBaseQualifier
 
                 // We need to create and cache a device context compatible with the display
                 _screenDC = PI.CreateCompatibleDC(IntPtr.Zero);
@@ -104,10 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Recreate the window handle.
             /// </summary>
-            public void Recreate()
-            {
-                RecreateHandle();
-            }
+            public void Recreate() => RecreateHandle();
 
             /// <summary>
             /// Gets access to the contained view draw panel instance.
@@ -223,19 +222,13 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseEnter(EventArgs e)
-            {
-                TrackMouseEnter?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
             /// <summary>
             /// Raises the TrackMouseLeave event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
-            protected virtual void OnTrackMouseLeave(EventArgs e)
-            {
-                TrackMouseLeave?.Invoke(this, e);
-            }
+            protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
 
             #region Private
@@ -670,10 +663,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ((KryptonReadOnlyControls)Controls).AddInternal(_treeView);
         }
 
-        private void OnTreeClick(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
+        private void OnTreeClick(object sender, EventArgs e) => OnClick(e);
 
         /// <summary>
         /// Releases all resources used by the Control. 
@@ -793,10 +783,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeItemHeight()
-        {
-            return !_itemHeightDefault;
-        }
+        private bool ShouldSerializeItemHeight() => !_itemHeightDefault;
 
         private void ResetItemHeight()
         {
@@ -1121,15 +1108,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeItemStyle()
-        {
-            return (ItemStyle != ButtonStyle.ListItem);
-        }
+        private bool ShouldSerializeItemStyle() => (ItemStyle != ButtonStyle.ListItem);
 
-        private void ResetItemStyle()
-        {
-            ItemStyle = ButtonStyle.ListItem;
-        }
+        private void ResetItemStyle() => ItemStyle = ButtonStyle.ListItem;
 
         /// <summary>
         /// Gets or sets a value indicating whether the items in the KryptonTreeView are sorted alphabetically.
@@ -1163,15 +1144,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeBackStyle()
-        {
-            return (BackStyle != PaletteBackStyle.InputControlStandalone);
-        }
+        private bool ShouldSerializeBackStyle() => (BackStyle != PaletteBackStyle.InputControlStandalone);
 
-        private void ResetBackStyle()
-        {
-            BackStyle = PaletteBackStyle.InputControlStandalone;
-        }
+        private void ResetBackStyle() => BackStyle = PaletteBackStyle.InputControlStandalone;
 
         /// <summary>
         /// Gets and sets the border style.
@@ -1193,15 +1168,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldSerializeBorderStyle()
-        {
-            return (BorderStyle != PaletteBorderStyle.InputControlStandalone);
-        }
+        private bool ShouldSerializeBorderStyle() => (BorderStyle != PaletteBorderStyle.InputControlStandalone);
 
-        private void ResetBorderStyle()
-        {
-            BorderStyle = PaletteBorderStyle.InputControlStandalone;
-        }
+        private void ResetBorderStyle() => BorderStyle = PaletteBorderStyle.InputControlStandalone;
 
         /// <summary>
         /// Gets access to the plus/minus image value overrides.
@@ -1211,10 +1180,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TreeViewImages PlusMinusImages { get; }
 
-        private bool ShouldSerializePlusMinusImages()
-        {
-            return !PlusMinusImages.IsDefault;
-        }
+        private bool ShouldSerializePlusMinusImages() => !PlusMinusImages.IsDefault;
 
         /// <summary>
         /// Gets access to the check box image value overrides.
@@ -1224,10 +1190,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public CheckBoxImages CheckBoxImages { get; }
 
-        private bool ShouldSerializeCheckBoxImages()
-        {
-            return !CheckBoxImages.IsDefault;
-        }
+        private bool ShouldSerializeCheckBoxImages() => !CheckBoxImages.IsDefault;
 
         /// <summary>
         /// Gets access to the item appearance when it has focus.
@@ -1237,10 +1200,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTripleRedirect OverrideFocus { get; }
 
-        private bool ShouldSerializeOverrideFocus()
-        {
-            return !OverrideFocus.IsDefault;
-        }
+        private bool ShouldSerializeOverrideFocus() => !OverrideFocus.IsDefault;
 
         /// <summary>
         /// Gets access to the common appearance entries that other states can override.
@@ -1250,10 +1210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeStateRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
         /// Gets access to the disabled appearance entries.
@@ -1263,10 +1220,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeState StateDisabled { get; }
 
-        private bool ShouldSerializeStateDisabled()
-        {
-            return !StateDisabled.IsDefault;
-        }
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
         /// Gets access to the normal appearance entries.
@@ -1276,10 +1230,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeState StateNormal { get; }
 
-        private bool ShouldSerializeStateNormal()
-        {
-            return !StateNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the active appearance entries.
@@ -1289,10 +1240,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Gets access to the hot tracking item appearance entries.
@@ -1302,10 +1250,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTriple StateTracking { get; }
 
-        private bool ShouldSerializeStateTracking()
-        {
-            return !StateTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateTracking() => !StateTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the pressed item appearance entries.
@@ -1315,10 +1260,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTriple StatePressed { get; }
 
-        private bool ShouldSerializeStatePressed()
-        {
-            return !StatePressed.IsDefault;
-        }
+        private bool ShouldSerializeStatePressed() => !StatePressed.IsDefault;
 
         /// <summary>
         /// Gets access to the normal checked item appearance entries.
@@ -1328,10 +1270,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTriple StateCheckedNormal { get; }
 
-        private bool ShouldSerializeStateCheckedNormal()
-        {
-            return !StateCheckedNormal.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedNormal() => !StateCheckedNormal.IsDefault;
 
         /// <summary>
         /// Gets access to the hot tracking checked item appearance entries.
@@ -1341,10 +1280,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTriple StateCheckedTracking { get; }
 
-        private bool ShouldSerializeStateCheckedTracking()
-        {
-            return !StateCheckedTracking.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedTracking() => !StateCheckedTracking.IsDefault;
 
         /// <summary>
         /// Gets access to the pressed checked item appearance entries.
@@ -1354,10 +1290,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTreeNodeTriple StateCheckedPressed { get; }
 
-        private bool ShouldSerializeStateCheckedPressed()
-        {
-            return !StateCheckedPressed.IsDefault;
-        }
+        private bool ShouldSerializeStateCheckedPressed() => !StateCheckedPressed.IsDefault;
 
         /// <summary>
         /// Gets and sets Determines if the control is always active or only when the mouse is over the control or has focus.
@@ -1382,52 +1315,34 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collapses all the tree nodes.
         /// </summary>
-        public void CollapseAll()
-        {
-            _treeView.CollapseAll();
-        }
+        public void CollapseAll() => _treeView.CollapseAll();
 
         /// <summary>
         /// Expands all the tree nodes.
         /// </summary>
-        public void ExpandAll()
-        {
-            _treeView.ExpandAll();
-        }
+        public void ExpandAll() => _treeView.ExpandAll();
 
         /// <summary>
         /// Sorts the items in KryptonTreeView control.
         /// </summary>
-        public void Sort()
-        {
-            _treeView.Sort();
-        }
+        public void Sort() => _treeView.Sort();
 
         /// <summary>
         /// Maintains performance while items are added to the TreeView one at a time by preventing the control from drawing until the EndUpdate method is called.
         /// </summary>
-        public void BeginUpdate()
-        {
-            _treeView.BeginUpdate();
-        }
+        public void BeginUpdate() => _treeView.BeginUpdate();
 
         /// <summary>
         /// Resumes painting the TreeView control after painting is suspended by the BeginUpdate method. 
         /// </summary>
-        public void EndUpdate()
-        {
-            _treeView.EndUpdate();
-        }
+        public void EndUpdate() => _treeView.EndUpdate();
 
         /// <summary>
         /// Retrieves the tree node that is at the specified point.
         /// </summary>
         /// <param name="pt">The Point to evaluate and retrieve the node from. </param>
         /// <returns>The TreeNode at the specified point, in tree view (client) coordinates, or null if there is no node at that location.</returns>
-        public TreeNode GetNodeAt(Point pt)
-        {
-            return _treeView.GetNodeAt(pt);
-        }
+        public TreeNode GetNodeAt(Point pt) => _treeView.GetNodeAt(pt);
 
         /// <summary>
         /// Retrieves the tree node at the point with the specified coordinates.
@@ -1435,30 +1350,21 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="x">The X position to evaluate and retrieve the node from.</param>
         /// <param name="y">The Y position to evaluate and retrieve the node from.</param>
         /// <returns>The TreeNode at the specified location, in tree view (client) coordinates, or null if there is no node at that location.</returns>
-        public TreeNode GetNodeAt(int x, int y)
-        {
-            return _treeView.GetNodeAt(x, y);
-        }
+        public TreeNode GetNodeAt(int x, int y) => _treeView.GetNodeAt(x, y);
 
         /// <summary>
         /// Retrieves the number of tree nodes, optionally including those in all subtrees, assigned to the tree view control.
         /// </summary>
         /// <param name="includeSubTrees">true to count the TreeNode items that the subtrees contain; otherwise, false.</param>
         /// <returns>The number of tree nodes, optionally including those in all subtrees, assigned to the control.</returns>
-        public int GetNodeCount(bool includeSubTrees)
-        {
-            return _treeView.GetNodeCount(includeSubTrees);
-        }
+        public int GetNodeCount(bool includeSubTrees) => _treeView.GetNodeCount(includeSubTrees);
 
         /// <summary>
         /// Provides node information, given a point.
         /// </summary>
         /// <param name="pt">The Point at which to retrieve node information.</param>
         /// <returns>A TreeViewHitTestInfo.</returns>
-        public TreeViewHitTestInfo HitTest(Point pt)
-        {
-            return _treeView.HitTest(pt);
-        }
+        public TreeViewHitTestInfo HitTest(Point pt) => _treeView.HitTest(pt);
 
         /// <summary>
         /// Provides node information, given x- and y-coordinates.
@@ -1466,19 +1372,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="x">The x-coordinate at which to retrieve node information.</param>
         /// <param name="y">The y-coordinate at which to retrieve node information.</param>
         /// <returns>A TreeViewHitTestInfo.</returns>
-        public TreeViewHitTestInfo HitTest(int x, int y)
-        {
-            return _treeView.HitTest(x, y);
-        }
+        public TreeViewHitTestInfo HitTest(int x, int y) => _treeView.HitTest(x, y);
 
         /// <summary>
         /// Sets the fixed state of the control.
         /// </summary>
         /// <param name="active">Should the control be fixed as active.</param>
-        public void SetFixedState(bool active)
-        {
-            _fixedActive = active;
-        }
+        public void SetFixedState(bool active) => _fixedActive = active;
 
         /// <summary>
         /// Gets a value indicating if the input control is active.
@@ -1532,136 +1432,91 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the AfterCheck event.
         /// </summary>
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
-        protected virtual void OnAfterCheck(TreeViewEventArgs e)
-        {
-            AfterCheck?.Invoke(this, e);
-        }
+        protected virtual void OnAfterCheck(TreeViewEventArgs e) => AfterCheck?.Invoke(this, e);
 
         /// <summary>
         /// Raises the AfterCollapse event.
         /// </summary>
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
-        protected virtual void OnAfterCollapse(TreeViewEventArgs e)
-        {
-            AfterCollapse?.Invoke(this, e);
-        }
+        protected virtual void OnAfterCollapse(TreeViewEventArgs e) => AfterCollapse?.Invoke(this, e);
 
         /// <summary>
         /// Raises the AfterExpand event.
         /// </summary>
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
-        protected virtual void OnAfterExpand(TreeViewEventArgs e)
-        {
-            AfterExpand?.Invoke(this, e);
-        }
+        protected virtual void OnAfterExpand(TreeViewEventArgs e) => AfterExpand?.Invoke(this, e);
 
         /// <summary>
         /// Raises the AfterLabelEdit event.
         /// </summary>
         /// <param name="e">An NodeLabelEditEventArgs that contains the event data.</param>
-        protected virtual void OnAfterLabelEdit(NodeLabelEditEventArgs e)
-        {
-            AfterLabelEdit?.Invoke(this, e);
-        }
+        protected virtual void OnAfterLabelEdit(NodeLabelEditEventArgs e) => AfterLabelEdit?.Invoke(this, e);
 
         /// <summary>
         /// Raises the AfterSelect event.
         /// </summary>
         /// <param name="e">An TreeViewEventArgs that contains the event data.</param>
-        protected virtual void OnAfterSelect(TreeViewEventArgs e)
-        {
-            AfterSelect?.Invoke(this, e);
-        }
+        protected virtual void OnAfterSelect(TreeViewEventArgs e) => AfterSelect?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BeforeCheck event.
         /// </summary>
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
-        protected virtual void OnBeforeCheck(TreeViewCancelEventArgs e)
-        {
-            BeforeCheck?.Invoke(this, e);
-        }
+        protected virtual void OnBeforeCheck(TreeViewCancelEventArgs e) => BeforeCheck?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BeforeCollapse event.
         /// </summary>
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
-        protected virtual void OnBeforeCollapse(TreeViewCancelEventArgs e)
-        {
-            BeforeCollapse?.Invoke(this, e);
-        }
+        protected virtual void OnBeforeCollapse(TreeViewCancelEventArgs e) => BeforeCollapse?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BeforeExpand event.
         /// </summary>
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
-        protected virtual void OnBeforeExpand(TreeViewCancelEventArgs e)
-        {
-            BeforeExpand?.Invoke(this, e);
-        }
+        protected virtual void OnBeforeExpand(TreeViewCancelEventArgs e) => BeforeExpand?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BeforeLabelEdit event.
         /// </summary>
         /// <param name="e">An NodeLabelEditEventArgs that contains the event data.</param>
-        protected virtual void OnBeforeLabelEdit(NodeLabelEditEventArgs e)
-        {
-            BeforeLabelEdit?.Invoke(this, e);
-        }
+        protected virtual void OnBeforeLabelEdit(NodeLabelEditEventArgs e) => BeforeLabelEdit?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BeforeSelect event.
         /// </summary>
         /// <param name="e">An TreeViewCancelEventArgs that contains the event data.</param>
-        protected virtual void OnBeforeSelect(TreeViewCancelEventArgs e)
-        {
-            BeforeSelect?.Invoke(this, e);
-        }
+        protected virtual void OnBeforeSelect(TreeViewCancelEventArgs e) => BeforeSelect?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ItemDrag event.
         /// </summary>
         /// <param name="e">An ItemDragEventArgs that contains the event data.</param>
-        protected virtual void OnItemDrag(ItemDragEventArgs e)
-        {
-            ItemDrag?.Invoke(this, e);
-        }
+        protected virtual void OnItemDrag(ItemDragEventArgs e) => ItemDrag?.Invoke(this, e);
 
         /// <summary>
         /// Raises the NodeMouseClick event.
         /// </summary>
         /// <param name="e">An TreeNodeMouseClickEventArgs that contains the event data.</param>
-        protected virtual void OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
-        {
-            NodeMouseClick?.Invoke(this, e);
-        }
+        protected virtual void OnNodeMouseClick(TreeNodeMouseClickEventArgs e) => NodeMouseClick?.Invoke(this, e);
 
         /// <summary>
         /// Raises the NodeMouseDoubleClick event.
         /// </summary>
         /// <param name="e">An TreeNodeMouseClickEventArgs that contains the event data.</param>
-        protected virtual void OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
-        {
-            NodeMouseDoubleClick?.Invoke(this, e);
-        }
+        protected virtual void OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e) => NodeMouseDoubleClick?.Invoke(this, e);
 
         /// <summary>
         /// Raises the NodeMouseHover event.
         /// </summary>
         /// <param name="e">An TreeNodeMouseHoverEventArgs that contains the event data.</param>
-        protected virtual void OnNodeMouseHover(TreeNodeMouseHoverEventArgs e)
-        {
-            NodeMouseHover?.Invoke(this, e);
-        }
+        protected virtual void OnNodeMouseHover(TreeNodeMouseHoverEventArgs e) => NodeMouseHover?.Invoke(this, e);
 
         /// <summary>
         /// Raises the RightToLeftLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected virtual void OnRightToLeftLayoutChanged(EventArgs e)
-        {
-            RightToLeftLayoutChanged?.Invoke(this, e);
-        }
+        protected virtual void OnRightToLeftLayoutChanged(EventArgs e) => RightToLeftLayoutChanged?.Invoke(this, e);
         #endregion
 
         #region Protected Override
@@ -1670,10 +1525,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the PaletteChanged event.
@@ -1724,46 +1576,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the BackColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            BackColorChanged?.Invoke(this, e);
-        }
+        protected override void OnBackColorChanged(EventArgs e) => BackColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageChanged(EventArgs e)
-        {
-            BackgroundImageChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageChanged(EventArgs e) => BackgroundImageChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the BackgroundImageLayoutChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnBackgroundImageLayoutChanged(EventArgs e)
-        {
-            BackgroundImageLayoutChanged?.Invoke(this, e);
-        }
+        protected override void OnBackgroundImageLayoutChanged(EventArgs e) => BackgroundImageLayoutChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ForeColorChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnForeColorChanged(EventArgs e)
-        {
-            ForeColorChanged?.Invoke(this, e);
-        }
+        protected override void OnForeColorChanged(EventArgs e) => ForeColorChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the PaddingChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnPaddingChanged(EventArgs e)
-        {
-            PaddingChanged?.Invoke(this, e);
-        }
+        protected override void OnPaddingChanged(EventArgs e) => PaddingChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TabStop event.
@@ -1800,28 +1637,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the TextChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        protected override void OnTextChanged(EventArgs e)
-        {
-            TextChanged?.Invoke(this, e);
-        }
+        protected override void OnTextChanged(EventArgs e) => TextChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e)
-        {
-            TrackMouseEnter?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e)
-        {
-            TrackMouseLeave?.Invoke(this, e);
-        }
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
         /// <summary>
         /// Raises the HandleCreated event.
@@ -2355,105 +2183,45 @@ namespace ComponentFactory.Krypton.Toolkit
             OnLostFocus(e);
         }
 
-        private void OnTreeViewKeyPress(object sender, KeyPressEventArgs e)
-        {
-            OnKeyPress(e);
-        }
+        private void OnTreeViewKeyPress(object sender, KeyPressEventArgs e) => OnKeyPress(e);
 
-        private void OnTreeViewKeyUp(object sender, KeyEventArgs e)
-        {
-            OnKeyUp(e);
-        }
+        private void OnTreeViewKeyUp(object sender, KeyEventArgs e) => OnKeyUp(e);
 
-        private void OnTreeViewKeyDown(object sender, KeyEventArgs e)
-        {
-            OnKeyDown(e);
-        }
+        private void OnTreeViewKeyDown(object sender, KeyEventArgs e) => OnKeyDown(e);
 
-        private void OnTreeViewPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            OnPreviewKeyDown(e);
-        }
+        private void OnTreeViewPreviewKeyDown(object sender, PreviewKeyDownEventArgs e) => OnPreviewKeyDown(e);
 
-        private void OnTreeViewValidated(object sender, EventArgs e)
-        {
-            OnValidated(e);
-        }
+        private void OnTreeViewValidated(object sender, EventArgs e) => OnValidated(e);
 
-        private void OnTreeViewValidating(object sender, CancelEventArgs e)
-        {
-            OnValidating(e);
-        }
+        private void OnTreeViewValidating(object sender, CancelEventArgs e) => OnValidating(e);
 
-        private void OnTreeViewNodeMouseHover(object sender, TreeNodeMouseHoverEventArgs e)
-        {
-            OnNodeMouseHover(e);
-        }
+        private void OnTreeViewNodeMouseHover(object sender, TreeNodeMouseHoverEventArgs e) => OnNodeMouseHover(e);
 
-        private void OnTreeViewNodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            OnNodeMouseDoubleClick(e);
-        }
+        private void OnTreeViewNodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e) => OnNodeMouseDoubleClick(e);
 
-        private void OnTreeViewNodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            OnNodeMouseClick(e);
-        }
+        private void OnTreeViewNodeMouseClick(object sender, TreeNodeMouseClickEventArgs e) => OnNodeMouseClick(e);
 
-        private void OnTreeViewItemDrag(object sender, ItemDragEventArgs e)
-        {
-            OnItemDrag(e);
-        }
+        private void OnTreeViewItemDrag(object sender, ItemDragEventArgs e) => OnItemDrag(e);
 
-        private void OnTreeViewBeforeSelect(object sender, TreeViewCancelEventArgs e)
-        {
-            OnBeforeSelect(e);
-        }
+        private void OnTreeViewBeforeSelect(object sender, TreeViewCancelEventArgs e) => OnBeforeSelect(e);
 
-        private void OnTreeViewBeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
-        {
-            OnBeforeLabelEdit(e);
-        }
+        private void OnTreeViewBeforeLabelEdit(object sender, NodeLabelEditEventArgs e) => OnBeforeLabelEdit(e);
 
-        private void OnTreeViewBeforeExpand(object sender, TreeViewCancelEventArgs e)
-        {
-            OnBeforeExpand(e);
-        }
+        private void OnTreeViewBeforeExpand(object sender, TreeViewCancelEventArgs e) => OnBeforeExpand(e);
 
-        private void OnTreeViewBeforeCollapse(object sender, TreeViewCancelEventArgs e)
-        {
-            OnBeforeCollapse(e);
-        }
+        private void OnTreeViewBeforeCollapse(object sender, TreeViewCancelEventArgs e) => OnBeforeCollapse(e);
 
-        private void OnTreeViewBeforeCheck(object sender, TreeViewCancelEventArgs e)
-        {
-            OnBeforeCheck(e);
-        }
+        private void OnTreeViewBeforeCheck(object sender, TreeViewCancelEventArgs e) => OnBeforeCheck(e);
 
-        private void OnTreeViewAfterSelect(object sender, TreeViewEventArgs e)
-        {
-            OnAfterSelect(e);
-        }
+        private void OnTreeViewAfterSelect(object sender, TreeViewEventArgs e) => OnAfterSelect(e);
 
-        private void OnTreeViewAfterLabelEdit(object sender, NodeLabelEditEventArgs e)
-        {
-            OnAfterLabelEdit(e);
-        }
+        private void OnTreeViewAfterLabelEdit(object sender, NodeLabelEditEventArgs e) => OnAfterLabelEdit(e);
 
-        private void OnTreeViewAfterExpand(object sender, TreeViewEventArgs e)
-        {
-            OnAfterExpand(e);
-        }
+        private void OnTreeViewAfterExpand(object sender, TreeViewEventArgs e) => OnAfterExpand(e);
 
-        private void OnTreeViewAfterCollapse(object sender, TreeViewEventArgs e)
-        {
-            OnAfterCollapse(e);
-        }
+        private void OnTreeViewAfterCollapse(object sender, TreeViewEventArgs e) => OnAfterCollapse(e);
 
-        private void OnTreeViewAfterCheck(object sender, TreeViewEventArgs e)
-        {
-            OnAfterCheck(e);
-        }
+        private void OnTreeViewAfterCheck(object sender, TreeViewEventArgs e) => OnAfterCheck(e);
 
         private void OnTreeViewMouseChange(object sender, EventArgs e)
         {

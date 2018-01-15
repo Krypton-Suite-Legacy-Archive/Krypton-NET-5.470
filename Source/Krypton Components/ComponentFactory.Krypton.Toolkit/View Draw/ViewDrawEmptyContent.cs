@@ -41,16 +41,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteContentNormal = paletteContentNormal;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-            return "ViewDrawEmptyContent:" + Id;
-		}
-		#endregion
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        // Return the class name and instance identifier
+        public override string ToString() => "ViewDrawEmptyContent:" + Id;
+        #endregion
 
         #region Layout
 
@@ -69,9 +66,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    // ReSharper disable RedundantBaseQualifier
+		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
 		    return base.GetPreferredSize(context);
+		    // ReSharper restore RedundantBaseQualifier
         }
 
         /// <summary>
@@ -89,13 +88,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    // ReSharper disable RedundantBaseQualifier
+		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
-		    base.Layout(context);
+            base.Layout(context);
+		    // ReSharper restore RedundantBaseQualifier
         }
-		#endregion
+        #endregion
 
-		#region Paint
+        #region Paint
 
         /// <summary>
         /// Perform rendering before child elements are rendered.
@@ -112,11 +113,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
+		    // ReSharper disable RedundantBaseQualifier
+		    base.SetPalette(Enabled ? _paletteContentNormal : _paletteContentDisabled);
 
 		    base.RenderBefore(context);
+		    // ReSharper restore RedundantBaseQualifier
 		}
-		#endregion
+        #endregion
 
         #region IContentValues
         /// <summary>
@@ -124,38 +127,26 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
-        public Image GetImage(PaletteState state)
-        {
-            return null;
-        }
+        public Image GetImage(PaletteState state) => null;
 
         /// <summary>
         /// Gets the image color that should be transparent.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Color value.</returns>
-        public Color GetImageTransparentColor(PaletteState state)
-        {
-            return Color.Empty;
-        }
+        public Color GetImageTransparentColor(PaletteState state) => Color.Empty;
 
         /// <summary>
         /// Gets the content short text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetShortText()
-        {
-            return string.Empty;
-        }
+        public string GetShortText() => string.Empty;
 
         /// <summary>
         /// Gets the content long text.
         /// </summary>
         /// <returns>String value.</returns>
-        public string GetLongText()
-        {
-            return string.Empty;
-        }
+        public string GetLongText() => string.Empty;
         #endregion
     }
 }

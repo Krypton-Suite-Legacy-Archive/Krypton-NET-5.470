@@ -128,13 +128,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(AutoSizeMode), "GrowAndShrink")]
         public AutoSizeMode AutoSizeMode
         {
-            get => GetAutoSizeMode();
+            // ReSharper disable RedundantBaseQualifier
+            get => base.GetAutoSizeMode();
+            // ReSharper restore RedundantBaseQualifier
 
             set
             {
-                if (value != GetAutoSizeMode())
+                // ReSharper disable RedundantBaseQualifier
+                if (value != base.GetAutoSizeMode())
                 {
-                    SetAutoSizeMode(value);
+                    base.SetAutoSizeMode(value);
+                    // ReSharper restore RedundantBaseQualifier
 
                     // Only perform an immediate layout if
                     // currently performing auto size operations
@@ -174,20 +178,14 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private bool ShouldSerializeGroupBorderStyle()
-        {
-            return (GroupBorderStyle != PaletteBorderStyle.ControlClient);
-        }
+        private bool ShouldSerializeGroupBorderStyle() => (GroupBorderStyle != PaletteBorderStyle.ControlClient);
 
-        private void ResetGroupBorderStyle()
-        {
-            GroupBorderStyle = PaletteBorderStyle.ControlClient;
-        }
-        
+        private void ResetGroupBorderStyle() => GroupBorderStyle = PaletteBorderStyle.ControlClient;
+
         /// <summary>
-		/// Gets and sets the background style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the background style.
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Background style.")]
 		public PaletteBackStyle GroupBackStyle
 		{
@@ -204,17 +202,11 @@ namespace ComponentFactory.Krypton.Toolkit
 			}
 		}
 
-        private bool ShouldSerializeGroupBackStyle()
-        {
-            return (GroupBackStyle != PaletteBackStyle.ControlClient);
-        }
+        private bool ShouldSerializeGroupBackStyle() => (GroupBackStyle != PaletteBackStyle.ControlClient);
 
-        private void ResetGroupBackStyle()
-        {
-            GroupBackStyle = PaletteBackStyle.ControlClient;
-        }
+	    private void ResetGroupBackStyle() => GroupBackStyle = PaletteBackStyle.ControlClient;
 
-        /// <summary>
+	    /// <summary>
         /// Gets access to the common group appearance entries that other states can override.
         /// </summary>
         [Category("Visuals")]
@@ -222,25 +214,19 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDoubleRedirect StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
-        
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
+
         /// <summary>
-		/// Gets access to the disabled group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the disabled group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
 		[Description("Overrides for defining disabled group appearance.")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+	    private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets access to the normal group appearance entries.
 		/// </summary>
 		[Category("Visuals")]
@@ -248,12 +234,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+	    private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
-        /// <summary>
+	    /// <summary>
         /// Get the preferred size of the control based on a proposed size.
         /// </summary>
         /// <param name="proposedSize">Starting size proposed by the caller.</param>
@@ -350,10 +333,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        protected override ControlCollection CreateControlsInstance()
-        {
-            return new KryptonReadOnlyControls(this);
-        }
+        protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
         /// Raises the HandleCreated event.

@@ -78,9 +78,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("Reference already exists in the collection");
                 }
 
-                List.Add(checkButton);
+                // ReSharper disable RedundantBaseQualifier
+                base.List.Add(checkButton);
 
-                return List.Count - 1;
+                return base.List.Count - 1;
+                // ReSharper restore RedundantBaseQualifier
             }
 
             /// <summary>
@@ -90,7 +92,9 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>True if found in collection; otherwise false.</returns>
             public bool Contains(KryptonCheckButton checkButton)
             {
-                return List.Contains(checkButton);
+                // ReSharper disable RedundantBaseQualifier
+                return base.List.Contains(checkButton);
+                // ReSharper restore RedundantBaseQualifier
             }
 
             /// <summary>
@@ -100,7 +104,9 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <returns>Index of reference; otherwise -1.</returns>
             public int IndexOf(KryptonCheckButton checkButton)
             {
-                return List.IndexOf(checkButton);
+                // ReSharper disable RedundantBaseQualifier
+                return base.List.IndexOf(checkButton);
+                // ReSharper restore RedundantBaseQualifier
             }
 
             /// <summary>
@@ -129,7 +135,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("Reference already in collection");
                 }
 
-                List.Insert(index, checkButton);
+                // ReSharper disable RedundantBaseQualifier
+                base.List.Insert(index, checkButton);
+                // ReSharper restore RedundantBaseQualifier
             }
 
             /// <summary>
@@ -152,7 +160,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentException("No matching reference to remove");
                 }
 
-                List.Remove(checkButton);
+                // ReSharper disable RedundantBaseQualifier
+                base.List.Remove(checkButton);
+                // ReSharper restore RedundantBaseQualifier
             }
 
             /// <summary>
@@ -169,7 +179,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         throw new ArgumentOutOfRangeException(nameof(index));
                     }
 
-                    return (KryptonCheckButton)List[index];
+                    // ReSharper disable RedundantBaseQualifier
+                    return (KryptonCheckButton)base.List[index];
+                    // ReSharper restore RedundantBaseQualifier
                 }
             }
             #endregion
@@ -180,7 +192,9 @@ namespace ComponentFactory.Krypton.Toolkit
             /// </summary>
             protected override void OnClear()
             {
-                foreach(KryptonCheckButton checkButton in List)
+                // ReSharper disable RedundantBaseQualifier
+                foreach(KryptonCheckButton checkButton in base.List)
+                    // ReSharper restore RedundantBaseQualifier
                 {
                     _owner.CheckButtonRemoved(checkButton);
                 }

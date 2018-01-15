@@ -115,7 +115,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>New instance.</returns>
         public virtual object Clone()
         {
-            ButtonSpec clone = (ButtonSpec)Activator.CreateInstance(GetType());
+            // ReSharper disable RedundantBaseQualifier
+            ButtonSpec clone = (ButtonSpec)Activator.CreateInstance(base.GetType());
+            // ReSharper restore RedundantBaseQualifier
             clone.Image = Image;
             clone.ImageTransparentColor = ImageTransparentColor;
             clone.Text = Text;

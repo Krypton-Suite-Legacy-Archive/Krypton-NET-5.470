@@ -93,8 +93,10 @@ namespace ComponentFactory.Krypton.Toolkit
 			{
 				ArrayList snapLines = null;
 
+			    // ReSharper disable RedundantBaseQualifier
                 // Let the base class generate snap lines
-				AddPaddingSnapLines(ref snapLines);
+                base.AddPaddingSnapLines(ref snapLines);
+			    // ReSharper restore RedundantBaseQualifier
 
 				return snapLines;
 			}

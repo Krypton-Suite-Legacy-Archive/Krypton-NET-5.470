@@ -120,9 +120,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewTextBoxColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -790,9 +792,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewCheckBoxColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -1006,10 +1010,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     indeterminate = false;
                 }
 
-                if (!HasDefaultCellStyle)
+                // ReSharper disable RedundantBaseQualifier
+                if (!base.HasDefaultCellStyle)
                 {
                     return false;
                 }
+                // ReSharper restore RedundantBaseQualifier
 
                 DataGridViewCellStyle defaultCellStyle = DefaultCellStyle;
                 if ((((defaultCellStyle.BackColor.IsEmpty && defaultCellStyle.ForeColor.IsEmpty) && (defaultCellStyle.SelectionBackColor.IsEmpty && defaultCellStyle.SelectionForeColor.IsEmpty)) && (((defaultCellStyle.Font == null) && defaultCellStyle.NullValue.Equals(indeterminate)) && (defaultCellStyle.IsDataSourceNullValueDefault && string.IsNullOrEmpty(defaultCellStyle.Format)))) && ((defaultCellStyle.FormatProvider.Equals(CultureInfo.CurrentCulture) && (defaultCellStyle.Alignment == DataGridViewContentAlignment.MiddleCenter)) && ((defaultCellStyle.WrapMode == DataGridViewTriState.NotSet) && (defaultCellStyle.Tag == null))))
@@ -1324,7 +1330,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Grab the internal property implemented by base class
-                return (Point)_piMouseEnteredCellAddress.GetValue(DataGridView, null);
+                // ReSharper disable RedundantBaseQualifier
+                return (Point)_piMouseEnteredCellAddress.GetValue(base.DataGridView, null);
+                // ReSharper restore RedundantBaseQualifier
             }
         }
         #endregion
@@ -1367,9 +1375,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewButtonColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -1971,7 +1981,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Grab the internal property implemented by base class
-                return (Point)_piMouseEnteredCellAddress.GetValue(DataGridView, null);
+                // ReSharper disable RedundantBaseQualifier
+                return (Point)_piMouseEnteredCellAddress.GetValue(base.DataGridView, null);
+                // ReSharper restore RedundantBaseQualifier
             }
         }
         #endregion
@@ -2013,9 +2025,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewLinkColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -2107,7 +2121,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _labelStyle = value;
                     ((KryptonDataGridViewLinkCell)CellTemplate).LabelStyleInternal = value;
-                    if (DataGridView != null)
+                    // ReSharper disable RedundantBaseQualifier
+                    if (base.DataGridView != null)
+                        // ReSharper restore RedundantBaseQualifier
                     {
                         DataGridViewRowCollection rows = DataGridView.Rows;
                         int count = rows.Count;
@@ -2145,7 +2161,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (!LinkBehavior.Equals(value))
                 {
                     ((KryptonDataGridViewLinkCell)CellTemplate).LinkBehaviorInternal = value;
-                    if (DataGridView != null)
+                    // ReSharper disable RedundantBaseQualifier
+                    if (base.DataGridView != null)
+                        // ReSharper restore RedundantBaseQualifier
                     {
                         DataGridViewRowCollection rows = DataGridView.Rows;
                         int count = rows.Count;
@@ -2719,9 +2737,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewNumericUpDownColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -3967,9 +3987,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewDomainUpDownColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -4587,9 +4609,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewComboBoxColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -5787,9 +5811,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewDateTimePickerColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }
@@ -7915,9 +7941,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             StringBuilder builder = new StringBuilder(0x40);
             builder.Append("KryptonDataGridViewMaskedTextBoxColumn { Name=");
-            builder.Append(Name);
+            // ReSharper disable RedundantBaseQualifier
+            builder.Append(base.Name);
             builder.Append(", Index=");
-            builder.Append(Index.ToString(CultureInfo.CurrentCulture));
+            builder.Append(base.Index.ToString(CultureInfo.CurrentCulture));
+            // ReSharper restore RedundantBaseQualifier
             builder.Append(" }");
             return builder.ToString();
         }

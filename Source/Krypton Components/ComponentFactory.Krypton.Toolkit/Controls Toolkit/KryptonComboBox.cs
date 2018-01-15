@@ -2879,7 +2879,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnComboBoxLostFocus(object sender, EventArgs e)
         {
-            OnLostFocus(e);
+            // ReSharper disable RedundantBaseQualifier
+            base.OnLostFocus(e);
+            // ReSharper restore RedundantBaseQualifier
             PerformNeedPaint(false);
             _comboBox.Invalidate();
         }

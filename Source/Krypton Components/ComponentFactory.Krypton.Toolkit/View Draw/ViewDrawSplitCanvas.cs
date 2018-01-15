@@ -82,15 +82,12 @@ namespace ComponentFactory.Krypton.Toolkit
             Splitter = false;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-            return "ViewDrawSplitCanvas:" + Id;
-		}
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        // Return the class name and instance identifier
+        public override string ToString() => "ViewDrawSplitCanvas:" + Id;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -190,19 +187,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Splitter { get; set; }
 
-	    #endregion
+        #endregion
 
         #region SetPalettes
         /// <summary>
-		/// Update the source palettes for drawing.
-		/// </summary>
-		/// <param name="paletteBack">Palette source for the background.</param>		
-		/// <param name="paletteBorder">Palette source for the border.</param>
+        /// Update the source palettes for drawing.
+        /// </summary>
+        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBorder">Palette source for the border.</param>
         public virtual void SetPalettes(IPaletteBack paletteBack,
-                                        IPaletteBorder paletteBorder)
-        {
-            SetPalettes(paletteBack, paletteBorder, PaletteMetric);
-        }
+                                        IPaletteBorder paletteBorder) => SetPalettes(paletteBack, paletteBorder, PaletteMetric);
 
         /// <summary>
 		/// Update the source palettes for drawing.
@@ -289,7 +283,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the decorator object used to override the border palette is not created...
                 if (_borderForced == null)
                 {
-                    // Then create it and pass the existing border palette as the inheritence
+                    // Then create it and pass the existing border palette as the inheritance
                     _borderForced = new PaletteBorderInheritForced(PaletteBorder);
 
                     // Now we want to always use the forced version instead
@@ -324,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // If the decorator object used to override the border palette is not created...
                 if (_borderForced == null)
                 {
-                    // Then create it and pass the existing border palette as the inheritence
+                    // Then create it and pass the existing border palette as the inheritance
                     _borderForced = new PaletteBorderInheritForced(PaletteBorder);
 
                     // Now we want to always use the forced version instead
@@ -765,7 +759,9 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool SplitWithFading => (PaletteMetric == null) || (PaletteMetric.GetMetricBool(State, PaletteMetricBool.SplitWithFading) == InheritBool.True);
+        private bool SplitWithFading => (PaletteMetric == null) ||
+                                        (PaletteMetric.GetMetricBool(State, PaletteMetricBool.SplitWithFading) ==
+                                         InheritBool.True);
 
 	    #endregion
 	}
