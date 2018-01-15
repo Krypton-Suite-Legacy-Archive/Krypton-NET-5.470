@@ -2,6 +2,12 @@
 
 =======
 
+## 2018-01-15 Minor changes
+* Renamed 'GetCreateParams()' method to 'DrawDropShadow()' in 'KryptonForm.cs' to avoid confusion
+* Added/update documentation/comments for drop shadow methods in 'KryptonForm.cs' to make functions clearer
+
+=======
+
 ## 2018-01-14 Toolkit Solution changes
 * Convert to `'?:` expression
   * `null-coalescing` if applicable

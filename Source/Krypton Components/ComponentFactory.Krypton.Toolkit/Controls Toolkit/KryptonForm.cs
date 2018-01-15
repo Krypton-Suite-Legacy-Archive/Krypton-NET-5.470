@@ -1589,9 +1589,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Drop Shadow Methods
         /// <summary>
-        /// Draws the drop shadow around the form.
+        /// Calls the method that draws the drop shadow around the form.
         /// </summary>
-        /// <param name="useDropShadow">Use dropdown user input.</param>
+        /// <param name="useDropShadow">Use dropshadow user input value.</param>
         private void UpdateDropShadowDraw(bool useDropShadow)
         {
             if (useDropShadow)
@@ -1602,11 +1602,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 //cp.ClassStyle |= CS_DROPSHADOW;
 
-                GetCreateParams();
+                DrawDropShadow();
             }
         }
 
-        private CreateParams GetCreateParams()
+        /// <summary>
+        /// A wrapper that draws the drop shadow around the form.
+        /// </summary>
+        /// <returns>The shadow around the form.</returns>
+        private CreateParams DrawDropShadow()
         {
             CreateParams createParams = base.CreateParams;
 
