@@ -1596,12 +1596,6 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (useDropShadow)
             {
-                // add the drop shadow flag for automatically drawing
-                // a drop shadow around the form
-                //CreateParams cp = base.CreateParams;
-
-                //cp.ClassStyle |= CS_DROPSHADOW;
-
                 DrawDropShadow();
             }
         }
