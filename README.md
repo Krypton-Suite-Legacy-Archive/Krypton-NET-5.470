@@ -2,6 +2,16 @@
 
 =======
 
+## 2018-01-23 NOTE: Rollback on Nuget package to 4.7.0.0. This will be labeled as 4.70.523 (build date November 11th, 2017) due to some solution breaking bugs in build 522.
+
+=======
+
+## 2018-01-23 Repository changes
+* Releases tab is now enabled!
+* New branch called LTSR for long term stable releases.
+
+=======
+
 ## 2018-01-20 Nuget package update
 * Fixed Nuget package specification to show the true file assembly number, i.e 4.70.522.0 (build date January 16th, 2018) [Issue, #13](https://github.com/Wagnerp/Krypton-NET-4.7/issues/13)
 * All new releases of packages will no longer have a dedicated changelog. Instead, it will point users back to [this repository](https://github.com/Wagnerp/Krypton-NET-4.7) for more information.
