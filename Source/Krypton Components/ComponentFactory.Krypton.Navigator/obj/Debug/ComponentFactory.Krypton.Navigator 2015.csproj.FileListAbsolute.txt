@@ -1,0 +1,9 @@
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\ComponentFactory.Krypton.Navigator.XML
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\ComponentFactory.Krypton.Navigator.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\ComponentFactory.Krypton.Navigator.pdb
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator 2015.csprojResolveAssemblyReference.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator.Properties.Resources.resources
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator 2015.csproj.GenerateResource.Cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator 2015.csproj.CoreCompileInputs.cache
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator.dll
+C:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\obj\Debug\ComponentFactory.Krypton.Navigator.pdb
