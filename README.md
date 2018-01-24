@@ -6,7 +6,12 @@
 
 =======
 
-## 2018-01-24 Designer bug fix
+## 2018-01-24pm KryptonTextBox.cs descriptions
+* Added descriptions to 'OnTrackMouseEnter' and 'OnTrackMouseLeave' events to make more sense
+
+=======
+
+## 2018-01-24am Designer bug fix
 * Fixed bug with ComponentFactory.Krypton.Design.dll to version 4.70.0.0 due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
 * New Nuget package, version 4.70.524, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
 
