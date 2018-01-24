@@ -59,5 +59,15 @@ namespace Test_Clip_Base.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AppMenuSave {
+            get {
+                object obj = ResourceManager.GetObject("AppMenuSave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

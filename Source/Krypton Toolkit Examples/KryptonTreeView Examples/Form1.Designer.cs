@@ -93,7 +93,7 @@
             this.kryptonTreeView.Location = new System.Drawing.Point(13, 31);
             this.kryptonTreeView.Name = "kryptonTreeView";
             this.kryptonTreeView.SelectedImageIndex = 3;
-            this.kryptonTreeView.Size = new System.Drawing.Size(255, 285);
+            this.kryptonTreeView.Size = new System.Drawing.Size(255, 259);
             this.kryptonTreeView.TabIndex = 6;
             // 
             // imageList

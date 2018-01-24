@@ -33,6 +33,10 @@ namespace RibbonControls
             this.kryptonRibbon = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.ribbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupLines2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.kryptonRibbonGroupTrackBar1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar();
+            this.kryptonRibbonGroupTrackBar2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar();
             this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.textBox1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTextBox();
@@ -83,14 +87,11 @@ namespace RibbonControls
             this.rbOffice2003 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rbOffice2007Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonRibbonGroup8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupLines2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
-            this.kryptonRibbonGroupTrackBar1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar();
-            this.kryptonRibbonGroupTrackBar2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup.Panel)).BeginInit();
             this.kryptonHeaderGroup.Panel.SuspendLayout();
             this.kryptonHeaderGroup.SuspendLayout();
             this.SuspendLayout();
@@ -104,8 +105,9 @@ namespace RibbonControls
             this.kryptonRibbon.RibbonAppButton.AppButtonShowRecentDocs = false;
             this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.ribbonTab});
+            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.ribbonTab;
-            this.kryptonRibbon.Size = new System.Drawing.Size(931, 115);
+            this.kryptonRibbon.Size = new System.Drawing.Size(1115, 115);
             this.kryptonRibbon.TabIndex = 0;
             // 
             // kryptonContextMenuItem1
@@ -126,6 +128,31 @@ namespace RibbonControls
             this.kryptonRibbonGroup2,
             this.kryptonRibbonGroup3});
             this.ribbonTab.Text = "Home";
+            // 
+            // kryptonRibbonGroup8
+            // 
+            this.kryptonRibbonGroup8.DialogBoxLauncher = false;
+            this.kryptonRibbonGroup8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupLines2});
+            this.kryptonRibbonGroup8.TextLine1 = "TrackBar";
+            // 
+            // kryptonRibbonGroupLines2
+            // 
+            this.kryptonRibbonGroupLines2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTrackBar1,
+            this.kryptonRibbonGroupTrackBar2});
+            // 
+            // kryptonRibbonGroupTrackBar1
+            // 
+            this.kryptonRibbonGroupTrackBar1.MaximumLength = 55;
+            this.kryptonRibbonGroupTrackBar1.MinimumLength = 55;
+            this.kryptonRibbonGroupTrackBar1.TickStyle = System.Windows.Forms.TickStyle.BottomRight;
+            // 
+            // kryptonRibbonGroupTrackBar2
+            // 
+            this.kryptonRibbonGroupTrackBar2.MaximumLength = 55;
+            this.kryptonRibbonGroupTrackBar2.MinimumLength = 55;
+            this.kryptonRibbonGroupTrackBar2.Value = 5;
             // 
             // kryptonRibbonGroup1
             // 
@@ -448,7 +475,7 @@ namespace RibbonControls
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 115);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(931, 163);
+            this.kryptonPanel.Size = new System.Drawing.Size(1115, 161);
             this.kryptonPanel.TabIndex = 1;
             // 
             // kryptonHeaderGroup
@@ -472,9 +499,9 @@ namespace RibbonControls
             this.kryptonHeaderGroup.Panel.Controls.Add(this.rbOffice2003);
             this.kryptonHeaderGroup.Panel.Controls.Add(this.rbOffice2007Black);
             this.kryptonHeaderGroup.Size = new System.Drawing.Size(434, 109);
-            this.kryptonHeaderGroup.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeaderGroup.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonHeaderGroup.StateCommon.Border.Rounding = 9;
             this.kryptonHeaderGroup.TabIndex = 0;
             // 
@@ -564,36 +591,11 @@ namespace RibbonControls
             // 
             this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
-            // kryptonRibbonGroup8
-            // 
-            this.kryptonRibbonGroup8.DialogBoxLauncher = false;
-            this.kryptonRibbonGroup8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupLines2});
-            this.kryptonRibbonGroup8.TextLine1 = "TrackBar";
-            // 
-            // kryptonRibbonGroupLines2
-            // 
-            this.kryptonRibbonGroupLines2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupTrackBar1,
-            this.kryptonRibbonGroupTrackBar2});
-            // 
-            // kryptonRibbonGroupTrackBar1
-            // 
-            this.kryptonRibbonGroupTrackBar1.MaximumLength = 55;
-            this.kryptonRibbonGroupTrackBar1.MinimumLength = 55;
-            this.kryptonRibbonGroupTrackBar1.TickStyle = System.Windows.Forms.TickStyle.BottomRight;
-            // 
-            // kryptonRibbonGroupTrackBar2
-            // 
-            this.kryptonRibbonGroupTrackBar2.MaximumLength = 55;
-            this.kryptonRibbonGroupTrackBar2.MinimumLength = 55;
-            this.kryptonRibbonGroupTrackBar2.Value = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 278);
+            this.ClientSize = new System.Drawing.Size(1115, 276);
             this.Controls.Add(this.kryptonPanel);
             this.Controls.Add(this.kryptonRibbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -604,6 +606,7 @@ namespace RibbonControls
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup.Panel)).EndInit();
             this.kryptonHeaderGroup.Panel.ResumeLayout(false);
             this.kryptonHeaderGroup.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup)).EndInit();

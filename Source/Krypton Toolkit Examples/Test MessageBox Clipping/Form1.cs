@@ -166,6 +166,8 @@ namespace Test_MessageBox_Clipping
             {
                 MessageBox.Show(this, ex.StackTrace, ex.Message);
                 KryptonMessageBox.Show(this, ex.StackTrace, ex.Message);
+                KryptonTaskDialog.Show(ex.Message, "MinInstruction", ex.StackTrace, MessageBoxIcon.Stop,
+                    TaskDialogButtons.Close);
             }
         }
 

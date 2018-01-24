@@ -467,7 +467,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>One of the DialogResult values.</returns>
         public DialogResult ShowDialog(IWin32Window owner)
         {
-            // Remove any exising task dialog that is showing
+            // Remove any existing task dialog that is showing
             _taskDialog?.Dispose();
 
             // Create visual form to show our defined task properties

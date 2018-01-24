@@ -7,7 +7,7 @@
   * `null-coalescing` if applicable
   * Then to `Expression body` if simplified enough
 * Fix some spelling mistakes along the way
-* Add Ctrl+c text to `KryptonCommand`
+* Add Ctrl+c text to `VisualTaskDialog`
 
 =======
 

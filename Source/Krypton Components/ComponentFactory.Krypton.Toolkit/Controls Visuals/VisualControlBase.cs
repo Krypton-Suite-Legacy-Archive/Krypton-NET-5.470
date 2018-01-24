@@ -1119,13 +1119,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // We need to snoop the need to show a context menu
             if (m.Msg == PI.WM_CONTEXTMENU)
             {
-                // Only interested in overriding the behavior when we have a krypton context menu...
+                // Only interested in overriding the behaviour when we have a krypton context menu...
                 if (KryptonContextMenu != null)
                 {
                     // Extract the screen mouse position (if might not actually be provided)
                     Point mousePt = new Point(PI.LOWORD(m.LParam), PI.HIWORD(m.LParam));
 
-                    // If keyboard activated, the menu position is centered
+                    // If keyboard activated, the menu position is centred
                     if (((int)((long)m.LParam)) == -1)
                     {
                         mousePt = new Point(Width / 2, Height / 2);
@@ -1140,7 +1140,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         mousePt.Y -= 1;
                     }
 
-                    // If the mouse posiiton is within our client area
+                    // If the mouse position is within our client area
                     if (ClientRectangle.Contains(mousePt))
                     {
                         // Show the context menu
