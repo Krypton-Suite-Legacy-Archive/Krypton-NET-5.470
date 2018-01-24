@@ -1,6 +1,13 @@
 ﻿# Krypton-NET-4.7
 
 =======
+## 2018-01-24 Version correction
+* All assemblies have been reset to 4.70.0.0 due to hard coded versions for toolkit classes
+* Build 522 of the Nuget package will be redacted due to this bug
+* All new Nuget packages will have the same version numbers as development versions, even though release assemblies will be labeled as '4.70.0.0'. This is to make it easier for users to tell if they are using the latest version or not.
+* Code used for new Nuget packages will be hosted on the 'stable' branch of this repository.
+
+=======
 
 ## 2018-01-23 NOTE: Rollback on Nuget package to 4.7.0.0. This will be labeled as 4.70.523 (build date November 11th, 2017) due to some solution breaking bugs in build 522.
 
