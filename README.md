@@ -2,6 +2,16 @@
 
 =======
 
+## NOTE: In order to use this toolkit, please ensure that you reference 'ComponentFactory.Krypton.Design.dll' in ALL of your projects at ALL times!
+
+=======
+
+## 2018-01-24 Designer bug fix
+* Fixed bug with ComponentFactory.Krypton.Design.dll to version 4.70.0.0 due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
+* New Nuget package, version 4.70.525, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
+
+=======
+
 ## 2018-01-23 Repository changes
 * Releases tab is now enabled!
 * New branch called LTSR for long term stable releases.
