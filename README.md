@@ -8,7 +8,7 @@
 
 ## 2018-01-24 Designer bug fix
 * Fixed bug with ComponentFactory.Krypton.Design.dll to version 4.70.0.0 due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
-* New Nuget package, version 4.70.525, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
+* New Nuget package, version 4.70.524, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
 
 =======
 
