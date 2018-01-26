@@ -17,9 +17,9 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.5.0.0")]
-[assembly: AssemblyFileVersion("4.5.0.0")]
-[assembly: AssemblyInformationalVersion("4.5.0.0")]
+[assembly: AssemblyVersion("4.5.1.0")]
+[assembly: AssemblyFileVersion("4.5.1.0")]
+[assembly: AssemblyInformationalVersion("4.5.1.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
 [assembly: AssemblyProduct("Outlook Mail Clone")]
 [assembly: AssemblyDefaultAlias("OutlookMailClone.dll")]

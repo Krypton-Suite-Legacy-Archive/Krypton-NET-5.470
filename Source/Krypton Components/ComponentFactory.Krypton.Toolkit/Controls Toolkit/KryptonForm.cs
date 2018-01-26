@@ -10,12 +10,12 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,8 +34,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collection for managing ButtonSpecAny instances.
         /// </summary>
-        public class FormButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny> 
-        { 
+        public class FormButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the FormButtonSpecCollection class.
@@ -51,8 +51,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collection for managing NavigatorButtonSpec instances.
         /// </summary>
-        public class FormFixedButtonSpecCollection : ButtonSpecCollection<ButtonSpecFormFixed> 
-        { 
+        public class FormFixedButtonSpecCollection : ButtonSpecCollection<ButtonSpecFormFixed>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the FormFixedButtonSpecCollection class.
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Default properties
             _headerStyle = HeaderStyle.Form;
-		    _headerStylePrev = _headerStyle;
+            _headerStylePrev = _headerStyle;
             AllowButtonSpecToolTips = false;
             _allowFormChrome = true;
             _allowStatusStripMerge = true;
@@ -257,7 +257,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool AllowFormChrome
         {
             get => _allowFormChrome;
-            set 
+            set
             {
                 if (_allowFormChrome != value)
                 {
@@ -1232,13 +1232,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Recreate buttons to get latest state
                     _buttonManager.RefreshButtons();
 
-			        // Never set the header style unless it has changed, as it causes a relayout
-			        if (_headerStyle != _headerStylePrev)
-			        {
+                    // Never set the header style unless it has changed, as it causes a relayout
+                    if (_headerStyle != _headerStylePrev)
+                    {
                         // Ensure the header style matches the form border style
                         SetHeaderStyle(_drawHeading, StateCommon.Header, _headerStyle);
 
-				        // Remember last header style set
+                        // Remember last header style set
                         _headerStylePrev = _headerStyle;
                     }
 
@@ -1269,7 +1269,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (!NeedLayout)
                     {
                         bool notNormal = false;
-                        foreach(ButtonSpecView bsv in _buttonManager.ButtonSpecViews)
+                        foreach (ButtonSpecView bsv in _buttonManager.ButtonSpecViews)
                         {
                             switch (bsv.ViewButton.State)
                             {
@@ -1589,44 +1589,49 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Drop Shadow Methods
         /// <summary>
-        /// Draws the drop shadow around the form.
+        /// Calls the method that draws the drop shadow around the form.
         /// </summary>
-        /// <param name="useDropShadow">Use dropdown user input.</param>
+        /// <param name="useDropShadow">Use dropshadow user input value.</param>
         private void UpdateDropShadowDraw(bool useDropShadow)
         {
             if (useDropShadow)
             {
-                // add the drop shadow flag for automatically drawing
-                // a drop shadow around the form
-                //CreateParams cp = base.CreateParams;
-
-                //cp.ClassStyle |= CS_DROPSHADOW;
-
-                GetCreateParams();
+                DrawDropShadow();
             }
         }
 
+        /// <summary>
+        /// A wrapper that draws the drop shadow around the form.
+        /// </summary>
+        /// <returns>The shadow around the form.</returns>
+        private void DrawDropShadow()
+        {
+            GetCreateParams();
+        }
+
+        /// <summary>
+        /// Test code
+        /// </summary>
+        /// <returns>The overrides</returns>
         private CreateParams GetCreateParams()
         {
-            CreateParams createParams = base.CreateParams;
+            CreateParams cp = base.CreateParams;
 
-            createParams.ClassStyle |= CS_DROPSHADOW;
-
-            return createParams;
+            return cp;
         }
 
         // Example by juverpp
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        // add the drop shadow flag for automatically drawing
-        //        // a drop shadow around the form
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ClassStyle |= CS_DROPSHADOW;
-        //        return cp;
-        //    }
-        //}
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // add the drop shadow flag for automatically drawing
+                // a drop shadow around the form
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         #endregion
     }
 }
