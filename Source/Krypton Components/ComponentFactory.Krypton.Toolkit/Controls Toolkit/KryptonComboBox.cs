@@ -474,6 +474,9 @@ namespace ComponentFactory.Krypton.Toolkit
             /// Raises the TrackMouseEnter event.
             /// </summary>
             /// <param name="e">An EventArgs containing the event data.</param>
+            [Description("Raises the TrackMouseEnter event in the wrapped control.")]
+            [Category("Mouse")]
+            [EditorBrowsable(EditorBrowsableState.Advanced)]
             protected virtual void OnTrackMouseEnter(EventArgs e)
             {
                 TrackMouseEnter?.Invoke(this, e);
@@ -934,15 +937,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Occurs when the mouse enters the control.
         /// </summary>
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [Description("Raises the TrackMouseEnter event in the wrapped control.")]
+        [Category("Mouse")]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
         public event EventHandler TrackMouseEnter;
 
         /// <summary>
         /// Occurs when the mouse leaves the control.
         /// </summary>
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [Description("Raises the TrackMouseLeave event in the wrapped control.")]
+        [Category("Mouse")]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
         public event EventHandler TrackMouseLeave;
 
         /// <summary>

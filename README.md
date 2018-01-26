@@ -2,8 +2,15 @@
 
 =======
 
-## NOTE: In order to use this toolkit, please ensure that you reference 'ComponentFactory.Krypton.Design.dll' in ALL of your projects at ALL times!
+## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference 'ComponentFactory.Krypton.Design.dll' in ALL of your projects at ALL times!
 
+=======
+
+## 2018-01-26 `TrackMouse####`
+* Add the `designer events` to describe the controls that have `TrackMouse Enter` and `Leave`
+* Rename the projects to reflect year, to prevent confusion with old .net 4.5 projects
+* Update test app to demonstrate `TrackMouse#### Events`
+* 
 =======
 
 ## 2018-01-24pm KryptonTextBox.cs descriptions

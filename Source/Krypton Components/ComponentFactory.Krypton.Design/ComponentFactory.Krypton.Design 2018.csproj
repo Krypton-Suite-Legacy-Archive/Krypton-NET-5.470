@@ -344,21 +344,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2015.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2018.csproj">
       <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
-      <Name>ComponentFactory.Krypton.Navigator 2015</Name>
+      <Name>ComponentFactory.Krypton.Navigator 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Ribbon\ComponentFactory.Krypton.Ribbon 2015.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Ribbon\ComponentFactory.Krypton.Ribbon 2018.csproj">
       <Project>{e90fc375-453d-4fe4-9822-ce1db85b6553}</Project>
-      <Name>ComponentFactory.Krypton.Ribbon 2015</Name>
+      <Name>ComponentFactory.Krypton.Ribbon 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2015.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2015</Name>
+      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Workspace\ComponentFactory.Krypton.Workspace 2015.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Workspace\ComponentFactory.Krypton.Workspace 2018.csproj">
       <Project>{9144ba04-155b-4b66-b85a-9a89aa93f7d4}</Project>
-      <Name>ComponentFactory.Krypton.Workspace 2015</Name>
+      <Name>ComponentFactory.Krypton.Workspace 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

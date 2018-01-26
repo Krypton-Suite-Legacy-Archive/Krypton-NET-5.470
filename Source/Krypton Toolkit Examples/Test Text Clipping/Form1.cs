@@ -147,12 +147,12 @@ namespace ThreePaneApplication
             }
         }
 
-        private void kryptonTextBox2_MouseEnter(object sender, EventArgs e)
+        private void InnerControl_MouseEnter(object sender, EventArgs e)
         {
-            kryptonListBox1.Items.Add("MouseEnter");
+            kryptonListBox1.Items.Add($"MouseEnter- {sender}");
         }
 
-        private void kryptonTextBox2_MouseLeave(object sender, EventArgs e)
+        private void InnerControl_MouseLeave(object sender, EventArgs e)
         {
             kryptonListBox1.Items.Add("MouseLeave");
 

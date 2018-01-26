@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonTreeView Examples 2015", "KryptonTreeView Examples\KryptonTreeView Examples 2015.csproj", "{F52C6F54-67E8-4713-85DD-1E05116CCDB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonTreeView Examples 2018", "KryptonTreeView Examples\KryptonTreeView Examples 2018.csproj", "{F52C6F54-67E8-4713-85DD-1E05116CCDB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Text Clipping", "Test Text Clipping\Test Text Clipping.csproj", "{9497EDA8-5D49-4708-825D-FA52C6FDB962}"
 EndProject

@@ -55,6 +55,9 @@ namespace ThreePaneApplication
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroupDetails = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonTreeView2 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             this.kryptonCheckedListBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
@@ -90,8 +93,6 @@ namespace ThreePaneApplication
             this.kryptonPaletteCustom = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonRadioButton1 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonRadioButton2 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMain)).BeginInit();
             this.kryptonPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupDetails)).BeginInit();
@@ -100,6 +101,7 @@ namespace ThreePaneApplication
             this.kryptonHeaderGroupDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.Panel.SuspendLayout();
@@ -137,6 +139,7 @@ namespace ThreePaneApplication
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.Controls.Add(this.kryptonComboBox1);
             this.kryptonPanel1.Controls.Add(this.kryptonListBox1);
             this.kryptonPanel1.Controls.Add(this.kryptonButton3);
             this.kryptonPanel1.Controls.Add(this.kryptonTreeView2);
@@ -161,6 +164,41 @@ namespace ThreePaneApplication
             this.kryptonPanel1.Size = new System.Drawing.Size(701, 339);
             this.kryptonPanel1.TabIndex = 0;
             // 
+            // kryptonComboBox1
+            // 
+            this.kryptonComboBox1.DropDownWidth = 121;
+            this.kryptonComboBox1.Location = new System.Drawing.Point(5, 310);
+            this.kryptonComboBox1.Name = "kryptonComboBox1";
+            this.kryptonComboBox1.Size = new System.Drawing.Size(121, 21);
+            this.kryptonComboBox1.TabIndex = 25;
+            this.kryptonComboBox1.Text = "kryptonComboBox1";
+            // 
+            // kryptonListBox1
+            // 
+            this.kryptonListBox1.Location = new System.Drawing.Point(272, 95);
+            this.kryptonListBox1.Name = "kryptonListBox1";
+            this.kryptonListBox1.Size = new System.Drawing.Size(422, 96);
+            this.kryptonListBox1.TabIndex = 21;
+            // 
+            // kryptonButton3
+            // 
+            this.kryptonButton3.Location = new System.Drawing.Point(464, 4);
+            this.kryptonButton3.Name = "kryptonButton3";
+            this.kryptonButton3.Size = new System.Drawing.Size(220, 49);
+            this.kryptonButton3.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton3.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton3.StateCommon.Content.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.kryptonButton3.StateCommon.Content.LongText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton3.StateCommon.Content.LongText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonButton3.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
+            this.kryptonButton3.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton3.StateCommon.Content.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.kryptonButton3.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton3.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton3.TabIndex = 13;
+            this.kryptonButton3.Values.ExtraText = "Extra text along the bottom ?";
+            this.kryptonButton3.Values.Text = "Title Text";
+            // 
             // kryptonTreeView2
             // 
             this.kryptonTreeView2.Location = new System.Drawing.Point(494, 211);
@@ -181,6 +219,8 @@ namespace ThreePaneApplication
             treeNode6});
             this.kryptonTreeView2.Size = new System.Drawing.Size(58, 96);
             this.kryptonTreeView2.TabIndex = 18;
+            this.kryptonTreeView2.TrackMouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonTreeView2.TrackMouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             this.kryptonTreeView2.Click += new System.EventHandler(this.OnClick);
             // 
             // kryptonTreeView1
@@ -219,6 +259,8 @@ namespace ThreePaneApplication
             this.kryptonCheckedListBox2.Name = "kryptonCheckedListBox2";
             this.kryptonCheckedListBox2.Size = new System.Drawing.Size(120, 96);
             this.kryptonCheckedListBox2.TabIndex = 16;
+            this.kryptonCheckedListBox2.TrackMouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonCheckedListBox2.TrackMouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             this.kryptonCheckedListBox2.Click += new System.EventHandler(this.OnClick);
             // 
             // kryptonCheckedListBox1
@@ -235,6 +277,8 @@ namespace ThreePaneApplication
             this.kryptonCheckedListBox1.Name = "kryptonCheckedListBox1";
             this.kryptonCheckedListBox1.Size = new System.Drawing.Size(120, 96);
             this.kryptonCheckedListBox1.TabIndex = 15;
+            this.kryptonCheckedListBox1.TrackMouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonCheckedListBox1.TrackMouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             this.kryptonCheckedListBox1.Click += new System.EventHandler(this.OnClick);
             // 
             // kryptonTextBox2
@@ -244,9 +288,9 @@ namespace ThreePaneApplication
             this.kryptonTextBox2.Size = new System.Drawing.Size(100, 20);
             this.kryptonTextBox2.TabIndex = 9;
             this.kryptonTextBox2.Text = "kryptonTextBox2";
+            this.kryptonTextBox2.TrackMouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonTextBox2.TrackMouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             this.kryptonTextBox2.Click += new System.EventHandler(this.OnClick);
-            this.kryptonTextBox2.TrackMouseEnter += new System.EventHandler(this.kryptonTextBox2_MouseEnter);
-            this.kryptonTextBox2.TrackMouseLeave += new System.EventHandler(this.kryptonTextBox2_MouseLeave);
             // 
             // kryptonTextBox1
             // 
@@ -326,6 +370,8 @@ namespace ThreePaneApplication
             this.kryptonCheckBox2.TabIndex = 3;
             this.kryptonCheckBox2.Values.Text = "kryptonCheckBox2";
             this.kryptonCheckBox2.Click += new System.EventHandler(this.OnClick);
+            this.kryptonCheckBox2.MouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonCheckBox2.MouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             // 
             // kryptonCheckBox1
             // 
@@ -344,6 +390,8 @@ namespace ThreePaneApplication
             this.kryptonButton2.TabIndex = 1;
             this.kryptonButton2.Values.Text = "kryptonButton2";
             this.kryptonButton2.Click += new System.EventHandler(this.OnClick);
+            this.kryptonButton2.MouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
+            this.kryptonButton2.MouseLeave += new System.EventHandler(this.InnerControl_MouseLeave);
             // 
             // kryptonButton1
             // 
@@ -692,32 +740,6 @@ namespace ThreePaneApplication
             this.kryptonRadioButton2.TabIndex = 1;
             this.kryptonRadioButton2.Values.Text = "Office 2010 - Silver";
             // 
-            // kryptonButton3
-            // 
-            this.kryptonButton3.Location = new System.Drawing.Point(464, 4);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.Size = new System.Drawing.Size(220, 49);
-            this.kryptonButton3.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton3.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton3.StateCommon.Content.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
-            this.kryptonButton3.StateCommon.Content.LongText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton3.StateCommon.Content.LongText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton3.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
-            this.kryptonButton3.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton3.StateCommon.Content.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
-            this.kryptonButton3.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton3.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton3.TabIndex = 13;
-            this.kryptonButton3.Values.ExtraText = "Extra text along the bottom ?";
-            this.kryptonButton3.Values.Text = "Title Text";
-            // 
-            // kryptonListBox1
-            // 
-            this.kryptonListBox1.Location = new System.Drawing.Point(403, 95);
-            this.kryptonListBox1.Name = "kryptonListBox1";
-            this.kryptonListBox1.Size = new System.Drawing.Size(120, 96);
-            this.kryptonListBox1.TabIndex = 21;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -739,6 +761,7 @@ namespace ThreePaneApplication
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);
             this.kryptonGroup1.Panel.PerformLayout();
@@ -789,6 +812,7 @@ namespace ThreePaneApplication
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
         private ComponentFactory.Krypton.Toolkit.KryptonListBox kryptonListBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBox1;
     }
 }
 
