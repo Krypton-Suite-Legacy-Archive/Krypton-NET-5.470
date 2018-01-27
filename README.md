@@ -10,7 +10,7 @@
 * Add the `designer events` to describe the controls that have `TrackMouse Enter` and `Leave`
 * Rename the projects to reflect year, to prevent confusion with old .net 4.5 projects
 * Update test app to demonstrate `TrackMouse#### Events`
-* 
+
 =======
 
 ## 2018-01-24pm KryptonTextBox.cs descriptions
