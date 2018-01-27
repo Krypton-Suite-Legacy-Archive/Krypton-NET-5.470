@@ -7,7 +7,7 @@
 =======
 
 ## 2018-01-27pm New Nuget package release
-* New Nuget package, version`4.70.544` has been released
+* New Nuget package, version `4.70.544` (build date January 27th, 2018) has been released
 
 =======
 
@@ -26,13 +26,13 @@
 =======
 
 ## 2018-01-24pm KryptonTextBox.cs descriptions
-* Added descriptions to 'OnTrackMouseEnter' and 'OnTrackMouseLeave' events to make more sense
+* Added descriptions to `OnTrackMouseEnter` and `OnTrackMouseLeave` events to make more sense
 
 =======
 
 ## 2018-01-24am Designer bug fix
-* Fixed bug with ComponentFactory.Krypton.Design.dll to version 4.70.0.0 due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
-* New Nuget package, version 4.70.524, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
+* Fixed bug with ComponentFactory.Krypton.Design.dll to version `4.70.0.0` due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
+* New Nuget package, version `4.70.524`, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
 
 =======
 
@@ -43,7 +43,7 @@
 =======
 
 ## 2018-01-20 Nuget package update
-* Fixed Nuget package specification to show the true file assembly number, i.e 4.70.522.0 (build date January 16th, 2018) [Issue, #13](https://github.com/Wagnerp/Krypton-NET-4.7/issues/13)
+* Fixed Nuget package specification to show the true file assembly number, i.e `4.70.522.0` (build date January 16th, 2018) [Issue, #13](https://github.com/Wagnerp/Krypton-NET-4.7/issues/13)
 * All new releases of packages will no longer have a dedicated changelog. Instead, it will point users back to [this repository](https://github.com/Wagnerp/Krypton-NET-4.7) for more information.
 * All new releases of packages will no longer ship with the '.chm' help file. This is to reduce file size from 70+ MB to 5 - 6 MB. If the help file is needed, then please refer to [this link](https://github.com/Wagnerp/Krypton-NET-4.7/raw/master/Help/KryptonHelp.chm) to download it.
 * New versions of Nuget packages can be obtained via [this link](https://www.nuget.org/packages/KryptonToolkitSuite47/) or via your package manager with the following command 'Install-Package KryptonToolkitSuite47 -Version 4.70.xxx' (replace the x's with version number) or by searching KryptonToolkitSuite47 in your package manager.
@@ -51,7 +51,7 @@
 =======
 
 ## 2018-01-15 Minor changes
-* Renamed 'GetCreateParams()' method to 'DrawDropShadow()' in 'KryptonForm.cs' to avoid confusion
+* Renamed `GetCreateParams()` method to `DrawDropShadow()` in 'KryptonForm.cs' to avoid confusion
 * Added/update documentation/comments for drop shadow methods in 'KryptonForm.cs' to make functions clearer
 
 =======
@@ -65,7 +65,7 @@
 
 =======
 
-## 2018-01-13 Minor changes in 'SeparatorController.cs'
+## 2018-01-13 Minor changes in `SeparatorController.cs`
 * Fixed bug [Screen artifact, #79](https://github.com/ComponentFactory/Krypton/issues/79) courtesy of Cocotteseb
 
 =======
@@ -103,7 +103,7 @@
 =======
 
 ## 2018-01-09 Incremental versioning
-* To reflect the .Net version move to Major.Minor of 4.70
+* To reflect the .Net version move to Major.Minor of `4.70`
 * Build will increment, with the final useless installable number left at zero
 * Use "[Automatic Versions](https://marketplace.visualstudio.com/items?itemName=PrecisionInfinity.AutomaticVersions)" to perform the update build number action
 
@@ -119,7 +119,7 @@
 * Reupload of fresh binaries after a good fight!
 * Changed year of all classes, controls et.c from 2017 to 2018
 * Mass rebuild of solution
-* Eradicated all references of 4.5.0.0 to 4.7.0.0
+* Eradicated all references of `4.5.0.0` to `4.7.0.0`
 
 =======
 
