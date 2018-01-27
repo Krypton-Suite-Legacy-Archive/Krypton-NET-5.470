@@ -6,7 +6,12 @@
 
 =======
 
-## 2018-01-27 Help file migration/update
+## 2018-01-27pm New Nuget package release
+* New Nuget package, version`4.70.544` has been released
+
+=======
+
+## 2018-01-27am Help file migration/update
 * Decompiled `chm` file ready for migration/updates
 * New 7z file/directory in `Help` labeled `Help File Data` containing the contents of the `chm` file
 * Remove duplicate information in `README.md`
