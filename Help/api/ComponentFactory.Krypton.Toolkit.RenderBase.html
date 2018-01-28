@@ -1,0 +1,3678 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RenderBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RenderBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_RenderBase" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase" class="text-break">Class RenderBase
+  </h1>
+  <div class="markdown level0 summary"><p>Provides base class for rendering implementations.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
+    <div class="level3"><span class="xref">RenderBase</span></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderStandard.html">RenderStandard</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ComponentModel.IComponent</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBorder.html">IRenderBorder</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBack.html">IRenderBack</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderContent.html">IRenderContent</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.html">IRenderTabBorder</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderRibbon.html">IRenderRibbon</a></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderGlyph.html">IRenderGlyph</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.GetService(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.CanRaiseEvents</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Events</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Site</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Container</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.DesignMode</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Disposed</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_RenderBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RenderBase : Component, IComponent, IDisposable, IRenderer, IRenderBorder, IRenderBack, IRenderContent, IRenderTabBorder, IRenderRibbon, IRenderGlyph</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderGlyph" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderGlyph">RenderGlyph</h4>
+  <div class="markdown level1 summary"><p>Gets the glpyh renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderGlyph RenderGlyph { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderGlyph.html">IRenderGlyph</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderRibbon_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderRibbon*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderRibbon" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderRibbon">RenderRibbon</h4>
+  <div class="markdown level1 summary"><p>Gets the ribbon renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderRibbon RenderRibbon { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderRibbon.html">IRenderRibbon</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardBack_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardBack*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardBack" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardBack">RenderStandardBack</h4>
+  <div class="markdown level1 summary"><p>Gets the standard background renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderBack RenderStandardBack { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBack.html">IRenderBack</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardBorder_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardBorder*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardBorder" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardBorder">RenderStandardBorder</h4>
+  <div class="markdown level1 summary"><p>Gets the standard border renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderBorder RenderStandardBorder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBorder.html">IRenderBorder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardContent_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardContent*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderStandardContent" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderStandardContent">RenderStandardContent</h4>
+  <div class="markdown level1 summary"><p>Gets the standard content renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderContent RenderStandardContent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderContent.html">IRenderContent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderTabBorder_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderTabBorder*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderTabBorder" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderTabBorder">RenderTabBorder</h4>
+  <div class="markdown level1 summary"><p>Gets the tab border renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderTabBorder RenderTabBorder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.html">IRenderTabBorder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawBack_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawBack*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawBack_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_System_Drawing_Drawing2D_GraphicsPath_ComponentFactory_Krypton_Toolkit_IPaletteBack_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawBack(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,System.Drawing.Drawing2D.GraphicsPath,ComponentFactory.Krypton.Toolkit.IPaletteBack,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.IDisposable)">DrawBack(RenderContext, Rectangle, GraphicsPath, IPaletteBack, VisualOrientation, PaletteState, IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Draw background to fill the specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable DrawBack(RenderContext context, Rectangle rect, GraphicsPath path, IPaletteBack palette, VisualOrientation orientation, PaletteState state, IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle that encloses path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>Graphics path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the background.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cache used for drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawBorder_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawBorder*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawBorder(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawBorder(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Draw border on the inside edge of the specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawCheckBox_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawCheckBox*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawCheckBox_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPalette_System_Boolean_System_Windows_Forms_CheckState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawCheckBox(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPalette,System.Boolean,System.Windows.Forms.CheckState,System.Boolean,System.Boolean)">DrawCheckBox(RenderContext, Rectangle, IPalette, Boolean, CheckState, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a check box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawCheckBox(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enabled</span></td>
+        <td><p>Should check box be displayed as enabled.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.CheckState</span></td>
+        <td><span class="parametername">checkState</span></td>
+        <td><p>The checked state of the check box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">tracking</span></td>
+        <td><p>Should check box be displayed as hot tracking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">pressed</span></td>
+        <td><p>Should check box be displayed as pressed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawContent_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawContent*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawContent_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_System_IDisposable_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawContent(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,System.IDisposable,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean,System.Boolean)">DrawContent(RenderContext, Rectangle, IPaletteContent, IDisposable, VisualOrientation, PaletteState, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Perform draw of content using provided memento.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawContent(RenderContext context, Rectangle displayRect, IPaletteContent palette, IDisposable memento, VisualOrientation orientation, PaletteState state, bool composition, bool glowing, bool allowFocusRect)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Content palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the content.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">composition</span></td>
+        <td><p>Drawing onto a composition element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">glowing</span></td>
+        <td><p>If compisition, should glowing be drawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">allowFocusRect</span></td>
+        <td><p>Allow drawing of focus rectangle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDragDropDockingGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDragDropDockingGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDragDropDockingGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_ComponentFactory_Krypton_Toolkit_RenderDragDockingData_ComponentFactory_Krypton_Toolkit_IPaletteDragDrop_ComponentFactory_Krypton_Toolkit_PaletteDragFeedback_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDragDropDockingGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,ComponentFactory.Krypton.Toolkit.RenderDragDockingData,ComponentFactory.Krypton.Toolkit.IPaletteDragDrop,ComponentFactory.Krypton.Toolkit.PaletteDragFeedback)">DrawDragDropDockingGlyph(RenderContext, RenderDragDockingData, IPaletteDragDrop, PaletteDragFeedback)</h4>
+  <div class="markdown level1 summary"><p>Draw a solid area glyph suitable for a drag drop area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawDragDropDockingGlyph(RenderContext context, RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderDragDockingData.html">RenderDragDockingData</a></td>
+        <td><span class="parametername">dragData</span></td>
+        <td><p>Set of drag docking data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDragDrop.html">IPaletteDragDrop</a></td>
+        <td><span class="parametername">dragDropPalette</span></td>
+        <td><p>Palette source of drawing values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDragFeedback.html">PaletteDragFeedback</a></td>
+        <td><span class="parametername">feedback</span></td>
+        <td><p>Feedback requested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDragDropSolidGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDragDropSolidGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDragDropSolidGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteDragDrop_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDragDropSolidGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteDragDrop)">DrawDragDropSolidGlyph(RenderContext, Rectangle, IPaletteDragDrop)</h4>
+  <div class="markdown level1 summary"><p>Draw a solid area glyph suitable for a drag drop area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawDragDropSolidGlyph(RenderContext context, Rectangle drawRect, IPaletteDragDrop dragDropPalette)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">drawRect</span></td>
+        <td><p>Drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDragDrop.html">IPaletteDragDrop</a></td>
+        <td><span class="parametername">dragDropPalette</span></td>
+        <td><p>Palette source of drawing values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDropDownButton_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDropDownButton*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawDropDownButton_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawDropDownButton(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPalette,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation)">DrawDropDownButton(RenderContext, Rectangle, IPalette, PaletteState, VisualOrientation)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a drop down button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawDropDownButton(RenderContext context, Rectangle displayRect, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State for which image size is needed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>How to orientate the image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridErrorGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridErrorGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridErrorGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridErrorGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean)">DrawGridErrorGlyph(RenderContext, Rectangle, PaletteState, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Draw a grid error glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridErrorGlyph(RenderContext context, Rectangle cellRect, PaletteState state, bool rtl)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">rtl</span></td>
+        <td><p>Should be drawn from right to left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Remainder space left over for other drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridRowGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridRowGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridRowGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_ComponentFactory_Krypton_Toolkit_GridRowGlyph_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridRowGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,ComponentFactory.Krypton.Toolkit.GridRowGlyph,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean)">DrawGridRowGlyph(RenderContext, GridRowGlyph, Rectangle, IPaletteContent, PaletteState, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Draw a grid row glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridRowGlyph(RenderContext context, GridRowGlyph rowGlyph, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.GridRowGlyph.html">GridRowGlyph</a></td>
+        <td><span class="parametername">rowGlyph</span></td>
+        <td><p>Row glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">paletteContent</span></td>
+        <td><p>Palette to use for sourcing values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">rtl</span></td>
+        <td><p>Should be drawn from right to left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Remainder space left over for other drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridSortGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridSortGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawGridSortGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Windows_Forms_SortOrder_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawGridSortGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Windows.Forms.SortOrder,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean)">DrawGridSortGlyph(RenderContext, SortOrder, Rectangle, IPaletteContent, PaletteState, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Draw a grid sorting direction glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridSortGlyph(RenderContext context, SortOrder sortOrder, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.SortOrder</span></td>
+        <td><span class="parametername">sortOrder</span></td>
+        <td><p>Sorting order of the glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">paletteContent</span></td>
+        <td><p>Palette to use for sourcing values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">rtl</span></td>
+        <td><p>Should be drawn from right to left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Remainder space left over for other drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawIconHelper_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawIconHelper*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawIconHelper_ComponentFactory_Krypton_Toolkit_ViewContext_System_Drawing_Icon_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_VisualOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawIconHelper(ComponentFactory.Krypton.Toolkit.ViewContext,System.Drawing.Icon,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.VisualOrientation)">DrawIconHelper(ViewContext, Icon, Rectangle, VisualOrientation)</h4>
+  <div class="markdown level1 summary"><p>Helper routine to draw an image taking into account various properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void DrawIconHelper(ViewContext context, Icon icon, Rectangle iconRect, VisualOrientation orientation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Icon</span></td>
+        <td><span class="parametername">icon</span></td>
+        <td><p>Icon to be drawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">iconRect</span></td>
+        <td><p>Destination rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawImageHelper_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawImageHelper*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawImageHelper_ComponentFactory_Krypton_Toolkit_ViewContext_System_Drawing_Image_System_Drawing_Color_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteImageEffect_System_Drawing_Color_System_Drawing_Color_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawImageHelper(ComponentFactory.Krypton.Toolkit.ViewContext,System.Drawing.Image,System.Drawing.Color,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteImageEffect,System.Drawing.Color,System.Drawing.Color)">DrawImageHelper(ViewContext, Image, Color, Rectangle, VisualOrientation, PaletteImageEffect, Color, Color)</h4>
+  <div class="markdown level1 summary"><p>Helper routine to draw an image taking into account various properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void DrawImageHelper(ViewContext context, Image image, Color remapTransparent, Rectangle imageRect, VisualOrientation orientation, PaletteImageEffect effect, Color remapColor, Color remapNew)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Image</span></td>
+        <td><span class="parametername">image</span></td>
+        <td><p>Image to be drawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><span class="parametername">remapTransparent</span></td>
+        <td><p>Color that should become transparent.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">imageRect</span></td>
+        <td><p>Destination rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteImageEffect.html">PaletteImageEffect</a></td>
+        <td><span class="parametername">effect</span></td>
+        <td><p>Drawing effect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><span class="parametername">remapColor</span></td>
+        <td><p>Image color to remap.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><span class="parametername">remapNew</span></td>
+        <td><p>New color for remap.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlDropDownGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlDropDownGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlDropDownGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlDropDownGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawInputControlDropDownGlyph(RenderContext, Rectangle, IPaletteContent, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Draw a drop down grid appropriate for a input control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawInputControlDropDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">paletteContent</span></td>
+        <td><p>Content palette for getting colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlNumericDownGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlNumericDownGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlNumericDownGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlNumericDownGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawInputControlNumericDownGlyph(RenderContext, Rectangle, IPaletteContent, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Draw a numeric down button image appropriate for a input control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawInputControlNumericDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">paletteContent</span></td>
+        <td><p>Content palette for getting colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlNumericUpGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlNumericUpGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawInputControlNumericUpGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawInputControlNumericUpGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawInputControlNumericUpGlyph(RenderContext, Rectangle, IPaletteContent, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Draw a numeric up button image appropriate for a input control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawInputControlNumericUpGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">cellRect</span></td>
+        <td><p>Available drawing rectangle space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">paletteContent</span></td>
+        <td><p>Content palette for getting colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRadioButton_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRadioButton*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRadioButton_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPalette_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRadioButton(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPalette,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">DrawRadioButton(RenderContext, Rectangle, IPalette, Boolean, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a radio button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRadioButton(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enabled</span></td>
+        <td><p>Should radio button be displayed as enabled.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkState</span></td>
+        <td><p>Checked state of the radio button.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">tracking</span></td>
+        <td><p>Should radio button be displayed as hot tracking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">pressed</span></td>
+        <td><p>Should radio button be displayed as pressed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonApplicationButton_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonApplicationButton*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonApplicationButton_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_IPaletteRibbonBack_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonApplicationButton(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack,System.IDisposable)">DrawRibbonApplicationButton(PaletteRibbonShape, RenderContext, Rectangle, PaletteState, IPaletteRibbonBack, IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Draw the application button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonApplicationButton(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack.html">IPaletteRibbonBack</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for sourcing settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached storage for drawing objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonApplicationTab_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonApplicationTab*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonApplicationTab_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_PaletteState_System_Drawing_Color_System_Drawing_Color_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonApplicationTab(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.PaletteState,System.Drawing.Color,System.Drawing.Color,System.IDisposable)">DrawRibbonApplicationTab(PaletteRibbonShape, RenderContext, Rectangle, PaletteState, Color, Color, IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Draw the application tab.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonApplicationTab(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, Color baseColor1, Color baseColor2, IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><span class="parametername">baseColor1</span></td>
+        <td><p>Base color1 used for drawing the ribbon tab.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><span class="parametername">baseColor2</span></td>
+        <td><p>Base color2 used for drawing the ribbon tab.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values to use when drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonBack_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonBack*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonBack_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_IPaletteRibbonBack_ComponentFactory_Krypton_Toolkit_VisualOrientation_System_Boolean_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonBack(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack,ComponentFactory.Krypton.Toolkit.VisualOrientation,System.Boolean,System.IDisposable)">DrawRibbonBack(PaletteRibbonShape, RenderContext, Rectangle, PaletteState, IPaletteRibbonBack, VisualOrientation, Boolean, IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Draw the background of a ribbon element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonBack(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, bool composition, IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack.html">IPaletteRibbonBack</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for sourcing settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Orientation for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">composition</span></td>
+        <td><p>Drawing onto a composition element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values to use when drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonClusterEdge_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonClusterEdge*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonClusterEdge_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBack_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonClusterEdge(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBack,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonClusterEdge(PaletteRibbonShape, RenderContext, Rectangle, IPaletteBack, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon cluster edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonClusterEdge(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
+        <td><span class="parametername">paletteBack</span></td>
+        <td><p>Palette used for recovering drawing details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonContextArrow_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonContextArrow*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonContextArrow_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonContextArrow(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonContextArrow(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon context arrow glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonContextArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>General ribbon palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonDialogBoxLauncher_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonDialogBoxLauncher*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonDialogBoxLauncher_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonDialogBoxLauncher(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonDialogBoxLauncher(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon dialog box launcher glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonDialogBoxLauncher(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>General ribbon palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonDropArrow_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonDropArrow*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonDropArrow_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonDropArrow(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonDropArrow(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon drop arrow glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonDropArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>General ribbon palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonGroupSeparator_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonGroupSeparator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonGroupSeparator_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonGroupSeparator(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonGroupSeparator(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon group separator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonGroupSeparator(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>General ribbon palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonOverflow_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonOverflow*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonOverflow_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonOverflow(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.PaletteState)">DrawRibbonOverflow(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a ribbon overflow image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawRibbonOverflow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>General ribbon palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonTabContextTitle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonTabContextTitle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawRibbonTabContextTitle_ComponentFactory_Krypton_Toolkit_PaletteRibbonShape_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteRibbonGeneral_ComponentFactory_Krypton_Toolkit_IPaletteRibbonBack_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawRibbonTabContextTitle(ComponentFactory.Krypton.Toolkit.PaletteRibbonShape,ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral,ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack,System.IDisposable)">DrawRibbonTabContextTitle(PaletteRibbonShape, RenderContext, Rectangle, IPaletteRibbonGeneral, IPaletteRibbonBack, IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Draw a context ribbon tab title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonTabContextTitle(PaletteRibbonShape shape, RenderContext context, Rectangle rect, IPaletteRibbonGeneral paletteGeneral, IPaletteRibbonBack paletteBack, IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRibbonShape.html">PaletteRibbonShape</a></td>
+        <td><span class="parametername">shape</span></td>
+        <td><p>Ribbon shape.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonGeneral.html">IPaletteRibbonGeneral</a></td>
+        <td><span class="parametername">paletteGeneral</span></td>
+        <td><p>Palette used for general ribbon settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteRibbonBack.html">IPaletteRibbonBack</a></td>
+        <td><span class="parametername">paletteBack</span></td>
+        <td><p>Palette used for background ribbon settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values to use when drawing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawSeparator_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawSeparator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawSeparator_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBack_ComponentFactory_Krypton_Toolkit_IPaletteBorder_System_Windows_Forms_Orientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawSeparator(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBack,ComponentFactory.Krypton.Toolkit.IPaletteBorder,System.Windows.Forms.Orientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean)">DrawSeparator(RenderContext, Rectangle, IPaletteBack, IPaletteBorder, Orientation, PaletteState, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Perform drawing of a separator glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawSeparator(RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, IPaletteBorder paletteBorder, Orientation orientation, PaletteState state, bool canMove)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">displayRect</span></td>
+        <td><p>Display area available for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
+        <td><span class="parametername">paletteBack</span></td>
+        <td><p>Background palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">paletteBorder</span></td>
+        <td><p>Border palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Orientation</span></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the content.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">canMove</span></td>
+        <td><p>Can the separator be moved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTabBorder_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTabBorder*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTabBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTabBorder(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">DrawTabBorder(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Draw border on the inside edge of the specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawTabBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_IPaletteElementColor_System_Drawing_Rectangle_System_Windows_Forms_Orientation_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.IPaletteElementColor,System.Drawing.Rectangle,System.Windows.Forms.Orientation,System.Boolean)">DrawTrackGlyph(RenderContext, PaletteState, IPaletteElementColor, Rectangle, Orientation, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Draw the track bar track glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawTrackGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool volumeControl)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Element state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteElementColor.html">IPaletteElementColor</a></td>
+        <td><span class="parametername">elementPalette</span></td>
+        <td><p>Source of palette colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">drawRect</span></td>
+        <td><p>Drawing rectangle that should contain the track.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Orientation</span></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Drawing orientation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">volumeControl</span></td>
+        <td><p>Drawing as a volume control or standard slider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackPositionGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackPositionGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackPositionGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_IPaletteElementColor_System_Drawing_Rectangle_System_Windows_Forms_Orientation_System_Windows_Forms_TickStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackPositionGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.IPaletteElementColor,System.Drawing.Rectangle,System.Windows.Forms.Orientation,System.Windows.Forms.TickStyle)">DrawTrackPositionGlyph(RenderContext, PaletteState, IPaletteElementColor, Rectangle, Orientation, TickStyle)</h4>
+  <div class="markdown level1 summary"><p>Draw the track bar position glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawTrackPositionGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, TickStyle tickStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Element state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteElementColor.html">IPaletteElementColor</a></td>
+        <td><span class="parametername">elementPalette</span></td>
+        <td><p>Source of palette colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">drawRect</span></td>
+        <td><p>Drawing rectangle that should contain the track.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Orientation</span></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Drawing orientation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.TickStyle</span></td>
+        <td><span class="parametername">tickStyle</span></td>
+        <td><p>Tick marks that surround the position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackTicksGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackTicksGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_DrawTrackTicksGlyph_ComponentFactory_Krypton_Toolkit_RenderContext_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_IPaletteElementColor_System_Drawing_Rectangle_System_Windows_Forms_Orientation_System_Boolean_System_Drawing_Size_System_Int32_System_Int32_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.DrawTrackTicksGlyph(ComponentFactory.Krypton.Toolkit.RenderContext,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.IPaletteElementColor,System.Drawing.Rectangle,System.Windows.Forms.Orientation,System.Boolean,System.Drawing.Size,System.Int32,System.Int32,System.Int32)">DrawTrackTicksGlyph(RenderContext, PaletteState, IPaletteElementColor, Rectangle, Orientation, Boolean, Size, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Draw the track bar ticks glyph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void DrawTrackTicksGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool topRight, Size positionSize, int minimum, int maximum, int frequency)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Element state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteElementColor.html">IPaletteElementColor</a></td>
+        <td><span class="parametername">elementPalette</span></td>
+        <td><p>Source of palette colors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">drawRect</span></td>
+        <td><p>Drawing rectangle that should contain ticks.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Orientation</span></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Orientation of the drawing area.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">topRight</span></td>
+        <td><p>Drawing on the topRight or the bottomLeft.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td><span class="parametername">positionSize</span></td>
+        <td><p>Size of the position indicator.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>First value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>Last value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">frequency</span></td>
+        <td><p>How often ticks are drawn.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_EvalTransparentPaint_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.EvalTransparentPaint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_IPaletteBack_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.EvalTransparentPaint(ComponentFactory.Krypton.Toolkit.IPaletteBack,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState)">EvalTransparentPaint(IPaletteBack, IPaletteBorder, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Evaluate if transparent painting is needed for background or border palettes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(IPaletteBack paletteBack, IPaletteBorder paletteBorder, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
+        <td><span class="parametername">paletteBack</span></td>
+        <td><p>Background palette to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">paletteBorder</span></td>
+        <td><p>Background palette to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Element state associated with palette.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if transparent painting required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_EvalTransparentPaint_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.EvalTransparentPaint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_IPaletteBack_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.EvalTransparentPaint(ComponentFactory.Krypton.Toolkit.IPaletteBack,ComponentFactory.Krypton.Toolkit.PaletteState)">EvalTransparentPaint(IPaletteBack, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Evaluate if transparent painting is needed for background palette.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(IPaletteBack paletteBack, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
+        <td><span class="parametername">paletteBack</span></td>
+        <td><p>Background palette to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Element state associated with palette.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if transparent painting required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBackPath_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBackPath*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBackPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState)">GetBackPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Generate a graphics path that encloses the border and is used when rendering a background to ensure the background does not draw over the border area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><p>GraphicsPath instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderDisplayPadding_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderDisplayPadding*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderDisplayPadding(ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation)">GetBorderDisplayPadding(IPaletteBorder, PaletteState, VisualOrientation)</h4>
+  <div class="markdown level1 summary"><p>Gets the padding used to position display elements completely inside border drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Padding GetBorderDisplayPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Padding</span></td>
+        <td><p>Padding structure detailing all four edges.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderPath_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderPath*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Generate a graphics path that is in the middle of the border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><p>GraphicsPath instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderRawPadding_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderRawPadding*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetBorderRawPadding_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetBorderRawPadding(ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation)">GetBorderRawPadding(IPaletteBorder, PaletteState, VisualOrientation)</h4>
+  <div class="markdown level1 summary"><p>Gets the raw padding used per edge of the border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Padding GetBorderRawPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Padding</span></td>
+        <td><p>Padding structure detailing all four edges.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetCheckBoxPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetCheckBoxPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetCheckBoxPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPalette_System_Boolean_System_Windows_Forms_CheckState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetCheckBoxPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPalette,System.Boolean,System.Windows.Forms.CheckState,System.Boolean,System.Boolean)">GetCheckBoxPreferredSize(ViewLayoutContext, IPalette, Boolean, CheckState, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Calculate the requested display size for the check box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetCheckBoxPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enabled</span></td>
+        <td><p>Should check box be displayed as enabled.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.CheckState</span></td>
+        <td><span class="parametername">checkState</span></td>
+        <td><p>The checked state of the check box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">tracking</span></td>
+        <td><p>Should check box be displayed as hot tracking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">pressed</span></td>
+        <td><p>Should check box be displayed as pressed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentImageDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentImageDisplayed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentImageDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentImageDisplayed(System.IDisposable)">GetContentImageDisplayed(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated display of the image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool GetContentImageDisplayed(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the image is being displayed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentImageRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentImageRectangle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentImageRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentImageRectangle(System.IDisposable)">GetContentImageRectangle(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated position of the content image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentImageRectangle(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Display rectangle for the image content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentLongTextDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentLongTextDisplayed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentLongTextDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentLongTextDisplayed(System.IDisposable)">GetContentLongTextDisplayed(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated display of the long text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool GetContentLongTextDisplayed(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the long text is being displayed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentLongTextRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentLongTextRectangle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentLongTextRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentLongTextRectangle(System.IDisposable)">GetContentLongTextRectangle(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated position of the content long text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentLongTextRectangle(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Display rectangle for the image content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean)">GetContentPreferredSize(ViewLayoutContext, IPaletteContent, IContentValues, VisualOrientation, PaletteState, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Get the preferred size for drawing the content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetContentPreferredSize(ViewLayoutContext context, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Content palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></td>
+        <td><span class="parametername">values</span></td>
+        <td><p>Content values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the content.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">composition</span></td>
+        <td><p>Drawing onto a composition element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">glowing</span></td>
+        <td><p>If composition, should glowing be drawn.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td><p>Preferred size.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentShortTextDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentShortTextDisplayed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentShortTextDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentShortTextDisplayed(System.IDisposable)">GetContentShortTextDisplayed(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated display of the short text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool GetContentShortTextDisplayed(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the short text is being displayed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentShortTextRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentShortTextRectangle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetContentShortTextRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetContentShortTextRectangle(System.IDisposable)">GetContentShortTextRectangle(IDisposable)</h4>
+  <div class="markdown level1 summary"><p>Request the calculated position of the content short text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentShortTextRectangle(IDisposable memento)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><span class="parametername">memento</span></td>
+        <td><p>Cached values from layout call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Display rectangle for the image content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetDropDownButtonPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetDropDownButtonPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetDropDownButtonPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetDropDownButtonPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPalette,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation)">GetDropDownButtonPreferredSize(ViewLayoutContext, IPalette, PaletteState, VisualOrientation)</h4>
+  <div class="markdown level1 summary"><p>Calculate the requested display size for the drop down button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetDropDownButtonPreferredSize(ViewLayoutContext context, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State for which image size is needed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>How to orientate the image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetOutsideBorderPath_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetOutsideBorderPath*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetOutsideBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetOutsideBorderPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState)">GetOutsideBorderPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Generate a graphics path that is the outside edge of the border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetOutsideBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><p>GraphicsPath instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetRadioButtonPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetRadioButtonPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetRadioButtonPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPalette_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetRadioButtonPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPalette,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">GetRadioButtonPreferredSize(ViewLayoutContext, IPalette, Boolean, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Calculate the requested display size for the radio button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetRadioButtonPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Render context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette for sourcing display values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enabled</span></td>
+        <td><p>Should check box be displayed as enabled.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkState</span></td>
+        <td><p>Checked state of the radio button.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">tracking</span></td>
+        <td><p>Should check box be displayed as hot tracking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">pressed</span></td>
+        <td><p>Should check box be displayed as pressed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBackPath_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBackPath*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBackPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBackPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Generate a graphics path that encloses the border and is used when rendering a background to ensure the background does not draw over the border area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetTabBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><p>GraphicsPath instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderDisplayPadding_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderDisplayPadding*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderDisplayPadding(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderDisplayPadding(ViewLayoutContext, IPaletteBorder, PaletteState, VisualOrientation, TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Gets the padding used to position display elements completely inside border drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Padding GetTabBorderDisplayPadding(ViewLayoutContext context, IPaletteBorder palette, PaletteState state, VisualOrientation orientation, TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Padding</span></td>
+        <td><p>Padding structure detailing all four edges.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderLeftDrawing_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderLeftDrawing*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderLeftDrawing_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderLeftDrawing(ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderLeftDrawing(TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Gets if the tabs should be drawn from left to right for z-ordering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool GetTabBorderLeftDrawing(TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True for left to right, otherwise draw right to left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderPath_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderPath*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Generate a graphics path that encloses the border itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetTabBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">rect</span></td>
+        <td><p>Target rectangle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Palette used for drawing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the border.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
+        <td><p>GraphicsPath instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderSpacingGap_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderSpacingGap*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_GetTabBorderSpacingGap_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.GetTabBorderSpacingGap(ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderSpacingGap(TabBorderStyle)</h4>
+  <div class="markdown level1 summary"><p>Gets the spacing used to separate each tab border instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int GetTabBorderSpacingGap(TabBorderStyle tabBorderStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
+        <td><span class="parametername">tabBorderStyle</span></td>
+        <td><p>Style of tab border.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Number of pixels to space instances.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_LayoutContent_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.LayoutContent*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_LayoutContent_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.LayoutContent(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean)">LayoutContent(ViewLayoutContext, Rectangle, IPaletteContent, IContentValues, VisualOrientation, PaletteState, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Perform layout calculations on the provided content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IDisposable LayoutContent(ViewLayoutContext context, Rectangle availableRect, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><span class="parametername">availableRect</span></td>
+        <td><p>Space available for laying out.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
+        <td><span class="parametername">palette</span></td>
+        <td><p>Content palette details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></td>
+        <td><span class="parametername">values</span></td>
+        <td><p>Content values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
+        <td><span class="parametername">orientation</span></td>
+        <td><p>Visual orientation of the content.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State associated with rendering.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">composition</span></td>
+        <td><p>Drawing onto a composition element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">glowing</span></td>
+        <td><p>If composition, should glowing be drawn.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IDisposable</span></td>
+        <td><p>Memento with cached information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_MeasureDragDropDockingGlyph_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.MeasureDragDropDockingGlyph*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_MeasureDragDropDockingGlyph_ComponentFactory_Krypton_Toolkit_RenderDragDockingData_ComponentFactory_Krypton_Toolkit_IPaletteDragDrop_ComponentFactory_Krypton_Toolkit_PaletteDragFeedback_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.MeasureDragDropDockingGlyph(ComponentFactory.Krypton.Toolkit.RenderDragDockingData,ComponentFactory.Krypton.Toolkit.IPaletteDragDrop,ComponentFactory.Krypton.Toolkit.PaletteDragFeedback)">MeasureDragDropDockingGlyph(RenderDragDockingData, IPaletteDragDrop, PaletteDragFeedback)</h4>
+  <div class="markdown level1 summary"><p>Measure the drag and drop docking glyphs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MeasureDragDropDockingGlyph(RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderDragDockingData.html">RenderDragDockingData</a></td>
+        <td><span class="parametername">dragData</span></td>
+        <td><p>Set of drag docking data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDragDrop.html">IPaletteDragDrop</a></td>
+        <td><span class="parametername">dragDropPalette</span></td>
+        <td><p>Palette source of drawing values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDragFeedback.html">PaletteDragFeedback</a></td>
+        <td><span class="parametername">feedback</span></td>
+        <td><p>Feedback requested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderToolStrip_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderToolStrip*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_RenderBase_RenderToolStrip_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.RenderBase.RenderToolStrip(ComponentFactory.Krypton.Toolkit.IPalette)">RenderToolStrip(IPalette)</h4>
+  <div class="markdown level1 summary"><p>Gets a renderer for drawing the toolstrips.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ToolStripRenderer RenderToolStrip(IPalette colorPalette)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td><span class="parametername">colorPalette</span></td>
+        <td><p>Color palette to use when rendering toolstrip.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.ToolStripRenderer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ComponentModel.IComponent</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBorder.html">IRenderBorder</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderBack.html">IRenderBack</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderContent.html">IRenderContent</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.html">IRenderTabBorder</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderRibbon.html">IRenderRibbon</a>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderGlyph.html">IRenderGlyph</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

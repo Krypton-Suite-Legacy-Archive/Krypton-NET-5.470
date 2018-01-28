@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IWorkspaceItem
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IWorkspaceItem
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem" class="text-break">Interface IWorkspaceItem
+  </h1>
+  <div class="markdown level0 summary"><p>Interface for an individual bar check item.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Workspace.html">ComponentFactory.Krypton.Workspace</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Workspace.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IWorkspaceItem</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_DisposeOnRemove_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.DisposeOnRemove*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_DisposeOnRemove" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.DisposeOnRemove">DisposeOnRemove</h4>
+  <div class="markdown level1 summary"><p>Should the item be disposed when it is removed from the workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool DisposeOnRemove { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceActualSize_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceActualSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceActualSize" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceActualSize">WorkspaceActualSize</h4>
+  <div class="markdown level1 summary"><p>Current pixel size of the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Size WorkspaceActualSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceAllowResizing_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceAllowResizing*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceAllowResizing" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceAllowResizing">WorkspaceAllowResizing</h4>
+  <div class="markdown level1 summary"><p>Should the item be displayed in the workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool WorkspaceAllowResizing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceMaxSize_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceMaxSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceMaxSize" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceMaxSize">WorkspaceMaxSize</h4>
+  <div class="markdown level1 summary"><p>Get the defined maximum size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Size WorkspaceMaxSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceMinSize_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceMinSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceMinSize" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceMinSize">WorkspaceMinSize</h4>
+  <div class="markdown level1 summary"><p>Get the defined minimum size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Size WorkspaceMinSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceParent_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceParent*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceParent" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceParent">WorkspaceParent</h4>
+  <div class="markdown level1 summary"><p>Reference to owning workspace item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IWorkspaceItem WorkspaceParent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.IWorkspaceItem.html">IWorkspaceItem</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspacePreferredSize_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspacePreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspacePreferredSize" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspacePreferredSize">WorkspacePreferredSize</h4>
+  <div class="markdown level1 summary"><p>Current preferred size of the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Size WorkspacePreferredSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceStarSize_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceStarSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceStarSize" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceStarSize">WorkspaceStarSize</h4>
+  <div class="markdown level1 summary"><p>Get the defined star sizing value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StarSize WorkspaceStarSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.StarSize.html">StarSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceVisible_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceVisible*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_WorkspaceVisible" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.WorkspaceVisible">WorkspaceVisible</h4>
+  <div class="markdown level1 summary"><p>Should the item be displayed in the workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool WorkspaceVisible { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_Compact_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.Compact*"></a>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_Compact_ComponentFactory_Krypton_Workspace_CompactFlags_" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.Compact(ComponentFactory.Krypton.Workspace.CompactFlags)">Compact(CompactFlags)</h4>
+  <div class="markdown level1 summary"><p>Perform any compacting actions allowed by the flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Compact(CompactFlags flags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.CompactFlags.html">CompactFlags</a></td>
+        <td><span class="parametername">flags</span></td>
+        <td><p>Set of compacting actions allowed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_MaximizeRestoreClicked" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.MaximizeRestoreClicked">MaximizeRestoreClicked</h4>
+  <div class="markdown level1 summary"><p>Occurs when the user clicks the maximize/restore button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler MaximizeRestoreClicked</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="ComponentFactory_Krypton_Workspace_IWorkspaceItem_PropertyChanged" data-uid="ComponentFactory.Krypton.Workspace.IWorkspaceItem.PropertyChanged">PropertyChanged</h4>
+  <div class="markdown level1 summary"><p>Occures when a property changes that affects workspace layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event PropertyChangedEventHandler PropertyChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyChangedEventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1223 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewLayoutMonths
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewLayoutMonths
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths" class="text-break">Class ViewLayoutMonths
+  </h1>
+  <div class="markdown level0 summary"><p>Extends the ViewComposite by creating/destroying month instances in a grid.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></div>
+    <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html">ViewComposite</a></div>
+    <div class="level4"><span class="xref">ViewLayoutMonths</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Dispose_System_Boolean_">ViewComposite.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ReverseRenderOrder">ViewComposite.ReverseRenderOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_">ViewComposite.EvalTransparentPaint(ViewContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Render_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewComposite.Render(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Add_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Add(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Clear">ViewComposite.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Contains(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.ContainsRecurse(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_">ViewComposite.CopyTo(ViewBase[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Remove(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Count">ViewComposite.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.IndexOf(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Insert(Int32, ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_RemoveAt_System_Int32_">ViewComposite.RemoveAt(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Item_System_Int32_">ViewComposite.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_GetEnumerator">ViewComposite.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Recurse">ViewComposite.Recurse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Reverse">ViewComposite.Reverse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ReverseRecurse">ViewComposite.ReverseRecurse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_FixedState">ViewComposite.FixedState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ClearFixedState">ViewComposite.ClearFixedState()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ViewFromPoint_System_Drawing_Point_">ViewComposite.ViewFromPoint(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Dispose">ViewBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed">ViewBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl">ViewBase.OwningControl</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Enabled">ViewBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Visible">ViewBase.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle">ViewBase.ClientRectangle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation">ViewBase.ClientLocation</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize">ViewBase.ClientSize</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth">ViewBase.ClientWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight">ViewBase.ClientHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX">ViewBase.FactorDpiX</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY">ViewBase.FactorDpiY</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Component">ViewBase.Component</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderBefore(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderAfter(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Parent">ViewBase.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly">ViewBase.IsReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator">ViewBase.IEnumerable.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseController">ViewBase.MouseController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyController">ViewBase.KeyController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_SourceController">ViewBase.SourceController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController">ViewBase.FindMouseController()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter">ViewBase.MouseEnter()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_">ViewBase.MouseMove(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseDown(Point, MouseButtons)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseUp(Point, MouseButtons)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.MouseLeave(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_">ViewBase.DoubleClick(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyDown(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_">ViewBase.KeyPress(KeyPressEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyUp(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_">ViewBase.GotFocus(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_">ViewBase.LostFocus(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ElementState">ViewBase.ElementState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_State">ViewBase.State</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed">ViewBase.IsFixed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState">ViewBase.DependantEnabledState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant">ViewBase.IsEnableDependant</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ViewLayoutMonths : ViewComposite, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable, IContentValues</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.#ctor*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths__ctor_ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ComponentFactory_Krypton_Toolkit_KryptonContextMenuMonthCalendar_ComponentFactory_Krypton_Toolkit_ViewContextMenuManager_ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.#ctor(ComponentFactory.Krypton.Toolkit.IContextMenuProvider,ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar,ComponentFactory.Krypton.Toolkit.ViewContextMenuManager,ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar,ComponentFactory.Krypton.Toolkit.PaletteRedirect,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">ViewLayoutMonths(IContextMenuProvider, KryptonContextMenuMonthCalendar, ViewContextMenuManager, IKryptonMonthCalendar, PaletteRedirect, NeedPaintHandler)</h4>
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ViewLayoutMonths class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewLayoutMonths(IContextMenuProvider provider, KryptonContextMenuMonthCalendar monthCalendar, ViewContextMenuManager viewManager, IKryptonMonthCalendar calendar, PaletteRedirect redirector, NeedPaintHandler needPaintDelegate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.html">IContextMenuProvider</a></td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>Provider of context menu information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar.html">KryptonContextMenuMonthCalendar</a></td>
+        <td><span class="parametername">monthCalendar</span></td>
+        <td><p>Reference to owning month calendar entry.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContextMenuManager.html">ViewContextMenuManager</a></td>
+        <td><span class="parametername">viewManager</span></td>
+        <td><p>Owning view manager instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html">IKryptonMonthCalendar</a></td>
+        <td><span class="parametername">calendar</span></td>
+        <td><p>Reference to calendar provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
+        <td><span class="parametername">redirector</span></td>
+        <td><p>Redirector for getting values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
+        <td><span class="parametername">needPaintDelegate</span></td>
+        <td><p>Delegate for requesting paint changes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_AllowButtonSpecToolTips_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.AllowButtonSpecToolTips*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_AllowButtonSpecToolTips" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.AllowButtonSpecToolTips">AllowButtonSpecToolTips</h4>
+  <div class="markdown level1 summary"><p>Gets and sets a value indicating if tooltips should be displayed for button specs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowButtonSpecToolTips { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_AnchorDay_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.AnchorDay*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_AnchorDay" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.AnchorDay">AnchorDay</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the day that is the anchor for shift changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? AnchorDay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ButtonManager_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ButtonManager*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ButtonManager" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ButtonManager">ButtonManager</h4>
+  <div class="markdown level1 summary"><p>Gets access to the button manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ButtonSpecManagerDraw ButtonManager { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecManagerDraw.html">ButtonSpecManagerDraw</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ButtonSpecs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ButtonSpecs*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ButtonSpecs" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ButtonSpecs">ButtonSpecs</h4>
+  <div class="markdown level1 summary"><p>Gets access to the collection of button spec definitions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MonthCalendarButtonSpecCollection ButtonSpecs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.MonthCalendarButtonSpecCollection.html">MonthCalendarButtonSpecCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Calendar_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Calendar*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Calendar" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Calendar">Calendar</h4>
+  <div class="markdown level1 summary"><p>Gets access to the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKryptonMonthCalendar Calendar { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html">IKryptonMonthCalendar</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_CloseOnTodayClick_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.CloseOnTodayClick*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_CloseOnTodayClick" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.CloseOnTodayClick">CloseOnTodayClick</h4>
+  <div class="markdown level1 summary"><p>Gets and set if the menu is closed when the today button is pressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CloseOnTodayClick { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_FocusDay_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.FocusDay*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_FocusDay" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.FocusDay">FocusDay</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the day that is currently showing focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? FocusDay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Months_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Months*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Months" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Months">Months</h4>
+  <div class="markdown level1 summary"><p>Gets the number of display months.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Months { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Provider_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Provider*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Provider" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Provider">Provider</h4>
+  <div class="markdown level1 summary"><p>Gets access to the optional context menu provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IContextMenuProvider Provider { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.html">IContextMenuProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowToday_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowToday*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowToday" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowToday">ShowToday</h4>
+  <div class="markdown level1 summary"><p>Gets and set the display of todays date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowToday { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowTodayCircle_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowTodayCircle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowTodayCircle" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowTodayCircle">ShowTodayCircle</h4>
+  <div class="markdown level1 summary"><p>Gets and set the display of a circle for todays date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowTodayCircle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowWeekNumbers_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowWeekNumbers*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ShowWeekNumbers" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ShowWeekNumbers">ShowWeekNumbers</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the showing of week numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowWeekNumbers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_TrackingDay_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.TrackingDay*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_TrackingDay" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.TrackingDay">TrackingDay</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the day that is currently being tracked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? TrackingDay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_DayFromPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.DayFromPoint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_DayFromPoint_System_Drawing_Point_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.DayFromPoint(System.Drawing.Point,System.Boolean)">DayFromPoint(Point, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gets the button for the day that is under the provided point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? DayFromPoint(Point pt, bool exact)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Point to lookup.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">exact</span></td>
+        <td><p>Exact requires that the day must be with the month range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><p>DateTime for matching day; otherwise null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_DayNearPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.DayNearPoint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_DayNearPoint_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.DayNearPoint(System.Drawing.Point)">DayNearPoint(Point)</h4>
+  <div class="markdown level1 summary"><p>Gets the button for the day that is nearest (date wise) to the point provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime DayNearPoint(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Point to lookup.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><p>DateTime for nearest matching day.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetExtraSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetExtraSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetExtraSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetExtraSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetExtraSize(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Gets the size required to draw extra elements such as headers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size GetExtraSize(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetImage_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetImage*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetImage(ComponentFactory.Krypton.Toolkit.PaletteState)">GetImage(PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Gets the content image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Image GetImage(PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The state for which the image is needed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Image</span></td>
+        <td><p>Image value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetImageTransparentColor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetImageTransparentColor*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetImageTransparentColor(ComponentFactory.Krypton.Toolkit.PaletteState)">GetImageTransparentColor(PaletteState)</h4>
+  <div class="markdown level1 summary"><p>Gets the image color that should be transparent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color GetImageTransparentColor(PaletteState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The state for which the image is needed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Color</span></td>
+        <td><p>Color value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetLongText_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetLongText*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetLongText" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetLongText">GetLongText()</h4>
+  <div class="markdown level1 summary"><p>Gets the content long text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetLongText()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetPreferredSize(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Discover the preferred size of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Size GetPreferredSize(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewComposite.GetPreferredSize(ViewLayoutContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetShortText_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetShortText*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetShortText" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetShortText">GetShortText()</h4>
+  <div class="markdown level1 summary"><p>Gets the content short text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetShortText()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetSingleMonthSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetSingleMonthSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_GetSingleMonthSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.GetSingleMonthSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetSingleMonthSize(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Gets the size required to draw a single month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size GetSingleMonthSize(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Layout*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">Layout(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Layout(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewComposite.Layout(ViewLayoutContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_NextMonth_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.NextMonth*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_NextMonth" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.NextMonth">NextMonth()</h4>
+  <div class="markdown level1 summary"><p>Move to the next month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NextMonth()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_PrevMonth_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.PrevMonth*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_PrevMonth" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.PrevMonth">PrevMonth()</h4>
+  <div class="markdown level1 summary"><p>Move to the previous month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrevMonth()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ProcessKeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ProcessKeyDown*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ProcessKeyDown_System_Windows_Forms_Control_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ProcessKeyDown(System.Windows.Forms.Control,System.Windows.Forms.KeyEventArgs)">ProcessKeyDown(Control, KeyEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Process a key down by finding the correct month and calling the associated key controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ProcessKeyDown(Control c, KeyEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>Owning control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the key was processed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_RecreateButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.RecreateButtons*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_RecreateButtons" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.RecreateButtons">RecreateButtons()</h4>
+  <div class="markdown level1 summary"><p>Recreate the set of button spec instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecreateButtons()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ToString*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutMonths_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutMonths.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>User readable name of the instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ToString">ViewComposite.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
