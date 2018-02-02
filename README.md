@@ -6,6 +6,11 @@
 
 =======
 
+## 2018-02-02 Removal of item templates
+* Removal of item templates. Will be merged with the sister project, [Krypton-Toolkit-Suite-Extended-NET-4.7](https://github.com/Wagnerp/Krypton-Toolkit-Suite-Extended-NET-4.7)
+
+=======
+
 ## 2018-01-27pm New Nuget package release
 * New Nuget package, version `4.70.544` (build date January 27th, 2018) has been released
 

@@ -133,6 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OutlookGridResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controls Toolkit\Outlook Grid\Utilities\Language\EnglishStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controls Visuals\VisualTaskDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -753,6 +758,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>OutlookGridResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls Toolkit\Outlook Grid\Utilities\Language\EnglishStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnglishStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls Visuals\VisualTaskDialog.resx">
       <DependentUpon>VisualTaskDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1143,7 +1152,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
