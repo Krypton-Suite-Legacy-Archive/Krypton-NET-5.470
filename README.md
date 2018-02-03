@@ -6,6 +6,11 @@
 
 =======
 
+## 2018-02-03 Emergency Nuget package release
+* Build 546 (build date February 3rd, 2018) has been released. Found oversight error with versions of DLLs in build 544 where they are built for the .NET 4.7.1 framework. Please discontinue using build 544, and upgrade to 546. Thanks.
+
+=======
+
 ## 2018-02-02 Removal of item templates
 * Removal of item templates. Will be merged with the sister project, [Krypton-Toolkit-Suite-Extended-NET-4.7](https://github.com/Wagnerp/Krypton-Toolkit-Suite-Extended-NET-4.7)
 
