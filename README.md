@@ -5,6 +5,10 @@
 ## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference 'ComponentFactory.Krypton.Design.dll' in ALL of your projects at ALL times!
 
 =======
+## 2018-02-08 Palette designer
+* Binary of `PaletteDesigner.exe` will now be found in the `<PATH_TO_SOURCE_CODE>\Krypton-NET-4\Bin\Versions\4.7` directory, rather than in a random `Bin` directory. Will fix other solutions if needed in due course.
+
+=======
 
 ## 2018-02-03 Emergency Nuget package release
 * Build 546 (build date February 3rd, 2018) has been released. Found oversight error with versions of DLLs in build 544 where they are built for the .NET 4.7.1 framework. Please discontinue using build 544, and upgrade to 546. Thanks.
