@@ -71,9 +71,11 @@ namespace KryptonSeparatorExamples
         {
             string newText = richTextBox1.Text;
             
-            if (newText.Length > 10000) 
+            if (newText.Length > 10000)
+            {
                 newText = string.Empty;
-            
+            }
+
             richTextBox1.Text = str + "\n" + newText;
         }
 

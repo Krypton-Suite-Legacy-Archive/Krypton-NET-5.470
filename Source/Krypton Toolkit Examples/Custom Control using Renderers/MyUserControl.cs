@@ -47,7 +47,9 @@ namespace CustomControlUsingRenderers
 
             // Hook into palette events
             if (_palette != null)
+            {
                 _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // We want to be notified whenever the global palette changes
             KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
@@ -163,12 +165,14 @@ namespace CustomControlUsingRenderers
 
                     // Cleaup resources by disposing of old memento instance
                     if (_mementoContent != null)
+                    {
                         _mementoContent.Dispose();
+                    }
 
                     // Ask the renderer to work out how the Content values will be layed out and
                     // return a memento object that we cache for use when actually performing painting
                     _mementoContent = renderer.RenderStandardContent.LayoutContent(viewContext, innerRect,  _paletteContent, 
-                                                                                   this, Orientation, buttonState, false);
+                                                                                   this, Orientation, buttonState, false, false);
                 }
             }
 
@@ -246,7 +250,7 @@ namespace CustomControlUsingRenderers
                         // Last of all we draw the content over the top of the border and background
                         renderer.RenderStandardContent.DrawContent(renderContext, innerRect, 
                                                                    _paletteContent, _mementoContent, 
-                                                                   Orientation, buttonState, false, true);
+                                                                   Orientation, buttonState, false, false, true);
                     }
                 }
             }
@@ -258,18 +262,26 @@ namespace CustomControlUsingRenderers
         {
             // Find the correct state when getting button values
             if (!Enabled)
+            {
                 return PaletteState.Disabled;
+            }
             else
             {
                 if (_mouseOver)
                 {
                     if (_mouseDown)
+                    {
                         return PaletteState.Pressed;
+                    }
                     else
+                    {
                         return PaletteState.Tracking;
+                    }
                 }
                 else
+                {
                     return PaletteState.Normal;
+                }
             }
         }
 
@@ -284,7 +296,9 @@ namespace CustomControlUsingRenderers
         {
             // Unhook events from old palette
             if (_palette != null)
+            {
                 _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // Cache the new IPalette that is the global palette
             _palette = KryptonManager.CurrentGlobalPalette;
@@ -292,7 +306,9 @@ namespace CustomControlUsingRenderers
 
             // Hook into events for the new palette
             if (_palette != null)
+            {
                 _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // Change of palette means we should repaint to show any changes
             Invalidate();

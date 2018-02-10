@@ -101,7 +101,9 @@ namespace KryptonFormExamples
         {
             // Set correct initial checked button
             if (KryptonManager.CurrentGlobalPalette == KryptonManager.PaletteOffice2007Black)
+            {
                 kryptonCheckSetPalettes.CheckedIndex = 1;
+            }
 
             // Setup the property grid to edit this form
             propertyGrid.SelectedObject = new KryptonFormProxy(this);

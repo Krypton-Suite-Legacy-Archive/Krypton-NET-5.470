@@ -64,14 +64,18 @@ namespace KryptonListBoxExamples
 
             // If nothing currently selected, then select the new one
             if (kryptonListBox.SelectedIndex == -1)
+            {
                 kryptonListBox.SelectedIndex = 0;
+            }
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             // Can only insert if something is already selected
             if (kryptonListBox.SelectedIndex >= 0)
+            {
                 kryptonListBox.Items.Insert(kryptonListBox.SelectedIndex, CreateNewItem());
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -82,14 +86,18 @@ namespace KryptonListBoxExamples
                 // Find the new index to select
                 int index = kryptonListBox.SelectedIndex;
                 if (index == (kryptonListBox.Items.Count - 1))
+                {
                     index--;
+                }
 
                 // Remove entry
                 kryptonListBox.Items.RemoveAt(kryptonListBox.SelectedIndex);
 
                 // Select the new item
                 if (index < kryptonListBox.Items.Count)
+                {
                     kryptonListBox.SelectedIndex = index;
+                }
             }
         }
 
@@ -101,13 +109,21 @@ namespace KryptonListBoxExamples
         private void kryptonCheckSet_CheckedButtonChanged(object sender, EventArgs e)
         {
             if (kryptonCheckSet.CheckedButton == check2007Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2007Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == check2010Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2010Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSparkle)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.SparkleBlue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSystem)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.ProfessionalSystem;
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

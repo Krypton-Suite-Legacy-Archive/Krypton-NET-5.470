@@ -64,20 +64,47 @@ namespace KryptonTaskDialogExamples
         private void buttonShowTaskDialog_Click(object sender, EventArgs e)
         {
             TaskDialogButtons commonButtons = TaskDialogButtons.None;
-            if (checkBoxOK.Checked) commonButtons |= TaskDialogButtons.OK;
-            if (checkBoxYes.Checked) commonButtons |= TaskDialogButtons.Yes;
-            if (checkBoxNo.Checked) commonButtons |= TaskDialogButtons.No;
-            if (checkBoxCancel.Checked) commonButtons |= TaskDialogButtons.Cancel;
-            if (checkBoxClose.Checked) commonButtons |= TaskDialogButtons.Close;
-            if (checkBoxRetry.Checked) commonButtons |= TaskDialogButtons.Retry;
+            if (checkBoxOK.Checked)
+            {
+                commonButtons |= TaskDialogButtons.OK;
+            }
+
+            if (checkBoxYes.Checked)
+            {
+                commonButtons |= TaskDialogButtons.Yes;
+            }
+
+            if (checkBoxNo.Checked)
+            {
+                commonButtons |= TaskDialogButtons.No;
+            }
+
+            if (checkBoxCancel.Checked)
+            {
+                commonButtons |= TaskDialogButtons.Cancel;
+            }
+
+            if (checkBoxClose.Checked)
+            {
+                commonButtons |= TaskDialogButtons.Close;
+            }
+
+            if (checkBoxRetry.Checked)
+            {
+                commonButtons |= TaskDialogButtons.Retry;
+            }
 
             kryptonTaskDialog.RadioButtons.Clear();
             if (checkBoxRadioButtons.Checked)
+            {
                 kryptonTaskDialog.RadioButtons.AddRange(new KryptonTaskDialogCommand[] { kryptonTaskDialogCommand1, kryptonTaskDialogCommand2, kryptonTaskDialogCommand3 });
+            }
 
             kryptonTaskDialog.CommandButtons.Clear();
             if (checkBoxCommandButtons.Checked)
+            {
                 kryptonTaskDialog.CommandButtons.AddRange(new KryptonTaskDialogCommand[] { kryptonTaskDialogCommand4, kryptonTaskDialogCommand5, kryptonTaskDialogCommand6 });
+            }
 
             kryptonTaskDialog.WindowTitle = textBoxCaption.Text;
             kryptonTaskDialog.MainInstruction = textBoxMainInstructions.Text;
@@ -104,7 +131,10 @@ namespace KryptonTaskDialogExamples
                 {
                     var e2 = new Random().Next(1, 10);
                     for (var j=0; j < e2; ++j)
-                      sb.AppendFormat(". {0}", s);
+                    {
+                        sb.AppendFormat(". {0}", s);
+                    }
+
                     sb.Append("\r\n");
                 }
             }
