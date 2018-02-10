@@ -6,6 +6,10 @@
 
 =======
 
+## 2018-02-10 Fix Issue #28 and add help
+* Fix issue #28 - Undo changes that checked for null, and then would use a null, rather than return a null.. 
+* Add initial API Help from DocFX
+
 ## 2018-01-27pm New Nuget package release
 * New Nuget package, version `4.70.544` (build date January 27th, 2018) has been released
 
@@ -52,7 +56,7 @@
 
 ## 2018-01-15 Minor changes
 * Renamed `GetCreateParams()` method to `DrawDropShadow()` in 'KryptonForm.cs' to avoid confusion
-* Added/update documentation/comments for drop shadow methods in 'KryptonForm.cs' to make functions clearer
+* Added/update documentation/comments for drop shadow methods in `KryptonForm.cs` to make functions clearer
 
 =======
 
@@ -124,7 +128,7 @@
 =======
 
 ## 2018-01-07 Toolkit Solution
-* Message content size adjustment in KryptonTaskDialog; ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
+* Message content size adjustment in `KryptonTaskDialog`; ComponentFactory commit [5463f83](https://github.com/ComponentFactory/Krypton/commit/5463f835bcdbfffbafc9002923e0bea831bed211)
 * Remove "Assignment is not used"
 * Initialise orientation in mementos correctly
 * CherryPick Merges from [Cocotteseb ](https://github.com/Cocotteseb/Krypton)
@@ -145,22 +149,22 @@
 
 ## 2018-01-06 Toolkit solution and Examples II changes:
 * Remove "redundant delegate constructors" for callbacks
-* Fix "OnClick" routing for 
+* Fix `OnClick` routing for 
   - ListBox
   - CheckedListBox
   - TextBox
   - TreeView
 * Update the test project to see if click on TextBox's work as expected 
-* Set some private fields to "readonly"
+* Set some private fields to `readonly`
 * Fix AddToWorkspace in KryptonDockingManager
 
 =======
 
 ## 2017-11-12 Toolkit Examples II solution changes:
 * Work out why clipping is the default for "DrawText" 
-  - Applies to buttons, lLabels, Form Titles
+  - Applies to buttons, Labels, Form Titles
   - Create test project - has theme selection, for type testing
-* Remove 'Severity Code Description Project File Line Suppression State' Warning CS0618 'SecurityAction.RequestMinimum' is obsolete: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.' Basic Events 2015 [Source Path]\Krypton-NET-4.7\Source\Krypton Navigator Examples\Basic Events\Properties\AssemblyInfo.cs 35 Active
+* Remove `Severity Code Description Project File Line Suppression State` Warning CS0618 `SecurityAction.RequestMinimum` is obsolete: `Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.` Basic Events 2015 [Source Path]\Krypton-NET-4.7\Source\Krypton Navigator Examples\Basic Events\Properties\AssemblyInfo.cs 35 Active
  
 =======
 ## 2017-10-17 Commits are:
@@ -186,7 +190,7 @@
 
 ## 2017-11-04 Toolkit solution only:
 * Add braces to if statements
-* Use explicit types instead of "vars"
+* Use explicit types instead of `vars`
 * Object initialization can be simplified
 * Delegate invocation can be simplified.
 * Use pattern matching 
@@ -204,7 +208,7 @@
 * An update to Component factory's KryptonToolkit to support the .NET 4.7 framework.
 * Add generic c# .gitignore
 * Change the solution to reflect Visual Studio 2017 usage
-* Change Test apps to use .Net 4.7 Target framework
+* Change Test apps to use .Net 4.7.0 Target framework
 * Add designer Dll to test apps to allow visual design and testing without GAC'ing
 
 =======
@@ -214,8 +218,8 @@
 =======
 
 ## 2017-11-12 pm Toolkit solution changes:
-* Work out why clipping is the default for "DrawText" 
-  - Applies to buttons, lLabels, Form Titles
+* Work out why clipping is the default for `DrawText` 
+  - Applies to buttons, Labels, Form Titles
   - Create test project - has theme selection, for type testing
 * Remove Severity Code Description Project File Line Suppression State Warning CS0618 'SecurityAction.RequestMinimum' is obsolete: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.' Basic Events 2015 [Source Path]\Krypton-NET-4.7\Source\Krypton Navigator Examples\Basic Events\Properties\AssemblyInfo.cs 35 Active
 
