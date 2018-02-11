@@ -1,0 +1,1903 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewBase" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase" class="text-break">Class ViewBase
+  </h1>
+  <div class="markdown level0 summary"><p>Base class from which all view types derive.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><span class="xref">ViewBase</span></div>
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html">ViewComposite</a></div>
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDecorator.html">ViewDecorator</a></div>
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLeaf.html">ViewLeaf</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_ViewBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ViewBase : GlobalId, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.#ctor*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase__ctor" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.#ctor">ViewBase()</h4>
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ViewBase class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ViewBase()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientHeight*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientHeight">ClientHeight</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the height of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int ClientHeight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientLocation*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientLocation">ClientLocation</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the location of the view inside the parent view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Point ClientLocation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientRectangle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientRectangle">ClientRectangle</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the rectangle bounding the client area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Rectangle ClientRectangle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientSize">ClientSize</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the size of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Size ClientSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientWidth*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientWidth">ClientWidth</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the width of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int ClientWidth { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Component_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Component*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Component" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Component">Component</h4>
+  <div class="markdown level1 summary"><p>Gets the component associated with the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Component Component { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.Component</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Count_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Count*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Count" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of views in collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DependantEnabledState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DependantEnabledState">DependantEnabledState</h4>
+  <div class="markdown level1 summary"><p>Get and set the view the enabled state of this view element is dependant on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ViewBase DependantEnabledState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ElementState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ElementState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ElementState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ElementState">ElementState</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the visual state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState ElementState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Enabled_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Enabled*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Enabled">Enabled</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Enabled { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiX*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiX">FactorDpiX</h4>
+  <div class="markdown level1 summary"><p>Gets the DpiX of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FactorDpiX { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiY*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiY">FactorDpiY</h4>
+  <div class="markdown level1 summary"><p>Gets the DpiY of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FactorDpiY { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FixedState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FixedState">FixedState</h4>
+  <div class="markdown level1 summary"><p>Set a fixed state to override usual behavior and appearance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState FixedState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsDisposed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsDisposed">IsDisposed</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if the view has been disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDisposed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsEnableDependant*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsEnableDependant">IsEnableDependant</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if view enabled state is depedant on another view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsEnableDependant { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsFixed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsFixed">IsFixed</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if view is using a fixed state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsFixed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsReadOnly*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Item*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ViewBase this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>ViewBase index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><p>ViewBase at specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyController">KeyController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated key controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IKeyController KeyController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKeyController.html">IKeyController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseController">MouseController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated mouse controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IMouseController MouseController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IMouseController.html">IMouseController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.OwningControl*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.OwningControl">OwningControl</h4>
+  <div class="markdown level1 summary"><p>Gets and sets a reference to the control instance that contains this view element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Control OwningControl { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Parent_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Parent*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Parent" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Parent">Parent</h4>
+  <div class="markdown level1 summary"><p>Gets the parent view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewBase Parent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_SourceController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.SourceController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_SourceController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.SourceController">SourceController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated source controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISourceController SourceController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ISourceController.html">ISourceController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_State_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.State*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_State" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.State">State</h4>
+  <div class="markdown level1 summary"><p>Gets the visual state taking into account the owning controls state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Visible_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Visible*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Visible" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Visible">Visible</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Visible { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Add_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Add*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Add_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Add(ComponentFactory.Krypton.Toolkit.ViewBase)">Add(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Append a view to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Add(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Clear_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Clear*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Clear" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Remove all views from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Clear()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClearFixedState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClearFixedState">ClearFixedState()</h4>
+  <div class="markdown level1 summary"><p>Clear down the use of the fixed state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ClearFixedState()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Contains*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Contains(ComponentFactory.Krypton.Toolkit.ViewBase)">Contains(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Contains(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if view found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ContainsRecurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ContainsRecurse(ComponentFactory.Krypton.Toolkit.ViewBase)">ContainsRecurse(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines whether any part of the view hierarchy is the specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ContainsRecurse(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if view found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.CopyTo*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.CopyTo(ComponentFactory.Krypton.Toolkit.ViewBase[],System.Int32)">CopyTo(ViewBase[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Copies views to specified array starting at particular index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void CopyTo(ViewBase[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>Target array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td><p>Starting array index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Release managed and unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Release unmanaged and optionally managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>Called from Dispose method.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DoubleClick*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DoubleClick(System.Drawing.Point)">DoubleClick(Point)</h4>
+  <div class="markdown level1 summary"><p>Left mouse button has been double clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DoubleClick(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.EvalTransparentPaint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.EvalTransparentPaint(ComponentFactory.Krypton.Toolkit.ViewContext)">EvalTransparentPaint(ViewContext)</h4>
+  <div class="markdown level1 summary"><p>Evaluate the need for drawing transparent areas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(ViewContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Evaluation context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if transparent areas exist; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Finalize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Finalize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Finalize" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Finalize">Finalize()</h4>
+  <div class="markdown level1 summary"><p>Release resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FindMouseController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FindMouseController">FindMouseController()</h4>
+  <div class="markdown level1 summary"><p>Mouse has entered the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IMouseController FindMouseController()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IMouseController.html">IMouseController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetEnumerator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Shallow enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerator&lt;ViewBase&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetPreferredSize(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Discover the preferred size of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetPreferredSize(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GotFocus*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GotFocus(System.Windows.Forms.Control)">GotFocus(Control)</h4>
+  <div class="markdown level1 summary"><p>Source control has got the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void GotFocus(Control c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>Reference to the source control instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IndexOf*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IndexOf(ComponentFactory.Krypton.Toolkit.ViewBase)">IndexOf(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines the index of the specified view in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int IndexOf(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>-1 if not found; otherwise index position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Insert*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Insert(System.Int32,ComponentFactory.Krypton.Toolkit.ViewBase)">Insert(Int32, ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Inserts a view to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Insert(int index, ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Insert index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyDown*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyDown(System.Windows.Forms.KeyEventArgs)">KeyDown(KeyEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void KeyDown(KeyEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyPress*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyPress(System.Windows.Forms.KeyPressEventArgs)">KeyPress(KeyPressEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been pressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void KeyPress(KeyPressEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyPressEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyUp*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyUp(System.Windows.Forms.KeyEventArgs)">KeyUp(KeyEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool KeyUp(KeyEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if capturing input; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Layout*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">Layout(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Layout(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.LostFocus*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.LostFocus(System.Windows.Forms.Control)">LostFocus(Control)</h4>
+  <div class="markdown level1 summary"><p>Source control has lost the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void LostFocus(Control c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>Reference to the source control instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseDown*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseDown(System.Drawing.Point,System.Windows.Forms.MouseButtons)">MouseDown(Point, MouseButtons)</h4>
+  <div class="markdown level1 summary"><p>Mouse button has been pressed in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool MouseDown(Point pt, MouseButtons button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.MouseButtons</span></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>Mouse button pressed down.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if capturing input; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseEnter*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseEnter">MouseEnter()</h4>
+  <div class="markdown level1 summary"><p>Mouse has entered the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseEnter()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseLeave*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseLeave(ComponentFactory.Krypton.Toolkit.ViewBase)">MouseLeave(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Mouse has left the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseLeave(ViewBase next)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>Reference to view that is next to have the mouse.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseMove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseMove(System.Drawing.Point)">MouseMove(Point)</h4>
+  <div class="markdown level1 summary"><p>Mouse has moved inside the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseMove(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseUp*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseUp(System.Drawing.Point,System.Windows.Forms.MouseButtons)">MouseUp(Point, MouseButtons)</h4>
+  <div class="markdown level1 summary"><p>Mouse button has been released in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseUp(Point pt, MouseButtons button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.MouseButtons</span></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>Mouse button released.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Recurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Recurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Recurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Recurse">Recurse()</h4>
+  <div class="markdown level1 summary"><p>Deep enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; Recurse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Remove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Remove(ComponentFactory.Krypton.Toolkit.ViewBase)">Remove(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Removes first occurance of specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Remove(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if removed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RemoveAt*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Remove index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Render_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Render*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Render_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Render(ComponentFactory.Krypton.Toolkit.RenderContext)">Render(RenderContext)</h4>
+  <div class="markdown level1 summary"><p>Perform a render of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Render(RenderContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderAfter*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderAfter(ComponentFactory.Krypton.Toolkit.RenderContext)">RenderAfter(RenderContext)</h4>
+  <div class="markdown level1 summary"><p>Perform rendering after child elements are rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RenderAfter(RenderContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderBefore*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderBefore(ComponentFactory.Krypton.Toolkit.RenderContext)">RenderBefore(RenderContext)</h4>
+  <div class="markdown level1 summary"><p>Perform rendering before child elements are rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RenderBefore(RenderContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Reverse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Reverse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Reverse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Reverse">Reverse()</h4>
+  <div class="markdown level1 summary"><p>Shallow enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; Reverse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ReverseRecurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ReverseRecurse">ReverseRecurse()</h4>
+  <div class="markdown level1 summary"><p>Deep enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; ReverseRecurse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ToString*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>User readable name of the instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ViewFromPoint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ViewFromPoint(System.Drawing.Point)">ViewFromPoint(Point)</h4>
+  <div class="markdown level1 summary"><p>Find the view that contains the specified point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ViewBase ViewFromPoint(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Point in view coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><p>ViewBase if a match is found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Enumerate using non-generic interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

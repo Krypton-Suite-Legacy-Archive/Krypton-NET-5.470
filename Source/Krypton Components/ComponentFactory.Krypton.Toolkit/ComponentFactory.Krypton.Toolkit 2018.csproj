@@ -764,44 +764,6 @@
     <None Include="Resources\SplitHorizontal.cur" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TwoColors_yellow_white_32.png" />
-    <None Include="Resources\TwoColors_white_yellow_32.png" />
-    <None Include="Resources\TwoColors_white_violet_32.png" />
-    <None Include="Resources\TwoColors_white_red_32.png" />
-    <None Include="Resources\TwoColors_white_pink_32.png" />
-    <None Include="Resources\TwoColors_white_green_32.png" />
-    <None Include="Resources\TwoColors_white_blue_32.png" />
-    <None Include="Resources\TwoColors_violet_white_32.png" />
-    <None Include="Resources\TwoColors_red_white_32.png" />
-    <None Include="Resources\TwoColors_pink_white_32.png" />
-    <None Include="Resources\TwoColors_green_white_32.png" />
-    <None Include="Resources\TwoColors_blue_white_32.png" />
-    <None Include="Resources\ThreeColors_red_yellow_green_32.png" />
-    <None Include="Resources\ThreeColors_red_white_green_32.png" />
-    <None Include="Resources\ThreeColors_red_white_blue_32.png" />
-    <None Include="Resources\ThreeColors_green_yellow_red_32.png" />
-    <None Include="Resources\ThreeColors_green_white_red_32.png" />
-    <None Include="Resources\ThreeColors_blue_white_red_32.png" />
-    <None Include="Resources\table2_selection_column.png" />
-    <None Include="Resources\table_conditional_16.png" />
-    <None Include="Resources\starhot5.png" />
-    <None Include="Resources\starhot4.png" />
-    <None Include="Resources\starhot3.png" />
-    <None Include="Resources\starhot2.png" />
-    <None Include="Resources\starhot1.png" />
-    <None Include="Resources\starhot0.png" />
-    <None Include="Resources\star5.png" />
-    <None Include="Resources\star4.png" />
-    <None Include="Resources\star3.png" />
-    <None Include="Resources\star2.png" />
-    <None Include="Resources\star1.png" />
-    <None Include="Resources\star0.png" />
-    <None Include="Resources\star_yellow_half_16.png" />
-    <None Include="Resources\star_yellow_disabled.png" />
-    <None Include="Resources\star_yellow.png" />
-    <None Include="Resources\sort_up_down_delete_16.png" />
-    <None Include="Resources\sort_az_descending2.png" />
-    <None Include="Resources\sort_az_ascending2.png" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonTreeView.bmp" />
     <None Include="Resources\TreePlusBox.png" />
     <None Include="Resources\TreeMinusBox.png" />
@@ -873,26 +835,6 @@
     <None Include="Resources\CB2010Black.bmp" />
     <None Include="Resources\CB2010Blue.bmp" />
     <None Include="Resources\CB2010Silver.bmp" />
-    <None Include="Resources\CollapseIcon.png" />
-    <None Include="Resources\CollapseIcon2010.png" />
-    <None Include="Resources\color2scale_generic_16.png" />
-    <None Include="Resources\color3scale_generic_16.png" />
-    <None Include="Resources\databar_generic_16.png" />
-    <None Include="Resources\Databar_gradient_blue_32.png" />
-    <None Include="Resources\Databar_gradient_green_32.png" />
-    <None Include="Resources\Databar_gradient_pink_32.png" />
-    <None Include="Resources\Databar_gradient_red_32.png" />
-    <None Include="Resources\Databar_gradient_rose_32.png" />
-    <None Include="Resources\Databar_gradient_violet_32.png" />
-    <None Include="Resources\Databar_gradient_yellow_32.png" />
-    <None Include="Resources\Databar_gradient2_blue_32.png" />
-    <None Include="Resources\Databar_solid_blue_32.png" />
-    <None Include="Resources\Databar_solid_green_32.png" />
-    <None Include="Resources\Databar_solid_pink_32.png" />
-    <None Include="Resources\Databar_solid_red_32.png" />
-    <None Include="Resources\Databar_solid_rose_32.png" />
-    <None Include="Resources\Databar_solid_violet_32.png" />
-    <None Include="Resources\Databar_solid_yellow_32.png" />
     <Content Include="Resources\DisabledDropDownButton.png" />
     <None Include="Resources\GallerySilverBlack.bmp" />
     <None Include="Resources\GalleryBlue.bmp" />
@@ -952,20 +894,6 @@
     <None Include="Resources\help2Small.png" />
     <None Include="Resources\informationSmall.png" />
     <None Include="Resources\sign_warningSmall.png" />
-    <None Include="Resources\element.png" />
-    <None Include="Resources\element_delete.png" />
-    <None Include="Resources\element_minus_16.png" />
-    <None Include="Resources\element_plus_16.png" />
-    <None Include="Resources\element_selection_delete.png" />
-    <None Include="Resources\elements_minus_16.png" />
-    <None Include="Resources\elements_plus_16.png" />
-    <None Include="Resources\eraser.png" />
-    <None Include="Resources\ExpandIcon.png" />
-    <None Include="Resources\ExpandIcon2010.png" />
-    <None Include="Resources\fit_to_size.png" />
-    <None Include="Resources\navigate_minus.png" />
-    <None Include="Resources\navigate_plus.png" />
-    <None Include="Resources\paint_bucket_green.png" />
     <Content Include="Resources\SilverDropDownButton.png" />
     <None Include="Resources\WhitePendantRibbonMinimize.bmp" />
     <None Include="Resources\WhitePendantRibbonExpand.bmp" />
@@ -1134,7 +1062,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

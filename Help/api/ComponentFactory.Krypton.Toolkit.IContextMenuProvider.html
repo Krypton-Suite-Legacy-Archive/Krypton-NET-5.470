@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IContextMenuProvider
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IContextMenuProvider
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider" class="text-break">Interface IContextMenuProvider
+  </h1>
+  <div class="markdown level0 summary"><p>Interface exposed by a context menu provider.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IContextMenuProvider</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_HasParentProvider_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.HasParentProvider*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_HasParentProvider" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.HasParentProvider">HasParentProvider</h4>
+  <div class="markdown level1 summary"><p>Does this provider have a parent provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HasParentProvider { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderCanCloseMenu_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderCanCloseMenu*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderCanCloseMenu" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderCanCloseMenu">ProviderCanCloseMenu</h4>
+  <div class="markdown level1 summary"><p>Is context menu capable of being closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ProviderCanCloseMenu { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderCloseReason_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderCloseReason*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderCloseReason" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderCloseReason">ProviderCloseReason</h4>
+  <div class="markdown level1 summary"><p>Sets the reason for the context menu being closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ToolStripDropDownCloseReason? ProviderCloseReason { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Windows.Forms.ToolStripDropDownCloseReason</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderEnabled_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderEnabled*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderEnabled" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderEnabled">ProviderEnabled</h4>
+  <div class="markdown level1 summary"><p>Is the entire context menu enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ProviderEnabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderImages_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderImages*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderImages" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderImages">ProviderImages</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu images.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteRedirectContextMenu ProviderImages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirectContextMenu.html">PaletteRedirectContextMenu</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderNeedPaintDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderNeedPaintDelegate*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderNeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderNeedPaintDelegate">ProviderNeedPaintDelegate</h4>
+  <div class="markdown level1 summary"><p>Gets a delegate used to indicate a repaint is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NeedPaintHandler ProviderNeedPaintDelegate { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderPalette_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderPalette*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderPalette" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderPalette">ProviderPalette</h4>
+  <div class="markdown level1 summary"><p>Gets access to the custom palette.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IPalette ProviderPalette { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderPaletteMode_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderPaletteMode*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderPaletteMode" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderPaletteMode">ProviderPaletteMode</h4>
+  <div class="markdown level1 summary"><p>Gets access to the palette mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteMode ProviderPaletteMode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMode.html">PaletteMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderRedirector_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderRedirector*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderRedirector" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderRedirector">ProviderRedirector</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu redirector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteRedirect ProviderRedirector { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowHorz_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowHorz*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowHorz" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowHorz">ProviderShowHorz</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the horizontal setting used to position the menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KryptonContextMenuPositionH ProviderShowHorz { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenuPositionH.html">KryptonContextMenuPositionH</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowVert_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowVert*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowVert" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowVert">ProviderShowVert</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the vertical setting used to position the menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KryptonContextMenuPositionV ProviderShowVert { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenuPositionV.html">KryptonContextMenuPositionV</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateChecked_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateChecked*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateChecked" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateChecked">ProviderStateChecked</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu checked state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteContextMenuItemStateChecked ProviderStateChecked { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContextMenuItemStateChecked.html">PaletteContextMenuItemStateChecked</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateCommon_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateCommon*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateCommon" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateCommon">ProviderStateCommon</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu common state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteContextMenuRedirect ProviderStateCommon { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContextMenuRedirect.html">PaletteContextMenuRedirect</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateDisabled_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateDisabled*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateDisabled" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateDisabled">ProviderStateDisabled</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu disabled state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteContextMenuItemState ProviderStateDisabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContextMenuItemState.html">PaletteContextMenuItemState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateHighlight_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateHighlight*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateHighlight" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateHighlight">ProviderStateHighlight</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu highlight state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteContextMenuItemStateHighlight ProviderStateHighlight { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContextMenuItemStateHighlight.html">PaletteContextMenuItemStateHighlight</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateNormal_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateNormal*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderStateNormal" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderStateNormal">ProviderStateNormal</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu normal state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PaletteContextMenuItemState ProviderStateNormal { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContextMenuItemState.html">PaletteContextMenuItemState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderViewColumns_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderViewColumns*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderViewColumns" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderViewColumns">ProviderViewColumns</h4>
+  <div class="markdown level1 summary"><p>Gets access to the layout for context menu columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ViewLayoutStack ProviderViewColumns { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutStack.html">ViewLayoutStack</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderViewManager_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderViewManager*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderViewManager" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderViewManager">ProviderViewManager</h4>
+  <div class="markdown level1 summary"><p>Gets access to the context menu specific view manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ViewContextMenuManager ProviderViewManager { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContextMenuManager.html">ViewContextMenuManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnClose_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnClose*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnClose_ComponentFactory_Krypton_Toolkit_CloseReasonEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnClose(ComponentFactory.Krypton.Toolkit.CloseReasonEventArgs)">OnClose(CloseReasonEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Fires the Close event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnClose(CloseReasonEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.CloseReasonEventArgs.html">CloseReasonEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>An CloseReasonMenuArgs containing the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnClosing_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnClosing*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnClosing_System_ComponentModel_CancelEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnClosing(System.ComponentModel.CancelEventArgs)">OnClosing(CancelEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Fires the Closing event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnClosing(CancelEventArgs cea)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.CancelEventArgs</span></td>
+        <td><span class="parametername">cea</span></td>
+        <td><p>A CancelEventArgs containing the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnDispose_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnDispose*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_OnDispose_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.OnDispose(System.EventArgs)">OnDispose(EventArgs)</h4>
+  <div class="markdown level1 summary"><p>Fires the Closing event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnDispose(EventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>An EventArgs containing the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowSubMenuFixed_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowSubMenuFixed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowSubMenuFixed_ComponentFactory_Krypton_Toolkit_KryptonContextMenuItem_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowSubMenuFixed(ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem)">ProviderShowSubMenuFixed(KryptonContextMenuItem)</h4>
+  <div class="markdown level1 summary"><p>Should the sub menu be shown at fixed screen location for this menu item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ProviderShowSubMenuFixed(KryptonContextMenuItem menuItem)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem.html">KryptonContextMenuItem</a></td>
+        <td><span class="parametername">menuItem</span></td>
+        <td><p>Menu item that needs to show sub menu.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the sub menu should be a fixed size.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowSubMenuFixedRect_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowSubMenuFixedRect*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_ProviderShowSubMenuFixedRect_ComponentFactory_Krypton_Toolkit_KryptonContextMenuItem_" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.ProviderShowSubMenuFixedRect(ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem)">ProviderShowSubMenuFixedRect(KryptonContextMenuItem)</h4>
+  <div class="markdown level1 summary"><p>Should the sub menu be shown at fixed screen location for this menu item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle ProviderShowSubMenuFixedRect(KryptonContextMenuItem menuItem)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem.html">KryptonContextMenuItem</a></td>
+        <td><span class="parametername">menuItem</span></td>
+        <td><p>Menu item that needs to show sub menu.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td><p>Screen rectangle to use as display rectangle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_Close" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.Close">Close</h4>
+  <div class="markdown level1 summary"><p>Raises the Close event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;CloseReasonEventArgs&gt; Close</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.CloseReasonEventArgs.html">CloseReasonEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_Closing" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.Closing">Closing</h4>
+  <div class="markdown level1 summary"><p>Raises the Closing event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event CancelEventHandler Closing</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.CancelEventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="ComponentFactory_Krypton_Toolkit_IContextMenuProvider_Dispose" data-uid="ComponentFactory.Krypton.Toolkit.IContextMenuProvider.Dispose">Dispose</h4>
+  <div class="markdown level1 summary"><p>Raises the Dispose event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler Dispose</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

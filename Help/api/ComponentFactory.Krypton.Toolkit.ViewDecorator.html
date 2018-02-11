@@ -1,0 +1,1736 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewDecorator
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewDecorator
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewDecorator" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator" class="text-break">Class ViewDecorator
+  </h1>
+  <div class="markdown level0 summary"><p>Base class from which all decorator views inherit.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></div>
+    <div class="level3"><span class="xref">ViewDecorator</span></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDecoratorFixedSize.html">ViewDecoratorFixedSize</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Dispose">ViewBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed">ViewBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl">ViewBase.OwningControl</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX">ViewBase.FactorDpiX</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY">ViewBase.FactorDpiY</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Component">ViewBase.Component</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderBefore(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderAfter(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Parent">ViewBase.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly">ViewBase.IsReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator">ViewBase.IEnumerable.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController">ViewBase.FindMouseController()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_">ViewBase.DoubleClick(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ViewDecorator : ViewBase, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.#ctor*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator__ctor_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.#ctor(ComponentFactory.Krypton.Toolkit.ViewBase)">ViewDecorator(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ViewBase class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ViewDecorator(ViewBase child)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">child</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientHeight_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientHeight*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientHeight" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientHeight">ClientHeight</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the height of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int ClientHeight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight">ViewBase.ClientHeight</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientLocation_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientLocation*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientLocation" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientLocation">ClientLocation</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the location of the view inside the parent view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Point ClientLocation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation">ViewBase.ClientLocation</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientRectangle*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientRectangle" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientRectangle">ClientRectangle</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the rectangle bounding the client area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Rectangle ClientRectangle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Rectangle</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle">ViewBase.ClientRectangle</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientSize" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientSize">ClientSize</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the size of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Size ClientSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize">ViewBase.ClientSize</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientWidth_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientWidth*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClientWidth" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClientWidth">ClientWidth</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the width of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int ClientWidth { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth">ViewBase.ClientWidth</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Count_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Count*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Count" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of views in collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Count">ViewBase.Count</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_DependantEnabledState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.DependantEnabledState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_DependantEnabledState" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.DependantEnabledState">DependantEnabledState</h4>
+  <div class="markdown level1 summary"><p>Get and set the view the enabled state of this view element is dependant on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ViewBase DependantEnabledState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState">ViewBase.DependantEnabledState</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ElementState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ElementState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ElementState" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ElementState">ElementState</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the visual state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override PaletteState ElementState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ElementState">ViewBase.ElementState</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Enabled_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Enabled*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Enabled">Enabled</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Enabled { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Enabled">ViewBase.Enabled</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_FixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.FixedState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_FixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.FixedState">FixedState</h4>
+  <div class="markdown level1 summary"><p>Set a fixed state to override usual behavior and appearance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override PaletteState FixedState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FixedState">ViewBase.FixedState</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IsEnableDependant_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IsEnableDependant*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IsEnableDependant" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IsEnableDependant">IsEnableDependant</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if view enabled state is depedant on another view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsEnableDependant { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant">ViewBase.IsEnableDependant</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IsFixed_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IsFixed*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IsFixed" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IsFixed">IsFixed</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if view is using a fixed state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsFixed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed">ViewBase.IsFixed</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Item*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ViewBase this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>ViewBase index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><p>ViewBase at specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Item_System_Int32_">ViewBase.Item[Int32]</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyController" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyController">KeyController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated key controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IKeyController KeyController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKeyController.html">IKeyController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyController">ViewBase.KeyController</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseController" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseController">MouseController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated mouse controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IMouseController MouseController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IMouseController.html">IMouseController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseController">ViewBase.MouseController</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_SourceController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.SourceController*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_SourceController" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.SourceController">SourceController</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the associated source controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISourceController SourceController { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ISourceController.html">ISourceController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_SourceController">ViewBase.SourceController</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_State_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.State*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_State" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.State">State</h4>
+  <div class="markdown level1 summary"><p>Gets the visual state taking into account the owning controls state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override PaletteState State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_State">ViewBase.State</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Visible_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Visible*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Visible" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Visible">Visible</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Visible { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Visible">ViewBase.Visible</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Add_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Add*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Add_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Add(ComponentFactory.Krypton.Toolkit.ViewBase)">Add(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Append a view to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Add(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Add_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.Add(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Clear_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Clear*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Clear" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Remove all views from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Clear()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Clear">ViewBase.Clear()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClearFixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClearFixedState*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ClearFixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ClearFixedState">ClearFixedState()</h4>
+  <div class="markdown level1 summary"><p>Clear down the use of the fixed state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ClearFixedState()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState">ViewBase.ClearFixedState()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Contains*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Contains(ComponentFactory.Krypton.Toolkit.ViewBase)">Contains(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Contains(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if view found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.Contains(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ContainsRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ContainsRecurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ContainsRecurse(ComponentFactory.Krypton.Toolkit.ViewBase)">ContainsRecurse(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines whether any part of the view hierarchy is the specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ContainsRecurse(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if view found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.ContainsRecurse(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.CopyTo*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.CopyTo(ComponentFactory.Krypton.Toolkit.ViewBase[],System.Int32)">CopyTo(ViewBase[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Copies views to specified array starting at particular index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CopyTo(ViewBase[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>Target array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td><p>Starting array index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_">ViewBase.CopyTo(ViewBase[], Int32)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Dispose*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Release unmanaged and optionally managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>Called from Dispose method.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_System_Boolean_">ViewBase.Dispose(Boolean)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_EvalTransparentPaint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.EvalTransparentPaint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.EvalTransparentPaint(ComponentFactory.Krypton.Toolkit.ViewContext)">EvalTransparentPaint(ViewContext)</h4>
+  <div class="markdown level1 summary"><p>Evaluate the need for drawing transparent areas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool EvalTransparentPaint(ViewContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Evaluation context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if transparent areas exist; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_">ViewBase.EvalTransparentPaint(ViewContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GetEnumerator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Shallow enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerator&lt;ViewBase&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator">ViewBase.GetEnumerator()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GetPreferredSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetPreferredSize(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Discover the preferred size of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Size GetPreferredSize(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewBase.GetPreferredSize(ViewLayoutContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GotFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GotFocus*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_GotFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.GotFocus(System.Windows.Forms.Control)">GotFocus(Control)</h4>
+  <div class="markdown level1 summary"><p>Source control has got the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GotFocus(Control c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>Reference to the source control instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_">ViewBase.GotFocus(Control)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IndexOf*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.IndexOf(ComponentFactory.Krypton.Toolkit.ViewBase)">IndexOf(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Determines the index of the specified view in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int IndexOf(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>-1 if not found; otherwise index position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.IndexOf(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Insert*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Insert(System.Int32,ComponentFactory.Krypton.Toolkit.ViewBase)">Insert(Int32, ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Inserts a view to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Insert(int index, ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Insert index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.Insert(Int32, ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyDown*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyDown(System.Windows.Forms.KeyEventArgs)">KeyDown(KeyEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void KeyDown(KeyEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyDown(KeyEventArgs)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyPress_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyPress*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyPress(System.Windows.Forms.KeyPressEventArgs)">KeyPress(KeyPressEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been pressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void KeyPress(KeyPressEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyPressEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_">ViewBase.KeyPress(KeyPressEventArgs)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyUp*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_KeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.KeyUp(System.Windows.Forms.KeyEventArgs)">KeyUp(KeyEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Key has been released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool KeyUp(KeyEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A KeyEventArgs that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if capturing input; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyUp(KeyEventArgs)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Layout*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">Layout(ViewLayoutContext)</h4>
+  <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Layout(ViewLayoutContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Layout context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewBase.Layout(ViewLayoutContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_LostFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.LostFocus*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_LostFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.LostFocus(System.Windows.Forms.Control)">LostFocus(Control)</h4>
+  <div class="markdown level1 summary"><p>Source control has lost the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void LostFocus(Control c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.Control</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>Reference to the source control instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_">ViewBase.LostFocus(Control)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseDown*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseDown(System.Drawing.Point,System.Windows.Forms.MouseButtons)">MouseDown(Point, MouseButtons)</h4>
+  <div class="markdown level1 summary"><p>Mouse button has been pressed in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool MouseDown(Point pt, MouseButtons button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.MouseButtons</span></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>Mouse button pressed down.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if capturing input; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseDown(Point, MouseButtons)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseEnter_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseEnter*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseEnter" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseEnter">MouseEnter()</h4>
+  <div class="markdown level1 summary"><p>Mouse has entered the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MouseEnter()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter">ViewBase.MouseEnter()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseLeave*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseLeave(ComponentFactory.Krypton.Toolkit.ViewBase)">MouseLeave(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Mouse has left the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MouseLeave(ViewBase next)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>Reference to view that is next to have the mouse.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.MouseLeave(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseMove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseMove(System.Drawing.Point)">MouseMove(Point)</h4>
+  <div class="markdown level1 summary"><p>Mouse has moved inside the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MouseMove(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_">ViewBase.MouseMove(Point)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseUp*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.MouseUp(System.Drawing.Point,System.Windows.Forms.MouseButtons)">MouseUp(Point, MouseButtons)</h4>
+  <div class="markdown level1 summary"><p>Mouse button has been released in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MouseUp(Point pt, MouseButtons button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Mouse position relative to control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Windows.Forms.MouseButtons</span></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>Mouse button released.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseUp(Point, MouseButtons)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Recurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Recurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Recurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Recurse">Recurse()</h4>
+  <div class="markdown level1 summary"><p>Deep enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;ViewBase&gt; Recurse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Recurse">ViewBase.Recurse()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Remove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Remove(ComponentFactory.Krypton.Toolkit.ViewBase)">Remove(ViewBase)</h4>
+  <div class="markdown level1 summary"><p>Removes first occurance of specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Remove(ViewBase item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>ViewBase reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if removed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.Remove(ViewBase)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_RemoveAt_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.RemoveAt*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_RemoveAt_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Remove index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_System_Int32_">ViewBase.RemoveAt(Int32)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Render_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Render*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Render_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Render(ComponentFactory.Krypton.Toolkit.RenderContext)">Render(RenderContext)</h4>
+  <div class="markdown level1 summary"><p>Perform a render of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Render(RenderContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Rendering context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Render_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.Render(RenderContext)</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Reverse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Reverse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_Reverse" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.Reverse">Reverse()</h4>
+  <div class="markdown level1 summary"><p>Shallow enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;ViewBase&gt; Reverse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Reverse">ViewBase.Reverse()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ReverseRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ReverseRecurse*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ReverseRecurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ReverseRecurse">ReverseRecurse()</h4>
+  <div class="markdown level1 summary"><p>Deep enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;ViewBase&gt; ReverseRecurse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse">ViewBase.ReverseRecurse()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ToString*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>User readable name of the instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ToString">ViewBase.ToString()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ViewFromPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ViewFromPoint*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDecorator_ViewFromPoint_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDecorator.ViewFromPoint(System.Drawing.Point)">ViewFromPoint(Point)</h4>
+  <div class="markdown level1 summary"><p>Find the view that contains the specified point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ViewBase ViewFromPoint(Point pt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Drawing.Point</span></td>
+        <td><span class="parametername">pt</span></td>
+        <td><p>Point in view coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
+        <td><p>ViewBase if a match is found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_System_Drawing_Point_">ViewBase.ViewFromPoint(Point)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

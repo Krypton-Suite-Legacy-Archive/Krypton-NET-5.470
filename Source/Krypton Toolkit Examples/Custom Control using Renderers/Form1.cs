@@ -53,13 +53,21 @@ namespace CustomControlUsingRenderers
         {
             // Update orientation of the MyUserControl to match radio buttons
             if (radioTop.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Top;
+            }
             else if (radioBottom.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Bottom;
+            }
             else if (radioLeft.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Left;
+            }
             else if (radioRight.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Right;
+            }
         }
 
         private void checkBoxEnabled_CheckedChanged(object sender, EventArgs e)

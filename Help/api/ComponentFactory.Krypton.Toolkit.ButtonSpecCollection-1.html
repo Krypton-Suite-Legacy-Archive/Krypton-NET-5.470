@@ -1,0 +1,1181 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ButtonSpecCollection&lt;T&gt;
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ButtonSpecCollection&lt;T&gt;
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1">
+  
+  
+  <h1 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1" class="text-break">Class ButtonSpecCollection&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Manage a collection of ButtonSpec instances.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html">ButtonSpecCollectionBase</a></div>
+    <div class="level3"><span class="xref">ButtonSpecCollection&lt;T&gt;</span></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Navigator.NavFixedButtonSpecCollection.html">NavFixedButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Navigator.NavigatorButtonSpecCollection.html">NavigatorButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageButtonSpecCollection.html">PageButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonRibbon.RibbonButtonSpecAnyCollection.html">KryptonRibbon.RibbonButtonSpecAnyCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Ribbon.RibbonAppButton.AppMenuButtonSpecCollection.html">RibbonAppButton.AppMenuButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.DataGridViewColumnSpecCollection.html">DataGridViewColumnSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb.BreadCrumbButtonSpecCollection.html">KryptonBreadCrumb.BreadCrumbButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.ComboBoxButtonSpecCollection.html">KryptonComboBox.ComboBoxButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker.DateTimePickerButtonSpecCollection.html">KryptonDateTimePicker.DateTimePickerButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown.DomainUpDownButtonSpecCollection.html">KryptonDomainUpDown.DomainUpDownButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.FormButtonSpecCollection.html">KryptonForm.FormButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.FormFixedButtonSpecCollection.html">KryptonForm.FormFixedButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonHeader.HeaderButtonSpecCollection.html">KryptonHeader.HeaderButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup.HeaderGroupButtonSpecCollection.html">KryptonHeaderGroup.HeaderGroupButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox.MaskedTextBoxButtonSpecCollection.html">KryptonMaskedTextBox.MaskedTextBoxButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown.NumericUpDownButtonSpecCollection.html">KryptonNumericUpDown.NumericUpDownButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonRichTextBox.RichTextBoxButtonSpecCollection.html">KryptonRichTextBox.RichTextBoxButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonTextBox.TextBoxButtonSpecCollection.html">KryptonTextBox.TextBoxButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.MonthCalendarButtonSpecCollection.html">MonthCalendarButtonSpecCollection</a></div>
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawMonth.CalendarButtonSpecCollection.html">ViewDrawMonth.CalendarButtonSpecCollection</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.IList</span></div>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.ICollection</span></div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Inserting">ButtonSpecCollectionBase.Inserting</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Inserted">ButtonSpecCollectionBase.Inserted</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Removing">ButtonSpecCollectionBase.Removing</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Removed">ButtonSpecCollectionBase.Removed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Owner">ButtonSpecCollectionBase.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_OnInserting_ComponentFactory_Krypton_Toolkit_ButtonSpecEventArgs_">ButtonSpecCollectionBase.OnInserting(ButtonSpecEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_OnInserted_ComponentFactory_Krypton_Toolkit_ButtonSpecEventArgs_">ButtonSpecCollectionBase.OnInserted(ButtonSpecEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_OnRemoving_ComponentFactory_Krypton_Toolkit_ButtonSpecEventArgs_">ButtonSpecCollectionBase.OnRemoving(ButtonSpecEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_OnRemoved_ComponentFactory_Krypton_Toolkit_ButtonSpecEventArgs_">ButtonSpecCollectionBase.OnRemoved(ButtonSpecEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  <h5 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ButtonSpecCollection&lt;T&gt; : ButtonSpecCollectionBase, IList, IList&lt;T&gt;, ICollection, ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable where T : ButtonSpec</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.#ctor*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1__ctor_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.#ctor(System.Object)">ButtonSpecCollection(Object)</h4>
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ButtonSpecCollection class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ButtonSpecCollection(object owner)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">owner</span></td>
+        <td><p>Reference to owning object instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Count_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Count*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Count" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of button specs in collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsFixedSize_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsFixedSize*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsFixedSize" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsFixedSize">IsFixedSize</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection has a fixed size. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFixedSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsReadOnly_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsReadOnly*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsReadOnly" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsSynchronized_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsSynchronized*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IsSynchronized" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IsSynchronized">IsSynchronized</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether access to the collection is synchronized (thread safe).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSynchronized { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Item*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the button spec at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>T index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>T at specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Item*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Item_System_String_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"><p>Gets the button spec with the provided unique name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[string uniqueName] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">uniqueName</span></td>
+        <td><p>Unique name of the ButtonSpec instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>T at specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_SyncRoot_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.SyncRoot*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_SyncRoot" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.SyncRoot">SyncRoot</h4>
+  <div class="markdown level1 summary"><p>Gets an object that can be used to synchronize access to the collection. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object SyncRoot { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Add_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Add*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Add__0_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Append a button spec to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>T reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Add_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Add*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Add_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Add(System.Object)">Add(Object)</h4>
+  <div class="markdown level1 summary"><p>Append a button spec to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Add(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Object reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The position into which the new button spec was inserted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_AddRange_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.AddRange*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_AddRange__0___" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.AddRange(`0[])">AddRange(T[])</h4>
+  <div class="markdown level1 summary"><p>Append an array of button spec instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(T[] array)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>Array of instances.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Clear_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Clear*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Clear" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Remove all pages from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Contains*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Contains__0_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the button spec.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>T reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if spec found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Contains*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Contains_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Contains(System.Object)">Contains(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the button spec.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Object reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if button spec found; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.CopyTo*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_CopyTo__0___System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.CopyTo(`0[],System.Int32)">CopyTo(T[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Copies button specs to specified array starting at particular index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(T[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>Target array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td><p>Starting array index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.CopyTo*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_CopyTo_System_Array_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.CopyTo(System.Array,System.Int32)">CopyTo(Array, Int32)</h4>
+  <div class="markdown level1 summary"><p>Copies all the elements of the current collection to the specified Array. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(Array array, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Array</span></td>
+        <td><span class="parametername">array</span></td>
+        <td><p>The Array that is the destination of the elements copied from the collection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index in array at which copying begins.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Enumerate_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Enumerate*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Enumerate" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Enumerate">Enumerate()</h4>
+  <div class="markdown level1 summary"><p>Provide non generic access to the enumerator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable Enumerate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerable</span></td>
+        <td><p>IEnumerable instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecCollectionBase.html#ComponentFactory_Krypton_Toolkit_ButtonSpecCollectionBase_Enumerate">ButtonSpecCollectionBase.Enumerate()</a></div>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.GetEnumerator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Shallow enumerate over button specs in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;T&gt;</td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IndexOf*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IndexOf__0_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Determines the index of the specified spec in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>T reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>-1 if not found; otherwise index position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IndexOf*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_IndexOf_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.IndexOf(System.Object)">IndexOf(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines the index of the specified spec in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Object reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>-1 if not found; otherwise index position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Insert*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Insert_System_Int32__0_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Insert(System.Int32,`0)">Insert(Int32, T)</h4>
+  <div class="markdown level1 summary"><p>Inserts a button spec to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Insert index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>T reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Insert*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Insert_System_Int32_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Insert(System.Int32,System.Object)">Insert(Int32, Object)</h4>
+  <div class="markdown level1 summary"><p>Inserts a button spec to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Insert index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Object reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Remove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Remove__0_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Removes first occurance of specified spec.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>T reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if removed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Remove*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_Remove_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.Remove(System.Object)">Remove(Object)</h4>
+  <div class="markdown level1 summary"><p>Removes first occurance of specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Object reference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_RemoveAt_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.RemoveAt*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_RemoveAt_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the button spec at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Remove index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.ToString*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>User readable name of the instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Enumerate using non-generic interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td><p>Enumerator instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_System_Collections_IList_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.System#Collections#IList#Item*"></a>
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCollection_1_System_Collections_IList_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCollection`1.System#Collections#IList#Item(System.Int32)">IList.Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the button spec at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IList.this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Object index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>Object at specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.IList</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.ICollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IPaletteDouble focusOverride,
                                      IPaletteDouble normalDefaultOverride)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabled = disabled;
             _normal = normal;
@@ -115,7 +115,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _focusOverride = focusOverride;
             _normalDefaultOverride = normalDefaultOverride;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>
@@ -180,7 +180,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackDraw(state) ?? Target.GetBackDraw(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackDraw(state);
+            }
+            else
+            {
+                return Target.GetBackDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -193,7 +200,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackGraphicsHint(state) ?? Target.GetBackGraphicsHint(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackGraphicsHint(state);
+            }
+            else
+            {
+                return Target.GetBackGraphicsHint(style, state);
+            }
         }
 
         /// <summary>
@@ -206,7 +220,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackColor1(state) ?? Target.GetBackColor1(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackColor1(state);
+            }
+            else
+            {
+                return Target.GetBackColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -219,7 +240,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackColor2(state) ?? Target.GetBackColor2(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackColor2(state);
+            }
+            else
+            {
+                return Target.GetBackColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -232,7 +260,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackColorStyle(state) ?? Target.GetBackColorStyle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackColorStyle(state);
+            }
+            else
+            {
+                return Target.GetBackColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -245,7 +280,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackColorAlign(state) ?? Target.GetBackColorAlign(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackColorAlign(state);
+            }
+            else
+            {
+                return Target.GetBackColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -258,7 +300,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackColorAngle(state) ?? Target.GetBackColorAngle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackColorAngle(state);
+            }
+            else
+            {
+                return Target.GetBackColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -271,7 +320,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackImage(state) ?? Target.GetBackImage(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackImage(state);
+            }
+            else
+            {
+                return Target.GetBackImage(style, state);
+            }
         }
 
         /// <summary>
@@ -284,7 +340,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackImageStyle(state) ?? Target.GetBackImageStyle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackImageStyle(state);
+            }
+            else
+            {
+                return Target.GetBackImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -297,7 +360,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBack.GetBackImageAlign(state) ?? Target.GetBackImageAlign(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBack.GetBackImageAlign(state);
+            }
+            else
+            {
+                return Target.GetBackImageAlign(style, state);
+            }
         }
         #endregion
 
@@ -312,7 +382,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderDraw(state) ?? Target.GetBorderDraw(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderDraw(state);
+            }
+            else
+            {
+                return Target.GetBorderDraw(style, state);
+            }
         }
 
         /// <summary>
@@ -325,7 +402,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderDrawBorders(state) ?? Target.GetBorderDrawBorders(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderDrawBorders(state);
+            }
+            else
+            {
+                return Target.GetBorderDrawBorders(style, state);
+            }
         }
 
         /// <summary>
@@ -338,7 +422,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderGraphicsHint(state) ?? Target.GetBorderGraphicsHint(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderGraphicsHint(state);
+            }
+            else
+            {
+                return Target.GetBorderGraphicsHint(style, state);
+            }
         }
 
         /// <summary>
@@ -351,7 +442,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderColor1(state) ?? Target.GetBorderColor1(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderColor1(state);
+            }
+            else
+            {
+                return Target.GetBorderColor1(style, state);
+            }
         }
 
         /// <summary>
@@ -364,7 +462,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderColor2(state) ?? Target.GetBorderColor2(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderColor2(state);
+            }
+            else
+            {
+                return Target.GetBorderColor2(style, state);
+            }
         }
 
         /// <summary>
@@ -377,7 +482,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderColorStyle(state) ?? Target.GetBorderColorStyle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderColorStyle(state);
+            }
+            else
+            {
+                return Target.GetBorderColorStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -390,7 +502,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderColorAlign(state) ?? Target.GetBorderColorAlign(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderColorAlign(state);
+            }
+            else
+            {
+                return Target.GetBorderColorAlign(style, state);
+            }
         }
 
         /// <summary>
@@ -403,7 +522,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderColorAngle(state) ?? Target.GetBorderColorAngle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderColorAngle(state);
+            }
+            else
+            {
+                return Target.GetBorderColorAngle(style, state);
+            }
         }
 
         /// <summary>
@@ -416,7 +542,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderWidth(state) ?? Target.GetBorderWidth(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderWidth(state);
+            }
+            else
+            {
+                return Target.GetBorderWidth(style, state);
+            }
         }
 
         /// <summary>
@@ -429,7 +562,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderRounding(state) ?? Target.GetBorderRounding(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderRounding(state);
+            }
+            else
+            {
+                return Target.GetBorderRounding(style, state);
+            }
         }
 
         /// <summary>
@@ -442,7 +582,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderImage(state) ?? Target.GetBorderImage(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderImage(state);
+            }
+            else
+            {
+                return Target.GetBorderImage(style, state);
+            }
         }
 
         /// <summary>
@@ -455,7 +602,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderImageStyle(state) ?? Target.GetBorderImageStyle(style, state);
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderImageStyle(state);
+            }
+            else
+            {
+                return Target.GetBorderImageStyle(style, state);
+            }
         }
 
         /// <summary>
@@ -468,8 +622,15 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             IPaletteDouble inherit = GetInherit(state);
 
-            return inherit?.PaletteBorder.GetBorderImageAlign(state) ?? Target.GetBorderImageAlign(style, state);
-        }    
+            if (inherit != null)
+            {
+                return inherit.PaletteBorder.GetBorderImageAlign(state);
+            }
+            else
+            {
+                return Target.GetBorderImageAlign(style, state);
+            }
+        }
         #endregion
 
         #region Implementation

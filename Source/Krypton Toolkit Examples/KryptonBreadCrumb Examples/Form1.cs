@@ -79,7 +79,9 @@ namespace KryptonBreadCrumbExamples
 
             // Walk down the matching path of the bread crumb trail
             while (indexes.Count > 0)
+            {
                 crumb = crumb.Items[indexes.Pop()];
+            }
 
             kryptonBreadCrumb4.SelectedItem = crumb;
         }
@@ -101,7 +103,9 @@ namespace KryptonBreadCrumbExamples
 
             // Walk down the matching path of the node
             while (indexes.Count > 0)
+            {
                 node = node.Nodes[indexes.Pop()];
+            }
 
             treeView1.SelectedNode = node;
         }

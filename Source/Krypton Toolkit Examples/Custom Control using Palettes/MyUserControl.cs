@@ -38,7 +38,9 @@ namespace CustomControlUsingPalettes
 
             // Hook into palette events
             if (_palette != null)
+            {
                 _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // We want to be notified whenever the global palette changes
             KryptonManager.GlobalPaletteChanged += new EventHandler(OnGlobalPaletteChanged);
@@ -136,19 +138,27 @@ namespace CustomControlUsingPalettes
 
                     // Fill the entire background in the control background color
                     using (Brush backBrush = new LinearGradientBrush(ClientRectangle, backColor1, backColor2, backColorAngle))
+                    {
                         e.Graphics.FillRectangle(backBrush, e.ClipRectangle);
+                    }
 
                     // Fill the entire fish background using a gradient
                     using (Brush fillBrush = new LinearGradientBrush(ClientRectangle, fillColor1, fillColor2, fillColorAngle))
+                    {
                         e.Graphics.FillPath(fillBrush, path);
+                    }
 
                     // Draw the fish border using a single color
                     using (Pen borderPen = new Pen(borderColor))
+                    {
                         e.Graphics.DrawPath(borderPen, path);
+                    }
 
                     // Draw the text in about the center of the control
                     using (Brush textBrush = new SolidBrush(textColor))
+                    {
                         e.Graphics.DrawString("Click me!", textFont, textBrush, Width / 2 - 10, Height / 2 - 5);
+                    }
                 }
 
                 // Put graphics back into original state before returning
@@ -162,18 +172,26 @@ namespace CustomControlUsingPalettes
         {
             // Find the correct state when getting button values
             if (!Enabled)
+            {
                 return PaletteState.Disabled;
+            }
             else
             {
                 if (_mouseOver)
                 {
                     if (_mouseDown)
+                    {
                         return PaletteState.Pressed;
+                    }
                     else
+                    {
                         return PaletteState.Tracking;
+                    }
                 }
                 else
+                {
                     return PaletteState.Normal;
+                }
             }
         }
 
@@ -210,14 +228,18 @@ namespace CustomControlUsingPalettes
         {
             // Unhook events from old palette
             if (_palette != null)
+            {
                 _palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // Cache the new IPalette that is the global palette
             _palette = KryptonManager.CurrentGlobalPalette;
 
             // Hook into events for the new palette
             if (_palette != null)
+            {
                 _palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+            }
 
             // Change of palette means we should repaint to show any changes
             Invalidate();
