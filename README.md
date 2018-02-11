@@ -1,4 +1,4 @@
-# [Krypton](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/help/logo.png)-NET-4.7 
+# [Krypton](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/help/logo.png)-NET-4.7 
 
 =======
 
