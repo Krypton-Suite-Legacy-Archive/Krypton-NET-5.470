@@ -1,4 +1,4 @@
-# ![Krypton](/help/logo.png?raw=true)-NET-4.7 
+# ![Krypton](/help/logo.png)-NET-4.7 
 
 =======
 
