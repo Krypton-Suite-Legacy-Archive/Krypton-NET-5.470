@@ -65,7 +65,7 @@
     "globalMetadata": {
       "_appTitle": "Krypton Component Suite 2018\nBSD 3-Clause License\n© Component Factory Pty Ltd, 2006-2018, All rights reserved.",
       "_appFooter": "Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)",
-      "_appLogoPath": "../logo.png",
+      "_appLogoPath": "logo.png",
       "_disableContribution": true
     },
 
