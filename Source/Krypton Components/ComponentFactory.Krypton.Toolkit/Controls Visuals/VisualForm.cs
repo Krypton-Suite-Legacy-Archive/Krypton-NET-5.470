@@ -47,6 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _insideUpdateComposition;
         private bool _captured;
         private bool _disposing;
+        private bool _rightToLeftLayout;
         private int _compositionHeight;
         private int _ignoreCount;
         private ViewBase _capturedElement;
@@ -123,6 +124,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Hook into global static events
             KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
             SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
+
+            if (UseRightToLeftLayout)
+            {
+                RightToLeft = RightToLeft.Yes;
+
+                RightToLeftLayout = true;
+            }
         }
 
         /// <summary>
@@ -162,6 +170,23 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public
+        /// <summary>
+        /// Use right to left layout.
+        /// </summary>
+        [DefaultValue(false), Description("Use right to left layout.")]
+        public bool UseRightToLeftLayout
+        {
+            get
+            {
+                return _rightToLeftLayout;
+            }
+
+            set
+            {
+                _rightToLeftLayout = value;
+            }
+        }
+
         /// <summary>
         /// Gets and sets a value indicating if palette chrome should be applied.
         /// </summary>
