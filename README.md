@@ -1,10 +1,10 @@
-# ![Krypton](./help/logo.png "Krypton")-NET-4.7 
+# ![Krypton](../blob/master//help/logo.png?raw=true)-NET-4.7 
 
 =======
 
 ## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `ComponentFactory.Krypton.Design.dll` in ALL of your projects at ALL times!
 
-# ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
+# ["Toolkit help index"](../blob/master/Help/index.html)
 
 =======
 
