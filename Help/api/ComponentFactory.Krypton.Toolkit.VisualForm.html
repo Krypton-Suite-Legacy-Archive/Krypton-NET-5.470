@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,14 +73,13 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_VisualForm" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm" class="text-break">Class VisualForm
+  <h1 id="ComponentFactory_Krypton_Toolkit_VisualForm" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm">Class VisualForm
   </h1>
   <div class="markdown level0 summary"><p>Base class that allows a form to have custom chrome applied. You should derive 
 a class from this that performs the specific chrome drawing that is required.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -91,19 +90,10 @@ a class from this that performs the specific chrome drawing that is required.</p
     <div class="level5"><span class="xref">System.Windows.Forms.ContainerControl</span></div>
     <div class="level6"><span class="xref">System.Windows.Forms.Form</span></div>
     <div class="level7"><span class="xref">VisualForm</span></div>
+  </div>
+  
       <div class="level8"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.Windows.Forms.IContainerControl</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1625,1901 +1615,2661 @@ a class from this that performs the specific chrome drawing that is required.</p
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_VisualForm_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ClassInterface(ClassInterfaceType.AutoDispatch)]
 [ComVisible(true)]
 public abstract class VisualForm : Form, IDropTarget, ISynchronizeInvoke, IWin32Window, IBindableComponent, IArrangedElement, IComponent, IDisposable, IContainerControl, IKryptonDebug</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm__ctor" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.#ctor">VisualForm()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm__ctor" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm__ctor" class="expander" data-toggle="collapse">VisualForm()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm__ctor" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualForm class. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualForm()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedLayout_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedLayout" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedLayout">NeedLayout</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedLayout" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedLayout"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_NeedLayout" class="expander" data-toggle="collapse">NeedLayout</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_NeedLayout" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the need to layout the view.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool NeedLayout { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedPaintDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedPaintDelegate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedPaintDelegate">NeedPaintDelegate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.NeedPaintDelegate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_NeedPaintDelegate" class="expander" data-toggle="collapse">NeedPaintDelegate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_NeedPaintDelegate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the need paint delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected NeedPaintHandler NeedPaintDelegate { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_Palette_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Palette*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Palette" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Palette">Palette</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Palette" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Palette"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Palette" class="expander" data-toggle="collapse">Palette</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Palette" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the custom palette implementation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IPalette Palette { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_PaletteMode_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PaletteMode*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PaletteMode" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PaletteMode">PaletteMode</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PaletteMode" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PaletteMode"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PaletteMode" class="expander" data-toggle="collapse">PaletteMode</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PaletteMode" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets the palette to be applied.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteMode PaletteMode { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMode.html">PaletteMode</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMode.html">PaletteMode</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_RealWindowRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RealWindowRectangle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RealWindowRectangle" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RealWindowRectangle">RealWindowRectangle</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RealWindowRectangle" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RealWindowRectangle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RealWindowRectangle" class="expander" data-toggle="collapse">RealWindowRectangle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RealWindowRectangle" class="collapse in">
   <div class="markdown level1 summary"><p>Gets rectangle that is the real window rectangle based on Win32 API call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Rectangle RealWindowRectangle { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_Redirector_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Redirector*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Redirector" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Redirector">Redirector</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Redirector" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Redirector"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Redirector" class="expander" data-toggle="collapse">Redirector</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Redirector" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the palette redirector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected PaletteRedirect Redirector { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_Renderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Renderer*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Renderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Renderer">Renderer</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Renderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Renderer"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Renderer" class="expander" data-toggle="collapse">Renderer</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Renderer" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the current renderer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public IRenderer Renderer { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_ViewManager_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ViewManager*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ViewManager">ViewManager</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ViewManager"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ViewManager" class="expander" data-toggle="collapse">ViewManager</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ViewManager" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the ViewManager instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ViewManager ViewManager { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateRedirector_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateRedirector*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateRedirector" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateRedirector">CreateRedirector()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateRedirector" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateRedirector"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_CreateRedirector" class="expander" data-toggle="collapse">CreateRedirector()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_CreateRedirector" class="collapse in">
   <div class="markdown level1 summary"><p>Create the redirector instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual PaletteRedirect CreateRedirector()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
-        <td><p>PaletteRedirect derived class.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a>
+        <p><p>PaletteRedirect derived class.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateToolStripRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateToolStripRenderer*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateToolStripRenderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateToolStripRenderer">CreateToolStripRenderer()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_CreateToolStripRenderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.CreateToolStripRenderer"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_CreateToolStripRenderer" class="expander" data-toggle="collapse">CreateToolStripRenderer()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_CreateToolStripRenderer" class="collapse in">
   <div class="markdown level1 summary"><p>Create a tool strip renderer appropriate for the current renderer/palette pair.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public ToolStripRenderer CreateToolStripRenderer()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.ToolStripRenderer</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.ToolStripRenderer</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Dispose*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_Dispose_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Releases all resources used by the Control. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.Dispose(System.Boolean)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient">InvalidateNonClient()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient" class="expander" data-toggle="collapse">InvalidateNonClient()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient" class="collapse in">
   <div class="markdown level1 summary"><p>Request the non-client area be repainted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void InvalidateNonClient()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient(System.Drawing.Rectangle)">InvalidateNonClient(Rectangle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient(System.Drawing.Rectangle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_" class="expander" data-toggle="collapse">InvalidateNonClient(Rectangle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_" class="collapse in">
   <div class="markdown level1 summary"><p>Request the non-client area be repainted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InvalidateNonClient(Rectangle invalidRect)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">invalidRect</span></td>
-        <td><p>Area to invalidate.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">invalidRect</span>
+        <p><p>Area to invalidate.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient(System.Drawing.Rectangle,System.Boolean)">InvalidateNonClient(Rectangle, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.InvalidateNonClient(System.Drawing.Rectangle,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_System_Boolean_" class="expander" data-toggle="collapse">InvalidateNonClient(Rectangle, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_InvalidateNonClient_System_Drawing_Rectangle_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Request the non-client area be repainted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InvalidateNonClient(Rectangle invalidRect, bool excludeClientArea)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">invalidRect</span></td>
-        <td><p>Area to invalidate.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">excludeClientArea</span></td>
-        <td><p>Should client area be excluded.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">invalidRect</span>
+        <p><p>Area to invalidate.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">excludeClientArea</span>
+        <p><p>Should client area be excluded.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnActivated*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnActivated(System.EventArgs)">OnActivated(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnActivated(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_System_EventArgs_" class="expander" data-toggle="collapse">OnActivated(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Activated event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnActivated(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnActivated(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnAllowFormChromeChanged_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnAllowFormChromeChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnAllowFormChromeChanged_System_Object_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnAllowFormChromeChanged(System.Object,System.EventArgs)">OnAllowFormChromeChanged(Object, EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnAllowFormChromeChanged_System_Object_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnAllowFormChromeChanged(System.Object,System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnAllowFormChromeChanged_System_Object_System_EventArgs_" class="expander" data-toggle="collapse">OnAllowFormChromeChanged(Object, EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnAllowFormChromeChanged_System_Object_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the AllowFormChromeChanged event is fired for the current palette.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAllowFormChromeChanged(object sender, EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the event.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the event.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnApplyCustomChromeChanged_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnApplyCustomChromeChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnApplyCustomChromeChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnApplyCustomChromeChanged(System.EventArgs)">OnApplyCustomChromeChanged(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnApplyCustomChromeChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnApplyCustomChromeChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnApplyCustomChromeChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnApplyCustomChromeChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnApplyCustomChromeChanged_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the ApplyCustomChrome event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnApplyCustomChromeChanged(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnButtonSpecChanged_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnButtonSpecChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnButtonSpecChanged_System_Object_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnButtonSpecChanged(System.Object,System.EventArgs)">OnButtonSpecChanged(Object, EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnButtonSpecChanged_System_Object_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnButtonSpecChanged(System.Object,System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnButtonSpecChanged_System_Object_System_EventArgs_" class="expander" data-toggle="collapse">OnButtonSpecChanged(Object, EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnButtonSpecChanged_System_Object_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a notification from palette storage of a button spec change.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnButtonSpecChanged(object sender, EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of notification.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnCompWM_NCHITTEST_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnCompWM_NCHITTEST*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnCompWM_NCHITTEST_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnCompWM_NCHITTEST(System.Windows.Forms.Message@)">OnCompWM_NCHITTEST(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnCompWM_NCHITTEST_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnCompWM_NCHITTEST(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnCompWM_NCHITTEST_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnCompWM_NCHITTEST(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnCompWM_NCHITTEST_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCHITTEST message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnCompWM_NCHITTEST(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnDeactivate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnDeactivate(System.EventArgs)">OnDeactivate(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnDeactivate(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_System_EventArgs_" class="expander" data-toggle="collapse">OnDeactivate(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Deactivate event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnDeactivate(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnDeactivate(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnHandleCreated_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnHandleCreated*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnHandleCreated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnHandleCreated(System.EventArgs)">OnHandleCreated(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnHandleCreated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnHandleCreated(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnHandleCreated_System_EventArgs_" class="expander" data-toggle="collapse">OnHandleCreated(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnHandleCreated_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the HandleCreated event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnHandleCreated(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnHandleCreated(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)">OnNeedPaint(Object, NeedLayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="expander" data-toggle="collapse">OnNeedPaint(Object, NeedLayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a notification from palette storage of a paint and optional layout required.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of notification.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An NeedLayoutEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An NeedLayoutEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNonClientPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNonClientPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNonClientPaint_System_IntPtr_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNonClientPaint(System.IntPtr)">OnNonClientPaint(IntPtr)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnNonClientPaint_System_IntPtr_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnNonClientPaint(System.IntPtr)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnNonClientPaint_System_IntPtr_" class="expander" data-toggle="collapse">OnNonClientPaint(IntPtr)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnNonClientPaint_System_IntPtr_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform chrome window painting in the non-client areas.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnNonClientPaint(IntPtr hWnd)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><span class="parametername">hWnd</span></td>
-        <td><p>Window handle of window being painted.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">hWnd</span>
+        <p><p>Window handle of window being painted.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintBackground_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintBackground*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintBackground_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">OnPaintBackground(PaintEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintBackground_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintBackground(System.Windows.Forms.PaintEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintBackground_System_Windows_Forms_PaintEventArgs_" class="expander" data-toggle="collapse">OnPaintBackground(PaintEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintBackground_System_Windows_Forms_PaintEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the PaintBackground event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnPaintBackground(PaintEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.PaintEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A PaintEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.PaintEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A PaintEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ScrollableControl.OnPaintBackground(System.Windows.Forms.PaintEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintNonClient_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintNonClient(System.Windows.Forms.Message@)">OnPaintNonClient(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintNonClient_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaintNonClient(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintNonClient_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnPaintNonClient(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaintNonClient_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process a windows message that requires the non client area be repainted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnPaintNonClient(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaletteChanged_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaletteChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaletteChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaletteChanged(System.EventArgs)">OnPaletteChanged(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnPaletteChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnPaletteChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaletteChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnPaletteChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnPaletteChanged_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the PaletteChanged event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPaletteChanged(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnResize_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnResize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnResize_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnResize(System.EventArgs)">OnResize(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnResize_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnResize(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnResize_System_EventArgs_" class="expander" data-toggle="collapse">OnResize(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnResize_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Resize event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnResize(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnResize(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnShown_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnShown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnShown_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnShown(System.EventArgs)">OnShown(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnShown_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnShown(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnShown_System_EventArgs_" class="expander" data-toggle="collapse">OnShown(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnShown_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Shown event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnShown(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnShown(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWindowActiveChanged_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWindowActiveChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWindowActiveChanged" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWindowActiveChanged">OnWindowActiveChanged()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWindowActiveChanged" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWindowActiveChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWindowActiveChanged" class="expander" data-toggle="collapse">OnWindowActiveChanged()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWindowActiveChanged" class="collapse in">
   <div class="markdown level1 summary"><p>Called when the active state of the window changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnWindowActiveChanged()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_GETMINMAXINFO_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_GETMINMAXINFO*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_GETMINMAXINFO_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_GETMINMAXINFO(System.Windows.Forms.Message@)">OnWM_GETMINMAXINFO(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_GETMINMAXINFO_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_GETMINMAXINFO(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_GETMINMAXINFO_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_GETMINMAXINFO(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_GETMINMAXINFO_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Creates and populates the MINMAXINFO structure for a maximized window.
 Puts the structure into memory address given by lParam.
 Only used to process a WM_GETMINMAXINFO message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnWM_GETMINMAXINFO(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_LBUTTONUP_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_LBUTTONUP*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_LBUTTONUP_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_LBUTTONUP(System.Windows.Forms.Message@)">OnWM_LBUTTONUP(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_LBUTTONUP_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_LBUTTONUP(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_LBUTTONUP_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_LBUTTONUP(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_LBUTTONUP_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_LBUTTONUP message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_LBUTTONUP(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_MOUSEMOVE_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_MOUSEMOVE*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_MOUSEMOVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_MOUSEMOVE(System.Windows.Forms.Message@)">OnWM_MOUSEMOVE(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_MOUSEMOVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_MOUSEMOVE(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_MOUSEMOVE_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_MOUSEMOVE(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_MOUSEMOVE_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the OnWM_MOUSEMOVE message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_MOUSEMOVE(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCACTIVATE_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCACTIVATE*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCACTIVATE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCACTIVATE(System.Windows.Forms.Message@)">OnWM_NCACTIVATE(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCACTIVATE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCACTIVATE(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCACTIVATE_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCACTIVATE(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCACTIVATE_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCACTIVATE message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCACTIVATE(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCCALCSIZE_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCCALCSIZE*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCCALCSIZE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCCALCSIZE(System.Windows.Forms.Message@)">OnWM_NCCALCSIZE(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCCALCSIZE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCCALCSIZE(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCCALCSIZE_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCCALCSIZE(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCCALCSIZE_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCCALCSIZE message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCCALCSIZE(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCHITTEST_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCHITTEST*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCHITTEST_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCHITTEST(System.Windows.Forms.Message@)">OnWM_NCHITTEST(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCHITTEST_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCHITTEST(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCHITTEST_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCHITTEST(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCHITTEST_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCHITTEST message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCHITTEST(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDBLCLK_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDBLCLK*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDBLCLK_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDBLCLK(System.Windows.Forms.Message@)">OnWM_NCLBUTTONDBLCLK(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDBLCLK_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDBLCLK(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDBLCLK_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCLBUTTONDBLCLK(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDBLCLK_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCLBUTTONDBLCLK message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCLBUTTONDBLCLK(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDOWN_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDOWN*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDOWN_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDOWN(System.Windows.Forms.Message@)">OnWM_NCLBUTTONDOWN(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDOWN_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONDOWN(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDOWN_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCLBUTTONDOWN(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONDOWN_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCLBUTTONDOWN message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCLBUTTONDOWN(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONUP_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONUP*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONUP_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONUP(System.Windows.Forms.Message@)">OnWM_NCLBUTTONUP(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONUP_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCLBUTTONUP(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONUP_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCLBUTTONUP(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCLBUTTONUP_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_LBUTTONUP message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCLBUTTONUP(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSELEAVE_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSELEAVE*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSELEAVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSELEAVE(System.Windows.Forms.Message@)">OnWM_NCMOUSELEAVE(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSELEAVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSELEAVE(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSELEAVE_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCMOUSELEAVE(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSELEAVE_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCMOUSELEAVE message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCMOUSELEAVE(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSEMOVE_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSEMOVE*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSEMOVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSEMOVE(System.Windows.Forms.Message@)">OnWM_NCMOUSEMOVE(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSEMOVE_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCMOUSEMOVE(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSEMOVE_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCMOUSEMOVE(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCMOUSEMOVE_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCMOUSEMOVE message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCMOUSEMOVE(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCPAINT_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCPAINT*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCPAINT_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCPAINT(System.Windows.Forms.Message@)">OnWM_NCPAINT(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCPAINT_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.OnWM_NCPAINT(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCPAINT_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnWM_NCPAINT(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_OnWM_NCPAINT_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process the WM_NCPAINT message when overriding window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool OnWM_NCPAINT(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the message was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the message was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_PerformNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PerformNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PerformNeedPaint(System.Boolean)">PerformNeedPaint(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PerformNeedPaint(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PerformNeedPaint_System_Boolean_" class="expander" data-toggle="collapse">PerformNeedPaint(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PerformNeedPaint_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Fires the NeedPaint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public void PerformNeedPaint(bool needLayout)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">needLayout</span></td>
-        <td><p>Does the palette change require a layout.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">needLayout</span>
+        <p><p>Does the palette change require a layout.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_RecalcNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RecalcNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RecalcNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RecalcNonClient">RecalcNonClient()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RecalcNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RecalcNonClient"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RecalcNonClient" class="expander" data-toggle="collapse">RecalcNonClient()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RecalcNonClient" class="collapse in">
   <div class="markdown level1 summary"><p>Request the non-client area be recalculated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RecalcNonClient()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_RedrawNonClient_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RedrawNonClient*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RedrawNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RedrawNonClient">RedrawNonClient()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_RedrawNonClient" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.RedrawNonClient"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RedrawNonClient" class="expander" data-toggle="collapse">RedrawNonClient()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_RedrawNonClient" class="collapse in">
   <div class="markdown level1 summary"><p>Request the non-client area be repainted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RedrawNonClient()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPalette_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPalette*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPalette" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPalette">ResetPalette()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPalette" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPalette"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResetPalette" class="expander" data-toggle="collapse">ResetPalette()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResetPalette" class="collapse in">
   <div class="markdown level1 summary"><p>Resets the Palette property to its default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetPalette()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPaletteMode_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPaletteMode*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPaletteMode" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPaletteMode">ResetPaletteMode()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResetPaletteMode" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResetPaletteMode"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResetPaletteMode" class="expander" data-toggle="collapse">ResetPaletteMode()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResetPaletteMode" class="collapse in">
   <div class="markdown level1 summary"><p>Resets the PaletteMode property to its default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetPaletteMode()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_ResumePaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResumePaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResumePaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResumePaint">ResumePaint()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ResumePaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ResumePaint"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResumePaint" class="expander" data-toggle="collapse">ResumePaint()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ResumePaint" class="collapse in">
   <div class="markdown level1 summary"><p>Resume processing of non-client painting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void ResumePaint()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_ScreenToWindow_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ScreenToWindow*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ScreenToWindow_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ScreenToWindow(System.Drawing.Point)">ScreenToWindow(Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_ScreenToWindow_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.ScreenToWindow(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ScreenToWindow_System_Drawing_Point_" class="expander" data-toggle="collapse">ScreenToWindow(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_ScreenToWindow_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Convert a screen location to a window location.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Point ScreenToWindow(Point screenPt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPt</span></td>
-        <td><p>Screen point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Screen point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><p>Point in window coordinates.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Point</span>
+        <p><p>Point in window coordinates.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_SetBoundsCore_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SetBoundsCore*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">SetBoundsCore(Int32, Int32, Int32, Int32, BoundsSpecified)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" class="expander" data-toggle="collapse">SetBoundsCore(Int32, Int32, Int32, Int32, BoundsSpecified)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" class="collapse in">
   <div class="markdown level1 summary"><p>Performs the work of setting the specified bounds of this control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">x</span></td>
-        <td><p>The new Left property value of the control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">y</span></td>
-        <td><p>The new Top property value of the control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">width</span></td>
-        <td><p>The new Width property value of the control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">height</span></td>
-        <td><p>The new Height property value of the control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.BoundsSpecified</span></td>
-        <td><span class="parametername">specified</span></td>
-        <td><p>A bitwise combination of the BoundsSpecified values.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">x</span>
+        <p><p>The new Left property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">y</span>
+        <p><p>The new Top property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">width</span>
+        <p><p>The new Width property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">height</span>
+        <p><p>The new Height property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.BoundsSpecified</span></span>
+        <span class="parametername">specified</span>
+        <p><p>A bitwise combination of the BoundsSpecified values.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.SetBoundsCore(System.Int32, System.Int32, System.Int32, System.Int32, System.Windows.Forms.BoundsSpecified)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_StartCapture_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.StartCapture*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_StartCapture_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.StartCapture(ComponentFactory.Krypton.Toolkit.ViewBase)">StartCapture(ViewBase)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_StartCapture_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.StartCapture(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_StartCapture_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">StartCapture(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_StartCapture_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
   <div class="markdown level1 summary"><p>Start capturing mouse input for a particular element that is inside the chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void StartCapture(ViewBase element)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></td>
-        <td><span class="parametername">element</span></td>
-        <td><p>Target element for the capture events.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">element</span>
+        <p><p>Target element for the capture events.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_SuspendPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SuspendPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_SuspendPaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SuspendPaint">SuspendPaint()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_SuspendPaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.SuspendPaint"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_SuspendPaint" class="expander" data-toggle="collapse">SuspendPaint()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_SuspendPaint" class="collapse in">
   <div class="markdown level1 summary"><p>Suspend processing of non-client painting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void SuspendPaint()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionLayout_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionLayout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionLayout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,System.Drawing.Rectangle)">WindowChromeCompositionLayout(ViewLayoutContext, Rectangle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionLayout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionLayout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,System.Drawing.Rectangle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionLayout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_" class="expander" data-toggle="collapse">WindowChromeCompositionLayout(ViewLayoutContext, Rectangle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionLayout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform layout on behalf of the composition element using our root element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void WindowChromeCompositionLayout(ViewLayoutContext context, Rectangle compRect)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Layout context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">compRect</span></td>
-        <td><p>Rectangle for composition element.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">compRect</span>
+        <p><p>Rectangle for composition element.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionPaint_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionPaint(ComponentFactory.Krypton.Toolkit.RenderContext)">WindowChromeCompositionPaint(RenderContext)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionPaint_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeCompositionPaint(ComponentFactory.Krypton.Toolkit.RenderContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionPaint_ComponentFactory_Krypton_Toolkit_RenderContext_" class="expander" data-toggle="collapse">WindowChromeCompositionPaint(RenderContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeCompositionPaint_ComponentFactory_Krypton_Toolkit_RenderContext_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform painting on behalf of the composition element using our root element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void WindowChromeCompositionPaint(RenderContext context)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Rendering context.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeEnd_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeEnd*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeEnd" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeEnd">WindowChromeEnd()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeEnd" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeEnd"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeEnd" class="expander" data-toggle="collapse">WindowChromeEnd()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeEnd" class="collapse in">
   <div class="markdown level1 summary"><p>Perform cleanup when custom chrome ending.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void WindowChromeEnd()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeHitTest_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeHitTest*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeHitTest_System_Drawing_Point_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeHitTest(System.Drawing.Point,System.Boolean)">WindowChromeHitTest(Point, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeHitTest_System_Drawing_Point_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeHitTest(System.Drawing.Point,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeHitTest_System_Drawing_Point_System_Boolean_" class="expander" data-toggle="collapse">WindowChromeHitTest(Point, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeHitTest_System_Drawing_Point_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform hit testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IntPtr WindowChromeHitTest(Point pt, bool composition)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Point in window coordinates.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">composition</span></td>
-        <td><p>Are we performing composition.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Point in window coordinates.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">composition</span>
+        <p><p>Are we performing composition.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.IntPtr</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseDown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseDown_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseDown(System.Drawing.Point)">WindowChromeLeftMouseDown(Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseDown_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseDown(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseDown_System_Drawing_Point_" class="expander" data-toggle="collapse">WindowChromeLeftMouseDown(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseDown_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Process the left mouse down event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool WindowChromeLeftMouseDown(Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Window coordinate of the mouse up.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Window coordinate of the mouse up.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if event is processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if event is processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseUp*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseUp_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseUp(System.Drawing.Point)">WindowChromeLeftMouseUp(Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseUp_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeLeftMouseUp(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseUp_System_Drawing_Point_" class="expander" data-toggle="collapse">WindowChromeLeftMouseUp(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeLeftMouseUp_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Process the left mouse up event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool WindowChromeLeftMouseUp(Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Window coordinate of the mouse up.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Window coordinate of the mouse up.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if event is processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if event is processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeMouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeMouseLeave*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeMouseLeave" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeMouseLeave">WindowChromeMouseLeave()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeMouseLeave" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeMouseLeave"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeMouseLeave" class="expander" data-toggle="collapse">WindowChromeMouseLeave()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeMouseLeave" class="collapse in">
   <div class="markdown level1 summary"><p>Perform mouse leave processing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void WindowChromeMouseLeave()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeNonClientMouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeNonClientMouseMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeNonClientMouseMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeNonClientMouseMove(System.Drawing.Point)">WindowChromeNonClientMouseMove(Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeNonClientMouseMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeNonClientMouseMove(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeNonClientMouseMove_System_Drawing_Point_" class="expander" data-toggle="collapse">WindowChromeNonClientMouseMove(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeNonClientMouseMove_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform non-client mouse movement processing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void WindowChromeNonClientMouseMove(Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Point in window coordinates.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Point in window coordinates.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromePaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromePaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromePaint_System_Drawing_Graphics_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromePaint(System.Drawing.Graphics,System.Drawing.Rectangle)">WindowChromePaint(Graphics, Rectangle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromePaint_System_Drawing_Graphics_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromePaint(System.Drawing.Graphics,System.Drawing.Rectangle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromePaint_System_Drawing_Graphics_System_Drawing_Rectangle_" class="expander" data-toggle="collapse">WindowChromePaint(Graphics, Rectangle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromePaint_System_Drawing_Graphics_System_Drawing_Rectangle_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform painting of the window chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void WindowChromePaint(Graphics g, Rectangle bounds)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Graphics</span></td>
-        <td><span class="parametername">g</span></td>
-        <td><p>Graphics instance to use for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">bounds</span></td>
-        <td><p>Bounds enclosing the window chrome.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Graphics</span></span>
+        <span class="parametername">g</span>
+        <p><p>Graphics instance to use for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">bounds</span>
+        <p><p>Bounds enclosing the window chrome.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeStart_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeStart*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeStart" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeStart">WindowChromeStart()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeStart" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WindowChromeStart"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeStart" class="expander" data-toggle="collapse">WindowChromeStart()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WindowChromeStart" class="collapse in">
   <div class="markdown level1 summary"><p>Perform setup for custom chrome.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void WindowChromeStart()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WndProc*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WndProc(System.Windows.Forms.Message@)">WndProc(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.WndProc(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">WndProc(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process Windows-based messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void WndProc(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.WndProc(System.Windows.Forms.Message)</span></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="events">Events
   </h3>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PaletteChanged" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PaletteChanged">PaletteChanged</h4>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualForm_PaletteChanged" data-uid="ComponentFactory.Krypton.Toolkit.VisualForm.PaletteChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PaletteChanged" class="expander" data-toggle="collapse">PaletteChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualForm_PaletteChanged" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the palette changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler PaletteChanged</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IContainerControl</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.html#ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_EnableBlur_System_Windows_Forms_Form_">BlurWindowExtensions.EnableBlur(Form)</a>
@@ -3527,13 +4277,13 @@ public void PerformNeedPaint(bool needLayout)</code></pre>
   <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.html#ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_DisableBlur_System_Windows_Forms_Form_">BlurWindowExtensions.DisableBlur(Form)</a>
   </div>
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

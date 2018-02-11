@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,176 +73,235 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Navigator_IDragPageNotify" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify" class="text-break">Interface IDragPageNotify
+  <h1 id="ComponentFactory_Krypton_Navigator_IDragPageNotify" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify">Interface IDragPageNotify
   </h1>
   <div class="markdown level0 summary"><p>Interface for receiving page notifications.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Navigator.html">ComponentFactory.Krypton.Navigator</a></h6>
+
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Navigator.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IDragPageNotify</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragEnd_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragEnd*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragEnd_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragEnd(System.Object,ComponentFactory.Krypton.Toolkit.PointEventArgs)">PageDragEnd(Object, PointEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragEnd_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragEnd(System.Object,ComponentFactory.Krypton.Toolkit.PointEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragEnd_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" class="expander" data-toggle="collapse">PageDragEnd(Object, PointEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragEnd_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when drag operation completes with pages being dropped.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool PageDragEnd(object sender, PointEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the page drag; can be null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PointEventArgs.html">PointEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>Event arguments containing the new screen point of the mouse.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the page drag; can be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PointEventArgs.html">PointEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>Event arguments containing the new screen point of the mouse.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>Drop was performed and the source can perform any removal of pages as required.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Drop was performed and the source can perform any removal of pages as required.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragMove_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragMove_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragMove(System.Object,ComponentFactory.Krypton.Toolkit.PointEventArgs)">PageDragMove(Object, PointEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragMove_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragMove(System.Object,ComponentFactory.Krypton.Toolkit.PointEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragMove_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" class="expander" data-toggle="collapse">PageDragMove(Object, PointEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragMove_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the mouse moves during the drag operation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PageDragMove(object sender, PointEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the page drag; can be null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PointEventArgs.html">PointEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>Event arguments containing the new screen point of the mouse.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the page drag; can be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PointEventArgs.html">PointEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>Event arguments containing the new screen point of the mouse.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragQuit_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragQuit*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragQuit_System_Object_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragQuit(System.Object)">PageDragQuit(Object)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragQuit_System_Object_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragQuit(System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragQuit_System_Object_" class="expander" data-toggle="collapse">PageDragQuit(Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragQuit_System_Object_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when dragging pages has been cancelled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PageDragQuit(object sender)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the page drag; can be null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the page drag; can be null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragStart_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragStart*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragStart_System_Object_ComponentFactory_Krypton_Navigator_KryptonNavigator_ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragStart(System.Object,ComponentFactory.Krypton.Navigator.KryptonNavigator,ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs)">PageDragStart(Object, KryptonNavigator, PageDragCancelEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragStart_System_Object_ComponentFactory_Krypton_Navigator_KryptonNavigator_ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_" data-uid="ComponentFactory.Krypton.Navigator.IDragPageNotify.PageDragStart(System.Object,ComponentFactory.Krypton.Navigator.KryptonNavigator,ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragStart_System_Object_ComponentFactory_Krypton_Navigator_KryptonNavigator_ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_" class="expander" data-toggle="collapse">PageDragStart(Object, KryptonNavigator, PageDragCancelEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_IDragPageNotify_PageDragStart_System_Object_ComponentFactory_Krypton_Navigator_KryptonNavigator_ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when a page drag is about to begin and allows it to be cancelled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PageDragStart(object sender, KryptonNavigator navigator, PageDragCancelEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the page drag; should never be null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonNavigator.html">KryptonNavigator</a></td>
-        <td><span class="parametername">navigator</span></td>
-        <td><p>Navigator instance associated with source; can be null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.html">PageDragCancelEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>Event arguments indicating list of pages being dragged.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the page drag; should never be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonNavigator.html">KryptonNavigator</a></span>
+        <span class="parametername">navigator</span>
+        <p><p>Navigator instance associated with source; can be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.html">PageDragCancelEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>Event arguments indicating list of pages being dragged.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

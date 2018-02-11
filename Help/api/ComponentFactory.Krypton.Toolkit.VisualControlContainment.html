@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment" class="text-break">Class VisualControlContainment
+  <h1 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment">Class VisualControlContainment
   </h1>
   <div class="markdown level0 summary"><p>Base class used for implementation of container controls using a Control as the base.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -89,23 +88,13 @@ BSD 3-Clause License
     <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html">VisualControlBase</a></div>
     <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControl.html">VisualControl</a></div>
     <div class="level6"><span class="xref">VisualControlContainment</span></div>
+  </div>
+  
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonGroup.html">KryptonGroup</a></div>
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonGroupBox.html">KryptonGroupBox</a></div>
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup.html">KryptonHeaderGroup</a></div>
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonSplitContainer.html">KryptonSplitContainer</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitializeNotification</span></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitialize</span></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1348,254 +1337,344 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ClassInterface(ClassInterfaceType.AutoDispatch)]
 [ComVisible(true)]
 public abstract class VisualControlContainment : VisualControl, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable, IKryptonDebug, ISupportInitializeNotification, ISupportInitialize</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment__ctor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.#ctor">VisualControlContainment()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment__ctor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment__ctor" class="expander" data-toggle="collapse">VisualControlContainment()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment__ctor" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualContainer class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected VisualControlContainment()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AllowDrop_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AllowDrop*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AllowDrop" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AllowDrop">AllowDrop</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AllowDrop" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AllowDrop"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_AllowDrop" class="expander" data-toggle="collapse">AllowDrop</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_AllowDrop" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the control can accept data that the user drags onto it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public override bool AllowDrop { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.AllowDrop</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AutoSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AutoSize">AutoSize</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.AutoSize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize" class="expander" data-toggle="collapse">AutoSize</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the control is automatically resized to display its entire contents.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public override bool AutoSize { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.AutoSize</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_BackColor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.BackColor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_BackColor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.BackColor">BackColor</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_BackColor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.BackColor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_BackColor" class="expander" data-toggle="collapse">BackColor</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_BackColor" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets the background color for the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public override Color BackColor { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.BackColor</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_DefaultSize_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.DefaultSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_DefaultSize" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.DefaultSize">DefaultSize</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_DefaultSize" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.DefaultSize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_DefaultSize" class="expander" data-toggle="collapse">DefaultSize</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_DefaultSize" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the default size of the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override Size DefaultSize { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.DefaultSize</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_Font_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.Font*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_Font" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.Font">Font</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_Font" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.Font"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_Font" class="expander" data-toggle="collapse">Font</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_Font" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets the font of the text displayed by the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public override Font Font { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Font</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Font</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.Font</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_ForeColor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.ForeColor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_ForeColor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.ForeColor">ForeColor</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_ForeColor" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.ForeColor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_ForeColor" class="expander" data-toggle="collapse">ForeColor</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_ForeColor" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets the foreground color for the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public override Color ForeColor { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.ForeColor</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_TabStop_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.TabStop*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_TabStop" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.TabStop">TabStop</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlContainment_TabStop" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlContainment.TabStop"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_TabStop" class="expander" data-toggle="collapse">TabStop</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlContainment_TabStop" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the user can give the focus to this control using the TAB key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 [Bindable(false)]
 public bool TabStop { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitializeNotification</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitialize</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

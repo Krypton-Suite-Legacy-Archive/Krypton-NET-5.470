@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,21 +73,22 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs" class="text-break">Class PageDragCancelEventArgs
+  <h1 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs">Class PageDragCancelEventArgs
   </h1>
   <div class="markdown level0 summary"><p>Details for an cancellable event that provides pages associated with a page dragging event.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.EventArgs</span></div>
     <div class="level2"><span class="xref">System.ComponentModel.CancelEventArgs</span></div>
     <div class="level3"><span class="xref">PageDragCancelEventArgs</span></div>
-      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Workspace.CellDragCancelEventArgs.html">CellDragCancelEventArgs</a></div>
   </div>
+  
+      <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Workspace.CellDragCancelEventArgs.html">CellDragCancelEventArgs</a></div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -118,209 +119,305 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Navigator.html">ComponentFactory.Krypton.Navigator</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Navigator.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PageDragCancelEventArgs : CancelEventArgs</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor(System.Drawing.Point,System.Drawing.Point,System.Windows.Forms.Control,ComponentFactory.Krypton.Navigator.KryptonPage[])">PageDragCancelEventArgs(Point, Point, Control, KryptonPage[])</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor(System.Drawing.Point,System.Drawing.Point,System.Windows.Forms.Control,ComponentFactory.Krypton.Navigator.KryptonPage[])"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPage___" class="expander" data-toggle="collapse">PageDragCancelEventArgs(Point, Point, Control, KryptonPage[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPage___" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PageDragCancelEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PageDragCancelEventArgs(Point screenPoint, Point elementOffset, Control c, KryptonPage[] pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPoint</span></td>
-        <td><p>Screen point of the mouse.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">elementOffset</span></td>
-        <td><p>Offset from the top left of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">c</span></td>
-        <td><p>Control that started the drag operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Array of event associated pages.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPoint</span>
+        <p><p>Screen point of the mouse.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">elementOffset</span>
+        <p><p>Offset from the top left of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Control that started the drag operation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</span>
+        <span class="parametername">pages</span>
+        <p><p>Array of event associated pages.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor(System.Drawing.Point,System.Drawing.Point,System.Windows.Forms.Control,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">PageDragCancelEventArgs(Point, Point, Control, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.#ctor(System.Drawing.Point,System.Drawing.Point,System.Windows.Forms.Control,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">PageDragCancelEventArgs(Point, Point, Control, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs__ctor_System_Drawing_Point_System_Drawing_Point_System_Windows_Forms_Control_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PageDragCancelEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PageDragCancelEventArgs(Point screenPoint, Point elementOffset, Control c, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPoint</span></td>
-        <td><p>Screen point of the mouse.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">elementOffset</span></td>
-        <td><p>Offset from the top left of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">c</span></td>
-        <td><p>Control that started the drag operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Collection of event associated pages.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPoint</span>
+        <p><p>Screen point of the mouse.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">elementOffset</span>
+        <p><p>Offset from the top left of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Control that started the drag operation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of event associated pages.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Control_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Control*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Control" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Control">Control</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Control" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Control"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Control" class="expander" data-toggle="collapse">Control</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Control" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the control that started the drag operation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Control Control { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Control</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ElementOffset_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ElementOffset*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ElementOffset" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ElementOffset">ElementOffset</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ElementOffset" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ElementOffset"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ElementOffset" class="expander" data-toggle="collapse">ElementOffset</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ElementOffset" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the associated element offset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Point ElementOffset { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Point</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Pages_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Pages*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Pages" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Pages">Pages</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Pages" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.Pages"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Pages" class="expander" data-toggle="collapse">Pages</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_Pages" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the collection of pages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPageCollection Pages { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ScreenPoint_" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ScreenPoint*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ScreenPoint" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ScreenPoint">ScreenPoint</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ScreenPoint" data-uid="ComponentFactory.Krypton.Navigator.PageDragCancelEventArgs.ScreenPoint"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ScreenPoint" class="expander" data-toggle="collapse">ScreenPoint</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_ScreenPoint" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the associated screen point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Point ScreenPoint { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Point</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

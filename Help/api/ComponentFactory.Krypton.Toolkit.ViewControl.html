@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ViewControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl" class="text-break">Class ViewControl
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl">Class ViewControl
   </h1>
   <div class="markdown level0 summary"><p>Control that is contained inside an element to act as clipping of real controls.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -88,15 +87,8 @@ BSD 3-Clause License
     <div class="level3"><span class="xref">System.Windows.Forms.Control</span></div>
     <div class="level4"><span class="xref">ViewControl</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1210,607 +1202,838 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ViewControl_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ViewControl : Control, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl__ctor_ComponentFactory_Krypton_Toolkit_VisualControl_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.#ctor(ComponentFactory.Krypton.Toolkit.VisualControl)">ViewControl(VisualControl)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl__ctor_ComponentFactory_Krypton_Toolkit_VisualControl_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.#ctor(ComponentFactory.Krypton.Toolkit.VisualControl)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl__ctor_ComponentFactory_Krypton_Toolkit_VisualControl_" class="expander" data-toggle="collapse">ViewControl(VisualControl)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl__ctor_ComponentFactory_Krypton_Toolkit_VisualControl_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewControl class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewControl(VisualControl rootControl)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControl.html">VisualControl</a></td>
-        <td><span class="parametername">rootControl</span></td>
-        <td><p>Top level visual control.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControl.html">VisualControl</a></span>
+        <span class="parametername">rootControl</span>
+        <p><p>Top level visual control.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_InDesignMode_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.InDesignMode*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_InDesignMode" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.InDesignMode">InDesignMode</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_InDesignMode" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.InDesignMode"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_InDesignMode" class="expander" data-toggle="collapse">InDesignMode</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_InDesignMode" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets a value indicating if the control is in design mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool InDesignMode { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_NeedPaintDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.NeedPaintDelegate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.NeedPaintDelegate">NeedPaintDelegate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.NeedPaintDelegate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_NeedPaintDelegate" class="expander" data-toggle="collapse">NeedPaintDelegate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_NeedPaintDelegate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the need paint delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public NeedPaintHandler NeedPaintDelegate { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_TransparentBackground_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.TransparentBackground*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_TransparentBackground" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.TransparentBackground">TransparentBackground</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_TransparentBackground" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.TransparentBackground"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_TransparentBackground" class="expander" data-toggle="collapse">TransparentBackground</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_TransparentBackground" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets if the background is transparent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool TransparentBackground { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_ViewLayoutControl_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.ViewLayoutControl*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_ViewLayoutControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.ViewLayoutControl">ViewLayoutControl</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_ViewLayoutControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.ViewLayoutControl"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_ViewLayoutControl" class="expander" data-toggle="collapse">ViewLayoutControl</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_ViewLayoutControl" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets access to the view layout control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutControl ViewLayoutControl { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutControl.html">ViewLayoutControl</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutControl.html">ViewLayoutControl</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnDoubleClick_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnDoubleClick*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnDoubleClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnDoubleClick(System.EventArgs)">OnDoubleClick(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnDoubleClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnDoubleClick(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnDoubleClick_System_EventArgs_" class="expander" data-toggle="collapse">OnDoubleClick(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnDoubleClick_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the DoubleClick event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnDoubleClick(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnDoubleClick(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyDown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyDown(System.Windows.Forms.KeyEventArgs)">OnKeyDown(KeyEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyDown(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">OnKeyDown(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyDown event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyDown(KeyEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyDown(System.Windows.Forms.KeyEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyPress_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyPress*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">OnKeyPress(KeyPressEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" class="expander" data-toggle="collapse">OnKeyPress(KeyPressEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyPress event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyPress(KeyPressEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyPressEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyPressEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyUp*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyUp(System.Windows.Forms.KeyEventArgs)">OnKeyUp(KeyEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnKeyUp(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyUp_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">OnKeyUp(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnKeyUp_System_Windows_Forms_KeyEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyUp event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyUp(KeyEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyUp(System.Windows.Forms.KeyEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseDown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseDown_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)">OnMouseDown(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseDown_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseDown_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseDown(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseDown_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseDown event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseDown(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseDown(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseLeave*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseLeave_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseLeave(System.EventArgs)">OnMouseLeave(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseLeave_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseLeave(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseLeave_System_EventArgs_" class="expander" data-toggle="collapse">OnMouseLeave(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseLeave_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseLeave event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseLeave(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseLeave(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseMove_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseMove(System.Windows.Forms.MouseEventArgs)">OnMouseMove(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseMove_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseMove(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseMove_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseMove(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseMove_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseMove event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseMove(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseMove(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseUp*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseUp_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseUp(System.Windows.Forms.MouseEventArgs)">OnMouseUp(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseUp_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnMouseUp(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseUp_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseUp(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnMouseUp_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseUp event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseUp(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseUp(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)">OnNeedPaint(Object, NeedLayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="expander" data-toggle="collapse">OnNeedPaint(Object, NeedLayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a notification from palette storage of a paint and optional layout required.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of notification.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An NeedLayoutEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An NeedLayoutEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnPaint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnPaint_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnPaint(System.Windows.Forms.PaintEventArgs)">OnPaint(PaintEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnPaint_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnPaint(System.Windows.Forms.PaintEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnPaint_System_Windows_Forms_PaintEventArgs_" class="expander" data-toggle="collapse">OnPaint(PaintEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnPaint_System_Windows_Forms_PaintEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Paint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnPaint(PaintEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.PaintEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A PaintEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.PaintEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A PaintEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_OnWndProcHitTest_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnWndProcHitTest*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnWndProcHitTest_ComponentFactory_Krypton_Toolkit_ViewControlHitTestArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnWndProcHitTest(ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs)">OnWndProcHitTest(ViewControlHitTestArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_OnWndProcHitTest_ComponentFactory_Krypton_Toolkit_ViewControlHitTestArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.OnWndProcHitTest(ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnWndProcHitTest_ComponentFactory_Krypton_Toolkit_ViewControlHitTestArgs_" class="expander" data-toggle="collapse">OnWndProcHitTest(ViewControlHitTestArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_OnWndProcHitTest_ComponentFactory_Krypton_Toolkit_ViewControlHitTestArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the WndProcHitTest event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnWndProcHitTest(ViewControlHitTestArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs.html">ViewControlHitTestArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A ViewControlHitTestArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs.html">ViewControlHitTestArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>A ViewControlHitTestArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_UpdateParent_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.UpdateParent*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_UpdateParent_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.UpdateParent(System.Windows.Forms.Control)">UpdateParent(Control)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_UpdateParent_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.UpdateParent(System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_UpdateParent_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">UpdateParent(Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_UpdateParent_System_Windows_Forms_Control_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the root control for point translation and message dispatch. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UpdateParent(Control parent)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">parent</span></td>
-        <td><p>Parent control.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">parent</span>
+        <p><p>Parent control.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewControl_WndProc_" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.WndProc*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.WndProc(System.Windows.Forms.Message@)">WndProc(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.WndProc(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_WndProc_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">WndProc(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_WndProc_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Process Windows-based messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void WndProc(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>A Windows-based message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>A Windows-based message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.WndProc(System.Windows.Forms.Message)</span></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="events">Events
   </h3>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_PaintBackground" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.PaintBackground">PaintBackground</h4>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_PaintBackground" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.PaintBackground"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_PaintBackground" class="expander" data-toggle="collapse">PaintBackground</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_PaintBackground" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the background needs painting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event PaintEventHandler PaintBackground</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.PaintEventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.PaintEventHandler</span>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_WndProcHitTest" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.WndProcHitTest">WndProcHitTest</h4>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewControl_WndProcHitTest" data-uid="ComponentFactory.Krypton.Toolkit.ViewControl.WndProcHitTest"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_WndProcHitTest" class="expander" data-toggle="collapse">WndProcHitTest</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewControl_WndProcHitTest" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the WM_NCHITTEST occurs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;ViewControlHitTestArgs&gt; WndProcHitTest</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs.html">ViewControlHitTestArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewControlHitTestArgs.html">ViewControlHitTestArgs</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

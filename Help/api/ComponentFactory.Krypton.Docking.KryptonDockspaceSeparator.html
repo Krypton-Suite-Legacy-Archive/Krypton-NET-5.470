@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator" class="text-break">Class KryptonDockspaceSeparator
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator">Class KryptonDockspaceSeparator
   </h1>
   <div class="markdown level0 summary"><p>Extends the KryptonSeparator so work between dockspace entries on a control edge.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -91,19 +90,8 @@ BSD 3-Clause License
     <div class="level6"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonSeparator.html">KryptonSeparator</a></div>
     <div class="level7"><span class="xref">KryptonDockspaceSeparator</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitializeNotification</span></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitialize</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ISeparatorSource.html">ISeparatorSource</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1421,113 +1409,117 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonDockspaceSeparator : KryptonSeparator, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable, IKryptonDebug, ISupportInitializeNotification, ISupportInitialize, ISeparatorSource</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator__ctor_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.#ctor(ComponentFactory.Krypton.Docking.DockingEdge,System.Boolean)">KryptonDockspaceSeparator(DockingEdge, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator__ctor_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.#ctor(ComponentFactory.Krypton.Docking.DockingEdge,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator__ctor_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" class="expander" data-toggle="collapse">KryptonDockspaceSeparator(DockingEdge, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator__ctor_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockspaceSeparator class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockspaceSeparator(DockingEdge edge, bool opposite)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></td>
-        <td><span class="parametername">edge</span></td>
-        <td><p>Docking edge the separator is against.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">opposite</span></td>
-        <td><p>Should the separator be docked against the opposite edge.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></span>
+        <span class="parametername">edge</span>
+        <p><p>Docking edge the separator is against.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">opposite</span>
+        <p><p>Should the separator be docked against the opposite edge.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_ToString_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.ToString*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_ToString" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.ToString">ToString()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_ToString" data-uid="ComponentFactory.Krypton.Docking.KryptonDockspaceSeparator.ToString"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockspaceSeparator_ToString" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a string representation of the class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ComponentModel.Component.ToString()</span></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitializeNotification</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitialize</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ISeparatorSource.html">ISeparatorSource</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

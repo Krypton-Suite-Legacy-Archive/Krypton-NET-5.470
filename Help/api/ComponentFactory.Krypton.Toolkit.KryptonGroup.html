@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_KryptonGroup" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup" class="text-break">Class KryptonGroup
+  <h1 id="ComponentFactory_Krypton_Toolkit_KryptonGroup" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup">Class KryptonGroup
   </h1>
   <div class="markdown level0 summary"><p>Group related controls together with Krypton Toolkit styling.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -91,18 +90,8 @@ BSD 3-Clause License
     <div class="level6"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlContainment.html">VisualControlContainment</a></div>
     <div class="level7"><span class="xref">KryptonGroup</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitializeNotification</span></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitialize</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1333,8 +1322,10 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ToolboxBitmap(typeof (KryptonGroup), &quot;ToolboxBitmaps.KryptonGroup.bmp&quot;)]
@@ -1343,590 +1334,841 @@ BSD 3-Clause License
 [ComVisible(true)]
 public class KryptonGroup : VisualControlContainment, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable, IKryptonDebug, ISupportInitializeNotification, ISupportInitialize</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup__ctor" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.#ctor">KryptonGroup()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup__ctor" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup__ctor" class="expander" data-toggle="collapse">KryptonGroup()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup__ctor" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonGroup class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonGroup()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSize_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSize" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSize">AutoSize</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSize" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSize" class="expander" data-toggle="collapse">AutoSize</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSize" class="collapse in">
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the control is automatically resized to display its entire contents.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(true)]
 public override bool AutoSize { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlContainment.html#ComponentFactory_Krypton_Toolkit_VisualControlContainment_AutoSize">VisualControlContainment.AutoSize</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSizeMode_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSizeMode*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSizeMode" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSizeMode">AutoSizeMode</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSizeMode" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.AutoSizeMode"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSizeMode" class="expander" data-toggle="collapse">AutoSizeMode</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_AutoSizeMode" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the auto size mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AutoSizeMode AutoSizeMode { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.AutoSizeMode</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.AutoSizeMode</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_DisplayRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.DisplayRectangle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_DisplayRectangle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.DisplayRectangle">DisplayRectangle</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_DisplayRectangle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.DisplayRectangle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_DisplayRectangle" class="expander" data-toggle="collapse">DisplayRectangle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_DisplayRectangle" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the rectangle that represents the display area of the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle DisplayRectangle { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.DisplayRectangle</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBackStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBackStyle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBackStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBackStyle">GroupBackStyle</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBackStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBackStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBackStyle" class="expander" data-toggle="collapse">GroupBackStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBackStyle" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the background style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBackStyle GroupBackStyle { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBackStyle.html">PaletteBackStyle</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBackStyle.html">PaletteBackStyle</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBorderStyle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBorderStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBorderStyle">GroupBorderStyle</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBorderStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GroupBorderStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBorderStyle" class="expander" data-toggle="collapse">GroupBorderStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GroupBorderStyle" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the border style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBorderStyle GroupBorderStyle { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.html">PaletteBorderStyle</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.html">PaletteBorderStyle</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Name_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Name*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Name" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Name">Name</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Name" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Name"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_Name" class="expander" data-toggle="collapse">Name</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_Name" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the name of the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public string Name { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Panel_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Panel*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Panel" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Panel">Panel</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_Panel" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.Panel"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_Panel" class="expander" data-toggle="collapse">Panel</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_Panel" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the internal panel that contains group content.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonGroupPanel Panel { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonGroupPanel.html">KryptonGroupPanel</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonGroupPanel.html">KryptonGroupPanel</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateCommon_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateCommon*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateCommon" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateCommon">StateCommon</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateCommon" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateCommon"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateCommon" class="expander" data-toggle="collapse">StateCommon</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateCommon" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the common group appearance entries that other states can override.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteDoubleRedirect StateCommon { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDoubleRedirect.html">PaletteDoubleRedirect</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDoubleRedirect.html">PaletteDoubleRedirect</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateDisabled_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateDisabled*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateDisabled" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateDisabled">StateDisabled</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateDisabled" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateDisabled"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateDisabled" class="expander" data-toggle="collapse">StateDisabled</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateDisabled" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the disabled group appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteDouble StateDisabled { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateNormal_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateNormal*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateNormal" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateNormal">StateNormal</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_StateNormal" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.StateNormal"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateNormal" class="expander" data-toggle="collapse">StateNormal</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_StateNormal" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the normal group appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteDouble StateNormal { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_CreateControlsInstance_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.CreateControlsInstance*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_CreateControlsInstance" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.CreateControlsInstance">CreateControlsInstance()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_CreateControlsInstance" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.CreateControlsInstance"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_CreateControlsInstance" class="expander" data-toggle="collapse">CreateControlsInstance()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_CreateControlsInstance" class="collapse in">
   <div class="markdown level1 summary"><p>Creates a new instance of the control collection for the KryptonGroup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override Control.ControlCollection CreateControlsInstance()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control.ControlCollection</span></td>
-        <td><p>A new instance of Control.ControlCollection assigned to the control.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Control.ControlCollection</span>
+        <p><p>A new instance of Control.ControlCollection assigned to the control.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.CreateControlsInstance()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_ForceControlLayout_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.ForceControlLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_ForceControlLayout" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.ForceControlLayout">ForceControlLayout()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_ForceControlLayout" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.ForceControlLayout"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_ForceControlLayout" class="expander" data-toggle="collapse">ForceControlLayout()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_ForceControlLayout" class="collapse in">
   <div class="markdown level1 summary"><p>Force the layout logic to size and position the panels.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void ForceControlLayout()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GetPreferredSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GetPreferredSize_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GetPreferredSize(System.Drawing.Size)">GetPreferredSize(Size)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_GetPreferredSize_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.GetPreferredSize(System.Drawing.Size)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GetPreferredSize_System_Drawing_Size_" class="expander" data-toggle="collapse">GetPreferredSize(Size)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_GetPreferredSize_System_Drawing_Size_" class="collapse in">
   <div class="markdown level1 summary"><p>Get the preferred size of the control based on a proposed size.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetPreferredSize(Size proposedSize)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td><span class="parametername">proposedSize</span></td>
-        <td><p>Starting size proposed by the caller.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Size</span></span>
+        <span class="parametername">proposedSize</span>
+        <p><p>Starting size proposed by the caller.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td><p>Calculated preferred size.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p><p>Calculated preferred size.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.GetPreferredSize(System.Drawing.Size)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnEnabledChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnEnabledChanged*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnEnabledChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnEnabledChanged(System.EventArgs)">OnEnabledChanged(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnEnabledChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnEnabledChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnEnabledChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnEnabledChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnEnabledChanged_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the EnabledChanged event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnEnabledChanged(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnEnabledChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnHandleCreated_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnHandleCreated*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnHandleCreated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnHandleCreated(System.EventArgs)">OnHandleCreated(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnHandleCreated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnHandleCreated(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnHandleCreated_System_EventArgs_" class="expander" data-toggle="collapse">OnHandleCreated(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnHandleCreated_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the HandleCreated event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnHandleCreated(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnInitialized_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnInitialized*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnInitialized_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnInitialized(System.EventArgs)">OnInitialized(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnInitialized_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnInitialized(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnInitialized_System_EventArgs_" class="expander" data-toggle="collapse">OnInitialized(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnInitialized_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Initialized event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnInitialized(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControl.html#ComponentFactory_Krypton_Toolkit_VisualControl_OnInitialized_System_EventArgs_">VisualControl.OnInitialized(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnLayout_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnLayout(System.Windows.Forms.LayoutEventArgs)">OnLayout(LayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnLayout(System.Windows.Forms.LayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="expander" data-toggle="collapse">OnLayout(LayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Layout event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnLayout(LayoutEventArgs levent)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.LayoutEventArgs</span></td>
-        <td><span class="parametername">levent</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.LayoutEventArgs</span></span>
+        <span class="parametername">levent</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnLayout_System_Windows_Forms_LayoutEventArgs_">VisualControlBase.OnLayout(LayoutEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)">OnNeedPaint(Object, NeedLayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="expander" data-toggle="collapse">OnNeedPaint(Object, NeedLayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a notification from palette storage of a paint and optional layout required.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnNeedPaint(object sender, NeedLayoutEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of notification.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An NeedLayoutEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An NeedLayoutEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_">VisualControlBase.OnNeedPaint(Object, NeedLayoutEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnResize_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnResize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnResize_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnResize(System.EventArgs)">OnResize(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_OnResize_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.OnResize(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnResize_System_EventArgs_" class="expander" data-toggle="collapse">OnResize(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_OnResize_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Resize event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnResize(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnResize(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonGroup_SetFixedState_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.SetFixedState*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.SetFixedState(ComponentFactory.Krypton.Toolkit.PaletteState)">SetFixedState(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonGroup_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonGroup.SetFixedState(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">SetFixedState(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonGroup_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Fix the control to a particular palette state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void SetFixedState(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette state to fix.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette state to fix.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitializeNotification</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitialize</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

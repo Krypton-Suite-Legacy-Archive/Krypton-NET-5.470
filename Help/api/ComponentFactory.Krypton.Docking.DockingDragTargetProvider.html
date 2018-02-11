@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,22 +73,19 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider" class="text-break">Class DockingDragTargetProvider
+  <h1 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider">Class DockingDragTargetProvider
   </h1>
   <div class="markdown level0 summary"><p>Provides the set of drag targets relevent to the set of pages being moved.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">DockingDragTargetProvider</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Navigator.IDragTargetProvider.html">IDragTargetProvider</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -113,109 +110,137 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class DockingDragTargetProvider : IDragTargetProvider</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider__ctor_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.#ctor(ComponentFactory.Krypton.Docking.KryptonDockingManager,ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">DockingDragTargetProvider(KryptonDockingManager, KryptonFloatingWindow, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.#ctor(ComponentFactory.Krypton.Docking.KryptonDockingManager,ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragTargetProvider__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">DockingDragTargetProvider(KryptonDockingManager, KryptonFloatingWindow, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragTargetProvider__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the DragTargetNull class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingDragTargetProvider(KryptonDockingManager manager, KryptonFloatingWindow floatingWindow, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingManager.html">KryptonDockingManager</a></td>
-        <td><span class="parametername">manager</span></td>
-        <td><p>Reference to docking manager.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></td>
-        <td><span class="parametername">floatingWindow</span></td>
-        <td><p>Reference to window being dragged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Reference to collection of pages to drag.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingManager.html">KryptonDockingManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to docking manager.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></span>
+        <span class="parametername">floatingWindow</span>
+        <p><p>Reference to window being dragged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Reference to collection of pages to drag.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider_GenerateDragTargets_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.GenerateDragTargets*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider_GenerateDragTargets_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.GenerateDragTargets(ComponentFactory.Krypton.Navigator.PageDragEndData)">GenerateDragTargets(PageDragEndData)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragTargetProvider_GenerateDragTargets_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Docking.DockingDragTargetProvider.GenerateDragTargets(ComponentFactory.Krypton.Navigator.PageDragEndData)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragTargetProvider_GenerateDragTargets_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="expander" data-toggle="collapse">GenerateDragTargets(PageDragEndData)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragTargetProvider_GenerateDragTargets_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="collapse in">
   <div class="markdown level1 summary"><p>Generate a list of drag targets that are relevant to the provided end data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DragTargetList GenerateDragTargets(PageDragEndData dragEndData)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></td>
-        <td><span class="parametername">dragEndData</span></td>
-        <td><p>Pages data being dragged.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">dragEndData</span>
+        <p><p>Pages data being dragged.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a></td>
-        <td><p>List of drag targets.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a>
+        <p><p>List of drag targets.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Navigator.IDragTargetProvider.html">IDragTargetProvider</a>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Navigator.IDragTargetProvider.html#ComponentFactory_Krypton_Navigator_IDragTargetProvider_GenerateDragTargets_ComponentFactory_Krypton_Navigator_PageDragEndData_">IDragTargetProvider.GenerateDragTargets(PageDragEndData)</a></div>
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl" class="text-break">Class KryptonDockingControl
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl">Class KryptonDockingControl
   </h1>
   <div class="markdown level0 summary"><p>Provides docking functionality for a control instance.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -90,14 +89,8 @@ BSD 3-Clause License
     <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementOpenCollection.html">DockingElementOpenCollection</a></div>
     <div class="level6"><span class="xref">KryptonDockingControl</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -284,337 +277,458 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonDockingControl : DockingElementOpenCollection, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control)">KryptonDockingControl(String, Control)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">KryptonDockingControl(String, Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingControl class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl(string name, Control control)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Reference to control derived instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Reference to control derived instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingNavigator_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control,ComponentFactory.Krypton.Docking.KryptonDockingNavigator)">KryptonDockingControl(String, Control, KryptonDockingNavigator)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingNavigator_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control,ComponentFactory.Krypton.Docking.KryptonDockingNavigator)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingNavigator_" class="expander" data-toggle="collapse">KryptonDockingControl(String, Control, KryptonDockingNavigator)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingNavigator_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingControl class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl(string name, Control control, KryptonDockingNavigator navigator)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Reference to control derived instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingNavigator.html">KryptonDockingNavigator</a></td>
-        <td><span class="parametername">navigator</span></td>
-        <td><p>Inner space occupied by a KryptonDockingNavigator.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Reference to control derived instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingNavigator.html">KryptonDockingNavigator</a></span>
+        <span class="parametername">navigator</span>
+        <p><p>Inner space occupied by a KryptonDockingNavigator.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingWorkspace_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control,ComponentFactory.Krypton.Docking.KryptonDockingWorkspace)">KryptonDockingControl(String, Control, KryptonDockingWorkspace)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingWorkspace_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.#ctor(System.String,System.Windows.Forms.Control,ComponentFactory.Krypton.Docking.KryptonDockingWorkspace)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingWorkspace_" class="expander" data-toggle="collapse">KryptonDockingControl(String, Control, KryptonDockingWorkspace)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl__ctor_System_String_System_Windows_Forms_Control_ComponentFactory_Krypton_Docking_KryptonDockingWorkspace_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingControl class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl(string name, Control control, KryptonDockingWorkspace workspace)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Reference to control derived instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingWorkspace.html">KryptonDockingWorkspace</a></td>
-        <td><span class="parametername">workspace</span></td>
-        <td><p>Inner space occupied by a KryptonDockingNavigator.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Reference to control derived instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingWorkspace.html">KryptonDockingWorkspace</a></span>
+        <span class="parametername">workspace</span>
+        <p><p>Inner space occupied by a KryptonDockingNavigator.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_Control_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.Control*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_Control" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.Control">Control</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_Control" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.Control"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_Control" class="expander" data-toggle="collapse">Control</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_Control" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the control this element is managing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Control Control { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Control</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_InnerMinimum_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.InnerMinimum*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_InnerMinimum" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.InnerMinimum">InnerMinimum</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_InnerMinimum" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.InnerMinimum"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_InnerMinimum" class="expander" data-toggle="collapse">InnerMinimum</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_InnerMinimum" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the minimum size for the inner area of the control that docking should not overlap.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Size InnerMinimum { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_XmlElementName_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.XmlElementName*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.XmlElementName">XmlElementName</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.XmlElementName"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_XmlElementName" class="expander" data-toggle="collapse">XmlElementName</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_XmlElementName" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the xml element name to use when saving.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_XmlElementName">DockingElement.XmlElementName</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_LoadElementFromXml_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.LoadElementFromXml*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">LoadElementFromXml(XmlReader, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">LoadElementFromXml(XmlReader, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Loads docking configuration information using a provider xml reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void LoadElementFromXml(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlReader</span></td>
-        <td><span class="parametername">xmlReader</span></td>
-        <td><p>Xml reader object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Collection of available pages for adding.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of available pages for adding.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.LoadElementFromXml(XmlReader, KryptonPageCollection)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateAction_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateAction*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,System.String[])">PropogateAction(DockingPropogateAction, String[])</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,System.String[])"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" class="expander" data-toggle="collapse">PropogateAction(DockingPropogateAction, String[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" class="collapse in">
   <div class="markdown level1 summary"><p>Propagates an action request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateAction(DockingPropogateAction action, string[] uniqueNames)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></td>
-        <td><span class="parametername">action</span></td>
-        <td><p>Action that is requested to be performed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">uniqueNames</span></td>
-        <td><p>Array of unique names of the pages the action relates to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></span>
+        <span class="parametername">action</span>
+        <p><p>Action that is requested to be performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span>[]</span>
+        <span class="parametername">uniqueNames</span>
+        <p><p>Array of unique names of the pages the action relates to.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___">DockingElement.PropogateAction(DockingPropogateAction, String[])</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateDragTargets_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateDragTargets*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateDragTargets(ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.PageDragEndData,ComponentFactory.Krypton.Navigator.DragTargetList)">PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingControl.PropogateDragTargets(ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.PageDragEndData,ComponentFactory.Krypton.Navigator.DragTargetList)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" class="expander" data-toggle="collapse">PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingControl_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates a request for drag targets down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateDragTargets(KryptonFloatingWindow floatingWindow, PageDragEndData dragData, DragTargetList targets)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></td>
-        <td><span class="parametername">floatingWindow</span></td>
-        <td><p>Reference to window being dragged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></td>
-        <td><span class="parametername">dragData</span></td>
-        <td><p>Set of pages being dragged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a></td>
-        <td><span class="parametername">targets</span></td>
-        <td><p>Collection of drag targets.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></span>
+        <span class="parametername">floatingWindow</span>
+        <p><p>Reference to window being dragged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">dragData</span>
+        <p><p>Set of pages being dragged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a></span>
+        <span class="parametername">targets</span>
+        <p><p>Collection of drag targets.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_">DockingElement.PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

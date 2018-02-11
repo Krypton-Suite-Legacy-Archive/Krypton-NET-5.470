@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip" class="text-break">Class VisualPopupToolTip
+  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip">Class VisualPopupToolTip
   </h1>
   <div class="markdown level0 summary"><p>Visual display of tooltip information.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -91,16 +90,8 @@ BSD 3-Clause License
     <div class="level6"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></div>
     <div class="level7"><span class="xref">VisualPopupToolTip</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.Windows.Forms.IContainerControl</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1394,333 +1385,426 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class VisualPopupToolTip : VisualPopup, IDropTarget, ISynchronizeInvoke, IWin32Window, IBindableComponent, IArrangedElement, IComponent, IDisposable, IContainerControl</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor(ComponentFactory.Krypton.Toolkit.PaletteRedirect,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.IRenderer)">VisualPopupToolTip(PaletteRedirect, IContentValues, IRenderer)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor(ComponentFactory.Krypton.Toolkit.PaletteRedirect,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.IRenderer)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_" class="expander" data-toggle="collapse">VisualPopupToolTip(PaletteRedirect, IContentValues, IRenderer)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualPopupTooltip class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopupToolTip(PaletteRedirect redirector, IContentValues contentValues, IRenderer renderer)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
-        <td><span class="parametername">redirector</span></td>
-        <td><p>Redirector for recovering palette values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></td>
-        <td><span class="parametername">contentValues</span></td>
-        <td><p>Source of content values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Drawing renderer.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></span>
+        <span class="parametername">redirector</span>
+        <p><p>Redirector for recovering palette values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></span>
+        <span class="parametername">contentValues</span>
+        <p><p>Source of content values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Drawing renderer.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_ComponentFactory_Krypton_Toolkit_PaletteBackStyle_ComponentFactory_Krypton_Toolkit_PaletteBorderStyle_ComponentFactory_Krypton_Toolkit_PaletteContentStyle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor(ComponentFactory.Krypton.Toolkit.PaletteRedirect,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.IRenderer,ComponentFactory.Krypton.Toolkit.PaletteBackStyle,ComponentFactory.Krypton.Toolkit.PaletteBorderStyle,ComponentFactory.Krypton.Toolkit.PaletteContentStyle)">VisualPopupToolTip(PaletteRedirect, IContentValues, IRenderer, PaletteBackStyle, PaletteBorderStyle, PaletteContentStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_ComponentFactory_Krypton_Toolkit_PaletteBackStyle_ComponentFactory_Krypton_Toolkit_PaletteBorderStyle_ComponentFactory_Krypton_Toolkit_PaletteContentStyle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.#ctor(ComponentFactory.Krypton.Toolkit.PaletteRedirect,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.IRenderer,ComponentFactory.Krypton.Toolkit.PaletteBackStyle,ComponentFactory.Krypton.Toolkit.PaletteBorderStyle,ComponentFactory.Krypton.Toolkit.PaletteContentStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_ComponentFactory_Krypton_Toolkit_PaletteBackStyle_ComponentFactory_Krypton_Toolkit_PaletteBorderStyle_ComponentFactory_Krypton_Toolkit_PaletteContentStyle_" class="expander" data-toggle="collapse">VisualPopupToolTip(PaletteRedirect, IContentValues, IRenderer, PaletteBackStyle, PaletteBorderStyle, PaletteContentStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip__ctor_ComponentFactory_Krypton_Toolkit_PaletteRedirect_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_IRenderer_ComponentFactory_Krypton_Toolkit_PaletteBackStyle_ComponentFactory_Krypton_Toolkit_PaletteBorderStyle_ComponentFactory_Krypton_Toolkit_PaletteContentStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualPopupTooltip class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopupToolTip(PaletteRedirect redirector, IContentValues contentValues, IRenderer renderer, PaletteBackStyle backStyle, PaletteBorderStyle borderStyle, PaletteContentStyle contentStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></td>
-        <td><span class="parametername">redirector</span></td>
-        <td><p>Redirector for recovering palette values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></td>
-        <td><span class="parametername">contentValues</span></td>
-        <td><p>Source of content values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Drawing renderer.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBackStyle.html">PaletteBackStyle</a></td>
-        <td><span class="parametername">backStyle</span></td>
-        <td><p>Style for the tooltip background.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.html">PaletteBorderStyle</a></td>
-        <td><span class="parametername">borderStyle</span></td>
-        <td><p>Style for the tooltip border.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContentStyle.html">PaletteContentStyle</a></td>
-        <td><span class="parametername">contentStyle</span></td>
-        <td><p>Style for the tooltip content.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></span>
+        <span class="parametername">redirector</span>
+        <p><p>Redirector for recovering palette values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></span>
+        <span class="parametername">contentValues</span>
+        <p><p>Source of content values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Drawing renderer.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBackStyle.html">PaletteBackStyle</a></span>
+        <span class="parametername">backStyle</span>
+        <p><p>Style for the tooltip background.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.html">PaletteBorderStyle</a></span>
+        <span class="parametername">borderStyle</span>
+        <p><p>Style for the tooltip border.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteContentStyle.html">PaletteContentStyle</a></span>
+        <span class="parametername">contentStyle</span>
+        <p><p>Style for the tooltip content.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_KeyboardInert_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.KeyboardInert*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_KeyboardInert" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.KeyboardInert">KeyboardInert</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_KeyboardInert" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.KeyboardInert"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_KeyboardInert" class="expander" data-toggle="collapse">KeyboardInert</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_KeyboardInert" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if the keyboard is passed to this popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool KeyboardInert { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html#ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert">VisualPopup.KeyboardInert</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_AllowMouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.AllowMouseMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.AllowMouseMove(System.Windows.Forms.Message,System.Drawing.Point)">AllowMouseMove(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.AllowMouseMove(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">AllowMouseMove(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should the mouse move at provided screen point be allowed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool AllowMouseMove(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Client coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Client coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to alow; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to alow; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html#ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_">VisualPopup.AllowMouseMove(Message, Point)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.Dispose*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_Dispose_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Clean up any resources being used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true if managed resources should be disposed; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>true if managed resources should be disposed; otherwise, false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html#ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_System_Boolean_">VisualPopup.Dispose(Boolean)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_OnLayout_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.OnLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.OnLayout(System.Windows.Forms.LayoutEventArgs)">OnLayout(LayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.OnLayout(System.Windows.Forms.LayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="expander" data-toggle="collapse">OnLayout(LayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Layout event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnLayout(LayoutEventArgs levent)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.LayoutEventArgs</span></td>
-        <td><span class="parametername">levent</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.LayoutEventArgs</span></span>
+        <span class="parametername">levent</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html#ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_System_Windows_Forms_LayoutEventArgs_">VisualPopup.OnLayout(LayoutEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize(System.Drawing.Point)">ShowCalculatingSize(Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Point_" class="expander" data-toggle="collapse">ShowCalculatingSize(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the tooltip popup relative to the provided screen position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowCalculatingSize(Point screenPt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPt</span></td>
-        <td><p>Screen point of cursor.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Screen point of cursor.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize(System.Drawing.Rectangle)">ShowCalculatingSize(Rectangle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.ShowCalculatingSize(System.Drawing.Rectangle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Rectangle_" class="expander" data-toggle="collapse">ShowCalculatingSize(Rectangle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupToolTip_ShowCalculatingSize_System_Drawing_Rectangle_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the tooltip popup relative to the provided screen position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowCalculatingSize(Rectangle screenRect)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">screenRect</span></td>
-        <td><p>Screen position to display relative to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">screenRect</span>
+        <p><p>Screen position to display relative to.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IContainerControl</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

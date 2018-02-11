@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup" class="text-break">Class KryptonDockingAutoHiddenGroup
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup">Class KryptonDockingAutoHiddenGroup
   </h1>
   <div class="markdown level0 summary"><p>Provides display and docking functionality for a group of auto hidden pages.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -89,14 +88,8 @@ BSD 3-Clause License
     <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html">DockingElementClosedCollection</a></div>
     <div class="level5"><span class="xref">KryptonDockingAutoHiddenGroup</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -247,856 +240,1146 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonDockingAutoHiddenGroup : DockingElementClosedCollection, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup__ctor_System_String_ComponentFactory_Krypton_Docking_DockingEdge_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.#ctor(System.String,ComponentFactory.Krypton.Docking.DockingEdge)">KryptonDockingAutoHiddenGroup(String, DockingEdge)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup__ctor_System_String_ComponentFactory_Krypton_Docking_DockingEdge_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.#ctor(System.String,ComponentFactory.Krypton.Docking.DockingEdge)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup__ctor_System_String_ComponentFactory_Krypton_Docking_DockingEdge_" class="expander" data-toggle="collapse">KryptonDockingAutoHiddenGroup(String, DockingEdge)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup__ctor_System_String_ComponentFactory_Krypton_Docking_DockingEdge_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingAutoHiddenGroup class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingAutoHiddenGroup(string name, DockingEdge edge)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></td>
-        <td><span class="parametername">edge</span></td>
-        <td><p>Docking edge being managed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></span>
+        <span class="parametername">edge</span>
+        <p><p>Docking edge being managed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_AutoHiddenGroupControl_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.AutoHiddenGroupControl*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_AutoHiddenGroupControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.AutoHiddenGroupControl">AutoHiddenGroupControl</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_AutoHiddenGroupControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.AutoHiddenGroupControl"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_AutoHiddenGroupControl" class="expander" data-toggle="collapse">AutoHiddenGroupControl</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_AutoHiddenGroupControl" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the control this element is managing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonAutoHiddenGroup AutoHiddenGroupControl { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonAutoHiddenGroup.html">KryptonAutoHiddenGroup</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonAutoHiddenGroup.html">KryptonAutoHiddenGroup</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Edge_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Edge*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Edge" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Edge">Edge</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Edge" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Edge"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Edge" class="expander" data-toggle="collapse">Edge</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Edge" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the docking edge this element is managing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingEdge Edge { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_EdgeDockedElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.EdgeDockedElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_EdgeDockedElement" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.EdgeDockedElement">EdgeDockedElement</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_EdgeDockedElement" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.EdgeDockedElement"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_EdgeDockedElement" class="expander" data-toggle="collapse">EdgeDockedElement</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_EdgeDockedElement" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the sibling docked edge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingEdgeDocked EdgeDockedElement { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingEdgeDocked.html">KryptonDockingEdgeDocked</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingEdgeDocked.html">KryptonDockingEdgeDocked</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_XmlElementName_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.XmlElementName*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.XmlElementName">XmlElementName</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.XmlElementName"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_XmlElementName" class="expander" data-toggle="collapse">XmlElementName</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_XmlElementName" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the xml element name to use when saving.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_XmlElementName">DockingElement.XmlElementName</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append(ComponentFactory.Krypton.Navigator.KryptonPage)">Append(KryptonPage)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append(ComponentFactory.Krypton.Navigator.KryptonPage)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage_" class="expander" data-toggle="collapse">Append(KryptonPage)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage_" class="collapse in">
   <div class="markdown level1 summary"><p>Add a KryptonPage to the end of the auto hidden group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Append(KryptonPage page)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><span class="parametername">page</span></td>
-        <td><p>KryptonPage to be added.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></span>
+        <span class="parametername">page</span>
+        <p><p>KryptonPage to be added.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append(ComponentFactory.Krypton.Navigator.KryptonPage[])">Append(KryptonPage[])</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.Append(ComponentFactory.Krypton.Navigator.KryptonPage[])"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage___" class="expander" data-toggle="collapse">Append(KryptonPage[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_Append_ComponentFactory_Krypton_Navigator_KryptonPage___" class="collapse in">
   <div class="markdown level1 summary"><p>Add the KryptonPage array to the end of the auto hidden group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Append(KryptonPage[] pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Array of KryptonPage&apos;s to be added.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</span>
+        <span class="parametername">pages</span>
+        <p><p>Array of KryptonPage&apos;s to be added.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageElement_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageElement(System.String)">FindPageElement(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageElement_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageElement(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageElement_System_String_" class="expander" data-toggle="collapse">FindPageElement(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageElement_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking element that contains the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindPageElement(string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>IDockingElement reference if page is found; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>IDockingElement reference if page is found; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageElement_System_String_">DockingElement.FindPageElement(String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageLocation_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageLocation*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageLocation(System.String)">FindPageLocation(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindPageLocation(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageLocation_System_String_" class="expander" data-toggle="collapse">FindPageLocation(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindPageLocation_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking location of the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override DockingLocation FindPageLocation(string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></td>
-        <td><p>Enumeration value indicating docking location.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a>
+        <p><p>Enumeration value indicating docking location.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageLocation_System_String_">DockingElement.FindPageLocation(String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindStorePageElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindStorePageElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindStorePageElement(ComponentFactory.Krypton.Docking.DockingLocation,System.String)">FindStorePageElement(DockingLocation, String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.FindStorePageElement(ComponentFactory.Krypton.Docking.DockingLocation,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" class="expander" data-toggle="collapse">FindStorePageElement(DockingLocation, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking element that contains the location specific store page for the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindStorePageElement(DockingLocation location, string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></td>
-        <td><span class="parametername">location</span></td>
-        <td><p>Location to be searched.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page to be found.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></span>
+        <span class="parametername">location</span>
+        <p><p>Location to be searched.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page to be found.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>IDockingElement reference if store page is found; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>IDockingElement reference if store page is found; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_">DockingElement.FindStorePageElement(DockingLocation, String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadChildDockingElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadChildDockingElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadChildDockingElement(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection,ComponentFactory.Krypton.Docking.IDockingElement)">LoadChildDockingElement(XmlReader, KryptonPageCollection, IDockingElement)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadChildDockingElement(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection,ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">LoadChildDockingElement(XmlReader, KryptonPageCollection, IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform docking element specific actions for loading a child xml.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void LoadChildDockingElement(XmlReader xmlReader, KryptonPageCollection pages, IDockingElement child)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlReader</span></td>
-        <td><span class="parametername">xmlReader</span></td>
-        <td><p>Xml reader object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Collection of available pages.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><span class="parametername">child</span></td>
-        <td><p>Optional reference to existing child docking element.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of available pages.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">child</span>
+        <p><p>Optional reference to existing child docking element.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElement.LoadChildDockingElement(XmlReader, KryptonPageCollection, IDockingElement)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadElementFromXml_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadElementFromXml*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">LoadElementFromXml(XmlReader, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">LoadElementFromXml(XmlReader, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Loads docking configuration information using a provider xml reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void LoadElementFromXml(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlReader</span></td>
-        <td><span class="parametername">xmlReader</span></td>
-        <td><p>Xml reader object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Collection of available pages for adding.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of available pages for adding.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.LoadElementFromXml(XmlReader, KryptonPageCollection)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageClicked_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageClicked*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageClicked_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageClicked(ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)">OnPageClicked(KryptonPageEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageClicked_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageClicked(ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageClicked_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="expander" data-toggle="collapse">OnPageClicked(KryptonPageEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageClicked_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the PageClicked event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageClicked(KryptonPageEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An KryptonPageEventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An KryptonPageEventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverEnd_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverEnd*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverEnd_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverEnd(System.EventArgs)">OnPageHoverEnd(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverEnd_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverEnd(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverEnd_System_EventArgs_" class="expander" data-toggle="collapse">OnPageHoverEnd(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverEnd_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the PageHoverEnd event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageHoverEnd(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverStart_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverStart*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverStart_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverStart(ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)">OnPageHoverStart(KryptonPageEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverStart_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.OnPageHoverStart(ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverStart_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="expander" data-toggle="collapse">OnPageHoverStart(KryptonPageEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_OnPageHoverStart_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the PageHoverStart event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageHoverStart(KryptonPageEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An KryptonPageEventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An KryptonPageEventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,ComponentFactory.Krypton.Navigator.KryptonPage[])">PropogateAction(DockingPropogateAction, KryptonPage[])</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,ComponentFactory.Krypton.Navigator.KryptonPage[])"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___" class="expander" data-toggle="collapse">PropogateAction(DockingPropogateAction, KryptonPage[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates an action request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateAction(DockingPropogateAction action, KryptonPage[] pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></td>
-        <td><span class="parametername">action</span></td>
-        <td><p>Action that is requested to be performed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Array of pages the action relates to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></span>
+        <span class="parametername">action</span>
+        <p><p>Action that is requested to be performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</span>
+        <span class="parametername">pages</span>
+        <p><p>Array of pages the action relates to.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___">DockingElement.PropogateAction(DockingPropogateAction, KryptonPage[])</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,System.String[])">PropogateAction(DockingPropogateAction, String[])</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateAction(ComponentFactory.Krypton.Docking.DockingPropogateAction,System.String[])"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" class="expander" data-toggle="collapse">PropogateAction(DockingPropogateAction, String[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates an action request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateAction(DockingPropogateAction action, string[] uniqueNames)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></td>
-        <td><span class="parametername">action</span></td>
-        <td><p>Action that is requested to be performed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">uniqueNames</span></td>
-        <td><p>Array of unique names of the pages the action relates to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></span>
+        <span class="parametername">action</span>
+        <p><p>Action that is requested to be performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span>[]</span>
+        <span class="parametername">uniqueNames</span>
+        <p><p>Array of unique names of the pages the action relates to.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___">DockingElement.PropogateAction(DockingPropogateAction, String[])</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateBoolState_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateBoolState*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateBoolState(ComponentFactory.Krypton.Docking.DockingPropogateBoolState,System.String)">PropogateBoolState(DockingPropogateBoolState, String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogateBoolState(ComponentFactory.Krypton.Docking.DockingPropogateBoolState,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_" class="expander" data-toggle="collapse">PropogateBoolState(DockingPropogateBoolState, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates a boolean state request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool ? PropogateBoolState(DockingPropogateBoolState state, string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateBoolState.html">DockingPropogateBoolState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Boolean state that is requested to be recovered.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page the request relates to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateBoolState.html">DockingPropogateBoolState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Boolean state that is requested to be recovered.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page the request relates to.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><p>True/False if state is known; otherwise null indicating no information available.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;
+        <p><p>True/False if state is known; otherwise null indicating no information available.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_">DockingElement.PropogateBoolState(DockingPropogateBoolState, String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageList_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageList*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageList(ComponentFactory.Krypton.Docking.DockingPropogatePageList,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">PropogatePageList(DockingPropogatePageList, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageList(ComponentFactory.Krypton.Docking.DockingPropogatePageList,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">PropogatePageList(DockingPropogatePageList, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates a page list request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogatePageList(DockingPropogatePageList state, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogatePageList.html">DockingPropogatePageList</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Request that should result in pages collection being modified.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Pages collection for modification by the docking elements.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogatePageList.html">DockingPropogatePageList</a></span>
+        <span class="parametername">state</span>
+        <p><p>Request that should result in pages collection being modified.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Pages collection for modification by the docking elements.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.PropogatePageList(DockingPropogatePageList, KryptonPageCollection)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageState_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageState*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageState(ComponentFactory.Krypton.Docking.DockingPropogatePageState,System.String)">PropogatePageState(DockingPropogatePageState, String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PropogatePageState(ComponentFactory.Krypton.Docking.DockingPropogatePageState,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_" class="expander" data-toggle="collapse">PropogatePageState(DockingPropogatePageState, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates a page request down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonPage PropogatePageState(DockingPropogatePageState state, string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogatePageState.html">DockingPropogatePageState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Request that should result in a page reference if found.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page the request relates to.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogatePageState.html">DockingPropogatePageState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Request that should result in a page reference if found.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page the request relates to.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><p>Reference to page that matches the request; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p><p>Reference to page that matches the request; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_">DockingElement.PropogatePageState(DockingPropogatePageState, String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_SaveElementToXml_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.SaveElementToXml*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_SaveElementToXml_System_Xml_XmlWriter_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.SaveElementToXml(System.Xml.XmlWriter)">SaveElementToXml(XmlWriter)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_SaveElementToXml_System_Xml_XmlWriter_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.SaveElementToXml(System.Xml.XmlWriter)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_SaveElementToXml_System_Xml_XmlWriter_" class="expander" data-toggle="collapse">SaveElementToXml(XmlWriter)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_SaveElementToXml_System_Xml_XmlWriter_" class="collapse in">
   <div class="markdown level1 summary"><p>Saves docking configuration information using a provider xml writer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void SaveElementToXml(XmlWriter xmlWriter)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlWriter</span></td>
-        <td><span class="parametername">xmlWriter</span></td>
-        <td><p>Xml writer object.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlWriter</span></span>
+        <span class="parametername">xmlWriter</span>
+        <p><p>Xml writer object.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_SaveElementToXml_System_Xml_XmlWriter_">DockingElement.SaveElementToXml(XmlWriter)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_VisiblePages_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.VisiblePages*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_VisiblePages" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.VisiblePages">VisiblePages()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_VisiblePages" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.VisiblePages"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_VisiblePages" class="expander" data-toggle="collapse">VisiblePages()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_VisiblePages" class="collapse in">
   <div class="markdown level1 summary"><p>Return an array of the visible pages that are inside the auto hidden group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage[] VisiblePages()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]</td>
-        <td><p>Array of page references.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>[]
+        <p><p>Array of page references.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="events">Events
   </h3>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageClicked" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageClicked">PageClicked</h4>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageClicked" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageClicked"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageClicked" class="expander" data-toggle="collapse">PageClicked</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageClicked" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the user clicks a page header and so requests it be shown.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;KryptonPageEventArgs&gt; PageClicked</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverEnd" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageHoverEnd">PageHoverEnd</h4>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverEnd" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageHoverEnd"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverEnd" class="expander" data-toggle="collapse">PageHoverEnd</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverEnd" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the hover over a page ends.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; PageHoverEnd</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<span class="xref">System.EventArgs</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<span class="xref">System.EventArgs</span>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverStart" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageHoverStart">PageHoverStart</h4>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverStart" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.PageHoverStart"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverStart" class="expander" data-toggle="collapse">PageHoverStart</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingAutoHiddenGroup_PageHoverStart" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the user hovers the mouse over a page in the group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;KryptonPageEventArgs&gt; PageHoverStart</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

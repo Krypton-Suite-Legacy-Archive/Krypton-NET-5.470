@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer" class="text-break">Class PaletteSplitContainer
+  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer">Class PaletteSplitContainer
   </h1>
   <div class="markdown level0 summary"><p>Extend storage for the split container with background and border information combined with separator information.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -88,10 +87,8 @@ BSD 3-Clause License
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a></div>
     <div class="level4"><span class="xref">PaletteSplitContainer</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -152,148 +149,209 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PaletteSplitContainer : PaletteDouble, IPaletteDouble</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteMetric,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">PaletteSplitContainer(IPaletteDouble, IPaletteDouble, IPaletteMetric, NeedPaintHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteMetric,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="expander" data-toggle="collapse">PaletteSplitContainer(IPaletteDouble, IPaletteDouble, IPaletteMetric, NeedPaintHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PaletteSplitContainer class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteSplitContainer(IPaletteDouble inheritSplitContainer, IPaletteDouble inheritSeparator, IPaletteMetric inheritMetric, NeedPaintHandler needPaint)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></td>
-        <td><span class="parametername">inheritSplitContainer</span></td>
-        <td><p>Source for inheriting back/border defaulted values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></td>
-        <td><span class="parametername">inheritSeparator</span></td>
-        <td><p>Source for inheriting separator defaulted values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></td>
-        <td><span class="parametername">inheritMetric</span></td>
-        <td><p>Source for inheriting separator metric values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td><span class="parametername">needPaint</span></td>
-        <td><p>Delegate for notifying paint requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></span>
+        <span class="parametername">inheritSplitContainer</span>
+        <p><p>Source for inheriting back/border defaulted values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></span>
+        <span class="parametername">inheritSeparator</span>
+        <p><p>Source for inheriting separator defaulted values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></span>
+        <span class="parametername">inheritMetric</span>
+        <p><p>Source for inheriting separator metric values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></span>
+        <span class="parametername">needPaint</span>
+        <p><p>Delegate for notifying paint requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Border_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Border*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Border" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Border">Border</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Border" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Border"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Border" class="expander" data-toggle="collapse">Border</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Border" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the border palette details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public PaletteBorder Border { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_IsDefault_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_IsDefault">PaletteDouble.IsDefault</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Separator_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Separator*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Separator" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Separator">Separator</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Separator" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSplitContainer.Separator"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Separator" class="expander" data-toggle="collapse">Separator</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSplitContainer_Separator" class="collapse in">
   <div class="markdown level1 summary"><p>Get access to the overrides for defining separator appearance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteSeparatorPadding Separator { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.html">PaletteSeparatorPadding</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.html">PaletteSeparatorPadding</a>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a>
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

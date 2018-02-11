@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect" class="text-break">Class PaletteBorderEdgeRedirect
+  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect">Class PaletteBorderEdgeRedirect
   </h1>
   <div class="markdown level0 summary"><p>Implement storage for palette border edge details.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -88,11 +87,8 @@ BSD 3-Clause License
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a></div>
     <div class="level4"><span class="xref">PaletteBorderEdgeRedirect</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -204,703 +200,860 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PaletteBorderEdgeRedirect : PaletteBack, IPaletteBack, IPaletteBorder</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect__ctor_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">PaletteBorderEdgeRedirect(IPaletteBorder, NeedPaintHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect__ctor_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect__ctor_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="expander" data-toggle="collapse">PaletteBorderEdgeRedirect(IPaletteBorder, NeedPaintHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect__ctor_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PaletteBorderEdge class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBorderEdgeRedirect(IPaletteBorder inherit, NeedPaintHandler needPaint)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">inherit</span></td>
-        <td><p>Source for inheriting defaulted values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td><span class="parametername">needPaint</span></td>
-        <td><p>Delegate for notifying paint requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">inherit</span>
+        <p><p>Source for inheriting defaulted values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></span>
+        <span class="parametername">needPaint</span>
+        <p><p>Delegate for notifying paint requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_IsDefault_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html#ComponentFactory_Krypton_Toolkit_PaletteBack_IsDefault">PaletteBack.IsDefault</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_Width_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.Width*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_Width" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.Width">Width</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_Width" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.Width"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_Width" class="expander" data-toggle="collapse">Width</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_Width" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the border width.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist(false)]
 public int Width { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor1_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor1*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor1_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor1(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderColor1(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor1_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor1(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor1_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderColor1(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor1_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the actual first border color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color GetBorderColor1(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td><p>Color value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p><p>Color value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderColor1_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderColor1(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor2_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor2*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor2_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor2(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderColor2(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor2_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColor2(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor2_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderColor2(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColor2_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the second border color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color GetBorderColor2(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td><p>Color value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p><p>Color value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderColor2_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderColor2(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAlign_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAlign*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAlign(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderColorAlign(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAlign(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderColorAlign(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the color alignment style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteRectangleAlign GetBorderColorAlign(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.html">PaletteRectangleAlign</a></td>
-        <td><p>Color alignment style.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.html">PaletteRectangleAlign</a>
+        <p><p>Color alignment style.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderColorAlign_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderColorAlign(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAngle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAngle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAngle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAngle(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderColorAngle(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAngle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorAngle(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAngle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderColorAngle(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorAngle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the color border angle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public float GetBorderColorAngle(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><p>Angle used for color drawing.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>Angle used for color drawing.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderColorAngle_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderColorAngle(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorStyle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorStyle(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderColorStyle(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderColorStyle(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderColorStyle(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderColorStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the color drawing style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteColorStyle GetBorderColorStyle(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteColorStyle.html">PaletteColorStyle</a></td>
-        <td><p>Color drawing style.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteColorStyle.html">PaletteColorStyle</a>
+        <p><p>Color drawing style.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderColorStyle_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderColorStyle(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDraw_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDraw*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDraw_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDraw(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderDraw(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDraw_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDraw(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDraw_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderDraw(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDraw_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the actual border draw value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public InheritBool GetBorderDraw(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.InheritBool.html">InheritBool</a></td>
-        <td><p>InheritBool value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.InheritBool.html">InheritBool</a>
+        <p><p>InheritBool value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderDraw_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderDraw(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDrawBorders_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDrawBorders*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDrawBorders_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDrawBorders(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderDrawBorders(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDrawBorders_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderDrawBorders(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDrawBorders_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderDrawBorders(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderDrawBorders_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the actual borders to draw value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteDrawBorders GetBorderDrawBorders(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.html">PaletteDrawBorders</a></td>
-        <td><p>PaletteDrawBorders value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.html">PaletteDrawBorders</a>
+        <p><p>PaletteDrawBorders value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderDrawBorders_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderDrawBorders(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderGraphicsHint_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderGraphicsHint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderGraphicsHint_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderGraphicsHint(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderGraphicsHint(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderGraphicsHint_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderGraphicsHint(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderGraphicsHint_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderGraphicsHint(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderGraphicsHint_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the actual border graphics hint value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteGraphicsHint GetBorderGraphicsHint(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.html">PaletteGraphicsHint</a></td>
-        <td><p>PaletteGraphicsHint value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.html">PaletteGraphicsHint</a>
+        <p><p>PaletteGraphicsHint value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderGraphicsHint_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderGraphicsHint(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImage_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImage*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImage_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImage(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderImage(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImage_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImage(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImage_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderImage(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImage_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a border image.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Image GetBorderImage(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td><p>Image instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p><p>Image instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderImage_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderImage(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageAlign_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageAlign*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageAlign(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderImageAlign(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageAlign(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderImageAlign(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageAlign_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the image alignment style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteRectangleAlign GetBorderImageAlign(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.html">PaletteRectangleAlign</a></td>
-        <td><p>Image alignment style.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.html">PaletteRectangleAlign</a>
+        <p><p>Image alignment style.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderImageAlign_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderImageAlign(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageStyle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageStyle(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderImageStyle(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderImageStyle(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderImageStyle(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderImageStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the border image style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteImageStyle GetBorderImageStyle(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteImageStyle.html">PaletteImageStyle</a></td>
-        <td><p>Image style value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteImageStyle.html">PaletteImageStyle</a>
+        <p><p>Image style value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderImageStyle_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderImageStyle(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderRounding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderRounding*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderRounding_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderRounding(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderRounding(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderRounding_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderRounding(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderRounding_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderRounding(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderRounding_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the border rounding.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int GetBorderRounding(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>Border rounding.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>Border rounding.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderRounding_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderRounding(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderWidth_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderWidth*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderWidth_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderWidth(ComponentFactory.Krypton.Toolkit.PaletteState)">GetBorderWidth(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderWidth_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.GetBorderWidth(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderWidth_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetBorderWidth(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_GetBorderWidth_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the border width.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int GetBorderWidth(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>Border width.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>Border width.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html#ComponentFactory_Krypton_Toolkit_IPaletteBorder_GetBorderWidth_ComponentFactory_Krypton_Toolkit_PaletteState_">IPaletteBorder.GetBorderWidth(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_SetPalette_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.SetPalette*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_SetPalette_ComponentFactory_Krypton_Toolkit_IPaletteBorder_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.SetPalette(ComponentFactory.Krypton.Toolkit.IPaletteBorder)">SetPalette(IPaletteBorder)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_SetPalette_ComponentFactory_Krypton_Toolkit_IPaletteBorder_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteBorderEdgeRedirect.SetPalette(ComponentFactory.Krypton.Toolkit.IPaletteBorder)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_SetPalette_ComponentFactory_Krypton_Toolkit_IPaletteBorder_" class="expander" data-toggle="collapse">SetPalette(IPaletteBorder)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteBorderEdgeRedirect_SetPalette_ComponentFactory_Krypton_Toolkit_IPaletteBorder_" class="collapse in">
   <div class="markdown level1 summary"><p>Update the source palettes for drawing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void SetPalette(IPaletteBorder paletteBorder)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">paletteBorder</span></td>
-        <td><p>Palette source for the border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">paletteBorder</span>
+        <p><p>Palette source for the border.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

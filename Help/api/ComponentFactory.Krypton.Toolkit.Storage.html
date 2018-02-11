@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,18 +73,19 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.Storage">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_Storage" data-uid="ComponentFactory.Krypton.Toolkit.Storage" class="text-break">Class Storage
+  <h1 id="ComponentFactory_Krypton_Toolkit_Storage" data-uid="ComponentFactory.Krypton.Toolkit.Storage">Class Storage
   </h1>
   <div class="markdown level0 summary"><p>Base class for storage implementations.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
     <div class="level2"><span class="xref">Storage</span></div>
+  </div>
+  
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingManagerStrings.html">DockingManagerStrings</a></div>
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Navigator.NavigatorBar.html">NavigatorBar</a></div>
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Navigator.NavigatorButton.html">NavigatorButton</a></div>
@@ -236,7 +237,7 @@ BSD 3-Clause License
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RadioButtonImages.html">RadioButtonImages</a></div>
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TreeViewImages.html">TreeViewImages</a></div>
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Workspace.WorkspaceMenus.html">WorkspaceMenus</a></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -261,194 +262,299 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_Storage_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[TypeConverter(typeof (ExpandableObjectConverter))]
 public abstract class Storage : GlobalId</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_IsDefault_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.Storage.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.Storage.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public abstract bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaint" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaint">NeedPaint</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaint" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaint"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_NeedPaint" class="expander" data-toggle="collapse">NeedPaint</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_NeedPaint" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the need paint delegate for notifying paint requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual NeedPaintHandler NeedPaint { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaintDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaintDelegate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaintDelegate">NeedPaintDelegate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.Storage.NeedPaintDelegate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_NeedPaintDelegate" class="expander" data-toggle="collapse">NeedPaintDelegate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_NeedPaintDelegate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the need paint delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected NeedPaintHandler NeedPaintDelegate { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_OnNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.OnNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)">OnNeedPaint(Object, NeedLayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="expander" data-toggle="collapse">OnNeedPaint(Object, NeedLayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the NeedPaint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the event.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An NeedLayoutEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the event.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An NeedLayoutEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint">PerformNeedPaint()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint" class="expander" data-toggle="collapse">PerformNeedPaint()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint" class="collapse in">
   <div class="markdown level1 summary"><p>Fires the NeedPaint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PerformNeedPaint()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint(System.Boolean)">PerformNeedPaint(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.PerformNeedPaint(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_System_Boolean_" class="expander" data-toggle="collapse">PerformNeedPaint(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_PerformNeedPaint_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Fires the NeedPaint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PerformNeedPaint(bool needLayout)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">needLayout</span></td>
-        <td><p>Does the palette change require a layout.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">needLayout</span>
+        <p><p>Does the palette change require a layout.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_Storage_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.Storage.ToString*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_ToString" data-uid="ComponentFactory.Krypton.Toolkit.Storage.ToString">ToString()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_Storage_ToString" data-uid="ComponentFactory.Krypton.Toolkit.Storage.ToString"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_Storage_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_Storage_ToString" class="collapse in">
   <div class="markdown level1 summary"><p>Returns a string that represents the current defaulted state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>A string that represents the current defaulted state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>A string that represents the current defaulted state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

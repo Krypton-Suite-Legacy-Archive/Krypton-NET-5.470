@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,18 +73,19 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.DockingHelper">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_DockingHelper" data-uid="ComponentFactory.Krypton.Docking.DockingHelper" class="text-break">Class DockingHelper
+  <h1 id="ComponentFactory_Krypton_Docking_DockingHelper" data-uid="ComponentFactory.Krypton.Docking.DockingHelper">Class DockingHelper
   </h1>
   <div class="markdown level0 summary"><p>Set of common helper routines for Docking functionality</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">DockingHelper</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -109,156 +110,184 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_DockingHelper_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class DockingHelper</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingHelper_DockStyleFromDockEdge_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.DockStyleFromDockEdge*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_DockStyleFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.DockStyleFromDockEdge(ComponentFactory.Krypton.Docking.DockingEdge,System.Boolean)">DockStyleFromDockEdge(DockingEdge, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_DockStyleFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.DockStyleFromDockEdge(ComponentFactory.Krypton.Docking.DockingEdge,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingHelper_DockStyleFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" class="expander" data-toggle="collapse">DockStyleFromDockEdge(DockingEdge, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingHelper_DockStyleFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Convert from DockEdge to DockStyle enumeration value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static DockStyle DockStyleFromDockEdge(DockingEdge edge, bool opposite)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></td>
-        <td><span class="parametername">edge</span></td>
-        <td><p>DockEdge value to convert.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">opposite</span></td>
-        <td><p>Should the separator be docked against the opposite edge.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></span>
+        <span class="parametername">edge</span>
+        <p><p>DockEdge value to convert.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">opposite</span>
+        <p><p>Should the separator be docked against the opposite edge.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.DockStyle</span></td>
-        <td><p>DockStyle value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.DockStyle</span>
+        <p><p>DockStyle value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingHelper_InnerRectangle_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.InnerRectangle*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_InnerRectangle_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.InnerRectangle(System.Windows.Forms.Control)">InnerRectangle(Control)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_InnerRectangle_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.InnerRectangle(System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingHelper_InnerRectangle_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">InnerRectangle(Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingHelper_InnerRectangle_System_Windows_Forms_Control_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the inner space that occupied by the edge docking controls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Rectangle InnerRectangle(Control c)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">c</span></td>
-        <td><p>Reference to control.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Reference to control.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><p>Rectangle in control coordinates.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p><p>Rectangle in control coordinates.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingHelper_OrientationFromDockEdge_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.OrientationFromDockEdge*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_OrientationFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.OrientationFromDockEdge(ComponentFactory.Krypton.Docking.DockingEdge)">OrientationFromDockEdge(DockingEdge)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingHelper_OrientationFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_" data-uid="ComponentFactory.Krypton.Docking.DockingHelper.OrientationFromDockEdge(ComponentFactory.Krypton.Docking.DockingEdge)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingHelper_OrientationFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_" class="expander" data-toggle="collapse">OrientationFromDockEdge(DockingEdge)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingHelper_OrientationFromDockEdge_ComponentFactory_Krypton_Docking_DockingEdge_" class="collapse in">
   <div class="markdown level1 summary"><p>Convert the DockEdge to Orientation enumeration value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Orientation OrientationFromDockEdge(DockingEdge edge)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></td>
-        <td><span class="parametername">edge</span></td>
-        <td><p>DockEdge value to convert.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingEdge.html">DockingEdge</a></span>
+        <span class="parametername">edge</span>
+        <p><p>DockEdge value to convert.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Orientation</span></td>
-        <td><p>Orientation value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Orientation</span>
+        <p><p>Orientation value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

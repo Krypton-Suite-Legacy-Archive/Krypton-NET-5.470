@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs" class="text-break">Class PageReorderEventArgs
+  <h1 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs">Class PageReorderEventArgs
   </h1>
   <div class="markdown level0 summary"><p>Details of an event that is fired just before a page is reordered.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,6 +86,8 @@ BSD 3-Clause License
     <div class="level2"><span class="xref">System.ComponentModel.CancelEventArgs</span></div>
     <div class="level3"><span class="xref">PageReorderEventArgs</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -117,134 +118,197 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Navigator.html">ComponentFactory.Krypton.Navigator</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Navigator.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PageReorderEventArgs : CancelEventArgs</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Navigator_KryptonPage_System_Boolean_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.#ctor(ComponentFactory.Krypton.Navigator.KryptonPage,ComponentFactory.Krypton.Navigator.KryptonPage,System.Boolean)">PageReorderEventArgs(KryptonPage, KryptonPage, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Navigator_KryptonPage_System_Boolean_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.#ctor(ComponentFactory.Krypton.Navigator.KryptonPage,ComponentFactory.Krypton.Navigator.KryptonPage,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Navigator_KryptonPage_System_Boolean_" class="expander" data-toggle="collapse">PageReorderEventArgs(KryptonPage, KryptonPage, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Navigator_KryptonPage_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PageReorderEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PageReorderEventArgs(KryptonPage pageMoving, KryptonPage pageTarget, bool movingBefore)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><span class="parametername">pageMoving</span></td>
-        <td><p>Reference to page being moved.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><span class="parametername">pageTarget</span></td>
-        <td><p>Reference to target paged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">movingBefore</span></td>
-        <td><p>True if moving page is to be positioned before the target; otherwise after the target.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></span>
+        <span class="parametername">pageMoving</span>
+        <p><p>Reference to page being moved.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></span>
+        <span class="parametername">pageTarget</span>
+        <p><p>Reference to target paged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">movingBefore</span>
+        <p><p>True if moving page is to be positioned before the target; otherwise after the target.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_MovingBefore_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.MovingBefore*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_MovingBefore" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.MovingBefore">MovingBefore</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_MovingBefore" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.MovingBefore"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_MovingBefore" class="expander" data-toggle="collapse">MovingBefore</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_MovingBefore" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if the page being moved is to be placed before the target page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool MovingBefore { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageMoving_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageMoving*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageMoving" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageMoving">PageMoving</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageMoving" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageMoving"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageMoving" class="expander" data-toggle="collapse">PageMoving</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageMoving" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the page that is being moved.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage PageMoving { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageTarget_" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageTarget*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageTarget" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageTarget">PageTarget</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageTarget" data-uid="ComponentFactory.Krypton.Navigator.PageReorderEventArgs.PageTarget"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageTarget" class="expander" data-toggle="collapse">PageTarget</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PageReorderEventArgs_PageTarget" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the page that is the target for the move.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage PageTarget { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

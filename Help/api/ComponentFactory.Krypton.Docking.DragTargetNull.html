@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,23 +73,20 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_DragTargetNull" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull" class="text-break">Class DragTargetNull
+  <h1 id="ComponentFactory_Krypton_Docking_DragTargetNull" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull">Class DragTargetNull
   </h1>
   <div class="markdown level0 summary"><p>Target that never matches and so acts as a null drag target.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTarget.html">DragTarget</a></div>
     <div class="level2"><span class="xref">DragTargetNull</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -144,87 +141,118 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_DragTargetNull_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class DragTargetNull : DragTarget, IDisposable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DragTargetNull__ctor_" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DragTargetNull__ctor" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.#ctor">DragTargetNull()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DragTargetNull__ctor" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Docking_DragTargetNull__ctor" class="expander" data-toggle="collapse">DragTargetNull()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DragTargetNull__ctor" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the DragTargetNull class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DragTargetNull()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DragTargetNull_PerformDrop_" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.PerformDrop*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DragTargetNull_PerformDrop_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.PerformDrop(System.Drawing.Point,ComponentFactory.Krypton.Navigator.PageDragEndData)">PerformDrop(Point, PageDragEndData)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DragTargetNull_PerformDrop_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Docking.DragTargetNull.PerformDrop(System.Drawing.Point,ComponentFactory.Krypton.Navigator.PageDragEndData)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DragTargetNull_PerformDrop_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="expander" data-toggle="collapse">PerformDrop(Point, PageDragEndData)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DragTargetNull_PerformDrop_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform the drop action associated with the target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool PerformDrop(Point screenPt, PageDragEndData data)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPt</span></td>
-        <td><p>Position in screen coordinates.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></td>
-        <td><span class="parametername">data</span></td>
-        <td><p>Data to pass to the target to process drop.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Position in screen coordinates.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">data</span>
+        <p><p>Data to pass to the target to process drop.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>Drop was performed and the source can perform any removal of pages as required.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Drop was performed and the source can perform any removal of pages as required.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTarget.html#ComponentFactory_Krypton_Navigator_DragTarget_PerformDrop_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_">DragTarget.PerformDrop(Point, PageDragEndData)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.IDisposable</span>
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

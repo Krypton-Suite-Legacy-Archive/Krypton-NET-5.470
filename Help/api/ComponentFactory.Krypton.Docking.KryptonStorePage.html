@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonStorePage" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage" class="text-break">Class KryptonStorePage
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonStorePage" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage">Class KryptonStorePage
   </h1>
   <div class="markdown level0 summary"><p>Acts as a placeholder for a KryptonPage so that it can be restored to this location at a later time.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -92,18 +91,8 @@ BSD 3-Clause License
     <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></div>
     <div class="level8"><span class="xref">KryptonStorePage</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitializeNotification</span></div>
-    <div><span class="xref">System.ComponentModel.ISupportInitialize</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1559,136 +1548,156 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonStorePage_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonStorePage : KryptonPage, IDropTarget, ISynchronizeInvoke, IWin32Window, IBindableComponent, IArrangedElement, IComponent, IDisposable, ISupportInitializeNotification, ISupportInitialize, IKryptonDebug</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonStorePage__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage__ctor_System_String_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.#ctor(System.String,System.String)">KryptonStorePage(String, String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage__ctor_System_String_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.#ctor(System.String,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage__ctor_System_String_System_String_" class="expander" data-toggle="collapse">KryptonStorePage(String, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage__ctor_System_String_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonStorePage class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonStorePage(string uniqueName, string storeName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>UniqueName of the page this is placeholding.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">storeName</span></td>
-        <td><p>Storage name associated with this page location.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>UniqueName of the page this is placeholding.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">storeName</span>
+        <p><p>Storage name associated with this page location.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonStorePage_LastVisibleSet_" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.LastVisibleSet*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage_LastVisibleSet" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.LastVisibleSet">LastVisibleSet</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage_LastVisibleSet" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.LastVisibleSet"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage_LastVisibleSet" class="expander" data-toggle="collapse">LastVisibleSet</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage_LastVisibleSet" class="collapse in">
   <div class="markdown level1 summary"><p>As a placeholder this page is never visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool LastVisibleSet { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html#ComponentFactory_Krypton_Navigator_KryptonPage_LastVisibleSet">KryptonPage.LastVisibleSet</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonStorePage_StoreName_" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.StoreName*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage_StoreName" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.StoreName">StoreName</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonStorePage_StoreName" data-uid="ComponentFactory.Krypton.Docking.KryptonStorePage.StoreName"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage_StoreName" class="expander" data-toggle="collapse">StoreName</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonStorePage_StoreName" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the storgate name associated with this page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public string StoreName { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitializeNotification</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISupportInitialize</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

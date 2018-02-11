@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,22 +73,19 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager" class="text-break">Class VisualPopupManager
+  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager">Class VisualPopupManager
   </h1>
   <div class="markdown level0 summary"><p>Manage the filtering of message for popup controls.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">VisualPopupManager</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IMessageFilter</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -113,380 +110,555 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ComVisible(true)]
 [ClassInterface(ClassInterfaceType.AutoDispatch)]
 public class VisualPopupManager : IMessageFilter</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_CurrentPopup_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.CurrentPopup*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_CurrentPopup" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.CurrentPopup">CurrentPopup</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_CurrentPopup" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.CurrentPopup"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_CurrentPopup" class="expander" data-toggle="collapse">CurrentPopup</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_CurrentPopup" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the current visual popup being tracked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopup CurrentPopup { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsShowingCMS_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsShowingCMS*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsShowingCMS" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsShowingCMS">IsShowingCMS</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsShowingCMS" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsShowingCMS"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsShowingCMS" class="expander" data-toggle="collapse">IsShowingCMS</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsShowingCMS" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if currently showing a context menu strip.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsShowingCMS { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsTracking">IsTracking</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.IsTracking"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsTracking" class="expander" data-toggle="collapse">IsTracking</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_IsTracking" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if currently tracking a popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsTracking { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_Singleton_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.Singleton*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_Singleton" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.Singleton">Singleton</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_Singleton" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.Singleton"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_Singleton" class="expander" data-toggle="collapse">Singleton</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_Singleton" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the single instance of the VisualPopupManager class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static VisualPopupManager Singleton { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopupManager.html">VisualPopupManager</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopupManager.html">VisualPopupManager</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StackedPopups_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StackedPopups*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StackedPopups" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StackedPopups">StackedPopups</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StackedPopups" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StackedPopups"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_StackedPopups" class="expander" data-toggle="collapse">StackedPopups</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_StackedPopups" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the stacked set of popups as an array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopup[] StackedPopups { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a>[]
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndAllTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndAllTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndAllTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndAllTracking">EndAllTracking()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndAllTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndAllTracking"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndAllTracking" class="expander" data-toggle="collapse">EndAllTracking()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndAllTracking" class="collapse in">
   <div class="markdown level1 summary"><p>Finish tracking all popups.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EndAllTracking()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndCurrentTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndCurrentTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndCurrentTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndCurrentTracking">EndCurrentTracking()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndCurrentTracking" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndCurrentTracking"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndCurrentTracking" class="expander" data-toggle="collapse">EndCurrentTracking()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndCurrentTracking" class="collapse in">
   <div class="markdown level1 summary"><p>Finish tracking the current popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EndCurrentTracking()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndPopupTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndPopupTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndPopupTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndPopupTracking(ComponentFactory.Krypton.Toolkit.VisualPopup)">EndPopupTracking(VisualPopup)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndPopupTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.EndPopupTracking(ComponentFactory.Krypton.Toolkit.VisualPopup)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndPopupTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" class="expander" data-toggle="collapse">EndPopupTracking(VisualPopup)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_EndPopupTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" class="collapse in">
   <div class="markdown level1 summary"><p>Finish tracking from the current back to and including the provided popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EndPopupTracking(VisualPopup popup)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></td>
-        <td><span class="parametername">popup</span></td>
-        <td><p>Popup that needs to be killed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></span>
+        <span class="parametername">popup</span>
+        <p><p>Popup that needs to be killed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_PreFilterMessage_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.PreFilterMessage*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_PreFilterMessage_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.PreFilterMessage(System.Windows.Forms.Message@)">PreFilterMessage(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_PreFilterMessage_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.PreFilterMessage(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_PreFilterMessage_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">PreFilterMessage(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_PreFilterMessage_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Filters out a message before it is dispatched.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 public bool PreFilterMessage(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>The message to be dispatched. You cannot modify this message.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>The message to be dispatched. You cannot modify this message.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>true to filter the message and stop it from being dispatched; false to allow the message to continue to the next filter or control.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>true to filter the message and stop it from being dispatched; false to allow the message to continue to the next filter or control.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IMessageFilter.PreFilterMessage(System.Windows.Forms.Message)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip(System.Windows.Forms.ContextMenuStrip,System.Drawing.Point)">ShowContextMenuStrip(ContextMenuStrip, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip(System.Windows.Forms.ContextMenuStrip,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_" class="expander" data-toggle="collapse">ShowContextMenuStrip(ContextMenuStrip, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the provided context strip in a way compatible with any popups.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowContextMenuStrip(ContextMenuStrip cms, Point screenPt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.ContextMenuStrip</span></td>
-        <td><span class="parametername">cms</span></td>
-        <td><p>Reference to ContextMenuStrip.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPt</span></td>
-        <td><p>Screen position for showing the context menu strip.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.ContextMenuStrip</span></span>
+        <span class="parametername">cms</span>
+        <p><p>Reference to ContextMenuStrip.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Screen position for showing the context menu strip.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_System_EventHandler_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip(System.Windows.Forms.ContextMenuStrip,System.Drawing.Point,System.EventHandler)">ShowContextMenuStrip(ContextMenuStrip, Point, EventHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_System_EventHandler_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.ShowContextMenuStrip(System.Windows.Forms.ContextMenuStrip,System.Drawing.Point,System.EventHandler)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_System_EventHandler_" class="expander" data-toggle="collapse">ShowContextMenuStrip(ContextMenuStrip, Point, EventHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_ShowContextMenuStrip_System_Windows_Forms_ContextMenuStrip_System_Drawing_Point_System_EventHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the provided context strip in a way compatible with any popups.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowContextMenuStrip(ContextMenuStrip cms, Point screenPt, EventHandler cmsFinishDelegate)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.ContextMenuStrip</span></td>
-        <td><span class="parametername">cms</span></td>
-        <td><p>Reference to ContextMenuStrip.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">screenPt</span></td>
-        <td><p>Screen position for showing the context menu strip.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.EventHandler</span></td>
-        <td><span class="parametername">cmsFinishDelegate</span></td>
-        <td><p>Delegate to call when strip dismissed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.ContextMenuStrip</span></span>
+        <span class="parametername">cms</span>
+        <p><p>Reference to ContextMenuStrip.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Screen position for showing the context menu strip.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventHandler</span></span>
+        <span class="parametername">cmsFinishDelegate</span>
+        <p><p>Delegate to call when strip dismissed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StartTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StartTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StartTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StartTracking(ComponentFactory.Krypton.Toolkit.VisualPopup)">StartTracking(VisualPopup)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_StartTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.StartTracking(ComponentFactory.Krypton.Toolkit.VisualPopup)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_StartTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" class="expander" data-toggle="collapse">StartTracking(VisualPopup)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_StartTracking_ComponentFactory_Krypton_Toolkit_VisualPopup_" class="collapse in">
   <div class="markdown level1 summary"><p>Start tracking the provided popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StartTracking(VisualPopup popup)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></td>
-        <td><span class="parametername">popup</span></td>
-        <td><p>Popup instance to track.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopup.html">VisualPopup</a></span>
+        <span class="parametername">popup</span>
+        <p><p>Popup instance to track.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_TrackingByType_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.TrackingByType*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_TrackingByType_System_Type_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.TrackingByType(System.Type)">TrackingByType(Type)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopupManager_TrackingByType_System_Type_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopupManager.TrackingByType(System.Type)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_TrackingByType_System_Type_" class="expander" data-toggle="collapse">TrackingByType(Type)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopupManager_TrackingByType_System_Type_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the popup that matches the proveded type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Control TrackingByType(Type t)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">t</span></td>
-        <td><p>Type to find.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">t</span>
+        <p><p>Type to find.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><p>Matching instance; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Control</span>
+        <p><p>Matching instance; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IMessageFilter</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

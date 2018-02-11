@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,384 +73,473 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder" class="text-break">Interface IRenderTabBorder
+  <h1 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder">Interface IRenderTabBorder
   </h1>
   <div class="markdown level0 summary"><p>Exposes methods for drawing tab borders.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IRenderTabBorder</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_DrawTabBorder_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.DrawTabBorder*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_DrawTabBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.DrawTabBorder(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">DrawTabBorder(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_DrawTabBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.DrawTabBorder(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_DrawTabBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">DrawTabBorder(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_DrawTabBorder_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Draw border on the inside edge of the specified rectangle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void DrawTabBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Rendering context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">rect</span></td>
-        <td><p>Target rectangle.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette used for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
-        <td><span class="parametername">orientation</span></td>
-        <td><p>Visual orientation of the border.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">rect</span>
+        <p><p>Target rectangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette used for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the border.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBackPath_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBackPath*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBackPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBackPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBackPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">GetTabBackPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBackPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Generate a graphics path that encloses the border and is used when rendering a background to ensure the background does not draw over the border area.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">GraphicsPath GetTabBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Rendering context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">rect</span></td>
-        <td><p>Target rectangle.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette used for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
-        <td><span class="parametername">orientation</span></td>
-        <td><p>Visual orientation of the border.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">rect</span>
+        <p><p>Target rectangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette used for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the border.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
-        <td><p>GraphicsPath instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Drawing2D.GraphicsPath</span>
+        <p><p>GraphicsPath instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderDisplayPadding_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderDisplayPadding*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderDisplayPadding(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderDisplayPadding(ViewLayoutContext, IPaletteBorder, PaletteState, VisualOrientation, TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderDisplayPadding(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">GetTabBorderDisplayPadding(ViewLayoutContext, IPaletteBorder, PaletteState, VisualOrientation, TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderDisplayPadding_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the padding used to position display elements completely inside border drawing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Padding GetTabBorderDisplayPadding(ViewLayoutContext context, IPaletteBorder palette, PaletteState state, VisualOrientation orientation, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Layout context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette used for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
-        <td><span class="parametername">orientation</span></td>
-        <td><p>Visual orientation of the border.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette used for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the border.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Padding</span></td>
-        <td><p>Padding structure detailing all four edges.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Padding</span>
+        <p><p>Padding structure detailing all four edges.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderLeftDrawing_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderLeftDrawing*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderLeftDrawing_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderLeftDrawing(ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderLeftDrawing(TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderLeftDrawing_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderLeftDrawing(ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderLeftDrawing_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">GetTabBorderLeftDrawing(TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderLeftDrawing_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets if the tabs should be drawn from left to right for z-ordering.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool GetTabBorderLeftDrawing(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True for left to right, otherwise draw right to left.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True for left to right, otherwise draw right to left.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderPath_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderPath*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderPath(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteBorder,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">GetTabBorderPath(RenderContext, Rectangle, IPaletteBorder, VisualOrientation, PaletteState, TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderPath_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteBorder_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Generate a graphics path that encloses the border itself.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">GraphicsPath GetTabBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Rendering context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">rect</span></td>
-        <td><p>Target rectangle.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette used for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></td>
-        <td><span class="parametername">orientation</span></td>
-        <td><p>Visual orientation of the border.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">rect</span>
+        <p><p>Target rectangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette used for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the border.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
-        <td><p>GraphicsPath instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Drawing2D.GraphicsPath</span>
+        <p><p>GraphicsPath instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderSpacingGap_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderSpacingGap*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderSpacingGap_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderSpacingGap(ComponentFactory.Krypton.Toolkit.TabBorderStyle)">GetTabBorderSpacingGap(TabBorderStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderSpacingGap_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderTabBorder.GetTabBorderSpacingGap(ComponentFactory.Krypton.Toolkit.TabBorderStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderSpacingGap_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="expander" data-toggle="collapse">GetTabBorderSpacingGap(TabBorderStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderTabBorder_GetTabBorderSpacingGap_ComponentFactory_Krypton_Toolkit_TabBorderStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the spacing used to separate each tab border instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">int GetTabBorderSpacingGap(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></td>
-        <td><span class="parametername">tabBorderStyle</span></td>
-        <td><p>Style of tab border.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TabBorderStyle.html">TabBorderStyle</a></span>
+        <span class="parametername">tabBorderStyle</span>
+        <p><p>Style of tab border.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>Number of pixels to space instances.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>Number of pixels to space instances.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

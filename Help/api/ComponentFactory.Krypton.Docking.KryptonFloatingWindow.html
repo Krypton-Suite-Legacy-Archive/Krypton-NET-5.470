@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow" class="text-break">Class KryptonFloatingWindow
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow">Class KryptonFloatingWindow
   </h1>
   <div class="markdown level0 summary"><p>Extends the KryptonForm to act as a floating window within the docking framework.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -93,18 +92,8 @@ BSD 3-Clause License
     <div class="level8"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a></div>
     <div class="level9"><span class="xref">KryptonFloatingWindow</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.Windows.Forms.IContainerControl</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1857,379 +1846,508 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonFloatingWindow : KryptonForm, IDropTarget, ISynchronizeInvoke, IWin32Window, IBindableComponent, IArrangedElement, IComponent, IDisposable, IContainerControl, IKryptonDebug, IContentValues</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow__ctor_System_Windows_Forms_Form_ComponentFactory_Krypton_Docking_KryptonFloatspace_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.#ctor(System.Windows.Forms.Form,ComponentFactory.Krypton.Docking.KryptonFloatspace)">KryptonFloatingWindow(Form, KryptonFloatspace)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow__ctor_System_Windows_Forms_Form_ComponentFactory_Krypton_Docking_KryptonFloatspace_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.#ctor(System.Windows.Forms.Form,ComponentFactory.Krypton.Docking.KryptonFloatspace)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow__ctor_System_Windows_Forms_Form_ComponentFactory_Krypton_Docking_KryptonFloatspace_" class="expander" data-toggle="collapse">KryptonFloatingWindow(Form, KryptonFloatspace)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow__ctor_System_Windows_Forms_Form_ComponentFactory_Krypton_Docking_KryptonFloatspace_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonFloatingWindow class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonFloatingWindow(Form owner, KryptonFloatspace floatspace)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Form</span></td>
-        <td><span class="parametername">owner</span></td>
-        <td><p>Reference to form that will own all the floating window.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a></td>
-        <td><span class="parametername">floatspace</span></td>
-        <td><p>Reference to owning floatspace instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Form</span></span>
+        <span class="parametername">owner</span>
+        <p><p>Reference to form that will own all the floating window.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a></span>
+        <span class="parametername">floatspace</span>
+        <p><p>Reference to owning floatspace instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_FloatspaceControl_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.FloatspaceControl*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_FloatspaceControl" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.FloatspaceControl">FloatspaceControl</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_FloatspaceControl" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.FloatspaceControl"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_FloatspaceControl" class="expander" data-toggle="collapse">FloatspaceControl</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_FloatspaceControl" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the contained KryptonFloatspace control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonFloatspace FloatspaceControl { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_Dispose_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.Dispose*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_Dispose_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Clean up any resources being used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true if managed resources should be disposed; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>true if managed resources should be disposed; otherwise, false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html#ComponentFactory_Krypton_Toolkit_KryptonForm_Dispose_System_Boolean_">KryptonForm.Dispose(Boolean)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnActivated_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnActivated*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnActivated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnActivated(System.EventArgs)">OnActivated(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnActivated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnActivated(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnActivated_System_EventArgs_" class="expander" data-toggle="collapse">OnActivated(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnActivated_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Activated event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnActivated(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualForm.html#ComponentFactory_Krypton_Toolkit_VisualForm_OnActivated_System_EventArgs_">VisualForm.OnActivated(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnClosing_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnClosing*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnClosing_System_ComponentModel_CancelEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnClosing(System.ComponentModel.CancelEventArgs)">OnClosing(CancelEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnClosing_System_ComponentModel_CancelEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnClosing(System.ComponentModel.CancelEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnClosing_System_ComponentModel_CancelEventArgs_" class="expander" data-toggle="collapse">OnClosing(CancelEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnClosing_System_ComponentModel_CancelEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Closing event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnClosing(CancelEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ComponentModel.CancelEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An CancelEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.ComponentModel.CancelEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An CancelEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Form.OnClosing(System.ComponentModel.CancelEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnDeactivate_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnDeactivate*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnDeactivate_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnDeactivate(System.EventArgs)">OnDeactivate(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnDeactivate_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnDeactivate(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnDeactivate_System_EventArgs_" class="expander" data-toggle="collapse">OnDeactivate(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnDeactivate_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Deactivate event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnDeactivate(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualForm.html#ComponentFactory_Krypton_Toolkit_VisualForm_OnDeactivate_System_EventArgs_">VisualForm.OnDeactivate(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnLoad_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnLoad*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnLoad_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnLoad(System.EventArgs)">OnLoad(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnLoad_System_EventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnLoad(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnLoad_System_EventArgs_" class="expander" data-toggle="collapse">OnLoad(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnLoad_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Load event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnLoad(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html#ComponentFactory_Krypton_Toolkit_KryptonForm_OnLoad_System_EventArgs_">KryptonForm.OnLoad(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCaptionDragging_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCaptionDragging*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCaptionDragging_ComponentFactory_Krypton_Docking_ScreenAndOffsetEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCaptionDragging(ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs)">OnWindowCaptionDragging(ScreenAndOffsetEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCaptionDragging_ComponentFactory_Krypton_Docking_ScreenAndOffsetEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCaptionDragging(ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCaptionDragging_ComponentFactory_Krypton_Docking_ScreenAndOffsetEventArgs_" class="expander" data-toggle="collapse">OnWindowCaptionDragging(ScreenAndOffsetEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCaptionDragging_ComponentFactory_Krypton_Docking_ScreenAndOffsetEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the WindowCaptionDragging event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnWindowCaptionDragging(ScreenAndOffsetEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs.html">ScreenAndOffsetEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An ScreenAndOffsetEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs.html">ScreenAndOffsetEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An ScreenAndOffsetEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCloseClicked_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCloseClicked*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCloseClicked_ComponentFactory_Krypton_Docking_UniqueNamesEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCloseClicked(ComponentFactory.Krypton.Docking.UniqueNamesEventArgs)">OnWindowCloseClicked(UniqueNamesEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCloseClicked_ComponentFactory_Krypton_Docking_UniqueNamesEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.OnWindowCloseClicked(ComponentFactory.Krypton.Docking.UniqueNamesEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCloseClicked_ComponentFactory_Krypton_Docking_UniqueNamesEventArgs_" class="expander" data-toggle="collapse">OnWindowCloseClicked(UniqueNamesEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_OnWindowCloseClicked_ComponentFactory_Krypton_Docking_UniqueNamesEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the WindowCloseClicked event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnWindowCloseClicked(UniqueNamesEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.UniqueNamesEventArgs.html">UniqueNamesEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An UniqueNamesEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.UniqueNamesEventArgs.html">UniqueNamesEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An UniqueNamesEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WndProc_" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WndProc*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WndProc(System.Windows.Forms.Message@)">WndProc(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WndProc(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WndProc_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">WndProc(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WndProc_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Processes Windows messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void WndProc(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>The Windows Message to process. </p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>The Windows Message to process. </p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualForm.html#ComponentFactory_Krypton_Toolkit_VisualForm_WndProc_System_Windows_Forms_Message__">VisualForm.WndProc(ref Message)</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="events">Events
   </h3>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCaptionDragging" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WindowCaptionDragging">WindowCaptionDragging</h4>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCaptionDragging" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WindowCaptionDragging"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCaptionDragging" class="expander" data-toggle="collapse">WindowCaptionDragging</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCaptionDragging" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the window needs to be drag and dropped by its caption.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;ScreenAndOffsetEventArgs&gt; WindowCaptionDragging</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs.html">ScreenAndOffsetEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.ScreenAndOffsetEventArgs.html">ScreenAndOffsetEventArgs</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCloseClicked" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WindowCloseClicked">WindowCloseClicked</h4>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCloseClicked" data-uid="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.WindowCloseClicked"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCloseClicked" class="expander" data-toggle="collapse">WindowCloseClicked</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonFloatingWindow_WindowCloseClicked" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when the window close is requested and provides the set of pages visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;UniqueNamesEventArgs&gt; WindowCloseClicked</code></pre>
   </div>
+
+  
+  
+  
+  
+  
   <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.UniqueNamesEventArgs.html">UniqueNamesEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.UniqueNamesEventArgs.html">UniqueNamesEventArgs</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IContainerControl</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonDebug.html">IKryptonDebug</a>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a>
-  </div>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.html#ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_EnableBlur_System_Windows_Forms_Form_">BlurWindowExtensions.EnableBlur(Form)</a>
@@ -2237,13 +2355,13 @@ BSD 3-Clause License
   <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.html#ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_DisableBlur_System_Windows_Forms_Form_">BlurWindowExtensions.DisableBlur(Form)</a>
   </div>
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

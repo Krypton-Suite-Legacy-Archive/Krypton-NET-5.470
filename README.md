@@ -1,14 +1,22 @@
-# Krypton-NET-4.7
+# ![alt text](logo.png "Krypton")-NET-4.7 
 
 =======
 
-## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference 'ComponentFactory.Krypton.Design.dll' in ALL of your projects at ALL times!
+## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `ComponentFactory.Krypton.Design.dll` in ALL of your projects at ALL times!
+
+# ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
+
+=======
+
+## 2018-02-11 Rename and add help
+* Rename the ToolKit Examples to 2018
+* Add the start of structured help and links
 
 =======
 
 ## 2018-02-10 Fix Issue #28 and add help
 * Fix issue #28 - Undo changes that checked for null, and then would use a null, rather than return a null.. 
-* Add initial API Help from DocFX
+* Add initial API Help from `DocFX`
 
 ## 2018-01-27pm New Nuget package release
 * New Nuget package, version `4.70.544` (build date January 27th, 2018) has been released

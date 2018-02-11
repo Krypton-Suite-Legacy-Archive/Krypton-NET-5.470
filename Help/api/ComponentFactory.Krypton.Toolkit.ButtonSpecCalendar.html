@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar" class="text-break">Class ButtonSpecCalendar
+  <h1 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar">Class ButtonSpecCalendar
   </h1>
   <div class="markdown level0 summary"><p>Implementation for internal calendar buttons.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -88,13 +87,8 @@ BSD 3-Clause License
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html">ButtonSpec</a></div>
     <div class="level4"><span class="xref">ButtonSpecCalendar</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IButtonSpecValues.html">IButtonSpecValues</a></div>
-    <div><span class="xref">System.ICloneable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -362,331 +356,405 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ButtonSpecCalendar : ButtonSpec, IComponent, IDisposable, IButtonSpecValues, ICloneable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawMonth_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_RelativeEdgeAlign_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.#ctor(ComponentFactory.Krypton.Toolkit.ViewDrawMonth,ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle,ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign)">ButtonSpecCalendar(ViewDrawMonth, PaletteButtonSpecStyle, RelativeEdgeAlign)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawMonth_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_RelativeEdgeAlign_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.#ctor(ComponentFactory.Krypton.Toolkit.ViewDrawMonth,ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle,ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawMonth_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_RelativeEdgeAlign_" class="expander" data-toggle="collapse">ButtonSpecCalendar(ViewDrawMonth, PaletteButtonSpecStyle, RelativeEdgeAlign)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawMonth_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_RelativeEdgeAlign_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ButtonSpecCalendar class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ButtonSpecCalendar(ViewDrawMonth month, PaletteButtonSpecStyle fixedStyle, RelativeEdgeAlign edge)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawMonth.html">ViewDrawMonth</a></td>
-        <td><span class="parametername">month</span></td>
-        <td><p>Reference to owning view.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">fixedStyle</span></td>
-        <td><p>Fixed style to use.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign.html">RelativeEdgeAlign</a></td>
-        <td><span class="parametername">edge</span></td>
-        <td><p>Alignment edge.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawMonth.html">ViewDrawMonth</a></span>
+        <span class="parametername">month</span>
+        <p><p>Reference to owning view.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">fixedStyle</span>
+        <p><p>Fixed style to use.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign.html">RelativeEdgeAlign</a></span>
+        <span class="parametername">edge</span>
+        <p><p>Alignment edge.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_AllowComponent_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.AllowComponent*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_AllowComponent" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.AllowComponent">AllowComponent</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_AllowComponent" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.AllowComponent"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_AllowComponent" class="expander" data-toggle="collapse">AllowComponent</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_AllowComponent" class="collapse in">
   <div class="markdown level1 summary"><p>Can a component be associated with the view.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool AllowComponent { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">ComponentFactory.Krypton.Toolkit.ButtonSpec.AllowComponent</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Enabled_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Enabled*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Enabled">Enabled</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Enabled"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Enabled" class="expander" data-toggle="collapse">Enabled</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Enabled" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the enabled state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Enabled { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Visible_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Visible*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Visible" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Visible">Visible</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Visible" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.Visible"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Visible" class="expander" data-toggle="collapse">Visible</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_Visible" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the visible state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Visible { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetChecked_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetChecked*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetChecked_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetChecked(ComponentFactory.Krypton.Toolkit.IPalette)">GetChecked(IPalette)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetChecked_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetChecked(ComponentFactory.Krypton.Toolkit.IPalette)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetChecked_ComponentFactory_Krypton_Toolkit_IPalette_" class="expander" data-toggle="collapse">GetChecked(IPalette)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetChecked_ComponentFactory_Krypton_Toolkit_IPalette_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button checked state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override ButtonCheckState GetChecked(IPalette palette)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette to use for inheriting values.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette to use for inheriting values.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonCheckState.html">ButtonCheckState</a></td>
-        <td><p>Button checked state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonCheckState.html">ButtonCheckState</a>
+        <p><p>Button checked state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html#ComponentFactory_Krypton_Toolkit_ButtonSpec_GetChecked_ComponentFactory_Krypton_Toolkit_IPalette_">ButtonSpec.GetChecked(IPalette)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEdge_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEdge*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEdge_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEdge(ComponentFactory.Krypton.Toolkit.IPalette)">GetEdge(IPalette)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEdge_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEdge(ComponentFactory.Krypton.Toolkit.IPalette)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEdge_ComponentFactory_Krypton_Toolkit_IPalette_" class="expander" data-toggle="collapse">GetEdge(IPalette)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEdge_ComponentFactory_Krypton_Toolkit_IPalette_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button edge to position against.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override RelativeEdgeAlign GetEdge(IPalette palette)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette to use for inheriting values.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette to use for inheriting values.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign.html">RelativeEdgeAlign</a></td>
-        <td><p>Edge position.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.RelativeEdgeAlign.html">RelativeEdgeAlign</a>
+        <p><p>Edge position.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html#ComponentFactory_Krypton_Toolkit_ButtonSpec_GetEdge_ComponentFactory_Krypton_Toolkit_IPalette_">ButtonSpec.GetEdge(IPalette)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEnabled_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEnabled*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEnabled_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEnabled(ComponentFactory.Krypton.Toolkit.IPalette)">GetEnabled(IPalette)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEnabled_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetEnabled(ComponentFactory.Krypton.Toolkit.IPalette)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEnabled_ComponentFactory_Krypton_Toolkit_IPalette_" class="expander" data-toggle="collapse">GetEnabled(IPalette)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetEnabled_ComponentFactory_Krypton_Toolkit_IPalette_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button enabled state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override ButtonEnabled GetEnabled(IPalette palette)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette to use for inheriting values.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette to use for inheriting values.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonEnabled.html">ButtonEnabled</a></td>
-        <td><p>Button enabled state.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonEnabled.html">ButtonEnabled</a>
+        <p><p>Button enabled state.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html#ComponentFactory_Krypton_Toolkit_ButtonSpec_GetEnabled_ComponentFactory_Krypton_Toolkit_IPalette_">ButtonSpec.GetEnabled(IPalette)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetVisible_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetVisible*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetVisible_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetVisible(ComponentFactory.Krypton.Toolkit.IPalette)">GetVisible(IPalette)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetVisible_ComponentFactory_Krypton_Toolkit_IPalette_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecCalendar.GetVisible(ComponentFactory.Krypton.Toolkit.IPalette)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetVisible_ComponentFactory_Krypton_Toolkit_IPalette_" class="expander" data-toggle="collapse">GetVisible(IPalette)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecCalendar_GetVisible_ComponentFactory_Krypton_Toolkit_IPalette_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button visible value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool GetVisible(IPalette palette)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td><span class="parametername">palette</span></td>
-        <td><p>Palette to use for inheriting values.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Palette to use for inheriting values.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>Button visibiliy.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Button visibiliy.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html#ComponentFactory_Krypton_Toolkit_ButtonSpec_GetVisible_ComponentFactory_Krypton_Toolkit_IPalette_">ButtonSpec.GetVisible(IPalette)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IButtonSpecValues.html">IButtonSpecValues</a>
-  </div>
-  <div>
-      <span class="xref">System.ICloneable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

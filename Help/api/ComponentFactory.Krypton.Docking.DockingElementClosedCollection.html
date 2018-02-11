@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection" class="text-break">Class DockingElementClosedCollection
+  <h1 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection">Class DockingElementClosedCollection
   </h1>
   <div class="markdown level0 summary"><p>Extends base functionality by allowing a collection of child docking elements.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,6 +86,8 @@ BSD 3-Clause License
     <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html">DockingElement</a></div>
     <div class="level4"><span class="xref">DockingElementClosedCollection</span></div>
+  </div>
+  
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementOpenCollection.html">DockingElementOpenCollection</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingAutoHiddenGroup.html">KryptonDockingAutoHiddenGroup</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingEdge.html">KryptonDockingEdge</a></div>
@@ -96,15 +97,7 @@ BSD 3-Clause License
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingFloatingWindow.html">KryptonDockingFloatingWindow</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingNavigator.html">KryptonDockingNavigator</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html">KryptonDockingSpace</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -264,366 +257,465 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class DockingElementClosedCollection : DockingElement, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection__ctor_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection__ctor_System_String_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.#ctor(System.String)">DockingElementClosedCollection(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection__ctor_System_String_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.#ctor(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection__ctor_System_String_" class="expander" data-toggle="collapse">DockingElementClosedCollection(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection__ctor_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the DockingElementClosedCollection class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingElementClosedCollection(string name)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Count*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Count">Count</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Count"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count" class="expander" data-toggle="collapse">Count</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the number of child docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int Count { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Count">DockingElement.Count</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item(System.Int32)">Item[Int32]</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_Int32_" class="expander" data-toggle="collapse">Item[Int32]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_Int32_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the docking element at the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement this[int index] { get; }</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>Index.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Index.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>Docking element at specified index.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>Docking element at specified index.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Item_System_Int32_">DockingElement.Item[Int32]</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_String_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item(System.String)">Item[String]</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_String_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Item(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_String_" class="expander" data-toggle="collapse">Item[String]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the docking element with the specified name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement this[string name] { get; }</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Name of element.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Name of element.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>Docking element with specified name.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>Docking element with specified name.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Item_System_String_">DockingElement.Item[String]</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Contains*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Contains(ComponentFactory.Krypton.Docking.IDockingElement)">Contains(IDockingElement)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.Contains(ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">Contains(IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
   <div class="markdown level1 summary"><p>Determines whether the collection contains the docking element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool Contains(IDockingElement item)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><span class="parametername">item</span></td>
-        <td><p>IDockingElement reference.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">item</span>
+        <p><p>IDockingElement reference.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if view found; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if view found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.GetEnumerator*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.GetEnumerator">GetEnumerator()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.GetEnumerator"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator" class="expander" data-toggle="collapse">GetEnumerator()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator" class="collapse in">
   <div class="markdown level1 summary"><p>Shallow enumerate over child docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IEnumerator&lt;IDockingElement&gt; GetEnumerator()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;</td>
-        <td><p>Enumerator instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_GetEnumerator">DockingElement.GetEnumerator()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalAdd*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalAdd(ComponentFactory.Krypton.Docking.IDockingElement)">InternalAdd(IDockingElement)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalAdd(ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">InternalAdd(IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
   <div class="markdown level1 summary"><p>Append a docking element to the collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void InternalAdd(IDockingElement item)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><span class="parametername">item</span></td>
-        <td><p>IDockingElement reference.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">item</span>
+        <p><p>IDockingElement reference.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalClear*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalClear">InternalClear()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalClear"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear" class="expander" data-toggle="collapse">InternalClear()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear" class="collapse in">
   <div class="markdown level1 summary"><p>Remove all docking elements from the collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void InternalClear()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalInsert*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_System_Int32_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalInsert(System.Int32,ComponentFactory.Krypton.Docking.IDockingElement)">InternalInsert(Int32, IDockingElement)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_System_Int32_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalInsert(System.Int32,ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_System_Int32_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">InternalInsert(Int32, IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_System_Int32_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
   <div class="markdown level1 summary"><p>Insert a docking element to the collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void InternalInsert(int index, IDockingElement item)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>Insertion index.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><span class="parametername">item</span></td>
-        <td><p>IDockingElement reference.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Insertion index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">item</span>
+        <p><p>IDockingElement reference.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalRemove*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalRemove(ComponentFactory.Krypton.Docking.IDockingElement)">InternalRemove(IDockingElement)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.InternalRemove(ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">InternalRemove(IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
   <div class="markdown level1 summary"><p>Removes first occurance of specified docking element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool InternalRemove(IDockingElement item)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><span class="parametername">item</span></td>
-        <td><p>IDockingElement reference.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">item</span>
+        <p><p>IDockingElement reference.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if removed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if removed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs" class="text-break">Class ContextPageEventArgs
+  <h1 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs">Class ContextPageEventArgs
   </h1>
   <div class="markdown level0 summary"><p>Event arguments for events that need a page and context menu.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,6 +86,8 @@ BSD 3-Clause License
     <div class="level2"><span class="xref">System.ComponentModel.CancelEventArgs</span></div>
     <div class="level3"><span class="xref">ContextPageEventArgs</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -117,110 +118,160 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ContextPageEventArgs : CancelEventArgs</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_ContextPageEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Toolkit_KryptonContextMenu_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.#ctor(ComponentFactory.Krypton.Navigator.KryptonPage,ComponentFactory.Krypton.Toolkit.KryptonContextMenu,System.Boolean)">ContextPageEventArgs(KryptonPage, KryptonContextMenu, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Toolkit_KryptonContextMenu_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.#ctor(ComponentFactory.Krypton.Navigator.KryptonPage,ComponentFactory.Krypton.Toolkit.KryptonContextMenu,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Toolkit_KryptonContextMenu_System_Boolean_" class="expander" data-toggle="collapse">ContextPageEventArgs(KryptonPage, KryptonContextMenu, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs__ctor_ComponentFactory_Krypton_Navigator_KryptonPage_ComponentFactory_Krypton_Toolkit_KryptonContextMenu_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ContextPageEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ContextPageEventArgs(KryptonPage page, KryptonContextMenu contextMenu, bool cancel)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><span class="parametername">page</span></td>
-        <td><p>Page associated with the context menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenu.html">KryptonContextMenu</a></td>
-        <td><span class="parametername">contextMenu</span></td>
-        <td><p>Context menu that can be customized.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">cancel</span></td>
-        <td><p>Initial value for the cancel property.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></span>
+        <span class="parametername">page</span>
+        <p><p>Page associated with the context menu.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenu.html">KryptonContextMenu</a></span>
+        <span class="parametername">contextMenu</span>
+        <p><p>Context menu that can be customized.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">cancel</span>
+        <p><p>Initial value for the cancel property.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_KryptonContextMenu_" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.KryptonContextMenu*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_KryptonContextMenu" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.KryptonContextMenu">KryptonContextMenu</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_KryptonContextMenu" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.KryptonContextMenu"><a href="#collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs_KryptonContextMenu" class="expander" data-toggle="collapse">KryptonContextMenu</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs_KryptonContextMenu" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to context menu that can be customized.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonContextMenu KryptonContextMenu { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenu.html">KryptonContextMenu</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonContextMenu.html">KryptonContextMenu</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_Page_" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.Page*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_Page" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.Page">Page</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_ContextPageEventArgs_Page" data-uid="ComponentFactory.Krypton.Docking.ContextPageEventArgs.Page"><a href="#collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs_Page" class="expander" data-toggle="collapse">Page</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_ContextPageEventArgs_Page" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to page associated with the context menu.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage Page { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages" class="text-break">Class ContextMenuImages
+  <h1 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages">Class ContextMenuImages
   </h1>
   <div class="markdown level0 summary"><p>Storage for context menu images.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,6 +86,8 @@ BSD 3-Clause License
     <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.Storage.html">Storage</a></div>
     <div class="level3"><span class="xref">ContextMenuImages</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -129,181 +130,310 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ContextMenuImages : Storage</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages__ctor_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.#ctor(ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">ContextMenuImages(NeedPaintHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages__ctor_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.#ctor(ComponentFactory.Krypton.Toolkit.NeedPaintHandler)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages__ctor_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="expander" data-toggle="collapse">ContextMenuImages(NeedPaintHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages__ctor_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ContextMenuImages class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ContextMenuImages(NeedPaintHandler needPaint)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td><span class="parametername">needPaint</span></td>
-        <td><p>Delegate for notifying paint requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></span>
+        <span class="parametername">needPaint</span>
+        <p><p>Delegate for notifying paint requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Checked_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Checked*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Checked" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Checked">Checked</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Checked" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Checked"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_Checked" class="expander" data-toggle="collapse">Checked</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_Checked" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the image for a checked context menu item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist(false)]
 public Image Checked { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Indeterminate_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Indeterminate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Indeterminate" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Indeterminate">Indeterminate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_Indeterminate" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.Indeterminate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_Indeterminate" class="expander" data-toggle="collapse">Indeterminate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_Indeterminate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the image for an indeterminate context menu item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist(false)]
 public Image Indeterminate { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_IsDefault_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.Storage.html#ComponentFactory_Krypton_Toolkit_Storage_IsDefault">Storage.IsDefault</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_SubMenu_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.SubMenu*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_SubMenu" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.SubMenu">SubMenu</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_SubMenu" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.SubMenu"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_SubMenu" class="expander" data-toggle="collapse">SubMenu</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_SubMenu" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets an image indicating a sub-menu on a context menu item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist(false)]
 public Image SubMenu { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetChecked_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetChecked*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetChecked" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetChecked">ResetChecked()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetChecked" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetChecked"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetChecked" class="expander" data-toggle="collapse">ResetChecked()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetChecked" class="collapse in">
   <div class="markdown level1 summary"><p>Resets the Checked property to its default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetChecked()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetIndeterminate_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetIndeterminate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetIndeterminate" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetIndeterminate">ResetIndeterminate()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetIndeterminate" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetIndeterminate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetIndeterminate" class="expander" data-toggle="collapse">ResetIndeterminate()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetIndeterminate" class="collapse in">
   <div class="markdown level1 summary"><p>Resets the Indeterminate property to its default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetIndeterminate()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetSubMenu_" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetSubMenu*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetSubMenu" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetSubMenu">ResetSubMenu()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetSubMenu" data-uid="ComponentFactory.Krypton.Toolkit.ContextMenuImages.ResetSubMenu"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetSubMenu" class="expander" data-toggle="collapse">ResetSubMenu()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ContextMenuImages_ResetSubMenu" class="collapse in">
   <div class="markdown level1 summary"><p>Resets the SubMenu property to its default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetSubMenu()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>
