@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace" class="text-break">Class KryptonDockingFloatspace
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace">Class KryptonDockingFloatspace
   </h1>
   <div class="markdown level0 summary"><p>Provides docking functionality within a floating window using a KryptonFloatspace.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -90,14 +89,8 @@ BSD 3-Clause License
     <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html">KryptonDockingSpace</a></div>
     <div class="level6"><span class="xref">KryptonDockingFloatspace</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -311,500 +304,664 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Docking.html">ComponentFactory.Krypton.Docking</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonDockingFloatspace : KryptonDockingSpace, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace__ctor_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.#ctor(System.String)">KryptonDockingFloatspace(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace__ctor_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.#ctor(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace__ctor_System_String_" class="expander" data-toggle="collapse">KryptonDockingFloatspace(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace__ctor_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingFloatspace class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingFloatspace(string name)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Initial name of the element.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_ClearStoreAction_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.ClearStoreAction*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_ClearStoreAction" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.ClearStoreAction">ClearStoreAction</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_ClearStoreAction" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.ClearStoreAction"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_ClearStoreAction" class="expander" data-toggle="collapse">ClearStoreAction</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_ClearStoreAction" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the proprogate action used to clear a store page for this implementation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override DockingPropogateAction ClearStoreAction { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.DockingPropogateAction.html">DockingPropogateAction</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_ClearStoreAction">KryptonDockingSpace.ClearStoreAction</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FloatspaceControl_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FloatspaceControl*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FloatspaceControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FloatspaceControl">FloatspaceControl</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FloatspaceControl" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FloatspaceControl"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FloatspaceControl" class="expander" data-toggle="collapse">FloatspaceControl</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FloatspaceControl" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the control this element is managing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonFloatspace FloatspaceControl { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatspace.html">KryptonFloatspace</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_XmlElementName_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.XmlElementName*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.XmlElementName">XmlElementName</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.XmlElementName"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_XmlElementName" class="expander" data-toggle="collapse">XmlElementName</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_XmlElementName" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the xml element name to use when saving.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_XmlElementName">DockingElement.XmlElementName</a></div>
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageElement_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageElement(System.String)">FindPageElement(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageElement_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageElement(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageElement_System_String_" class="expander" data-toggle="collapse">FindPageElement(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageElement_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking element that contains the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindPageElement(string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>IDockingElement reference if page is found; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>IDockingElement reference if page is found; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageElement_System_String_">DockingElement.FindPageElement(String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageLocation_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageLocation*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageLocation(System.String)">FindPageLocation(String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindPageLocation(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageLocation_System_String_" class="expander" data-toggle="collapse">FindPageLocation(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindPageLocation_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking location of the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override DockingLocation FindPageLocation(string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></td>
-        <td><p>Enumeration value indicating docking location.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a>
+        <p><p>Enumeration value indicating docking location.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageLocation_System_String_">DockingElement.FindPageLocation(String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindStorePageElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindStorePageElement*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindStorePageElement(ComponentFactory.Krypton.Docking.DockingLocation,System.String)">FindStorePageElement(DockingLocation, String)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.FindStorePageElement(ComponentFactory.Krypton.Docking.DockingLocation,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" class="expander" data-toggle="collapse">FindStorePageElement(DockingLocation, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Find the docking element that contains the location specific store page for the named page.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindStorePageElement(DockingLocation location, string uniqueName)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></td>
-        <td><span class="parametername">location</span></td>
-        <td><p>Location to be searched.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">uniqueName</span></td>
-        <td><p>Unique name of the page to be found.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingLocation.html">DockingLocation</a></span>
+        <span class="parametername">location</span>
+        <p><p>Location to be searched.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name of the page to be found.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></td>
-        <td><p>IDockingElement reference if store page is found; otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
+        <p><p>IDockingElement reference if store page is found; otherwise null.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_">DockingElement.FindStorePageElement(DockingLocation, String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_LoadElementFromXml_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.LoadElementFromXml*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)">LoadElementFromXml(XmlReader, KryptonPageCollection)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.LoadElementFromXml(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="expander" data-toggle="collapse">LoadElementFromXml(XmlReader, KryptonPageCollection)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_" class="collapse in">
   <div class="markdown level1 summary"><p>Loads docking configuration information using a provider xml reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void LoadElementFromXml(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlReader</span></td>
-        <td><span class="parametername">xmlReader</span></td>
-        <td><p>Xml reader object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></td>
-        <td><span class="parametername">pages</span></td>
-        <td><p>Collection of available pages for adding.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of available pages for adding.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">KryptonDockingSpace.LoadElementFromXml(XmlReader, KryptonPageCollection)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_OnSpaceCellPageInserting_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.OnSpaceCellPageInserting*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_OnSpaceCellPageInserting_System_Object_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.OnSpaceCellPageInserting(System.Object,ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)">OnSpaceCellPageInserting(Object, KryptonPageEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_OnSpaceCellPageInserting_System_Object_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.OnSpaceCellPageInserting(System.Object,ComponentFactory.Krypton.Navigator.KryptonPageEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_OnSpaceCellPageInserting_System_Object_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="expander" data-toggle="collapse">OnSpaceCellPageInserting(Object, KryptonPageEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_OnSpaceCellPageInserting_System_Object_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when a page is added to a cell in the workspace.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnSpaceCellPageInserting(object sender, KryptonPageEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the event.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KryptonPageEventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the event.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageEventArgs.html">KryptonPageEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>A KryptonPageEventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_OnSpaceCellPageInserting_System_Object_ComponentFactory_Krypton_Navigator_KryptonPageEventArgs_">KryptonDockingSpace.OnSpaceCellPageInserting(Object, KryptonPageEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_PropogateDragTargets_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.PropogateDragTargets*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.PropogateDragTargets(ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.PageDragEndData,ComponentFactory.Krypton.Navigator.DragTargetList)">PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.PropogateDragTargets(ComponentFactory.Krypton.Docking.KryptonFloatingWindow,ComponentFactory.Krypton.Navigator.PageDragEndData,ComponentFactory.Krypton.Navigator.DragTargetList)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" class="expander" data-toggle="collapse">PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_" class="collapse in">
   <div class="markdown level1 summary"><p>Propogates a request for drag targets down the hierarchy of docking elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateDragTargets(KryptonFloatingWindow floatingWindow, PageDragEndData dragData, DragTargetList targets)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></td>
-        <td><span class="parametername">floatingWindow</span></td>
-        <td><p>Reference to window being dragged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></td>
-        <td><span class="parametername">dragData</span></td>
-        <td><p>Set of pages being dragged.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a></td>
-        <td><span class="parametername">targets</span></td>
-        <td><p>Collection of drag targets.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a></span>
+        <span class="parametername">floatingWindow</span>
+        <p><p>Reference to window being dragged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">dragData</span>
+        <p><p>Set of pages being dragged.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetList.html">DragTargetList</a></span>
+        <span class="parametername">targets</span>
+        <p><p>Collection of drag targets.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_">DockingElement.PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellAdding_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellAdding*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellAdding_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellAdding(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell)">RaiseCellAdding(KryptonWorkspaceCell)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellAdding_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellAdding(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellAdding_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" class="expander" data-toggle="collapse">RaiseCellAdding(KryptonWorkspaceCell)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellAdding_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the type specific cell adding event determinated by the derived class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void RaiseCellAdding(KryptonWorkspaceCell cell)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></td>
-        <td><span class="parametername">cell</span></td>
-        <td><p>Referecence to new cell being added.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></span>
+        <span class="parametername">cell</span>
+        <p><p>Referecence to new cell being added.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_RaiseCellAdding_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_">KryptonDockingSpace.RaiseCellAdding(KryptonWorkspaceCell)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellRemoved_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellRemoved*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellRemoved_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellRemoved(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell)">RaiseCellRemoved(KryptonWorkspaceCell)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellRemoved_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseCellRemoved(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellRemoved_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" class="expander" data-toggle="collapse">RaiseCellRemoved(KryptonWorkspaceCell)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseCellRemoved_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the type specific cell removed event determinated by the derived class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void RaiseCellRemoved(KryptonWorkspaceCell cell)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></td>
-        <td><span class="parametername">cell</span></td>
-        <td><p>Referecence to an existing cell being removed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></span>
+        <span class="parametername">cell</span>
+        <p><p>Referecence to an existing cell being removed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_RaiseCellRemoved_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_">KryptonDockingSpace.RaiseCellRemoved(KryptonWorkspaceCell)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseRemoved_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseRemoved*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseRemoved" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseRemoved">RaiseRemoved()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseRemoved" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseRemoved"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseRemoved" class="expander" data-toggle="collapse">RaiseRemoved()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseRemoved" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the type specific space control removed event determinated by the derived class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void RaiseRemoved()</code></pre>
   </div>
+
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_RaiseRemoved">KryptonDockingSpace.RaiseRemoved()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseSpacePageDrop_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseSpacePageDrop*"></a>
-  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseSpacePageDrop_System_Object_ComponentFactory_Krypton_Navigator_PageDropEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseSpacePageDrop(System.Object,ComponentFactory.Krypton.Navigator.PageDropEventArgs)">RaiseSpacePageDrop(Object, PageDropEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseSpacePageDrop_System_Object_ComponentFactory_Krypton_Navigator_PageDropEventArgs_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloatspace.RaiseSpacePageDrop(System.Object,ComponentFactory.Krypton.Navigator.PageDropEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseSpacePageDrop_System_Object_ComponentFactory_Krypton_Navigator_PageDropEventArgs_" class="expander" data-toggle="collapse">RaiseSpacePageDrop(Object, PageDropEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloatspace_RaiseSpacePageDrop_System_Object_ComponentFactory_Krypton_Navigator_PageDropEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Occurs when a page is dropped on the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void RaiseSpacePageDrop(object sender, PageDropEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of the event.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDropEventArgs.html">PageDropEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A PageDropEventArgs containing the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of the event.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDropEventArgs.html">PageDropEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>A PageDropEventArgs containing the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingSpace.html#ComponentFactory_Krypton_Docking_KryptonDockingSpace_RaiseSpacePageDrop_System_Object_ComponentFactory_Krypton_Navigator_PageDropEventArgs_">KryptonDockingSpace.RaiseSpacePageDrop(Object, PageDropEventArgs)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

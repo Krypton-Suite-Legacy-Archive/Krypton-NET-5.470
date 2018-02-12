@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec" class="text-break">Class PaletteRedirectButtonSpec
+  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec">Class PaletteRedirectButtonSpec
   </h1>
   <div class="markdown level0 summary"><p>Redirect button spec requests to provided target.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,10 +86,8 @@ BSD 3-Clause License
     <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html">PaletteRedirect</a></div>
     <div class="level3"><span class="xref">PaletteRedirectButtonSpec</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -520,426 +517,494 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PaletteRedirectButtonSpec : PaletteRedirect, IPalette</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec__ctor_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_IPaletteButtonSpec_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.#ctor(ComponentFactory.Krypton.Toolkit.IPalette,ComponentFactory.Krypton.Toolkit.IPaletteButtonSpec)">PaletteRedirectButtonSpec(IPalette, IPaletteButtonSpec)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec__ctor_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_IPaletteButtonSpec_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.#ctor(ComponentFactory.Krypton.Toolkit.IPalette,ComponentFactory.Krypton.Toolkit.IPaletteButtonSpec)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec__ctor_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_IPaletteButtonSpec_" class="expander" data-toggle="collapse">PaletteRedirectButtonSpec(IPalette, IPaletteButtonSpec)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec__ctor_ComponentFactory_Krypton_Toolkit_IPalette_ComponentFactory_Krypton_Toolkit_IPaletteButtonSpec_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PaletteRedirectButtonSpec class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteRedirectButtonSpec(IPalette target, IPaletteButtonSpec inherit)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>Initial palette target for redirection.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteButtonSpec.html">IPaletteButtonSpec</a></td>
-        <td><span class="parametername">inherit</span></td>
-        <td><p>Redirection button spec requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a></span>
+        <span class="parametername">target</span>
+        <p><p>Initial palette target for redirection.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteButtonSpec.html">IPaletteButtonSpec</a></span>
+        <span class="parametername">inherit</span>
+        <p><p>Redirection button spec requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecColorMap_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecColorMap*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecColorMap_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecColorMap(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecColorMap(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecColorMap_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecColorMap(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecColorMap_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecColorMap(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecColorMap_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the color to remap from the image to the container foreground.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td><p>Color value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p><p>Color value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecColorMap_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecColorMap(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecEdge_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecEdge*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecEdge_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecEdge(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecEdge(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecEdge_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecEdge(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecEdge_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecEdge(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecEdge_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the edge to positon the button against.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.html">PaletteRelativeEdgeAlign</a></td>
-        <td><p>PaletteRelativeEdgeAlign value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.html">PaletteRelativeEdgeAlign</a>
+        <p><p>PaletteRelativeEdgeAlign value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecEdge_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecEdge(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecImage_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecImage*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecImage_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecImage(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle,ComponentFactory.Krypton.Toolkit.PaletteState)">GetButtonSpecImage(PaletteButtonSpecStyle, PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecImage_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecImage(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle,ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecImage_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetButtonSpecImage(PaletteButtonSpecStyle, PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecImage_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the image to display for the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Image GetButtonSpecImage(PaletteButtonSpecStyle style, PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State for which image is required.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State for which image is required.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td><p>Image value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p><p>Image value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecImage_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteState_">PaletteRedirect.GetButtonSpecImage(PaletteButtonSpecStyle, PaletteState)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLocation_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLocation*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLocation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLocation(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecLocation(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLocation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLocation(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLocation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecLocation(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLocation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Get the location for the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.HeaderLocation.html">HeaderLocation</a></td>
-        <td><p>HeaderLocation value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.HeaderLocation.html">HeaderLocation</a>
+        <p><p>HeaderLocation value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecLocation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecLocation(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLongText_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLongText*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLongText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLongText(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecLongText(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLongText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecLongText(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLongText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecLongText(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecLongText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the long text to display for the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string GetButtonSpecLongText(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>String value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>String value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecLongText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecLongText(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecOrientation_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecOrientation*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecOrientation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecOrientation(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecOrientation(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecOrientation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecOrientation(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecOrientation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecOrientation(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecOrientation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button orientation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonOrientation.html">PaletteButtonOrientation</a></td>
-        <td><p>PaletteButtonOrientation value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonOrientation.html">PaletteButtonOrientation</a>
+        <p><p>PaletteButtonOrientation value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecOrientation_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecOrientation(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecShortText_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecShortText*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecShortText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecShortText(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecShortText(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecShortText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecShortText(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecShortText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecShortText(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecShortText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the short text to display for the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string GetButtonSpecShortText(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>String value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>String value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecShortText_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecShortText(PaletteButtonSpecStyle)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecStyle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecStyle(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">GetButtonSpecStyle(PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteRedirectButtonSpec.GetButtonSpecStyle(ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">GetButtonSpecStyle(PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteRedirectButtonSpec_GetButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the button style used for drawing the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">style</span></td>
-        <td><p>Style of button spec.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">style</span>
+        <p><p>Style of button spec.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.html">PaletteButtonStyle</a></td>
-        <td><p>PaletteButtonStyle value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.html">PaletteButtonStyle</a>
+        <p><p>PaletteButtonStyle value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteRedirect.html#ComponentFactory_Krypton_Toolkit_PaletteRedirect_GetButtonSpecStyle_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_">PaletteRedirect.GetButtonSpecStyle(PaletteButtonSpecStyle)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPalette.html">IPalette</a>
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent" class="text-break">Class ViewDrawEmptyContent
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent">Class ViewDrawEmptyContent
   </h1>
   <div class="markdown level0 summary"><p>View element that draws empty content.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -89,15 +88,8 @@ BSD 3-Clause License
     <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawContent.html">ViewDrawContent</a></div>
     <div class="level5"><span class="xref">ViewDrawEmptyContent</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
-    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -332,385 +324,459 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ViewDrawEmptyContent : ViewDrawContent, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable, IContentValues</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent__ctor_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IPaletteContent_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IPaletteContent)">ViewDrawEmptyContent(IPaletteContent, IPaletteContent)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent__ctor_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IPaletteContent_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IPaletteContent)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent__ctor_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IPaletteContent_" class="expander" data-toggle="collapse">ViewDrawEmptyContent(IPaletteContent, IPaletteContent)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent__ctor_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IPaletteContent_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewDrawEmptyContent class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewDrawEmptyContent(IPaletteContent paletteContentDisabled, IPaletteContent paletteContentNormal)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
-        <td><span class="parametername">paletteContentDisabled</span></td>
-        <td><p>Palette source for the disabled content.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></td>
-        <td><span class="parametername">paletteContentNormal</span></td>
-        <td><p>Palette source for the normal content.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></span>
+        <span class="parametername">paletteContentDisabled</span>
+        <p><p>Palette source for the disabled content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></span>
+        <span class="parametername">paletteContentNormal</span>
+        <p><p>Palette source for the normal content.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImage_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImage*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImage(ComponentFactory.Krypton.Toolkit.PaletteState)">GetImage(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImage(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetImage(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the content image.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Image GetImage(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>The state for which the image is needed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>The state for which the image is needed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Image</span></td>
-        <td><p>Image value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Image</span>
+        <p><p>Image value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html#ComponentFactory_Krypton_Toolkit_IContentValues_GetImage_ComponentFactory_Krypton_Toolkit_PaletteState_">IContentValues.GetImage(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImageTransparentColor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImageTransparentColor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImageTransparentColor(ComponentFactory.Krypton.Toolkit.PaletteState)">GetImageTransparentColor(PaletteState)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetImageTransparentColor(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">GetImageTransparentColor(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the image color that should be transparent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color GetImageTransparentColor(PaletteState state)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>The state for which the image is needed.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>The state for which the image is needed.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Color</span></td>
-        <td><p>Color value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Color</span>
+        <p><p>Color value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html#ComponentFactory_Krypton_Toolkit_IContentValues_GetImageTransparentColor_ComponentFactory_Krypton_Toolkit_PaletteState_">IContentValues.GetImageTransparentColor(PaletteState)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetLongText_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetLongText*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetLongText" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetLongText">GetLongText()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetLongText" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetLongText"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetLongText" class="expander" data-toggle="collapse">GetLongText()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetLongText" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the content long text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string GetLongText()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>String value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>String value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html#ComponentFactory_Krypton_Toolkit_IContentValues_GetLongText">IContentValues.GetLongText()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetPreferredSize*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">GetPreferredSize(ViewLayoutContext)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="expander" data-toggle="collapse">GetPreferredSize(ViewLayoutContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="collapse in">
   <div class="markdown level1 summary"><p>Discover the preferred size of the element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetPreferredSize(ViewLayoutContext context)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Layout context.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawContent.html#ComponentFactory_Krypton_Toolkit_ViewDrawContent_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewDrawContent.GetPreferredSize(ViewLayoutContext)</a></div>
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetShortText_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetShortText*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetShortText" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetShortText">GetShortText()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetShortText" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.GetShortText"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetShortText" class="expander" data-toggle="collapse">GetShortText()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_GetShortText" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the content short text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string GetShortText()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>String value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>String value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html#ComponentFactory_Krypton_Toolkit_IContentValues_GetShortText">IContentValues.GetShortText()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.Layout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)">Layout(ViewLayoutContext)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="expander" data-toggle="collapse">Layout(ViewLayoutContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Layout(ViewLayoutContext context)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Layout context.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawContent.html#ComponentFactory_Krypton_Toolkit_ViewDrawContent_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewDrawContent.Layout(ViewLayoutContext)</a></div>
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_RenderBefore_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.RenderBefore*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.RenderBefore(ComponentFactory.Krypton.Toolkit.RenderContext)">RenderBefore(RenderContext)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.RenderBefore(ComponentFactory.Krypton.Toolkit.RenderContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" class="expander" data-toggle="collapse">RenderBefore(RenderContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" class="collapse in">
   <div class="markdown level1 summary"><p>Perform rendering before child elements are rendered.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void RenderBefore(RenderContext context)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>Rendering context.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawContent.html#ComponentFactory_Krypton_Toolkit_ViewDrawContent_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewDrawContent.RenderBefore(RenderContext)</a></div>
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.ToString*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.ToString">ToString()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawEmptyContent.ToString"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawEmptyContent_ToString" class="collapse in">
   <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>User readable name of the instance.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>User readable name of the instance.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawContent.html#ComponentFactory_Krypton_Toolkit_ViewDrawContent_ToString">ViewDrawContent.ToString()</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.IDisposable</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

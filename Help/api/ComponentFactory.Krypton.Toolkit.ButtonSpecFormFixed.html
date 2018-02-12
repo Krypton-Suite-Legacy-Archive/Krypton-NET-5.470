@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed" class="text-break">Class ButtonSpecFormFixed
+  <h1 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed">Class ButtonSpecFormFixed
   </h1>
   <div class="markdown level0 summary"><p>Implementation for the fixed navigator buttons.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,17 +86,12 @@ BSD 3-Clause License
     <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpec.html">ButtonSpec</a></div>
     <div class="level4"><span class="xref">ButtonSpecFormFixed</span></div>
+  </div>
+  
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecFormWindowClose.html">ButtonSpecFormWindowClose</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecFormWindowMax.html">ButtonSpecFormWindowMax</a></div>
       <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonSpecFormWindowMin.html">ButtonSpecFormWindowMin</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IButtonSpecValues.html">IButtonSpecValues</a></div>
-    <div><span class="xref">System.ICloneable</span></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -377,144 +371,192 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[TypeConverter(typeof (ButtonSpecFormFixedConverter))]
 public abstract class ButtonSpecFormFixed : ButtonSpec, IComponent, IDisposable, IButtonSpecValues, ICloneable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed__ctor_ComponentFactory_Krypton_Toolkit_KryptonForm_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.#ctor(ComponentFactory.Krypton.Toolkit.KryptonForm,ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)">ButtonSpecFormFixed(KryptonForm, PaletteButtonSpecStyle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed__ctor_ComponentFactory_Krypton_Toolkit_KryptonForm_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.#ctor(ComponentFactory.Krypton.Toolkit.KryptonForm,ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed__ctor_ComponentFactory_Krypton_Toolkit_KryptonForm_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="expander" data-toggle="collapse">ButtonSpecFormFixed(KryptonForm, PaletteButtonSpecStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed__ctor_ComponentFactory_Krypton_Toolkit_KryptonForm_ComponentFactory_Krypton_Toolkit_PaletteButtonSpecStyle_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ButtonSpecFormFixed class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ButtonSpecFormFixed(KryptonForm form, PaletteButtonSpecStyle fixedStyle)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a></td>
-        <td><span class="parametername">form</span></td>
-        <td><p>Reference to owning krypton form.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td><span class="parametername">fixedStyle</span></td>
-        <td><p>Fixed style to use.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a></span>
+        <span class="parametername">form</span>
+        <p><p>Reference to owning krypton form.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></span>
+        <span class="parametername">fixedStyle</span>
+        <p><p>Fixed style to use.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_AllowComponent_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.AllowComponent*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_AllowComponent" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.AllowComponent">AllowComponent</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_AllowComponent" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.AllowComponent"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_AllowComponent" class="expander" data-toggle="collapse">AllowComponent</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_AllowComponent" class="collapse in">
   <div class="markdown level1 summary"><p>Can a component be associated with the view.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool AllowComponent { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">ComponentFactory.Krypton.Toolkit.ButtonSpec.AllowComponent</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_ButtonSpecType_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.ButtonSpecType*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_ButtonSpecType" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.ButtonSpecType">ButtonSpecType</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_ButtonSpecType" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.ButtonSpecType"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_ButtonSpecType" class="expander" data-toggle="collapse">ButtonSpecType</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_ButtonSpecType" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the actual type of the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual PaletteButtonSpecStyle ButtonSpecType { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.html">PaletteButtonSpecStyle</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_KryptonForm_" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.KryptonForm*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_KryptonForm" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.KryptonForm">KryptonForm</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_KryptonForm" data-uid="ComponentFactory.Krypton.Toolkit.ButtonSpecFormFixed.KryptonForm"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_KryptonForm" class="expander" data-toggle="collapse">KryptonForm</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ButtonSpecFormFixed_KryptonForm" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the owning krypton form.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected KryptonForm KryptonForm { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonForm.html">KryptonForm</a>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IButtonSpecValues.html">IButtonSpecValues</a>
-  </div>
-  <div>
-      <span class="xref">System.ICloneable</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

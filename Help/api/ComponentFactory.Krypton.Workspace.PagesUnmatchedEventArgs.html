@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,19 +73,20 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs" class="text-break">Class PagesUnmatchedEventArgs
+  <h1 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs">Class PagesUnmatchedEventArgs
   </h1>
   <div class="markdown level0 summary"><p>Event data for listing pages unmatched during the load process.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.EventArgs</span></div>
     <div class="level2"><span class="xref">PagesUnmatchedEventArgs</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -113,104 +114,152 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Workspace.html">ComponentFactory.Krypton.Workspace</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Workspace.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PagesUnmatchedEventArgs : EventArgs</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_System_Collections_Generic_List_ComponentFactory_Krypton_Navigator_KryptonPage__" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.#ctor(ComponentFactory.Krypton.Workspace.KryptonWorkspace,System.Collections.Generic.List{ComponentFactory.Krypton.Navigator.KryptonPage})">PagesUnmatchedEventArgs(KryptonWorkspace, List&lt;KryptonPage&gt;)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_System_Collections_Generic_List_ComponentFactory_Krypton_Navigator_KryptonPage__" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.#ctor(ComponentFactory.Krypton.Workspace.KryptonWorkspace,System.Collections.Generic.List{ComponentFactory.Krypton.Navigator.KryptonPage})"><a href="#collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_System_Collections_Generic_List_ComponentFactory_Krypton_Navigator_KryptonPage__" class="expander" data-toggle="collapse">PagesUnmatchedEventArgs(KryptonWorkspace, List&lt;KryptonPage&gt;)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_System_Collections_Generic_List_ComponentFactory_Krypton_Navigator_KryptonPage__" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PagesUnmatchedEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PagesUnmatchedEventArgs(KryptonWorkspace workspace, List&lt;KryptonPage&gt; unmatched)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td><span class="parametername">workspace</span></td>
-        <td><p>Reference to owning workspace control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>&gt;</td>
-        <td><span class="parametername">unmatched</span></td>
-        <td><p>List of pages unmatched during the load process.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></span>
+        <span class="parametername">workspace</span>
+        <p><p>Reference to owning workspace control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>&gt;</span>
+        <span class="parametername">unmatched</span>
+        <p><p>List of pages unmatched during the load process.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Unmatched_" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Unmatched*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Unmatched" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Unmatched">Unmatched</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Unmatched" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Unmatched"><a href="#collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Unmatched" class="expander" data-toggle="collapse">Unmatched</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Unmatched" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the xml reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public List&lt;KryptonPage&gt; Unmatched { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>&gt;
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Workspace_" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Workspace*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Workspace" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Workspace">Workspace</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Workspace" data-uid="ComponentFactory.Krypton.Workspace.PagesUnmatchedEventArgs.Workspace"><a href="#collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Workspace" class="expander" data-toggle="collapse">Workspace</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_PagesUnmatchedEventArgs_Workspace" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the workspace reference.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonWorkspace Workspace { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

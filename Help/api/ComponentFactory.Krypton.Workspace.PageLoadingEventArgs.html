@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs" class="text-break">Class PageLoadingEventArgs
+  <h1 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs">Class PageLoadingEventArgs
   </h1>
   <div class="markdown level0 summary"><p>Event data for persisting extra data for a workspace cell page.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,6 +86,8 @@ BSD 3-Clause License
     <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Workspace.XmlLoadingEventArgs.html">XmlLoadingEventArgs</a></div>
     <div class="level3"><span class="xref">PageLoadingEventArgs</span></div>
   </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -120,86 +121,123 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Workspace.html">ComponentFactory.Krypton.Workspace</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Workspace.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PageLoadingEventArgs : XmlLoadingEventArgs</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs__ctor_" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPage_System_Xml_XmlReader_" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.#ctor(ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Navigator.KryptonPage,System.Xml.XmlReader)">PageLoadingEventArgs(KryptonWorkspace, KryptonPage, XmlReader)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPage_System_Xml_XmlReader_" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.#ctor(ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Navigator.KryptonPage,System.Xml.XmlReader)"><a href="#collapsible-ComponentFactory_Krypton_Workspace_PageLoadingEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPage_System_Xml_XmlReader_" class="expander" data-toggle="collapse">PageLoadingEventArgs(KryptonWorkspace, KryptonPage, XmlReader)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_PageLoadingEventArgs__ctor_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPage_System_Xml_XmlReader_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PageLoadingEventArgs class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PageLoadingEventArgs(KryptonWorkspace workspace, KryptonPage page, XmlReader xmlReader)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td><span class="parametername">workspace</span></td>
-        <td><p>Reference to owning workspace control.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><span class="parametername">page</span></td>
-        <td><p>Reference to owning workspace cell page.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlReader</span></td>
-        <td><span class="parametername">xmlReader</span></td>
-        <td><p>Xml reader for persisting custom data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></span>
+        <span class="parametername">workspace</span>
+        <p><p>Reference to owning workspace control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></span>
+        <span class="parametername">page</span>
+        <p><p>Reference to owning workspace cell page.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader for persisting custom data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_Page_" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.Page*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_Page" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.Page">Page</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_Page" data-uid="ComponentFactory.Krypton.Workspace.PageLoadingEventArgs.Page"><a href="#collapsible-ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_Page" class="expander" data-toggle="collapse">Page</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_PageLoadingEventArgs_Page" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the workspace cell page reference.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage Page { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

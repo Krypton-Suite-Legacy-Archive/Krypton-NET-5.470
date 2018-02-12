@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Navigator_PaletteNavigator" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator" class="text-break">Class PaletteNavigator
+  <h1 id="ComponentFactory_Krypton_Navigator_PaletteNavigator" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator">Class PaletteNavigator
   </h1>
   <div class="markdown level0 summary"><p>Implement storage for normal and disable navigator appearance.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -89,11 +88,8 @@ BSD 3-Clause License
     <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDoubleMetric.html">PaletteDoubleMetric</a></div>
     <div class="level5"><span class="xref">PaletteNavigator</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -157,467 +153,689 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Navigator.html">ComponentFactory.Krypton.Navigator</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Navigator.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PaletteNavigator : PaletteDoubleMetric, IPaletteDouble, IPaletteMetric</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator__ctor_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator__ctor_ComponentFactory_Krypton_Navigator_PaletteNavigatorRedirect_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.#ctor(ComponentFactory.Krypton.Navigator.PaletteNavigatorRedirect,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">PaletteNavigator(PaletteNavigatorRedirect, NeedPaintHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator__ctor_ComponentFactory_Krypton_Navigator_PaletteNavigatorRedirect_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.#ctor(ComponentFactory.Krypton.Navigator.PaletteNavigatorRedirect,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator__ctor_ComponentFactory_Krypton_Navigator_PaletteNavigatorRedirect_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="expander" data-toggle="collapse">PaletteNavigator(PaletteNavigatorRedirect, NeedPaintHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator__ctor_ComponentFactory_Krypton_Navigator_PaletteNavigatorRedirect_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PaletteNavigatorNormabled class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteNavigator(PaletteNavigatorRedirect redirect, NeedPaintHandler needPaint)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigatorRedirect.html">PaletteNavigatorRedirect</a></td>
-        <td><span class="parametername">redirect</span></td>
-        <td><p>Inheritence redirection instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td><span class="parametername">needPaint</span></td>
-        <td><p>Delegate for notifying paint requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigatorRedirect.html">PaletteNavigatorRedirect</a></span>
+        <span class="parametername">redirect</span>
+        <p><p>Inheritence redirection instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></span>
+        <span class="parametername">needPaint</span>
+        <p><p>Delegate for notifying paint requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Back_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Back*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Back" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Back">Back</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Back" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Back"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Back" class="expander" data-toggle="collapse">Back</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Back" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the background palette details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override PaletteBack Back { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_Back">PaletteDouble.Back</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Border_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Border*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Border" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Border">Border</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Border" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Border"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Border" class="expander" data-toggle="collapse">Border</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Border" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the border palette details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override PaletteBorder Border { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_Border">PaletteDouble.Border</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_BorderEdge_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.BorderEdge*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_BorderEdge" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.BorderEdge">BorderEdge</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_BorderEdge" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.BorderEdge"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_BorderEdge" class="expander" data-toggle="collapse">BorderEdge</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_BorderEdge" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the border edge appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBorderEdge BorderEdge { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderEdge.html">PaletteBorderEdge</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderEdge.html">PaletteBorderEdge</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_CheckButton_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.CheckButton*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_CheckButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.CheckButton">CheckButton</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_CheckButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.CheckButton"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_CheckButton" class="expander" data-toggle="collapse">CheckButton</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_CheckButton" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the check button appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteTriple CheckButton { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_HeaderGroup_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.HeaderGroup*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_HeaderGroup" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.HeaderGroup">HeaderGroup</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_HeaderGroup" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.HeaderGroup"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_HeaderGroup" class="expander" data-toggle="collapse">HeaderGroup</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_HeaderGroup" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the header group appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteNavigatorHeaderGroup HeaderGroup { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigatorHeaderGroup.html">PaletteNavigatorHeaderGroup</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigatorHeaderGroup.html">PaletteNavigatorHeaderGroup</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_IsDefault_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_IsDefault" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_IsDefault" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_IsDefault">PaletteDouble.IsDefault</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_MiniButton_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.MiniButton*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_MiniButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.MiniButton">MiniButton</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_MiniButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.MiniButton"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_MiniButton" class="expander" data-toggle="collapse">MiniButton</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_MiniButton" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the outlook mini button appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteTriple MiniButton { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_OverflowButton_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.OverflowButton*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_OverflowButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.OverflowButton">OverflowButton</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_OverflowButton" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.OverflowButton"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_OverflowButton" class="expander" data-toggle="collapse">OverflowButton</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_OverflowButton" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the outlook overflow button appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteTriple OverflowButton { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTriple.html">PaletteTriple</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Page_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Page*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Page" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Page">Page</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Page" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Page"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Page" class="expander" data-toggle="collapse">Page</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Page" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the page appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBack Page { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBack_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBack*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBack" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBack">PaletteBack</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBack" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBack"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBack" class="expander" data-toggle="collapse">PaletteBack</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBack" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the background palette.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override IPaletteBack PaletteBack { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBack.html">IPaletteBack</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_PaletteBack">PaletteDouble.PaletteBack</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBorder_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBorder*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBorder" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBorder">PaletteBorder</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBorder" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.PaletteBorder"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBorder" class="expander" data-toggle="collapse">PaletteBorder</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_PaletteBorder" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the border palette.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override IPaletteBorder PaletteBorder { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteBorder.html">IPaletteBorder</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_PaletteBorder">PaletteDouble.PaletteBorder</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Panel_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Panel*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Panel" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Panel">Panel</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Panel" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Panel"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Panel" class="expander" data-toggle="collapse">Panel</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Panel" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the panel palette details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteBack Panel { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBack.html">PaletteBack</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_RibbonTab_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.RibbonTab*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_RibbonTab" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.RibbonTab">RibbonTab</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_RibbonTab" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.RibbonTab"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_RibbonTab" class="expander" data-toggle="collapse">RibbonTab</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_RibbonTab" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the ribbon tab appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteRibbonTabContent RibbonTab { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteRibbonTabContent.html">PaletteRibbonTabContent</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteRibbonTabContent.html">PaletteRibbonTabContent</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Separator_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Separator*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Separator" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Separator">Separator</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Separator" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Separator"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Separator" class="expander" data-toggle="collapse">Separator</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Separator" class="collapse in">
   <div class="markdown level1 summary"><p>Get access to the overrides for defining separator appearance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteSeparatorPadding Separator { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.html">PaletteSeparatorPadding</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.html">PaletteSeparatorPadding</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Tab_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Tab*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Tab" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Tab">Tab</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_Tab" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.Tab"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Tab" class="expander" data-toggle="collapse">Tab</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_Tab" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the tab appearance entries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteTabTriple Tab { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTabTriple.html">PaletteTabTriple</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteTabTriple.html">PaletteTabTriple</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Navigator_PaletteNavigator_SetInherit_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.SetInherit*"></a>
-  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_SetInherit_ComponentFactory_Krypton_Navigator_PaletteNavigator_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.SetInherit(ComponentFactory.Krypton.Navigator.PaletteNavigator)">SetInherit(PaletteNavigator)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Navigator_PaletteNavigator_SetInherit_ComponentFactory_Krypton_Navigator_PaletteNavigator_" data-uid="ComponentFactory.Krypton.Navigator.PaletteNavigator.SetInherit(ComponentFactory.Krypton.Navigator.PaletteNavigator)"><a href="#collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_SetInherit_ComponentFactory_Krypton_Navigator_PaletteNavigator_" class="expander" data-toggle="collapse">SetInherit(PaletteNavigator)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Navigator_PaletteNavigator_SetInherit_ComponentFactory_Krypton_Navigator_PaletteNavigator_" class="collapse in">
   <div class="markdown level1 summary"><p>Sets the inheritence parent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetInherit(PaletteNavigator inheritNavigator)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigator.html">PaletteNavigator</a></td>
-        <td><span class="parametername">inheritNavigator</span></td>
-        <td><p>Source for inheriting.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PaletteNavigator.html">PaletteNavigator</a></span>
+        <span class="parametername">inheritNavigator</span>
+        <p><p>Source for inheriting.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

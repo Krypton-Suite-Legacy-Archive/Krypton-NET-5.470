@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopup" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup" class="text-break">Class VisualPopup
+  <h1 id="ComponentFactory_Krypton_Toolkit_VisualPopup" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup">Class VisualPopup
   </h1>
   <div class="markdown level0 summary"><p>Base class used for implementation of popup controls.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -89,19 +88,11 @@ BSD 3-Clause License
     <div class="level4"><span class="xref">System.Windows.Forms.ScrollableControl</span></div>
     <div class="level5"><span class="xref">System.Windows.Forms.ContainerControl</span></div>
     <div class="level6"><span class="xref">VisualPopup</span></div>
+  </div>
+  
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualContextMenu.html">VisualContextMenu</a></div>
       <div class="level7"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualPopupToolTip.html">VisualPopupToolTip</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Windows.Forms.IDropTarget</span></div>
-    <div><span class="xref">System.ComponentModel.ISynchronizeInvoke</span></div>
-    <div><span class="xref">System.Windows.Forms.IWin32Window</span></div>
-    <div><span class="xref">System.Windows.Forms.IBindableComponent</span></div>
-    <div><span class="xref">System.ComponentModel.IComponent</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.Windows.Forms.IContainerControl</span></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -1308,1207 +1299,1617 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_VisualPopup_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ClassInterface(ClassInterfaceType.AutoDispatch)]
 [ComVisible(true)]
 public class VisualPopup : ContainerControl, IDropTarget, ISynchronizeInvoke, IWin32Window, IBindableComponent, IArrangedElement, IComponent, IDisposable, IContainerControl</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(ComponentFactory.Krypton.Toolkit.IRenderer,System.Boolean)">VisualPopup(IRenderer, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(ComponentFactory.Krypton.Toolkit.IRenderer,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" class="expander" data-toggle="collapse">VisualPopup(IRenderer, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualPopup class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopup(IRenderer renderer, bool shadow)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Drawing renderer.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">shadow</span></td>
-        <td><p>Does the popup need a shadow effect.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Drawing renderer.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">shadow</span>
+        <p><p>Does the popup need a shadow effect.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,ComponentFactory.Krypton.Toolkit.IRenderer,System.Boolean)">VisualPopup(ViewManager, IRenderer, Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,ComponentFactory.Krypton.Toolkit.IRenderer,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" class="expander" data-toggle="collapse">VisualPopup(ViewManager, IRenderer, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_ComponentFactory_Krypton_Toolkit_IRenderer_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualPopup class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopup(ViewManager viewManager, IRenderer renderer, bool shadow)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td><span class="parametername">viewManager</span></td>
-        <td><p>View manager instance for managing view display.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Drawing renderer.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">shadow</span></td>
-        <td><p>Does the popup need a shadow effect.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></span>
+        <span class="parametername">viewManager</span>
+        <p><p>View manager instance for managing view display.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Drawing renderer.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">shadow</span>
+        <p><p>Does the popup need a shadow effect.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(System.Boolean)">VisualPopup(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.#ctor(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_System_Boolean_" class="expander" data-toggle="collapse">VisualPopup(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup__ctor_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the VisualPopup class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VisualPopup(bool shadow)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">shadow</span></td>
-        <td><p>Does the popup need a shadow effect.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">shadow</span>
+        <p><p>Does the popup need a shadow effect.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowBecomeActiveWhenCurrent_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowBecomeActiveWhenCurrent*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowBecomeActiveWhenCurrent" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowBecomeActiveWhenCurrent">AllowBecomeActiveWhenCurrent</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowBecomeActiveWhenCurrent" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowBecomeActiveWhenCurrent"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_AllowBecomeActiveWhenCurrent" class="expander" data-toggle="collapse">AllowBecomeActiveWhenCurrent</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_AllowBecomeActiveWhenCurrent" class="collapse in">
   <div class="markdown level1 summary"><p>Is a change in active window to this popup when it is current allowed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool AllowBecomeActiveWhenCurrent { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateParams_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateParams*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateParams" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateParams">CreateParams</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateParams" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateParams"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_CreateParams" class="expander" data-toggle="collapse">CreateParams</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_CreateParams" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the creation parameters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override CreateParams CreateParams { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.CreateParams</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.CreateParams</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ContainerControl.CreateParams</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DismissedDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DismissedDelegate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DismissedDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DismissedDelegate">DismissedDelegate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DismissedDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DismissedDelegate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DismissedDelegate" class="expander" data-toggle="collapse">DismissedDelegate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DismissedDelegate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the delegate to fire when the popup is dismissed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public EventHandler DismissedDelegate { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_EvalInvokePaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.EvalInvokePaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_EvalInvokePaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.EvalInvokePaint">EvalInvokePaint</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_EvalInvokePaint" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.EvalInvokePaint"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_EvalInvokePaint" class="expander" data-toggle="collapse">EvalInvokePaint</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_EvalInvokePaint" class="collapse in">
   <div class="markdown level1 summary"><p>Work out if this control needs to use Invoke to force a repaint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool EvalInvokePaint { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.KeyboardInert*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.KeyboardInert">KeyboardInert</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.KeyboardInert"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert" class="expander" data-toggle="collapse">KeyboardInert</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_KeyboardInert" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if the keyboard is passed to this popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual bool KeyboardInert { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_NeedPaintDelegate_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.NeedPaintDelegate*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.NeedPaintDelegate">NeedPaintDelegate</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_NeedPaintDelegate" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.NeedPaintDelegate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_NeedPaintDelegate" class="expander" data-toggle="collapse">NeedPaintDelegate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_NeedPaintDelegate" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the need paint delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected NeedPaintHandler NeedPaintDelegate { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_Renderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Renderer*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Renderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Renderer">Renderer</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Renderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Renderer"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Renderer" class="expander" data-toggle="collapse">Renderer</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Renderer" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the current renderer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public IRenderer Renderer { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_ViewManager_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ViewManager*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_ViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ViewManager">ViewManager</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_ViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ViewManager"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_ViewManager" class="expander" data-toggle="collapse">ViewManager</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_ViewManager" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the ViewManager instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ViewManager ViewManager { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowMouseMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowMouseMove(System.Windows.Forms.Message,System.Drawing.Point)">AllowMouseMove(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.AllowMouseMove(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">AllowMouseMove(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_AllowMouseMove_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should the mouse move at provided screen point be allowed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool AllowMouseMove(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Client coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Client coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to alow; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to alow; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateToolStripRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateToolStripRenderer*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateToolStripRenderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateToolStripRenderer">CreateToolStripRenderer()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_CreateToolStripRenderer" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.CreateToolStripRenderer"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_CreateToolStripRenderer" class="expander" data-toggle="collapse">CreateToolStripRenderer()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_CreateToolStripRenderer" class="collapse in">
   <div class="markdown level1 summary"><p>Create a tool strip renderer appropriate for the current renderer/palette pair.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public ToolStripRenderer CreateToolStripRenderer()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.ToolStripRenderer</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.ToolStripRenderer</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DefineShadowPaths_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DefineShadowPaths*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DefineShadowPaths_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DefineShadowPaths(System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Drawing2D.GraphicsPath)">DefineShadowPaths(GraphicsPath, GraphicsPath, GraphicsPath)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DefineShadowPaths_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DefineShadowPaths(System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Drawing2D.GraphicsPath)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DefineShadowPaths_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_" class="expander" data-toggle="collapse">DefineShadowPaths(GraphicsPath, GraphicsPath, GraphicsPath)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DefineShadowPaths_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_System_Drawing_Drawing2D_GraphicsPath_" class="collapse in">
   <div class="markdown level1 summary"><p>Define the drawing paths for the shadow.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void DefineShadowPaths(GraphicsPath path1, GraphicsPath path2, GraphicsPath path3)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
-        <td><span class="parametername">path1</span></td>
-        <td><p>Outer path.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
-        <td><span class="parametername">path2</span></td>
-        <td><p>Middle path.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></td>
-        <td><span class="parametername">path3</span></td>
-        <td><p>Inside path.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></span>
+        <span class="parametername">path1</span>
+        <p><p>Outer path.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></span>
+        <span class="parametername">path2</span>
+        <p><p>Middle path.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Drawing2D.GraphicsPath</span></span>
+        <span class="parametername">path3</span>
+        <p><p>Inside path.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Dispose*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Dispose_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Clean up any resources being used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true if managed resources should be disposed; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>true if managed resources should be disposed; otherwise, false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ContainerControl.Dispose(System.Boolean)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownContinueTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownContinueTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownContinueTracking_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownContinueTracking(System.Windows.Forms.Message,System.Drawing.Point)">DoesCurrentMouseDownContinueTracking(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownContinueTracking_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownContinueTracking(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownContinueTracking_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">DoesCurrentMouseDownContinueTracking(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownContinueTracking_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should a mouse down at the provided point allow tracking to continue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool DoesCurrentMouseDownContinueTracking(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Client coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Client coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to continue tracking; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to continue tracking; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownEndAllTracking_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownEndAllTracking*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownEndAllTracking_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownEndAllTracking(System.Windows.Forms.Message,System.Drawing.Point)">DoesCurrentMouseDownEndAllTracking(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownEndAllTracking_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesCurrentMouseDownEndAllTracking(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownEndAllTracking_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">DoesCurrentMouseDownEndAllTracking(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesCurrentMouseDownEndAllTracking_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should a mouse down at the provided point cause an end to popup tracking.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool DoesCurrentMouseDownEndAllTracking(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Client coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Client coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to end tracking; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to end tracking; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesMouseDownGetEaten_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesMouseDownGetEaten*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesMouseDownGetEaten_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesMouseDownGetEaten(System.Windows.Forms.Message,System.Drawing.Point)">DoesMouseDownGetEaten(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesMouseDownGetEaten_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesMouseDownGetEaten(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesMouseDownGetEaten_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">DoesMouseDownGetEaten(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesMouseDownGetEaten_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should the mouse down be eaten when the tracking has been ended.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool DoesMouseDownGetEaten(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Screen coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Screen coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to eat message; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to eat message; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesStackedClientMouseDownBecomeCurrent_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesStackedClientMouseDownBecomeCurrent*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesStackedClientMouseDownBecomeCurrent_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesStackedClientMouseDownBecomeCurrent(System.Windows.Forms.Message,System.Drawing.Point)">DoesStackedClientMouseDownBecomeCurrent(Message, Point)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_DoesStackedClientMouseDownBecomeCurrent_System_Windows_Forms_Message_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.DoesStackedClientMouseDownBecomeCurrent(System.Windows.Forms.Message,System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesStackedClientMouseDownBecomeCurrent_System_Windows_Forms_Message_System_Drawing_Point_" class="expander" data-toggle="collapse">DoesStackedClientMouseDownBecomeCurrent(Message, Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_DoesStackedClientMouseDownBecomeCurrent_System_Windows_Forms_Message_System_Drawing_Point_" class="collapse in">
   <div class="markdown level1 summary"><p>Should a mouse down at the provided point cause it to become the current tracking popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool DoesStackedClientMouseDownBecomeCurrent(Message m, Point pt)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>Original message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Point</span></td>
-        <td><span class="parametername">pt</span></td>
-        <td><p>Client coordinates point.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>Original message.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Client coordinates point.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True to become current; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to become current; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_GetViewManager_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.GetViewManager*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_GetViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.GetViewManager">GetViewManager()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_GetViewManager" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.GetViewManager"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_GetViewManager" class="expander" data-toggle="collapse">GetViewManager()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_GetViewManager" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the view manager of the popup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewManager GetViewManager()</code></pre>
   </div>
+
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnDoubleClick_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnDoubleClick*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnDoubleClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnDoubleClick(System.EventArgs)">OnDoubleClick(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnDoubleClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnDoubleClick(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnDoubleClick_System_EventArgs_" class="expander" data-toggle="collapse">OnDoubleClick(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnDoubleClick_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the DoubleClick event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnDoubleClick(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnDoubleClick(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyDown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyDown(System.Windows.Forms.KeyEventArgs)">OnKeyDown(KeyEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyDown(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">OnKeyDown(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyDown event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyDown(KeyEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyDown(System.Windows.Forms.KeyEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyPress_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyPress*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">OnKeyPress(KeyPressEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" class="expander" data-toggle="collapse">OnKeyPress(KeyPressEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyPress event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyPress(KeyPressEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyPressEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyPressEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyUp_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyUp*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyUp(System.Windows.Forms.KeyEventArgs)">OnKeyUp(KeyEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnKeyUp(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyUp_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">OnKeyUp(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnKeyUp_System_Windows_Forms_KeyEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the KeyUp event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnKeyUp(KeyEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.KeyEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A KeyEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnKeyUp(System.Windows.Forms.KeyEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnLayout*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnLayout(System.Windows.Forms.LayoutEventArgs)">OnLayout(LayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnLayout(System.Windows.Forms.LayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="expander" data-toggle="collapse">OnLayout(LayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Layout event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnLayout(LayoutEventArgs levent)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.LayoutEventArgs</span></td>
-        <td><span class="parametername">levent</span></td>
-        <td><p>A LayoutEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.LayoutEventArgs</span></span>
+        <span class="parametername">levent</span>
+        <p><p>A LayoutEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ContainerControl.OnLayout(System.Windows.Forms.LayoutEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseDown*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseDown_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseDown(System.Windows.Forms.MouseEventArgs)">OnMouseDown(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseDown_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseDown(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseDown_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseDown(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseDown_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseDown event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseDown(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseDown(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseLeave*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseLeave_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseLeave(System.EventArgs)">OnMouseLeave(EventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseLeave_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseLeave(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseLeave_System_EventArgs_" class="expander" data-toggle="collapse">OnMouseLeave(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseLeave_System_EventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseLeave event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseLeave(EventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An EventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseLeave(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseMove*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseMove_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseMove(System.Windows.Forms.MouseEventArgs)">OnMouseMove(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseMove_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseMove(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseMove_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseMove(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseMove_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseMove event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseMove(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseMove(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseUp*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseUp_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseUp(System.Windows.Forms.MouseEventArgs)">OnMouseUp(MouseEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseUp_System_Windows_Forms_MouseEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnMouseUp(System.Windows.Forms.MouseEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseUp_System_Windows_Forms_MouseEventArgs_" class="expander" data-toggle="collapse">OnMouseUp(MouseEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnMouseUp_System_Windows_Forms_MouseEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the MouseUp event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseUp(MouseEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.MouseEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A MouseEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A MouseEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnMouseUp(System.Windows.Forms.MouseEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)">OnNeedPaint(Object, NeedLayoutEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnNeedPaint(System.Object,ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="expander" data-toggle="collapse">OnNeedPaint(Object, NeedLayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a notification from palette storage of a paint and optional layout required.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>Source of notification.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>An NeedLayoutEventArgs containing event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedLayoutEventArgs.html">NeedLayoutEventArgs</a></span>
+        <span class="parametername">e</span>
+        <p><p>An NeedLayoutEventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnPaint_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnPaint(System.Windows.Forms.PaintEventArgs)">OnPaint(PaintEventArgs)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_OnPaint_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.OnPaint(System.Windows.Forms.PaintEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnPaint_System_Windows_Forms_PaintEventArgs_" class="expander" data-toggle="collapse">OnPaint(PaintEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_OnPaint_System_Windows_Forms_PaintEventArgs_" class="collapse in">
   <div class="markdown level1 summary"><p>Raises the Paint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnPaint(PaintEventArgs e)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.PaintEventArgs</span></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>A PaintEventArgs that contains the event data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.PaintEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A PaintEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_PerformNeedPaint_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.PerformNeedPaint*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.PerformNeedPaint(System.Boolean)">PerformNeedPaint(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_PerformNeedPaint_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.PerformNeedPaint(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_PerformNeedPaint_System_Boolean_" class="expander" data-toggle="collapse">PerformNeedPaint(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_PerformNeedPaint_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Fires the NeedPaint event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public void PerformNeedPaint(bool needLayout)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">needLayout</span></td>
-        <td><p>Does the palette change require a layout.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">needLayout</span>
+        <p><p>Does the palette change require a layout.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_ProcessDialogKey_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ProcessDialogKey*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_ProcessDialogKey_System_Windows_Forms_Keys_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ProcessDialogKey(System.Windows.Forms.Keys)">ProcessDialogKey(Keys)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_ProcessDialogKey_System_Windows_Forms_Keys_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.ProcessDialogKey(System.Windows.Forms.Keys)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_ProcessDialogKey_System_Windows_Forms_Keys_" class="expander" data-toggle="collapse">ProcessDialogKey(Keys)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_ProcessDialogKey_System_Windows_Forms_Keys_" class="collapse in">
   <div class="markdown level1 summary"><p>Processes a dialog key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override bool ProcessDialogKey(Keys keyData)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Keys</span></td>
-        <td><span class="parametername">keyData</span></td>
-        <td><p>One of the Keys values that represents the key to process.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Keys</span></span>
+        <span class="parametername">keyData</span>
+        <p><p>One of the Keys values that represents the key to process.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>true if the key was processed; otherwise false.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>true if the key was processed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ContainerControl.ProcessDialogKey(System.Windows.Forms.Keys)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show(System.Drawing.Rectangle)">Show(Rectangle)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show(System.Drawing.Rectangle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_" class="expander" data-toggle="collapse">Show(Rectangle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the popup using the provided rectangle as the screen rect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Show(Rectangle screenRect)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">screenRect</span></td>
-        <td><p>Screen rectangle for showing the popup.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">screenRect</span>
+        <p><p>Screen rectangle for showing the popup.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show(System.Drawing.Rectangle,System.Drawing.Size)">Show(Rectangle, Size)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.Show(System.Drawing.Rectangle,System.Drawing.Size)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_System_Drawing_Size_" class="expander" data-toggle="collapse">Show(Rectangle, Size)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_Show_System_Drawing_Rectangle_System_Drawing_Size_" class="collapse in">
   <div class="markdown level1 summary"><p>Show the popup with the given size but relative to the provided parent rectangle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Show(Rectangle parentScreenRect, Size popupSize)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">parentScreenRect</span></td>
-        <td><p>Screen rectangle of parent area.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td><span class="parametername">popupSize</span></td>
-        <td><p>Size of the popup to show.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">parentScreenRect</span>
+        <p><p>Screen rectangle of parent area.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Size</span></span>
+        <span class="parametername">popupSize</span>
+        <p><p>Size of the popup to show.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualPopup_WndProc_" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.WndProc*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.WndProc(System.Windows.Forms.Message@)">WndProc(ref Message)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualPopup_WndProc_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.VisualPopup.WndProc(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_WndProc_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">WndProc(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualPopup_WndProc_System_Windows_Forms_Message__" class="collapse in">
   <div class="markdown level1 summary"><p>Processes Windows messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void WndProc(ref Message m)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Message</span></td>
-        <td><span class="parametername">m</span></td>
-        <td><p>The Windows Message to process.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>The Windows Message to process.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.ContainerControl.WndProc(System.Windows.Forms.Message)</span></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Windows.Forms.IDropTarget</span>
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <span class="xref">System.ComponentModel.ISynchronizeInvoke</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IWin32Window</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IBindableComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.ComponentModel.IComponent</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Forms.IContainerControl</span>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

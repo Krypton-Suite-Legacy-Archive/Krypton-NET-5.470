@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding" class="text-break">Class PaletteSeparatorPadding
+  <h1 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding">Class PaletteSeparatorPadding
   </h1>
   <div class="markdown level0 summary"><p>Implement storage for palette border,background and separator padding.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -88,11 +87,8 @@ BSD 3-Clause License
     <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html">PaletteDouble</a></div>
     <div class="level4"><span class="xref">PaletteSeparatorPadding</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></div>
-    <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -153,338 +149,457 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class PaletteSeparatorPadding : PaletteDouble, IPaletteDouble, IPaletteMetric</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteMetric,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)">PaletteSeparatorPadding(IPaletteDouble, IPaletteMetric, NeedPaintHandler)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.#ctor(ComponentFactory.Krypton.Toolkit.IPaletteDouble,ComponentFactory.Krypton.Toolkit.IPaletteMetric,ComponentFactory.Krypton.Toolkit.NeedPaintHandler)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="expander" data-toggle="collapse">PaletteSeparatorPadding(IPaletteDouble, IPaletteMetric, NeedPaintHandler)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding__ctor_ComponentFactory_Krypton_Toolkit_IPaletteDouble_ComponentFactory_Krypton_Toolkit_IPaletteMetric_ComponentFactory_Krypton_Toolkit_NeedPaintHandler_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the PaletteSeparatorPadding class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PaletteSeparatorPadding(IPaletteDouble inheritDouble, IPaletteMetric inheritMetric, NeedPaintHandler needPaint)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></td>
-        <td><span class="parametername">inheritDouble</span></td>
-        <td><p>Source for inheriting border and background values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></td>
-        <td><span class="parametername">inheritMetric</span></td>
-        <td><p>Source for inheriting metric values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></td>
-        <td><span class="parametername">needPaint</span></td>
-        <td><p>Delegate for notifying paint requests.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a></span>
+        <span class="parametername">inheritDouble</span>
+        <p><p>Source for inheriting border and background values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a></span>
+        <span class="parametername">inheritMetric</span>
+        <p><p>Source for inheriting metric values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.NeedPaintHandler.html">NeedPaintHandler</a></span>
+        <span class="parametername">needPaint</span>
+        <p><p>Delegate for notifying paint requests.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Border_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Border*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Border" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Border">Border</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Border" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Border"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Border" class="expander" data-toggle="collapse">Border</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Border" class="collapse in">
   <div class="markdown level1 summary"><p>Gets access to the border palette details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist]
 [Browsable(false)]
 public PaletteBorder Border { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorder.html">PaletteBorder</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_IsDefault_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.IsDefault*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.IsDefault">IsDefault</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_IsDefault" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.IsDefault"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_IsDefault" class="expander" data-toggle="collapse">IsDefault</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_IsDefault" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating if all values are default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public override bool IsDefault { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteDouble.html#ComponentFactory_Krypton_Toolkit_PaletteDouble_IsDefault">PaletteDouble.IsDefault</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Padding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Padding*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Padding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Padding">Padding</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Padding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.Padding"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Padding" class="expander" data-toggle="collapse">Padding</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_Padding" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the padding used to position the separator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[KryptonPersist(false)]
 public Padding Padding { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Padding</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Padding</span>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricBool_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricBool*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricBool_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricBool_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricBool(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricBool)">GetMetricBool(PaletteState, PaletteMetricBool)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricBool_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricBool_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricBool(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricBool)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricBool_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricBool_" class="expander" data-toggle="collapse">GetMetricBool(PaletteState, PaletteMetricBool)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricBool_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricBool_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a boolean metric value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricBool.html">PaletteMetricBool</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Requested metric.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricBool.html">PaletteMetricBool</a></span>
+        <span class="parametername">metric</span>
+        <p><p>Requested metric.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.InheritBool.html">InheritBool</a></td>
-        <td><p>InheritBool value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.InheritBool.html">InheritBool</a>
+        <p><p>InheritBool value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html#ComponentFactory_Krypton_Toolkit_IPaletteMetric_GetMetricBool_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricBool_">IPaletteMetric.GetMetricBool(PaletteState, PaletteMetricBool)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricInt_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricInt*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricInt_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricInt_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricInt(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricInt)">GetMetricInt(PaletteState, PaletteMetricInt)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricInt_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricInt_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricInt(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricInt)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricInt_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricInt_" class="expander" data-toggle="collapse">GetMetricInt(PaletteState, PaletteMetricInt)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricInt_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricInt_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets an integer metric value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int GetMetricInt(PaletteState state, PaletteMetricInt metric)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricInt.html">PaletteMetricInt</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Requested metric.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricInt.html">PaletteMetricInt</a></span>
+        <span class="parametername">metric</span>
+        <p><p>Requested metric.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>Integer value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>Integer value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html#ComponentFactory_Krypton_Toolkit_IPaletteMetric_GetMetricInt_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricInt_">IPaletteMetric.GetMetricInt(PaletteState, PaletteMetricInt)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricPadding*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricPadding_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricPadding(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricPadding)">GetMetricPadding(PaletteState, PaletteMetricPadding)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricPadding_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.GetMetricPadding(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricPadding)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricPadding_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" class="expander" data-toggle="collapse">GetMetricPadding(PaletteState, PaletteMetricPadding)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_GetMetricPadding_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a padding metric value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Palette value should be applicable to this state.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricPadding.html">PaletteMetricPadding</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Requested metric.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette value should be applicable to this state.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricPadding.html">PaletteMetricPadding</a></span>
+        <span class="parametername">metric</span>
+        <p><p>Requested metric.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Padding</span></td>
-        <td><p>Padding value.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Padding</span>
+        <p><p>Padding value.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html#ComponentFactory_Krypton_Toolkit_IPaletteMetric_GetMetricPadding_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_">IPaletteMetric.GetMetricPadding(PaletteState, PaletteMetricPadding)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_PopulateFromBase_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.PopulateFromBase*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_PopulateFromBase_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.PopulateFromBase(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricPadding)">PopulateFromBase(PaletteState, PaletteMetricPadding)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_PopulateFromBase_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.PopulateFromBase(ComponentFactory.Krypton.Toolkit.PaletteState,ComponentFactory.Krypton.Toolkit.PaletteMetricPadding)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_PopulateFromBase_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" class="expander" data-toggle="collapse">PopulateFromBase(PaletteState, PaletteMetricPadding)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_PopulateFromBase_ComponentFactory_Krypton_Toolkit_PaletteState_ComponentFactory_Krypton_Toolkit_PaletteMetricPadding_" class="collapse in">
   <div class="markdown level1 summary"><p>Populate values from the base palette.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PopulateFromBase(PaletteState state, PaletteMetricPadding metric)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>Which state to populate from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricPadding.html">PaletteMetricPadding</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Which metric should be used for padding.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Which state to populate from.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMetricPadding.html">PaletteMetricPadding</a></span>
+        <span class="parametername">metric</span>
+        <p><p>Which metric should be used for padding.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_ResetPadding_" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.ResetPadding*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_ResetPadding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.ResetPadding">ResetPadding()</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_ResetPadding" data-uid="ComponentFactory.Krypton.Toolkit.PaletteSeparatorPadding.ResetPadding"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_ResetPadding" class="expander" data-toggle="collapse">ResetPadding()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_PaletteSeparatorPadding_ResetPadding" class="collapse in">
   <div class="markdown level1 summary"><p>Reset the Padding to the default value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetPadding()</code></pre>
   </div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteDouble.html">IPaletteDouble</a>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
-  <div>
-      <a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteMetric.html">IPaletteMetric</a>
-  </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

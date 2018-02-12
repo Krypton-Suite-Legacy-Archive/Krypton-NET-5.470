@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,25 +73,22 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace" class="text-break">Class DragTargetWorkspace
+  <h1 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace">Class DragTargetWorkspace
   </h1>
   <div class="markdown level0 summary"><p>Target within the workspace.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTarget.html">DragTarget</a></div>
     <div class="level2"><span class="xref">DragTargetWorkspace</span></div>
+  </div>
+  
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Workspace.DragTargetWorkspaceCellTransfer.html">DragTargetWorkspaceCellTransfer</a></div>
       <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Workspace.DragTargetWorkspaceEdge.html">DragTargetWorkspaceEdge</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -146,194 +143,255 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Workspace.html">ComponentFactory.Krypton.Workspace</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Workspace.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class DragTargetWorkspace : DragTarget, IDisposable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace__ctor_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace__ctor_System_Drawing_Rectangle_System_Drawing_Rectangle_System_Drawing_Rectangle_ComponentFactory_Krypton_Navigator_DragTargetHint_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPageFlags_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.#ctor(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle,ComponentFactory.Krypton.Navigator.DragTargetHint,ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Navigator.KryptonPageFlags)">DragTargetWorkspace(Rectangle, Rectangle, Rectangle, DragTargetHint, KryptonWorkspace, KryptonPageFlags)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace__ctor_System_Drawing_Rectangle_System_Drawing_Rectangle_System_Drawing_Rectangle_ComponentFactory_Krypton_Navigator_DragTargetHint_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPageFlags_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.#ctor(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle,ComponentFactory.Krypton.Navigator.DragTargetHint,ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Navigator.KryptonPageFlags)"><a href="#collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace__ctor_System_Drawing_Rectangle_System_Drawing_Rectangle_System_Drawing_Rectangle_ComponentFactory_Krypton_Navigator_DragTargetHint_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPageFlags_" class="expander" data-toggle="collapse">DragTargetWorkspace(Rectangle, Rectangle, Rectangle, DragTargetHint, KryptonWorkspace, KryptonPageFlags)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace__ctor_System_Drawing_Rectangle_System_Drawing_Rectangle_System_Drawing_Rectangle_ComponentFactory_Krypton_Navigator_DragTargetHint_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Navigator_KryptonPageFlags_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the DragTargetWorkspace class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DragTargetWorkspace(Rectangle screenRect, Rectangle hotRect, Rectangle drawRect, DragTargetHint hint, KryptonWorkspace workspace, KryptonPageFlags allowFlags)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">screenRect</span></td>
-        <td><p>Rectangle for screen area.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">hotRect</span></td>
-        <td><p>Rectangle for hot area.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">drawRect</span></td>
-        <td><p>Rectangle for draw area.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetHint.html">DragTargetHint</a></td>
-        <td><span class="parametername">hint</span></td>
-        <td><p>Target hint which should be one of the edges.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td><span class="parametername">workspace</span></td>
-        <td><p>Control instance for drop.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageFlags.html">KryptonPageFlags</a></td>
-        <td><span class="parametername">allowFlags</span></td>
-        <td><p>Only drop pages that have one of these flags defined.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">screenRect</span>
+        <p><p>Rectangle for screen area.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">hotRect</span>
+        <p><p>Rectangle for hot area.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">drawRect</span>
+        <p><p>Rectangle for draw area.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetHint.html">DragTargetHint</a></span>
+        <span class="parametername">hint</span>
+        <p><p>Target hint which should be one of the edges.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></span>
+        <span class="parametername">workspace</span>
+        <p><p>Control instance for drop.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageFlags.html">KryptonPageFlags</a></span>
+        <span class="parametername">allowFlags</span>
+        <p><p>Only drop pages that have one of these flags defined.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Workspace_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Workspace*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Workspace" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Workspace">Workspace</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Workspace" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Workspace"><a href="#collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Workspace" class="expander" data-toggle="collapse">Workspace</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Workspace" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the target workspace control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonWorkspace Workspace { get; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a>
+        <p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Dispose_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Dispose*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_Dispose_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Release unmanaged and optionally managed resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>Called from Dispose method.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>Called from Dispose method.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTarget.html#ComponentFactory_Krypton_Navigator_DragTarget_Dispose_System_Boolean_">DragTarget.Dispose(Boolean)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_ProcessDragEndData_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.ProcessDragEndData*"></a>
-  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_ProcessDragEndData_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.ProcessDragEndData(ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell,ComponentFactory.Krypton.Navigator.PageDragEndData)">ProcessDragEndData(KryptonWorkspace, KryptonWorkspaceCell, PageDragEndData)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Workspace_DragTargetWorkspace_ProcessDragEndData_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Workspace.DragTargetWorkspace.ProcessDragEndData(ComponentFactory.Krypton.Workspace.KryptonWorkspace,ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell,ComponentFactory.Krypton.Navigator.PageDragEndData)"><a href="#collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_ProcessDragEndData_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="expander" data-toggle="collapse">ProcessDragEndData(KryptonWorkspace, KryptonWorkspaceCell, PageDragEndData)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Workspace_DragTargetWorkspace_ProcessDragEndData_ComponentFactory_Krypton_Workspace_KryptonWorkspace_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCell_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="collapse in">
   <div class="markdown level1 summary"><p>Process the drag pages in the context of a target navigator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected KryptonPage ProcessDragEndData(KryptonWorkspace workspace, KryptonWorkspaceCell target, PageDragEndData data)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></td>
-        <td><span class="parametername">workspace</span></td>
-        <td><p>Target workspace instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>Target workspace cell instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></td>
-        <td><span class="parametername">data</span></td>
-        <td><p>Dragged page data.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspace.html">KryptonWorkspace</a></span>
+        <span class="parametername">workspace</span>
+        <p><p>Target workspace instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Workspace.KryptonWorkspaceCell.html">KryptonWorkspaceCell</a></span>
+        <span class="parametername">target</span>
+        <p><p>Target workspace cell instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">data</span>
+        <p><p>Dragged page data.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a></td>
-        <td><p>Last page to be transferred.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPage.html">KryptonPage</a>
+        <p><p>Last page to be transferred.</p>
+</p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.IDisposable</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

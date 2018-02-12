@@ -41,7 +41,7 @@ BSD 3-Clause License
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../../logo.bmp" alt="">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -73,13 +73,12 @@ BSD 3-Clause License
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext">
-  
-  
-  <h1 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext" class="text-break">Class ViewLayoutContext
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext">Class ViewLayoutContext
   </h1>
   <div class="markdown level0 summary"><p>Encapsulates context for view layout operations.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -87,10 +86,8 @@ BSD 3-Clause License
     <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></div>
     <div class="level3"><span class="xref">ViewLayoutContext</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
+  
+  
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -139,282 +136,391 @@ BSD 3-Clause License
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ComponentFactory.Krypton.Toolkit.html">ComponentFactory.Krypton.Toolkit</a></h6>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
   <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
   <h5 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ViewLayoutContext : ViewContext, IDisposable</code></pre>
   </div>
+
+  
+  
+  
+  
   <h3 id="constructors">Constructors
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer)">ViewLayoutContext(ViewManager, Control, Control, IRenderer)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" class="expander" data-toggle="collapse">ViewLayoutContext(ViewManager, Control, Control, IRenderer)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewContext class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutContext(ViewManager manager, Control control, Control alignControl, IRenderer renderer)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td><span class="parametername">manager</span></td>
-        <td><p>Reference to the view manager.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Control associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">alignControl</span></td>
-        <td><p>Control used for aligning elements.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Rendering provider.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to the view manager.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Control associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">alignControl</span>
+        <p><p>Control used for aligning elements.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Rendering provider.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer,System.Drawing.Size)">ViewLayoutContext(ViewManager, Control, Control, IRenderer, Size)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer,System.Drawing.Size)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" class="expander" data-toggle="collapse">ViewLayoutContext(ViewManager, Control, Control, IRenderer, Size)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewContext class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutContext(ViewManager manager, Control control, Control alignControl, IRenderer renderer, Size displaySize)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td><span class="parametername">manager</span></td>
-        <td><p>Reference to the view manager.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Control associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">alignControl</span></td>
-        <td><p>Control used for aligning elements.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Rendering provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td><span class="parametername">displaySize</span></td>
-        <td><p>Display size.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to the view manager.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Control associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">alignControl</span>
+        <p><p>Control used for aligning elements.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Rendering provider.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Size</span></span>
+        <span class="parametername">displaySize</span>
+        <p><p>Display size.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_System_Drawing_Graphics_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,System.Drawing.Graphics,ComponentFactory.Krypton.Toolkit.IRenderer,System.Drawing.Size)">ViewLayoutContext(ViewManager, Control, Control, Graphics, IRenderer, Size)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_System_Drawing_Graphics_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Control,System.Windows.Forms.Control,System.Drawing.Graphics,ComponentFactory.Krypton.Toolkit.IRenderer,System.Drawing.Size)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_System_Drawing_Graphics_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" class="expander" data-toggle="collapse">ViewLayoutContext(ViewManager, Control, Control, Graphics, IRenderer, Size)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Control_System_Windows_Forms_Control_System_Drawing_Graphics_ComponentFactory_Krypton_Toolkit_IRenderer_System_Drawing_Size_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewContext class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutContext(ViewManager manager, Control control, Control alignControl, Graphics graphics, IRenderer renderer, Size displaySize)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td><span class="parametername">manager</span></td>
-        <td><p>Reference to the view manager.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Control associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">alignControl</span></td>
-        <td><p>Control used for aligning elements.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Graphics</span></td>
-        <td><span class="parametername">graphics</span></td>
-        <td><p>Graphics instance for drawing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Rendering provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Size</span></td>
-        <td><span class="parametername">displaySize</span></td>
-        <td><p>Display size.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to the view manager.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Control associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">alignControl</span>
+        <p><p>Control used for aligning elements.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Graphics</span></span>
+        <span class="parametername">graphics</span>
+        <p><p>Graphics instance for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Rendering provider.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Size</span></span>
+        <span class="parametername">displaySize</span>
+        <p><p>Display size.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Form_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Form,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IRenderer)">ViewLayoutContext(ViewManager, Form, Rectangle, IRenderer)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Form_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(ComponentFactory.Krypton.Toolkit.ViewManager,System.Windows.Forms.Form,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IRenderer)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Form_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IRenderer_" class="expander" data-toggle="collapse">ViewLayoutContext(ViewManager, Form, Rectangle, IRenderer)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_ComponentFactory_Krypton_Toolkit_ViewManager_System_Windows_Forms_Form_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IRenderer_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewContext class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutContext(ViewManager manager, Form form, Rectangle formRect, IRenderer renderer)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></td>
-        <td><span class="parametername">manager</span></td>
-        <td><p>Reference to the view manager.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Form</span></td>
-        <td><span class="parametername">form</span></td>
-        <td><p>Form associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td><span class="parametername">formRect</span></td>
-        <td><p>Window rectangle for the Form.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Rendering provider.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewManager.html">ViewManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to the view manager.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Form</span></span>
+        <span class="parametername">form</span>
+        <p><p>Form associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">formRect</span>
+        <p><p>Window rectangle for the Form.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Rendering provider.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer)">ViewLayoutContext(Control, IRenderer)</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.#ctor(System.Windows.Forms.Control,ComponentFactory.Krypton.Toolkit.IRenderer)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" class="expander" data-toggle="collapse">ViewLayoutContext(Control, IRenderer)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext__ctor_System_Windows_Forms_Control_ComponentFactory_Krypton_Toolkit_IRenderer_" class="collapse in">
   <div class="markdown level1 summary"><p>Initialize a new instance of the ViewContext class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ViewLayoutContext(Control control, IRenderer renderer)</code></pre>
   </div>
+
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Windows.Forms.Control</span></td>
-        <td><span class="parametername">control</span></td>
-        <td><p>Control associated with rendering.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></td>
-        <td><span class="parametername">renderer</span></td>
-        <td><p>Rendering provider.</p>
-</td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">control</span>
+        <p><p>Control associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a></span>
+        <span class="parametername">renderer</span>
+        <p><p>Rendering provider.</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext_DisplayRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.DisplayRectangle*"></a>
-  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext_DisplayRectangle" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.DisplayRectangle">DisplayRectangle</h4>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewLayoutContext_DisplayRectangle" data-uid="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.DisplayRectangle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext_DisplayRectangle" class="expander" data-toggle="collapse">DisplayRectangle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewLayoutContext_DisplayRectangle" class="collapse in">
   <div class="markdown level1 summary"><p>Gets and sets the available display area.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Rectangle DisplayRectangle { get; set; }</code></pre>
   </div>
+
+  
+  
+  
+  
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Drawing.Rectangle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p>
+      </td>
+    </tr>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.IDisposable</span>
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>
