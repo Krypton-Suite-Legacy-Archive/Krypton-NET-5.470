@@ -7,6 +7,11 @@
 # ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
 
 =======
+## 2018-02-16 New Nuget package release
+* Build 553 (build date 15th February, 2018) has been released.
+* Palette designer has been included with this release and future releases.
+
+=======
 
 ## 2018-02-11 Rename and add help
 * Rename the ToolKit Examples to 2018
@@ -17,6 +22,8 @@
 ## 2018-02-10 Fix Issue #28 and add help
 * Fix issue #28 - Undo changes that checked for null, and then would use a null, rather than return a null.. 
 * Add initial API Help from `DocFX`
+
+=======
 
 ## 2018-01-27pm New Nuget package release
 * New Nuget package, version `4.70.544` (build date January 27th, 2018) has been released
