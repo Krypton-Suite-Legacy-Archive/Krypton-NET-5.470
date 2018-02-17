@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{395F4ABA-4D19-453C-B183-7FB625616A56}</ProjectGuid>
+    <ProjectGuid>{4715FA62-377A-4BF8-952B-EA9E96927E8B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DockingPersistence</RootNamespace>
-    <AssemblyName>DockingPersistence</AssemblyName>
+    <RootNamespace>DockingCustomized</RootNamespace>
+    <AssemblyName>DockingCustomized</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
@@ -39,7 +39,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>..\..\..\Bin\Versions\4.7\Docking Examples\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,34 +57,27 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Design.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Workspace">
+      <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentDocument.cs">
