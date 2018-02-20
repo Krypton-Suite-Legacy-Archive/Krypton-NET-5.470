@@ -7,6 +7,13 @@
 # ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
 
 =======
+
+## 2018-02-20 Toolkit changes
+* Renamed everything labeled `2015` to `2018`
+* Each solution now has its own binary folder
+* Groundwork for supporting AMD64/x64, x86 and 'Any CPU' architectures
+
+=======
 ## 2018-02-16 New Nuget package release
 * Build 553 (build date 15th February, 2018) has been released.
 * Palette designer has been included with this release and future releases.
