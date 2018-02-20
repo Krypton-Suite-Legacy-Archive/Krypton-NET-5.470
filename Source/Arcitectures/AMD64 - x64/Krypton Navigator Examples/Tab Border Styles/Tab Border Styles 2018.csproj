@@ -39,13 +39,13 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Navigator Examples\</OutputPath>
+    <OutputPath>..\..\..\..\..\Bin\Versions\4.7\AMD64 - x64\Krypton Navigator Examples\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Navigator Examples\TabBorderStyles.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\..\..\Bin\Versions\4.7\AMD64 - x64\Krypton Navigator Examples\TabBorderStyles.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
