@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-02-21 New release
+* New build 555 (build date 21st February, 2018) this is the very first time DLLs built for 64-bit architectures have been released. No new Nuget package will be available, due to install issues and this build is very much experimental. Head to the releases tab to download it. If you don't know how to build your application for 64-bit, please look at the `issues` tab for more information.
+
+=======
+
 ## 2018-02-20 Toolkit changes
 * Renamed everything labeled `2015` to `2018`
 * Each solution now has its own binary folder
