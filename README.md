@@ -8,6 +8,12 @@
 
 =======
 
+## 2018-02-22 Toolkit build changes
+* All AMD64/x64 solutions should now build into correct directories
+* TODO: Rework Krypton Explorer (x64 and Any CPU) code to launch correct binaries
+
+=======
+
 ## 2018-02-21 New release
 * New build 555 (build date 21st February, 2018) this is the very first time DLLs built for 64-bit architectures have been released. No new Nuget package will be available, due to install issues and this build is very much experimental. Head to the releases tab to download it. If you don't know how to build your application for 64-bit, please look at the `issues` tab for more information.
 
