@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-03-19 Renderer class changes (Version 555a, build date 19th March, 2018)
+* Changed some classes from `internal` to `public` for easeier accessibility for the **Extended Toolkit**
+
+=======
+
 ## 2018-02-22 Toolkit build changes
 * All AMD64/x64 solutions should now build into correct directories
 * TODO: Rework Krypton Explorer (x64 and Any CPU) code to launch correct binaries

@@ -10,16 +10,16 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonOffice2010Renderer : KryptonProfessionalRenderer
+    public class KryptonOffice2010Renderer : KryptonProfessionalRenderer
     {
         #region GradientItemColors
         private abstract class GradientItemColors
@@ -231,14 +231,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                         path2 = CreateBorderPath(rect2, CUT_ITEM_MENU),
                                         path3 = CreateBorderPath(rect3, CUT_ITEM_MENU))
                     {
-                        using(SolidBrush brush1 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.4f, Back1, 0.6f)),
+                        using (SolidBrush brush1 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.4f, Back1, 0.6f)),
                                          brush2 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.2f, Back1, 0.8f)),
                                          brush3 = new SolidBrush(Back1))
-                         {
-                             g.FillPath(brush1, path1);
-                             g.FillPath(brush2, path2);
-                             g.FillPath(brush3, path3);
-                         }
+                        {
+                            g.FillPath(brush1, path1);
+                            g.FillPath(brush2, path2);
+                            g.FillPath(brush3, path3);
+                        }
                     }
                 }
             }
@@ -451,7 +451,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region OnRenderButtonBackground
         /// <summary>
         /// Raises the RenderButtonBackground event. 
@@ -579,7 +579,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ToolStripItemTextRenderEventArgs that contains the event data.</param>
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
-            if ((e.ToolStrip is ToolStrip) || 
+            if ((e.ToolStrip is ToolStrip) ||
                 (e.ToolStrip is ContextMenuStrip) ||
                 (e.ToolStrip is ToolStripDropDownMenu))
             {
@@ -896,30 +896,30 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                     break;
                 case StatusStrip _:
-                {
-                    // Make sure the font is current
-                    if (e.ToolStrip.Font != KCT.StatusStripFont)
                     {
-                        e.ToolStrip.Font = KCT.StatusStripFont;
-                    }
-
-                    // We do not paint the top two pixel lines, as they are drawn by the status strip border render method
-                    RectangleF backRect = new RectangleF(0, 1.5f, e.ToolStrip.Width, e.ToolStrip.Height - 2);
-
-                    // Cannot paint a zero sized area
-                    if ((backRect.Width > 0) && (backRect.Height > 0))
-                    {
-                        using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
-                            KCT.StatusStripGradientBegin,
-                            KCT.StatusStripGradientEnd,
-                            90f))
+                        // Make sure the font is current
+                        if (e.ToolStrip.Font != KCT.StatusStripFont)
                         {
-                            backBrush.Blend = _stripBlend;
-                            e.Graphics.FillRectangle(backBrush, backRect);
+                            e.ToolStrip.Font = KCT.StatusStripFont;
                         }
+
+                        // We do not paint the top two pixel lines, as they are drawn by the status strip border render method
+                        RectangleF backRect = new RectangleF(0, 1.5f, e.ToolStrip.Width, e.ToolStrip.Height - 2);
+
+                        // Cannot paint a zero sized area
+                        if ((backRect.Width > 0) && (backRect.Height > 0))
+                        {
+                            using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
+                                KCT.StatusStripGradientBegin,
+                                KCT.StatusStripGradientEnd,
+                                90f))
+                            {
+                                backBrush.Blend = _stripBlend;
+                                e.Graphics.FillRectangle(backBrush, backRect);
+                            }
+                        }
+                        break;
                     }
-                    break;
-                }
                 case MenuStrip _:
                     if (e.ToolStrip.Font != KCT.MenuStripFont)
                     {
@@ -929,57 +929,57 @@ namespace ComponentFactory.Krypton.Toolkit
                     base.OnRenderToolStripBackground(e);
                     break;
                 default:
-                {
-                    if (e.ToolStrip.Font != KCT.ToolStripFont)
                     {
-                        e.ToolStrip.Font = KCT.ToolStripFont;
-                    }
-
-                    // Cannot paint a zero sized area
-                    RectangleF backRect = new RectangleF(0, 0, e.ToolStrip.Width, e.ToolStrip.Height);
-                    if ((backRect.Width > 0) && (backRect.Height > 0))
-                    {
-                        if (e.ToolStrip.Orientation == Orientation.Horizontal)
+                        if (e.ToolStrip.Font != KCT.ToolStripFont)
                         {
-                            using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
-                                KCT.ToolStripGradientBegin,
-                                KCT.ToolStripGradientEnd,
-                                90f))
-                            {
-                                backBrush.Blend = _stripBlend;
-                                e.Graphics.FillRectangle(backBrush, backRect);
-                            }
+                            e.ToolStrip.Font = KCT.ToolStripFont;
+                        }
 
-                            using (Pen darkBorder = new Pen(KCT.ToolStripBorder),
-                                lightBorder = new Pen(KCT.ToolStripGradientBegin))
+                        // Cannot paint a zero sized area
+                        RectangleF backRect = new RectangleF(0, 0, e.ToolStrip.Width, e.ToolStrip.Height);
+                        if ((backRect.Width > 0) && (backRect.Height > 0))
+                        {
+                            if (e.ToolStrip.Orientation == Orientation.Horizontal)
                             {
-                                e.Graphics.DrawLine(lightBorder, 0, 2, 0, e.ToolStrip.Height - 2);
-                                e.Graphics.DrawLine(lightBorder, e.ToolStrip.Width - 2, 0, e.ToolStrip.Width - 2, e.ToolStrip.Height - 2);
-                                e.Graphics.DrawLine(darkBorder, e.ToolStrip.Width - 1, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
+                                using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
+                                    KCT.ToolStripGradientBegin,
+                                    KCT.ToolStripGradientEnd,
+                                    90f))
+                                {
+                                    backBrush.Blend = _stripBlend;
+                                    e.Graphics.FillRectangle(backBrush, backRect);
+                                }
+
+                                using (Pen darkBorder = new Pen(KCT.ToolStripBorder),
+                                    lightBorder = new Pen(KCT.ToolStripGradientBegin))
+                                {
+                                    e.Graphics.DrawLine(lightBorder, 0, 2, 0, e.ToolStrip.Height - 2);
+                                    e.Graphics.DrawLine(lightBorder, e.ToolStrip.Width - 2, 0, e.ToolStrip.Width - 2, e.ToolStrip.Height - 2);
+                                    e.Graphics.DrawLine(darkBorder, e.ToolStrip.Width - 1, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
+                                }
+                            }
+                            else
+                            {
+                                using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
+                                    KCT.ToolStripGradientBegin,
+                                    KCT.ToolStripGradientEnd,
+                                    0f))
+                                {
+                                    backBrush.Blend = _stripBlend;
+                                    e.Graphics.FillRectangle(backBrush, backRect);
+                                }
+
+                                using (Pen darkBorder = new Pen(KCT.ToolStripBorder),
+                                    lightBorder = new Pen(KCT.ToolStripGradientBegin))
+                                {
+                                    e.Graphics.DrawLine(lightBorder, 1, 0, e.ToolStrip.Width - 2, 0);
+                                    e.Graphics.DrawLine(lightBorder, 1, e.ToolStrip.Height - 2, e.ToolStrip.Width - 2, e.ToolStrip.Height - 2);
+                                    e.Graphics.DrawLine(darkBorder, e.ToolStrip.Width - 1, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
+                                }
                             }
                         }
-                        else
-                        {
-                            using (LinearGradientBrush backBrush = new LinearGradientBrush(backRect,
-                                KCT.ToolStripGradientBegin,
-                                KCT.ToolStripGradientEnd,
-                                0f))
-                            {
-                                backBrush.Blend = _stripBlend;
-                                e.Graphics.FillRectangle(backBrush, backRect);
-                            }
-
-                            using (Pen darkBorder = new Pen(KCT.ToolStripBorder),
-                                lightBorder = new Pen(KCT.ToolStripGradientBegin))
-                            {
-                                e.Graphics.DrawLine(lightBorder, 1, 0, e.ToolStrip.Width - 2, 0);
-                                e.Graphics.DrawLine(lightBorder, 1, e.ToolStrip.Height - 2, e.ToolStrip.Width - 2, e.ToolStrip.Height - 2);
-                                e.Graphics.DrawLine(darkBorder, e.ToolStrip.Width - 1, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
-                            }
-                        }
+                        break;
                     }
-                    break;
-                }
             }
         }
         #endregion
@@ -1048,7 +1048,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region OnRenderImageMargin
         /// <summary>
         /// Raises the RenderImageMargin event. 

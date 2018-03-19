@@ -9,18 +9,16 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonOffice2013Renderer : KryptonProfessionalRenderer
+    public class KryptonOffice2013Renderer : KryptonProfessionalRenderer
     {
         #region GradientItemColors
         private abstract class GradientItemColors
@@ -232,14 +230,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                         path2 = CreateBorderPath(rect2, _cutItemMenu),
                                         path3 = CreateBorderPath(rect3, _cutItemMenu))
                     {
-                        using(SolidBrush brush1 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.4f, Back1, 0.6f)),
+                        using (SolidBrush brush1 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.4f, Back1, 0.6f)),
                                          brush2 = new SolidBrush(CommonHelper.MergeColors(Border1, 0.2f, Back1, 0.8f)),
                                          brush3 = new SolidBrush(Back1))
-                         {
-                             g.FillPath(brush1, path1);
-                             g.FillPath(brush2, path2);
-                             g.FillPath(brush3, path3);
-                         }
+                        {
+                            g.FillPath(brush1, path1);
+                            g.FillPath(brush2, path2);
+                            g.FillPath(brush3, path3);
+                        }
                     }
                 }
             }
@@ -451,7 +449,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region OnRenderButtonBackground
         /// <summary>
         /// Raises the RenderButtonBackground event. 
@@ -580,7 +578,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A ToolStripItemTextRenderEventArgs that contains the event data.</param>
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
-            if ((e.ToolStrip is ToolStrip) || 
+            if ((e.ToolStrip is ToolStrip) ||
                 (e.ToolStrip is ContextMenuStrip) ||
                 (e.ToolStrip is ToolStripDropDownMenu))
             {
@@ -1059,7 +1057,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-        
+
         #region OnRenderImageMargin
         /// <summary>
         /// Raises the RenderImageMargin event. 

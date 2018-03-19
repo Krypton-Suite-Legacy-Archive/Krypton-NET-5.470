@@ -10,15 +10,15 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Windows.Forms;
 using System.Reflection;
-using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonProfessionalRenderer : ToolStripProfessionalRenderer
+    public class KryptonProfessionalRenderer : ToolStripProfessionalRenderer
     {
         #region Instance Fields
 

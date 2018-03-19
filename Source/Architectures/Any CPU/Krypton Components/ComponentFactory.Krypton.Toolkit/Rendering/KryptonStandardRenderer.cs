@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonStandardRenderer : KryptonProfessionalRenderer
+    public class KryptonStandardRenderer : KryptonProfessionalRenderer
     {
         #region Identity
         /// <summary>

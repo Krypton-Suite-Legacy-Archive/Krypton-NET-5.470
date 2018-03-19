@@ -10,16 +10,16 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonOffice2007Renderer : KryptonProfessionalRenderer
+    public class KryptonOffice2007Renderer : KryptonProfessionalRenderer
     {
         #region GradientItemColors
         private class GradientItemColors
