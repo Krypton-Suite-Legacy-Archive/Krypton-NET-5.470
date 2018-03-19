@@ -8,7 +8,7 @@
 
 =======
 
-## 2018-03-19 Renderer class changes (Version 555a, build date 19th March, 2018)
+## 2018-03-19 Renderer class changes (Version 556, build date 19th March, 2018)
 * Changed some classes from `internal` to `public` for easeier accessibility for the **Extended Toolkit**
 
 =======
