@@ -20,18 +20,18 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\KryptonTreeViewExamples.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\KryptonTreeViewExamples.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit Examples</OutputPath>
+    <OutputPath>..\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,11 +43,11 @@
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.7.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Core Components\ComponentFactory.Krypton.Design.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Core Components\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Core Components\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Core Components\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />

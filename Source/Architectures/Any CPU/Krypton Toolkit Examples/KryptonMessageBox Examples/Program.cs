@@ -8,7 +8,6 @@
 //  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace KryptonMessageBoxExamples

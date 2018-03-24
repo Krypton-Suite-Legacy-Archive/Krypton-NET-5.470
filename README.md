@@ -8,6 +8,14 @@
 
 =======
 
+## 2018-03-24 Fix Issue #29
+* MessageBox taking a Null window owner (via default API's / null start / No KryptonManager loaded)
+* Sort out the Toolkit examples to use the new dll locations
+* Remove `BootstrapperPackage` .Net 3.5 nonsense from projects
+* Remove hard coded build `Output Paths`
+
+=======
+
 ## 2018-03-24 Palette upgrade tool
 * The palette upgrade tool is now back! Enhancements over previous commercial version 4.4.0 include:
 - Ability to export upgraded palette XML files

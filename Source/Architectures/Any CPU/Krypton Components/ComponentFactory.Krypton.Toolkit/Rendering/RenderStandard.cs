@@ -5976,7 +5976,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            allocation, displayRect,
                                            spacingGap, memento.LongTextTrimming,
                                            ref requiredSpace,
-                    memento.ShortTextMemento.Format.FormatFlags.HasFlag(StringFormatFlags.NoClip))
+                    (memento.ShortTextMemento!=null)?memento.ShortTextMemento.Format.FormatFlags.HasFlag(StringFormatFlags.NoClip): true)
                 )
                 {
                     // Cache the actual draw size of the text

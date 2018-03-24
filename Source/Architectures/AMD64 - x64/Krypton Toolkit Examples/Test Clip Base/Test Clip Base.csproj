@@ -65,11 +65,11 @@
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\AMD64 - x64\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
+      <HintPath>..\..\..\..\..\Bin\Versions\4.7\AMD64 - x64\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.70.506.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\AMD64 - x64\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Bin\Versions\4.7\AMD64 - x64\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
