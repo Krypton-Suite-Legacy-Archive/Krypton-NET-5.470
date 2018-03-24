@@ -8,6 +8,14 @@
 
 =======
 
+## 2018-03-24 Palette upgrade tool
+* The palette upgrade tool is now back! Enhancements over previous commercial version 4.4.0 include:
+- Ability to export upgraded palette XML files
+- Check to see if the output palette file is not saved before closing
+* Exploration into a console version is in the works
+
+=======
+
 ## 2018-03-19 Renderer class changes (Version 556, build date 19th March, 2018)
 * Changed some classes from `internal` to `public` for easeier accessibility for the **Extended Toolkit**
 
