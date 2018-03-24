@@ -7,6 +7,37 @@
 # ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
 
 =======
+
+## 2018-03-24 Palette upgrade tool
+* The palette upgrade tool is now back! Enhancements over previous commercial version 4.4.0 include:
+- Ability to export upgraded palette XML files
+- Check to see if the output palette file is not saved before closing
+* Exploration into a console version is in the works
+
+=======
+
+## 2018-03-19 Renderer class changes (Version 556, build date 19th March, 2018)
+* Changed some classes from `internal` to `public` for easeier accessibility for the **Extended Toolkit**
+
+=======
+
+## 2018-02-22 Toolkit build changes
+* All AMD64/x64 solutions should now build into correct directories
+* TODO: Rework Krypton Explorer (x64 and Any CPU) code to launch correct binaries
+
+=======
+
+## 2018-02-21 New release
+* New build 555 (build date 21st February, 2018) this is the very first time DLLs built for 64-bit architectures have been released. No new Nuget package will be available, due to install issues and this build is very much experimental. Head to the releases tab to download it. If you don't know how to build your application for 64-bit, please look at the `issues` tab for more information.
+
+=======
+
+## 2018-02-20 Toolkit changes
+* Renamed everything labeled `2015` to `2018`
+* Each solution now has its own binary folder
+* Groundwork for supporting AMD64/x64, x86 and 'Any CPU' architectures
+
+=======
 ## 2018-02-16 New Nuget package release
 * Build 553 (build date 15th February, 2018) has been released.
 * Palette designer has been included with this release and future releases.
