@@ -359,37 +359,37 @@ namespace PaletteUpgradeTool.UI
 
             if (kbtnUpgrade.Enabled)
             {
-                lblStatus.ForeColor = Color.Green;
+                klblStatus.ForeColor = Color.Green;
 
                 int num = 18;
 
-                lblStatus.Text = $"Convert to output version ' { num.ToString() }'.";
+                klblStatus.Text = $"Convert to output version ' { num.ToString() }'.";
 
                 return;
             }
 
             if (!length)
             {
-                lblStatus.Text = "You must select a valid input file.";
+                klblStatus.Text = "You must select a valid input file.";
             }
             else if (!flag0)
             {
-                lblStatus.Text = "Must select a valid output directory.";
+                klblStatus.Text = "Must select a valid output directory.";
             }
             else if (!flag1)
             {
-                lblStatus.Text = "Must select a valid output filename.";
+                klblStatus.Text = "Must select a valid output filename.";
             }
             else if (flag2)
             {
-                lblStatus.Text = "Must select valid input and output files.";
+                klblStatus.Text = "Must select valid input and output files.";
             }
             else
             {
-                lblStatus.Text = "Input file format version cannot be upgraded.";
+                klblStatus.Text = "Input file format version cannot be upgraded.";
             }
 
-            lblStatus.ForeColor = Color.Red;
+            klblStatus.ForeColor = Color.Red;
         }
 
         /// <summary>

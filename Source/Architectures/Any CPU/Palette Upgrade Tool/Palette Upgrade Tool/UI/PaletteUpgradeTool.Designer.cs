@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaletteUpgradeTool));
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.kbtnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnExport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnUpgrade = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.krtbOutput = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
@@ -40,16 +40,16 @@
             this.krtbInput = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kbtnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tmrDetectModification = new System.Windows.Forms.Timer(this.components);
+            this.klblStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // kpnlBackground
             // 
+            this.kpnlBackground.Controls.Add(this.klblStatus);
             this.kpnlBackground.Controls.Add(this.kbtnClose);
-            this.kpnlBackground.Controls.Add(this.lblStatus);
             this.kpnlBackground.Controls.Add(this.kbtnExport);
             this.kpnlBackground.Controls.Add(this.kbtnUpgrade);
             this.kpnlBackground.Controls.Add(this.krtbOutput);
@@ -64,17 +64,15 @@
             this.kpnlBackground.Size = new System.Drawing.Size(800, 383);
             this.kpnlBackground.TabIndex = 0;
             // 
-            // lblStatus
+            // kbtnClose
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblStatus.Location = new System.Drawing.Point(12, 346);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(301, 25);
-            this.lblStatus.TabIndex = 9;
-            this.lblStatus.Text = "You must select a valid input file.";
+            this.kbtnClose.Location = new System.Drawing.Point(698, 346);
+            this.kbtnClose.Name = "kbtnClose";
+            this.kbtnClose.Size = new System.Drawing.Size(90, 25);
+            this.kbtnClose.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnClose.TabIndex = 10;
+            this.kbtnClose.Values.Text = "C&lose";
+            this.kbtnClose.Click += new System.EventHandler(this.kbtnClose_Click);
             // 
             // kbtnExport
             // 
@@ -155,20 +153,20 @@
             this.kryptonLabel1.TabIndex = 1;
             this.kryptonLabel1.Values.Text = "Palette Upgrade Tool";
             // 
-            // kbtnClose
-            // 
-            this.kbtnClose.Location = new System.Drawing.Point(698, 346);
-            this.kbtnClose.Name = "kbtnClose";
-            this.kbtnClose.Size = new System.Drawing.Size(90, 25);
-            this.kbtnClose.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnClose.TabIndex = 10;
-            this.kbtnClose.Values.Text = "C&lose";
-            this.kbtnClose.Click += new System.EventHandler(this.kbtnClose_Click);
-            // 
             // tmrDetectModification
             // 
             this.tmrDetectModification.Enabled = true;
             this.tmrDetectModification.Interval = 250;
+            // 
+            // klblStatus
+            // 
+            this.klblStatus.Location = new System.Drawing.Point(12, 341);
+            this.klblStatus.Name = "klblStatus";
+            this.klblStatus.Size = new System.Drawing.Size(318, 30);
+            this.klblStatus.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.klblStatus.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblStatus.TabIndex = 11;
+            this.klblStatus.Values.Text = "You must select a valid input file.";
             // 
             // PaletteUpgradeTool
             // 
@@ -195,7 +193,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
-        private System.Windows.Forms.Label lblStatus;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnExport;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnUpgrade;
         private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox krtbOutput;
@@ -206,5 +203,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnClose;
         private System.Windows.Forms.Timer tmrDetectModification;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblStatus;
     }
 }
