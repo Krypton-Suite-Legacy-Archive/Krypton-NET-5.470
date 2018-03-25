@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Workspace Compacting</p>
+<p><strong>Compacting Flags</strong><br>One of the unique features of the KryptonWorkspace is the hierarchical structure
+of the layout definition. It means you can quickly and easily create complex
+layouts for your document area. But dragging pages around could cause the
+structure to become inefficient and leave redundant entries. To prevent this
+happening there are some flags that indicate how to perform a compacting phase
+just before the layout of the contents occur. Each of the compact flags is used
+to resolve a potential inefficiency. The flags are exposed via the
+<em>KryptonWorkspace.CompactFlags</em> property. Each of the flags is explained below
+with an example of how they change the layout definition.</p>
+<p><strong>RemoveEmptyCells</strong><br>Using drag and drop you can transfer a page from one cell to another. If you
+remove the last page in the cell you are left with a cell that has no pages.
+Some applications may want this to happen but many others would prefer the cell
+to be automatically removed as an empty cell is redundant. When this flag is set
+the compacting phase will search for any cells that have no pages defined and
+remove them from the definition.</p>
+<p><strong>RemoveEmptySequences</strong><br>Removing empty cells can result in a workspace sequence existing that has no
+child elements. Once all the cells contained in the sequence have been removed
+we are left with a redundant sequence. The user will not see the sequence as it
+is likely to be zero sized but it still exists in the hierarchy. During
+compacting this flag will search for sequences that have no children and
+automatically remove them.</p>
+<p><strong>PromoteLeafs</strong><br>A more subtle scenario involves a sequence that contains just a single child. If
+a sequence contains just a single child item then that sequence itself is
+redundant as it only encloses one item. This flag will promote the single child
+into the place of the sequence and delete the no longer needed sequence. This
+situation occurs if you used drag and drop to move pages around. You can end up
+with a sequence that contains a single sequence child that contains yet another
+single sequence child and so forth. Although you would not see any visual impact
+it is clearly inefficient to have long chains of single sequences.</p>
+<p><strong>AtLeastOneVisibleCell</strong><br>Use this flag to ensure you always have at least one visible cell in the
+workspace. If the user deletes the last showing page in the last showing cell
+then the <em>RemoveEmptyCells</em> flag above would remove the last cell and leave the
+workspace area blank. Some applications require that there is always at least
+one cell showing even if it has no pages in it. This flag will ensure that is
+the case.</p>
+<p><strong>Example</strong><br>Imagine we have the following workspace definition in place when compacting
+occurs.</p>
+<p>   Sequence          (Horizontal)<br>         Sequence    (Vertical)<br>               Cell  (1 Page)<br>         Sequence    (Vertical)<br>               Cell  (No Pages)<br>               Cell  (No Pages)</p>
+<p><em>RemoveEmptyCells</em> removes empty cells giving.</p>
+<pre><code>Sequence          (Horizontal)  
+      Sequence    (Vertical)  
+            Cell  (1 Page)  
+      Sequence    (Vertical)  
+</code></pre><p><em>RemoveEmptySequences</em> removes empty sequences giving.</p>
+<pre><code>Sequence       (Horizontal)  
+      Sequence (Vertical)  
+         Cell  (1 Page)
+</code></pre><p><em>PromoteLeafs</em> replaces sequences with a single item giving.</p>
+<pre><code>Sequence       (Horizontal)  
+      Cell     (1 Page)
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

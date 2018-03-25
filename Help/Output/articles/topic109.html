@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Navigator Selection Events  </p>
+<p>Applicable Events:<br>        Deselecting<br>        Selecting<br>        Deselected<br>        Selected<br>        SelectedPageChanged  </p>
+<p><strong>Standard Event Sequence</strong><br>When a change in selected page is requested the following sequence of events
+occur. Note that this sequences occurs when either the user initiates a change
+or when you programmatically change selection by altering the <em>SelectedIndex</em> or
+<em>SelectedPage</em> properties of the navigator control. There is never any
+difference in the events generated or the ordering of events just because the
+source of the change is programmatic compared to user interaction.</p>
+<ul>
+<li><p><em>Deselecting</em><br>Generated for the currently selected page in order to ask if the page is
+allowed to be deselected. This event can be cancelled so if the event
+handler sets the <em>e.Cancel</em> value to <em>True</em> then the selection change is
+aborted immediately. Use this event to perform page level validation and
+decide if you will allow the page to be deselected.</p>
+</li>
+<li><p><em>Selecting</em><br>Generated for the page that is to become selected and asks if the page is
+allowed to be selected. This event can be cancelled so if the event handler
+sets the <em>e.Cancel</em> value to <em>True</em> the the selection change is aborted
+immediately. Use this event to decide if the page is capable of becoming
+selected.</p>
+</li>
+<li><p><em>Deselected</em><br>Generated for the currently selected page and indicates that it is now
+becoming deselected. This event cannot be cancelled and so you should use
+the event to perform any cleanup actions that are required when the page is
+no longer to be displayed.</p>
+</li>
+<li><p><em>Selected</em><br>Generated for the page that is to now becoming selected. This event cannot
+be cancelled and so you should perform actions to initialize the new page
+ready for display as the new selection.</p>
+</li>
+<li><p><em>SelectedPageChanged</em><br>Generated when the value of the <em>SelectedPage</em> property is changed to
+reflect the new selection. This event cannot be cancelled and is always the
+last event in the sequence. If you do not need to perform any page specific
+actions such as initialization, cleanup or validation then this is the most
+appropriate event to monitor for selection changes.</p>
+</li>
+</ul>
+<p>You can use the <em>Basic Events</em> example that is found in the <em>Navigator</em> section
+of the <em>Krypton Explorer</em> to see the events that are generated during selection
+changes. This handy example allows you to add and remove pages to the navigator
+and lists the selection events that occur as you click around the pages.  </p>
+<p><strong>First Page Sequence</strong><br>When the first visible page is added the sequence of events differs from that
+listed above. There is obviously no existing page that needs to be
+deselected and so no need to generate the <em>Deselecting</em> and <em>Deselected</em> events.
+So the generated event sequence becomes the following.</p>
+<ul>
+<li><p><em>Selecting</em><br>Generated for the page that is to become selected. Any attempt to cancel the
+event will be ignored because one of the visible pages must be selected at
+all times. Although the event cannot be cancelled it is still fired so you
+can be sure that the logic inside the handler is always called before the
+page becomes selected.</p>
+</li>
+<li><p><em>Selected</em><br>Generated for the page just added to the control. This event cannot be
+cancelled and so you should perform actions to initialize the new page ready
+for display as the new selection.</p>
+</li>
+<li><p><em>SelectedPageChanged</em><br>Generated when the value of the <em>SelectedPage</em> property is changed to
+reflect the new selection. This event cannot be cancelled and is always the
+last event in the sequence. If you do not need to perform any page specific
+actions such as initialization, cleanup or validation then this is the most
+appropriate event to monitor for selection changes.</p>
+</li>
+</ul>
+<p><strong>Last Page Sequence</strong><br>When the last visible page is removed from the navigator only two events are
+fired. Once the last page is removed there is no choice left but to set the
+selected page to <em>(null)</em>. Therefore the only two events fired are as follows.</p>
+<ul>
+<li><p><em>Deselected</em><br>Generated for the currently selected page and indicates that it is now
+becoming deselected. This event cannot be cancelled and so you should use
+the event to perform any cleanup actions that are required when the page is
+no longer to be displayed.</p>
+</li>
+<li><p><em>SelectedPageChanged</em><br>Generated when the value of the <em>SelectedPage</em> property is changed to
+reflect the new selection. This event cannot be cancelled and is always the
+last event in the sequence. If you do not need to perform any page specific
+actions such as initialization, cleanup or validation then this is the most
+appropriate event to monitor for selection changes.</p>
+</li>
+</ul>
+<p><strong>Remove Page Sequence</strong><br>This sequence is applied when removing the selected page and there are one or
+more other visible pages still present. With other pages still present one of
+them will have to become the new selection but you can use the <em>Selecting</em> event
+to determine which one it will be. You cannot specify the actual page you would
+like to become selected in the any of the generated events, but you can keep
+cancelling the <em>Selecting</em> event for all the pages except the one you want to
+become selected.</p>
+<p>There is no <em>Deselecting</em> event because the page is being removed from the
+<em>KryptonNavigator.Pages</em> collection and you cannot prevent the page from being
+removed by cancelling the event. Therefore the first event fired is
+<em>Deselected</em>. This is then followed by firing the <em>Selecting</em> event for all the
+remaining visible pages. If one of the <em>Selecting</em> events is not cancelled then
+it becomes the new selection. If all the remaining pages cancel the event then
+the control will automatically select the first enabled page that it tested.
+When there are no enabled pages remaining then it chooses the first disabled
+page that was tested.</p>
+<ul>
+<li><p><em>Deselected</em><br>Generated for the currently selected page and indicates that it is being
+removed and so becoming deselected. This event cannot be cancelled and so
+you should use the event to perform any cleanup actions that are required
+when the page is no longer to be displayed.</p>
+</li>
+<li><p><em>Selecting</em><br>This event is fired for all remaining visible pages. If the event is not
+cancelled then it becomes the new selection. If all the remaining pages
+cancel the event then the control will automatically select the first
+enabled page that it tested. When there are no enabled pages remaining then
+it chooses the first disabled page that was tested. Note that default value
+of the <em>e.Cancel</em> property is <em>True</em> if the page is disable and <em>False</em> if
+the page is enabled. This ensures that if you do not override the event then
+the default action for the control will be to selected the next available
+enabled page.</p>
+</li>
+<li><p><em>Selected</em><br>Generated for the page that is to now becoming selected. This event cannot
+be cancelled and so you should perform actions to initialize the new page
+ready for display as the new selection.</p>
+</li>
+<li><p><em>SelectedPageChanged</em><br>Generated when the value of the <em>SelectedPage</em> property is changed to
+reflect the new selection. This event cannot be cancelled and is always the
+last event in the sequence. If you do not need to perform any page specific
+actions such as initialization, cleanup or validation then this is the most
+appropriate event to monitor for selection changes.</p>
+</li>
+</ul>
+<p><strong>KryptonPage.Visible Property</strong><br>Just because a page has been added to the navigator does not mean it has to be
+displayed. You can use the <em>KryptonPage.Visible</em> property and the
+<em>KryptonPage.Hide()</em> and <em>KryptonPage.Show()</em> methods to alter the page
+visibility at any time. As far as the active selection and the selection events
+are concerned a page that is not visible does not exist.  </p>
+<p>If you have a single page in the <em>KryptonNavigator.Pages</em> collection that is
+currently hidden and then you set that page to be visible then the <em>First Page
+Sequence</em> will occur, because as far as the navigator is concerned this is the
+first page that is now capable of being displayed and selected. If you then hide
+that page the <em>Last Page Sequence</em> will be fired.  </p>
+<p>So although a page is might be constantly present in the
+<em>KryptonNavigator.Pages</em> collection you should think of it as only being present
+for selection purposes when set to be visible.  </p>
+<p><strong>KryptonPage.Enabled Property</strong><br>Unlike the visible property the enabled property does not always prevent a page
+from becoming selected. Under normal circumstances a disabled page will not
+become selected because the user interface will not allow the user to select
+that page. But there are circumstances that will cause a disabled page to be
+selected.  </p>
+<p>If the only page displayed is in the disabled state then it will be
+selected. Remember that one of the visible pages must be in the selected state.
+This can happen when you add just a single page to the navigator that is also
+disabled. Alternatively if you remove all pages from the control except a
+disabled one then it will become selected. Also if you change the currently
+selected page from enabled to disabled then it will retain the selected state.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

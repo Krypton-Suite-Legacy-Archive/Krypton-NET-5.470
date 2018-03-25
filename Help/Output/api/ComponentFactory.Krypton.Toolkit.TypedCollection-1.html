@@ -1,0 +1,2035 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TypedCollection&lt;T&gt;
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TypedCollection&lt;T&gt;
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1">
+  <h1 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1">Class TypedCollection&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Manage a collection of specified reference instances.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TypedCollection&lt;T&gt;</span></div>
+  </div>
+  
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragTargetProviderCollection.html">DragTargetProviderCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonGalleryRangeCollection.html">KryptonGalleryRangeCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonRibbonContextCollection.html">KryptonRibbonContextCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCollection.html">KryptonRibbonGroupCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDocCollection.html">KryptonRibbonRecentDocCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Ribbon.KryptonRibbonTabCollection.html">KryptonRibbonTabCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem.BreadCrumbItems.html">KryptonBreadCrumbItem.BreadCrumbItems</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonCommandCollection.html">KryptonCommandCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommandCollection.html">KryptonTaskDialogCommandCollection</a></div>
+      <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedRestrictCollection-1.html">TypedRestrictCollection&lt;T&gt;</a></div>
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TypedCollection&lt;T&gt; : IList, IList&lt;T&gt;, ICollection, ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable where T : class</code></pre>
+  </div>
+
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1__ctor" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1__ctor" class="expander" data-toggle="collapse">TypedCollection()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1__ctor" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the TypedCollection class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TypedCollection()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Count_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Count*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Count" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Count"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Count" class="expander" data-toggle="collapse">Count</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Count" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the number of items in collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.ICollection.Count</span></div>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Count</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsFixedSize_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsFixedSize*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsFixedSize" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsFixedSize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsFixedSize" class="expander" data-toggle="collapse">IsFixedSize</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsFixedSize" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection has a fixed size. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFixedSize { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.IsFixedSize</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsReadOnly_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsReadOnly*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsReadOnly" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsReadOnly"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsReadOnly" class="expander" data-toggle="collapse">IsReadOnly</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsReadOnly" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.IsReadOnly</span></div>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.IsReadOnly</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsSynchronized_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsSynchronized*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsSynchronized" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IsSynchronized"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsSynchronized" class="expander" data-toggle="collapse">IsSynchronized</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IsSynchronized" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether access to the collection is synchronized (thread safe).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSynchronized { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.ICollection.IsSynchronized</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Item*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Item(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_Int32_" class="expander" data-toggle="collapse">Item[Int32]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the item at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Item index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Item at specified index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.Item[System.Int32]</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Item*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_String_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Item(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_String_" class="expander" data-toggle="collapse">Item[String]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Item_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the item with the provided unique name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual T this[string name] { get; }</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Name of the ribbon tab instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Item at specified index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_SyncRoot_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.SyncRoot*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_SyncRoot" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.SyncRoot"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_SyncRoot" class="expander" data-toggle="collapse">SyncRoot</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_SyncRoot" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets an object that can be used to synchronize access to the collection. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object SyncRoot { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.ICollection.SyncRoot</span></div>
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Add*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Add(`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add__0_" class="expander" data-toggle="collapse">Add(T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Append an item to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Add(T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>Item reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Add(T)</span></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentOutOfRangeException</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Add*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Add(System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add_System_Object_" class="expander" data-toggle="collapse">Add(Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Add_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Append an item to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int Add(object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>Object reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>The position into which the new item was inserted.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Add(System.Object)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_AddRange_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.AddRange*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_AddRange__0___" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.AddRange(`0[])"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_AddRange__0___" class="expander" data-toggle="collapse">AddRange(T[])</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_AddRange__0___" class="collapse in">
+  <div class="markdown level1 summary"><p>Append an array of items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void AddRange(T[] itemArray)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right">T[]</span>
+        <span class="parametername">itemArray</span>
+        <p><p>Array of items to add.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clear_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Clear*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clear" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Clear"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clear" class="expander" data-toggle="collapse">Clear()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clear" class="collapse in">
+  <div class="markdown level1 summary"><p>Remove all items from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Clear()</span></div>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Clear()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Contains*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Contains(`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains__0_" class="expander" data-toggle="collapse">Contains(T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>Item reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if item found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Contains(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Contains*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Contains(System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains_System_Object_" class="expander" data-toggle="collapse">Contains(Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Contains_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>Object reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if item found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Contains(System.Object)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.CopyTo*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo__0___System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.CopyTo(`0[],System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo__0___System_Int32_" class="expander" data-toggle="collapse">CopyTo(T[], Int32)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo__0___System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Copies items to specified array starting at particular index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(T[] array, int arrayIndex)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right">T[]</span>
+        <span class="parametername">array</span>
+        <p><p>Target array.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">arrayIndex</span>
+        <p><p>Starting array index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.CopyTo(T[], System.Int32)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.CopyTo*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo_System_Array_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.CopyTo(System.Array,System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo_System_Array_System_Int32_" class="expander" data-toggle="collapse">CopyTo(Array, Int32)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_CopyTo_System_Array_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Copies all the elements of the current collection to the specified Array. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(Array array, int index)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Array</span></span>
+        <span class="parametername">array</span>
+        <p><p>The Array that is the destination of the elements copied from the collection.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>The index in array at which copying begins.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.ICollection.CopyTo(System.Array, System.Int32)</span></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.GetEnumerator*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.GetEnumerator"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_GetEnumerator" class="expander" data-toggle="collapse">GetEnumerator()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_GetEnumerator" class="collapse in">
+  <div class="markdown level1 summary"><p>Shallow enumerate over items in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerator</span>&lt;T&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IndexOf*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IndexOf(`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf__0_" class="expander" data-toggle="collapse">IndexOf(T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the index of the specified item in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>Item reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>-1 if not found; otherwise index position.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.IndexOf(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IndexOf*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.IndexOf(System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf_System_Object_" class="expander" data-toggle="collapse">IndexOf(Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_IndexOf_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the index of the specified item in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>Object reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>-1 if not found; otherwise index position.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.IndexOf(System.Object)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Insert*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Insert(System.Int32,`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32__0_" class="expander" data-toggle="collapse">Insert(Int32, T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Inserts an item to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Insert(int index, T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Insert index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>Item reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.Insert(System.Int32, T)</span></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentOutOfRangeException</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Insert*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Insert(System.Int32,System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32_System_Object_" class="expander" data-toggle="collapse">Insert(Int32, Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Insert_System_Int32_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Inserts an item to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Insert(int index, object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Insert index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>Object reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Insert(System.Int32, System.Object)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveAfter_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.MoveAfter*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveAfter__0__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.MoveAfter(`0,`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveAfter__0__0_" class="expander" data-toggle="collapse">MoveAfter(T, T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveAfter__0__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Move the source item to be immediately after the target item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveAfter(T source, T target)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">source</span>
+        <p><p>Source item to be moved.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">target</span>
+        <p><p>Target item to place the source item after.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveBefore_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.MoveBefore*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveBefore__0__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.MoveBefore(`0,`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveBefore__0__0_" class="expander" data-toggle="collapse">MoveBefore(T, T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_MoveBefore__0__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Move the source item to be immediately before the target item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveBefore(T source, T target)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">source</span>
+        <p><p>Source item to be moved.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">target</span>
+        <p><p>Target item to place the source item before.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnCleared_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnCleared*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnCleared_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnCleared(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnCleared_System_EventArgs_" class="expander" data-toggle="collapse">OnCleared(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnCleared_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Cleared event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnCleared(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnClearing_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnClearing*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnClearing_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnClearing(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnClearing_System_EventArgs_" class="expander" data-toggle="collapse">OnClearing(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnClearing_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Clearing event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnClearing(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserted_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnInserted*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserted_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnInserted(ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs{`0})"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserted_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="expander" data-toggle="collapse">OnInserted(TypedCollectionEventArgs&lt;T&gt;)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserted_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Inserted event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnInserted(TypedCollectionEventArgs&lt;T&gt; e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs-1.html">TypedCollectionEventArgs</a>&lt;T&gt;</span>
+        <span class="parametername">e</span>
+        <p><p>A TypedCollectionEventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserting_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnInserting*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserting_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnInserting(ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs{`0})"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserting_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="expander" data-toggle="collapse">OnInserting(TypedCollectionEventArgs&lt;T&gt;)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnInserting_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Inserting event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnInserting(TypedCollectionEventArgs&lt;T&gt; e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs-1.html">TypedCollectionEventArgs</a>&lt;T&gt;</span>
+        <span class="parametername">e</span>
+        <p><p>A KryptonRibbonTabEventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoved_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnRemoved*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoved_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnRemoved(ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs{`0})"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoved_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="expander" data-toggle="collapse">OnRemoved(TypedCollectionEventArgs&lt;T&gt;)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoved_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Removed event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnRemoved(TypedCollectionEventArgs&lt;T&gt; e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs-1.html">TypedCollectionEventArgs</a>&lt;T&gt;</span>
+        <span class="parametername">e</span>
+        <p><p>A TypedCollectionEventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoving_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnRemoving*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoving_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnRemoving(ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs{`0})"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoving_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="expander" data-toggle="collapse">OnRemoving(TypedCollectionEventArgs&lt;T&gt;)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnRemoving_ComponentFactory_Krypton_Toolkit_TypedCollectionEventArgs__0__" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Removing event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnRemoving(TypedCollectionEventArgs&lt;T&gt; e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedCollectionEventArgs-1.html">TypedCollectionEventArgs</a>&lt;T&gt;</span>
+        <span class="parametername">e</span>
+        <p><p>A TypedCollectionEventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnReordered_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnReordered*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnReordered_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.OnReordered(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnReordered_System_EventArgs_" class="expander" data-toggle="collapse">OnReordered(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_OnReordered_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Reordered event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnReordered(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs instance containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Remove*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove__0_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Remove(`0)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove__0_" class="expander" data-toggle="collapse">Remove(T)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove__0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes first occurance of specified item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Remove(T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>Item reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if removed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Remove(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Remove*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove_System_Object_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Remove(System.Object)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove_System_Object_" class="expander" data-toggle="collapse">Remove(Object)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Remove_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes first occurance of specified item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>Object reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Remove(System.Object)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_RemoveAt_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.RemoveAt*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_RemoveAt_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.RemoveAt(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_RemoveAt_System_Int32_" class="expander" data-toggle="collapse">RemoveAt(Int32)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_RemoveAt_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes the item at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Remove index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.RemoveAt(System.Int32)</span></div>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.RemoveAt(System.Int32)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.ToString*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_ToString" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.ToString"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_ToString" class="collapse in">
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>User readable name of the instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Cleared" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Cleared"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Cleared" class="expander" data-toggle="collapse">Cleared</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Cleared" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an items have been removed from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler Cleared</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clearing" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Clearing"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clearing" class="expander" data-toggle="collapse">Clearing</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Clearing" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an items are about to be removed from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler Clearing</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserted" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Inserted"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserted" class="expander" data-toggle="collapse">Inserted</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserted" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an item has been added/inserted to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event TypedHandler&lt;T&gt; Inserted</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedHandler-1.html">TypedHandler</a>&lt;T&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserting" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Inserting"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserting" class="expander" data-toggle="collapse">Inserting</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Inserting" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an item is about to be added/inserted to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event TypedHandler&lt;T&gt; Inserting</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedHandler-1.html">TypedHandler</a>&lt;T&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removed" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Removed"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removed" class="expander" data-toggle="collapse">Removed</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removed" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an item is removed from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event TypedHandler&lt;T&gt; Removed</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedHandler-1.html">TypedHandler</a>&lt;T&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removing" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Removing"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removing" class="expander" data-toggle="collapse">Removing</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Removing" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when an item is about to be removed from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event TypedHandler&lt;T&gt; Removing</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.TypedHandler-1.html">TypedHandler</a>&lt;T&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_Reordered" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.Reordered"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Reordered" class="expander" data-toggle="collapse">Reordered</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_Reordered" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when items have been reordered inside the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler Reordered</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.System#Collections#IEnumerable#GetEnumerator"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IEnumerable_GetEnumerator" class="expander" data-toggle="collapse">IEnumerable.GetEnumerator()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IEnumerable_GetEnumerator" class="collapse in">
+  <div class="markdown level1 summary"><p>Enumerate using non-generic interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.IEnumerator</span>
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IEnumerable.GetEnumerator()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IList_Item_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.System#Collections#IList#Item*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IList_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.TypedCollection`1.System#Collections#IList#Item(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IList_Item_System_Int32_" class="expander" data-toggle="collapse">IList.Item[Int32]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_TypedCollection_1_System_Collections_IList_Item_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the item at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IList.this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Object index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
+        <p><p>Object at specified index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IList.Item[System.Int32]</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

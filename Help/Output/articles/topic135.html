@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using IPaletteMonitoring the global palette | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using IPaletteMonitoring the global palette | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-ipalettebrbrmonitoring-the-global-palette">Using IPalette<br><br>Monitoring the global palette</h1>
+
+<p>By default the <em>Krypton</em> controls use the global palette that is specified in
+the <em>KryptonManager</em> component. In order to ensure your own custom control is
+consistent with the rest of the <em>Krypton</em> controls you need to also make use the
+global palette setting. The following steps will take you through the process of
+adding this support.  </p>
+<p><strong>1) Setting up</strong>  </p>
+<p>We need to begin by adding a private field to the custom control class that
+caches the current global palette setting.</p>
+<pre><code> private IPalette \_palette;  
+</code></pre><p>Next we need to modify the constructor by adding the 4 blocks of code as shown
+below.  </p>
+<pre><code> public MyUserControl()  
+ {  
+       // (1) To remove flicker we use double buffering for drawing  
+       SetStyle(  
+             ControlStyles.AllPaintingInWmPaint \|  
+             ControlStyles.OptimizedDoubleBuffer \|  
+             ControlStyles.ResizeRedraw, true);
+
+       InitializeComponent();
+
+       // (2) Cache the current global palette setting  
+       \_palette = KryptonManager.CurrentGlobalPalette;
+
+       // (3) Hook into palette events  
+       if (_palette != null)  
+          \_palette.PalettePaint += new
+</code></pre><p>EventHandler&lt;PaletteLayoutEventArgs>(OnPalettePaint);</p>
+<pre><code>       // (4) We want to be notified whenever the global palette changes  
+       KryptonManager.GlobalPaletteChanged += new
+</code></pre><p>EventHandler(OnGlobalPaletteChanged);<br>     }</p>
+<p>The first block of code, with (1) in the comment, is used to reduce the flicker
+that occurs when re drawing a control.  Setting the <em>AllPaintingInWmPaint</em> and
+<em>OptimizedDoubleBuffer</em> control styles will ensure that all drawing takes place
+in an off screen buffer before being bit blitted to the screen.
+The <em>ResizeRedraw</em> control style is set so that whenever the size of the
+control changes the control is automatically invalidated, otherwise you need to
+manually override the <em>OnResize</em> method and request the invalidate in code.</p>
+<p>The second block of code, marked (2), calls a static property on the
+<em>KryptonManager</em> component in order to recover the current global <em>IPalette</em>
+interface. Using this property ensures we always get back an <em>IPalette</em> without
+needing to worry if a built in palette or custom palette has been specified. The
+result of the call is cached in our private field _palette for use when
+painting or processing related events.</p>
+<p>Now that we have the <em>IPalette</em> we use code block (3) to hook into the
+<em>PalettePaint</em> event that is fired by the palette whenever a palette setting
+changes that requires a repaint. This can happen with the built in palettes when
+the user alters the display settings or at any time for custom palettes. We will
+implement the trivial event handler for this in the section step.  </p>
+<p>Finally we need block (4) to hook into a static event exposed by the
+<em>KryptonManager</em> called <em>GlobalPaletteChanged</em>. As the name suggest this is
+fired whenever the global palette changes. When this happens we need our event
+handler to cache the new palette. Step 2 below will implement the actual event
+handlers that we just hooked into.</p>
+<p><strong>2) Responding to changes</strong>  </p>
+<p>Our event handler for code block (3) is trivial, when notified about a change in
+the palette settings we just request the control be painted.</p>
+<pre><code> private void OnPalettePaint(object sender, PaletteLayoutEventArgs e)  
+ {  
+       Invalidate();  
+ }
+</code></pre><p>Handling a change in global palette requires a few steps. Code block (5) is used
+to reverse block (3) from above. Then we update, at block (6), the internal
+field for later use. Code (7) establishes a hook into the <em>PalettePaint</em> event
+of the new palette and finally at (8) we request the control be re painted to
+show the change in appearance.</p>
+<pre><code> private void OnGlobalPaletteChanged(object sender, EventArgs e)  
+ {  
+          // (5) Unhook events from old palette  
+       if (_palette != null)  
+          _palette.PalettePaint -= new
+</code></pre><p>EventHandler&lt;PaletteLayoutEventArgs>(OnPalettePaint);</p>
+<pre><code>       // (6) Cache the new IPalette that is the global palette  
+       _palette = KryptonManager.CurrentGlobalPalette;  
+
+       // (7) Hook into events for the new palette  
+       if (_palette != null)  
+          _palette.PalettePaint += new
+</code></pre><p>EventHandler&lt;PaletteLayoutEventArgs>(OnPalettePaint);</p>
+<pre><code>       // (8) Change of palette means we should repaint to show any changes  
+       Invalidate();  
+ }  
+</code></pre><p><strong>3) Tearing down</strong>  </p>
+<p>To finish the palette monitoring we need to override the <em>Dispose</em> method and
+unhook our outstanding events. This is because the events exist on static
+instances and so our control instance will not be garbage collected until the
+static objects themselves are no longer required. In the case of the
+<em>KryptonManager</em> this will be never and so our custom control instances will
+never be garbage collected if we do not unhook the events.  </p>
+<p>Code block (10) below is used to unhook from the cached palette instance and
+block (11) un hooks from the KryptonManager static event.</p>
+<pre><code> protected override void Dispose(bool disposing)  
+ {  
+       if (disposing)  
+       {  
+            // (10) Unhook from the palette events  
+            if (_palette != null)  
+            {  
+                \_palette.PalettePaint -= new
+</code></pre><p>EventHandler&lt;PaletteLayoutEventArgs>(OnPalettePaint);<br>                    _palette = null;<br>                }</p>
+<pre><code>            // (11) Unhook from the static events, otherwise we cannot be
+</code></pre><p>garbage collected<br>                KryptonManager.GlobalPaletteChanged -= new
+EventHandler(OnGlobalPaletteChanged);<br>           }</p>
+<pre><code>       base.Dispose(disposing);  
+ }
+</code></pre><h1 id="brrecovering-palette-details"><br>Recovering palette details</h1>
+<p>Now that we have a reference to the palette we are going to use we can actually
+implement the painting method of the custom control. The actual use of the
+<em>IPalette</em> itself is very simple as can be seen in the following example.</p>
+<pre><code> protected override void OnPaint(PaintEventArgs e)  
+ {  
+       if (_palette != null)  
+       {  
+            // (12) Calculate the palette state to use in calls to IPalette  
+            PaletteState state = Enabled ? PaletteState.Normal :
+</code></pre><p>PaletteState.Disabled;</p>
+<pre><code>            // (13) Get the background, border and text colors along with
+</code></pre><p>the text font<br>                Color backColor =
+_palette.GetBackColor1(PaletteBackStyle.ButtonStandalone, state);<br>                Color borderColor =
+_palette.GetBorderColor1(PaletteBorderStyle.ButtonStandalone, state);<br>                Color textColor =
+_palette.GetContentShortTextColor1(PaletteContentStyle.ButtonStandalone,
+state);<br>                Font textFont =
+_palette.GetContentShortTextFont(PaletteContentStyle.ButtonStandalone, state);</p>
+<pre><code>            // Fill the entire background of the control  
+            using (SolidBrush backBrush = new SolidBrush(backColor))  
+               e.Graphics.FillRectangle(backBrush, e.ClipRectangle);
+
+            // Draw a single pixel border around the control edge  
+            using (Pen borderPen = new Pen(borderColor))  
+               e.Graphics.DrawPath(borderPen, path);
+
+            // Draw control Text at a fixed position  
+            using (SolidBrush textBrush = new SolidBrush(textColor))  
+               e.Graphics.DrawString(&quot;Click me!&quot;, textFont, textBrush, Width
+</code></pre><p>/ 2, Height / 2);<br>           }</p>
+<pre><code>       base.OnPaint(e);  
+ }  
+</code></pre><p>Each call to the <em>IPalette</em> in order to recover a color, font or other metric
+must provide a <em>PaletteState</em> enumeration value. This informs the palette of the
+appropriate value to return relative to the supplied state. Our control is only
+going to provide one of the two basic values, either <em>PaletteState.Normal</em> or
+<em>PaletteState.Disabled</em>. Code block (12) is used to determine which of these to
+use.  </p>
+<p>Block (13) is where we actually recover metrics from the palette. In this case
+we want the background color, border color, text color and text font in the
+style of a <em>ButtonStandalone</em>. You would of course change the provided style
+values to whatever is appropriate for your own circumstances. Note that in this
+simple example we are only recovering the first color and then using those
+colors in the subsequent drawing code. This will result in always drawing solid
+colors and will not provide the gradient effect you are familiar with elsewhere
+in <em>Krypton</em> controls.</p>
+<p>By following the steps outlined here you should now be in a position to recover
+whatever values you require from the global palette and use them in your custom
+drawing code. You are recommended to look at the source code for the <em>Custom
+Control using Palettes</em> example project that is provided with the library. The
+sample shows a slightly more extensive demonstration.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

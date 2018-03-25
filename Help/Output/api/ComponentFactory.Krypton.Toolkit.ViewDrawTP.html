@@ -1,0 +1,668 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewDrawTP
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewDrawTP
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP">
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP">Class ViewDrawTP
+  </h1>
+  <div class="markdown level0 summary"><p>Draw the track for the track bar.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></div>
+    <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html">ViewComposite</a></div>
+    <div class="level4"><span class="xref">ViewDrawTP</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Dispose_System_Boolean_">ViewComposite.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ReverseRenderOrder">ViewComposite.ReverseRenderOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_">ViewComposite.EvalTransparentPaint(ViewContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewComposite.GetPreferredSize(ViewLayoutContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Render_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewComposite.Render(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Add_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Add(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Clear">ViewComposite.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Contains(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.ContainsRecurse(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_">ViewComposite.CopyTo(ViewBase[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Remove(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Count">ViewComposite.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.IndexOf(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewComposite.Insert(Int32, ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_RemoveAt_System_Int32_">ViewComposite.RemoveAt(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Item_System_Int32_">ViewComposite.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_GetEnumerator">ViewComposite.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Recurse">ViewComposite.Recurse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Reverse">ViewComposite.Reverse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ReverseRecurse">ViewComposite.ReverseRecurse()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_FixedState">ViewComposite.FixedState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ClearFixedState">ViewComposite.ClearFixedState()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ViewFromPoint_System_Drawing_Point_">ViewComposite.ViewFromPoint(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Dispose">ViewBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed">ViewBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl">ViewBase.OwningControl</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Visible">ViewBase.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle">ViewBase.ClientRectangle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation">ViewBase.ClientLocation</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize">ViewBase.ClientSize</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth">ViewBase.ClientWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight">ViewBase.ClientHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX">ViewBase.FactorDpiX</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY">ViewBase.FactorDpiY</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Component">ViewBase.Component</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderBefore(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_">ViewBase.RenderAfter(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Parent">ViewBase.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly">ViewBase.IsReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator">ViewBase.IEnumerable.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseController">ViewBase.MouseController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyController">ViewBase.KeyController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_SourceController">ViewBase.SourceController</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController">ViewBase.FindMouseController()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter">ViewBase.MouseEnter()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_">ViewBase.MouseMove(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseDown(Point, MouseButtons)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_">ViewBase.MouseUp(Point, MouseButtons)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_">ViewBase.MouseLeave(ViewBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_">ViewBase.DoubleClick(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyDown(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_">ViewBase.KeyPress(KeyPressEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_">ViewBase.KeyUp(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_">ViewBase.GotFocus(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_">ViewBase.LostFocus(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_ElementState">ViewBase.ElementState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_State">ViewBase.State</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed">ViewBase.IsFixed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState">ViewBase.DependantEnabledState</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant">ViewBase.IsEnableDependant</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ViewDrawTP : ViewComposite, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawTrackBar_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.#ctor(ComponentFactory.Krypton.Toolkit.ViewDrawTrackBar)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawTrackBar_" class="expander" data-toggle="collapse">ViewDrawTP(ViewDrawTrackBar)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP__ctor_ComponentFactory_Krypton_Toolkit_ViewDrawTrackBar_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ViewDrawTrackPosition class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewDrawTP(ViewDrawTrackBar drawTrackBar)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawTrackBar.html">ViewDrawTrackBar</a></span>
+        <span class="parametername">drawTrackBar</span>
+        <p><p>Reference to owning track bar.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_Enabled_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.Enabled*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.Enabled"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_Enabled" class="expander" data-toggle="collapse">Enabled</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_Enabled" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Enabled { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html#ComponentFactory_Krypton_Toolkit_ViewBase_Enabled">ViewBase.Enabled</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackBar_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ViewDrawTrackBar*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackBar" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ViewDrawTrackBar"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackBar" class="expander" data-toggle="collapse">ViewDrawTrackBar</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackBar" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the owning trackbar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewDrawTrackBar ViewDrawTrackBar { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawTrackBar.html">ViewDrawTrackBar</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackPosition_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ViewDrawTrackPosition*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackPosition" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ViewDrawTrackPosition"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackPosition" class="expander" data-toggle="collapse">ViewDrawTrackPosition</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ViewDrawTrackPosition" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the track position element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewDrawTrackPosition ViewDrawTrackPosition { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDrawTrackPosition.html">ViewDrawTrackPosition</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.Layout*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="expander" data-toggle="collapse">Layout(ViewLayoutContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Layout(ViewLayoutContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_">ViewComposite.Layout(ViewLayoutContext)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_NearestValueFromPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.NearestValueFromPoint*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_NearestValueFromPoint_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.NearestValueFromPoint(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_NearestValueFromPoint_System_Drawing_Point_" class="expander" data-toggle="collapse">NearestValueFromPoint(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_NearestValueFromPoint_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Find nearest value given the mouse postion within track area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NearestValueFromPoint(Point pt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Mouse position,</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>Nearest value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_SetFixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.SetFixedState*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.SetFixedState(ComponentFactory.Krypton.Toolkit.PaletteState)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" class="expander" data-toggle="collapse">SetFixedState(PaletteState)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_SetFixedState_ComponentFactory_Krypton_Toolkit_PaletteState_" class="collapse in">
+  <div class="markdown level1 summary"><p>Fix the control to a particular palette state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetFixedState(PaletteState state)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>Palette state to fix.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ToString*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewDrawTP_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewDrawTP.ToString"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewDrawTP_ToString" class="collapse in">
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>User readable name of the instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html#ComponentFactory_Krypton_Toolkit_ViewComposite_ToString">ViewComposite.ToString()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
