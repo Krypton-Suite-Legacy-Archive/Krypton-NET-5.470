@@ -171,7 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly MessageBoxButtons _buttons;
         private readonly MessageBoxIcon _icon;
         private readonly MessageBoxDefaultButton _defaultButton;
-        private MessageBoxOptions _options;
+        private MessageBoxOptions _options; // TODO: What is this used for ?
         private KryptonPanel _panelMessage;
         private KryptonPanel _panelMessageText;
         private KryptonWrapLabel _messageText;
@@ -181,8 +181,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private MessageButton _button1;
         private MessageButton _button2;
         private MessageButton _button3;
-        private KryptonBorderEdge borderEdge;
-        private HelpInfo _helpInfo;
+        private KryptonBorderEdge _borderEdge;
+        private HelpInfo _helpInfo; // TODO: What is this used for ?
         #endregion
 
         #region Identity
@@ -613,7 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Check if trying to show a message box from a service and the owner has been specified, this is not possible
             if ((owner != null) && ((options & (MessageBoxOptions.ServiceNotification | MessageBoxOptions.DefaultDesktopOnly)) != 0))
             {
-                throw new ArgumentException("Cannot show message box from a service with an owner specified", nameof(options));
+                throw new ArgumentException(@"Cannot show message box from a service with an owner specified", nameof(options));
             }
 
             // Check if trying to show a message box from a service and help information is specified, this is not possible
@@ -771,7 +771,8 @@ namespace ComponentFactory.Krypton.Toolkit
             using (Graphics g = CreateGraphics())
             {
                 // Find size of the label, with a max of 2/3 screen width
-                SizeF scaledMonitorSize = Screen.FromHandle(showOwner.Handle).Bounds.Size;
+                Screen screen = showOwner != null ? Screen.FromHandle(showOwner.Handle) : Screen.PrimaryScreen;
+                SizeF scaledMonitorSize = screen.Bounds.Size;
                 scaledMonitorSize.Width *= (2 / 3.0f);
                 scaledMonitorSize.Height *= 0.95f;
                 _messageText.UpdateFont();
@@ -944,7 +945,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _panelMessageIcon = new KryptonPanel();
             _messageIcon = new PictureBox();
             _panelButtons = new KryptonPanel();
-            borderEdge = new KryptonBorderEdge();
+            _borderEdge = new KryptonBorderEdge();
             _button3 = new MessageButton();
             _button1 = new MessageButton();
             _button2 = new MessageButton();
@@ -992,7 +993,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _messageText.Margin = new Padding(0);
             _messageText.Name = "_messageText";
             _messageText.Size = new Size(78, 15);
-            _messageText.Text = "Message Text";
+            _messageText.Text = @"Message Text";
             // 
             // _panelMessageIcon
             // 
@@ -1018,7 +1019,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _panelButtons
             // 
-            _panelButtons.Controls.Add(borderEdge);
+            _panelButtons.Controls.Add(_borderEdge);
             _panelButtons.Controls.Add(_button3);
             _panelButtons.Controls.Add(_button1);
             _panelButtons.Controls.Add(_button2);
@@ -1032,12 +1033,12 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // borderEdge
             // 
-            borderEdge.BorderStyle = PaletteBorderStyle.HeaderPrimary;
-            borderEdge.Dock = DockStyle.Top;
-            borderEdge.Location = new Point(0, 0);
-            borderEdge.Name = "borderEdge";
-            borderEdge.Size = new Size(156, 1);
-            borderEdge.Text = "kryptonBorderEdge1";
+            _borderEdge.BorderStyle = PaletteBorderStyle.HeaderPrimary;
+            _borderEdge.Dock = DockStyle.Top;
+            _borderEdge.Location = new Point(0, 0);
+            _borderEdge.Name = "_borderEdge";
+            _borderEdge.Size = new Size(156, 1);
+            _borderEdge.Text = @"kryptonBorderEdge1";
             // 
             // _button3
             // 
@@ -1050,7 +1051,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _button3.Name = "_button3";
             _button3.Size = new Size(50, 26);
             _button3.TabIndex = 2;
-            _button3.Values.Text = "B3";
+            _button3.Values.Text = @"B3";
             _button3.KeyDown += button_keyDown;
             // 
             // _button1
@@ -1064,7 +1065,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _button1.Name = "_button1";
             _button1.Size = new Size(50, 26);
             _button1.TabIndex = 0;
-            _button1.Values.Text = "B1";
+            _button1.Values.Text = @"B1";
             _button1.KeyDown += button_keyDown;
             // 
             // _button2
@@ -1078,7 +1079,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _button2.Name = "_button2";
             _button2.Size = new Size(50, 26);
             _button2.TabIndex = 1;
-            _button2.Values.Text = "B2";
+            _button2.Values.Text = @"B2";
             _button2.KeyDown += button_keyDown;
             // 
             // KryptonMessageBox

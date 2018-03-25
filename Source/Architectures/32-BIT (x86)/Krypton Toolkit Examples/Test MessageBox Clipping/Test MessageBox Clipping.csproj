@@ -18,11 +18,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\Test MessageBox Clipping.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\x86\Krypton Toolkit Examples\Test MessageBox Clipping.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
+      <HintPath>..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>O:\Users\Peter William Wagner\Documents\GitHub\Krypton-NET-4.7\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Bin\Versions\4.7\x86\Krypton Toolkit ExamplesVersions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
