@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Ribbon Group Containers</p>
+<p>A ribbon group can only contain child items that are group containers.
+Individual group containers have their own restrictions on what types of child
+item they can themselves contain. Different group containers have different ways
+of laying out the child items they contain and different rules on how to
+automatically resize when limited space is available. By choosing the correct
+type of group container the developer can therefore specify exactly how auto
+sizing will effect the items it contains.</p>
+<p>When editing a ribbon group at design time the collection editor will present
+you with a list of the available group containers that can be added. The
+preferred method of designing the ribbon is to use the helper elements that are
+show in the client area of the ribbon itself. If you click the helper element at
+the right hand side of the group client area it will show a context menu with
+the different types of group container allowed. On selecting one of these it
+will add a new instance with some default items inside the container.</p>
+<p>Following are a detailed description of the different types of group container.</p>
+<p><strong>Group Container Separator</strong><br>The group separator is the simplest of all the group containers and should be
+used to draw a visual separator between other group containers. This container
+does not allow you to add any child items. Figure 1 shows an example of a group
+with six group separators at design time. On the right hand side you will notice
+the <em>New</em> block, this is used at design time to add another group container and
+when pressed will show a context menu with the types of container available for
+adding. At runtime this helper element is not present. There are only two
+properties of interest exposed by the group separator as can be seen in Figure</p>
+<ol>
+<li></li>
+</ol>
+<ul>
+<li><p>Figure 1 - Group Separator Design Time Appearance*</p>
+</li>
+<li><p>Figure 2 - Group Separator Properties*</p>
+</li>
+</ul>
+<p><strong>Visible</strong><br>Use this property to specify if the group triple should be visible at runtime. </p>
+<p><strong>Tag</strong><br>Associate application specific information with the object instance by using
+this property.</p>
+<p><strong>Group Container Triple</strong><br>As the name suggests the group triple container is used to display a maximum of
+three child items. Figure 3 shows an example of a group at design time that
+contains a single group triple instance with three child group button items. The
+group triple at runtime has no user interface but at design time shows the dark
+blue area around the three buttons. This dark blue area can be used to select
+the group triple container instance and allow you to update the properties of
+the instance in the <em>Properties Window</em>. On the right hand side you will notice
+the <em>New</em> block, this is used at design time to add another group container and
+when pressed will show a context menu with the types of container available for
+adding. At runtime neither the dark blue or <em>New</em> button will be present.
+Figure 4 shows a list of the properties you can modify for the group triple
+instance.</p>
+<ul>
+<li><p>Figure 3 - Group Triple Design Time Appearance*  </p>
+</li>
+<li><p>Figure 4 - Group Triple Properties*</p>
+</li>
+</ul>
+<p><strong>Visible</strong><br>Use this property to specify if the group triple should be visible at runtime.</p>
+<p><strong>Tag</strong><br>Associate application specific information with the object instance by using
+this property.</p>
+<p><strong>ItemAlignment</strong><br>Determines how items are horizontally aligned when in the medium and small
+settings.</p>
+<p><strong>Items</strong><br>A collection property that contains a maximum of three child items.</p>
+<p><strong>MaximumSize</strong><br><strong>MinimumSize</strong><br>These two properties are used to determine the maximum and minimum sizing used
+for the group at runtime. The maximum size is always the size used if there is
+enough room for the group to size fully. If there is not enough room then each
+intermediate size is used until the minimum is reached. The group triple never
+sizes its child items smaller than the minimum setting. Figure 5 shows the group
+triple at runtime in each of the three possible size values of <em>Large</em>, <em>Medium</em>
+and <em>Small</em>. </p>
+<ul>
+<li>Figure 5 - Group Triple Sizing - Large, Medium and Small*</li>
+</ul>
+<p><strong>Group Container Lines</strong><br>The group lines container is used to layout child items over either two or three
+horizontal lines. Figure 6 shows an example of a group at design time that
+contains a single group lines instance with four child group button items. The
+group lines at runtime has no user interface but at design time shows the dark
+blue area around the three buttons. This dark blue area can be used to select
+the group lines container instance and allow you to update the properties of the
+instance in the <em>Properties Window</em>. On the right hand side you will notice the
+<em>New</em> block, this is used at design time to add another group container and when
+pressed will show a context menu with the types of container available for
+adding. At runtime neither the dark blue or <em>New</em> button will be present.
+Figure 7 shows a list of the properties you can modify for the group line
+instance.</p>
+<ul>
+<li><p>Figure 6 - Group Lines Design Time Appearance*  </p>
+</li>
+<li><p>Figure 7 - Group Lines Properties*  </p>
+</li>
+</ul>
+<p><strong>Visible</strong><br>Use this property to specify if the group lines should be visible at runtime.</p>
+<p><strong>Items</strong><br>A collection property that contains a zero or more child items.</p>
+<p><strong>MaximumSize</strong><br><strong>MinimumSize</strong><br>These two properties are used to determine the maximum and minimum sizing used
+for the group at runtime. The maximum size is always the size used if there is
+enough room for the group to size fully. If there is not enough room then each
+intermediate size is used until the minimum is reached. The group triple never
+sizes its child items smaller than the minimum setting. Figure 8 shows the group
+triple at runtime in each of the three possible size values of <em>Large</em>, <em>Medium</em>
+and <em>Small</em>. </p>
+<ul>
+<li>Figure 8 - Group Line Sizing - Large, Medium and Small*</li>
+</ul>
+<p><strong>Tag</strong><br>Associate application specific information with the object instance by using
+this property.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

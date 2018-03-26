@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Workspace Persistence</p>
+<p>Applicable Methods:<br>        SaveLayoutToArray, LoadLayoutFromArray<br>        SaveLayoutToFile, LoadLayoutFromFile<br>        SaveLayoutToXml, LoadLayoutFromXml<br>        SaveLayoutToStream, LoadLayoutFromStream</p>
+<p><strong>Persistence Formats</strong><br>You can save and load the workspace layout in a variety of different formats in
+order to suit the needs of your application. Use the <em>SaveLayoutToFile</em> and
+<em>LoadLayoutFromFile</em> methods in order to persist to files in the XML format.
+This is useful if you need to retain a layout when an application exits in order
+to restore it again when next run. Alternatively you can use the
+<em>SaveLayoutToArray</em> and <em>LoadLayoutFromArray</em> pair of methods that persist as an
+array of bytes. This makes it easy to place the data into a database, transfer
+it over a network connection or just store it within your application. For
+greater control you can use the <em>SaveLayoutToXml</em> and <em>LoadLayoutFromXml</em> pair
+that expect <em>XmlTextWriter</em> and <em>XmlTextReader</em> instances. Finally the last pair
+<em>SaveLayoutToStream</em> and <em>LoadLayoutFromStream</em> provide maximum flexibility
+because they accept a generic stream for the storage. This allows you to easily
+integrate the configuration information into your own persistence mechanism.</p>
+<p><strong>Information Stored</strong><br>The hierarchy of the workspace is saved which consists of the tree of workspace
+sequences and workspace cells. On loading it will remove the existing hierarchy
+and create a new one that matches the loaded configuration. For each cell it
+also stores the list of pages that it contains. On loading it will either create
+a new page to match the one that was saved or actually reuse the existing page
+if it still exists in the workspace. It determines if the same page exists by
+comparing the <em>UniqueName</em> of the page that was saved with the <em>UniqueName</em> of
+all the existing pages.</p>
+<p>When an existing page matches the incoming name it uses the existing page rather
+than create an entirely new page. This is ideal when you want to rearrange the
+existing set of pages as you can save and later reload the layout and it will
+rearrange those pages to the saved organization. Ensure you use consistent
+<em>KryptonPage.UniqueName</em> values for the pages so that the saved information
+continues to match the current pages.</p>
+<p>In a dynamic scenario you will have different sets of pages over time and so you
+will not always have the saved page already present in the workspace. In this
+case the loading will not find a match and so create a new page instance. It
+will restore the basic information about the page including the text, tool tip
+and image values. But it does not persist the set of child controls that exist
+on the page or the visual information such as modified <em>StateCommon</em> values. To
+recreate the set of child controls and any other page specific information you
+need to hook into the <em>PageSaving</em> and <em>PageLoading</em> events.</p>
+<p><strong>Global Custom Data</strong><br>You may need to store additional application specific data along with the layout
+configuration for use when reloading. You can do this quite easily by hooking
+into the <em>GlobalSaving</em> and <em>GlobalLoading</em> events. The saving event will
+provide an <em>XmlWriter *reference that should be used to save your extra
+information. Create additional XML elements with whatever information you need
+to persist. Loading provides an *XmlReader</em> that can be used to traverse and
+load back that same information.</p>
+<p>We recommend saving your own version number into the custom data so that in the
+future you can recognize a change in the way you have stored the data. This
+makes it easier to change the storage and then still be able to recognize older
+formats and be able to process them.</p>
+<p><strong>Page Custom Data</strong><br>Handling per-page custom data is similar to the above global custom data method.
+Use the <em>PageSaving</em> and <em>PageLoading</em> events to hook into the process and use
+the event parameters to get a reference to the actual page that is being
+saved/loaded. You are given a <em>XmlWriter</em> for saving and <em>XmlReader</em> for loading
+the data. An extra feature of the loading event is the ability to modify the
+page reference provided as an event parameter and have that new page reference
+used instead of the instance passed into the event. This allows you to override
+the loading process and force the use of your own designated page. If you
+override the page reference with <em>null</em> then you will prevent any page being
+added at all. So you can dynamically decide if a loading page is desired and use
+<em>null</em> to reject it from being added into the workspace.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

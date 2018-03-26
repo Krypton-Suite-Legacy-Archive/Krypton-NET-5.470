@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Tutorial – Expanding HeaderGroups (Stack)</p>
+<p><strong>1) Create a new Windows Forms project</strong>  </p>
+<p>This will automatically create a form in design mode as below.</p>
+<p><strong>2) Add a reference to the ComponentFactory.Krypton.Toolkit assembly</strong>  </p>
+<p><strong>C#</strong> : Right click the &#39;References&#39; group in your project and select the &#39;Add
+Reference...&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to navigate
+to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.  </p>
+<p><em>VB.NET</em> : Right click the project in the &#39;Solution Explorer&#39; window and choose
+the &#39;Add Reference&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to
+navigate to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.</p>
+<p><strong>3) Ensure that the Krypton Toolkit components are in the Toolbox</strong><br>If not the <a href="Using%20Krypton%20in%20VS2005.md">Using Krypton in VS2005</a>
+tutorial can be used to add them.  </p>
+<p><strong>4) Open the code view for the form and change the base class.</strong>  </p>
+<p>Change the base class from the default of &#39;Form&#39; to be
+&#39;ComponentFactory.Krypton.Toolkit.KryptonForm&#39;. Your new definition for C#
+would be: -</p>
+<p>public partial class Form1 : ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>If using VB.NET then your new definition should like this: -</p>
+<p>Partial Class Form1<br>    Inherits ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>Recompile the project and then show the form in design mode again, this time you
+should see custom chrome applied to the form.</p>
+<p><strong>5) Drag a KryptonPanel from the toolbox and drop it in the centre of the
+form</strong>  </p>
+<p>When dropped it should look like the following picture.</p>
+<p><strong>6) Use the KryptonPanel smart tag and click ‘Dock in parent container’</strong>  </p>
+<p>The panel will now occupy the entire client area even when the form is resized.</p>
+<p><strong>7) Modify the Padding property for the new KryptonPanel to 5 on all sides</strong>  </p>
+<p>We need to add padding because another control will be placed inside and we want
+a nice border around the contained control.</p>
+<p><strong>8) Drag a KryptonHeaderGroup from the toolbox and drop onto the panel</strong>  </p>
+<p><strong>9) Use the KryptonHeaderGroup smart tag and click ‘Hide secondary header&#39;</strong><br>This will result in the following picture with the header at the bottom removed
+from view.</p>
+<p><strong>10) Use the smart tag again and change the &#39;BackStyle&#39; to &#39;Panel -
+Alternate&#39;</strong><br>This gives the client area of the control the dark blue background as seen here.  </p>
+<p><strong>11) Click the client area to select the header groups inner panel and set
+Padding to be 5</strong><br>By clicking in the center of the header groups client area you will change the
+properties window to show the properties of the contained inner panel. Once
+selected you then alter the padding for this inner panel to be 5 on all sides.</p>
+<p><strong>12) Drag a KryptonLabel into the client area of the KryptonHeaderGroup</strong><br>Our example is going to use just a single label as the example content of the
+header group.  </p>
+<p><strong>13) Select the KryptonHeaderGroup and set the &#39;Dock&#39; property to &#39;Top&#39;</strong><br>We want the header group always placed at the top of the client area.</p>
+<p><strong>14) Now set the property &#39;AutoSize&#39; to &#39;True&#39;</strong><br>This ensures that as the header expands and collapses the size automatically
+changes to reflect this. In our example the size will shrink down so that the
+content of the header group is shown with a 5 pixel border around it.</p>
+<p><strong>15) Find the &#39;ButtonSpecs&#39; property and click the ellipses button</strong><br>We we will use the collection property to define the header button we need.  </p>
+<p><strong>16) Add one instance to the collection and set the &#39;Type&#39; to &#39;Arrow Up&#39;</strong><br>Use the &#39;Add&#39; button on the collection editor to add a new
+<em>ButtonSpec</em> entry. Then set the &#39;Type&#39; property of the entry to be &#39;Arrow Up&#39;.
+The new entry should look like the following. Because the header group
+defaults the &#39;AutoCollapseArrow&#39; property to &#39;True&#39; is means then at runtime the
+user can press this button specification in order to toggle the expand/collapse
+setting automatically.  </p>
+<p><strong>17) Drag another KryptonHeaderGroup from the toolbox and drop onto the panel</strong></p>
+<p><strong>18) Use the KryptonHeaderGroup smart tag and click ‘Hide secondary header&#39;</strong><br>This will result in the following picture with the header at the bottom removed
+from view.</p>
+<p><strong>19) Use the smart tag again and change the &#39;BackStyle&#39; to &#39;Panel -
+Alternate&#39;</strong><br>This gives the client area of the control the dark blue background as seen here.</p>
+<p><strong>20) Use the smart tag and change the &#39;Position&#39; of the &#39;Primary Header&#39; to
+&#39;Bottom&#39;</strong><br>As below the primary header should be moved to the bottom of the header group
+control.  </p>
+<p><strong>21) Click the client area to select the header groups inner panel and set
+Padding to be 5</strong><br>By clicking in the center of the header groups client area you will change the
+properties window to show the properties of the contained inner panel. Once
+selected you then alter the padding for this inner panel to be 5 on all sides.</p>
+<p><strong>22) Drag a KryptonLabel into the client area of the KryptonHeaderGroup</strong><br>Just as with the first header group,  we use just a single label as the example
+content of the header group.  </p>
+<p><strong>23) Select the KryptonHeaderGroup and set the &#39;Dock&#39; property to &#39;Bottom&#39;</strong><br>We want this header group always placed at the bottom of the client area.</p>
+<p><strong>24) Now set the property &#39;AutoSize&#39; to &#39;True&#39;</strong><br>This ensures that as the header expands and collapses the size automatically
+changes to reflect this. In our example the size will shrink down so that the
+content of the header group is shown with a 5 pixel border around it.</p>
+<p><strong>25) Find the &#39;ButtonSpecs&#39; property and click the ellipses button</strong><br>We we will use the collection property to define the header button we need.  </p>
+<p><strong>26) Add one instance to the collection and set the &#39;Type&#39; to &#39;Arrow Up&#39;</strong><br>Use the &#39;Add&#39; button on the collection editor to add a new
+<em>ButtonSpec</em> entry. Then set the &#39;Type&#39; property of the entry to be &#39;Arrow
+Down&#39;. Because the header group defaults the &#39;AutoCollapseArrow&#39; property to
+&#39;True&#39; is means then at runtime the user can press this button specification in
+order to toggle the expand/collapse setting automatically.  </p>
+<p><strong>27) Drag a KryptonGroup from the toolbox and drop onto the center of the
+client area</strong>  </p>
+<p><strong>28) Update the &#39;StateCommon -> Border -> DrawBorders&#39; property to
+&#39;Top,Bottom&#39;</strong><br>Because the centre group will always have a header group above and below we do
+not need the top and bottom borders just the let and right need drawing. The
+picture below shows the property that needs altering.  </p>
+<p><strong>29) Last of all set the &#39;Dock&#39; property to &#39;Fill&#39;</strong><br>We always want the group to fill up whatever space is left over after
+positioning and sizing the top and bottom header group.</p>
+<p>Now run the application and without writing a single line of code the top and
+bottom groups will collapse/expand as you click the appropriate header buttons.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

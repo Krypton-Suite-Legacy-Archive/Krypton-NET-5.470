@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Ribbon Tabs</p>
+<p>The ribbon is similar to a <em>TabControl</em> in that it has a set of tabs that are
+represented via headers. Headers are shown at the top of the ribbon control and
+presented from left to right. The ordering of the headers matches the
+ordering of non-contextual tabs in the <em>RibbonTabs</em> collection.  Note that
+contextual tabs are always displayed at the end of the headers in related
+groupings and so contextual tabs do not honor the ordering of the instances
+inside the <em>RibbonTabs</em> collection.   </p>
+<p>To view the properties for a tab at design time you just need to left click the
+tab header in the ribbon control and then use the <em>Properties</em> window to view
+and modify them. Alternatively you can use the <em>Document Outline</em> window to
+select the tab instance of interest and then use the <em>Properties</em> window.</p>
+<p><strong>Ribbon Tab Properties</strong><br>You can see in Figure 1 the ribbon properties relating to an individual tab.</p>
+<ul>
+<li>Figure 1 - Ribbon Tab Properties*</li>
+</ul>
+<p><strong>ContextName</strong><br>A non-contextual tab will leave this property empty because the tab does not
+belong to a context. If you want to associate this tab with a <em>RibbonContext</em>
+then you should set the same name in this property as is defined in the
+<em>RibbonContext.ContextName</em>. In that case the tab will only be displayed is the
+<em>SelectedContext</em> property of the ribbon control contains the
+<em>RibbonContext.ContextName</em>.</p>
+<p><strong>KeyTip</strong><br>When entering <em>KeyTips</em> mode each visible tab will show a <em>KeyTip</em> pop up with
+the string defined in this property. You should provide a unique <em>KeyTip</em> value
+for each tab in the ribbon control to ensure that all the tabs can be accessed
+via the keyboard. If multiple tabs have the same <em>KeyTip</em> then pressing the
+<em>KeyTip</em> will action the first tab that matches.</p>
+<p><strong>Text</strong><br>This is the display text for the tab and will appear in the header of the ribbon
+control when the tab is visible. The property is localizable so that you can
+define different values for different culture settings. A value must always be
+provided for this property, if you attempt to set an empty string it will
+default to <em>Tab</em> instead.</p>
+<p><strong>Visible</strong><br>A default value of <em>True</em> ensures the tab is make visible. Note that a
+contextual tab will not be visible if the associated context is not selected
+regardless of the <em>Visible</em> property value.</p>
+<p><strong>Groups</strong><br>Each tab instance contains a collection of groups that are displayed below the
+tab header when the tab is selected. Use this collection to add, remove and
+modify the displayed groups for the tab. To manipulate the set of child groups
+at design time you are recommend to use the helper elements that appear on the
+ribbon control and not to use the collection editor.</p>
+<p><strong>Tag</strong><br>Associate application specific information with the object instance by using
+this property.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4064 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class KryptonMonthCalendar
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class KryptonMonthCalendar
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar">
+  <h1 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar">Class KryptonMonthCalendar
+  </h1>
+  <div class="markdown level0 summary"><p>Enables the user to select a date using a visual monthly calendar display.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
+    <div class="level3"><span class="xref">System.Windows.Forms.Control</span></div>
+    <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html">VisualControlBase</a></div>
+    <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html">VisualSimpleBase</a></div>
+    <div class="level6"><span class="xref">KryptonMonthCalendar</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html#ComponentFactory_Krypton_Toolkit_VisualSimpleBase_AutoSizeMode">VisualSimpleBase.AutoSizeMode</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html#ComponentFactory_Krypton_Toolkit_VisualSimpleBase_GetPreferredSize_System_Drawing_Size_">VisualSimpleBase.GetPreferredSize(Size)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html#ComponentFactory_Krypton_Toolkit_VisualSimpleBase_BackColor">VisualSimpleBase.BackColor</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html#ComponentFactory_Krypton_Toolkit_VisualSimpleBase_Font">VisualSimpleBase.Font</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualSimpleBase.html#ComponentFactory_Krypton_Toolkit_VisualSimpleBase_ForeColor">VisualSimpleBase.ForeColor</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteChanged">VisualControlBase.PaletteChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Dispose_System_Boolean_">VisualControlBase.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuStrip">VisualControlBase.ContextMenuStrip</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_KryptonContextMenu">VisualControlBase.KryptonContextMenu</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PerformNeedPaint_System_Boolean_">VisualControlBase.PerformNeedPaint(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CheckPerformLayout">VisualControlBase.CheckPerformLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteMode">VisualControlBase.PaletteMode</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetPaletteMode">VisualControlBase.ResetPaletteMode()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Palette">VisualControlBase.Palette</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetPalette">VisualControlBase.ResetPalette()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Renderer">VisualControlBase.Renderer</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CreateToolStripRenderer">VisualControlBase.CreateToolStripRenderer()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_BackgroundImage">VisualControlBase.BackgroundImage</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_BackgroundImageLayout">VisualControlBase.BackgroundImageLayout</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewFromPoint_System_Drawing_Point_">VisualControlBase.ViewFromPoint(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewManager">VisualControlBase.ViewManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Redirector">VisualControlBase.Redirector</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedPaintDelegate">VisualControlBase.NeedPaintDelegate</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedPaintPaletteDelegate">VisualControlBase.NeedPaintPaletteDelegate</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ForceViewLayout">VisualControlBase.ForceViewLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_InvokeLayout">VisualControlBase.InvokeLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_MarkLayoutDirty">VisualControlBase.MarkLayoutDirty()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedTransparentPaint">VisualControlBase.NeedTransparentPaint</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaintBackground_System_Drawing_Graphics_System_Drawing_Brush_System_Drawing_Rectangle_">VisualControlBase.PaintBackground(Graphics, Brush, Rectangle)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CanProcessMnemonic">VisualControlBase.CanProcessMnemonic()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_EvalTransparentPaint">VisualControlBase.EvalTransparentPaint()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_EvalInvokePaint">VisualControlBase.EvalInvokePaint</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_TransparentParent">VisualControlBase.TransparentParent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnPaletteChanged_System_EventArgs_">VisualControlBase.OnPaletteChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnPaletteNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_">VisualControlBase.OnPaletteNeedPaint(Object, NeedLayoutEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_">VisualControlBase.OnNeedPaint(Object, NeedLayoutEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CreateRedirector">VisualControlBase.CreateRedirector()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_UpdateGlobalEvents_System_Boolean_">VisualControlBase.UpdateGlobalEvents(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnRightToLeftChanged_System_EventArgs_">VisualControlBase.OnRightToLeftChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseMove_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseMove(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseDown_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseDown(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseUp_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseUp(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseLeave_System_EventArgs_">VisualControlBase.OnMouseLeave(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_">VisualControlBase.OnKeyPress(KeyPressEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyUp_System_Windows_Forms_KeyEventArgs_">VisualControlBase.OnKeyUp(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnGlobalPaletteChanged_System_Object_System_EventArgs_">VisualControlBase.OnGlobalPaletteChanged(Object, EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnUserPreferenceChanged_System_Object_Microsoft_Win32_UserPreferenceChangedEventArgs_">VisualControlBase.OnUserPreferenceChanged(Object, UserPreferenceChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ProcessCmdKey_System_Windows_Forms_Message__System_Windows_Forms_Keys_">VisualControlBase.ProcessCmdKey(Message, Keys)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_WndProc_System_Windows_Forms_Message__">VisualControlBase.WndProc(Message)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuClosed">VisualControlBase.ContextMenuClosed()</a>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetAccessibilityObjectById(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetAutoSizeMode(System.Windows.Forms.AutoSizeMode)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetAutoSizeMode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityNotifyClients(System.Windows.Forms.AccessibleEvents, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityNotifyClients(System.Windows.Forms.AccessibleEvents, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BeginInvoke(System.Delegate)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BeginInvoke(System.Delegate, System.Object[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BringToFront()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Contains(System.Windows.Forms.Control)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateAccessibilityInstance()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateControlsInstance()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateGraphics()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefWndProc(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DestroyHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoDragDrop(System.Object, System.Windows.Forms.DragDropEffects)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DrawToBitmap(System.Drawing.Bitmap, System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.EndInvoke(System.IAsyncResult)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FindForm()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetTopLevel()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseKeyEvent(System.Object, System.Windows.Forms.KeyEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseMouseEvent(System.Object, System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Focus()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FromChildHandle(System.IntPtr)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FromHandle(System.IntPtr)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetChildAtPoint(System.Drawing.Point, System.Windows.Forms.GetChildAtPointSkip)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetChildAtPoint(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetContainerControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetScaledBounds(System.Drawing.Rectangle, System.Drawing.SizeF, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetNextControl(System.Windows.Forms.Control, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetStyle(System.Windows.Forms.ControlStyles)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Hide()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InitLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Region)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Region, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Rectangle, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invoke(System.Delegate)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invoke(System.Delegate, System.Object[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokePaint(System.Windows.Forms.Control, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokePaintBackground(System.Windows.Forms.Control, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsKeyLocked(System.Windows.Forms.Keys)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsMnemonic(System.Char, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LogicalToDeviceUnits(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleBitmapLogicalToDevice(System.Drawing.Bitmap)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.NotifyInvalidate(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeOnClick(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnAutoSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnBindingContextChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnCausesValidationChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnContextMenuChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnContextMenuStripChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnCursorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDockChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnNotifyMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBackColorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBackgroundImageChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBindingContextChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentCursorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentEnabledChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentFontChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentForeColorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentRightToLeftChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentVisibleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPrint(System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnTabIndexChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnTabStopChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnVisibleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnClientSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnControlAdded(System.Windows.Forms.ControlEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnControlRemoved(System.Windows.Forms.ControlEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnCreateControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnLocationChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnHandleDestroyed(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragEnter(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragOver(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragDrop(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnEnter(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeGotFocus(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnHelpRequested(System.Windows.Forms.HelpEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeLostFocus(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMarginChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseClick(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseCaptureChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseEnter(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDpiChangedBeforeParent(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDpiChangedAfterParent(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseHover(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseWheel(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMove(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPaintBackground(System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnRegionChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnResize(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnStyleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnSystemColorsChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnValidating(System.ComponentModel.CancelEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnValidated(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RescaleConstantsForDpi(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PerformLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PerformLayout(System.Windows.Forms.Control, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PointToClient(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PointToScreen(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreProcessMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreProcessControlMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessDialogChar(System.Char)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessDialogKey(System.Windows.Forms.Keys)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessKeyEventArgs(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessKeyMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessKeyPreview(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessMnemonic(System.Char)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseDragEvent(System.Object, System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaisePaintEvent(System.Object, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RecreateHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RectangleToClient(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RectangleToScreen(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ReflectMessage(System.IntPtr, System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Refresh()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResetMouseEventArgs()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResetText()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResumeLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResumeLayout(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Scale(System.Drawing.SizeF)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleControl(System.Drawing.SizeF, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Select()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Select(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SelectNextControl(System.Windows.Forms.Control, System.Boolean, System.Boolean, System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SendToBack()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetBounds(System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetBounds(System.Int32, System.Int32, System.Int32, System.Int32, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetClientSizeCore(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SizeFromClientSize(System.Drawing.Size)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetStyle(System.Windows.Forms.ControlStyles, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetTopLevel(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetVisibleCore(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Windows.Forms.HorizontalAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Windows.Forms.LeftRightAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Drawing.ContentAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateHorizontal(System.Windows.Forms.HorizontalAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateLeftRight(System.Windows.Forms.LeftRightAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateContent(System.Drawing.ContentAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Show()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SuspendLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Update()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds(System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateZOrder()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateStyles()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragEnter(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragOver(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragDrop(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnImeModeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityObject</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleDefaultActionDescription</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleDescription</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleRole</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AllowDrop</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Anchor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AutoScrollOffset</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LayoutEngine</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BindingContext</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Bottom</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Bounds</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanRaiseEvents</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanSelect</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Capture</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CausesValidation</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientRectangle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CompanyName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContainsFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenu</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Controls</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Created</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateParams</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Cursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DataBindings</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultBackColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultCursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultFont</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultForeColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMargin</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMaximumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMinimumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultPadding</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DeviceDpi</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DisplayRectangle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Disposing</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Dock</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoubleBuffered</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Enabled</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Focused</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FontHeight</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Handle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HasChildren</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Height</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsHandleCreated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeRequired</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsAccessible</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsMirrored</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Left</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Location</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Margin</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MaximumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MinimumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ModifierKeys</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseButtons</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MousePosition</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Name</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Parent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProductName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProductVersion</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RecreatingHandle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Region</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RenderRightToLeft</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResizeRedraw</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Right</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RightToLeft</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleChildren</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Site</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Size</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabIndex</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabStop</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Tag</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Text</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Top</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TopLevelControl</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ShowKeyboardCues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ShowFocusCues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UseWaitCursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Visible</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Width</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreferredSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Padding</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanEnableIme</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeModeBase</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PropagatingImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackColorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackgroundImageChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackgroundImageLayoutChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BindingContextChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CausesValidationChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientSizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenuChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenuStripChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CursorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DockChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.EnabledChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FontChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ForeColorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LocationChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MarginChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RegionChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RightToLeftChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabIndexChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabStopChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TextChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.VisibleChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Click</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ControlAdded</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ControlRemoved</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragDrop</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragEnter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragOver</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragLeave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GiveFeedback</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HandleCreated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HandleDestroyed</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HelpRequested</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PaddingChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Paint</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.QueryContinueDrag</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.QueryAccessibilityHelp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoubleClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Enter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GotFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyPress</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyUp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Layout</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Leave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LostFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseDoubleClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseCaptureChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseEnter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseLeave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DpiChangedBeforeParent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DpiChangedAfterParent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseHover</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseMove</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseUp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseWheel</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Move</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreviewKeyDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Resize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ChangeUICues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.StyleChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SystemColorsChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Validating</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Validated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ParentChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeModeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.GetService(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Events</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Container</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.DesignMode</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Disposed</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ToolboxBitmap(typeof (KryptonMonthCalendar), &quot;ToolboxBitmaps.KryptonMonthCalendar.bmp&quot;)]
+[DefaultBindingProperty(&quot;SelectionRange&quot;)]
+[ClassInterface(ClassInterfaceType.AutoDispatch)]
+[ComVisible(true)]
+public class KryptonMonthCalendar : VisualSimpleBase, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable, IKryptonDebug, IKryptonMonthCalendar</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar__ctor" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar__ctor" class="expander" data-toggle="collapse">KryptonMonthCalendar()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar__ctor" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonMonthCalendar class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonMonthCalendar()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AllowButtonSpecToolTips_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AllowButtonSpecToolTips*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AllowButtonSpecToolTips" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AllowButtonSpecToolTips"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AllowButtonSpecToolTips" class="expander" data-toggle="collapse">AllowButtonSpecToolTips</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AllowButtonSpecToolTips" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets a value indicating if tooltips should be displayed for button specs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowButtonSpecToolTips { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AnnuallyBoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AnnuallyBoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AnnuallyBoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AnnuallyBoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AnnuallyBoldedDates" class="expander" data-toggle="collapse">AnnuallyBoldedDates</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AnnuallyBoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the array of DateTime objects that determines which annual days are displayed in bold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime[] AnnuallyBoldedDates { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_BoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.BoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_BoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.BoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_BoldedDates" class="expander" data-toggle="collapse">BoldedDates</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_BoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the array of DateTime objects that determines which nonrecurring dates are displayed in bold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime[] BoldedDates { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ButtonSpecs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ButtonSpecs*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ButtonSpecs" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ButtonSpecs"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ButtonSpecs" class="expander" data-toggle="collapse">ButtonSpecs</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ButtonSpecs" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the collection of button specifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MonthCalendarButtonSpecCollection ButtonSpecs { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.MonthCalendarButtonSpecCollection.html">MonthCalendarButtonSpecCollection</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_CalendarDimensions_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.CalendarDimensions*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_CalendarDimensions" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.CalendarDimensions"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_CalendarDimensions" class="expander" data-toggle="collapse">CalendarDimensions</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_CalendarDimensions" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the number of columns and rows of months displayed. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size CalendarDimensions { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_CalendarDimensions">IKryptonMonthCalendar.CalendarDimensions</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBackStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ControlBackStyle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBackStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ControlBackStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBackStyle" class="expander" data-toggle="collapse">ControlBackStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBackStyle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the background style for the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteBackStyle ControlBackStyle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBackStyle.html">PaletteBackStyle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBorderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ControlBorderStyle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBorderStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ControlBorderStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBorderStyle" class="expander" data-toggle="collapse">ControlBorderStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ControlBorderStyle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the border style for the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteBorderStyle ControlBorderStyle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.html">PaletteBorderStyle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayOfWeekStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.DayOfWeekStyle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayOfWeekStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.DayOfWeekStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayOfWeekStyle" class="expander" data-toggle="collapse">DayOfWeekStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayOfWeekStyle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the content style for the day of week labels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ButtonStyle DayOfWeekStyle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonStyle.html">ButtonStyle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.DayStyle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.DayStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayStyle" class="expander" data-toggle="collapse">DayStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DayStyle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the content style for the day entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ButtonStyle DayStyle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ButtonStyle.html">ButtonStyle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_FirstDayOfWeek_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.FirstDayOfWeek*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_FirstDayOfWeek" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.FirstDayOfWeek"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_FirstDayOfWeek" class="expander" data-toggle="collapse">FirstDayOfWeek</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_FirstDayOfWeek" class="collapse in">
+  <div class="markdown level1 summary"><p>First day of the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Day FirstDayOfWeek { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Day</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_FirstDayOfWeek">IKryptonMonthCalendar.FirstDayOfWeek</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_HeaderStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.HeaderStyle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_HeaderStyle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.HeaderStyle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_HeaderStyle" class="expander" data-toggle="collapse">HeaderStyle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_HeaderStyle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the header style for the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeaderStyle HeaderStyle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.HeaderStyle.html">HeaderStyle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MaxDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxDate" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MaxDate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxDate" class="expander" data-toggle="collapse">MaxDate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxDate" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the maximum allowable date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime MaxDate { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_MaxDate">IKryptonMonthCalendar.MaxDate</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxSelectionCount_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MaxSelectionCount*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxSelectionCount" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MaxSelectionCount"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxSelectionCount" class="expander" data-toggle="collapse">MaxSelectionCount</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MaxSelectionCount" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the maximum number of days that can be selected in a month calendar control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSelectionCount { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_MaxSelectionCount">IKryptonMonthCalendar.MaxSelectionCount</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MinDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MinDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MinDate" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MinDate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MinDate" class="expander" data-toggle="collapse">MinDate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MinDate" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the minimum allowable date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime MinDate { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_MinDate">IKryptonMonthCalendar.MinDate</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MonthlyBoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MonthlyBoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MonthlyBoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.MonthlyBoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MonthlyBoldedDates" class="expander" data-toggle="collapse">MonthlyBoldedDates</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_MonthlyBoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the array of DateTime objects that determine which monthly days to bold. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime[] MonthlyBoldedDates { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideBolded_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideBolded*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideBolded" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideBolded"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideBolded" class="expander" data-toggle="collapse">OverrideBolded</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideBolded" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the day appearance when it is bolded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarStateRedirect OverrideBolded { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarStateRedirect.html">PaletteMonthCalendarStateRedirect</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideFocus_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideFocus*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideFocus" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideFocus"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideFocus" class="expander" data-toggle="collapse">OverrideFocus</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideFocus" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the day appearance when it has focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarStateRedirect OverrideFocus { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarStateRedirect.html">PaletteMonthCalendarStateRedirect</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideToday_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideToday*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideToday" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OverrideToday"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideToday" class="expander" data-toggle="collapse">OverrideToday</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OverrideToday" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the day appearance when it is todays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarStateRedirect OverrideToday { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarStateRedirect.html">PaletteMonthCalendarStateRedirect</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ScrollChange_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ScrollChange*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ScrollChange" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ScrollChange"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ScrollChange" class="expander" data-toggle="collapse">ScrollChange</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ScrollChange" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the number of months to scroll when next/prev buttons are used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ScrollChange { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_ScrollChange">IKryptonMonthCalendar.ScrollChange</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEnd_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionEnd*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEnd" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionEnd"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEnd" class="expander" data-toggle="collapse">SelectionEnd</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEnd" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the end date of the selected range of dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Bindable(true)]
+public DateTime SelectionEnd { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_SelectionEnd">IKryptonMonthCalendar.SelectionEnd</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionRange_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionRange*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionRange" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionRange"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionRange" class="expander" data-toggle="collapse">SelectionRange</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionRange" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the selected range of dates for a month calendar control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Bindable(true)]
+public SelectionRange SelectionRange { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.SelectionRange</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStart_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionStart*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStart" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionStart"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStart" class="expander" data-toggle="collapse">SelectionStart</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStart" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the start date of the selected range of dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Bindable(true)]
+public DateTime SelectionStart { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_SelectionStart">IKryptonMonthCalendar.SelectionStart</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowToday_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowToday*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowToday" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowToday"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowToday" class="expander" data-toggle="collapse">ShowToday</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowToday" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets if the control will display todays date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowToday { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowTodayCircle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowTodayCircle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowTodayCircle" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowTodayCircle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowTodayCircle" class="expander" data-toggle="collapse">ShowTodayCircle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowTodayCircle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets if the control will circle the today date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowTodayCircle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowWeekNumbers_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowWeekNumbers*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowWeekNumbers" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.ShowWeekNumbers"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowWeekNumbers" class="expander" data-toggle="collapse">ShowWeekNumbers</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_ShowWeekNumbers" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets if week numbers to the left of each row.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowWeekNumbers { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedNormal_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedNormal*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedNormal" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedNormal"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedNormal" class="expander" data-toggle="collapse">StateCheckedNormal</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedNormal" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the checked normal month calendar appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarState StateCheckedNormal { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarState.html">PaletteMonthCalendarState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateCheckedNormal">IKryptonMonthCalendar.StateCheckedNormal</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedPressed_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedPressed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedPressed" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedPressed"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedPressed" class="expander" data-toggle="collapse">StateCheckedPressed</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedPressed" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the checked pressed month calendar appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarState StateCheckedPressed { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarState.html">PaletteMonthCalendarState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateCheckedPressed">IKryptonMonthCalendar.StateCheckedPressed</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedTracking_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedTracking*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedTracking" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCheckedTracking"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedTracking" class="expander" data-toggle="collapse">StateCheckedTracking</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCheckedTracking" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the checked tracking month calendar appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarState StateCheckedTracking { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarState.html">PaletteMonthCalendarState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateCheckedTracking">IKryptonMonthCalendar.StateCheckedTracking</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCommon_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCommon*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCommon" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateCommon"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCommon" class="expander" data-toggle="collapse">StateCommon</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateCommon" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the common month calendar appearance that other states can override.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarRedirect StateCommon { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarRedirect.html">PaletteMonthCalendarRedirect</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateCommon">IKryptonMonthCalendar.StateCommon</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateDisabled_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateDisabled*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateDisabled" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateDisabled"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateDisabled" class="expander" data-toggle="collapse">StateDisabled</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateDisabled" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the month calendar disabled appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarDoubleState StateDisabled { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarDoubleState.html">PaletteMonthCalendarDoubleState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateDisabled">IKryptonMonthCalendar.StateDisabled</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateNormal_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateNormal*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateNormal" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateNormal"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateNormal" class="expander" data-toggle="collapse">StateNormal</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateNormal" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the month calendar normal appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarDoubleState StateNormal { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarDoubleState.html">PaletteMonthCalendarDoubleState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateNormal">IKryptonMonthCalendar.StateNormal</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StatePressed_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StatePressed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StatePressed" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StatePressed"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StatePressed" class="expander" data-toggle="collapse">StatePressed</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StatePressed" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the pressed month calendar appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarState StatePressed { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarState.html">PaletteMonthCalendarState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StatePressed">IKryptonMonthCalendar.StatePressed</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateTracking_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateTracking*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateTracking" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.StateTracking"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateTracking" class="expander" data-toggle="collapse">StateTracking</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_StateTracking" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets access to the tracking month calendar appearance entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaletteMonthCalendarState StateTracking { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteMonthCalendarState.html">PaletteMonthCalendarState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_StateTracking">IKryptonMonthCalendar.StateTracking</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.TodayDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayDate" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.TodayDate"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayDate" class="expander" data-toggle="collapse">TodayDate</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayDate" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets today&apos;s date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime TodayDate { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.DateTime</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_TodayDate">IKryptonMonthCalendar.TodayDate</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayFormat_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.TodayFormat*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayFormat" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.TodayFormat"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayFormat" class="expander" data-toggle="collapse">TodayFormat</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_TodayFormat" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the today date format string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TodayFormat { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_TodayFormat">IKryptonMonthCalendar.TodayFormat</a></div>
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddAnnuallyBoldedDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddAnnuallyBoldedDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddAnnuallyBoldedDate_System_DateTime_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddAnnuallyBoldedDate(System.DateTime)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddAnnuallyBoldedDate_System_DateTime_" class="expander" data-toggle="collapse">AddAnnuallyBoldedDate(DateTime)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddAnnuallyBoldedDate_System_DateTime_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds a day that is displayed in bold on an annual basis in the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddAnnuallyBoldedDate(DateTime date)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.DateTime</span></span>
+        <span class="parametername">date</span>
+        <p><p>The date to be displayed in bold.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddBoldedDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddBoldedDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddBoldedDate_System_DateTime_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddBoldedDate(System.DateTime)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddBoldedDate_System_DateTime_" class="expander" data-toggle="collapse">AddBoldedDate(DateTime)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddBoldedDate_System_DateTime_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds a day to be displayed in bold in the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddBoldedDate(DateTime date)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.DateTime</span></span>
+        <span class="parametername">date</span>
+        <p><p>The date to be displayed in bold.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddMonthlyBoldedDate_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddMonthlyBoldedDate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddMonthlyBoldedDate_System_DateTime_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.AddMonthlyBoldedDate(System.DateTime)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddMonthlyBoldedDate_System_DateTime_" class="expander" data-toggle="collapse">AddMonthlyBoldedDate(DateTime)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_AddMonthlyBoldedDate_System_DateTime_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds a day that is displayed in bold on a monthly basis in the month calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddMonthlyBoldedDate(DateTime date)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.DateTime</span></span>
+        <span class="parametername">date</span>
+        <p><p>The date to be displayed in bold.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_GetRenderer_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.GetRenderer*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_GetRenderer" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.GetRenderer"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_GetRenderer" class="expander" data-toggle="collapse">GetRenderer()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_GetRenderer" class="collapse in">
+  <div class="markdown level1 summary"><p>Get the renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderer GetRenderer()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IRenderer.html">IRenderer</a>
+        <p><p>Render instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_GetRenderer">IKryptonMonthCalendar.GetRenderer()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputChar_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.IsInputChar*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputChar_System_Char_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.IsInputChar(System.Char)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputChar_System_Char_" class="expander" data-toggle="collapse">IsInputChar(Char)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputChar_System_Char_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines if a character is an input character that the control recognizes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool IsInputChar(char charCode)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Char</span></span>
+        <span class="parametername">charCode</span>
+        <p><p>The character to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>true if the character should be sent directly to the control and not preprocessed; otherwise, false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.IsInputChar(System.Char)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputKey_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.IsInputKey*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputKey_System_Windows_Forms_Keys_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.IsInputKey(System.Windows.Forms.Keys)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputKey_System_Windows_Forms_Keys_" class="expander" data-toggle="collapse">IsInputKey(Keys)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_IsInputKey_System_Windows_Forms_Keys_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the specified key is a regular input key or a special key that requires preprocessing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool IsInputKey(Keys keyData)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Keys</span></span>
+        <span class="parametername">keyData</span>
+        <p><p>One of the Keys values.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>true if the specified key is a regular input key; otherwise, false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.IsInputKey(System.Windows.Forms.Keys)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackColorChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackColorChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackColorChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackColorChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackColorChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnBackColorChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackColorChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the BackColorChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnBackColorChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnBackColorChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackgroundImageChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackgroundImageChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnBackgroundImageChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the BackgroundImageChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnBackgroundImageChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnBackgroundImageChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageLayoutChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackgroundImageLayoutChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageLayoutChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnBackgroundImageLayoutChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageLayoutChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnBackgroundImageLayoutChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnBackgroundImageLayoutChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the BackgroundImageLayoutChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnBackgroundImageLayoutChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnBackgroundImageLayoutChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnButtonSpecChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnButtonSpecChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnButtonSpecChanged_System_Object_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnButtonSpecChanged(System.Object,System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnButtonSpecChanged_System_Object_System_EventArgs_" class="expander" data-toggle="collapse">OnButtonSpecChanged(Object, EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnButtonSpecChanged_System_Object_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Processes a notification from palette storage of a button spec change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnButtonSpecChanged(object sender, EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">sender</span>
+        <p><p>Source of notification.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs containing event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnButtonSpecChanged_System_Object_System_EventArgs_">VisualControlBase.OnButtonSpecChanged(Object, EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnClick_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnClick*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnClick(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnClick_System_EventArgs_" class="expander" data-toggle="collapse">OnClick(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnClick_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Click event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnClick(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnClick(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDateChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnDateChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDateChanged_System_Windows_Forms_DateRangeEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnDateChanged(System.Windows.Forms.DateRangeEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDateChanged_System_Windows_Forms_DateRangeEventArgs_" class="expander" data-toggle="collapse">OnDateChanged(DateRangeEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDateChanged_System_Windows_Forms_DateRangeEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises when the DateChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDateChanged(DateRangeEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.DateRangeEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDoubleClick_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnDoubleClick*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDoubleClick_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnDoubleClick(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDoubleClick_System_EventArgs_" class="expander" data-toggle="collapse">OnDoubleClick(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnDoubleClick_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the DoubleClick event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDoubleClick(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnDoubleClick_System_EventArgs_">VisualControlBase.OnDoubleClick(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnEnabledChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnEnabledChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnEnabledChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnEnabledChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnEnabledChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnEnabledChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnEnabledChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the EnabledChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnabledChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnEnabledChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnFontChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnFontChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnFontChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnFontChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnFontChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnFontChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnFontChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the FontChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnFontChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnFontChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnForeColorChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnForeColorChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnForeColorChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnForeColorChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnForeColorChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnForeColorChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnForeColorChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the ForeColorChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnForeColorChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnForeColorChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnGotFocus_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnGotFocus*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnGotFocus_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnGotFocus(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnGotFocus_System_EventArgs_" class="expander" data-toggle="collapse">OnGotFocus(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnGotFocus_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises when the GotFocus event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnGotFocus(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnGotFocus_System_EventArgs_">VisualControlBase.OnGotFocus(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnKeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnKeyDown*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnKeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnKeyDown(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">OnKeyDown(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnKeyDown_System_Windows_Forms_KeyEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the KeyDown event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnKeyDown(KeyEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyDown_System_Windows_Forms_KeyEventArgs_">VisualControlBase.OnKeyDown(KeyEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLayout_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnLayout*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLayout_System_Windows_Forms_LayoutEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnLayout(System.Windows.Forms.LayoutEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="expander" data-toggle="collapse">OnLayout(LayoutEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLayout_System_Windows_Forms_LayoutEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Layout event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnLayout(LayoutEventArgs levent)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.LayoutEventArgs</span></span>
+        <span class="parametername">levent</span>
+        <p><p>A LayoutEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnLayout_System_Windows_Forms_LayoutEventArgs_">VisualControlBase.OnLayout(LayoutEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLostFocus_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnLostFocus*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLostFocus_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnLostFocus(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLostFocus_System_EventArgs_" class="expander" data-toggle="collapse">OnLostFocus(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnLostFocus_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises when the LostFocus event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnLostFocus(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnLostFocus_System_EventArgs_">VisualControlBase.OnLostFocus(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaddingChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnPaddingChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaddingChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnPaddingChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaddingChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnPaddingChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaddingChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the PaddingChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPaddingChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnPaddingChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaint_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnPaint*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaint_System_Windows_Forms_PaintEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnPaint(System.Windows.Forms.PaintEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaint_System_Windows_Forms_PaintEventArgs_" class="expander" data-toggle="collapse">OnPaint(PaintEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnPaint_System_Windows_Forms_PaintEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the Paint event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPaint(PaintEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.PaintEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An PaintEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnPaint_System_Windows_Forms_PaintEventArgs_">VisualControlBase.OnPaint(PaintEventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionEndChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnSelectionEndChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionEndChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnSelectionEndChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionEndChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnSelectionEndChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionEndChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises when the SelectionEndChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSelectionEndChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionStartChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnSelectionStartChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionStartChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnSelectionStartChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionStartChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnSelectionStartChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnSelectionStartChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises when the SelectionStartChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSelectionStartChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnTextChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnTextChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnTextChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.OnTextChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnTextChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnTextChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_OnTextChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Raises the TextChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnTextChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>An EventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnTextChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllAnnuallyBoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllAnnuallyBoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllAnnuallyBoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllAnnuallyBoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllAnnuallyBoldedDates" class="expander" data-toggle="collapse">RemoveAllAnnuallyBoldedDates()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllAnnuallyBoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes all the annually bold dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAllAnnuallyBoldedDates()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllBoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllBoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllBoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllBoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllBoldedDates" class="expander" data-toggle="collapse">RemoveAllBoldedDates()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllBoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes all the nonrecurring bold dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAllBoldedDates()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllMonthlyBoldedDates_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllMonthlyBoldedDates*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllMonthlyBoldedDates" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.RemoveAllMonthlyBoldedDates"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllMonthlyBoldedDates" class="expander" data-toggle="collapse">RemoveAllMonthlyBoldedDates()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_RemoveAllMonthlyBoldedDates" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes all the monthly bold dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAllMonthlyBoldedDates()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetBoundsCore_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SetBoundsCore*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" class="expander" data-toggle="collapse">SetBoundsCore(Int32, Int32, Int32, Int32, BoundsSpecified)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs the work of setting the specified bounds of this control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">x</span>
+        <p><p>The new Left property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">y</span>
+        <p><p>The new Top property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">width</span>
+        <p><p>The new Width property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">height</span>
+        <p><p>The new Height property value of the control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.BoundsSpecified</span></span>
+        <span class="parametername">specified</span>
+        <p><p>A bitwise combination of the BoundsSpecified values.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.SetBoundsCore(System.Int32, System.Int32, System.Int32, System.Int32, System.Windows.Forms.BoundsSpecified)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetSelectionRange_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SetSelectionRange*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetSelectionRange_System_DateTime_System_DateTime_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SetSelectionRange(System.DateTime,System.DateTime)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetSelectionRange_System_DateTime_System_DateTime_" class="expander" data-toggle="collapse">SetSelectionRange(DateTime, DateTime)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SetSelectionRange_System_DateTime_System_DateTime_" class="collapse in">
+  <div class="markdown level1 summary"><p>Set the selection range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSelectionRange(DateTime start, DateTime end)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.DateTime</span></span>
+        <span class="parametername">start</span>
+        <p><p>New starting date.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.DateTime</span></span>
+        <span class="parametername">end</span>
+        <p><p>New ending date.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.IKryptonMonthCalendar.html#ComponentFactory_Krypton_Toolkit_IKryptonMonthCalendar_SetSelectionRange_System_DateTime_System_DateTime_">IKryptonMonthCalendar.SetSelectionRange(DateTime, DateTime)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentOutOfRangeException</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DateChanged" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.DateChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DateChanged" class="expander" data-toggle="collapse">DateChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_DateChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when the selected date changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DateRangeEventHandler DateChanged</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.DateRangeEventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEndChanged" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionEndChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEndChanged" class="expander" data-toggle="collapse">SelectionEndChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionEndChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when the selected end date changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler SelectionEndChanged</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStartChanged" data-uid="ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar.SelectionStartChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStartChanged" class="expander" data-toggle="collapse">SelectionStartChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonMonthCalendar_SelectionStartChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when the selected start date changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler SelectionStartChanged</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

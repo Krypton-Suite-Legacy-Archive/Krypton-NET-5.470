@@ -1,10 +1,20 @@
-# [Krypton](/help/logo.png)-NET-4.7 
+# ![Krypton](/help/logo.png)-NET-4.7 
 
 =======
 
 ## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `ComponentFactory.Krypton.Design.dll` in ALL of your projects at ALL times!
 
-# ["Toolkit help index"](https://rawgit.com/Smurf-IV/Krypton-NET-4.7/master/Help/index.html)
+# ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
+
+=======
+
+## 2018-03-25 More work on the help pages
+* Make the Help relevant to the Actual Code #17
+* Change `bmp`'s to `png`'s
+* Fix location of source for Help
+* Change output to be clearer
+* Remove previous output *leftovers*
+* Add instructions on how to generate
 
 =======
 
@@ -25,7 +35,7 @@
 =======
 
 ## 2018-03-19 Renderer class changes (Version 556, build date 19th March, 2018)
-* Changed some classes from `internal` to `public` for easeier accessibility for the **Extended Toolkit**
+* Changed some classes from `internal` to `public` for easier accessibility for the **Extended Toolkit**
 
 =======
 
