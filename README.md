@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-03-26 Version 561
+* Build 561 (build date Monday 26th March, 2018) is now available from the **releases** tab.
+
+=======
+
 ## 2018-03-25 More work on the help pages
 * Make the Help relevant to the Actual Code #17
 * Change `bmp`'s to `png`'s
