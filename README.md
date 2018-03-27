@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-03-27 **`KryptonRibbon.cs`** version 562
+* Build 562 (build date 27th March, 2017) fixes the issue as noted in #35
+
+=======
+
 ## 2018-03-26 Version 561
 * Build 561 (build date Monday 26th March, 2018) is now available from the **releases** tab.
 
