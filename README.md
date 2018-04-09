@@ -8,6 +8,12 @@
 
 =======
 
+## 2018-04-09 ** Use All `C#` features
+* Change the projects to at least recognise C#7.2 features and enhancements - _to be applied in the future_
+* Some tinkering with spelling corrections - _to be applied in the future_
+
+=======
+
 ## 2018-03-27 **`KryptonRibbon.cs`** version 562
 * Build 562 (build date 27th March, 2017) fixes the issue as noted in #35
 

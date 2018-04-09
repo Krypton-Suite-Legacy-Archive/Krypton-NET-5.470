@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="text">String to measure.</param>
         /// <param name="font">Font object that defines the text format of the string.</param>
         /// <param name="trim">How to trim excess text.</param>
-        /// <param name="align">How to align multine text.</param>
+        /// <param name="align">How to align multi-line text.</param>
         /// <param name="prefix">How to process prefix characters.</param>
         /// <param name="hint">Rendering hint.</param>
         /// <param name="composition">Should draw on a composition element.</param>
@@ -250,7 +250,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Invert the dimensions of the rectangle for drawing upwards
                             rect = new Rectangle(rect.X, rect.Y, rect.Height, rect.Width);
 
-                            // Translate back from a quater left turn to the original place 
+                            // Translate back from a quarter left turn to the original place 
                             translateX = rect.X - rect.Y - 1;
                             translateY = rect.X + rect.Y + rect.Width;
                             rotation = 270;
@@ -259,7 +259,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Invert the dimensions of the rectangle for drawing upwards
                             rect = new Rectangle(rect.X, rect.Y, rect.Height, rect.Width);
 
-                            // Translate back from a quater right turn to the original place 
+                            // Translate back from a quarter right turn to the original place 
                             translateX = rect.X + rect.Y + rect.Height + 1;
                             translateY = -(rect.X - rect.Y);
                             rotation = 90f;
@@ -341,14 +341,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private static Color ContrastColor(Color color)
         {
-            //  Counting the perceptive luminance - human eye favors green color... 
+            //  Counting the perceptive luminance - human eye favours green colour... 
             double a = (1
                         - (((0.299 * color.R)
                         + ((0.587 * color.G) + (0.114 * color.B)))
                         / 255));
             int d = a < 0.5 ? 0 : 255;
 
-            //  dark colors - white font
+            //  dark colours - white font
             return Color.FromArgb(d, d, d);
         }
         #endregion
@@ -362,7 +362,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="font">Font to use for text.</param>
         /// <param name="bounds">Bounding area for the text.</param>
         /// <param name="state">State of the source element.</param>
-        /// <param name="color">Color of the text.</param>
+        /// <param name="color"><see cref="Color"/> of the text.</param>
         /// <param name="copyBackground">Should existing background be copied into the bitmap.</param>
         public static void DrawCompositionGlowingText(Graphics g,
                                                       string text,
@@ -386,7 +386,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 bmi.biBitCount = 32;
                 bmi.biPlanes = 1;
 
-                // Create a device independant bitmp and select into the memory DC
+                // Create a device independent bitmap and select into the memory DC
                 IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
                 PI.SelectObject(mDC, hDIB);
 
@@ -463,7 +463,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="font">Font to use for text.</param>
         /// <param name="bounds">Bounding area for the text.</param>
         /// <param name="state">State of the source element.</param>
-        /// <param name="color">Color of the text.</param>
+        /// <param name="color"><see cref="Color"/> of the text.</param>
         /// <param name="copyBackground">Should existing background be copied into the bitmap.</param>
         /// <param name="sf">StringFormat of the memento.</param>
         public static void DrawCompositionText(Graphics g,
@@ -489,7 +489,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 bmi.biBitCount = 32;
                 bmi.biPlanes = 1;
 
-                // Create a device independant bitmp and select into the memory DC
+                // Create a device independent bitmap and select into the memory DC
                 IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
                 PI.SelectObject(mDC, hDIB);
 
@@ -664,46 +664,46 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Translation table: http://msdn.microsoft.com/msdnmag/issues/06/03/TextRendering/default.aspx?fig=true#fig4
 
-            // Horizontal Alignment
-            if (sf.Alignment == StringAlignment.Center)
+            switch (sf.Alignment)
             {
-                flags = flags & TextFormatFlags.HorizontalCenter;
-            }
-            else if (sf.Alignment == StringAlignment.Far)
-            {
-                flags = flags & TextFormatFlags.Right;
-            }
-            else
-            {
-                flags = flags & TextFormatFlags.Left;
-            }
-
-            // Vertical Alignment
-            if (sf.LineAlignment == StringAlignment.Far)
-            {
-                flags = flags & TextFormatFlags.Bottom;
-            }
-            else if (sf.LineAlignment == StringAlignment.Center)
-            {
-                flags = flags & TextFormatFlags.VerticalCenter;
-            }
-            else
-            {
-                flags = flags & TextFormatFlags.Top;
+                // Horizontal Alignment
+                case StringAlignment.Center:
+                    flags = flags & TextFormatFlags.HorizontalCenter;
+                    break;
+                case StringAlignment.Far:
+                    flags = flags & TextFormatFlags.Right;
+                    break;
+                default:
+                    flags = flags & TextFormatFlags.Left;
+                    break;
             }
 
-            // Ellipsis
-            if (sf.Trimming == StringTrimming.EllipsisCharacter)
+            switch (sf.LineAlignment)
             {
-                flags = flags & TextFormatFlags.EndEllipsis;
+                // Vertical Alignment
+                case StringAlignment.Far:
+                    flags = flags & TextFormatFlags.Bottom;
+                    break;
+                case StringAlignment.Center:
+                    flags = flags & TextFormatFlags.VerticalCenter;
+                    break;
+                default:
+                    flags = flags & TextFormatFlags.Top;
+                    break;
             }
-            else if (sf.Trimming == StringTrimming.EllipsisPath)
+
+            switch (sf.Trimming)
             {
-                flags = flags & TextFormatFlags.PathEllipsis;
-            }
-            else if (sf.Trimming == StringTrimming.EllipsisWord)
-            {
-                flags = flags & TextFormatFlags.WordEllipsis;
+                // Ellipsis
+                case StringTrimming.EllipsisCharacter:
+                    flags = flags & TextFormatFlags.EndEllipsis;
+                    break;
+                case StringTrimming.EllipsisPath:
+                    flags = flags & TextFormatFlags.PathEllipsis;
+                    break;
+                case StringTrimming.EllipsisWord:
+                    flags = flags & TextFormatFlags.WordEllipsis;
+                    break;
             }
 
             // Hotkey Prefix
