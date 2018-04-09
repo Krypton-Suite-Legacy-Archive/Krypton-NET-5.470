@@ -427,7 +427,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         [Category("Visuals")]
         [Description("Is ribbon is allowed to override form chrome by integrating instead with operating system chrome.")]
-        [DefaultValue(true)]
+        //[DefaultValue(true)]
+        [DefaultValue(false)]
         public bool AllowFormIntegrate
         {
             get => _allowFormIntegrate;
