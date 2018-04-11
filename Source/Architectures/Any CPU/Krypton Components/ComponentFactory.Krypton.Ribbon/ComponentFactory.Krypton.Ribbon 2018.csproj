@@ -65,6 +65,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\Bin\ComponentFactory.Krypton.Ribbon.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>

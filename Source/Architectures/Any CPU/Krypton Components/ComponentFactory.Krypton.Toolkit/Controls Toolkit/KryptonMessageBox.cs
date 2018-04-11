@@ -16,6 +16,8 @@ using System.Media;
 using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit.Properties;
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -214,6 +216,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateButtons();
             UpdateDefault();
             UpdateHelp();
+            UpdateTextExtra();
 
             // Finally calculate and set form sizing
             UpdateSizing(showOwner);
@@ -645,6 +648,17 @@ namespace ComponentFactory.Krypton.Toolkit
             _messageText.Text = _text;
         }
 
+        private void UpdateTextExtra()
+        {
+            switch (_icon)
+            {
+                case MessageBoxIcon.Error:
+                case MessageBoxIcon.Exclamation:
+                    TextExtra = @"Ctrl+c to copy";
+                    break;
+            }
+        }
+
         private void UpdateIcon()
         {
             switch (_icon)
@@ -777,7 +791,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 scaledMonitorSize.Height *= 0.95f;
                 _messageText.UpdateFont();
                 SizeF messageSize = g.MeasureString(_text, _messageText.Font, scaledMonitorSize);
-                SizeF captionSize = g.MeasureString(_caption, _messageText.Font, scaledMonitorSize);
+                // SKC: Don't forget to add the TextExtra into the calculation
+                SizeF captionSize = g.MeasureString($@"{_caption} {TextExtra}", _messageText.Font, scaledMonitorSize);
 
                 float messageXSize = Math.Max(messageSize.Width, captionSize.Width);
                 // Work out DPI adjustment factor
@@ -1089,7 +1104,6 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientSize = new Size(156, 78);
             Controls.Add(_panelButtons);
             Controls.Add(_panelMessage);
-            TextExtra = @"Ctrl+c to copy";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
