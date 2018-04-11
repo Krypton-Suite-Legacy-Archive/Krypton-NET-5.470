@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-04-10 Version 565
+* Build **565** (build date Tuesday 10th April, 2018) is now available from the **releases** tab.
+
+=======
+
 ## 2018-04-09 ** Use All `C#` features
 * Change the projects to at least recognise C#7.2 features and enhancements - _to be applied in the future_
 * Some tinkering with spelling corrections - _to be applied in the future_
