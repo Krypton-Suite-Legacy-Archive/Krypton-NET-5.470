@@ -8,6 +8,13 @@
 
 =======
 
+## 2018-04-11 ** Adjust Ctrl+C display in MessageBox's
+* Don't forget to add the TextExtra into the title width calculation
+* Only Display "Ctrl+C..." for Error and Exclamation icon's
+* Created #39
+
+=======
+
 ## 2018-04-10 Version 565
 * Build **565** (build date Tuesday 10th April, 2018) is now available from the **releases** tab.
 
