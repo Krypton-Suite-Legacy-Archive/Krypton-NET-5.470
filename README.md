@@ -8,6 +8,12 @@
 
 =======
 
+## 2018-04-16 New distribution method, version 568
+* All binaries, applications, tools etc in this project will now be installed by one installer, powered by Advanced Installer. This is to allow easier distribution, and easier end-user updating.
+* New folder `Updates` to contain files needed for the new update distribution.
+
+=======
+
 ## 2018-04-11 ** Adjust Ctrl+C display in MessageBox's
 * Don't forget to add the TextExtra into the title width calculation
 * Only Display "Ctrl+C..." for Error and Exclamation icon's
@@ -321,5 +327,3 @@
 * Change Get Set functions to be inlined
 * Merge Sequential Checks
 * Clarify precedence with brackets
-
-
