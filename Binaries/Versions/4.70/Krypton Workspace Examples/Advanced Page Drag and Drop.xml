@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Advanced Page Drag and Drop</name>
+    </assembly>
+    <members>
+        <member name="F:AdvancedPageDragAndDrop.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AdvancedPageDragAndDrop.PageDragTreeView">
+            <summary>
+            TreeView customized to work with KryptonPage drag and drop.
+            </summary>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.DragTargetTreeViewTransfer.#ctor(System.Drawing.Rectangle,AdvancedPageDragAndDrop.PageDragTreeView)">
+            <summary>
+            Initialize a new instance of the DragTargetTreeViewTransfer class.
+            </summary>
+            <param name="rect">Rectangle for hot and draw areas.</param>
+            <param name="navigator">Control instance for drop.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.DragTargetTreeViewTransfer.Dispose(System.Boolean)">
+            <summary>
+            Release unmanaged and optionally managed resources.
+            </summary>
+            <param name="disposing">Called from Dispose method.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.DragTargetTreeViewTransfer.IsMatch(System.Drawing.Point,ComponentFactory.Krypton.Navigator.PageDragEndData)">
+            <summary>
+            Is this target a match for the provided screen position.
+            </summary>
+            <param name="screenPt">Position in screen coordinates.</param>
+            <param name="dragEndData">Data to be dropped at destination.</param>
+            <returns>True if a match; otherwise false.</returns>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.DragTargetTreeViewTransfer.PerformDrop(System.Drawing.Point,ComponentFactory.Krypton.Navigator.PageDragEndData)">
+            <summary>
+            Perform the drop action associated with the target.
+            </summary>
+            <param name="screenPt">Position in screen coordinates.</param>
+            <param name="data">Data to pass to the target to process drop.</param>
+            <returns>True if the drop was performed and the source can remove any pages.</returns>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.#ctor">
+            <summary>
+            Initialize a new instance of the PageDragTreeView class.
+            </summary>
+        </member>
+        <member name="P:AdvancedPageDragAndDrop.PageDragTreeView.RemovePages">
+            <summary>
+            Determines if nodes are removed from successfully dragged away.
+            </summary>
+        </member>
+        <member name="P:AdvancedPageDragAndDrop.PageDragTreeView.DragPageNotify">
+            <summary>
+            Gets and sets the interface for receiving page drag notifications.
+            </summary>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.GenerateDragTargets(ComponentFactory.Krypton.Navigator.PageDragEndData)">
+            <summary>
+            Generate a list of drag targets that are relevant to the provided end data.
+            </summary>
+            <param name="dragEndData">Pages data being dragged.</param>
+            <returns>List of drag targets.</returns>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseDown event.
+            </summary>
+            <param name="e">A MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseMove event.
+            </summary>
+            <param name="e">A MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.PageDragTreeView.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseUp event.
+            </summary>
+            <param name="e">A MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:AdvancedPageDragAndDrop.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:AdvancedPageDragAndDrop.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AdvancedPageDragAndDrop.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AdvancedPageDragAndDrop.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -17,10 +17,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Palette Upgrade Tool\</OutputPath>
+    <OutputPath>..\..\..\Binaries\Versions\4.70\Palette Upgrade Tool\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Binaries\Versions\4.70\Palette Upgrade Tool\Palette Upgrade Tool.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,23 +36,23 @@
     <ApplicationIcon>Resources\Krypton.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
+    <Reference Include="Krypton Design">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Docking.dll</HintPath>
+    <Reference Include="Krypton Docking">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Docking.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    <Reference Include="Krypton Navigator">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    <Reference Include="Krypton Ribbon">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="Krypton Toolkit">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Workspace">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.7\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    <Reference Include="Krypton Workspace">
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

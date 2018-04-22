@@ -1,0 +1,906 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Outlook Mail Clone</name>
+    </assembly>
+    <members>
+        <member name="F:OutlookMailClone.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OutlookMailClone.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OutlookMailClone.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:OutlookMailClone.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:OutlookMailClone.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AllBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ApplyStyles">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuClose">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuDelete">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuMemoStyle">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuMove">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuNewMailMessage">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuPrint">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuPrintPreview">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuPrintStyles">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuProperties">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuQuickPrint">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuSave">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuSaveAs">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.AppMenuSendMessage">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BookmarkLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BookmarkSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BordersAndShading">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BottomBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BottomBorder1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.BrowseThemesSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ChangeStyles">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ChartLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ChartSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipArtLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardCopy">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardCut">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardFormatPainter">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardPaste">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardPasteSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ClipboardPasteSpecial">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.CodeMacros">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.CodeVisualBasic">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ColorsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DateTimeSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DelayDeliveryLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DelayDeliverySmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DiagonalDownBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DiagonalUpBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DirectRepliesToLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DrawingCanvasSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.DropCapSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.EffectsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.EquationLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.EquationSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ExcelSpreadsheetSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FieldsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FindReplaceSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FindSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FollowUp">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FollowUp1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FontsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FormDesignAForm">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FormDesignThisForm">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FormPublish">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.FormPublishSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HelpSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HorizontalLineLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HorizontalLineSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HorizontalLineSmall1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HTMLSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HyperlinkLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.HyperlinkSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeAttachFile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeAttachFileSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeAttachItem">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeAttachItemSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeBusinessCard">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeBusinessCardSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeCalendar">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeCalendarSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeSignature">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.IncludeSignatureSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.InsideBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.InsideHorzBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.InsideVertBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.LeftBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.LineSpacing">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.MoreOptionsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.MultiLevelList">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.NamesAddressBook">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.NamesCheckNames">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.NamesGroup">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.NoBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ObjectSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsFollowUp">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsFollowUpSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsHighImportance">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsLowImportance">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsReminder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsToday">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsTomorrow">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OptionsWeek">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OtherFolderSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.OutsideBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.PageColorLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.PicturesLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.PlainTextSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingResearchSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingSetLanguageSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingSpelling">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingSpellingSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingThesaurusSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingTranslateSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingTransScreentipSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ProofingWordCountSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATDeleteSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATForwardSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATQuickPrintSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATRedoSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATSaveSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QATUndoSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QuickPartsLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QuickPartsSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.QuickStyles">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.RichTextSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.RightBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SaveSentItemLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SaveThemesSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SelectSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SendMail">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SendRepliesToSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.Shading">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ShapesLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ShapesSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ShowBccLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ShowFromLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SmartArtLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SmartArtSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SortAscending">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SpacingDouble">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SpacingOne">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SpacingOneHalf">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SpacingParagraph">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.StyleSet">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SymbolLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.SymbolSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TableDrawSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TablesLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TableSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextAlignCenter">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextAlignLeft">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextAlignRight">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBackColor">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBold">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBoxLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBoxSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBulletNumbers">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextBulletPoints">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextChangeCase">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextColor">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextFontLarger">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextFontSmaller">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextItalics">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextJustify">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextRubout">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextShowHideMarkup">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextStrikeout">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextSubscript">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextSuperscript">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextTabLeft">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextTabRight">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TextUnderline">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ThemesLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ThemesSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TopBorder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.TrackingSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.UseVotingButtonsLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ViewGridlines">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.WordArtLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.WordArtSmall">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OutlookMailClone.Properties.Resources.ZoomLarge">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>

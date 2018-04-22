@@ -18,11 +18,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Toolkit ExamplesVersions\4.7\Any CPU\Krypton Toolkit Examples\</OutputPath>
+    <OutputPath>..\..\..\..\..\Binaries\Versions\4.70\Krypton Toolkit ExamplesVersions\4.7\Any CPU\Krypton Toolkit Examples\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Toolkit ExamplesVersions\4.7\Any CPU\Krypton Toolkit Examples\Test Clip Base.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\..\..\Binaries\Versions\4.70\Krypton Toolkit ExamplesVersions\4.7\Any CPU\Krypton Toolkit Examples\Test Clip Base.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Core Components\ComponentFactory.Krypton.Design.dll</HintPath>
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Core Components\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -19,7 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{7693521C-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{942DAEF7-509F-4BB7-B1DD-CBC28949CCF6}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\README.md = ..\..\..\..\README.md
+		..\..\README.md = ..\..\README.md
+		..\..\Updates\updates.txt = ..\..\Updates\updates.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocFX", "DocFX", "{61013E5A-3095-4A61-8B4B-72ABDCB608BE}"
@@ -757,7 +758,7 @@ Global
 		{D6D14E45-AE08-45A5-87C8-4BA6A7F8BF17} = {61013E5A-3095-4A61-8B4B-72ABDCB608BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
 		BuildVersion_StartDate = 2000/1/1
+		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
 	EndGlobalSection
 EndGlobal

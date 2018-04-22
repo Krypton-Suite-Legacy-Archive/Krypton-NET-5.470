@@ -1,10 +1,19 @@
-# ![Krypton](/help/logo.png)-NET-4.7 
+# ![Krypton](/help/logo.png)-NET-4.70
 
 =======
 
-## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `ComponentFactory.Krypton.Design.dll` in ALL of your projects at ALL times!
+## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `Krypton Design.dll` in ALL of your projects at ALL times!
 
 # ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
+
+=======
+
+## 2018-04-22 Version 569, build path output changes, repo rename & re-structuring changes
+* Build 569 (build date Sunday 22nd April 2018) is now available. It is reccommended that you uninstall/remove previous versions first before using this version.
+* DLL assembly names have been renamed to `Krypton Design`, `Krypton Docking`, `Krypton Navigator`, `Krypton Ribbon`, `Krypton Toolkit` and `Krypton Workspace`,  these changes do also apply to other binaries in this repo. However these changes does **NOT** affect the namespace names of `ComponentFactory.Krypton.xx`.
+* Build output paths have been changed for easier installer authouring and syncronisation.
+* Renamed repo title to `Krypton-NET-4.70` to better reflect versioning.
+* Removed different architectures folder for easier navigation.
 
 =======
 
