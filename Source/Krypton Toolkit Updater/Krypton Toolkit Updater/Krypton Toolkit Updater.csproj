@@ -125,5 +125,8 @@
   <ItemGroup>
     <None Include="Resources\Globe-Download.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Settings\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
