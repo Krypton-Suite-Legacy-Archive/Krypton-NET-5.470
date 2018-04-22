@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>KryptonGallery</p>
+<p>Use a the gallery control to present the user with a set of images that they can
+single select from. The user can use the up and down buttons on the side of the
+gallery to scroll additional rows of images into view. They can also press a
+drop down button to show a context menu containing the full list of images.</p>
+<p><strong>Gallery Properties</strong><br>You can see in Figure 1 the gallery properties that extend the ones already
+present for a WinForms control.</p>
+<ul>
+<li>Figure 1 - Gallery specific properties.*</li>
+</ul>
+<p><strong>DropMaxItemWidth</strong><br><strong>DropMinItemWidth</strong><br>By default when the drop down menu is shown for the gallery the number of items
+per horizontal line will match the current number of items showing in the
+gallery itself. So if the gallery is showing a width of 4 items then the drop
+down menu will show 4 items per line. However, if the gallery becomes very small
+it might only be showing one or two items and so showing a drop down menu with
+just one or two items per line would look inappropriate. Use these two
+properties to define min/max values for the drop down items per line to ensure
+the menu always has a reasonable appearance.</p>
+<p><strong>PreferredItemSize</strong><br>If you have set the <em>AutoSize</em> property of the control to <em>True</em> then you need a
+way to define the preferred width. Use this property to define the number of
+images per line and how many lines you would like displayed in the client area
+of the control. You can see this in action by looking at figure 2. The top
+instance has the default of 5,1 and the second instance has been changed to 4,2.</p>
+<ul>
+<li>Figure 2 - Different PreferredItemSize values.*</li>
+</ul>
+<p><strong>AlwaysActive</strong><br>This property is used to indicate if the control should always be in the active
+state. As a standalone control this default to being True but when used inside a
+ribbon control instance it is changed to be <em>False</em>. This is because you would
+expect the background to change when the mouse enters the client area inside the
+ribbon.</p>
+<p><strong>ButtonStyle</strong><br>This style determines how the individual images are displayed. A default of <em>Low
+Profile</em> means that there is no obvious button drawing until you move the mouse
+over the image or until it becomes selected. But if you prefer another
+appearance then update the style to any of the other options.</p>
+<p><strong>DropButtonRanges</strong><br>If this collection is empty then all the gallery images are shown in one large
+group within the drop down menu. In order to change the grouping you add entries
+to this collection that define a header title and the range of items it should
+contain. This allows you to split the display images into groups that are
+titled. </p>
+<p><strong>ImageList</strong><br>Reference to image list that contains all the display images.</p>
+<p><strong>Images</strong><br>This compound property allows you to override the images used in the
+up/down/drop down buttons that appear on the right hand side of the control.
+Usually these are inherited from the appropriate palette so that they match the
+current global style.</p>
+<p><strong>Palette</strong><br>Use this to override the drawing values with those of a specific
+<em>KryptonPalette</em> instance.</p>
+<p><strong>PaletteMode</strong><br>Change this enumeration if you want to select a global palette that comes
+builtin with the <em>Krypton Toolkit</em>.  </p>
+<p><strong>SelectedIndex</strong><br>Index of the currently selected image for the gallery.</p>
+<p><strong>SmoothScrolling</strong><br>Determines if scrolling occurs as a smooth animation or if instead an immediate
+jump is made to the destination.</p>
+<p><strong>StateActive</strong><br><strong>StateCommon</strong><br><strong>StateDisabled</strong><br><strong>StateNormal</strong><br>All the state compound properties are used to override different elements of the
+gallery with custom values. </p>
+<p>Events</p>
+<p><strong>GalleryDropMenu</strong><br>Fired just before the drop down menu is displayed. You can cancel this event to
+prevent the drop down menu from appearing or instead customize the contents of
+the menu to add additional menu items. </p>
+<p><strong>TrackingImage</strong><br>As the user tracks over different images this event fires so you can provide
+instant feedback to the user about the change that would happen if the image
+were to be selected. When tracking leaves all the images then you get a value of
+-1 provided in the event data. </p>
+<p><strong>SelectedIndexChanged</strong><br>Occurs when the <em>SelectedIndex</em> property changes value.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Tutorial – 3 Pane Application</p>
+<p><strong>1) Create a new Windows Forms project</strong>  </p>
+<p>This will automatically create a form in design mode as below.</p>
+<p><strong>2) Add a reference to the ComponentFactory.Krypton.Toolkit assembly</strong>  </p>
+<p><strong>C#</strong> : Right click the &#39;References&#39; group in your project and select the &#39;Add
+Reference...&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to navigate
+to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.  </p>
+<p><em>VB.NET</em> : Right click the project in the &#39;Solution Explorer&#39; window and choose
+the &#39;Add Reference&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to
+navigate to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.</p>
+<p><strong>3) Ensure that the Krypton Toolkit components are in the Toolbox</strong><br>If not the <a href="Using%20Krypton%20in%20VS2005.md">Using Krypton in VS2005</a>
+tutorial can be used to add them.</p>
+<p><strong>4) Open the code view for the form and change the base class.</strong>  </p>
+<p>Change the base class from the default of &#39;Form&#39; to be
+&#39;ComponentFactory.Krypton.Toolkit.KryptonForm&#39;. Your new definition for C#
+would be: -</p>
+<p>public partial class Form1 : ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>If using VB.NET then your new definition should like this: -</p>
+<p>Partial Class Form1<br>    Inherits ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>Recompile the project and then show the form in design mode again, this time you
+should see custom chrome applied to the form.</p>
+<p><strong>5) Drag a MenuStrip from the toolbox and drop it on the form</strong>  </p>
+<p>This will automatically dock itself to the top of the form.</p>
+<p><strong>6) Use the MenuStrip smart tag and click ‘Insert Standard Items’</strong>  </p>
+<p>Click the small box on the top right of the MenuStrip to open the smart tag.</p>
+<p><strong>7) Drag a ToolStrip from the toolbox and drop it on the form</strong><br>This will automatically dock itself underneath the MenuStrip</p>
+<p><strong>8) Use the ToolStrip smart tag and click ‘Embed in ToolStripContainer’</strong><br>This will create a box with four edge markers and a tool bar area at the top.</p>
+<p><strong>9) Drag a StatusStrip from the toolbox and drop it on the form</strong><br>This will automatically be docked to the bottom of the form as shown here.</p>
+<p><strong>10) Use the StatusStrip smart tag and change the &#39;RenderMode&#39; to
+‘ManagerRenderMode&#39;</strong><br>By default the StatusStrip uses the system renderer but Krypton needs to have
+all tool strips use the global ToolStripManager renderer in order to ensure a
+consistent look and feel across all the strips. So we change the rendering mode
+to ensure the consistent appearance.</p>
+<p><strong>11) Use the properties window to select the &#39;toolStripContainer1&#39;</strong><br>You cannot select the tool strip container by clicking on the container itself
+in the designer and so we need to use the properties window to manually cause
+the selection to change. Once selected you will notice the designer view change
+to show the entire tool strip container selected with the smart tag button
+displayed.</p>
+<p><strong>12) Use the ToolStripContainer smart tag and select ‘Dock Fill in Form&#39;</strong><br>We do this so the container takes up all the space left over after positioning
+the menu and status strips.</p>
+<p><strong>13) Select the tool strip and use the smart tag to select &#39;Insert Standard
+Items&#39;</strong><br>Click the small box on the top right of the ToolStrip to open the smart tag.</p>
+<hr>
+<p><strong>14) Click center of the client area then use properties window to set
+&#39;RenderMode&#39; to &#39;ManagerRenderMode&#39;</strong><br>By default the content panel in the center of the tool strip container uses the
+system renderer but Krypton needs to have all tool strips use the global
+ToolStripManager renderer in order to ensure a consistent look and feel across
+all areas. So we change the rendering mode to ensure the consistent appearance.</p>
+<p>You should now have the following appearance which is the starting point for
+building the specific functionality of this tutorial.</p>
+<p><strong>15) Modify the Padding property for the ‘toolStripContainer1.ContentPanel’ to
+5 on all sides</strong></p>
+<p>You should still have the content panel of the tool strip container selected in
+the properties window, if not then just click in the center of the client area
+and the content panel will be selected again. Then alter the padding property as
+shown here. This adds padding around the four form edges otherwise all the
+panels would be placed hard against the edges.</p>
+<hr>
+<p><strong>16) Drag a KryptonSplitContainer from the toolbox and drop it inside the
+KryptonPanel</strong><br>You should see text indicating the position of Panel1 and Panel2 areas.</p>
+<p><strong>17) Drag a KryptonSplitContainer from the toolbox and drop it inside the area
+marked ‘Pane2’</strong>  </p>
+<p>There will now be two areas marked as Panel1 but only one marked as Panel2.</p>
+<p><strong>18) Use the smart tag for the second KryptonSplitContainer and click
+‘Horizontal splitter orientation’</strong></p>
+<p>This will switch the splitter from being vertical to horizontal in direction.</p>
+<p><strong>19) Drag a KryptonHeaderGroup from the toolbox and drop onto the left most
+‘Panel1’</strong>  </p>
+<p>The first pane needs a top and bottom header so we use a KryptonHeaderGroup.
+Once dropped you will need to use the smart tag of the header group in order to
+select the &#39;Dock in parent container&#39; so that it fills the entire &#39;Panel1&#39; area
+it was dropped into.</p>
+<p><strong>20) Drag a KryptonHeaderGroup from the toolbox and drop onto the top most
+‘Panel1’</strong> </p>
+<p>The second pane needs one header so we still need to use a KryptonHeaderGroup.
+Once dropped you will need to use the smart tag of the header group in order to
+select the &#39;Dock in parent container&#39; so that it fills the entire &#39;Panel1&#39; area
+it was dropped into.</p>
+<p><strong>21) Use the smart tag for the second KryptonHeaderGroup and click ‘Hide
+secondary header’</strong></p>
+<p>We remove the bottom header from being displayed.</p>
+<p><strong>22) Drag a KryptonGroup from the toolbox and drop onto the ‘Panel2’ area</strong> </p>
+<p>The third pane does not need any headers so a KryptonGroup is used. Once dropped
+you will need to use the smart tag of the group in order to select the &#39;Dock in
+parent container&#39; so that it fills the entire &#39;Panel2&#39; area it was dropped into.</p>
+<p><strong>23) Modify the ‘StateCommon -> Back -> Color1’ property to ‘AppWorkspace’</strong><br>We want the padding area to be distinctive and so change the color.</p>
+<p><strong>24) Modify the Padding property for the new kryptonGroup1.Panel to 5 on all
+sides</strong>  </p>
+<p>Click on the center of the new group to select the kryptonGroup1.Panel control.
+This is the Panel instance that is positioned inside the border of the group.
+Once the panel is selected set the border to 5 by using the properties window as
+can be seen below.</p>
+<p><strong>25) Drag a KryptonGroup from the toolbox and drop into the existing
+KryptonGroup</strong></p>
+<p><strong>26) Use the smart tag for the KryptonGroup and click ‘Dock in parent
+container’</strong></p>
+<p>We need the content panel to always fill the entire available area.</p>
+<p><strong>27) Select the ‘kryptonHeaderGroup1’ instance in the properties window</strong>  </p>
+<p><strong>27) Set the ‘ValuesPrimary -> Image’ property to (none)</strong>  </p>
+<p>We do not want the left pane to have an image in our example.</p>
+<p><strong>29) Select the ‘kryptonHeaderGroup2’ instance in the properties window</strong>  </p>
+<p><strong>30) Modify the ‘StateCommon -> HeaderPrimary -> Content -> Image –>
+ImageH’ property to be ‘Far’</strong>  </p>
+<p>By default the image appears on the left, we want to reverse this to the
+opposite side.</p>
+<p><strong>31) Select the ‘kryptonSplitContainer1’ instance in the properties window</strong></p>
+<p><strong>32) Modify the ‘FixedPanel’ property to be ‘Panel1’</strong>  </p>
+<p>Now resizing the main form will not change the size of left pane.</p>
+<p><strong>33) Compile and run the application</strong>  </p>
+<p>At runtime you should be able to resize the main form and notice that the left
+pane stays a constant width as the right hand panes are modified. The top and
+bottom panes on the right hand side will retain the same relative sizing as the
+height of the form is changed. </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

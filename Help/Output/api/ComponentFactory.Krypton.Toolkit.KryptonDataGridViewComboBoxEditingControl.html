@@ -1,0 +1,2237 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class KryptonDataGridViewComboBoxEditingControl
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class KryptonDataGridViewComboBoxEditingControl
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl">
+  <h1 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl">Class KryptonDataGridViewComboBoxEditingControl
+  </h1>
+  <div class="markdown level0 summary"><p>Defines the editing control for the DataGridViewComboBoxCell custom cell type.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
+    <div class="level3"><span class="xref">System.Windows.Forms.Control</span></div>
+    <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html">VisualControlBase</a></div>
+    <div class="level5"><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html">KryptonComboBox</a></div>
+    <div class="level6"><span class="xref">KryptonDataGridViewComboBoxEditingControl</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Initialized">KryptonComboBox.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDown">KryptonComboBox.DropDown</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDownClosed">KryptonComboBox.DropDownClosed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDownStyleChanged">KryptonComboBox.DropDownStyleChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedIndexChanged">KryptonComboBox.SelectedIndexChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectionChangeCommitted">KryptonComboBox.SelectionChangeCommitted</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DataSourceChanged">KryptonComboBox.DataSourceChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DisplayMemberChanged">KryptonComboBox.DisplayMemberChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Format">KryptonComboBox.Format</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormatInfoChanged">KryptonComboBox.FormatInfoChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormatStringChanged">KryptonComboBox.FormatStringChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormattingEnabledChanged">KryptonComboBox.FormattingEnabledChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedValueChanged">KryptonComboBox.SelectedValueChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ValueMemberChanged">KryptonComboBox.ValueMemberChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_TextUpdate">KryptonComboBox.TextUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_TrackMouseEnter">KryptonComboBox.TrackMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_TrackMouseLeave">KryptonComboBox.TrackMouseLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Dispose_System_Boolean_">KryptonComboBox.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_BeginInit">KryptonComboBox.BeginInit()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_EndInit">KryptonComboBox.EndInit()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_IsInitialized">KryptonComboBox.IsInitialized</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_IsInitializing">KryptonComboBox.IsInitializing</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_TabStop">KryptonComboBox.TabStop</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ComboBox">KryptonComboBox.ComboBox</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ContainedControl">KryptonComboBox.ContainedControl</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Focused">KryptonComboBox.Focused</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_BackColor">KryptonComboBox.BackColor</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Font">KryptonComboBox.Font</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ForeColor">KryptonComboBox.ForeColor</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Text">KryptonComboBox.Text</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedItem">KryptonComboBox.SelectedItem</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedText">KryptonComboBox.SelectedText</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedIndex">KryptonComboBox.SelectedIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectedValue">KryptonComboBox.SelectedValue</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DroppedDown">KryptonComboBox.DroppedDown</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ContextMenuStrip">KryptonComboBox.ContextMenuStrip</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ValueMember">KryptonComboBox.ValueMember</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DataSource">KryptonComboBox.DataSource</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DisplayMember">KryptonComboBox.DisplayMember</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormatInfo">KryptonComboBox.FormatInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectionLength">KryptonComboBox.SelectionLength</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectionStart">KryptonComboBox.SelectionStart</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_UseMnemonic">KryptonComboBox.UseMnemonic</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_AlwaysActive">KryptonComboBox.AlwaysActive</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDownStyle">KryptonComboBox.DropDownStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDownHeight">KryptonComboBox.DropDownHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropDownWidth">KryptonComboBox.DropDownWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemHeight">KryptonComboBox.ItemHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_MaxDropDownItems">KryptonComboBox.MaxDropDownItems</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_MaxLength">KryptonComboBox.MaxLength</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Sorted">KryptonComboBox.Sorted</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Items">KryptonComboBox.Items</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_InputControlStyle">KryptonComboBox.InputControlStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemStyle">KryptonComboBox.ItemStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropButtonStyle">KryptonComboBox.DropButtonStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DropBackStyle">KryptonComboBox.DropBackStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_AllowButtonSpecToolTips">KryptonComboBox.AllowButtonSpecToolTips</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ButtonSpecs">KryptonComboBox.ButtonSpecs</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_AutoCompleteCustomSource">KryptonComboBox.AutoCompleteCustomSource</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_AutoCompleteMode">KryptonComboBox.AutoCompleteMode</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_AutoCompleteSource">KryptonComboBox.AutoCompleteSource</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormatString">KryptonComboBox.FormatString</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FormattingEnabled">KryptonComboBox.FormattingEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_StateCommon">KryptonComboBox.StateCommon</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_StateDisabled">KryptonComboBox.StateDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_StateNormal">KryptonComboBox.StateNormal</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_StateActive">KryptonComboBox.StateActive</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_StateTracking">KryptonComboBox.StateTracking</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FindString_System_String_">KryptonComboBox.FindString(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FindString_System_String_System_Int32_">KryptonComboBox.FindString(String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FindStringExact_System_String_">KryptonComboBox.FindStringExact(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_FindStringExact_System_String_System_Int32_">KryptonComboBox.FindStringExact(String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_GetItemHeight_System_Int32_">KryptonComboBox.GetItemHeight(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_GetItemText_System_Object_">KryptonComboBox.GetItemText(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Select_System_Int32_System_Int32_">KryptonComboBox.Select(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SelectAll">KryptonComboBox.SelectAll()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_BeginUpdate">KryptonComboBox.BeginUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_EndUpdate">KryptonComboBox.EndUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SetFixedState_System_Boolean_">KryptonComboBox.SetFixedState(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ToolTipManager">KryptonComboBox.ToolTipManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Focus">KryptonComboBox.Focus()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_Select">KryptonComboBox.Select()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_GetPreferredSize_System_Drawing_Size_">KryptonComboBox.GetPreferredSize(Size)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DisplayRectangle">KryptonComboBox.DisplayRectangle</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SetLayoutDisplayPadding_System_Windows_Forms_Padding_">KryptonComboBox.SetLayoutDisplayPadding(Padding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DesignerGetHitTest_System_Drawing_Point_">KryptonComboBox.DesignerGetHitTest(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DesignerComponentFromPoint_System_Drawing_Point_">KryptonComboBox.DesignerComponentFromPoint(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DesignerMouseLeave">KryptonComboBox.DesignerMouseLeave()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_ForceControlLayout">KryptonComboBox.ForceControlLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnInitialized_System_EventArgs_">KryptonComboBox.OnInitialized(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnTextUpdate_System_EventArgs_">KryptonComboBox.OnTextUpdate(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnSelectionChangeCommitted_System_EventArgs_">KryptonComboBox.OnSelectionChangeCommitted(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnDropDownStyleChanged_System_EventArgs_">KryptonComboBox.OnDropDownStyleChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnDataSourceChanged_System_EventArgs_">KryptonComboBox.OnDataSourceChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnDisplayMemberChanged_System_EventArgs_">KryptonComboBox.OnDisplayMemberChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnFormat_System_Windows_Forms_ListControlConvertEventArgs_">KryptonComboBox.OnFormat(ListControlConvertEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnFormatInfoChanged_System_EventArgs_">KryptonComboBox.OnFormatInfoChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnFormatStringChanged_System_EventArgs_">KryptonComboBox.OnFormatStringChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnFormattingEnabledChanged_System_EventArgs_">KryptonComboBox.OnFormattingEnabledChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnSelectedValueChanged_System_EventArgs_">KryptonComboBox.OnSelectedValueChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnValueMemberChanged_System_EventArgs_">KryptonComboBox.OnValueMemberChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnDropDownClosed_System_EventArgs_">KryptonComboBox.OnDropDownClosed(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnDropDown_System_EventArgs_">KryptonComboBox.OnDropDown(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnTrackMouseEnter_System_EventArgs_">KryptonComboBox.OnTrackMouseEnter(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnTrackMouseLeave_System_EventArgs_">KryptonComboBox.OnTrackMouseLeave(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_CreateControlsInstance">KryptonComboBox.CreateControlsInstance()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnHandleCreated_System_EventArgs_">KryptonComboBox.OnHandleCreated(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnEnabledChanged_System_EventArgs_">KryptonComboBox.OnEnabledChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnBackColorChanged_System_EventArgs_">KryptonComboBox.OnBackColorChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnBackgroundImageChanged_System_EventArgs_">KryptonComboBox.OnBackgroundImageChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnBackgroundImageLayoutChanged_System_EventArgs_">KryptonComboBox.OnBackgroundImageLayoutChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnForeColorChanged_System_EventArgs_">KryptonComboBox.OnForeColorChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnPaddingChanged_System_EventArgs_">KryptonComboBox.OnPaddingChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnTabStopChanged_System_EventArgs_">KryptonComboBox.OnTabStopChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnCausesValidationChanged_System_EventArgs_">KryptonComboBox.OnCausesValidationChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnPaint_System_Windows_Forms_PaintEventArgs_">KryptonComboBox.OnPaint(PaintEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnResize_System_EventArgs_">KryptonComboBox.OnResize(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnMouseEnter_System_EventArgs_">KryptonComboBox.OnMouseEnter(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnMouseLeave_System_EventArgs_">KryptonComboBox.OnMouseLeave(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnGotFocus_System_EventArgs_">KryptonComboBox.OnGotFocus(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnUserPreferenceChanged_System_Object_Microsoft_Win32_UserPreferenceChangedEventArgs_">KryptonComboBox.OnUserPreferenceChanged(Object, UserPreferenceChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnLayout_System_Windows_Forms_LayoutEventArgs_">KryptonComboBox.OnLayout(LayoutEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_SetBoundsCore_System_Int32_System_Int32_System_Int32_System_Int32_System_Windows_Forms_BoundsSpecified_">KryptonComboBox.SetBoundsCore(Int32, Int32, Int32, Int32, BoundsSpecified)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_DefaultSize">KryptonComboBox.DefaultSize</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_">KryptonComboBox.OnNeedPaint(Object, NeedLayoutEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnPaletteChanged_System_EventArgs_">KryptonComboBox.OnPaletteChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnPaletteNeedPaint_System_Object_ComponentFactory_Krypton_Toolkit_NeedLayoutEventArgs_">KryptonComboBox.OnPaletteNeedPaint(Object, NeedLayoutEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_WndProc_System_Windows_Forms_Message__">KryptonComboBox.WndProc(Message)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteChanged">VisualControlBase.PaletteChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_KryptonContextMenu">VisualControlBase.KryptonContextMenu</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PerformNeedPaint_System_Boolean_">VisualControlBase.PerformNeedPaint(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CheckPerformLayout">VisualControlBase.CheckPerformLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteMode">VisualControlBase.PaletteMode</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetPaletteMode">VisualControlBase.ResetPaletteMode()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Palette">VisualControlBase.Palette</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetPalette">VisualControlBase.ResetPalette()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Renderer">VisualControlBase.Renderer</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CreateToolStripRenderer">VisualControlBase.CreateToolStripRenderer()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_BackgroundImage">VisualControlBase.BackgroundImage</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_BackgroundImageLayout">VisualControlBase.BackgroundImageLayout</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewFromPoint_System_Drawing_Point_">VisualControlBase.ViewFromPoint(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewManager">VisualControlBase.ViewManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_Redirector">VisualControlBase.Redirector</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedPaintDelegate">VisualControlBase.NeedPaintDelegate</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedPaintPaletteDelegate">VisualControlBase.NeedPaintPaletteDelegate</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ForceViewLayout">VisualControlBase.ForceViewLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_InvokeLayout">VisualControlBase.InvokeLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_MarkLayoutDirty">VisualControlBase.MarkLayoutDirty()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_NeedTransparentPaint">VisualControlBase.NeedTransparentPaint</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaintBackground_System_Drawing_Graphics_System_Drawing_Brush_System_Drawing_Rectangle_">VisualControlBase.PaintBackground(Graphics, Brush, Rectangle)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CanProcessMnemonic">VisualControlBase.CanProcessMnemonic()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_EvalTransparentPaint">VisualControlBase.EvalTransparentPaint()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_EvalInvokePaint">VisualControlBase.EvalInvokePaint</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_TransparentParent">VisualControlBase.TransparentParent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnButtonSpecChanged_System_Object_System_EventArgs_">VisualControlBase.OnButtonSpecChanged(Object, EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_CreateRedirector">VisualControlBase.CreateRedirector()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_UpdateGlobalEvents_System_Boolean_">VisualControlBase.UpdateGlobalEvents(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnRightToLeftChanged_System_EventArgs_">VisualControlBase.OnRightToLeftChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseMove_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseMove(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseDown_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseDown(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnMouseUp_System_Windows_Forms_MouseEventArgs_">VisualControlBase.OnMouseUp(MouseEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnDoubleClick_System_EventArgs_">VisualControlBase.OnDoubleClick(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyDown_System_Windows_Forms_KeyEventArgs_">VisualControlBase.OnKeyDown(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyPress_System_Windows_Forms_KeyPressEventArgs_">VisualControlBase.OnKeyPress(KeyPressEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnKeyUp_System_Windows_Forms_KeyEventArgs_">VisualControlBase.OnKeyUp(KeyEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnLostFocus_System_EventArgs_">VisualControlBase.OnLostFocus(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnGlobalPaletteChanged_System_Object_System_EventArgs_">VisualControlBase.OnGlobalPaletteChanged(Object, EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ProcessCmdKey_System_Windows_Forms_Message__System_Windows_Forms_Keys_">VisualControlBase.ProcessCmdKey(Message, Keys)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuClosed">VisualControlBase.ContextMenuClosed()</a>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetAccessibilityObjectById(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetAutoSizeMode(System.Windows.Forms.AutoSizeMode)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetAutoSizeMode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityNotifyClients(System.Windows.Forms.AccessibleEvents, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityNotifyClients(System.Windows.Forms.AccessibleEvents, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BeginInvoke(System.Delegate)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BeginInvoke(System.Delegate, System.Object[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BringToFront()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Contains(System.Windows.Forms.Control)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateAccessibilityInstance()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateGraphics()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefWndProc(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DestroyHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoDragDrop(System.Object, System.Windows.Forms.DragDropEffects)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DrawToBitmap(System.Drawing.Bitmap, System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.EndInvoke(System.IAsyncResult)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FindForm()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetTopLevel()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseKeyEvent(System.Object, System.Windows.Forms.KeyEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseMouseEvent(System.Object, System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FromChildHandle(System.IntPtr)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FromHandle(System.IntPtr)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetChildAtPoint(System.Drawing.Point, System.Windows.Forms.GetChildAtPointSkip)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetChildAtPoint(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetContainerControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetScaledBounds(System.Drawing.Rectangle, System.Drawing.SizeF, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetNextControl(System.Windows.Forms.Control, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GetStyle(System.Windows.Forms.ControlStyles)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Hide()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InitLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Region)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Region, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidate(System.Drawing.Rectangle, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invoke(System.Delegate)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invoke(System.Delegate, System.Object[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokePaint(System.Windows.Forms.Control, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokePaintBackground(System.Windows.Forms.Control, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsKeyLocked(System.Windows.Forms.Keys)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsInputChar(System.Char)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsInputKey(System.Windows.Forms.Keys)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsMnemonic(System.Char, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LogicalToDeviceUnits(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleBitmapLogicalToDevice(System.Drawing.Bitmap)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.NotifyInvalidate(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeOnClick(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnAutoSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnBindingContextChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnContextMenuChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnContextMenuStripChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnCursorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDockChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnFontChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnNotifyMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBackColorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBackgroundImageChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentBindingContextChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentCursorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentEnabledChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentFontChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentForeColorChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentRightToLeftChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentVisibleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPrint(System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnTabIndexChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnVisibleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnParentChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnClick(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnClientSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnControlAdded(System.Windows.Forms.ControlEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnControlRemoved(System.Windows.Forms.ControlEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnCreateControl()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnLocationChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnHandleDestroyed(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragEnter(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragOver(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDragDrop(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnEnter(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeGotFocus(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnHelpRequested(System.Windows.Forms.HelpEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeLostFocus(System.Windows.Forms.Control, System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMarginChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseClick(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseCaptureChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDpiChangedBeforeParent(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnDpiChangedAfterParent(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseHover(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMouseWheel(System.Windows.Forms.MouseEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnMove(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPaintBackground(System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnRegionChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnSizeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnStyleChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnSystemColorsChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnValidating(System.ComponentModel.CancelEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnValidated(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RescaleConstantsForDpi(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PerformLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PerformLayout(System.Windows.Forms.Control, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PointToClient(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PointToScreen(System.Drawing.Point)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreProcessMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreProcessControlMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessDialogChar(System.Char)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessDialogKey(System.Windows.Forms.Keys)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessKeyMessage(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessKeyPreview(System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProcessMnemonic(System.Char)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaiseDragEvent(System.Object, System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RaisePaintEvent(System.Object, System.Windows.Forms.PaintEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RecreateHandle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RectangleToClient(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RectangleToScreen(System.Drawing.Rectangle)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ReflectMessage(System.IntPtr, System.Windows.Forms.Message)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Refresh()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResetMouseEventArgs()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResetText()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResumeLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResumeLayout(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Scale(System.Drawing.SizeF)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleControl(System.Drawing.SizeF, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Select(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SelectNextControl(System.Windows.Forms.Control, System.Boolean, System.Boolean, System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SendToBack()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetBounds(System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetBounds(System.Int32, System.Int32, System.Int32, System.Int32, System.Windows.Forms.BoundsSpecified)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetClientSizeCore(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SizeFromClientSize(System.Drawing.Size)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetStyle(System.Windows.Forms.ControlStyles, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetTopLevel(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SetVisibleCore(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Windows.Forms.HorizontalAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Windows.Forms.LeftRightAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateAlignment(System.Drawing.ContentAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateHorizontal(System.Windows.Forms.HorizontalAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateLeftRight(System.Windows.Forms.LeftRightAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RtlTranslateContent(System.Drawing.ContentAlignment)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Show()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SuspendLayout()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Update()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds(System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateBounds(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateZOrder()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UpdateStyles()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragEnter(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragOver(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragLeave(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.System.Windows.Forms.IDropTarget.OnDragDrop(System.Windows.Forms.DragEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.OnImeModeChanged(System.EventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibilityObject</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleDefaultActionDescription</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleDescription</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AccessibleRole</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AllowDrop</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Anchor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.AutoScrollOffset</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LayoutEngine</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BindingContext</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Bottom</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Bounds</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanRaiseEvents</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanSelect</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Capture</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CausesValidation</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientRectangle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CompanyName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContainsFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenu</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Controls</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Created</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CreateParams</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Cursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DataBindings</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultBackColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultCursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultFont</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultForeColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMargin</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMaximumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultMinimumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultPadding</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DeviceDpi</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Disposing</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Dock</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoubleBuffered</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Enabled</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FontHeight</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Handle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HasChildren</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Height</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsHandleCreated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.InvokeRequired</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsAccessible</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.IsMirrored</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Left</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Location</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Margin</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MaximumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MinimumSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ModifierKeys</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseButtons</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MousePosition</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Name</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Parent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProductName</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ProductVersion</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RecreatingHandle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Region</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RenderRightToLeft</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ResizeRedraw</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Right</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RightToLeft</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ScaleChildren</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Site</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Size</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabIndex</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Tag</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Top</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TopLevelControl</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ShowKeyboardCues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ShowFocusCues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.UseWaitCursor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Visible</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Width</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreferredSize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Padding</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CanEnableIme</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DefaultImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeModeBase</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PropagatingImeMode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackColorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackgroundImageChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BackgroundImageLayoutChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.BindingContextChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CausesValidationChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ClientSizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenuChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ContextMenuStripChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.CursorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DockChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.EnabledChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.FontChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ForeColorChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LocationChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MarginChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RegionChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.RightToLeftChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabIndexChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TabStopChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.TextChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.VisibleChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Click</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ControlAdded</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ControlRemoved</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragDrop</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragEnter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragOver</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DragLeave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GiveFeedback</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HandleCreated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HandleDestroyed</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.HelpRequested</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Invalidated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PaddingChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Paint</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.QueryContinueDrag</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.QueryAccessibilityHelp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DoubleClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Enter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.GotFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyPress</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.KeyUp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Layout</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Leave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.LostFocus</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseDoubleClick</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseCaptureChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseEnter</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseLeave</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DpiChangedBeforeParent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.DpiChangedAfterParent</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseHover</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseMove</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseUp</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.MouseWheel</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Move</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.PreviewKeyDown</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Resize</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ChangeUICues</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.StyleChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.SystemColorsChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Validating</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.Validated</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ParentChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.Control.ImeModeChanged</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.GetService(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Events</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Container</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.DesignMode</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Disposed</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class KryptonDataGridViewComboBoxEditingControl : KryptonComboBox, IDropTarget, ISynchronizeInvoke, IWin32Window, IArrangedElement, IBindableComponent, IComponent, IDisposable, IKryptonDebug, IContainedInputControl, ISupportInitializeNotification, ISupportInitialize, IDataGridViewEditingControl</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl__ctor" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl__ctor" class="expander" data-toggle="collapse">KryptonDataGridViewComboBoxEditingControl()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl__ctor" class="collapse in">
+  <div class="markdown level1 summary"><p>Initalize a new instance of the KryptonDataGridViewComboBoxEditingControl class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonDataGridViewComboBoxEditingControl()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlDataGridView_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlDataGridView*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlDataGridView" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlDataGridView"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlDataGridView" class="expander" data-toggle="collapse">EditingControlDataGridView</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlDataGridView" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which caches the grid that uses this editing control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataGridView EditingControlDataGridView { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.DataGridView</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingControlDataGridView</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlFormattedValue_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlFormattedValue*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlFormattedValue" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlFormattedValue"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlFormattedValue" class="expander" data-toggle="collapse">EditingControlFormattedValue</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlFormattedValue" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which represents the current formatted value of the editing control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual object EditingControlFormattedValue { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingControlFormattedValue</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlRowIndex_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlRowIndex*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlRowIndex" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlRowIndex"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlRowIndex" class="expander" data-toggle="collapse">EditingControlRowIndex</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlRowIndex" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which represents the row in which the editing control resides</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int EditingControlRowIndex { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingControlRowIndex</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlValueChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlValueChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlValueChanged" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlValueChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlValueChanged" class="expander" data-toggle="collapse">EditingControlValueChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlValueChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which indicates whether the value of the editing control has changed or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool EditingControlValueChanged { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingControlValueChanged</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingPanelCursor_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingPanelCursor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingPanelCursor" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingPanelCursor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingPanelCursor" class="expander" data-toggle="collapse">EditingPanelCursor</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingPanelCursor" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which determines which cursor must be used for the editing panel, i.e. the parent of the editing control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Cursor EditingPanelCursor { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Cursor</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingPanelCursor</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_RepositionEditingControlOnValueChange_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.RepositionEditingControlOnValueChange*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_RepositionEditingControlOnValueChange" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.RepositionEditingControlOnValueChange"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_RepositionEditingControlOnValueChange" class="expander" data-toggle="collapse">RepositionEditingControlOnValueChange</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_RepositionEditingControlOnValueChange" class="collapse in">
+  <div class="markdown level1 summary"><p>Property which indicates whether the editing control needs to be repositioned when its value changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool RepositionEditingControlOnValueChange { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.RepositionEditingControlOnValueChange</span></div>
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ApplyCellStyleToEditingControl_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.ApplyCellStyleToEditingControl*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ApplyCellStyleToEditingControl_System_Windows_Forms_DataGridViewCellStyle_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.ApplyCellStyleToEditingControl(System.Windows.Forms.DataGridViewCellStyle)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ApplyCellStyleToEditingControl_System_Windows_Forms_DataGridViewCellStyle_" class="expander" data-toggle="collapse">ApplyCellStyleToEditingControl(DataGridViewCellStyle)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ApplyCellStyleToEditingControl_System_Windows_Forms_DataGridViewCellStyle_" class="collapse in">
+  <div class="markdown level1 summary"><p>Method called by the grid before the editing control is shown so it can adapt to the provided cell style.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.DataGridViewCellStyle</span></span>
+        <span class="parametername">dataGridViewCellStyle</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.ApplyCellStyleToEditingControl(System.Windows.Forms.DataGridViewCellStyle)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlWantsInputKey_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlWantsInputKey*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlWantsInputKey_System_Windows_Forms_Keys_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.EditingControlWantsInputKey(System.Windows.Forms.Keys,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlWantsInputKey_System_Windows_Forms_Keys_System_Boolean_" class="expander" data-toggle="collapse">EditingControlWantsInputKey(Keys, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_EditingControlWantsInputKey_System_Windows_Forms_Keys_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Method called by the grid on keystrokes to determine if the editing control is interested in the key or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool EditingControlWantsInputKey(Keys keyData, bool dataGridViewWantsInputKey)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Keys</span></span>
+        <span class="parametername">keyData</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">dataGridViewWantsInputKey</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.EditingControlWantsInputKey(System.Windows.Forms.Keys, System.Boolean)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_GetEditingControlFormattedValue_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.GetEditingControlFormattedValue*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_GetEditingControlFormattedValue_System_Windows_Forms_DataGridViewDataErrorContexts_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.GetEditingControlFormattedValue(System.Windows.Forms.DataGridViewDataErrorContexts)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_GetEditingControlFormattedValue_System_Windows_Forms_DataGridViewDataErrorContexts_" class="expander" data-toggle="collapse">GetEditingControlFormattedValue(DataGridViewDataErrorContexts)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_GetEditingControlFormattedValue_System_Windows_Forms_DataGridViewDataErrorContexts_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns the current value of the editing control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.DataGridViewDataErrorContexts</span></span>
+        <span class="parametername">context</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.GetEditingControlFormattedValue(System.Windows.Forms.DataGridViewDataErrorContexts)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnSelectedIndexChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.OnSelectedIndexChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnSelectedIndexChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.OnSelectedIndexChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnSelectedIndexChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnSelectedIndexChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnSelectedIndexChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Listen to the SelectedIndexChanged notification to forward the change to the grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnSelectedIndexChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.KryptonComboBox.html#ComponentFactory_Krypton_Toolkit_KryptonComboBox_OnSelectedIndexChanged_System_EventArgs_">KryptonComboBox.OnSelectedIndexChanged(EventArgs)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnTextChanged_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.OnTextChanged*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnTextChanged_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.OnTextChanged(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnTextChanged_System_EventArgs_" class="expander" data-toggle="collapse">OnTextChanged(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_OnTextChanged_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Listen to the TextChanged notification to forward the change to the grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnTextChanged(EventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnTextChanged(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_PrepareEditingControlForEdit_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.PrepareEditingControlForEdit*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_PrepareEditingControlForEdit_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.PrepareEditingControlForEdit(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_PrepareEditingControlForEdit_System_Boolean_" class="expander" data-toggle="collapse">PrepareEditingControlForEdit(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_PrepareEditingControlForEdit_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called by the grid to give the editing control a chance to prepare itself for the editing session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void PrepareEditingControlForEdit(bool selectAll)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">selectAll</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IDataGridViewEditingControl.PrepareEditingControlForEdit(System.Boolean)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ProcessKeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.ProcessKeyEventArgs*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ProcessKeyEventArgs_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxEditingControl.ProcessKeyEventArgs(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ProcessKeyEventArgs_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">ProcessKeyEventArgs(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonDataGridViewComboBoxEditingControl_ProcessKeyEventArgs_System_Windows_Forms_Message__" class="collapse in">
+  <div class="markdown level1 summary"><p>A few keyboard messages need to be forwarded to the inner textbox of the
+KryptonComboBox control so that the first character pressed appears in it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool ProcessKeyEventArgs(ref Message m)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.ProcessKeyEventArgs(System.Windows.Forms.Message)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

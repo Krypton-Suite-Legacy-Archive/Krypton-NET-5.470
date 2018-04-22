@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DockingDragManager
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DockingDragManager
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager">
+  <h1 id="ComponentFactory_Krypton_Docking_DockingDragManager" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager">Class DockingDragManager
+  </h1>
+  <div class="markdown level0 summary"><p>Manage a docking dragging operation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html">DragManager</a></div>
+    <div class="level2"><span class="xref">DockingDragManager</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_Dispose">DragManager.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_IsDisposed">DragManager.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_StateCommon">DragManager.StateCommon</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_PaletteMode">DragManager.PaletteMode</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_Palette">DragManager.Palette</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DragTargetProviders">DragManager.DragTargetProviders</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_IsDragging">DragManager.IsDragging</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DocumentCursor">DragManager.DocumentCursor</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_PageDragStart_System_Object_ComponentFactory_Krypton_Navigator_KryptonNavigator_ComponentFactory_Krypton_Navigator_PageDragCancelEventArgs_">DragManager.PageDragStart(Object, KryptonNavigator, PageDragCancelEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_PageDragMove_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_">DragManager.PageDragMove(Object, PointEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_PageDragEnd_System_Object_ComponentFactory_Krypton_Toolkit_PointEventArgs_">DragManager.PageDragEnd(Object, PointEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_PageDragQuit_System_Object_">DragManager.PageDragQuit(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_CreateDropData_ComponentFactory_Krypton_Navigator_PageDragEndData_">DragManager.CreateDropData(PageDragEndData)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_UpdateCursor">DragManager.UpdateCursor()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_RestoreCursor">DragManager.RestoreCursor()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Docking_DockingDragManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DockingDragManager : DragManager, IDragPageNotify, IDisposable, IFloatingMessages, IMessageFilter</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager__ctor_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.#ctor(ComponentFactory.Krypton.Docking.KryptonDockingManager,System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">DockingDragManager(KryptonDockingManager, Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager__ctor_ComponentFactory_Krypton_Docking_KryptonDockingManager_System_Windows_Forms_Control_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the DockingDragManager class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockingDragManager(KryptonDockingManager manager, Control c)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingManager.html">KryptonDockingManager</a></span>
+        <span class="parametername">manager</span>
+        <p><p>Reference to manager creating this instance.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Control that is starting the drag operation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindow_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.FloatingWindow*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindow" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.FloatingWindow"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindow" class="expander" data-toggle="collapse">FloatingWindow</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindow" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the window that is moved in sync with the mouse movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonFloatingWindow FloatingWindow { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonFloatingWindow.html">KryptonFloatingWindow</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindowOffset_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.FloatingWindowOffset*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindowOffset" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.FloatingWindowOffset"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindowOffset" class="expander" data-toggle="collapse">FloatingWindowOffset</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_FloatingWindowOffset" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the offset of the floating window from the screen cursor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point FloatingWindowOffset { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Point</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_Dispose_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.Dispose*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_Dispose_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Release unmanaged and optionally managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>Called from Dispose method.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_Dispose_System_Boolean_">DragManager.Dispose(Boolean)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_DragEnd_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragEnd*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_DragEnd_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragEnd(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragEnd_System_Drawing_Point_" class="expander" data-toggle="collapse">DragEnd(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragEnd_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when dragging ends because of dropping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool DragEnd(Point screenPt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Ending screen point when dropping.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Drop was performed and the source can perform any removal of pages as required.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DragEnd_System_Drawing_Point_">DragManager.DragEnd(Point)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_DragMove_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragMove*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_DragMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragMove(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragMove_System_Drawing_Point_" class="expander" data-toggle="collapse">DragMove(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragMove_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs on dragging movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DragMove(Point screenPt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Latest screen point during dragging.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DragMove_System_Drawing_Point_">DragManager.DragMove(Point)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_DragQuit_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragQuit*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_DragQuit" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragQuit"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragQuit" class="expander" data-toggle="collapse">DragQuit()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragQuit" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when dragging quits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DragQuit()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DragQuit">DragManager.DragQuit()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_DragStart_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragStart*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_DragStart_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.DragStart(System.Drawing.Point,ComponentFactory.Krypton.Navigator.PageDragEndData)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragStart_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="expander" data-toggle="collapse">DragStart(Point, PageDragEndData)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_DragStart_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when dragging starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool DragStart(Point screenPt, PageDragEndData dragEndData)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">screenPt</span>
+        <p><p>Mouse screen point at start of drag.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.PageDragEndData.html">PageDragEndData</a></span>
+        <span class="parametername">dragEndData</span>
+        <p><p>Data to be dropped at destination.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if dragging waas started; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Navigator.DragManager.html#ComponentFactory_Krypton_Navigator_DragManager_DragStart_System_Drawing_Point_ComponentFactory_Krypton_Navigator_PageDragEndData_">DragManager.DragStart(Point, PageDragEndData)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_OnKEYDOWN_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnKEYDOWN*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_OnKEYDOWN_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnKEYDOWN(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnKEYDOWN_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">OnKEYDOWN(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnKEYDOWN_System_Windows_Forms_Message__" class="collapse in">
+  <div class="markdown level1 summary"><p>Processes the WM_KEYDOWN from the floating window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OnKEYDOWN(ref Message m)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True to eat message; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Docking.IFloatingMessages.html#ComponentFactory_Krypton_Docking_IFloatingMessages_OnKEYDOWN_System_Windows_Forms_Message__">IFloatingMessages.OnKEYDOWN(ref Message)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_OnLBUTTONUP_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnLBUTTONUP*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_OnLBUTTONUP" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnLBUTTONUP"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnLBUTTONUP" class="expander" data-toggle="collapse">OnLBUTTONUP()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnLBUTTONUP" class="collapse in">
+  <div class="markdown level1 summary"><p>Processes the WM_LBUTTONUP from the floating window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnLBUTTONUP()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Docking.IFloatingMessages.html#ComponentFactory_Krypton_Docking_IFloatingMessages_OnLBUTTONUP">IFloatingMessages.OnLBUTTONUP()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_OnMOUSEMOVE_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnMOUSEMOVE*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_OnMOUSEMOVE" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.OnMOUSEMOVE"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnMOUSEMOVE" class="expander" data-toggle="collapse">OnMOUSEMOVE()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_OnMOUSEMOVE" class="collapse in">
+  <div class="markdown level1 summary"><p>Processes the WM_MOUSEMOVE from the floating window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnMOUSEMOVE()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="ComponentFactory.Krypton.Docking.IFloatingMessages.html#ComponentFactory_Krypton_Docking_IFloatingMessages_OnMOUSEMOVE">IFloatingMessages.OnMOUSEMOVE()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_DockingDragManager_PreFilterMessage_" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.PreFilterMessage*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_DockingDragManager_PreFilterMessage_System_Windows_Forms_Message__" data-uid="ComponentFactory.Krypton.Docking.DockingDragManager.PreFilterMessage(System.Windows.Forms.Message@)"><a href="#collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_PreFilterMessage_System_Windows_Forms_Message__" class="expander" data-toggle="collapse">PreFilterMessage(ref Message)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_DockingDragManager_PreFilterMessage_System_Windows_Forms_Message__" class="collapse in">
+  <div class="markdown level1 summary"><p>Filters out a message before it is dispatched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+public bool PreFilterMessage(ref Message m)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Message</span></span>
+        <span class="parametername">m</span>
+        <p><p>The message to be dispatched.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>true to filter the message and stop it from being dispatched.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Windows.Forms.IMessageFilter.PreFilterMessage(System.Windows.Forms.Message)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

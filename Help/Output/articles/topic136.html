@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using IRendererMonitoring the global palette | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using IRendererMonitoring the global palette | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-irendererbrbrmonitoring-the-global-palette">Using IRenderer<br><br>Monitoring the global palette</h1>
+
+<p>In order to get access to a renderer you need to begin with a palette. The
+recommended way of getting an <em>IRenderer</em> reference is to call the
+<em>GetReference()</em> method on the <em>IPalette</em> interface. Therefore your custom
+control should begin by monitoring the global palette so that you can access the
+associated renderer appropriate for that global palette. You should follow the
+steps outlined in the <a href="topic135.html">Using IPalette</a> article in order to add
+ability.</p>
+<h1 id="brirenderer-basics"><br>IRenderer Basics</h1>
+<p>In order to use the methods exposed by the <em>IRenderer</em> we need take a few basic
+setup steps. In particular we need to create four helper objects that are then
+used in your interaction with the renderer instance. To begin you should add the
+following fields to your custom control class.  </p>
+<pre><code> private PaletteRedirect \_paletteRedirect;  
+ private PaletteBackInheritRedirect \_paletteBack;  
+ private PaletteBorderInheritRedirect \_paletteBorder;  
+ private PaletteContentInheritRedirect \_paletteContent;  
+ private IDisposable \_mementoBack;  
+</code></pre><p>Now update your constructor in order to create the four instances in the
+following manner.  </p>
+<pre><code> public MyUserControl()  
+ {  
+      // ...your other constructor code...  
+
+      // (1) Create redirection object to the base palette  
+      \_paletteRedirect = new PaletteRedirect(_palette);  
+
+      // (2) Create accessor objects for the back, border and content  
+      \_paletteBack = new PaletteBackInheritRedirect(_paletteRedirect);  
+      \_paletteBorder = new PaletteBorderInheritRedirect(_paletteRedirect);  
+      \_paletteContent = new
+</code></pre><p>PaletteContentInheritRedirect(_paletteRedirect);<br>     }</p>
+<p>In our previous article <a href="topic135.html">Using IPalette</a> you could see how
+palette values were directly recovered from the <em>IPalette</em> interface. However
+the renderer does not interact directly with <em>IPalette</em> but instead with a set
+of more specific interfaces such as <em>IPaletteBack</em>, <em>IPaletteBorder</em>
+and <em>IPaletteContent</em>. Code block (1) creates a helper object that exposes these
+specific interfaces and redirects the <em>IPaletteBack,
+IPaletteBorder, IPaletteContent</em> calls into <em>IPalette</em> requests.    </p>
+<p>We then use block (2) to create helper objects for each of the specific
+interfaces. These are the actual objects you will pass into the renderer
+requests. They each have a <em>Style</em> property that allows you to specify the
+drawing style you require and all calls into the helper object will
+automatically be passed on with the style requested. You can see how this works
+in the code below. The following code is the template you should use in your
+drawing code.  </p>
+<pre><code> protected override void OnPaint(PaintEventArgs e)  
+ {  
+      if (_palette != null)  
+      {  
+           // (3) Get the renderer associated with this palette  
+           IRenderer renderer = \_palette.GetRenderer();  
+
+           // (4) Create the rendering context that is passed into all
+</code></pre><p>renderer calls<br>               using (RenderContext renderContext = new RenderContext(this,
+e.Graphics, e.ClipRectangle, renderer))<br>               {<br>                    // (5) Set style required when rendering<br>                    _paletteBack.Style = PaletteBackStyle.ButtonStandalone;<br>                    _paletteBorder.Style = PaletteBorderStyle.ButtonStandalone;<br>                    _paletteContent.Style =
+PaletteContentStyle.ButtonStandalone;</p>
+<pre><code>                // (6) ...perform renderer operations...  
+           }  
+      }  
+ }
+</code></pre><p>Code block (3) is used to grab the renderer that is associated with the palette
+we are using. We do not cache the renderer reference as we have already cached
+and tracked the global palette, so we only need to request the renderer when it
+is needed. Block (4) is used to create an instance of the <em>RenderContext</em> type
+that is passed into all renderer calls. We use this object in order to package
+up common values and so reduce the number of parameters passed into each
+renderer call.  </p>
+<p>In order to specify the drawing styles that should be used when recovering
+palette values we use block (5). In our example we are setting these values in
+every call to the <em>OnPaint</em> call as an illustration. In your own application you
+might prefer to set these values just once in the constructor because you know
+the style values are not going to change. On the other hand you might need to
+alter the style settings between renderer calls in order to draw different
+styles of elements within your custom control.  </p>
+<p>Finally comment (6) shows the placeholder location where you would insert your
+rendering calls. The following sections of the article give details of how to
+make use of the background, border and content abilities of the renderer.</p>
+<h1 id="brdrawing-a-background"><br>Drawing a Background</h1>
+<p>To draw a background we use the <em>IPalette.RenderStandardBack.DrawBack</em> call. The
+following code provides you will a example usage.</p>
+<pre><code> // (7) Do we need to draw the background?  
+ if (_paletteBack.GetBackDraw(PaletteState.Normal) == InheritBool.True)  
+ {  
+      using (GraphicsPath path = new GraphicsPath())  
+      {  
+           // (8) Add entire control client area to drawing path  
+           path.AddRectangle(ClientRectangle);
+
+           // (9) Perform drawing of the background clipped to the path  
+           \_mementoBack =
+</code></pre><p>renderer.RenderStandardBack.DrawBack(renderContext,  </p>
+<p>ClientRectangle,  </p>
+<p>path,  </p>
+<p>_paletteBack,  </p>
+<p>VisualOrientation.Top,   </p>
+<p>PaletteState.Normal,  </p>
+<p>_mementoBack);<br>          }<br>     }</p>
+<p>First we test to ensure that the palette specifies that the background is
+allowed to be drawn for the state we are requesting, as can be seen in code
+block (7). In this and all other examples in the article we provide the fixed
+<em>PaletteState.Normal</em> enumeration value. You should however provide the
+appropriate state for your control. Even the simplest control will need to
+provide one of two possible values, <em>PaletteState.Normal</em> when enabled and
+PaletteState.Disabled otherwise. If you need to provide more extensive feedback
+then you should consider supplying <em>PaletteState.Tracking</em> when the house is
+over the rendering element and <em>PaletteState.Pressed</em> when the mouse is also
+pressed down.  </p>
+<p>Code block (8) completes the process of creating a <em>GraphicsPath</em> that is used
+to clip the area of background drawn. In our case we want to draw the entire
+client area of the control and so set the path to the <em>ClientRectangle</em>, but you
+could create any path you like in order render complex shapes.  </p>
+<p>Finally block (9) performs the actual rendering operation. The second parameter
+is the rectangle you would like to be drawn and the third parameter a path used
+to clip the drawing operation. The second to last parameter is the palette state
+that you should ensure is the same as the call in block (7). The last parameter
+provides a memento object that is also assigned to as the result of the call.
+This technique allows performance improvements in the renderer as it allows the
+renderer to create caching objects and have them supplied again on subsequent
+calls.</p>
+<h1 id="brdrawing-a-border"><br>Drawing a Border</h1>
+<p>Once you know how to draw a background the border drawing is trivial. Here is
+the code.</p>
+<pre><code> // (10) Do we need to draw the border?  
+ if (_paletteBorder.GetBorderDraw(PaletteState.Normal) == InheritBool.True)  
+ {  
+      // (11) Draw the border inside the provided rectangle area  
+      renderer.RenderStandardBorder.DrawBorder(renderContext,   
+                                                                 ClientRectangle,   
+                                                                 _paletteBorder,   
+                                                                 VisualOrientation.Top,   
+                                                                 PaletteState.Normal);  
+ }
+</code></pre><p>As with drawing the background we being with block (10) which tests to ensure we
+need to draw the border at all. If we do then we just need to make the call to
+the <em>IRenderer.RenderStandardBorder.DrawBorder</em> with a set of simple parameters,
+as seen in code block (11). The second parameter is the rectangle that specifies
+the outside of the border drawing area, the border itself will be drawn to fit
+completely within this rectangle.</p>
+<h1 id="drawing-a-backgroundborder-pair">Drawing a Background/Border Pair</h1>
+<p>In many cases you will be drawing a background and border for the same visual
+element. So if you control is drawing a button element in the client area then
+you would want to draw the button area background followed by the button area
+border. You might think this is achieved by performing the above two sections of
+code for the same rectangle area. In practice this is not quite the case because
+of a feature with borders.  </p>
+<p>It is possible for a border to have rounded corners and so we cannot just draw
+the background as a rectangle, if we did that then the background would be drawn
+outside the rounded corners. In order to prevent this we use a slightly modified
+version of the background drawing code presented above.   </p>
+<pre><code> // Do we need to draw the background?  
+ if (_paletteBack.GetBackDraw(PaletteState.Normal) == InheritBool.True)  
+ {  
+      // (12) Get the background path to use for clipping the drawing  
+      using (GraphicsPath path =
+</code></pre><p>renderer.RenderStandardBorder.GetBackPath(renderContext,<br>                                                                                                           ClientRectangle,<br>                                                                                                           _paletteBorder,<br>                                                                                                           VisualOrientation.Top,<br>                                                                                                           PaletteState.Normal))<br>          {<br>               // Perform drawing of the background clipped to the path<br>               _mementoBack =
+renderer.RenderStandardBack.DrawBack(renderContext,  </p>
+<p>ClientRectangle,  </p>
+<p>path,  </p>
+<p>_paletteBack,  </p>
+<p>VisualOrientation.Top,   </p>
+<p>PaletteState.Normal,<br>                                                                                             _mementoBack);<br>          }<br>     }</p>
+<p>If you look at code block (8) from the previous drawing code then you will note
+that the clipping path for the background is specified by using a rectangle.
+Instead we use block (12) above to create a clipping path that is a description
+of the border. This prevents the background being drawn outside of the border.
+It uses a call to the <em>IRenderer.RenderStandardBorder.GetBackPath</em> to get the
+clipping path.</p>
+<h1 id="brdrawing-a-content"><br>Drawing a Content</h1>
+<p>All <em>Content</em> consists of providing three values, two text strings and an image.
+In order to provide these values to the renderer an interface is used called
+<em>IContentValues</em>. You can implement this interface in any way that is
+appropriate for your usage but in our example we will choose the simplest option
+and implement it on the custom control itself. If you choose to do that same
+then you first of all need to add it to the class definition in the following
+way.</p>
+<pre><code> public class MyUserControl : UserControl, IContentValues  
+</code></pre><p>Next the actual interface methods need to be implemented, our examples just
+returns some simple fixed values.</p>
+<pre><code> public Image GetImage(PaletteState state)  
+ {  
+      return null;  
+ }
+
+ public Color GetImageTransparentColor(PaletteState state)  
+ {  
+      return Color.Empty;  
+ }
+
+ public string GetLongText()  
+ {  
+      return &quot;Click me!&quot;;  
+ }
+
+ public string GetShortText()  
+ {  
+      return string.Empty;  
+ }
+</code></pre><p>Unlike the background and border rendering we need to override the control
+layout event <em>OnLayout</em>. We do this so that the renderer can calculate
+the position and visibility of the content values and cache the results for when
+painting later. A control will usually be painted much more often than it is
+layed out and so caching the results of the layout event gives better
+performance than doing the calculations during every paint cycle.  </p>
+<p>In order to cache the results of the <em>OnLayout</em> we need to add a new field to
+the control as follows.  </p>
+<pre><code> private IDisposable_mementoContent;
+</code></pre><p>The actual <em>OnLayout</em> method is very similar to the way that the <em>OnPaint</em>
+works, recovering the <em>IRenderer</em> instance and then creating a context object
+that is passed into each of the renderer calls. The following implementation
+caches the result of laying out the content.    </p>
+<pre><code> protected override void OnLayout(LayoutEventArgs e)  
+ {  
+      if (_palette != null)  
+      {  
+           // Get the renderer associated with this palette  
+           IRenderer renderer = \_palette.GetRenderer();
+
+           // Create a layout context used to allow the renderer to perform
+</code></pre><p>layout<br>               using (ViewLayoutContext viewContext = new
+ViewLayoutContext(this, renderer))<br>               {<br>                    // (13) Cleaup resources by disposing of old memento
+instance<br>                    if (_memento != null)<br>                        _memento.Dispose();  </p>
+<pre><code>                // (14) Ask the renderer to work out how the Content values
+</code></pre><p>will be layed out<br>                    // and return a memento object that we cache for use when
+performing painting<br>                    _mementoContent =
+renderer.RenderStandardContent.LayoutContent(viewContext,   </p>
+<p>ClientRectangle,   </p>
+<p>_paletteContent,   </p>
+<p>this,   </p>
+<p>VisualOrientation.Top,   </p>
+<p>false,   </p>
+<p>PaletteState.Normal);<br>               }<br>          }</p>
+<pre><code>      base.OnLayout(e);  
+ }
+</code></pre><p>Block (13) disposes of any existing memento instance to ensure that any
+resources that are held by the memento are correctly released.  </p>
+<p>Block (14) is the actual call to the renderer and parameter four provides the
+reference to the <em>IContentValues</em> interface that provides the content values. As
+the interface is implemented by the custom control in our example the reference
+is the <em>this</em> variable. As with all the other calls to the renderer you need to
+provide the appropriate palette state in place of the <em>PaletteState.Normal</em>
+constant in the examples.  </p>
+<p>Finally the actual <em>OnPaint</em> code needed to draw the content is presented.  </p>
+<pre><code> // Do we need to draw the content?  
+ if (_paletteContent.GetContentDraw(PaletteState.Normal) ==
+</code></pre><p>InheritBool.True)<br>     {<br>          // Draw content using the memento cached from OnLayout<br>          renderer.RenderStandardContent.DrawContent(renderContext,<br>                                                                         ClientRectangle,<br>                                                                         _paletteContent,   </p>
+<p>_memento,<br>                                                                         VisualOrientation.Top,<br>                                                                         false,   </p>
+<p>PaletteState.Normal);<br>     }</p>
+<p>As always the code checks that the content needs to be drawn all given the
+provided palette state.  </p>
+<p>Using the above information and examples it should be possible to experiment and
+draw whatever elements you need in your custom control in order to leverage the
+functionality provided in the toolkit as well as remaining faithful to the
+global palette settings. You should refer to the <em>Custom Control using
+Renderers</em> example project for a working example of the renderer code in action.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

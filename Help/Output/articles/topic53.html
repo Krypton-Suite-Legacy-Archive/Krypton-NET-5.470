@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>KryptonPalette</p>
+<p>Use the <em>KryptonPalette</em> component to define or modify a global palette. You can
+then assign use of the palette to individual <em>Krypton</em> controls. Alternatively
+you can update the <em>KryptonManager</em> to use it as the global palette and so all
+<em>Krypton</em> controls will be affected that have not already been given a custom
+palette to use.</p>
+<p><strong>BasePaletteMode</strong></p>
+<p><em>BasePaletteMode</em> is used to determine how to inherit individual palette values
+that have not been specified in the palette component itself. When you create a
+new <em>KryptonPalette</em> instance all the palette values are defined to inherit from
+the base palette.</p>
+<p>If you choose <em>Global</em> as the base palette then values will inherit from
+whatever has been specified as the global palette in the <em>KryptonManager</em>
+component. Other values include built-in palettes such as the <em>Professional -
+Office 2003</em> and the <em>Professional - System</em> options. The last option is called
+<em>Custom</em> and is valid only when you provide a palette reference to the
+<em>BasePalette</em> property.</p>
+<p><strong>BasePalette</strong><br><em>BasePalette</em> should be used when you need to inherit from another
+<em>KryptonPalette</em> instance instead of the global palette or one of the built-in
+palettes. Once you assign a reference to this property the <em>BasePaletteMode</em>
+will automatically be changed to the <em>Custom</em> enumeration value.</p>
+<p>Note that you are not allowed circular references in the use of base palettes.
+So if you define the base to be another palette instance and then try to make
+the other palette instance references back to this one then it will cause an
+error. Whenever you alter the base palette it will check the chain to ensure no
+circular dependency exists.</p>
+<p>Use of the base palette is best explained with a couple of example scenarios.
+Imagine you are using the <em>Professional - System</em> built-in palette for your
+<em>Krypton</em> controls. You can set this up by altering the global palette to be
+<em>Professional - System</em> on the <em>KryptonManager</em> component. Now you discover that
+you need to alter just one aspect of the appearance such as the border control
+of all the button controls.</p>
+<p>To solve this you need to create a <em>KrytonPalette</em> instance and define the base
+palette as the <em>Professional - System</em> built-in palette. Then you update the
+border color setting for the button control to the required value, all other
+values will inherit from the base palette and so this is the only custom value
+that needs defining. Finally alter the <em>KryptonManager</em> so it uses our new
+<em>KryptonPalette</em> as the global palette.</p>
+<p>A variation on this scenario is where you need to provide this custom border to
+a group of <em>Krypton</em> controls but not to all of them. In this case you would
+create the new <em>KrytonPalette</em> as before but this time you would inherit it from
+the <em>Global</em> palette. Then you assign use of the new palette to each of the
+individual controls that need the altered appearance. All the other controls
+will continue to use the <em>Global</em> palette and so be unaffected.</p>
+<p><strong>BaseRendererMode &amp; BaseRenderer</strong></p>
+<p>Each builtin palette specifies the renderer instance to use when drawing. The
+<em>Office 2007</em> builtin palettes use the <em>Office2007</em> renderer class and the set
+of <em>Professional</em> builtin palettes use the associated <em>Professional</em> renderer
+class. Different render implementations are used for different palettes to
+provide custom drawing actions that are palette specific.  </p>
+<p>In the unlikely event you need to alter the renderer used you can modify the
+<em>BaseRendererMode</em> property. If you create your own renderer or a renderer that
+derives from a builtin one then you would assign it to the <em>BaseRenderer</em>
+property. By default the <em>BaseRendererMode</em> property is defined as <em>Inherit</em> and
+so the palette inherits the render setting from the base palette.  </p>
+<p><strong>AllowFormChrome</strong></p>
+<p>Some palettes require that <em>KryptonForm</em> instances perform custom chrome drawing
+in the border and caption areas. The default value of <em>Inherit</em> specifies that
+the setting by retrieved from the base palette setting. For example the <em>Office
+2007 - Blue</em> builtin palette will provide <em>True</em> for this property but
+the <em>Professional - Office 2003</em> will return <em>False</em>. To turn off custom chrome
+then you would set this property to <em>False</em>.</p>
+<p><strong>Palette Values</strong> </p>
+<p>The set of properties for each type of style follow the same basic structure. At
+the top level is the name of the a styles collection such as <em>ButtonStyles</em>,
+<em>LabelStyles</em>, <em>PanelStyles</em> etc. Within this collection are contained each of
+the individual style instances. For example the <em>PanelStyles</em> property contains
+<em>PanelClient</em>, <em>PanelAlternate</em>, <em>PanelCustom1</em> and <em>PanelCommon</em>. The first
+three of these are <em>PanelClient</em>, <em>PanelAlternate</em> and <em>PanelCustom1</em> which are
+actual styles you can choose when using a <em>KryptonPanel</em> instance. <em>PanelCommon</em>
+is the base style that the other three inherit from, so you can place
+common settings in <em>PanelCommon</em> and know that the other three styles will
+inherit those settings.</p>
+<p>For each individual style there are child properties for each of the possible
+states associated with that style. So the <em>PanelClient *style contains
+*StateDisabled</em>, <em>StateNormal</em> and <em>StateCommon</em>. Here the <em>StateDisabled</em> and
+<em>StateNormal</em> relate to the actual states of the <em>PanelClient</em> style and the
+<em>StateCommon</em> is the base set of values that the <em>StateDisabled</em> and
+<em>StateNormal</em> inherit from.  </p>
+<p>If you examine the <em>KryptonPanel</em> control that uses the <em>PanelClient</em> style you
+will see it also has the same three set of state values that can be overridden
+on a per control basis. This hierarchy of style collection, individual style and
+style states can be seen in figure 1. </p>
+<ul>
+<li>Figure 1 - Panel styles hierarchy*  </li>
+</ul>
+<p>If you do not set a value for any of the style states such as <em>StateNormal</em>,
+<em>StateDisabled</em> and <em>StateCommon</em> then it inherits the values by using a top
+level group called <em>Common</em>. There are three entries in the <em>Common</em> collection
+called <em>StateDisabled</em>, <em>StateOthers</em> and <em>StateCommon</em>. The style specific
+<em>StateDisabled</em> will inherit from the palette level <em>StateDisabled</em> if the style
+specific <em>StateCommon</em> is not defined. All other style specific states inherit
+from <em>StateOthers</em> if the style specific <em>StateCommon</em> is not defined. Both of
+the palette level <em>StateDisabled</em> and <em>StateOthers</em> inherit from the
+<em>StateCommon</em> values. Only if the palette level <em>StateCommon</em> value is not
+defined will it use the base palette.</p>
+<p>This is illustrated with a simple example. Imagine we have a <em>KryptonPanel</em>
+control instance with a style of <em>PanelClient</em> that is using our
+<em>KryptonPalette</em> instance as the defined palette. The control is in the normal
+state and so uses the following inheritance sequence to discover display values
+to use: -</p>
+<pre><code>    *(Look for a value at the individual control level)*
+
+        KryptonPanel.StateNormal
+</code></pre><p>KryptonPanel.StateCommon  </p>
+<pre><code>    *(Look for a value at the palette level)*
+</code></pre><p>KryptonPalette.PanelStyle.PanelClient.StateNormal</p>
+<p>KryptonPalette.PanelStyle.PanelClient.StateCommon</p>
+<p>KryptonPalette.Common.StateOthers</p>
+<p>KryptonPalette.Common.StateCommon  </p>
+<p>The advantage of this inheritance chain is the speed with which you can
+customize at the appropriate level. If you want to set the background color of
+all <em>Krypton</em> controls then you would alter the
+<em>KryptonPalette.Common.StateCommon</em> level values. To alter the background for
+just all the panel styles then you would change
+<em>KryptonPalette.PanelStyles.PanelCommon.StateCommon</em> values. To change the
+background of just the PanelClient you would alter
+<em>KryptonPalette.PanelStyles.PanelClient.StateCommon</em>.</p>
+<p><strong>ToolMenuStatus</strong> </p>
+<p>You can use the palette to alter not just the styling of the <em>Krypton</em> controls
+but also the appearance of the tool strips, menu strips, status strips and
+context menu strips. This is the purpose of the <em>ToolMenuStatus</em> property on the
+palette.</p>
+<p>Below this property are a whole range of property collections that related to a
+particular area such as <em>ToolStrip</em> and <em>StatusStrip</em>. You can navigate and
+alter values as appropriate to achieve the customized look you need that will
+match the rest of the palette settings.</p>
+<p>A good way to work with these settings is to alter the <em>KryptonManager</em> so the
+palette is the global palette. Now any change you make will be instantly
+reflected in the tool, menu and status strips on your form. Then try changing
+the color of interest to be red in order to see the effect it has on the
+display. This will then point out how to them modify the color to the actual
+value you require.</p>
+<p><strong>Import and Export</strong> </p>
+<p>At design time you can use the smart tag of the <em>KryptonPalette</em> to invoke the
+exporting or importing of palette settings. Exporting will allow you to generate
+an XML file that contains all the values that have been changed from the
+default. You can then import these settings into another <em>KryptonPalette</em>
+instance in the same or a different application. Use the <em>Reset</em> option from the
+smart tag to reset all the palette properties back to the default settings that
+have when the component is first created.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

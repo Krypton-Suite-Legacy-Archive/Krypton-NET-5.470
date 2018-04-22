@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Tutorial – Using Images with Buttons  </p>
+<p><strong>Per-State Image Buttons</strong>  </p>
+<p>By using a set of images for all aspects of the appearance you can customize the
+look and feel in any way you need. Figure 1 shows the value properties for a
+<em>KryptonCheckButton</em> where each of the individual button states has a custom
+image. The same technique can be applied to the <em>KryptonButton</em> control and a
+<em>ButtonSpec</em> definition.  </p>
+<p>   <em>Figure 1 - Using images for each state</em>  </p>
+<p>For the builtin palettes you will find you need to change three other properties
+to achieve an image only runtime presentation. First of all you need to prevent
+the focus rectangle from being drawn when the button has focus. To do this you
+need to alter the <em>OverrideFocus -> Content -> DrawFocus</em> property to <em>False</em>.
+Obviously if you still want the focus rectangle to appear then ignore this step.  </p>
+<p>Next you need to prevent the button background and border from being drawn. As
+the entire appearance is represented by the images we do not need a border or
+background. To turn off the background set the <em>StateCommon -> Back -> Draw</em>
+property to <em>False</em>. For the border set to <em>False</em> for the <em>StateCommon ->
+Border -> Draw</em> property.  </p>
+<p>You are now ready to use the button at runtime, figure 2 shows the appearance
+for all the different button states for the figure 1 setup when the background,
+border and focus drawing have been turned off.</p>
+<p>   <em>Figure 2 - Actual check button display</em>   </p>
+<p><strong>Single Image Buttons</strong></p>
+<p>These buttons should look familiar as they are the default type of button
+presented by the <em>Professional - Office 2003</em> builtin palette. They consist of
+using just a single image that only gets drawn differently in the disabled
+state. Instead of the image changing when the mouse tracks over and presses
+down, the background and border are altered . Figure 3 shows how you only need
+to assign a single image to the properties.</p>
+<p>   <em>Figure 3 - Single image</em>  </p>
+<p>You can see in figure 4 how the palette alters the background and border colors
+to indicate the button state. The only state that draws the image differently is
+the first one, disabled. If you want to alter the background and border then
+either create and use a custom palette or alter the control level state
+definitions.  </p>
+<p>   <em>Figure 4 - Single image button</em>  </p>
+<p><strong>Color Mapped Image Buttons</strong>  </p>
+<p>Each button state has the ability to remap a single color to a different target
+color. You can take advantage of this by assigning a single color image to the
+button and then re mapping that single color in each of the button states. This
+achieves the advantage of only needing to create and use a single image whilst
+still being able to alter the image appearance. Figure 5 shows a single black
+cross image assigned to a button.  </p>
+<ul>
+<li>Figure 5 - Single color image*  </li>
+</ul>
+<p>In the mouse tracking mode we want to change the image from black to green.
+Figure 6 shows the <em>StateTracking</em> property called <em>ImageColorMap</em> being set the
+<em>Black</em> and the <em>ImageColorTo</em> property defined as <em>Green</em>.  </p>
+<p>   <em>Figure 6 - StateTracking color re mapping</em>  </p>
+<p>By changing the target color for each of the button states you can see the
+runtime effect in figure 7 where the background and border drawing have
+been turned off but the focus rectangle is left to be drawn as normal.  </p>
+<ul>
+<li>Figure 7 - Color mapped button*</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
