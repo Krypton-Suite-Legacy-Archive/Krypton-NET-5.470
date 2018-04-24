@@ -73,9 +73,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ThemeSettingsHelper.cs" />
+    <Compile Include="Classes\ThemingManager.cs" />
     <Compile Include="Classes\UpdaterSettingsHelper.cs" />
+    <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Enumerations\Enumerations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ThemeSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ThemeSettings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Settings\UpdatePackageInformationSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -142,6 +151,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Settings\ThemeSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ThemeSettings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Settings\UpdatePackageInformationSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>UpdatePackageInformationSettings.Designer.cs</LastGenOutput>

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace KryptonToolkitUpdater.Classes
 {
     /// <summary>
-    /// Modifies values in <seealso cref="UpdaterSettings"/>.
+    /// Modifies values in <see cref="UpdaterSettings"/>.
     /// </summary>
     public class UpdaterSettingsHelper
     {
@@ -135,6 +135,24 @@ namespace KryptonToolkitUpdater.Classes
         {
             return updaterSettings.AlwaysShowTrayNotificationIcon;
         }
+
+        /// <summary>
+        /// Sets the UseGarbageCollection to the value of value.
+        /// </summary>
+        /// <param name="value">The desired value of UseGarbageCollection.</param>
+        public void SetUseGarbageCollection(bool value)
+        {
+            updaterSettings.UseGarbageCollection = value;
+        }
+
+        /// <summary>
+        /// Returns the value of the UseGarbageCollection.
+        /// </summary>
+        /// <returns>The value of the UseGarbageCollection.</returns>
+        public bool GetUseGarbageCollection()
+        {
+            return updaterSettings.UseGarbageCollection;
+        }
         #endregion
 
         #region Strings
@@ -203,6 +221,8 @@ namespace KryptonToolkitUpdater.Classes
 
                     SetShowProgressBarInTaskbar(true);
 
+                    SetUseGarbageCollection(true);
+
                     SetVerifyDownload(false);
 
                     if (!File.Exists(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates"))
@@ -226,6 +246,8 @@ namespace KryptonToolkitUpdater.Classes
                 SetLaunchUpdatePackageUponDownload(false);
 
                 SetShowProgressBarInTaskbar(true);
+
+                SetUseGarbageCollection(true);
 
                 SetVerifyDownload(false);
 

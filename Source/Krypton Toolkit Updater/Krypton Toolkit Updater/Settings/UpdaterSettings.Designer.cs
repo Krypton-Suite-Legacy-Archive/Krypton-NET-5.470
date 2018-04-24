@@ -97,6 +97,18 @@ namespace KryptonToolkitUpdater.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseGarbageCollection {
+            get {
+                return ((bool)(this["UseGarbageCollection"]));
+            }
+            set {
+                this["UseGarbageCollection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DownloadLocation {
             get {

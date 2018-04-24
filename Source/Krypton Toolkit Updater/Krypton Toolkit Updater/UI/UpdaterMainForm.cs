@@ -1,4 +1,5 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
+using System.Windows.Forms;
 
 namespace KryptonToolkitUpdater.UI
 {
@@ -47,5 +48,10 @@ namespace KryptonToolkitUpdater.UI
         #region Setters and Getters
 
         #endregion
+
+        private void kllHelp_LinkClicked(object sender, System.EventArgs e)
+        {
+            KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 4.70.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

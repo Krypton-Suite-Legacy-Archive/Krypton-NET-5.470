@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdaterMainForm));
             this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kllHelp = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnCheckForUpdates = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnOptions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.klblCurrentStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.klblCurrentStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kbtnOptions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCheckForUpdates = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kllHelp = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
             this.niKryptonToolkitUpdateUtility = new System.Windows.Forms.NotifyIcon(this.components);
             this.ctxNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,34 +66,22 @@
             this.kpnlBackground.Size = new System.Drawing.Size(800, 166);
             this.kpnlBackground.TabIndex = 0;
             // 
-            // kllHelp
+            // progressBar1
             // 
-            this.kllHelp.Location = new System.Drawing.Point(12, 125);
-            this.kllHelp.Name = "kllHelp";
-            this.kllHelp.Size = new System.Drawing.Size(104, 26);
-            this.kllHelp.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kllHelp.TabIndex = 0;
-            this.kllHelp.Values.Text = "What is this?";
+            this.progressBar1.Location = new System.Drawing.Point(16, 63);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(772, 23);
+            this.progressBar1.TabIndex = 5;
+            this.progressBar1.Visible = false;
             // 
-            // kbtnCancel
+            // klblCurrentStatus
             // 
-            this.kbtnCancel.Location = new System.Drawing.Point(698, 126);
-            this.kbtnCancel.Name = "kbtnCancel";
-            this.kbtnCancel.Size = new System.Drawing.Size(90, 25);
-            this.kbtnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnCancel.TabIndex = 1;
-            this.kbtnCancel.Values.Text = "&Cancel";
-            this.kbtnCancel.Click += new System.EventHandler(this.kbtnCancel_Click);
-            // 
-            // kbtnCheckForUpdates
-            // 
-            this.kbtnCheckForUpdates.Location = new System.Drawing.Point(531, 126);
-            this.kbtnCheckForUpdates.Name = "kbtnCheckForUpdates";
-            this.kbtnCheckForUpdates.Size = new System.Drawing.Size(161, 25);
-            this.kbtnCheckForUpdates.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnCheckForUpdates.TabIndex = 2;
-            this.kbtnCheckForUpdates.Values.Text = "Check for &Updates";
-            this.kbtnCheckForUpdates.Click += new System.EventHandler(this.kbtnCheckForUpdates_Click);
+            this.klblCurrentStatus.Location = new System.Drawing.Point(12, 12);
+            this.klblCurrentStatus.Name = "klblCurrentStatus";
+            this.klblCurrentStatus.Size = new System.Drawing.Size(418, 30);
+            this.klblCurrentStatus.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblCurrentStatus.TabIndex = 4;
+            this.klblCurrentStatus.Values.Text = "Welcome, to begin click \'Check for Updates\'";
             // 
             // kbtnOptions
             // 
@@ -105,21 +93,35 @@
             this.kbtnOptions.Values.Text = "&Options";
             this.kbtnOptions.Click += new System.EventHandler(this.kbtnOptions_Click);
             // 
-            // klblCurrentStatus
+            // kbtnCheckForUpdates
             // 
-            this.klblCurrentStatus.Location = new System.Drawing.Point(12, 12);
-            this.klblCurrentStatus.Name = "klblCurrentStatus";
-            this.klblCurrentStatus.Size = new System.Drawing.Size(418, 30);
-            this.klblCurrentStatus.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klblCurrentStatus.TabIndex = 4;
-            this.klblCurrentStatus.Values.Text = "Welcome, to begin click \'Check for Updates\'";
+            this.kbtnCheckForUpdates.Location = new System.Drawing.Point(531, 126);
+            this.kbtnCheckForUpdates.Name = "kbtnCheckForUpdates";
+            this.kbtnCheckForUpdates.Size = new System.Drawing.Size(161, 25);
+            this.kbtnCheckForUpdates.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnCheckForUpdates.TabIndex = 2;
+            this.kbtnCheckForUpdates.Values.Text = "Check for &Updates";
+            this.kbtnCheckForUpdates.Click += new System.EventHandler(this.kbtnCheckForUpdates_Click);
             // 
-            // progressBar1
+            // kbtnCancel
             // 
-            this.progressBar1.Location = new System.Drawing.Point(16, 63);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(772, 23);
-            this.progressBar1.TabIndex = 5;
+            this.kbtnCancel.Location = new System.Drawing.Point(698, 126);
+            this.kbtnCancel.Name = "kbtnCancel";
+            this.kbtnCancel.Size = new System.Drawing.Size(90, 25);
+            this.kbtnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnCancel.TabIndex = 1;
+            this.kbtnCancel.Values.Text = "&Cancel";
+            this.kbtnCancel.Click += new System.EventHandler(this.kbtnCancel_Click);
+            // 
+            // kllHelp
+            // 
+            this.kllHelp.Location = new System.Drawing.Point(12, 125);
+            this.kllHelp.Name = "kllHelp";
+            this.kllHelp.Size = new System.Drawing.Size(104, 26);
+            this.kllHelp.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kllHelp.TabIndex = 0;
+            this.kllHelp.Values.Text = "What is this?";
+            this.kllHelp.LinkClicked += new System.EventHandler(this.kllHelp_LinkClicked);
             // 
             // niKryptonToolkitUpdateUtility
             // 
