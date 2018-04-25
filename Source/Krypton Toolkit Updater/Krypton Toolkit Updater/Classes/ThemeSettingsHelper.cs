@@ -1008,6 +1008,11 @@ namespace KryptonToolkitUpdater.Classes
             SaveThemeSettings(showConfirmationDialogue);
         }
 
+        /// <summary>
+        /// Sets the theme palette.
+        /// </summary>
+        /// <param name="palette">The palette.</param>
+        /// <param name="showConfirmationDialogue">if set to <c>true</c> [show confirmation dialogue].</param>
         public void SetThemePalette(SuppotedKryptonThemePalettes palette, bool showConfirmationDialogue = false)
         {
             switch (palette)
@@ -1051,7 +1056,7 @@ namespace KryptonToolkitUpdater.Classes
 
                     SetUseSparkleThemePalette(false);
                     break;
-                case SuppotedKryptonThemePalettes.OFFICE2OO7THEMEPALETTE:
+                case SuppotedKryptonThemePalettes.OFFICE2007THEMEPALETTE:
                     SetUseOtherThemePalettes(false);
 
                     SetUseOffice2013ThemePalette(false);
@@ -1116,9 +1121,27 @@ namespace KryptonToolkitUpdater.Classes
             }
         }
 
+        /// <summary>
+        /// Resets the theme settings back to default.
+        /// </summary>
+        /// <param name="showConfirmationDialogue">if set to <c>true</c> [show confirmation dialogue].</param>
         public void ResetThemeSettingsBackToDefault(bool showConfirmationDialogue = true)
         {
+            if (showConfirmationDialogue)
+            {
+                DialogResult result = KryptonMessageBox.Show("Are you sure that you want to reset the update settings back to their defaults?\n\n(NOTE: Once this action has completed, it cannot be reverted)", "Reset Values", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
+                if (result == DialogResult.Yes)
+                {
+
+                }
+            }
+            else
+            {
+
+            }
+
+            SaveThemeSettings(showConfirmationDialogue);
         }
 
         //public KryptonTheme GetCurrentTheme()

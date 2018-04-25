@@ -2,6 +2,7 @@
 using KryptonToolkitUpdater.Classes;
 using KryptonToolkitUpdater.Enumerations;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace KryptonToolkitUpdater.UI
@@ -14,6 +15,14 @@ namespace KryptonToolkitUpdater.UI
         UpdaterSettingsHelper updaterSettingsHelper = new UpdaterSettingsHelper();
 
         Timer optionsTimer = new Timer();
+
+        ControlController controlController = new ControlController();
+
+        Utilities utilities = new Utilities();
+
+        ThemeSettingsHelper themeSettingsHelper = new ThemeSettingsHelper();
+
+        ThemingManager themingManager = new ThemingManager();
         #endregion
 
         #region Properties
@@ -58,6 +67,9 @@ namespace KryptonToolkitUpdater.UI
         }
         #endregion
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="UpdaterOptionsForm"/> class.
+        /// </summary>
         public UpdaterOptionsForm()
         {
             InitializeComponent();
@@ -102,7 +114,14 @@ namespace KryptonToolkitUpdater.UI
 
         private void kbtnCheckNow_Click(object sender, EventArgs e)
         {
-
+            if (utilities.CheckInternetConnectionState())
+            {
+                klblCurrentStatus.Text = $"Current Status: Connected";
+            }
+            else
+            {
+                klblCurrentStatus.Text = $"Current Status: Not Connected";
+            }
         }
 
         private void kchkCheckInternetConnection_CheckedChanged(object sender, EventArgs e)
@@ -152,102 +171,107 @@ namespace KryptonToolkitUpdater.UI
 
         private void kchkUseOffice2013ThemePalette_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.OFFICE2013THEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseOffice2013SilverTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2013SILVER, kMan);
         }
 
         private void kradUseOffice2013WhiteTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2013WHITE, kMan);
         }
 
         private void kchkUseOffice2010ThemePalette_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.OFFICE2010THEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseOffice2010BlackTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2010BLACK, kMan);
         }
 
         private void kradUseOffice2010BlueTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2010BLUE, kMan);
         }
 
         private void kradUseOffice2010SilverTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2010SILVER, kMan);
         }
 
         private void kchkUseOffice2007ThemePalette_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.OFFICE2007THEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseOffice2007BlackTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2007BLACK, kMan);
         }
 
         private void kradUseOffice2007BlueTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2007BLUE, kMan);
         }
 
         private void kradUseOffice2007SilverTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.OFFICE2007SILVER, kMan);
         }
 
         private void kchkUseProfessionalThemePalette_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.PROFESSIONALTHEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseOffice2003Theme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.PROFESSIONALOFFICE2003, kMan);
         }
 
         private void kradUseSystemTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.PROFESSIONALSYSTEM, kMan);
         }
 
         private void kchkUseSparkleThemePalette_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.SPARKLETHEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseSparkleBlueTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.SPARKLEBLUE, kMan);
         }
 
         private void kradUseSparkleOrangeTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.SPARKLEORANGE, kMan);
         }
 
         private void kradUseSparklePurpleTheme_CheckedChanged(object sender, EventArgs e)
         {
-
+            themingManager.ApplyTheme(KryptonTheme.SPARKLEPURPLE, kMan);
         }
 
         private void kchkUseOtherThemePalettes_CheckedChanged(object sender, EventArgs e)
         {
-
+            controlController.ToggleControlStates(SuppotedKryptonThemePalettes.OTHERTHEMEPALETTE, kchkUseOffice2013ThemePalette, kradUseOffice2013SilverTheme, kradUseOffice2013WhiteTheme, kchkUseOffice2010ThemePalette, kradUseOffice2010BlackTheme, kradUseOffice2010BlueTheme, kradUseOffice2010SilverTheme, kchkUseOffice2007ThemePalette, kradUseOffice2007BlackTheme, kradUseOffice2007BlueTheme, kradUseOffice2007SilverTheme, kchkUseProfessionalThemePalette, kradUseOffice2003Theme, kradUseSystemTheme, kchkUseSparkleThemePalette, kradUseSparkleBlueTheme, kradUseSparkleOrangeTheme, kradUseSparklePurpleTheme, kchkUseOtherThemePalettes, kradUseCustomTheme);
         }
 
         private void kradUseCustomTheme_CheckedChanged(object sender, EventArgs e)
         {
+            themingManager.ApplyTheme(KryptonTheme.CUSTOM, kMan);
 
+            if (kradUseCustomTheme.Checked)
+            {
+
+            }
         }
         #endregion
 
@@ -312,5 +336,16 @@ namespace KryptonToolkitUpdater.UI
             }
         }
         #endregion
+
+        private void kllCurrentTheme_LinkClicked(object sender, EventArgs e)
+        {
+            if (!kllCurrentTheme.Text.Contains("{"))
+            {
+                if (File.Exists(kllCurrentTheme.Text))
+                {
+                    utilities.ExploreFile(kllCurrentTheme.Text);
+                }
+            }
+        }
     }
 }

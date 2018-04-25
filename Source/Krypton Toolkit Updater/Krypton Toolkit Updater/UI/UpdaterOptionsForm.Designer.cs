@@ -1,5 +1,9 @@
 ﻿namespace KryptonToolkitUpdater.UI
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
     partial class UpdaterOptionsForm
     {
         /// <summary>
@@ -29,9 +33,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdaterOptionsForm));
             this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
+            this.knavOptions = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.kryptonGroupBox3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kchkUseGarbageCollection = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -70,6 +75,11 @@
             this.kradUseOffice2010BlackTheme = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.kryptonGroupBox9 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kllCurrentTheme = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.klblCurrentThemeFile = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kbtnThemeBrowse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.ktxtThemePaletteFilePath = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.klblThemePaletteFilePath = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kchkUseOtherThemePalettes = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.kradUseCustomTheme = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonGroupBox8 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -83,8 +93,8 @@
             this.kbtnApply = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
-            this.kryptonNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.knavOptions)).BeginInit();
+            this.knavOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
             this.kryptonPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).BeginInit();
@@ -131,7 +141,7 @@
             // 
             // kpnlBackground
             // 
-            this.kpnlBackground.Controls.Add(this.kryptonNavigator1);
+            this.kpnlBackground.Controls.Add(this.knavOptions);
             this.kpnlBackground.Controls.Add(this.kbtnReset);
             this.kpnlBackground.Controls.Add(this.kbtnOk);
             this.kpnlBackground.Controls.Add(this.kbtnCancel);
@@ -142,19 +152,19 @@
             this.kpnlBackground.Size = new System.Drawing.Size(993, 793);
             this.kpnlBackground.TabIndex = 0;
             // 
-            // kryptonNavigator1
+            // knavOptions
             // 
-            this.kryptonNavigator1.Location = new System.Drawing.Point(12, 12);
-            this.kryptonNavigator1.Name = "kryptonNavigator1";
-            this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.knavOptions.Location = new System.Drawing.Point(12, 12);
+            this.knavOptions.Name = "knavOptions";
+            this.knavOptions.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2,
             this.kryptonPage3});
-            this.kryptonNavigator1.SelectedIndex = 2;
-            this.kryptonNavigator1.Size = new System.Drawing.Size(969, 738);
-            this.kryptonNavigator1.StateCommon.Tab.Content.ShortText.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonNavigator1.TabIndex = 6;
-            this.kryptonNavigator1.Text = "kryptonNavigator1";
+            this.knavOptions.SelectedIndex = 0;
+            this.knavOptions.Size = new System.Drawing.Size(969, 738);
+            this.knavOptions.StateCommon.Tab.Content.ShortText.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.knavOptions.TabIndex = 6;
+            this.knavOptions.Text = "kryptonNavigator1";
             // 
             // kryptonPage1
             // 
@@ -205,7 +215,7 @@
             this.kchkAlwaysShowTrayNotificationIcon.Size = new System.Drawing.Size(271, 26);
             this.kchkAlwaysShowTrayNotificationIcon.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kchkAlwaysShowTrayNotificationIcon.TabIndex = 3;
-            this.kchkAlwaysShowTrayNotificationIcon.Values.Text = "Always show tray norification &icon";
+            this.kchkAlwaysShowTrayNotificationIcon.Values.Text = "Always show tray notification &icon";
             this.kchkAlwaysShowTrayNotificationIcon.CheckedChanged += new System.EventHandler(this.kchkAlwaysShowTrayNotificationIcon_CheckedChanged);
             // 
             // kchkLaunchUpdatePackageUponDownload
@@ -263,6 +273,7 @@
             this.klblCurrentDownloadPath.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klblCurrentDownloadPath.TabIndex = 8;
             this.klblCurrentDownloadPath.Values.Text = "Current download path: {0}";
+            this.klblCurrentDownloadPath.Visible = false;
             // 
             // ktxtDownloadPath
             // 
@@ -598,12 +609,67 @@
             // 
             // kryptonGroupBox9.Panel
             // 
+            this.kryptonGroupBox9.Panel.Controls.Add(this.kllCurrentTheme);
+            this.kryptonGroupBox9.Panel.Controls.Add(this.klblCurrentThemeFile);
+            this.kryptonGroupBox9.Panel.Controls.Add(this.kbtnThemeBrowse);
+            this.kryptonGroupBox9.Panel.Controls.Add(this.ktxtThemePaletteFilePath);
+            this.kryptonGroupBox9.Panel.Controls.Add(this.klblThemePaletteFilePath);
             this.kryptonGroupBox9.Panel.Controls.Add(this.kchkUseOtherThemePalettes);
             this.kryptonGroupBox9.Panel.Controls.Add(this.kradUseCustomTheme);
-            this.kryptonGroupBox9.Size = new System.Drawing.Size(940, 144);
+            this.kryptonGroupBox9.Size = new System.Drawing.Size(940, 218);
             this.kryptonGroupBox9.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonGroupBox9.TabIndex = 3;
             this.kryptonGroupBox9.Values.Heading = "Custom Palette";
+            // 
+            // kllCurrentTheme
+            // 
+            this.kllCurrentTheme.Location = new System.Drawing.Point(155, 148);
+            this.kllCurrentTheme.Name = "kllCurrentTheme";
+            this.kllCurrentTheme.Size = new System.Drawing.Size(31, 26);
+            this.kllCurrentTheme.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kllCurrentTheme.TabIndex = 13;
+            this.kllCurrentTheme.Values.Text = "{0}";
+            this.kllCurrentTheme.Visible = false;
+            this.kllCurrentTheme.LinkClicked += new System.EventHandler(this.kllCurrentTheme_LinkClicked);
+            // 
+            // klblCurrentThemeFile
+            // 
+            this.klblCurrentThemeFile.Location = new System.Drawing.Point(12, 148);
+            this.klblCurrentThemeFile.Name = "klblCurrentThemeFile";
+            this.klblCurrentThemeFile.Size = new System.Drawing.Size(136, 26);
+            this.klblCurrentThemeFile.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblCurrentThemeFile.TabIndex = 12;
+            this.klblCurrentThemeFile.Values.Text = "Current theme is:";
+            this.klblCurrentThemeFile.Visible = false;
+            // 
+            // kbtnThemeBrowse
+            // 
+            this.kbtnThemeBrowse.Enabled = false;
+            this.kbtnThemeBrowse.Location = new System.Drawing.Point(895, 93);
+            this.kbtnThemeBrowse.Name = "kbtnThemeBrowse";
+            this.kbtnThemeBrowse.Size = new System.Drawing.Size(28, 29);
+            this.kbtnThemeBrowse.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnThemeBrowse.TabIndex = 11;
+            this.kbtnThemeBrowse.Values.Text = ".&..";
+            // 
+            // ktxtThemePaletteFilePath
+            // 
+            this.ktxtThemePaletteFilePath.Enabled = false;
+            this.ktxtThemePaletteFilePath.Location = new System.Drawing.Point(211, 93);
+            this.ktxtThemePaletteFilePath.Name = "ktxtThemePaletteFilePath";
+            this.ktxtThemePaletteFilePath.Size = new System.Drawing.Size(678, 29);
+            this.ktxtThemePaletteFilePath.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ktxtThemePaletteFilePath.TabIndex = 10;
+            // 
+            // klblThemePaletteFilePath
+            // 
+            this.klblThemePaletteFilePath.Enabled = false;
+            this.klblThemePaletteFilePath.Location = new System.Drawing.Point(59, 93);
+            this.klblThemePaletteFilePath.Name = "klblThemePaletteFilePath";
+            this.klblThemePaletteFilePath.Size = new System.Drawing.Size(146, 26);
+            this.klblThemePaletteFilePath.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblThemePaletteFilePath.TabIndex = 9;
+            this.klblThemePaletteFilePath.Values.Text = "Theme palette file:";
             // 
             // kchkUseOtherThemePalettes
             // 
@@ -735,16 +801,18 @@
             this.ClientSize = new System.Drawing.Size(993, 793);
             this.Controls.Add(this.kpnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdaterOptionsForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Updater Options";
             this.Load += new System.EventHandler(this.UpdaterOptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).EndInit();
             this.kpnlBackground.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).EndInit();
-            this.kryptonNavigator1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.knavOptions)).EndInit();
+            this.knavOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).EndInit();
             this.kryptonPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3.Panel)).EndInit();
@@ -804,7 +872,7 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kMan;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private ComponentFactory.Krypton.Navigator.KryptonNavigator knavOptions;
         private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
         private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnReset;
@@ -854,5 +922,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kchkUseOtherThemePalettes;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kradUseCustomTheme;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kchkUseSparkleThemePalette;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblThemePaletteFilePath;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnThemeBrowse;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ktxtThemePaletteFilePath;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel kllCurrentTheme;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblCurrentThemeFile;
     }
 }

@@ -56,6 +56,11 @@ namespace KryptonToolkitUpdater.UI
         }
         #endregion
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="DownloadUpdateForm"/> class.
+        /// </summary>
+        /// <param name="downloadURL">The download URL.</param>
+        /// <param name="downloadLocation">The download location.</param>
         public DownloadUpdateForm(string downloadURL, string downloadLocation)
         {
             InitializeComponent();

@@ -109,6 +109,18 @@ namespace KryptonToolkitUpdater.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsConnectedToTheInternet {
+            get {
+                return ((bool)(this["IsConnectedToTheInternet"]));
+            }
+            set {
+                this["IsConnectedToTheInternet"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DownloadLocation {
             get {
@@ -116,6 +128,18 @@ namespace KryptonToolkitUpdater.Settings {
             }
             set {
                 this["DownloadLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PingAddress {
+            get {
+                return ((string)(this["PingAddress"]));
+            }
+            set {
+                this["PingAddress"] = value;
             }
         }
     }

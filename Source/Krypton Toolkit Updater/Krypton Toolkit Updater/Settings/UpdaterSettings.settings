@@ -23,7 +23,13 @@
     <Setting Name="UseGarbageCollection" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="IsConnectedToTheInternet" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="DownloadLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PingAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

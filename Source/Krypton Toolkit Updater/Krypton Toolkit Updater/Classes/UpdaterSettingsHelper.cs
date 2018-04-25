@@ -153,6 +153,24 @@ namespace KryptonToolkitUpdater.Classes
         {
             return updaterSettings.UseGarbageCollection;
         }
+
+        /// <summary>
+        /// Sets the IsConnectedToTheInternet to the value of value.
+        /// </summary>
+        /// <param name="value">The desired value of IsConnectedToTheInternet.</param>
+        public void SetIsConnectedToTheInternet(bool value)
+        {
+            updaterSettings.IsConnectedToTheInternet = value;
+        }
+
+        /// <summary>
+        /// Returns the value of the IsConnectedToTheInternet.
+        /// </summary>
+        /// <returns>The value of the IsConnectedToTheInternet.</returns>
+        public bool GetIsConnectedToTheInternet()
+        {
+            return updaterSettings.IsConnectedToTheInternet;
+        }
         #endregion
 
         #region Strings
@@ -173,11 +191,29 @@ namespace KryptonToolkitUpdater.Classes
         {
             return updaterSettings.DownloadLocation;
         }
+
+        /// <summary>
+        /// Sets the PingAddress to the value of value.
+        /// </summary>
+        /// <param name="value">The desired value of PingAddress.</param>
+        public void SetPingAddress(string value)
+        {
+            updaterSettings.PingAddress = value;
+        }
+
+        /// <summary>
+        /// Returns the value of the PingAddress.
+        /// </summary>
+        /// <returns>The value of the PingAddress.</returns>
+        public string GetPingAddress()
+        {
+            return updaterSettings.PingAddress;
+        }
         #endregion
 
         #endregion
 
-        #region Methods        
+        #region Methods
         /// <summary>
         /// Saves the updater settings.
         /// </summary>
@@ -225,12 +261,16 @@ namespace KryptonToolkitUpdater.Classes
 
                     SetVerifyDownload(false);
 
+                    SetIsConnectedToTheInternet(false);
+
                     if (!File.Exists(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates"))
                     {
                         File.Create(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates");
                     }
 
                     SetDownloadLocation(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates");
+
+                    SetPingAddress(string.Empty);
 
                     SaveUpdaterSettings(false);
                 }
@@ -251,12 +291,16 @@ namespace KryptonToolkitUpdater.Classes
 
                 SetVerifyDownload(false);
 
+                SetIsConnectedToTheInternet(false);
+
                 if (!File.Exists(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates"))
                 {
                     File.Create(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates");
                 }
 
                 SetDownloadLocation(Environment.SpecialFolder.MyDocuments + "\\Krypton Toolkit Suite\\Updates");
+
+                SetPingAddress(string.Empty);
 
                 SaveUpdaterSettings(false);
             }

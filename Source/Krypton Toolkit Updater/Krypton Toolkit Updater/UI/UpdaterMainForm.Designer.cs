@@ -1,5 +1,9 @@
 ﻿namespace KryptonToolkitUpdater.UI
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
     partial class UpdaterMainForm
     {
         /// <summary>

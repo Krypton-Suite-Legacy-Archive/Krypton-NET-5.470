@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ControlController.cs" />
     <Compile Include="Classes\ThemeSettingsHelper.cs" />
     <Compile Include="Classes\ThemingManager.cs" />
     <Compile Include="Classes\UpdaterSettingsHelper.cs" />
@@ -176,6 +177,23 @@
   <ItemGroup>
     <None Include="Resources\Globe-Download.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\gnome-settings-default-applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome-settings-default-applications.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palette.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

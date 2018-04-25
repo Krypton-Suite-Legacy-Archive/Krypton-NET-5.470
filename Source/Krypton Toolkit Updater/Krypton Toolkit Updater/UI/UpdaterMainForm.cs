@@ -9,6 +9,9 @@ namespace KryptonToolkitUpdater.UI
         bool _checkingForUpdates = false;
         #endregion
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="UpdaterMainForm"/> class.
+        /// </summary>
         public UpdaterMainForm()
         {
             InitializeComponent();

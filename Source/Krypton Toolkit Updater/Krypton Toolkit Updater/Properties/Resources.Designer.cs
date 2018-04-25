@@ -81,11 +81,71 @@ namespace KryptonToolkitUpdater.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gnome_settings_default_applications {
+            get {
+                object obj = ResourceManager.GetObject("gnome_settings_default_applications", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon gnome_settings_default_applications1 {
+            get {
+                object obj = ResourceManager.GetObject("gnome_settings_default_applications1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon interact {
             get {
                 object obj = ResourceManager.GetObject("interact", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap palette {
+            get {
+                object obj = ResourceManager.GetObject("palette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon palette1 {
+            get {
+                object obj = ResourceManager.GetObject("palette1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon settings1 {
+            get {
+                object obj = ResourceManager.GetObject("settings1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
